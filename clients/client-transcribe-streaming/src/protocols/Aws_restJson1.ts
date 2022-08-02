@@ -5,8 +5,10 @@ import {
   expectBoolean as __expectBoolean,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  map as __map,
   parseBoolean as __parseBoolean,
   strictParseInt32 as __strictParseInt32,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -56,31 +58,31 @@ export const serializeAws_restJson1StartMedicalStreamTranscriptionCommand = asyn
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
-    ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
-      "x-amzn-transcribe-sample-rate": input.MediaSampleRateHertz!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.MediaEncoding) && { "x-amzn-transcribe-media-encoding": input.MediaEncoding! }),
-    ...(isSerializableHeaderValue(input.VocabularyName) && {
-      "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
-    }),
-    ...(isSerializableHeaderValue(input.Specialty) && { "x-amzn-transcribe-specialty": input.Specialty! }),
-    ...(isSerializableHeaderValue(input.Type) && { "x-amzn-transcribe-type": input.Type! }),
-    ...(isSerializableHeaderValue(input.ShowSpeakerLabel) && {
-      "x-amzn-transcribe-show-speaker-label": input.ShowSpeakerLabel!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.SessionId) && { "x-amzn-transcribe-session-id": input.SessionId! }),
-    ...(isSerializableHeaderValue(input.EnableChannelIdentification) && {
-      "x-amzn-transcribe-enable-channel-identification": input.EnableChannelIdentification!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.NumberOfChannels) && {
-      "x-amzn-transcribe-number-of-channels": input.NumberOfChannels!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.ContentIdentificationType) && {
-      "x-amzn-transcribe-content-identification-type": input.ContentIdentificationType!,
-    }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amzn-transcribe-language-code": input.LanguageCode!,
+    "x-amzn-transcribe-sample-rate": [
+      () => isSerializableHeaderValue(input.MediaSampleRateHertz),
+      () => input.MediaSampleRateHertz!.toString(),
+    ],
+    "x-amzn-transcribe-media-encoding": input.MediaEncoding!,
+    "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
+    "x-amzn-transcribe-specialty": input.Specialty!,
+    "x-amzn-transcribe-type": input.Type!,
+    "x-amzn-transcribe-show-speaker-label": [
+      () => isSerializableHeaderValue(input.ShowSpeakerLabel),
+      () => input.ShowSpeakerLabel!.toString(),
+    ],
+    "x-amzn-transcribe-session-id": input.SessionId!,
+    "x-amzn-transcribe-enable-channel-identification": [
+      () => isSerializableHeaderValue(input.EnableChannelIdentification),
+      () => input.EnableChannelIdentification!.toString(),
+    ],
+    "x-amzn-transcribe-number-of-channels": [
+      () => isSerializableHeaderValue(input.NumberOfChannels),
+      () => input.NumberOfChannels!.toString(),
+    ],
+    "x-amzn-transcribe-content-identification-type": input.ContentIdentificationType!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/medical-stream-transcription";
   let body: any;
@@ -103,65 +105,47 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
-    ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
-      "x-amzn-transcribe-sample-rate": input.MediaSampleRateHertz!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.MediaEncoding) && { "x-amzn-transcribe-media-encoding": input.MediaEncoding! }),
-    ...(isSerializableHeaderValue(input.VocabularyName) && {
-      "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
-    }),
-    ...(isSerializableHeaderValue(input.SessionId) && { "x-amzn-transcribe-session-id": input.SessionId! }),
-    ...(isSerializableHeaderValue(input.VocabularyFilterName) && {
-      "x-amzn-transcribe-vocabulary-filter-name": input.VocabularyFilterName!,
-    }),
-    ...(isSerializableHeaderValue(input.VocabularyFilterMethod) && {
-      "x-amzn-transcribe-vocabulary-filter-method": input.VocabularyFilterMethod!,
-    }),
-    ...(isSerializableHeaderValue(input.ShowSpeakerLabel) && {
-      "x-amzn-transcribe-show-speaker-label": input.ShowSpeakerLabel!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.EnableChannelIdentification) && {
-      "x-amzn-transcribe-enable-channel-identification": input.EnableChannelIdentification!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.NumberOfChannels) && {
-      "x-amzn-transcribe-number-of-channels": input.NumberOfChannels!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.EnablePartialResultsStabilization) && {
-      "x-amzn-transcribe-enable-partial-results-stabilization": input.EnablePartialResultsStabilization!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.PartialResultsStability) && {
-      "x-amzn-transcribe-partial-results-stability": input.PartialResultsStability!,
-    }),
-    ...(isSerializableHeaderValue(input.ContentIdentificationType) && {
-      "x-amzn-transcribe-content-identification-type": input.ContentIdentificationType!,
-    }),
-    ...(isSerializableHeaderValue(input.ContentRedactionType) && {
-      "x-amzn-transcribe-content-redaction-type": input.ContentRedactionType!,
-    }),
-    ...(isSerializableHeaderValue(input.PiiEntityTypes) && {
-      "x-amzn-transcribe-pii-entity-types": input.PiiEntityTypes!,
-    }),
-    ...(isSerializableHeaderValue(input.LanguageModelName) && {
-      "x-amzn-transcribe-language-model-name": input.LanguageModelName!,
-    }),
-    ...(isSerializableHeaderValue(input.IdentifyLanguage) && {
-      "x-amzn-transcribe-identify-language": input.IdentifyLanguage!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.LanguageOptions) && {
-      "x-amzn-transcribe-language-options": input.LanguageOptions!,
-    }),
-    ...(isSerializableHeaderValue(input.PreferredLanguage) && {
-      "x-amzn-transcribe-preferred-language": input.PreferredLanguage!,
-    }),
-    ...(isSerializableHeaderValue(input.VocabularyNames) && {
-      "x-amzn-transcribe-vocabulary-names": input.VocabularyNames!,
-    }),
-    ...(isSerializableHeaderValue(input.VocabularyFilterNames) && {
-      "x-amzn-transcribe-vocabulary-filter-names": input.VocabularyFilterNames!,
-    }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amzn-transcribe-language-code": input.LanguageCode!,
+    "x-amzn-transcribe-sample-rate": [
+      () => isSerializableHeaderValue(input.MediaSampleRateHertz),
+      () => input.MediaSampleRateHertz!.toString(),
+    ],
+    "x-amzn-transcribe-media-encoding": input.MediaEncoding!,
+    "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
+    "x-amzn-transcribe-session-id": input.SessionId!,
+    "x-amzn-transcribe-vocabulary-filter-name": input.VocabularyFilterName!,
+    "x-amzn-transcribe-vocabulary-filter-method": input.VocabularyFilterMethod!,
+    "x-amzn-transcribe-show-speaker-label": [
+      () => isSerializableHeaderValue(input.ShowSpeakerLabel),
+      () => input.ShowSpeakerLabel!.toString(),
+    ],
+    "x-amzn-transcribe-enable-channel-identification": [
+      () => isSerializableHeaderValue(input.EnableChannelIdentification),
+      () => input.EnableChannelIdentification!.toString(),
+    ],
+    "x-amzn-transcribe-number-of-channels": [
+      () => isSerializableHeaderValue(input.NumberOfChannels),
+      () => input.NumberOfChannels!.toString(),
+    ],
+    "x-amzn-transcribe-enable-partial-results-stabilization": [
+      () => isSerializableHeaderValue(input.EnablePartialResultsStabilization),
+      () => input.EnablePartialResultsStabilization!.toString(),
+    ],
+    "x-amzn-transcribe-partial-results-stability": input.PartialResultsStability!,
+    "x-amzn-transcribe-content-identification-type": input.ContentIdentificationType!,
+    "x-amzn-transcribe-content-redaction-type": input.ContentRedactionType!,
+    "x-amzn-transcribe-pii-entity-types": input.PiiEntityTypes!,
+    "x-amzn-transcribe-language-model-name": input.LanguageModelName!,
+    "x-amzn-transcribe-identify-language": [
+      () => isSerializableHeaderValue(input.IdentifyLanguage),
+      () => input.IdentifyLanguage!.toString(),
+    ],
+    "x-amzn-transcribe-language-options": input.LanguageOptions!,
+    "x-amzn-transcribe-preferred-language": input.PreferredLanguage!,
+    "x-amzn-transcribe-vocabulary-names": input.VocabularyNames!,
+    "x-amzn-transcribe-vocabulary-filter-names": input.VocabularyFilterNames!,
+  });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/stream-transcription";
   let body: any;
   if (input.AudioStream !== undefined) {
@@ -185,63 +169,36 @@ export const deserializeAws_restJson1StartMedicalStreamTranscriptionCommand = as
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartMedicalStreamTranscriptionCommandError(output, context);
   }
-  const contents: StartMedicalStreamTranscriptionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ContentIdentificationType: undefined,
-    EnableChannelIdentification: undefined,
-    LanguageCode: undefined,
-    MediaEncoding: undefined,
-    MediaSampleRateHertz: undefined,
-    NumberOfChannels: undefined,
-    RequestId: undefined,
-    SessionId: undefined,
-    ShowSpeakerLabel: undefined,
-    Specialty: undefined,
-    TranscriptResultStream: undefined,
-    Type: undefined,
-    VocabularyName: undefined,
-  };
-  if (output.headers["x-amzn-request-id"] !== undefined) {
-    contents.RequestId = output.headers["x-amzn-request-id"];
-  }
-  if (output.headers["x-amzn-transcribe-language-code"] !== undefined) {
-    contents.LanguageCode = output.headers["x-amzn-transcribe-language-code"];
-  }
-  if (output.headers["x-amzn-transcribe-sample-rate"] !== undefined) {
-    contents.MediaSampleRateHertz = __strictParseInt32(output.headers["x-amzn-transcribe-sample-rate"]);
-  }
-  if (output.headers["x-amzn-transcribe-media-encoding"] !== undefined) {
-    contents.MediaEncoding = output.headers["x-amzn-transcribe-media-encoding"];
-  }
-  if (output.headers["x-amzn-transcribe-vocabulary-name"] !== undefined) {
-    contents.VocabularyName = output.headers["x-amzn-transcribe-vocabulary-name"];
-  }
-  if (output.headers["x-amzn-transcribe-specialty"] !== undefined) {
-    contents.Specialty = output.headers["x-amzn-transcribe-specialty"];
-  }
-  if (output.headers["x-amzn-transcribe-type"] !== undefined) {
-    contents.Type = output.headers["x-amzn-transcribe-type"];
-  }
-  if (output.headers["x-amzn-transcribe-show-speaker-label"] !== undefined) {
-    contents.ShowSpeakerLabel = __parseBoolean(output.headers["x-amzn-transcribe-show-speaker-label"]);
-  }
-  if (output.headers["x-amzn-transcribe-session-id"] !== undefined) {
-    contents.SessionId = output.headers["x-amzn-transcribe-session-id"];
-  }
-  if (output.headers["x-amzn-transcribe-enable-channel-identification"] !== undefined) {
-    contents.EnableChannelIdentification = __parseBoolean(
-      output.headers["x-amzn-transcribe-enable-channel-identification"]
-    );
-  }
-  if (output.headers["x-amzn-transcribe-number-of-channels"] !== undefined) {
-    contents.NumberOfChannels = __strictParseInt32(output.headers["x-amzn-transcribe-number-of-channels"]);
-  }
-  if (output.headers["x-amzn-transcribe-content-identification-type"] !== undefined) {
-    contents.ContentIdentificationType = output.headers["x-amzn-transcribe-content-identification-type"];
-  }
+    RequestId: [, output.headers["x-amzn-request-id"]],
+    LanguageCode: [, output.headers["x-amzn-transcribe-language-code"]],
+    MediaSampleRateHertz: [
+      () => void 0 !== output.headers["x-amzn-transcribe-sample-rate"],
+      () => __strictParseInt32(output.headers["x-amzn-transcribe-sample-rate"]),
+    ],
+    MediaEncoding: [, output.headers["x-amzn-transcribe-media-encoding"]],
+    VocabularyName: [, output.headers["x-amzn-transcribe-vocabulary-name"]],
+    Specialty: [, output.headers["x-amzn-transcribe-specialty"]],
+    Type: [, output.headers["x-amzn-transcribe-type"]],
+    ShowSpeakerLabel: [
+      () => void 0 !== output.headers["x-amzn-transcribe-show-speaker-label"],
+      () => __parseBoolean(output.headers["x-amzn-transcribe-show-speaker-label"]),
+    ],
+    SessionId: [, output.headers["x-amzn-transcribe-session-id"]],
+    EnableChannelIdentification: [
+      () => void 0 !== output.headers["x-amzn-transcribe-enable-channel-identification"],
+      () => __parseBoolean(output.headers["x-amzn-transcribe-enable-channel-identification"]),
+    ],
+    NumberOfChannels: [
+      () => void 0 !== output.headers["x-amzn-transcribe-number-of-channels"],
+      () => __strictParseInt32(output.headers["x-amzn-transcribe-number-of-channels"]),
+    ],
+    ContentIdentificationType: [, output.headers["x-amzn-transcribe-content-identification-type"]],
+  });
   const data: any = output.body;
   contents.TranscriptResultStream = deserializeAws_restJson1MedicalTranscriptResultStream(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1StartMedicalStreamTranscriptionCommandError = async (
@@ -252,7 +209,6 @@ const deserializeAws_restJson1StartMedicalStreamTranscriptionCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -272,14 +228,12 @@ const deserializeAws_restJson1StartMedicalStreamTranscriptionCommandError = asyn
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -290,105 +244,52 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartStreamTranscriptionCommandError(output, context);
   }
-  const contents: StartStreamTranscriptionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ContentIdentificationType: undefined,
-    ContentRedactionType: undefined,
-    EnableChannelIdentification: undefined,
-    EnablePartialResultsStabilization: undefined,
-    IdentifyLanguage: undefined,
-    LanguageCode: undefined,
-    LanguageModelName: undefined,
-    LanguageOptions: undefined,
-    MediaEncoding: undefined,
-    MediaSampleRateHertz: undefined,
-    NumberOfChannels: undefined,
-    PartialResultsStability: undefined,
-    PiiEntityTypes: undefined,
-    PreferredLanguage: undefined,
-    RequestId: undefined,
-    SessionId: undefined,
-    ShowSpeakerLabel: undefined,
-    TranscriptResultStream: undefined,
-    VocabularyFilterMethod: undefined,
-    VocabularyFilterName: undefined,
-    VocabularyFilterNames: undefined,
-    VocabularyName: undefined,
-    VocabularyNames: undefined,
-  };
-  if (output.headers["x-amzn-request-id"] !== undefined) {
-    contents.RequestId = output.headers["x-amzn-request-id"];
-  }
-  if (output.headers["x-amzn-transcribe-language-code"] !== undefined) {
-    contents.LanguageCode = output.headers["x-amzn-transcribe-language-code"];
-  }
-  if (output.headers["x-amzn-transcribe-sample-rate"] !== undefined) {
-    contents.MediaSampleRateHertz = __strictParseInt32(output.headers["x-amzn-transcribe-sample-rate"]);
-  }
-  if (output.headers["x-amzn-transcribe-media-encoding"] !== undefined) {
-    contents.MediaEncoding = output.headers["x-amzn-transcribe-media-encoding"];
-  }
-  if (output.headers["x-amzn-transcribe-vocabulary-name"] !== undefined) {
-    contents.VocabularyName = output.headers["x-amzn-transcribe-vocabulary-name"];
-  }
-  if (output.headers["x-amzn-transcribe-session-id"] !== undefined) {
-    contents.SessionId = output.headers["x-amzn-transcribe-session-id"];
-  }
-  if (output.headers["x-amzn-transcribe-vocabulary-filter-name"] !== undefined) {
-    contents.VocabularyFilterName = output.headers["x-amzn-transcribe-vocabulary-filter-name"];
-  }
-  if (output.headers["x-amzn-transcribe-vocabulary-filter-method"] !== undefined) {
-    contents.VocabularyFilterMethod = output.headers["x-amzn-transcribe-vocabulary-filter-method"];
-  }
-  if (output.headers["x-amzn-transcribe-show-speaker-label"] !== undefined) {
-    contents.ShowSpeakerLabel = __parseBoolean(output.headers["x-amzn-transcribe-show-speaker-label"]);
-  }
-  if (output.headers["x-amzn-transcribe-enable-channel-identification"] !== undefined) {
-    contents.EnableChannelIdentification = __parseBoolean(
-      output.headers["x-amzn-transcribe-enable-channel-identification"]
-    );
-  }
-  if (output.headers["x-amzn-transcribe-number-of-channels"] !== undefined) {
-    contents.NumberOfChannels = __strictParseInt32(output.headers["x-amzn-transcribe-number-of-channels"]);
-  }
-  if (output.headers["x-amzn-transcribe-enable-partial-results-stabilization"] !== undefined) {
-    contents.EnablePartialResultsStabilization = __parseBoolean(
-      output.headers["x-amzn-transcribe-enable-partial-results-stabilization"]
-    );
-  }
-  if (output.headers["x-amzn-transcribe-partial-results-stability"] !== undefined) {
-    contents.PartialResultsStability = output.headers["x-amzn-transcribe-partial-results-stability"];
-  }
-  if (output.headers["x-amzn-transcribe-content-identification-type"] !== undefined) {
-    contents.ContentIdentificationType = output.headers["x-amzn-transcribe-content-identification-type"];
-  }
-  if (output.headers["x-amzn-transcribe-content-redaction-type"] !== undefined) {
-    contents.ContentRedactionType = output.headers["x-amzn-transcribe-content-redaction-type"];
-  }
-  if (output.headers["x-amzn-transcribe-pii-entity-types"] !== undefined) {
-    contents.PiiEntityTypes = output.headers["x-amzn-transcribe-pii-entity-types"];
-  }
-  if (output.headers["x-amzn-transcribe-language-model-name"] !== undefined) {
-    contents.LanguageModelName = output.headers["x-amzn-transcribe-language-model-name"];
-  }
-  if (output.headers["x-amzn-transcribe-identify-language"] !== undefined) {
-    contents.IdentifyLanguage = __parseBoolean(output.headers["x-amzn-transcribe-identify-language"]);
-  }
-  if (output.headers["x-amzn-transcribe-language-options"] !== undefined) {
-    contents.LanguageOptions = output.headers["x-amzn-transcribe-language-options"];
-  }
-  if (output.headers["x-amzn-transcribe-preferred-language"] !== undefined) {
-    contents.PreferredLanguage = output.headers["x-amzn-transcribe-preferred-language"];
-  }
-  if (output.headers["x-amzn-transcribe-vocabulary-names"] !== undefined) {
-    contents.VocabularyNames = output.headers["x-amzn-transcribe-vocabulary-names"];
-  }
-  if (output.headers["x-amzn-transcribe-vocabulary-filter-names"] !== undefined) {
-    contents.VocabularyFilterNames = output.headers["x-amzn-transcribe-vocabulary-filter-names"];
-  }
+    RequestId: [, output.headers["x-amzn-request-id"]],
+    LanguageCode: [, output.headers["x-amzn-transcribe-language-code"]],
+    MediaSampleRateHertz: [
+      () => void 0 !== output.headers["x-amzn-transcribe-sample-rate"],
+      () => __strictParseInt32(output.headers["x-amzn-transcribe-sample-rate"]),
+    ],
+    MediaEncoding: [, output.headers["x-amzn-transcribe-media-encoding"]],
+    VocabularyName: [, output.headers["x-amzn-transcribe-vocabulary-name"]],
+    SessionId: [, output.headers["x-amzn-transcribe-session-id"]],
+    VocabularyFilterName: [, output.headers["x-amzn-transcribe-vocabulary-filter-name"]],
+    VocabularyFilterMethod: [, output.headers["x-amzn-transcribe-vocabulary-filter-method"]],
+    ShowSpeakerLabel: [
+      () => void 0 !== output.headers["x-amzn-transcribe-show-speaker-label"],
+      () => __parseBoolean(output.headers["x-amzn-transcribe-show-speaker-label"]),
+    ],
+    EnableChannelIdentification: [
+      () => void 0 !== output.headers["x-amzn-transcribe-enable-channel-identification"],
+      () => __parseBoolean(output.headers["x-amzn-transcribe-enable-channel-identification"]),
+    ],
+    NumberOfChannels: [
+      () => void 0 !== output.headers["x-amzn-transcribe-number-of-channels"],
+      () => __strictParseInt32(output.headers["x-amzn-transcribe-number-of-channels"]),
+    ],
+    EnablePartialResultsStabilization: [
+      () => void 0 !== output.headers["x-amzn-transcribe-enable-partial-results-stabilization"],
+      () => __parseBoolean(output.headers["x-amzn-transcribe-enable-partial-results-stabilization"]),
+    ],
+    PartialResultsStability: [, output.headers["x-amzn-transcribe-partial-results-stability"]],
+    ContentIdentificationType: [, output.headers["x-amzn-transcribe-content-identification-type"]],
+    ContentRedactionType: [, output.headers["x-amzn-transcribe-content-redaction-type"]],
+    PiiEntityTypes: [, output.headers["x-amzn-transcribe-pii-entity-types"]],
+    LanguageModelName: [, output.headers["x-amzn-transcribe-language-model-name"]],
+    IdentifyLanguage: [
+      () => void 0 !== output.headers["x-amzn-transcribe-identify-language"],
+      () => __parseBoolean(output.headers["x-amzn-transcribe-identify-language"]),
+    ],
+    LanguageOptions: [, output.headers["x-amzn-transcribe-language-options"]],
+    PreferredLanguage: [, output.headers["x-amzn-transcribe-preferred-language"]],
+    VocabularyNames: [, output.headers["x-amzn-transcribe-vocabulary-names"]],
+    VocabularyFilterNames: [, output.headers["x-amzn-transcribe-vocabulary-filter-names"]],
+  });
   const data: any = output.body;
   contents.TranscriptResultStream = deserializeAws_restJson1TranscriptResultStream(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1StartStreamTranscriptionCommandError = async (
@@ -399,7 +300,6 @@ const deserializeAws_restJson1StartStreamTranscriptionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -419,24 +319,23 @@ const deserializeAws_restJson1StartStreamTranscriptionCommandError = async (
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1BadRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadRequestException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new BadRequestException({
@@ -450,9 +349,9 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new ConflictException({
@@ -466,9 +365,9 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new InternalFailureException({
@@ -482,9 +381,9 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new LimitExceededException({
@@ -498,9 +397,9 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new ServiceUnavailableException({

@@ -10,7 +10,9 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  map as __map,
+  resolvedPath as __resolvedPath,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -50,15 +52,7 @@ export const serializeAws_restJson1LengthCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/length/{string}";
-  if (input.string !== undefined) {
-    const labelValue: string = input.string;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: string.");
-    }
-    resolvedPath = resolvedPath.replace("{string}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: string.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "string", () => input.string!, "{string}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -78,15 +72,14 @@ export const deserializeAws_restJson1EchoCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1EchoCommandError(output, context);
   }
-  const contents: EchoCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    string: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.string !== undefined && data.string !== null) {
+  if (data.string != null) {
     contents.string = __expectString(data.string);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1EchoCommandError = async (
@@ -97,7 +90,6 @@ const deserializeAws_restJson1EchoCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "PalindromeException":
@@ -105,14 +97,12 @@ const deserializeAws_restJson1EchoCommandError = async (
       throw await deserializeAws_restJson1PalindromeExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -123,15 +113,14 @@ export const deserializeAws_restJson1LengthCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1LengthCommandError(output, context);
   }
-  const contents: LengthCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    length: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.length !== undefined && data.length !== null) {
+  if (data.length != null) {
     contents.length = __expectInt32(data.length);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1LengthCommandError = async (
@@ -142,7 +131,6 @@ const deserializeAws_restJson1LengthCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "PalindromeException":
@@ -150,24 +138,23 @@ const deserializeAws_restJson1LengthCommandError = async (
       throw await deserializeAws_restJson1PalindromeExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1PalindromeExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PalindromeException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new PalindromeException({

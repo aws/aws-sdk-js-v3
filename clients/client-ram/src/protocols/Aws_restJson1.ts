@@ -8,7 +8,9 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  map as __map,
   parseEpochTimestamp as __parseEpochTimestamp,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -258,10 +260,10 @@ export const serializeAws_restJson1DeleteResourceShareCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteresourceshare";
-  const query: any = {
-    ...(input.resourceShareArn !== undefined && { resourceShareArn: input.resourceShareArn }),
-    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
-  };
+  const query: any = map({
+    resourceShareArn: [, input.resourceShareArn!],
+    clientToken: [, input.clientToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -723,9 +725,9 @@ export const serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand 
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/promoteresourcesharecreatedfrompolicy";
-  const query: any = {
-    ...(input.resourceShareArn !== undefined && { resourceShareArn: input.resourceShareArn }),
-  };
+  const query: any = map({
+    resourceShareArn: [, input.resourceShareArn!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -849,22 +851,20 @@ export const deserializeAws_restJson1AcceptResourceShareInvitationCommand = asyn
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AcceptResourceShareInvitationCommandError(output, context);
   }
-  const contents: AcceptResourceShareInvitationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    clientToken: undefined,
-    resourceShareInvitation: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken !== undefined && data.clientToken !== null) {
+  if (data.clientToken != null) {
     contents.clientToken = __expectString(data.clientToken);
   }
-  if (data.resourceShareInvitation !== undefined && data.resourceShareInvitation !== null) {
+  if (data.resourceShareInvitation != null) {
     contents.resourceShareInvitation = deserializeAws_restJson1ResourceShareInvitation(
       data.resourceShareInvitation,
       context
     );
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1AcceptResourceShareInvitationCommandError = async (
@@ -875,7 +875,6 @@ const deserializeAws_restJson1AcceptResourceShareInvitationCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
@@ -916,14 +915,12 @@ const deserializeAws_restJson1AcceptResourceShareInvitationCommandError = async 
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -934,22 +931,20 @@ export const deserializeAws_restJson1AssociateResourceShareCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AssociateResourceShareCommandError(output, context);
   }
-  const contents: AssociateResourceShareCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    clientToken: undefined,
-    resourceShareAssociations: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken !== undefined && data.clientToken !== null) {
+  if (data.clientToken != null) {
     contents.clientToken = __expectString(data.clientToken);
   }
-  if (data.resourceShareAssociations !== undefined && data.resourceShareAssociations !== null) {
+  if (data.resourceShareAssociations != null) {
     contents.resourceShareAssociations = deserializeAws_restJson1ResourceShareAssociationList(
       data.resourceShareAssociations,
       context
     );
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1AssociateResourceShareCommandError = async (
@@ -960,7 +955,6 @@ const deserializeAws_restJson1AssociateResourceShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
@@ -998,14 +992,12 @@ const deserializeAws_restJson1AssociateResourceShareCommandError = async (
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1016,19 +1008,17 @@ export const deserializeAws_restJson1AssociateResourceSharePermissionCommand = a
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AssociateResourceSharePermissionCommandError(output, context);
   }
-  const contents: AssociateResourceSharePermissionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    clientToken: undefined,
-    returnValue: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken !== undefined && data.clientToken !== null) {
+  if (data.clientToken != null) {
     contents.clientToken = __expectString(data.clientToken);
   }
-  if (data.returnValue !== undefined && data.returnValue !== null) {
+  if (data.returnValue != null) {
     contents.returnValue = __expectBoolean(data.returnValue);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1AssociateResourceSharePermissionCommandError = async (
@@ -1039,7 +1029,6 @@ const deserializeAws_restJson1AssociateResourceSharePermissionCommandError = asy
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidClientTokenException":
@@ -1065,14 +1054,12 @@ const deserializeAws_restJson1AssociateResourceSharePermissionCommandError = asy
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1083,19 +1070,17 @@ export const deserializeAws_restJson1CreateResourceShareCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateResourceShareCommandError(output, context);
   }
-  const contents: CreateResourceShareCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    clientToken: undefined,
-    resourceShare: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken !== undefined && data.clientToken !== null) {
+  if (data.clientToken != null) {
     contents.clientToken = __expectString(data.clientToken);
   }
-  if (data.resourceShare !== undefined && data.resourceShare !== null) {
+  if (data.resourceShare != null) {
     contents.resourceShare = deserializeAws_restJson1ResourceShare(data.resourceShare, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CreateResourceShareCommandError = async (
@@ -1106,7 +1091,6 @@ const deserializeAws_restJson1CreateResourceShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
@@ -1144,14 +1128,12 @@ const deserializeAws_restJson1CreateResourceShareCommandError = async (
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1162,19 +1144,17 @@ export const deserializeAws_restJson1DeleteResourceShareCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteResourceShareCommandError(output, context);
   }
-  const contents: DeleteResourceShareCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    clientToken: undefined,
-    returnValue: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken !== undefined && data.clientToken !== null) {
+  if (data.clientToken != null) {
     contents.clientToken = __expectString(data.clientToken);
   }
-  if (data.returnValue !== undefined && data.returnValue !== null) {
+  if (data.returnValue != null) {
     contents.returnValue = __expectBoolean(data.returnValue);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteResourceShareCommandError = async (
@@ -1185,7 +1165,6 @@ const deserializeAws_restJson1DeleteResourceShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
@@ -1217,14 +1196,12 @@ const deserializeAws_restJson1DeleteResourceShareCommandError = async (
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1235,22 +1212,20 @@ export const deserializeAws_restJson1DisassociateResourceShareCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateResourceShareCommandError(output, context);
   }
-  const contents: DisassociateResourceShareCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    clientToken: undefined,
-    resourceShareAssociations: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken !== undefined && data.clientToken !== null) {
+  if (data.clientToken != null) {
     contents.clientToken = __expectString(data.clientToken);
   }
-  if (data.resourceShareAssociations !== undefined && data.resourceShareAssociations !== null) {
+  if (data.resourceShareAssociations != null) {
     contents.resourceShareAssociations = deserializeAws_restJson1ResourceShareAssociationList(
       data.resourceShareAssociations,
       context
     );
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DisassociateResourceShareCommandError = async (
@@ -1261,7 +1236,6 @@ const deserializeAws_restJson1DisassociateResourceShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
@@ -1296,14 +1270,12 @@ const deserializeAws_restJson1DisassociateResourceShareCommandError = async (
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1314,19 +1286,17 @@ export const deserializeAws_restJson1DisassociateResourceSharePermissionCommand 
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateResourceSharePermissionCommandError(output, context);
   }
-  const contents: DisassociateResourceSharePermissionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    clientToken: undefined,
-    returnValue: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken !== undefined && data.clientToken !== null) {
+  if (data.clientToken != null) {
     contents.clientToken = __expectString(data.clientToken);
   }
-  if (data.returnValue !== undefined && data.returnValue !== null) {
+  if (data.returnValue != null) {
     contents.returnValue = __expectBoolean(data.returnValue);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DisassociateResourceSharePermissionCommandError = async (
@@ -1337,7 +1307,6 @@ const deserializeAws_restJson1DisassociateResourceSharePermissionCommandError = 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidClientTokenException":
@@ -1366,14 +1335,12 @@ const deserializeAws_restJson1DisassociateResourceSharePermissionCommandError = 
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1384,15 +1351,14 @@ export const deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand = a
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1EnableSharingWithAwsOrganizationCommandError(output, context);
   }
-  const contents: EnableSharingWithAwsOrganizationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    returnValue: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.returnValue !== undefined && data.returnValue !== null) {
+  if (data.returnValue != null) {
     contents.returnValue = __expectBoolean(data.returnValue);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1EnableSharingWithAwsOrganizationCommandError = async (
@@ -1403,7 +1369,6 @@ const deserializeAws_restJson1EnableSharingWithAwsOrganizationCommandError = asy
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedException":
@@ -1417,14 +1382,12 @@ const deserializeAws_restJson1EnableSharingWithAwsOrganizationCommandError = asy
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1435,15 +1398,14 @@ export const deserializeAws_restJson1GetPermissionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetPermissionCommandError(output, context);
   }
-  const contents: GetPermissionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    permission: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.permission !== undefined && data.permission !== null) {
+  if (data.permission != null) {
     contents.permission = deserializeAws_restJson1ResourceSharePermissionDetail(data.permission, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetPermissionCommandError = async (
@@ -1454,7 +1416,6 @@ const deserializeAws_restJson1GetPermissionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
@@ -1477,14 +1438,12 @@ const deserializeAws_restJson1GetPermissionCommandError = async (
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1495,19 +1454,17 @@ export const deserializeAws_restJson1GetResourcePoliciesCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetResourcePoliciesCommandError(output, context);
   }
-  const contents: GetResourcePoliciesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    policies: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  if (data.policies !== undefined && data.policies !== null) {
+  if (data.policies != null) {
     contents.policies = deserializeAws_restJson1PolicyList(data.policies, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetResourcePoliciesCommandError = async (
@@ -1518,7 +1475,6 @@ const deserializeAws_restJson1GetResourcePoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -1541,14 +1497,12 @@ const deserializeAws_restJson1GetResourcePoliciesCommandError = async (
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1559,22 +1513,20 @@ export const deserializeAws_restJson1GetResourceShareAssociationsCommand = async
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetResourceShareAssociationsCommandError(output, context);
   }
-  const contents: GetResourceShareAssociationsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    resourceShareAssociations: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  if (data.resourceShareAssociations !== undefined && data.resourceShareAssociations !== null) {
+  if (data.resourceShareAssociations != null) {
     contents.resourceShareAssociations = deserializeAws_restJson1ResourceShareAssociationList(
       data.resourceShareAssociations,
       context
     );
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetResourceShareAssociationsCommandError = async (
@@ -1585,7 +1537,6 @@ const deserializeAws_restJson1GetResourceShareAssociationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -1611,14 +1562,12 @@ const deserializeAws_restJson1GetResourceShareAssociationsCommandError = async (
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1629,22 +1578,20 @@ export const deserializeAws_restJson1GetResourceShareInvitationsCommand = async 
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetResourceShareInvitationsCommandError(output, context);
   }
-  const contents: GetResourceShareInvitationsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    resourceShareInvitations: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  if (data.resourceShareInvitations !== undefined && data.resourceShareInvitations !== null) {
+  if (data.resourceShareInvitations != null) {
     contents.resourceShareInvitations = deserializeAws_restJson1ResourceShareInvitationList(
       data.resourceShareInvitations,
       context
     );
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetResourceShareInvitationsCommandError = async (
@@ -1655,7 +1602,6 @@ const deserializeAws_restJson1GetResourceShareInvitationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidMaxResultsException":
@@ -1684,14 +1630,12 @@ const deserializeAws_restJson1GetResourceShareInvitationsCommandError = async (
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1702,19 +1646,17 @@ export const deserializeAws_restJson1GetResourceSharesCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetResourceSharesCommandError(output, context);
   }
-  const contents: GetResourceSharesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    resourceShares: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  if (data.resourceShares !== undefined && data.resourceShares !== null) {
+  if (data.resourceShares != null) {
     contents.resourceShares = deserializeAws_restJson1ResourceShareList(data.resourceShares, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetResourceSharesCommandError = async (
@@ -1725,7 +1667,6 @@ const deserializeAws_restJson1GetResourceSharesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -1748,14 +1689,12 @@ const deserializeAws_restJson1GetResourceSharesCommandError = async (
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1766,19 +1705,17 @@ export const deserializeAws_restJson1ListPendingInvitationResourcesCommand = asy
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPendingInvitationResourcesCommandError(output, context);
   }
-  const contents: ListPendingInvitationResourcesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    resources: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  if (data.resources !== undefined && data.resources !== null) {
+  if (data.resources != null) {
     contents.resources = deserializeAws_restJson1ResourceList(data.resources, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListPendingInvitationResourcesCommandError = async (
@@ -1789,7 +1726,6 @@ const deserializeAws_restJson1ListPendingInvitationResourcesCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -1824,14 +1760,12 @@ const deserializeAws_restJson1ListPendingInvitationResourcesCommandError = async
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1842,19 +1776,17 @@ export const deserializeAws_restJson1ListPermissionsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPermissionsCommandError(output, context);
   }
-  const contents: ListPermissionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    permissions: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  if (data.permissions !== undefined && data.permissions !== null) {
+  if (data.permissions != null) {
     contents.permissions = deserializeAws_restJson1ResourceSharePermissionList(data.permissions, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListPermissionsCommandError = async (
@@ -1865,7 +1797,6 @@ const deserializeAws_restJson1ListPermissionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -1885,14 +1816,12 @@ const deserializeAws_restJson1ListPermissionsCommandError = async (
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1903,19 +1832,17 @@ export const deserializeAws_restJson1ListPermissionVersionsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPermissionVersionsCommandError(output, context);
   }
-  const contents: ListPermissionVersionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    permissions: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  if (data.permissions !== undefined && data.permissions !== null) {
+  if (data.permissions != null) {
     contents.permissions = deserializeAws_restJson1ResourceSharePermissionList(data.permissions, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListPermissionVersionsCommandError = async (
@@ -1926,7 +1853,6 @@ const deserializeAws_restJson1ListPermissionVersionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -1952,14 +1878,12 @@ const deserializeAws_restJson1ListPermissionVersionsCommandError = async (
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1970,19 +1894,17 @@ export const deserializeAws_restJson1ListPrincipalsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPrincipalsCommandError(output, context);
   }
-  const contents: ListPrincipalsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    principals: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  if (data.principals !== undefined && data.principals !== null) {
+  if (data.principals != null) {
     contents.principals = deserializeAws_restJson1PrincipalList(data.principals, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListPrincipalsCommandError = async (
@@ -1993,7 +1915,6 @@ const deserializeAws_restJson1ListPrincipalsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -2016,14 +1937,12 @@ const deserializeAws_restJson1ListPrincipalsCommandError = async (
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2034,19 +1953,17 @@ export const deserializeAws_restJson1ListResourcesCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListResourcesCommandError(output, context);
   }
-  const contents: ListResourcesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    resources: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  if (data.resources !== undefined && data.resources !== null) {
+  if (data.resources != null) {
     contents.resources = deserializeAws_restJson1ResourceList(data.resources, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListResourcesCommandError = async (
@@ -2057,7 +1974,6 @@ const deserializeAws_restJson1ListResourcesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -2083,14 +1999,12 @@ const deserializeAws_restJson1ListResourcesCommandError = async (
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2101,19 +2015,17 @@ export const deserializeAws_restJson1ListResourceSharePermissionsCommand = async
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListResourceSharePermissionsCommandError(output, context);
   }
-  const contents: ListResourceSharePermissionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    permissions: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  if (data.permissions !== undefined && data.permissions !== null) {
+  if (data.permissions != null) {
     contents.permissions = deserializeAws_restJson1ResourceSharePermissionList(data.permissions, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListResourceSharePermissionsCommandError = async (
@@ -2124,7 +2036,6 @@ const deserializeAws_restJson1ListResourceSharePermissionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -2150,14 +2061,12 @@ const deserializeAws_restJson1ListResourceSharePermissionsCommandError = async (
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2168,19 +2077,17 @@ export const deserializeAws_restJson1ListResourceTypesCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListResourceTypesCommandError(output, context);
   }
-  const contents: ListResourceTypesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    resourceTypes: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  if (data.resourceTypes !== undefined && data.resourceTypes !== null) {
+  if (data.resourceTypes != null) {
     contents.resourceTypes = deserializeAws_restJson1ServiceNameAndResourceTypeList(data.resourceTypes, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListResourceTypesCommandError = async (
@@ -2191,7 +2098,6 @@ const deserializeAws_restJson1ListResourceTypesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -2208,14 +2114,12 @@ const deserializeAws_restJson1ListResourceTypesCommandError = async (
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2226,15 +2130,14 @@ export const deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyComman
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommandError(output, context);
   }
-  const contents: PromoteResourceShareCreatedFromPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    returnValue: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.returnValue !== undefined && data.returnValue !== null) {
+  if (data.returnValue != null) {
     contents.returnValue = __expectBoolean(data.returnValue);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommandError = async (
@@ -2245,7 +2148,6 @@ const deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommandError 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
@@ -2274,14 +2176,12 @@ const deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommandError 
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2292,22 +2192,20 @@ export const deserializeAws_restJson1RejectResourceShareInvitationCommand = asyn
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RejectResourceShareInvitationCommandError(output, context);
   }
-  const contents: RejectResourceShareInvitationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    clientToken: undefined,
-    resourceShareInvitation: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken !== undefined && data.clientToken !== null) {
+  if (data.clientToken != null) {
     contents.clientToken = __expectString(data.clientToken);
   }
-  if (data.resourceShareInvitation !== undefined && data.resourceShareInvitation !== null) {
+  if (data.resourceShareInvitation != null) {
     contents.resourceShareInvitation = deserializeAws_restJson1ResourceShareInvitation(
       data.resourceShareInvitation,
       context
     );
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1RejectResourceShareInvitationCommandError = async (
@@ -2318,7 +2216,6 @@ const deserializeAws_restJson1RejectResourceShareInvitationCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
@@ -2359,14 +2256,12 @@ const deserializeAws_restJson1RejectResourceShareInvitationCommandError = async 
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2377,11 +2272,11 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
-  const contents: TagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1TagResourceCommandError = async (
@@ -2392,7 +2287,6 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
@@ -2421,14 +2315,12 @@ const deserializeAws_restJson1TagResourceCommandError = async (
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2439,11 +2331,11 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
-  const contents: UntagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1UntagResourceCommandError = async (
@@ -2454,7 +2346,6 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
@@ -2468,14 +2359,12 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2486,19 +2375,17 @@ export const deserializeAws_restJson1UpdateResourceShareCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateResourceShareCommandError(output, context);
   }
-  const contents: UpdateResourceShareCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    clientToken: undefined,
-    resourceShare: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.clientToken !== undefined && data.clientToken !== null) {
+  if (data.clientToken != null) {
     contents.clientToken = __expectString(data.clientToken);
   }
-  if (data.resourceShare !== undefined && data.resourceShare !== null) {
+  if (data.resourceShare != null) {
     contents.resourceShare = deserializeAws_restJson1ResourceShare(data.resourceShare, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1UpdateResourceShareCommandError = async (
@@ -2509,7 +2396,6 @@ const deserializeAws_restJson1UpdateResourceShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
@@ -2541,24 +2427,23 @@ const deserializeAws_restJson1UpdateResourceShareCommandError = async (
       throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new IdempotentParameterMismatchException({
@@ -2572,9 +2457,9 @@ const deserializeAws_restJson1InvalidClientTokenExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidClientTokenException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new InvalidClientTokenException({
@@ -2588,9 +2473,9 @@ const deserializeAws_restJson1InvalidMaxResultsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidMaxResultsException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new InvalidMaxResultsException({
@@ -2604,9 +2489,9 @@ const deserializeAws_restJson1InvalidNextTokenExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new InvalidNextTokenException({
@@ -2620,9 +2505,9 @@ const deserializeAws_restJson1InvalidParameterExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new InvalidParameterException({
@@ -2636,9 +2521,9 @@ const deserializeAws_restJson1InvalidResourceTypeExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidResourceTypeException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new InvalidResourceTypeException({
@@ -2652,9 +2537,9 @@ const deserializeAws_restJson1InvalidStateTransitionExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidStateTransitionException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new InvalidStateTransitionException({
@@ -2668,9 +2553,9 @@ const deserializeAws_restJson1MalformedArnExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MalformedArnException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new MalformedArnException({
@@ -2684,9 +2569,9 @@ const deserializeAws_restJson1MissingRequiredParameterExceptionResponse = async 
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MissingRequiredParameterException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new MissingRequiredParameterException({
@@ -2700,9 +2585,9 @@ const deserializeAws_restJson1OperationNotPermittedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OperationNotPermittedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new OperationNotPermittedException({
@@ -2716,9 +2601,9 @@ const deserializeAws_restJson1ResourceArnNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceArnNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ResourceArnNotFoundException({
@@ -2732,9 +2617,9 @@ const deserializeAws_restJson1ResourceShareInvitationAlreadyAcceptedExceptionRes
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceShareInvitationAlreadyAcceptedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ResourceShareInvitationAlreadyAcceptedException({
@@ -2748,9 +2633,9 @@ const deserializeAws_restJson1ResourceShareInvitationAlreadyRejectedExceptionRes
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceShareInvitationAlreadyRejectedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ResourceShareInvitationAlreadyRejectedException({
@@ -2764,9 +2649,9 @@ const deserializeAws_restJson1ResourceShareInvitationArnNotFoundExceptionRespons
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceShareInvitationArnNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ResourceShareInvitationArnNotFoundException({
@@ -2780,9 +2665,9 @@ const deserializeAws_restJson1ResourceShareInvitationExpiredExceptionResponse = 
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceShareInvitationExpiredException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ResourceShareInvitationExpiredException({
@@ -2796,9 +2681,9 @@ const deserializeAws_restJson1ResourceShareLimitExceededExceptionResponse = asyn
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceShareLimitExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ResourceShareLimitExceededException({
@@ -2812,9 +2697,9 @@ const deserializeAws_restJson1ServerInternalExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServerInternalException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ServerInternalException({
@@ -2828,9 +2713,9 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ServiceUnavailableException({
@@ -2844,9 +2729,9 @@ const deserializeAws_restJson1TagLimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagLimitExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new TagLimitExceededException({
@@ -2860,9 +2745,9 @@ const deserializeAws_restJson1TagPolicyViolationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagPolicyViolationException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new TagPolicyViolationException({
@@ -2876,9 +2761,9 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ThrottlingException({
@@ -2892,9 +2777,9 @@ const deserializeAws_restJson1UnknownResourceExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnknownResourceException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new UnknownResourceException({
@@ -2908,9 +2793,6 @@ const serializeAws_restJson1PermissionArnList = (input: string[], context: __Ser
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -2919,9 +2801,6 @@ const serializeAws_restJson1PrincipalArnOrIdList = (input: string[], context: __
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -2930,9 +2809,6 @@ const serializeAws_restJson1ResourceArnList = (input: string[], context: __Serde
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -2941,9 +2817,6 @@ const serializeAws_restJson1ResourceShareArnList = (input: string[], context: __
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -2952,9 +2825,6 @@ const serializeAws_restJson1ResourceShareInvitationArnList = (input: string[], c
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -2977,9 +2847,6 @@ const serializeAws_restJson1TagFilters = (input: TagFilter[], context: __SerdeCo
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1TagFilter(entry, context);
     });
 };
@@ -2988,9 +2855,6 @@ const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeConte
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -2999,9 +2863,6 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1Tag(entry, context);
     });
 };
@@ -3010,9 +2871,6 @@ const serializeAws_restJson1TagValueList = (input: string[], context: __SerdeCon
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };

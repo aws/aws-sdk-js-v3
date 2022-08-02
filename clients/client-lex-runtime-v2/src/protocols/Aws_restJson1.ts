@@ -6,8 +6,10 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  map as __map,
+  resolvedPath as __resolvedPath,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -76,42 +78,10 @@ export const serializeAws_restJson1DeleteSessionCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}";
-  if (input.botId !== undefined) {
-    const labelValue: string = input.botId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botId.");
-    }
-    resolvedPath = resolvedPath.replace("{botId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botId.");
-  }
-  if (input.botAliasId !== undefined) {
-    const labelValue: string = input.botAliasId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botAliasId.");
-    }
-    resolvedPath = resolvedPath.replace("{botAliasId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botAliasId.");
-  }
-  if (input.localeId !== undefined) {
-    const labelValue: string = input.localeId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: localeId.");
-    }
-    resolvedPath = resolvedPath.replace("{localeId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: localeId.");
-  }
-  if (input.sessionId !== undefined) {
-    const labelValue: string = input.sessionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: sessionId.");
-    }
-    resolvedPath = resolvedPath.replace("{sessionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: sessionId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -133,42 +103,10 @@ export const serializeAws_restJson1GetSessionCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}";
-  if (input.botId !== undefined) {
-    const labelValue: string = input.botId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botId.");
-    }
-    resolvedPath = resolvedPath.replace("{botId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botId.");
-  }
-  if (input.botAliasId !== undefined) {
-    const labelValue: string = input.botAliasId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botAliasId.");
-    }
-    resolvedPath = resolvedPath.replace("{botAliasId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botAliasId.");
-  }
-  if (input.localeId !== undefined) {
-    const labelValue: string = input.localeId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: localeId.");
-    }
-    resolvedPath = resolvedPath.replace("{localeId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: localeId.");
-  }
-  if (input.sessionId !== undefined) {
-    const labelValue: string = input.sessionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: sessionId.");
-    }
-    resolvedPath = resolvedPath.replace("{sessionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: sessionId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -186,49 +124,17 @@ export const serializeAws_restJson1PutSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.responseContentType) && { responsecontenttype: input.responseContentType! }),
-  };
+    responsecontenttype: input.responseContentType!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}";
-  if (input.botId !== undefined) {
-    const labelValue: string = input.botId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botId.");
-    }
-    resolvedPath = resolvedPath.replace("{botId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botId.");
-  }
-  if (input.botAliasId !== undefined) {
-    const labelValue: string = input.botAliasId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botAliasId.");
-    }
-    resolvedPath = resolvedPath.replace("{botAliasId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botAliasId.");
-  }
-  if (input.localeId !== undefined) {
-    const labelValue: string = input.localeId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: localeId.");
-    }
-    resolvedPath = resolvedPath.replace("{localeId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: localeId.");
-  }
-  if (input.sessionId !== undefined) {
-    const labelValue: string = input.sessionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: sessionId.");
-    }
-    resolvedPath = resolvedPath.replace("{sessionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: sessionId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   body = JSON.stringify({
     ...(input.messages != null && { messages: serializeAws_restJson1Messages(input.messages, context) }),
@@ -261,42 +167,10 @@ export const serializeAws_restJson1RecognizeTextCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/text";
-  if (input.botId !== undefined) {
-    const labelValue: string = input.botId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botId.");
-    }
-    resolvedPath = resolvedPath.replace("{botId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botId.");
-  }
-  if (input.botAliasId !== undefined) {
-    const labelValue: string = input.botAliasId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botAliasId.");
-    }
-    resolvedPath = resolvedPath.replace("{botAliasId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botAliasId.");
-  }
-  if (input.localeId !== undefined) {
-    const labelValue: string = input.localeId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: localeId.");
-    }
-    resolvedPath = resolvedPath.replace("{localeId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: localeId.");
-  }
-  if (input.sessionId !== undefined) {
-    const labelValue: string = input.sessionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: sessionId.");
-    }
-    resolvedPath = resolvedPath.replace("{sessionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: sessionId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   body = JSON.stringify({
     ...(input.requestAttributes != null && {
@@ -323,57 +197,20 @@ export const serializeAws_restJson1RecognizeUtteranceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/octet-stream",
+  const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    ...(isSerializableHeaderValue(input.sessionState) && { "x-amz-lex-session-state": input.sessionState! }),
-    ...(isSerializableHeaderValue(input.requestAttributes) && {
-      "x-amz-lex-request-attributes": input.requestAttributes!,
-    }),
-    ...(isSerializableHeaderValue(input.requestContentType) && { "content-type": input.requestContentType! }),
-    ...(isSerializableHeaderValue(input.responseContentType) && {
-      "response-content-type": input.responseContentType!,
-    }),
-  };
+    "content-type": input.requestContentType! || "application/octet-stream",
+    "x-amz-lex-session-state": input.sessionState!,
+    "x-amz-lex-request-attributes": input.requestAttributes!,
+    "response-content-type": input.responseContentType!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/utterance";
-  if (input.botId !== undefined) {
-    const labelValue: string = input.botId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botId.");
-    }
-    resolvedPath = resolvedPath.replace("{botId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botId.");
-  }
-  if (input.botAliasId !== undefined) {
-    const labelValue: string = input.botAliasId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botAliasId.");
-    }
-    resolvedPath = resolvedPath.replace("{botAliasId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botAliasId.");
-  }
-  if (input.localeId !== undefined) {
-    const labelValue: string = input.localeId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: localeId.");
-    }
-    resolvedPath = resolvedPath.replace("{localeId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: localeId.");
-  }
-  if (input.sessionId !== undefined) {
-    const labelValue: string = input.sessionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: sessionId.");
-    }
-    resolvedPath = resolvedPath.replace("{sessionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: sessionId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   if (input.inputStream !== undefined) {
     body = input.inputStream;
@@ -394,50 +231,16 @@ export const serializeAws_restJson1StartConversationCommand = async (
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.conversationMode) && {
-      "x-amz-lex-conversation-mode": input.conversationMode!,
-    }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-lex-conversation-mode": input.conversationMode!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/conversation";
-  if (input.botId !== undefined) {
-    const labelValue: string = input.botId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botId.");
-    }
-    resolvedPath = resolvedPath.replace("{botId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botId.");
-  }
-  if (input.botAliasId !== undefined) {
-    const labelValue: string = input.botAliasId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botAliasId.");
-    }
-    resolvedPath = resolvedPath.replace("{botAliasId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botAliasId.");
-  }
-  if (input.localeId !== undefined) {
-    const labelValue: string = input.localeId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: localeId.");
-    }
-    resolvedPath = resolvedPath.replace("{localeId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: localeId.");
-  }
-  if (input.sessionId !== undefined) {
-    const labelValue: string = input.sessionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: sessionId.");
-    }
-    resolvedPath = resolvedPath.replace("{sessionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: sessionId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   if (input.requestEventStream !== undefined) {
     body = serializeAws_restJson1StartConversationRequestEventStream(input.requestEventStream, context);
@@ -460,27 +263,23 @@ export const deserializeAws_restJson1DeleteSessionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteSessionCommandError(output, context);
   }
-  const contents: DeleteSessionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    botAliasId: undefined,
-    botId: undefined,
-    localeId: undefined,
-    sessionId: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botAliasId !== undefined && data.botAliasId !== null) {
+  if (data.botAliasId != null) {
     contents.botAliasId = __expectString(data.botAliasId);
   }
-  if (data.botId !== undefined && data.botId !== null) {
+  if (data.botId != null) {
     contents.botId = __expectString(data.botId);
   }
-  if (data.localeId !== undefined && data.localeId !== null) {
+  if (data.localeId != null) {
     contents.localeId = __expectString(data.localeId);
   }
-  if (data.sessionId !== undefined && data.sessionId !== null) {
+  if (data.sessionId != null) {
     contents.sessionId = __expectString(data.sessionId);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteSessionCommandError = async (
@@ -491,7 +290,6 @@ const deserializeAws_restJson1DeleteSessionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -514,14 +312,12 @@ const deserializeAws_restJson1DeleteSessionCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -532,27 +328,23 @@ export const deserializeAws_restJson1GetSessionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSessionCommandError(output, context);
   }
-  const contents: GetSessionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    interpretations: undefined,
-    messages: undefined,
-    sessionId: undefined,
-    sessionState: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.interpretations !== undefined && data.interpretations !== null) {
+  if (data.interpretations != null) {
     contents.interpretations = deserializeAws_restJson1Interpretations(data.interpretations, context);
   }
-  if (data.messages !== undefined && data.messages !== null) {
+  if (data.messages != null) {
     contents.messages = deserializeAws_restJson1Messages(data.messages, context);
   }
-  if (data.sessionId !== undefined && data.sessionId !== null) {
+  if (data.sessionId != null) {
     contents.sessionId = __expectString(data.sessionId);
   }
-  if (data.sessionState !== undefined && data.sessionState !== null) {
+  if (data.sessionState != null) {
     contents.sessionState = deserializeAws_restJson1SessionState(data.sessionState, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetSessionCommandError = async (
@@ -563,7 +355,6 @@ const deserializeAws_restJson1GetSessionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -583,14 +374,12 @@ const deserializeAws_restJson1GetSessionCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -601,33 +390,17 @@ export const deserializeAws_restJson1PutSessionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutSessionCommandError(output, context);
   }
-  const contents: PutSessionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    audioStream: undefined,
-    contentType: undefined,
-    messages: undefined,
-    requestAttributes: undefined,
-    sessionId: undefined,
-    sessionState: undefined,
-  };
-  if (output.headers["content-type"] !== undefined) {
-    contents.contentType = output.headers["content-type"];
-  }
-  if (output.headers["x-amz-lex-messages"] !== undefined) {
-    contents.messages = output.headers["x-amz-lex-messages"];
-  }
-  if (output.headers["x-amz-lex-session-state"] !== undefined) {
-    contents.sessionState = output.headers["x-amz-lex-session-state"];
-  }
-  if (output.headers["x-amz-lex-request-attributes"] !== undefined) {
-    contents.requestAttributes = output.headers["x-amz-lex-request-attributes"];
-  }
-  if (output.headers["x-amz-lex-session-id"] !== undefined) {
-    contents.sessionId = output.headers["x-amz-lex-session-id"];
-  }
+    contentType: [, output.headers["content-type"]],
+    messages: [, output.headers["x-amz-lex-messages"]],
+    sessionState: [, output.headers["x-amz-lex-session-state"]],
+    requestAttributes: [, output.headers["x-amz-lex-request-attributes"]],
+    sessionId: [, output.headers["x-amz-lex-session-id"]],
+  });
   const data: any = output.body;
   contents.audioStream = data;
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1PutSessionCommandError = async (
@@ -638,7 +411,6 @@ const deserializeAws_restJson1PutSessionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -667,14 +439,12 @@ const deserializeAws_restJson1PutSessionCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -685,31 +455,26 @@ export const deserializeAws_restJson1RecognizeTextCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RecognizeTextCommandError(output, context);
   }
-  const contents: RecognizeTextCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    interpretations: undefined,
-    messages: undefined,
-    requestAttributes: undefined,
-    sessionId: undefined,
-    sessionState: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.interpretations !== undefined && data.interpretations !== null) {
+  if (data.interpretations != null) {
     contents.interpretations = deserializeAws_restJson1Interpretations(data.interpretations, context);
   }
-  if (data.messages !== undefined && data.messages !== null) {
+  if (data.messages != null) {
     contents.messages = deserializeAws_restJson1Messages(data.messages, context);
   }
-  if (data.requestAttributes !== undefined && data.requestAttributes !== null) {
+  if (data.requestAttributes != null) {
     contents.requestAttributes = deserializeAws_restJson1StringMap(data.requestAttributes, context);
   }
-  if (data.sessionId !== undefined && data.sessionId !== null) {
+  if (data.sessionId != null) {
     contents.sessionId = __expectString(data.sessionId);
   }
-  if (data.sessionState !== undefined && data.sessionState !== null) {
+  if (data.sessionState != null) {
     contents.sessionState = deserializeAws_restJson1SessionState(data.sessionState, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1RecognizeTextCommandError = async (
@@ -720,7 +485,6 @@ const deserializeAws_restJson1RecognizeTextCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -749,14 +513,12 @@ const deserializeAws_restJson1RecognizeTextCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -767,45 +529,20 @@ export const deserializeAws_restJson1RecognizeUtteranceCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RecognizeUtteranceCommandError(output, context);
   }
-  const contents: RecognizeUtteranceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    audioStream: undefined,
-    contentType: undefined,
-    inputMode: undefined,
-    inputTranscript: undefined,
-    interpretations: undefined,
-    messages: undefined,
-    requestAttributes: undefined,
-    sessionId: undefined,
-    sessionState: undefined,
-  };
-  if (output.headers["x-amz-lex-input-mode"] !== undefined) {
-    contents.inputMode = output.headers["x-amz-lex-input-mode"];
-  }
-  if (output.headers["content-type"] !== undefined) {
-    contents.contentType = output.headers["content-type"];
-  }
-  if (output.headers["x-amz-lex-messages"] !== undefined) {
-    contents.messages = output.headers["x-amz-lex-messages"];
-  }
-  if (output.headers["x-amz-lex-interpretations"] !== undefined) {
-    contents.interpretations = output.headers["x-amz-lex-interpretations"];
-  }
-  if (output.headers["x-amz-lex-session-state"] !== undefined) {
-    contents.sessionState = output.headers["x-amz-lex-session-state"];
-  }
-  if (output.headers["x-amz-lex-request-attributes"] !== undefined) {
-    contents.requestAttributes = output.headers["x-amz-lex-request-attributes"];
-  }
-  if (output.headers["x-amz-lex-session-id"] !== undefined) {
-    contents.sessionId = output.headers["x-amz-lex-session-id"];
-  }
-  if (output.headers["x-amz-lex-input-transcript"] !== undefined) {
-    contents.inputTranscript = output.headers["x-amz-lex-input-transcript"];
-  }
+    inputMode: [, output.headers["x-amz-lex-input-mode"]],
+    contentType: [, output.headers["content-type"]],
+    messages: [, output.headers["x-amz-lex-messages"]],
+    interpretations: [, output.headers["x-amz-lex-interpretations"]],
+    sessionState: [, output.headers["x-amz-lex-session-state"]],
+    requestAttributes: [, output.headers["x-amz-lex-request-attributes"]],
+    sessionId: [, output.headers["x-amz-lex-session-id"]],
+    inputTranscript: [, output.headers["x-amz-lex-input-transcript"]],
+  });
   const data: any = output.body;
   contents.audioStream = data;
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1RecognizeUtteranceCommandError = async (
@@ -816,7 +553,6 @@ const deserializeAws_restJson1RecognizeUtteranceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -845,14 +581,12 @@ const deserializeAws_restJson1RecognizeUtteranceCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -863,13 +597,12 @@ export const deserializeAws_restJson1StartConversationCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartConversationCommandError(output, context);
   }
-  const contents: StartConversationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    responseEventStream: undefined,
-  };
+  });
   const data: any = output.body;
   contents.responseEventStream = deserializeAws_restJson1StartConversationResponseEventStream(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1StartConversationCommandError = async (
@@ -880,7 +613,6 @@ const deserializeAws_restJson1StartConversationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -897,24 +629,23 @@ const deserializeAws_restJson1StartConversationCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new AccessDeniedException({
@@ -928,9 +659,9 @@ const deserializeAws_restJson1BadGatewayExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadGatewayException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new BadGatewayException({
@@ -944,9 +675,9 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ConflictException({
@@ -960,9 +691,9 @@ const deserializeAws_restJson1DependencyFailedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DependencyFailedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new DependencyFailedException({
@@ -976,9 +707,9 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new InternalServerException({
@@ -992,9 +723,9 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ResourceNotFoundException({
@@ -1008,9 +739,9 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ThrottlingException({
@@ -1024,9 +755,9 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ValidationException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ValidationException({
@@ -1397,9 +1128,6 @@ const serializeAws_restJson1ActiveContextsList = (input: ActiveContext[], contex
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1ActiveContext(entry, context);
     });
 };
@@ -1434,9 +1162,6 @@ const serializeAws_restJson1ButtonsList = (input: Button[], context: __SerdeCont
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1Button(entry, context);
     });
 };
@@ -1514,9 +1239,6 @@ const serializeAws_restJson1Messages = (input: Message[], context: __SerdeContex
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1Message(entry, context);
     });
 };
@@ -1555,9 +1277,6 @@ const serializeAws_restJson1RuntimeHintValuesList = (input: RuntimeHintValue[], 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1RuntimeHintValue(entry, context);
     });
 };
@@ -1635,9 +1354,6 @@ const serializeAws_restJson1StringList = (input: string[], context: __SerdeConte
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -1676,9 +1392,6 @@ const serializeAws_restJson1Values = (input: Slot[], context: __SerdeContext): a
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1Slot(entry, context);
     });
 };

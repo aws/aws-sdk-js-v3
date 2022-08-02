@@ -6,7 +6,10 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  map as __map,
   parseRfc3339DateTime as __parseRfc3339DateTime,
+  resolvedPath as __resolvedPath,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -104,15 +107,14 @@ export const serializeAws_restJson1DeleteMediaCapturePipelineCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/sdk-media-capture-pipelines/{MediaPipelineId}";
-  if (input.MediaPipelineId !== undefined) {
-    const labelValue: string = input.MediaPipelineId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MediaPipelineId.");
-    }
-    resolvedPath = resolvedPath.replace("{MediaPipelineId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MediaPipelineId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "MediaPipelineId",
+    () => input.MediaPipelineId!,
+    "{MediaPipelineId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -134,15 +136,14 @@ export const serializeAws_restJson1GetMediaCapturePipelineCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/sdk-media-capture-pipelines/{MediaPipelineId}";
-  if (input.MediaPipelineId !== undefined) {
-    const labelValue: string = input.MediaPipelineId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MediaPipelineId.");
-    }
-    resolvedPath = resolvedPath.replace("{MediaPipelineId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MediaPipelineId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "MediaPipelineId",
+    () => input.MediaPipelineId!,
+    "{MediaPipelineId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -163,10 +164,10 @@ export const serializeAws_restJson1ListMediaCapturePipelinesCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-capture-pipelines";
-  const query: any = {
-    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
-    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
-  };
+  const query: any = map({
+    "next-token": [, input.NextToken!],
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -187,9 +188,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
-  const query: any = {
-    ...(input.ResourceARN !== undefined && { arn: input.ResourceARN }),
-  };
+  const query: any = map({
+    arn: [, input.ResourceARN!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -212,9 +213,9 @@ export const serializeAws_restJson1TagResourceCommand = async (
     "content-type": "application/json",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
-  const query: any = {
-    operation: "tag-resource",
-  };
+  const query: any = map({
+    operation: [, "tag-resource"],
+  });
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
@@ -241,9 +242,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     "content-type": "application/json",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
-  const query: any = {
-    operation: "untag-resource",
-  };
+  const query: any = map({
+    operation: [, "untag-resource"],
+  });
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
@@ -268,15 +269,14 @@ export const deserializeAws_restJson1CreateMediaCapturePipelineCommand = async (
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateMediaCapturePipelineCommandError(output, context);
   }
-  const contents: CreateMediaCapturePipelineCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    MediaCapturePipeline: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaCapturePipeline !== undefined && data.MediaCapturePipeline !== null) {
+  if (data.MediaCapturePipeline != null) {
     contents.MediaCapturePipeline = deserializeAws_restJson1MediaCapturePipeline(data.MediaCapturePipeline, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CreateMediaCapturePipelineCommandError = async (
@@ -287,7 +287,6 @@ const deserializeAws_restJson1CreateMediaCapturePipelineCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -313,14 +312,12 @@ const deserializeAws_restJson1CreateMediaCapturePipelineCommandError = async (
       throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -331,11 +328,11 @@ export const deserializeAws_restJson1DeleteMediaCapturePipelineCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteMediaCapturePipelineCommandError(output, context);
   }
-  const contents: DeleteMediaCapturePipelineCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteMediaCapturePipelineCommandError = async (
@@ -346,7 +343,6 @@ const deserializeAws_restJson1DeleteMediaCapturePipelineCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -372,14 +368,12 @@ const deserializeAws_restJson1DeleteMediaCapturePipelineCommandError = async (
       throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -390,15 +384,14 @@ export const deserializeAws_restJson1GetMediaCapturePipelineCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMediaCapturePipelineCommandError(output, context);
   }
-  const contents: GetMediaCapturePipelineCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    MediaCapturePipeline: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaCapturePipeline !== undefined && data.MediaCapturePipeline !== null) {
+  if (data.MediaCapturePipeline != null) {
     contents.MediaCapturePipeline = deserializeAws_restJson1MediaCapturePipeline(data.MediaCapturePipeline, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetMediaCapturePipelineCommandError = async (
@@ -409,7 +402,6 @@ const deserializeAws_restJson1GetMediaCapturePipelineCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -435,14 +427,12 @@ const deserializeAws_restJson1GetMediaCapturePipelineCommandError = async (
       throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -453,22 +443,20 @@ export const deserializeAws_restJson1ListMediaCapturePipelinesCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListMediaCapturePipelinesCommandError(output, context);
   }
-  const contents: ListMediaCapturePipelinesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    MediaCapturePipelines: undefined,
-    NextToken: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MediaCapturePipelines !== undefined && data.MediaCapturePipelines !== null) {
+  if (data.MediaCapturePipelines != null) {
     contents.MediaCapturePipelines = deserializeAws_restJson1MediaCapturePipelineSummaryList(
       data.MediaCapturePipelines,
       context
     );
   }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
+  if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListMediaCapturePipelinesCommandError = async (
@@ -479,7 +467,6 @@ const deserializeAws_restJson1ListMediaCapturePipelinesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -505,14 +492,12 @@ const deserializeAws_restJson1ListMediaCapturePipelinesCommandError = async (
       throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -523,15 +508,14 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
-  const contents: ListTagsForResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Tags: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags !== undefined && data.Tags !== null) {
+  if (data.Tags != null) {
     contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListTagsForResourceCommandError = async (
@@ -542,7 +526,6 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -568,14 +551,12 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
       throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -586,11 +567,11 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
-  const contents: TagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1TagResourceCommandError = async (
@@ -601,7 +582,6 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -627,14 +607,12 @@ const deserializeAws_restJson1TagResourceCommandError = async (
       throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -645,11 +623,11 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
-  const contents: UntagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1UntagResourceCommandError = async (
@@ -660,7 +638,6 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -686,30 +663,29 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
       throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1BadRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadRequestException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
+  if (data.Code != null) {
     contents.Code = __expectString(data.Code);
   }
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
-  if (data.RequestId !== undefined && data.RequestId !== null) {
+  if (data.RequestId != null) {
     contents.RequestId = __expectString(data.RequestId);
   }
   const exception = new BadRequestException({
@@ -723,15 +699,15 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ForbiddenException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
+  if (data.Code != null) {
     contents.Code = __expectString(data.Code);
   }
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
-  if (data.RequestId !== undefined && data.RequestId !== null) {
+  if (data.RequestId != null) {
     contents.RequestId = __expectString(data.RequestId);
   }
   const exception = new ForbiddenException({
@@ -745,15 +721,15 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
+  if (data.Code != null) {
     contents.Code = __expectString(data.Code);
   }
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
-  if (data.RequestId !== undefined && data.RequestId !== null) {
+  if (data.RequestId != null) {
     contents.RequestId = __expectString(data.RequestId);
   }
   const exception = new NotFoundException({
@@ -767,15 +743,15 @@ const deserializeAws_restJson1ResourceLimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceLimitExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
+  if (data.Code != null) {
     contents.Code = __expectString(data.Code);
   }
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
-  if (data.RequestId !== undefined && data.RequestId !== null) {
+  if (data.RequestId != null) {
     contents.RequestId = __expectString(data.RequestId);
   }
   const exception = new ResourceLimitExceededException({
@@ -789,15 +765,15 @@ const deserializeAws_restJson1ServiceFailureExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceFailureException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
+  if (data.Code != null) {
     contents.Code = __expectString(data.Code);
   }
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
-  if (data.RequestId !== undefined && data.RequestId !== null) {
+  if (data.RequestId != null) {
     contents.RequestId = __expectString(data.RequestId);
   }
   const exception = new ServiceFailureException({
@@ -811,15 +787,15 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
+  if (data.Code != null) {
     contents.Code = __expectString(data.Code);
   }
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
-  if (data.RequestId !== undefined && data.RequestId !== null) {
+  if (data.RequestId != null) {
     contents.RequestId = __expectString(data.RequestId);
   }
   const exception = new ServiceUnavailableException({
@@ -833,15 +809,15 @@ const deserializeAws_restJson1ThrottledClientExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottledClientException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
+  if (data.Code != null) {
     contents.Code = __expectString(data.Code);
   }
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
-  if (data.RequestId !== undefined && data.RequestId !== null) {
+  if (data.RequestId != null) {
     contents.RequestId = __expectString(data.RequestId);
   }
   const exception = new ThrottledClientException({
@@ -855,15 +831,15 @@ const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedClientException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
+  if (data.Code != null) {
     contents.Code = __expectString(data.Code);
   }
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
-  if (data.RequestId !== undefined && data.RequestId !== null) {
+  if (data.RequestId != null) {
     contents.RequestId = __expectString(data.RequestId);
   }
   const exception = new UnauthorizedClientException({
@@ -887,9 +863,6 @@ const serializeAws_restJson1AttendeeIdList = (input: string[], context: __SerdeC
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -931,9 +904,6 @@ const serializeAws_restJson1ExternalUserIdList = (input: string[], context: __Se
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -966,9 +936,6 @@ const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeConte
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -977,9 +944,6 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1Tag(entry, context);
     });
 };

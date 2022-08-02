@@ -8,6 +8,8 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  map as __map,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -41,24 +43,24 @@ export const serializeAws_restJson1SearchCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/search";
-  const query: any = {
-    format: "sdk",
-    pretty: "true",
-    ...(input.cursor !== undefined && { cursor: input.cursor }),
-    ...(input.expr !== undefined && { expr: input.expr }),
-    ...(input.facet !== undefined && { facet: input.facet }),
-    ...(input.filterQuery !== undefined && { fq: input.filterQuery }),
-    ...(input.highlight !== undefined && { highlight: input.highlight }),
-    ...(input.partial !== undefined && { partial: input.partial.toString() }),
-    ...(input.query !== undefined && { q: input.query }),
-    ...(input.queryOptions !== undefined && { "q.options": input.queryOptions }),
-    ...(input.queryParser !== undefined && { "q.parser": input.queryParser }),
-    ...(input.return !== undefined && { return: input.return }),
-    ...(input.size !== undefined && { size: input.size.toString() }),
-    ...(input.sort !== undefined && { sort: input.sort }),
-    ...(input.start !== undefined && { start: input.start.toString() }),
-    ...(input.stats !== undefined && { stats: input.stats }),
-  };
+  const query: any = map({
+    format: [, "sdk"],
+    pretty: [, "true"],
+    cursor: [, input.cursor!],
+    expr: [, input.expr!],
+    facet: [, input.facet!],
+    fq: [, input.filterQuery!],
+    highlight: [, input.highlight!],
+    partial: [() => input.partial !== void 0, () => input.partial!.toString()],
+    q: [, input.query!],
+    "q.options": [, input.queryOptions!],
+    "q.parser": [, input.queryParser!],
+    return: [, input.return!],
+    size: [() => input.size !== void 0, () => input.size!.toString()],
+    sort: [, input.sort!],
+    start: [() => input.start !== void 0, () => input.start!.toString()],
+    stats: [, input.stats!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -79,13 +81,13 @@ export const serializeAws_restJson1SuggestCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/suggest";
-  const query: any = {
-    format: "sdk",
-    pretty: "true",
-    ...(input.query !== undefined && { q: input.query }),
-    ...(input.suggester !== undefined && { suggester: input.suggester }),
-    ...(input.size !== undefined && { size: input.size.toString() }),
-  };
+  const query: any = map({
+    format: [, "sdk"],
+    pretty: [, "true"],
+    q: [, input.query!],
+    suggester: [, input.suggester!],
+    size: [() => input.size !== void 0, () => input.size!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -104,15 +106,14 @@ export const serializeAws_restJson1UploadDocumentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/octet-stream",
-    ...(isSerializableHeaderValue(input.contentType) && { "content-type": input.contentType! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": input.contentType! || "application/octet-stream",
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/documents/batch";
-  const query: any = {
-    format: "sdk",
-  };
+  const query: any = map({
+    format: [, "sdk"],
+  });
   let body: any;
   if (input.documents !== undefined) {
     body = input.documents;
@@ -136,27 +137,23 @@ export const deserializeAws_restJson1SearchCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SearchCommandError(output, context);
   }
-  const contents: SearchCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    facets: undefined,
-    hits: undefined,
-    stats: undefined,
-    status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.facets !== undefined && data.facets !== null) {
+  if (data.facets != null) {
     contents.facets = deserializeAws_restJson1Facets(data.facets, context);
   }
-  if (data.hits !== undefined && data.hits !== null) {
+  if (data.hits != null) {
     contents.hits = deserializeAws_restJson1Hits(data.hits, context);
   }
-  if (data.stats !== undefined && data.stats !== null) {
+  if (data.stats != null) {
     contents.stats = deserializeAws_restJson1Stats(data.stats, context);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.status = deserializeAws_restJson1SearchStatus(data.status, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1SearchCommandError = async (
@@ -167,7 +164,6 @@ const deserializeAws_restJson1SearchCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SearchException":
@@ -175,14 +171,12 @@ const deserializeAws_restJson1SearchCommandError = async (
       throw await deserializeAws_restJson1SearchExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -193,19 +187,17 @@ export const deserializeAws_restJson1SuggestCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SuggestCommandError(output, context);
   }
-  const contents: SuggestCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    status: undefined,
-    suggest: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.status = deserializeAws_restJson1SuggestStatus(data.status, context);
   }
-  if (data.suggest !== undefined && data.suggest !== null) {
+  if (data.suggest != null) {
     contents.suggest = deserializeAws_restJson1SuggestModel(data.suggest, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1SuggestCommandError = async (
@@ -216,7 +208,6 @@ const deserializeAws_restJson1SuggestCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SearchException":
@@ -224,14 +215,12 @@ const deserializeAws_restJson1SuggestCommandError = async (
       throw await deserializeAws_restJson1SearchExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -242,27 +231,23 @@ export const deserializeAws_restJson1UploadDocumentsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UploadDocumentsCommandError(output, context);
   }
-  const contents: UploadDocumentsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    adds: undefined,
-    deletes: undefined,
-    status: undefined,
-    warnings: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.adds !== undefined && data.adds !== null) {
+  if (data.adds != null) {
     contents.adds = __expectLong(data.adds);
   }
-  if (data.deletes !== undefined && data.deletes !== null) {
+  if (data.deletes != null) {
     contents.deletes = __expectLong(data.deletes);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.status = __expectString(data.status);
   }
-  if (data.warnings !== undefined && data.warnings !== null) {
+  if (data.warnings != null) {
     contents.warnings = deserializeAws_restJson1DocumentServiceWarnings(data.warnings, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1UploadDocumentsCommandError = async (
@@ -273,7 +258,6 @@ const deserializeAws_restJson1UploadDocumentsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DocumentServiceException":
@@ -281,27 +265,26 @@ const deserializeAws_restJson1UploadDocumentsCommandError = async (
       throw await deserializeAws_restJson1DocumentServiceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1DocumentServiceExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DocumentServiceException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.status = __expectString(data.status);
   }
   const exception = new DocumentServiceException({
@@ -315,9 +298,9 @@ const deserializeAws_restJson1SearchExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SearchException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new SearchException({

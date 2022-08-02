@@ -218,7 +218,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 });
             } else {
                 writer.openBlock(
-                    "if ($1L !== undefined && $1L !== null) {", "}",
+                    "if ($1L != null) {", "}",
                     getFrom("output", locationName),
                     () -> writer.openBlock(
                         "return {", "};",

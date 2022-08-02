@@ -6,9 +6,11 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  map as __map,
+  resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -133,24 +135,15 @@ export const serializeAws_restJson1CloneBackendCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/environments/{BackendEnvironmentName}/clone";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.TargetEnvironmentName != null && { targetEnvironmentName: input.TargetEnvironmentName }),
@@ -205,15 +198,7 @@ export const serializeAws_restJson1CreateBackendAPICommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/api";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   body = JSON.stringify({
     ...(input.BackendEnvironmentName != null && { backendEnvironmentName: input.BackendEnvironmentName }),
@@ -242,15 +227,7 @@ export const serializeAws_restJson1CreateBackendAuthCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/auth";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   body = JSON.stringify({
     ...(input.BackendEnvironmentName != null && { backendEnvironmentName: input.BackendEnvironmentName }),
@@ -279,15 +256,7 @@ export const serializeAws_restJson1CreateBackendConfigCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/config";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   body = JSON.stringify({
     ...(input.BackendManagerAppId != null && { backendManagerAppId: input.BackendManagerAppId }),
@@ -312,15 +281,7 @@ export const serializeAws_restJson1CreateBackendStorageCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/storage";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   body = JSON.stringify({
     ...(input.BackendEnvironmentName != null && { backendEnvironmentName: input.BackendEnvironmentName }),
@@ -348,15 +309,7 @@ export const serializeAws_restJson1CreateTokenCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/challenge";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -378,24 +331,15 @@ export const serializeAws_restJson1DeleteBackendCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/environments/{BackendEnvironmentName}/remove";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -419,24 +363,15 @@ export const serializeAws_restJson1DeleteBackendAPICommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/api/{BackendEnvironmentName}/remove";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceConfig != null && {
@@ -466,24 +401,15 @@ export const serializeAws_restJson1DeleteBackendAuthCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/auth/{BackendEnvironmentName}/remove";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceName != null && { resourceName: input.ResourceName }),
@@ -510,24 +436,15 @@ export const serializeAws_restJson1DeleteBackendStorageCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/storage/{BackendEnvironmentName}/remove";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceName != null && { resourceName: input.ResourceName }),
@@ -553,24 +470,8 @@ export const serializeAws_restJson1DeleteTokenCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/challenge/{SessionId}/remove";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.SessionId !== undefined) {
-    const labelValue: string = input.SessionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SessionId.");
-    }
-    resolvedPath = resolvedPath.replace("{SessionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SessionId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "SessionId", () => input.SessionId!, "{SessionId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -594,24 +495,15 @@ export const serializeAws_restJson1GenerateBackendAPIModelsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/api/{BackendEnvironmentName}/generateModels";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceName != null && { resourceName: input.ResourceName }),
@@ -636,15 +528,7 @@ export const serializeAws_restJson1GetBackendCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/details";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   body = JSON.stringify({
     ...(input.BackendEnvironmentName != null && { backendEnvironmentName: input.BackendEnvironmentName }),
@@ -671,24 +555,15 @@ export const serializeAws_restJson1GetBackendAPICommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/api/{BackendEnvironmentName}/details";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceConfig != null && {
@@ -718,24 +593,15 @@ export const serializeAws_restJson1GetBackendAPIModelsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/api/{BackendEnvironmentName}/getModels";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceName != null && { resourceName: input.ResourceName }),
@@ -762,24 +628,15 @@ export const serializeAws_restJson1GetBackendAuthCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/auth/{BackendEnvironmentName}/details";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceName != null && { resourceName: input.ResourceName }),
@@ -804,33 +661,16 @@ export const serializeAws_restJson1GetBackendJobCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
-  if (input.JobId !== undefined) {
-    const labelValue: string = input.JobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: JobId.");
-    }
-    resolvedPath = resolvedPath.replace("{JobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: JobId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -854,24 +694,15 @@ export const serializeAws_restJson1GetBackendStorageCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/storage/{BackendEnvironmentName}/details";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceName != null && { resourceName: input.ResourceName }),
@@ -895,24 +726,8 @@ export const serializeAws_restJson1GetTokenCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/challenge/{SessionId}";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.SessionId !== undefined) {
-    const labelValue: string = input.SessionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SessionId.");
-    }
-    resolvedPath = resolvedPath.replace("{SessionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SessionId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "SessionId", () => input.SessionId!, "{SessionId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -936,24 +751,15 @@ export const serializeAws_restJson1ImportBackendAuthCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/auth/{BackendEnvironmentName}/import";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.IdentityPoolId != null && { identityPoolId: input.IdentityPoolId }),
@@ -983,24 +789,15 @@ export const serializeAws_restJson1ImportBackendStorageCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/storage/{BackendEnvironmentName}/import";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.BucketName != null && { bucketName: input.BucketName }),
@@ -1028,24 +825,15 @@ export const serializeAws_restJson1ListBackendJobsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/job/{BackendEnvironmentName}";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.JobId != null && { jobId: input.JobId }),
@@ -1098,15 +886,7 @@ export const serializeAws_restJson1RemoveAllBackendsCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/remove";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   body = JSON.stringify({
     ...(input.CleanAmplifyApp != null && { cleanAmplifyApp: input.CleanAmplifyApp }),
@@ -1130,15 +910,7 @@ export const serializeAws_restJson1RemoveBackendConfigCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/config/remove";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1162,24 +934,15 @@ export const serializeAws_restJson1UpdateBackendAPICommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/api/{BackendEnvironmentName}";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceConfig != null && {
@@ -1209,24 +972,15 @@ export const serializeAws_restJson1UpdateBackendAuthCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/auth/{BackendEnvironmentName}";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceConfig != null && {
@@ -1255,15 +1009,7 @@ export const serializeAws_restJson1UpdateBackendConfigCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/config/update";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   body = JSON.stringify({
     ...(input.LoginAuthConfig != null && {
@@ -1292,33 +1038,16 @@ export const serializeAws_restJson1UpdateBackendJobCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
-  if (input.JobId !== undefined) {
-    const labelValue: string = input.JobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: JobId.");
-    }
-    resolvedPath = resolvedPath.replace("{JobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: JobId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
   body = JSON.stringify({
     ...(input.Operation != null && { operation: input.Operation }),
@@ -1346,24 +1075,15 @@ export const serializeAws_restJson1UpdateBackendStorageCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backend/{AppId}/storage/{BackendEnvironmentName}";
-  if (input.AppId !== undefined) {
-    const labelValue: string = input.AppId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AppId.");
-    }
-    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AppId.");
-  }
-  if (input.BackendEnvironmentName !== undefined) {
-    const labelValue: string = input.BackendEnvironmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackendEnvironmentName",
+    () => input.BackendEnvironmentName!,
+    "{BackendEnvironmentName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceConfig != null && {
@@ -1389,35 +1109,29 @@ export const deserializeAws_restJson1CloneBackendCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CloneBackendCommandError(output, context);
   }
-  const contents: CloneBackendCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    Error: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.operation !== undefined && data.operation !== null) {
+  if (data.operation != null) {
     contents.Operation = __expectString(data.operation);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CloneBackendCommandError = async (
@@ -1428,7 +1142,6 @@ const deserializeAws_restJson1CloneBackendCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -1445,14 +1158,12 @@ const deserializeAws_restJson1CloneBackendCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1463,35 +1174,29 @@ export const deserializeAws_restJson1CreateBackendCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateBackendCommandError(output, context);
   }
-  const contents: CreateBackendCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    Error: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.operation !== undefined && data.operation !== null) {
+  if (data.operation != null) {
     contents.Operation = __expectString(data.operation);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CreateBackendCommandError = async (
@@ -1502,7 +1207,6 @@ const deserializeAws_restJson1CreateBackendCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -1519,14 +1223,12 @@ const deserializeAws_restJson1CreateBackendCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1537,35 +1239,29 @@ export const deserializeAws_restJson1CreateBackendAPICommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateBackendAPICommandError(output, context);
   }
-  const contents: CreateBackendAPICommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    Error: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.operation !== undefined && data.operation !== null) {
+  if (data.operation != null) {
     contents.Operation = __expectString(data.operation);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CreateBackendAPICommandError = async (
@@ -1576,7 +1272,6 @@ const deserializeAws_restJson1CreateBackendAPICommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -1593,14 +1288,12 @@ const deserializeAws_restJson1CreateBackendAPICommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1611,35 +1304,29 @@ export const deserializeAws_restJson1CreateBackendAuthCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateBackendAuthCommandError(output, context);
   }
-  const contents: CreateBackendAuthCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    Error: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.operation !== undefined && data.operation !== null) {
+  if (data.operation != null) {
     contents.Operation = __expectString(data.operation);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CreateBackendAuthCommandError = async (
@@ -1650,7 +1337,6 @@ const deserializeAws_restJson1CreateBackendAuthCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -1667,14 +1353,12 @@ const deserializeAws_restJson1CreateBackendAuthCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1685,27 +1369,23 @@ export const deserializeAws_restJson1CreateBackendConfigCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateBackendConfigCommandError(output, context);
   }
-  const contents: CreateBackendConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    JobId: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CreateBackendConfigCommandError = async (
@@ -1716,7 +1396,6 @@ const deserializeAws_restJson1CreateBackendConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -1733,14 +1412,12 @@ const deserializeAws_restJson1CreateBackendConfigCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1751,27 +1428,23 @@ export const deserializeAws_restJson1CreateBackendStorageCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateBackendStorageCommandError(output, context);
   }
-  const contents: CreateBackendStorageCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    JobId: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CreateBackendStorageCommandError = async (
@@ -1782,7 +1455,6 @@ const deserializeAws_restJson1CreateBackendStorageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -1799,14 +1471,12 @@ const deserializeAws_restJson1CreateBackendStorageCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1817,27 +1487,23 @@ export const deserializeAws_restJson1CreateTokenCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateTokenCommandError(output, context);
   }
-  const contents: CreateTokenCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    ChallengeCode: undefined,
-    SessionId: undefined,
-    Ttl: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.challengeCode !== undefined && data.challengeCode !== null) {
+  if (data.challengeCode != null) {
     contents.ChallengeCode = __expectString(data.challengeCode);
   }
-  if (data.sessionId !== undefined && data.sessionId !== null) {
+  if (data.sessionId != null) {
     contents.SessionId = __expectString(data.sessionId);
   }
-  if (data.ttl !== undefined && data.ttl !== null) {
+  if (data.ttl != null) {
     contents.Ttl = __expectString(data.ttl);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CreateTokenCommandError = async (
@@ -1848,7 +1514,6 @@ const deserializeAws_restJson1CreateTokenCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -1865,14 +1530,12 @@ const deserializeAws_restJson1CreateTokenCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1883,35 +1546,29 @@ export const deserializeAws_restJson1DeleteBackendCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBackendCommandError(output, context);
   }
-  const contents: DeleteBackendCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    Error: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.operation !== undefined && data.operation !== null) {
+  if (data.operation != null) {
     contents.Operation = __expectString(data.operation);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteBackendCommandError = async (
@@ -1922,7 +1579,6 @@ const deserializeAws_restJson1DeleteBackendCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -1939,14 +1595,12 @@ const deserializeAws_restJson1DeleteBackendCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1957,35 +1611,29 @@ export const deserializeAws_restJson1DeleteBackendAPICommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBackendAPICommandError(output, context);
   }
-  const contents: DeleteBackendAPICommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    Error: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.operation !== undefined && data.operation !== null) {
+  if (data.operation != null) {
     contents.Operation = __expectString(data.operation);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteBackendAPICommandError = async (
@@ -1996,7 +1644,6 @@ const deserializeAws_restJson1DeleteBackendAPICommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2013,14 +1660,12 @@ const deserializeAws_restJson1DeleteBackendAPICommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2031,35 +1676,29 @@ export const deserializeAws_restJson1DeleteBackendAuthCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBackendAuthCommandError(output, context);
   }
-  const contents: DeleteBackendAuthCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    Error: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.operation !== undefined && data.operation !== null) {
+  if (data.operation != null) {
     contents.Operation = __expectString(data.operation);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteBackendAuthCommandError = async (
@@ -2070,7 +1709,6 @@ const deserializeAws_restJson1DeleteBackendAuthCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2087,14 +1725,12 @@ const deserializeAws_restJson1DeleteBackendAuthCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2105,27 +1741,23 @@ export const deserializeAws_restJson1DeleteBackendStorageCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBackendStorageCommandError(output, context);
   }
-  const contents: DeleteBackendStorageCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    JobId: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteBackendStorageCommandError = async (
@@ -2136,7 +1768,6 @@ const deserializeAws_restJson1DeleteBackendStorageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2153,14 +1784,12 @@ const deserializeAws_restJson1DeleteBackendStorageCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2171,15 +1800,14 @@ export const deserializeAws_restJson1DeleteTokenCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteTokenCommandError(output, context);
   }
-  const contents: DeleteTokenCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    IsSuccess: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.isSuccess !== undefined && data.isSuccess !== null) {
+  if (data.isSuccess != null) {
     contents.IsSuccess = __expectBoolean(data.isSuccess);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteTokenCommandError = async (
@@ -2190,7 +1818,6 @@ const deserializeAws_restJson1DeleteTokenCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2207,14 +1834,12 @@ const deserializeAws_restJson1DeleteTokenCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2225,35 +1850,29 @@ export const deserializeAws_restJson1GenerateBackendAPIModelsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GenerateBackendAPIModelsCommandError(output, context);
   }
-  const contents: GenerateBackendAPIModelsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    Error: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.operation !== undefined && data.operation !== null) {
+  if (data.operation != null) {
     contents.Operation = __expectString(data.operation);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GenerateBackendAPIModelsCommandError = async (
@@ -2264,7 +1883,6 @@ const deserializeAws_restJson1GenerateBackendAPIModelsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2281,14 +1899,12 @@ const deserializeAws_restJson1GenerateBackendAPIModelsCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2299,39 +1915,32 @@ export const deserializeAws_restJson1GetBackendCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBackendCommandError(output, context);
   }
-  const contents: GetBackendCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AmplifyFeatureFlags: undefined,
-    AmplifyMetaConfig: undefined,
-    AppId: undefined,
-    AppName: undefined,
-    BackendEnvironmentList: undefined,
-    BackendEnvironmentName: undefined,
-    Error: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.amplifyFeatureFlags !== undefined && data.amplifyFeatureFlags !== null) {
+  if (data.amplifyFeatureFlags != null) {
     contents.AmplifyFeatureFlags = __expectString(data.amplifyFeatureFlags);
   }
-  if (data.amplifyMetaConfig !== undefined && data.amplifyMetaConfig !== null) {
+  if (data.amplifyMetaConfig != null) {
     contents.AmplifyMetaConfig = __expectString(data.amplifyMetaConfig);
   }
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.appName !== undefined && data.appName !== null) {
+  if (data.appName != null) {
     contents.AppName = __expectString(data.appName);
   }
-  if (data.backendEnvironmentList !== undefined && data.backendEnvironmentList !== null) {
+  if (data.backendEnvironmentList != null) {
     contents.BackendEnvironmentList = deserializeAws_restJson1ListOf__string(data.backendEnvironmentList, context);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetBackendCommandError = async (
@@ -2342,7 +1951,6 @@ const deserializeAws_restJson1GetBackendCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2359,14 +1967,12 @@ const deserializeAws_restJson1GetBackendCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2377,31 +1983,26 @@ export const deserializeAws_restJson1GetBackendAPICommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBackendAPICommandError(output, context);
   }
-  const contents: GetBackendAPICommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    Error: undefined,
-    ResourceConfig: undefined,
-    ResourceName: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.resourceConfig !== undefined && data.resourceConfig !== null) {
+  if (data.resourceConfig != null) {
     contents.ResourceConfig = deserializeAws_restJson1BackendAPIResourceConfig(data.resourceConfig, context);
   }
-  if (data.resourceName !== undefined && data.resourceName !== null) {
+  if (data.resourceName != null) {
     contents.ResourceName = __expectString(data.resourceName);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetBackendAPICommandError = async (
@@ -2412,7 +2013,6 @@ const deserializeAws_restJson1GetBackendAPICommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2429,14 +2029,12 @@ const deserializeAws_restJson1GetBackendAPICommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2447,19 +2045,17 @@ export const deserializeAws_restJson1GetBackendAPIModelsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBackendAPIModelsCommandError(output, context);
   }
-  const contents: GetBackendAPIModelsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Models: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.models !== undefined && data.models !== null) {
+  if (data.models != null) {
     contents.Models = __expectString(data.models);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetBackendAPIModelsCommandError = async (
@@ -2470,7 +2066,6 @@ const deserializeAws_restJson1GetBackendAPIModelsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2487,14 +2082,12 @@ const deserializeAws_restJson1GetBackendAPIModelsCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2505,31 +2098,26 @@ export const deserializeAws_restJson1GetBackendAuthCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBackendAuthCommandError(output, context);
   }
-  const contents: GetBackendAuthCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    Error: undefined,
-    ResourceConfig: undefined,
-    ResourceName: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.resourceConfig !== undefined && data.resourceConfig !== null) {
+  if (data.resourceConfig != null) {
     contents.ResourceConfig = deserializeAws_restJson1CreateBackendAuthResourceConfig(data.resourceConfig, context);
   }
-  if (data.resourceName !== undefined && data.resourceName !== null) {
+  if (data.resourceName != null) {
     contents.ResourceName = __expectString(data.resourceName);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetBackendAuthCommandError = async (
@@ -2540,7 +2128,6 @@ const deserializeAws_restJson1GetBackendAuthCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2557,14 +2144,12 @@ const deserializeAws_restJson1GetBackendAuthCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2575,43 +2160,35 @@ export const deserializeAws_restJson1GetBackendJobCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBackendJobCommandError(output, context);
   }
-  const contents: GetBackendJobCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    CreateTime: undefined,
-    Error: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Status: undefined,
-    UpdateTime: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.createTime !== undefined && data.createTime !== null) {
+  if (data.createTime != null) {
     contents.CreateTime = __expectString(data.createTime);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.operation !== undefined && data.operation !== null) {
+  if (data.operation != null) {
     contents.Operation = __expectString(data.operation);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  if (data.updateTime !== undefined && data.updateTime !== null) {
+  if (data.updateTime != null) {
     contents.UpdateTime = __expectString(data.updateTime);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetBackendJobCommandError = async (
@@ -2622,7 +2199,6 @@ const deserializeAws_restJson1GetBackendJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2639,14 +2215,12 @@ const deserializeAws_restJson1GetBackendJobCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2657,27 +2231,23 @@ export const deserializeAws_restJson1GetBackendStorageCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBackendStorageCommandError(output, context);
   }
-  const contents: GetBackendStorageCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    ResourceConfig: undefined,
-    ResourceName: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.resourceConfig !== undefined && data.resourceConfig !== null) {
+  if (data.resourceConfig != null) {
     contents.ResourceConfig = deserializeAws_restJson1GetBackendStorageResourceConfig(data.resourceConfig, context);
   }
-  if (data.resourceName !== undefined && data.resourceName !== null) {
+  if (data.resourceName != null) {
     contents.ResourceName = __expectString(data.resourceName);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetBackendStorageCommandError = async (
@@ -2688,7 +2258,6 @@ const deserializeAws_restJson1GetBackendStorageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2705,14 +2274,12 @@ const deserializeAws_restJson1GetBackendStorageCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2723,27 +2290,23 @@ export const deserializeAws_restJson1GetTokenCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetTokenCommandError(output, context);
   }
-  const contents: GetTokenCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    ChallengeCode: undefined,
-    SessionId: undefined,
-    Ttl: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.challengeCode !== undefined && data.challengeCode !== null) {
+  if (data.challengeCode != null) {
     contents.ChallengeCode = __expectString(data.challengeCode);
   }
-  if (data.sessionId !== undefined && data.sessionId !== null) {
+  if (data.sessionId != null) {
     contents.SessionId = __expectString(data.sessionId);
   }
-  if (data.ttl !== undefined && data.ttl !== null) {
+  if (data.ttl != null) {
     contents.Ttl = __expectString(data.ttl);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetTokenCommandError = async (
@@ -2754,7 +2317,6 @@ const deserializeAws_restJson1GetTokenCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2771,14 +2333,12 @@ const deserializeAws_restJson1GetTokenCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2789,35 +2349,29 @@ export const deserializeAws_restJson1ImportBackendAuthCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ImportBackendAuthCommandError(output, context);
   }
-  const contents: ImportBackendAuthCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    Error: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.operation !== undefined && data.operation !== null) {
+  if (data.operation != null) {
     contents.Operation = __expectString(data.operation);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ImportBackendAuthCommandError = async (
@@ -2828,7 +2382,6 @@ const deserializeAws_restJson1ImportBackendAuthCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2845,14 +2398,12 @@ const deserializeAws_restJson1ImportBackendAuthCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2863,27 +2414,23 @@ export const deserializeAws_restJson1ImportBackendStorageCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ImportBackendStorageCommandError(output, context);
   }
-  const contents: ImportBackendStorageCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    JobId: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ImportBackendStorageCommandError = async (
@@ -2894,7 +2441,6 @@ const deserializeAws_restJson1ImportBackendStorageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2911,14 +2457,12 @@ const deserializeAws_restJson1ImportBackendStorageCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2929,19 +2473,17 @@ export const deserializeAws_restJson1ListBackendJobsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListBackendJobsCommandError(output, context);
   }
-  const contents: ListBackendJobsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Jobs: undefined,
-    NextToken: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobs !== undefined && data.jobs !== null) {
+  if (data.jobs != null) {
     contents.Jobs = deserializeAws_restJson1ListOfBackendJobRespObj(data.jobs, context);
   }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListBackendJobsCommandError = async (
@@ -2952,7 +2494,6 @@ const deserializeAws_restJson1ListBackendJobsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -2969,14 +2510,12 @@ const deserializeAws_restJson1ListBackendJobsCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2987,19 +2526,17 @@ export const deserializeAws_restJson1ListS3BucketsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListS3BucketsCommandError(output, context);
   }
-  const contents: ListS3BucketsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Buckets: undefined,
-    NextToken: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.buckets !== undefined && data.buckets !== null) {
+  if (data.buckets != null) {
     contents.Buckets = deserializeAws_restJson1ListOfS3BucketInfo(data.buckets, context);
   }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListS3BucketsCommandError = async (
@@ -3010,7 +2547,6 @@ const deserializeAws_restJson1ListS3BucketsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3027,14 +2563,12 @@ const deserializeAws_restJson1ListS3BucketsCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -3045,31 +2579,26 @@ export const deserializeAws_restJson1RemoveAllBackendsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RemoveAllBackendsCommandError(output, context);
   }
-  const contents: RemoveAllBackendsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    Error: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.operation !== undefined && data.operation !== null) {
+  if (data.operation != null) {
     contents.Operation = __expectString(data.operation);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1RemoveAllBackendsCommandError = async (
@@ -3080,7 +2609,6 @@ const deserializeAws_restJson1RemoveAllBackendsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3097,14 +2625,12 @@ const deserializeAws_restJson1RemoveAllBackendsCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -3115,15 +2641,14 @@ export const deserializeAws_restJson1RemoveBackendConfigCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RemoveBackendConfigCommandError(output, context);
   }
-  const contents: RemoveBackendConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Error: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1RemoveBackendConfigCommandError = async (
@@ -3134,7 +2659,6 @@ const deserializeAws_restJson1RemoveBackendConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3151,14 +2675,12 @@ const deserializeAws_restJson1RemoveBackendConfigCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -3169,35 +2691,29 @@ export const deserializeAws_restJson1UpdateBackendAPICommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateBackendAPICommandError(output, context);
   }
-  const contents: UpdateBackendAPICommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    Error: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.operation !== undefined && data.operation !== null) {
+  if (data.operation != null) {
     contents.Operation = __expectString(data.operation);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1UpdateBackendAPICommandError = async (
@@ -3208,7 +2724,6 @@ const deserializeAws_restJson1UpdateBackendAPICommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3225,14 +2740,12 @@ const deserializeAws_restJson1UpdateBackendAPICommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -3243,35 +2756,29 @@ export const deserializeAws_restJson1UpdateBackendAuthCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateBackendAuthCommandError(output, context);
   }
-  const contents: UpdateBackendAuthCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    Error: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.operation !== undefined && data.operation !== null) {
+  if (data.operation != null) {
     contents.Operation = __expectString(data.operation);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1UpdateBackendAuthCommandError = async (
@@ -3282,7 +2789,6 @@ const deserializeAws_restJson1UpdateBackendAuthCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3299,14 +2805,12 @@ const deserializeAws_restJson1UpdateBackendAuthCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -3317,27 +2821,23 @@ export const deserializeAws_restJson1UpdateBackendConfigCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateBackendConfigCommandError(output, context);
   }
-  const contents: UpdateBackendConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendManagerAppId: undefined,
-    Error: undefined,
-    LoginAuthConfig: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendManagerAppId !== undefined && data.backendManagerAppId !== null) {
+  if (data.backendManagerAppId != null) {
     contents.BackendManagerAppId = __expectString(data.backendManagerAppId);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.loginAuthConfig !== undefined && data.loginAuthConfig !== null) {
+  if (data.loginAuthConfig != null) {
     contents.LoginAuthConfig = deserializeAws_restJson1LoginAuthConfigReqObj(data.loginAuthConfig, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1UpdateBackendConfigCommandError = async (
@@ -3348,7 +2848,6 @@ const deserializeAws_restJson1UpdateBackendConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3365,14 +2864,12 @@ const deserializeAws_restJson1UpdateBackendConfigCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -3383,43 +2880,35 @@ export const deserializeAws_restJson1UpdateBackendJobCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateBackendJobCommandError(output, context);
   }
-  const contents: UpdateBackendJobCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    CreateTime: undefined,
-    Error: undefined,
-    JobId: undefined,
-    Operation: undefined,
-    Status: undefined,
-    UpdateTime: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.createTime !== undefined && data.createTime !== null) {
+  if (data.createTime != null) {
     contents.CreateTime = __expectString(data.createTime);
   }
-  if (data.error !== undefined && data.error !== null) {
+  if (data.error != null) {
     contents.Error = __expectString(data.error);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.operation !== undefined && data.operation !== null) {
+  if (data.operation != null) {
     contents.Operation = __expectString(data.operation);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  if (data.updateTime !== undefined && data.updateTime !== null) {
+  if (data.updateTime != null) {
     contents.UpdateTime = __expectString(data.updateTime);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1UpdateBackendJobCommandError = async (
@@ -3430,7 +2919,6 @@ const deserializeAws_restJson1UpdateBackendJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3447,14 +2935,12 @@ const deserializeAws_restJson1UpdateBackendJobCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -3465,27 +2951,23 @@ export const deserializeAws_restJson1UpdateBackendStorageCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateBackendStorageCommandError(output, context);
   }
-  const contents: UpdateBackendStorageCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AppId: undefined,
-    BackendEnvironmentName: undefined,
-    JobId: undefined,
-    Status: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId !== undefined && data.appId !== null) {
+  if (data.appId != null) {
     contents.AppId = __expectString(data.appId);
   }
-  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+  if (data.backendEnvironmentName != null) {
     contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
-  if (data.jobId !== undefined && data.jobId !== null) {
+  if (data.jobId != null) {
     contents.JobId = __expectString(data.jobId);
   }
-  if (data.status !== undefined && data.status !== null) {
+  if (data.status != null) {
     contents.Status = __expectString(data.status);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1UpdateBackendStorageCommandError = async (
@@ -3496,7 +2978,6 @@ const deserializeAws_restJson1UpdateBackendStorageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3513,24 +2994,23 @@ const deserializeAws_restJson1UpdateBackendStorageCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1BadRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadRequestException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.Message = __expectString(data.message);
   }
   const exception = new BadRequestException({
@@ -3544,9 +3024,9 @@ const deserializeAws_restJson1GatewayTimeoutExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<GatewayTimeoutException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.Message = __expectString(data.message);
   }
   const exception = new GatewayTimeoutException({
@@ -3560,12 +3040,12 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.Message = __expectString(data.message);
   }
-  if (data.resourceType !== undefined && data.resourceType !== null) {
+  if (data.resourceType != null) {
     contents.ResourceType = __expectString(data.resourceType);
   }
   const exception = new NotFoundException({
@@ -3579,12 +3059,12 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.limitType !== undefined && data.limitType !== null) {
+  if (data.limitType != null) {
     contents.LimitType = __expectString(data.limitType);
   }
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.Message = __expectString(data.message);
   }
   const exception = new TooManyRequestsException({
@@ -3840,9 +3320,6 @@ const serializeAws_restJson1ListOf__string = (input: string[], context: __SerdeC
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -3854,9 +3331,6 @@ const serializeAws_restJson1ListOfAdditionalConstraintsElement = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -3868,9 +3342,6 @@ const serializeAws_restJson1ListOfAuthenticatedElement = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -3879,9 +3350,6 @@ const serializeAws_restJson1ListOfBackendAPIAuthType = (input: BackendAPIAuthTyp
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1BackendAPIAuthType(entry, context);
     });
 };
@@ -3893,9 +3361,6 @@ const serializeAws_restJson1ListOfMfaTypesElement = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -3907,9 +3372,6 @@ const serializeAws_restJson1ListOfOAuthScopesElement = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -3921,9 +3383,6 @@ const serializeAws_restJson1ListOfRequiredSignUpAttributesElement = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -3935,9 +3394,6 @@ const serializeAws_restJson1ListOfUnAuthenticatedElement = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };

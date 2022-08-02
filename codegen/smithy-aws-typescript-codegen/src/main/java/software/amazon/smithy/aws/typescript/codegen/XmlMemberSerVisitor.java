@@ -121,7 +121,7 @@ final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {
         TypeScriptWriter writer = getContext().getWriter();
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
         writer.addImport("XmlText", "__XmlText", "@aws-sdk/xml-builder");
-        return "new __XmlNode(\"" + nodeName + "\").addChildNode(new __XmlText(" + dataSource + "))";
+        return "__XmlNode.of(\"" + nodeName + "\", " + dataSource + ")";
     }
 
     @Override

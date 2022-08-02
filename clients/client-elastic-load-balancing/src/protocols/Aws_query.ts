@@ -11,6 +11,7 @@ import {
   parseRfc3339DateTime as __parseRfc3339DateTime,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -721,7 +722,6 @@ const deserializeAws_queryAddTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -735,14 +735,12 @@ const deserializeAws_queryAddTagsCommandError = async (
       throw await deserializeAws_queryTooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -774,7 +772,6 @@ const deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -788,14 +785,12 @@ const deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError = async 
       throw await deserializeAws_queryInvalidSecurityGroupExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -824,7 +819,6 @@ const deserializeAws_queryAttachLoadBalancerToSubnetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -841,14 +835,12 @@ const deserializeAws_queryAttachLoadBalancerToSubnetsCommandError = async (
       throw await deserializeAws_querySubnetNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -877,7 +869,6 @@ const deserializeAws_queryConfigureHealthCheckCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -885,14 +876,12 @@ const deserializeAws_queryConfigureHealthCheckCommandError = async (
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -924,7 +913,6 @@ const deserializeAws_queryCreateAppCookieStickinessPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -941,14 +929,12 @@ const deserializeAws_queryCreateAppCookieStickinessPolicyCommandError = async (
       throw await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -980,7 +966,6 @@ const deserializeAws_queryCreateLBCookieStickinessPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -997,14 +982,12 @@ const deserializeAws_queryCreateLBCookieStickinessPolicyCommandError = async (
       throw await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1033,7 +1016,6 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateNotFoundException":
@@ -1074,14 +1056,12 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
       throw await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1110,7 +1090,6 @@ const deserializeAws_queryCreateLoadBalancerListenersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1130,14 +1109,12 @@ const deserializeAws_queryCreateLoadBalancerListenersCommandError = async (
       throw await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1166,7 +1143,6 @@ const deserializeAws_queryCreateLoadBalancerPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1186,14 +1162,12 @@ const deserializeAws_queryCreateLoadBalancerPolicyCommandError = async (
       throw await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1222,20 +1196,14 @@ const deserializeAws_queryDeleteLoadBalancerCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
-      });
-      throw __decorateServiceException(response, parsedBody.Error);
-  }
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
 };
 
 export const deserializeAws_queryDeleteLoadBalancerListenersCommand = async (
@@ -1263,7 +1231,6 @@ const deserializeAws_queryDeleteLoadBalancerListenersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1271,14 +1238,12 @@ const deserializeAws_queryDeleteLoadBalancerListenersCommandError = async (
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1307,7 +1272,6 @@ const deserializeAws_queryDeleteLoadBalancerPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1318,14 +1282,12 @@ const deserializeAws_queryDeleteLoadBalancerPolicyCommandError = async (
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1354,7 +1316,6 @@ const deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1365,14 +1326,12 @@ const deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError = asyn
       throw await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1401,20 +1360,14 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
-      });
-      throw __decorateServiceException(response, parsedBody.Error);
-  }
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
 };
 
 export const deserializeAws_queryDescribeInstanceHealthCommand = async (
@@ -1442,7 +1395,6 @@ const deserializeAws_queryDescribeInstanceHealthCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1453,14 +1405,12 @@ const deserializeAws_queryDescribeInstanceHealthCommandError = async (
       throw await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1492,7 +1442,6 @@ const deserializeAws_queryDescribeLoadBalancerAttributesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1503,14 +1452,12 @@ const deserializeAws_queryDescribeLoadBalancerAttributesCommandError = async (
       throw await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1539,7 +1486,6 @@ const deserializeAws_queryDescribeLoadBalancerPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1550,14 +1496,12 @@ const deserializeAws_queryDescribeLoadBalancerPoliciesCommandError = async (
       throw await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1589,7 +1533,6 @@ const deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "PolicyTypeNotFoundException":
@@ -1597,14 +1540,12 @@ const deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError = async (
       throw await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1633,7 +1574,6 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1644,14 +1584,12 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
       throw await deserializeAws_queryDependencyThrottleExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1680,7 +1618,6 @@ const deserializeAws_queryDescribeTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1688,14 +1625,12 @@ const deserializeAws_queryDescribeTagsCommandError = async (
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1724,7 +1659,6 @@ const deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1735,14 +1669,12 @@ const deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError = async (
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1774,7 +1706,6 @@ const deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError = 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1785,14 +1716,12 @@ const deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError = 
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1821,7 +1750,6 @@ const deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1829,14 +1757,12 @@ const deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommandError = a
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1865,7 +1791,6 @@ const deserializeAws_queryModifyLoadBalancerAttributesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1879,14 +1804,12 @@ const deserializeAws_queryModifyLoadBalancerAttributesCommandError = async (
       throw await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1915,7 +1838,6 @@ const deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1926,14 +1848,12 @@ const deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError = async 
       throw await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1962,7 +1882,6 @@ const deserializeAws_queryRemoveTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1970,14 +1889,12 @@ const deserializeAws_queryRemoveTagsCommandError = async (
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -2009,7 +1926,6 @@ const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError = as
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2029,14 +1945,12 @@ const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError = as
       throw await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -2068,7 +1982,6 @@ const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError = 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2082,14 +1995,12 @@ const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError = 
       throw await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -2121,7 +2032,6 @@ const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2138,14 +2048,12 @@ const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError = async 
       throw await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -2437,16 +2345,16 @@ const deserializeAws_queryUnsupportedProtocolExceptionResponse = async (
 
 const serializeAws_queryAccessLog = (input: AccessLog, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled !== undefined && input.Enabled !== null) {
+  if (input.Enabled != null) {
     entries["Enabled"] = input.Enabled;
   }
-  if (input.S3BucketName !== undefined && input.S3BucketName !== null) {
+  if (input.S3BucketName != null) {
     entries["S3BucketName"] = input.S3BucketName;
   }
-  if (input.EmitInterval !== undefined && input.EmitInterval !== null) {
+  if (input.EmitInterval != null) {
     entries["EmitInterval"] = input.EmitInterval;
   }
-  if (input.S3BucketPrefix !== undefined && input.S3BucketPrefix !== null) {
+  if (input.S3BucketPrefix != null) {
     entries["S3BucketPrefix"] = input.S3BucketPrefix;
   }
   return entries;
@@ -2457,10 +2365,10 @@ const serializeAws_queryAddAvailabilityZonesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.AvailabilityZones !== undefined && input.AvailabilityZones !== null) {
+  if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
@@ -2472,10 +2380,10 @@ const serializeAws_queryAddAvailabilityZonesInput = (
 
 const serializeAws_queryAdditionalAttribute = (input: AdditionalAttribute, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined && input.Key !== null) {
+  if (input.Key != null) {
     entries["Key"] = input.Key;
   }
-  if (input.Value !== undefined && input.Value !== null) {
+  if (input.Value != null) {
     entries["Value"] = input.Value;
   }
   return entries;
@@ -2499,14 +2407,14 @@ const serializeAws_queryAdditionalAttributes = (input: AdditionalAttribute[], co
 
 const serializeAws_queryAddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames !== undefined && input.LoadBalancerNames !== null) {
+  if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -2521,10 +2429,10 @@ const serializeAws_queryApplySecurityGroupsToLoadBalancerInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.SecurityGroups !== undefined && input.SecurityGroups !== null) {
+  if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
@@ -2539,10 +2447,10 @@ const serializeAws_queryAttachLoadBalancerToSubnetsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Subnets !== undefined && input.Subnets !== null) {
+  if (input.Subnets != null) {
     const memberEntries = serializeAws_querySubnets(input.Subnets, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
@@ -2570,10 +2478,10 @@ const serializeAws_queryConfigureHealthCheckInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.HealthCheck !== undefined && input.HealthCheck !== null) {
+  if (input.HealthCheck != null) {
     const memberEntries = serializeAws_queryHealthCheck(input.HealthCheck, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HealthCheck.${key}`;
@@ -2585,10 +2493,10 @@ const serializeAws_queryConfigureHealthCheckInput = (
 
 const serializeAws_queryConnectionDraining = (input: ConnectionDraining, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled !== undefined && input.Enabled !== null) {
+  if (input.Enabled != null) {
     entries["Enabled"] = input.Enabled;
   }
-  if (input.Timeout !== undefined && input.Timeout !== null) {
+  if (input.Timeout != null) {
     entries["Timeout"] = input.Timeout;
   }
   return entries;
@@ -2596,7 +2504,7 @@ const serializeAws_queryConnectionDraining = (input: ConnectionDraining, context
 
 const serializeAws_queryConnectionSettings = (input: ConnectionSettings, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IdleTimeout !== undefined && input.IdleTimeout !== null) {
+  if (input.IdleTimeout != null) {
     entries["IdleTimeout"] = input.IdleTimeout;
   }
   return entries;
@@ -2604,41 +2512,41 @@ const serializeAws_queryConnectionSettings = (input: ConnectionSettings, context
 
 const serializeAws_queryCreateAccessPointInput = (input: CreateAccessPointInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Listeners !== undefined && input.Listeners !== null) {
+  if (input.Listeners != null) {
     const memberEntries = serializeAws_queryListeners(input.Listeners, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Listeners.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AvailabilityZones !== undefined && input.AvailabilityZones !== null) {
+  if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Subnets !== undefined && input.Subnets !== null) {
+  if (input.Subnets != null) {
     const memberEntries = serializeAws_querySubnets(input.Subnets, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SecurityGroups !== undefined && input.SecurityGroups !== null) {
+  if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Scheme !== undefined && input.Scheme !== null) {
+  if (input.Scheme != null) {
     entries["Scheme"] = input.Scheme;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -2653,13 +2561,13 @@ const serializeAws_queryCreateAppCookieStickinessPolicyInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.CookieName !== undefined && input.CookieName !== null) {
+  if (input.CookieName != null) {
     entries["CookieName"] = input.CookieName;
   }
   return entries;
@@ -2670,13 +2578,13 @@ const serializeAws_queryCreateLBCookieStickinessPolicyInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.CookieExpirationPeriod !== undefined && input.CookieExpirationPeriod !== null) {
+  if (input.CookieExpirationPeriod != null) {
     entries["CookieExpirationPeriod"] = input.CookieExpirationPeriod;
   }
   return entries;
@@ -2687,10 +2595,10 @@ const serializeAws_queryCreateLoadBalancerListenerInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Listeners !== undefined && input.Listeners !== null) {
+  if (input.Listeners != null) {
     const memberEntries = serializeAws_queryListeners(input.Listeners, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Listeners.${key}`;
@@ -2705,16 +2613,16 @@ const serializeAws_queryCreateLoadBalancerPolicyInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.PolicyTypeName !== undefined && input.PolicyTypeName !== null) {
+  if (input.PolicyTypeName != null) {
     entries["PolicyTypeName"] = input.PolicyTypeName;
   }
-  if (input.PolicyAttributes !== undefined && input.PolicyAttributes !== null) {
+  if (input.PolicyAttributes != null) {
     const memberEntries = serializeAws_queryPolicyAttributes(input.PolicyAttributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyAttributes.${key}`;
@@ -2726,7 +2634,7 @@ const serializeAws_queryCreateLoadBalancerPolicyInput = (
 
 const serializeAws_queryCrossZoneLoadBalancing = (input: CrossZoneLoadBalancing, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled !== undefined && input.Enabled !== null) {
+  if (input.Enabled != null) {
     entries["Enabled"] = input.Enabled;
   }
   return entries;
@@ -2734,7 +2642,7 @@ const serializeAws_queryCrossZoneLoadBalancing = (input: CrossZoneLoadBalancing,
 
 const serializeAws_queryDeleteAccessPointInput = (input: DeleteAccessPointInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
   return entries;
@@ -2745,10 +2653,10 @@ const serializeAws_queryDeleteLoadBalancerListenerInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.LoadBalancerPorts !== undefined && input.LoadBalancerPorts !== null) {
+  if (input.LoadBalancerPorts != null) {
     const memberEntries = serializeAws_queryPorts(input.LoadBalancerPorts, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerPorts.${key}`;
@@ -2763,10 +2671,10 @@ const serializeAws_queryDeleteLoadBalancerPolicyInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -2774,10 +2682,10 @@ const serializeAws_queryDeleteLoadBalancerPolicyInput = (
 
 const serializeAws_queryDeregisterEndPointsInput = (input: DeregisterEndPointsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Instances !== undefined && input.Instances !== null) {
+  if (input.Instances != null) {
     const memberEntries = serializeAws_queryInstances(input.Instances, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
@@ -2792,17 +2700,17 @@ const serializeAws_queryDescribeAccessPointsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames !== undefined && input.LoadBalancerNames !== null) {
+  if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.PageSize !== undefined && input.PageSize !== null) {
+  if (input.PageSize != null) {
     entries["PageSize"] = input.PageSize;
   }
   return entries;
@@ -2813,10 +2721,10 @@ const serializeAws_queryDescribeAccountLimitsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.PageSize !== undefined && input.PageSize !== null) {
+  if (input.PageSize != null) {
     entries["PageSize"] = input.PageSize;
   }
   return entries;
@@ -2827,10 +2735,10 @@ const serializeAws_queryDescribeEndPointStateInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Instances !== undefined && input.Instances !== null) {
+  if (input.Instances != null) {
     const memberEntries = serializeAws_queryInstances(input.Instances, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
@@ -2845,7 +2753,7 @@ const serializeAws_queryDescribeLoadBalancerAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
   return entries;
@@ -2856,10 +2764,10 @@ const serializeAws_queryDescribeLoadBalancerPoliciesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.PolicyNames !== undefined && input.PolicyNames !== null) {
+  if (input.PolicyNames != null) {
     const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
@@ -2874,7 +2782,7 @@ const serializeAws_queryDescribeLoadBalancerPolicyTypesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyTypeNames !== undefined && input.PolicyTypeNames !== null) {
+  if (input.PolicyTypeNames != null) {
     const memberEntries = serializeAws_queryPolicyTypeNames(input.PolicyTypeNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyTypeNames.${key}`;
@@ -2886,7 +2794,7 @@ const serializeAws_queryDescribeLoadBalancerPolicyTypesInput = (
 
 const serializeAws_queryDescribeTagsInput = (input: DescribeTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames !== undefined && input.LoadBalancerNames !== null) {
+  if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNamesMax20(input.LoadBalancerNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
@@ -2901,10 +2809,10 @@ const serializeAws_queryDetachLoadBalancerFromSubnetsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Subnets !== undefined && input.Subnets !== null) {
+  if (input.Subnets != null) {
     const memberEntries = serializeAws_querySubnets(input.Subnets, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
@@ -2916,19 +2824,19 @@ const serializeAws_queryDetachLoadBalancerFromSubnetsInput = (
 
 const serializeAws_queryHealthCheck = (input: HealthCheck, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Target !== undefined && input.Target !== null) {
+  if (input.Target != null) {
     entries["Target"] = input.Target;
   }
-  if (input.Interval !== undefined && input.Interval !== null) {
+  if (input.Interval != null) {
     entries["Interval"] = input.Interval;
   }
-  if (input.Timeout !== undefined && input.Timeout !== null) {
+  if (input.Timeout != null) {
     entries["Timeout"] = input.Timeout;
   }
-  if (input.UnhealthyThreshold !== undefined && input.UnhealthyThreshold !== null) {
+  if (input.UnhealthyThreshold != null) {
     entries["UnhealthyThreshold"] = input.UnhealthyThreshold;
   }
-  if (input.HealthyThreshold !== undefined && input.HealthyThreshold !== null) {
+  if (input.HealthyThreshold != null) {
     entries["HealthyThreshold"] = input.HealthyThreshold;
   }
   return entries;
@@ -2936,7 +2844,7 @@ const serializeAws_queryHealthCheck = (input: HealthCheck, context: __SerdeConte
 
 const serializeAws_queryInstance = (input: Instance, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InstanceId !== undefined && input.InstanceId !== null) {
+  if (input.InstanceId != null) {
     entries["InstanceId"] = input.InstanceId;
   }
   return entries;
@@ -2960,19 +2868,19 @@ const serializeAws_queryInstances = (input: Instance[], context: __SerdeContext)
 
 const serializeAws_queryListener = (input: Listener, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Protocol !== undefined && input.Protocol !== null) {
+  if (input.Protocol != null) {
     entries["Protocol"] = input.Protocol;
   }
-  if (input.LoadBalancerPort !== undefined && input.LoadBalancerPort !== null) {
+  if (input.LoadBalancerPort != null) {
     entries["LoadBalancerPort"] = input.LoadBalancerPort;
   }
-  if (input.InstanceProtocol !== undefined && input.InstanceProtocol !== null) {
+  if (input.InstanceProtocol != null) {
     entries["InstanceProtocol"] = input.InstanceProtocol;
   }
-  if (input.InstancePort !== undefined && input.InstancePort !== null) {
+  if (input.InstancePort != null) {
     entries["InstancePort"] = input.InstancePort;
   }
-  if (input.SSLCertificateId !== undefined && input.SSLCertificateId !== null) {
+  if (input.SSLCertificateId != null) {
     entries["SSLCertificateId"] = input.SSLCertificateId;
   }
   return entries;
@@ -2996,35 +2904,35 @@ const serializeAws_queryListeners = (input: Listener[], context: __SerdeContext)
 
 const serializeAws_queryLoadBalancerAttributes = (input: LoadBalancerAttributes, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CrossZoneLoadBalancing !== undefined && input.CrossZoneLoadBalancing !== null) {
+  if (input.CrossZoneLoadBalancing != null) {
     const memberEntries = serializeAws_queryCrossZoneLoadBalancing(input.CrossZoneLoadBalancing, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CrossZoneLoadBalancing.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AccessLog !== undefined && input.AccessLog !== null) {
+  if (input.AccessLog != null) {
     const memberEntries = serializeAws_queryAccessLog(input.AccessLog, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AccessLog.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ConnectionDraining !== undefined && input.ConnectionDraining !== null) {
+  if (input.ConnectionDraining != null) {
     const memberEntries = serializeAws_queryConnectionDraining(input.ConnectionDraining, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionDraining.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ConnectionSettings !== undefined && input.ConnectionSettings !== null) {
+  if (input.ConnectionSettings != null) {
     const memberEntries = serializeAws_queryConnectionSettings(input.ConnectionSettings, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionSettings.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AdditionalAttributes !== undefined && input.AdditionalAttributes !== null) {
+  if (input.AdditionalAttributes != null) {
     const memberEntries = serializeAws_queryAdditionalAttributes(input.AdditionalAttributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AdditionalAttributes.${key}`;
@@ -3065,10 +2973,10 @@ const serializeAws_queryModifyLoadBalancerAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.LoadBalancerAttributes !== undefined && input.LoadBalancerAttributes !== null) {
+  if (input.LoadBalancerAttributes != null) {
     const memberEntries = serializeAws_queryLoadBalancerAttributes(input.LoadBalancerAttributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerAttributes.${key}`;
@@ -3080,10 +2988,10 @@ const serializeAws_queryModifyLoadBalancerAttributesInput = (
 
 const serializeAws_queryPolicyAttribute = (input: PolicyAttribute, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AttributeName !== undefined && input.AttributeName !== null) {
+  if (input.AttributeName != null) {
     entries["AttributeName"] = input.AttributeName;
   }
-  if (input.AttributeValue !== undefined && input.AttributeValue !== null) {
+  if (input.AttributeValue != null) {
     entries["AttributeValue"] = input.AttributeValue;
   }
   return entries;
@@ -3146,10 +3054,10 @@ const serializeAws_queryPorts = (input: number[], context: __SerdeContext): any 
 
 const serializeAws_queryRegisterEndPointsInput = (input: RegisterEndPointsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Instances !== undefined && input.Instances !== null) {
+  if (input.Instances != null) {
     const memberEntries = serializeAws_queryInstances(input.Instances, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
@@ -3164,10 +3072,10 @@ const serializeAws_queryRemoveAvailabilityZonesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.AvailabilityZones !== undefined && input.AvailabilityZones !== null) {
+  if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
@@ -3179,14 +3087,14 @@ const serializeAws_queryRemoveAvailabilityZonesInput = (
 
 const serializeAws_queryRemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames !== undefined && input.LoadBalancerNames !== null) {
+  if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagKeyList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -3214,13 +3122,13 @@ const serializeAws_querySetLoadBalancerListenerSSLCertificateInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.LoadBalancerPort !== undefined && input.LoadBalancerPort !== null) {
+  if (input.LoadBalancerPort != null) {
     entries["LoadBalancerPort"] = input.LoadBalancerPort;
   }
-  if (input.SSLCertificateId !== undefined && input.SSLCertificateId !== null) {
+  if (input.SSLCertificateId != null) {
     entries["SSLCertificateId"] = input.SSLCertificateId;
   }
   return entries;
@@ -3231,13 +3139,13 @@ const serializeAws_querySetLoadBalancerPoliciesForBackendServerInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.InstancePort !== undefined && input.InstancePort !== null) {
+  if (input.InstancePort != null) {
     entries["InstancePort"] = input.InstancePort;
   }
-  if (input.PolicyNames !== undefined && input.PolicyNames !== null) {
+  if (input.PolicyNames != null) {
     const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
@@ -3252,13 +3160,13 @@ const serializeAws_querySetLoadBalancerPoliciesOfListenerInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.LoadBalancerPort !== undefined && input.LoadBalancerPort !== null) {
+  if (input.LoadBalancerPort != null) {
     entries["LoadBalancerPort"] = input.LoadBalancerPort;
   }
-  if (input.PolicyNames !== undefined && input.PolicyNames !== null) {
+  if (input.PolicyNames != null) {
     const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
@@ -3283,10 +3191,10 @@ const serializeAws_querySubnets = (input: string[], context: __SerdeContext): an
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined && input.Key !== null) {
+  if (input.Key != null) {
     entries["Key"] = input.Key;
   }
-  if (input.Value !== undefined && input.Value !== null) {
+  if (input.Value != null) {
     entries["Value"] = input.Value;
   }
   return entries;
@@ -3310,7 +3218,7 @@ const serializeAws_queryTagKeyList = (input: TagKeyOnly[], context: __SerdeConte
 
 const serializeAws_queryTagKeyOnly = (input: TagKeyOnly, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined && input.Key !== null) {
+  if (input.Key != null) {
     entries["Key"] = input.Key;
   }
   return entries;
@@ -3403,9 +3311,6 @@ const deserializeAws_queryAdditionalAttributes = (output: any, context: __SerdeC
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryAdditionalAttribute(entry, context);
     });
 };
@@ -3422,9 +3327,6 @@ const deserializeAws_queryAppCookieStickinessPolicies = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryAppCookieStickinessPolicy(entry, context);
     });
 };
@@ -3483,9 +3385,6 @@ const deserializeAws_queryAvailabilityZones = (output: any, context: __SerdeCont
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -3519,9 +3418,6 @@ const deserializeAws_queryBackendServerDescriptions = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryBackendServerDescription(entry, context);
     });
 };
@@ -3916,9 +3812,6 @@ const deserializeAws_queryInstances = (output: any, context: __SerdeContext): In
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryInstance(entry, context);
     });
 };
@@ -3949,9 +3842,6 @@ const deserializeAws_queryInstanceStates = (output: any, context: __SerdeContext
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryInstanceState(entry, context);
     });
 };
@@ -4022,9 +3912,6 @@ const deserializeAws_queryLBCookieStickinessPolicies = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryLBCookieStickinessPolicy(entry, context);
     });
 };
@@ -4064,9 +3951,6 @@ const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limit
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryLimit(entry, context);
     });
 };
@@ -4120,9 +4004,6 @@ const deserializeAws_queryListenerDescriptions = (output: any, context: __SerdeC
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryListenerDescription(entry, context);
     });
 };
@@ -4291,9 +4172,6 @@ const deserializeAws_queryLoadBalancerDescriptions = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryLoadBalancerDescription(entry, context);
     });
 };
@@ -4394,9 +4272,6 @@ const deserializeAws_queryPolicyAttributeDescriptions = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryPolicyAttributeDescription(entry, context);
     });
 };
@@ -4437,9 +4312,6 @@ const deserializeAws_queryPolicyAttributeTypeDescriptions = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryPolicyAttributeTypeDescription(entry, context);
     });
 };
@@ -4474,9 +4346,6 @@ const deserializeAws_queryPolicyDescriptions = (output: any, context: __SerdeCon
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryPolicyDescription(entry, context);
     });
 };
@@ -4485,9 +4354,6 @@ const deserializeAws_queryPolicyNames = (output: any, context: __SerdeContext): 
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -4532,9 +4398,6 @@ const deserializeAws_queryPolicyTypeDescriptions = (output: any, context: __Serd
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryPolicyTypeDescription(entry, context);
     });
 };
@@ -4591,9 +4454,6 @@ const deserializeAws_querySecurityGroups = (output: any, context: __SerdeContext
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -4650,9 +4510,6 @@ const deserializeAws_querySubnets = (output: any, context: __SerdeContext): stri
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -4691,9 +4548,6 @@ const deserializeAws_queryTagDescriptions = (output: any, context: __SerdeContex
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryTagDescription(entry, context);
     });
 };
@@ -4702,9 +4556,6 @@ const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryTag(entry, context);
     });
 };

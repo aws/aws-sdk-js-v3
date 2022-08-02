@@ -6,6 +6,8 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  map as __map,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -92,19 +94,17 @@ export const deserializeAws_restJson1GetPersonalizedRankingCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetPersonalizedRankingCommandError(output, context);
   }
-  const contents: GetPersonalizedRankingCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    personalizedRanking: undefined,
-    recommendationId: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.personalizedRanking !== undefined && data.personalizedRanking !== null) {
+  if (data.personalizedRanking != null) {
     contents.personalizedRanking = deserializeAws_restJson1ItemList(data.personalizedRanking, context);
   }
-  if (data.recommendationId !== undefined && data.recommendationId !== null) {
+  if (data.recommendationId != null) {
     contents.recommendationId = __expectString(data.recommendationId);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetPersonalizedRankingCommandError = async (
@@ -115,7 +115,6 @@ const deserializeAws_restJson1GetPersonalizedRankingCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -126,14 +125,12 @@ const deserializeAws_restJson1GetPersonalizedRankingCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -144,19 +141,17 @@ export const deserializeAws_restJson1GetRecommendationsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetRecommendationsCommandError(output, context);
   }
-  const contents: GetRecommendationsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    itemList: undefined,
-    recommendationId: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.itemList !== undefined && data.itemList !== null) {
+  if (data.itemList != null) {
     contents.itemList = deserializeAws_restJson1ItemList(data.itemList, context);
   }
-  if (data.recommendationId !== undefined && data.recommendationId !== null) {
+  if (data.recommendationId != null) {
     contents.recommendationId = __expectString(data.recommendationId);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetRecommendationsCommandError = async (
@@ -167,7 +162,6 @@ const deserializeAws_restJson1GetRecommendationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -178,24 +172,23 @@ const deserializeAws_restJson1GetRecommendationsCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1InvalidInputExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new InvalidInputException({
@@ -209,9 +202,9 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ResourceNotFoundException({
@@ -249,9 +242,6 @@ const serializeAws_restJson1InputList = (input: string[], context: __SerdeContex
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };

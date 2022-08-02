@@ -8,9 +8,12 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  map as __map,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc7231DateTime as __parseRfc7231DateTime,
+  resolvedPath as __resolvedPath,
   strictParseLong as __strictParseLong,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -39,21 +42,7 @@ export const serializeAws_restJson1DeleteObjectCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Path+}";
-  if (input.Path !== undefined) {
-    const labelValue: string = input.Path;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Path.");
-    }
-    resolvedPath = resolvedPath.replace(
-      "{Path+}",
-      labelValue
-        .split("/")
-        .map((segment) => __extendedEncodeURIComponent(segment))
-        .join("/")
-    );
-  } else {
-    throw new Error("No value provided for input HTTP label: Path.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Path", () => input.Path!, "{Path+}", true);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -73,21 +62,7 @@ export const serializeAws_restJson1DescribeObjectCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Path+}";
-  if (input.Path !== undefined) {
-    const labelValue: string = input.Path;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Path.");
-    }
-    resolvedPath = resolvedPath.replace(
-      "{Path+}",
-      labelValue
-        .split("/")
-        .map((segment) => __extendedEncodeURIComponent(segment))
-        .join("/")
-    );
-  } else {
-    throw new Error("No value provided for input HTTP label: Path.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Path", () => input.Path!, "{Path+}", true);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -105,25 +80,11 @@ export const serializeAws_restJson1GetObjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.Range) && { range: input.Range! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    range: input.Range!,
+  });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Path+}";
-  if (input.Path !== undefined) {
-    const labelValue: string = input.Path;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Path.");
-    }
-    resolvedPath = resolvedPath.replace(
-      "{Path+}",
-      labelValue
-        .split("/")
-        .map((segment) => __extendedEncodeURIComponent(segment))
-        .join("/")
-    );
-  } else {
-    throw new Error("No value provided for input HTTP label: Path.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Path", () => input.Path!, "{Path+}", true);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -143,11 +104,11 @@ export const serializeAws_restJson1ListItemsCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  const query: any = {
-    ...(input.Path !== undefined && { Path: input.Path }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-  };
+  const query: any = map({
+    Path: [, input.Path!],
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    NextToken: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -166,32 +127,15 @@ export const serializeAws_restJson1PutObjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/octet-stream",
+  const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    ...(isSerializableHeaderValue(input.ContentType) && { "content-type": input.ContentType! }),
-    ...(isSerializableHeaderValue(input.CacheControl) && { "cache-control": input.CacheControl! }),
-    ...(isSerializableHeaderValue(input.StorageClass) && { "x-amz-storage-class": input.StorageClass! }),
-    ...(isSerializableHeaderValue(input.UploadAvailability) && {
-      "x-amz-upload-availability": input.UploadAvailability!,
-    }),
-  };
+    "content-type": input.ContentType! || "application/octet-stream",
+    "cache-control": input.CacheControl!,
+    "x-amz-storage-class": input.StorageClass!,
+    "x-amz-upload-availability": input.UploadAvailability!,
+  });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Path+}";
-  if (input.Path !== undefined) {
-    const labelValue: string = input.Path;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Path.");
-    }
-    resolvedPath = resolvedPath.replace(
-      "{Path+}",
-      labelValue
-        .split("/")
-        .map((segment) => __extendedEncodeURIComponent(segment))
-        .join("/")
-    );
-  } else {
-    throw new Error("No value provided for input HTTP label: Path.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Path", () => input.Path!, "{Path+}", true);
   let body: any;
   if (input.Body !== undefined) {
     body = input.Body;
@@ -214,11 +158,11 @@ export const deserializeAws_restJson1DeleteObjectCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteObjectCommandError(output, context);
   }
-  const contents: DeleteObjectCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteObjectCommandError = async (
@@ -229,7 +173,6 @@ const deserializeAws_restJson1DeleteObjectCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerNotFoundException":
@@ -243,14 +186,12 @@ const deserializeAws_restJson1DeleteObjectCommandError = async (
       throw await deserializeAws_restJson1ObjectNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -261,31 +202,22 @@ export const deserializeAws_restJson1DescribeObjectCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeObjectCommandError(output, context);
   }
-  const contents: DescribeObjectCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CacheControl: undefined,
-    ContentLength: undefined,
-    ContentType: undefined,
-    ETag: undefined,
-    LastModified: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
-  if (output.headers["content-type"] !== undefined) {
-    contents.ContentType = output.headers["content-type"];
-  }
-  if (output.headers["content-length"] !== undefined) {
-    contents.ContentLength = __strictParseLong(output.headers["content-length"]);
-  }
-  if (output.headers["cache-control"] !== undefined) {
-    contents.CacheControl = output.headers["cache-control"];
-  }
-  if (output.headers["last-modified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc7231DateTime(output.headers["last-modified"]));
-  }
+    ETag: [, output.headers["etag"]],
+    ContentType: [, output.headers["content-type"]],
+    ContentLength: [
+      () => void 0 !== output.headers["content-length"],
+      () => __strictParseLong(output.headers["content-length"]),
+    ],
+    CacheControl: [, output.headers["cache-control"]],
+    LastModified: [
+      () => void 0 !== output.headers["last-modified"],
+      () => __expectNonNull(__parseRfc7231DateTime(output.headers["last-modified"])),
+    ],
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DescribeObjectCommandError = async (
@@ -296,7 +228,6 @@ const deserializeAws_restJson1DescribeObjectCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerNotFoundException":
@@ -310,14 +241,12 @@ const deserializeAws_restJson1DescribeObjectCommandError = async (
       throw await deserializeAws_restJson1ObjectNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -328,41 +257,27 @@ export const deserializeAws_restJson1GetObjectCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetObjectCommandError(output, context);
   }
-  const contents: GetObjectCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Body: undefined,
-    CacheControl: undefined,
-    ContentLength: undefined,
-    ContentRange: undefined,
-    ContentType: undefined,
-    ETag: undefined,
-    LastModified: undefined,
-    StatusCode: undefined,
-  };
-  if (output.headers["cache-control"] !== undefined) {
-    contents.CacheControl = output.headers["cache-control"];
-  }
-  if (output.headers["content-range"] !== undefined) {
-    contents.ContentRange = output.headers["content-range"];
-  }
-  if (output.headers["content-length"] !== undefined) {
-    contents.ContentLength = __strictParseLong(output.headers["content-length"]);
-  }
-  if (output.headers["content-type"] !== undefined) {
-    contents.ContentType = output.headers["content-type"];
-  }
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
-  if (output.headers["last-modified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc7231DateTime(output.headers["last-modified"]));
-  }
+    CacheControl: [, output.headers["cache-control"]],
+    ContentRange: [, output.headers["content-range"]],
+    ContentLength: [
+      () => void 0 !== output.headers["content-length"],
+      () => __strictParseLong(output.headers["content-length"]),
+    ],
+    ContentType: [, output.headers["content-type"]],
+    ETag: [, output.headers["etag"]],
+    LastModified: [
+      () => void 0 !== output.headers["last-modified"],
+      () => __expectNonNull(__parseRfc7231DateTime(output.headers["last-modified"])),
+    ],
+  });
   const data: any = output.body;
   contents.Body = data;
-  if (contents.StatusCode === undefined) {
-    contents.StatusCode = output.statusCode;
-  }
-  return Promise.resolve(contents);
+  map(contents, {
+    StatusCode: [, output.statusCode],
+  });
+  return contents;
 };
 
 const deserializeAws_restJson1GetObjectCommandError = async (
@@ -373,7 +288,6 @@ const deserializeAws_restJson1GetObjectCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerNotFoundException":
@@ -390,14 +304,12 @@ const deserializeAws_restJson1GetObjectCommandError = async (
       throw await deserializeAws_restJson1RequestedRangeNotSatisfiableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -408,19 +320,17 @@ export const deserializeAws_restJson1ListItemsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListItemsCommandError(output, context);
   }
-  const contents: ListItemsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Items: undefined,
-    NextToken: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items !== undefined && data.Items !== null) {
+  if (data.Items != null) {
     contents.Items = deserializeAws_restJson1ItemList(data.Items, context);
   }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
+  if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListItemsCommandError = async (
@@ -431,7 +341,6 @@ const deserializeAws_restJson1ListItemsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerNotFoundException":
@@ -442,14 +351,12 @@ const deserializeAws_restJson1ListItemsCommandError = async (
       throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -460,23 +367,20 @@ export const deserializeAws_restJson1PutObjectCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutObjectCommandError(output, context);
   }
-  const contents: PutObjectCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ContentSHA256: undefined,
-    ETag: undefined,
-    StorageClass: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ContentSHA256 !== undefined && data.ContentSHA256 !== null) {
+  if (data.ContentSHA256 != null) {
     contents.ContentSHA256 = __expectString(data.ContentSHA256);
   }
-  if (data.ETag !== undefined && data.ETag !== null) {
+  if (data.ETag != null) {
     contents.ETag = __expectString(data.ETag);
   }
-  if (data.StorageClass !== undefined && data.StorageClass !== null) {
+  if (data.StorageClass != null) {
     contents.StorageClass = __expectString(data.StorageClass);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1PutObjectCommandError = async (
@@ -487,7 +391,6 @@ const deserializeAws_restJson1PutObjectCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerNotFoundException":
@@ -498,24 +401,23 @@ const deserializeAws_restJson1PutObjectCommandError = async (
       throw await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1ContainerNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ContainerNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new ContainerNotFoundException({
@@ -529,9 +431,9 @@ const deserializeAws_restJson1InternalServerErrorResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerError> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new InternalServerError({
@@ -545,9 +447,9 @@ const deserializeAws_restJson1ObjectNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ObjectNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new ObjectNotFoundException({
@@ -561,9 +463,9 @@ const deserializeAws_restJson1RequestedRangeNotSatisfiableExceptionResponse = as
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestedRangeNotSatisfiableException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new RequestedRangeNotSatisfiableException({

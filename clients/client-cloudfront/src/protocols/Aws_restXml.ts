@@ -8,11 +8,14 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  map as __map,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTime as __parseRfc3339DateTime,
+  resolvedPath as __resolvedPath,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -570,18 +573,17 @@ export const serializeAws_restXmlAssociateAliasCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/distribution/{TargetDistributionId}/associate-alias";
-  if (input.TargetDistributionId !== undefined) {
-    const labelValue: string = input.TargetDistributionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: TargetDistributionId.");
-    }
-    resolvedPath = resolvedPath.replace("{TargetDistributionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: TargetDistributionId.");
-  }
-  const query: any = {
-    ...(input.Alias !== undefined && { Alias: input.Alias }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "TargetDistributionId",
+    () => input.TargetDistributionId!,
+    "{TargetDistributionId}",
+    false
+  );
+  const query: any = map({
+    Alias: [, input.Alias!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -708,9 +710,9 @@ export const serializeAws_restXmlCreateDistributionWithTagsCommand = async (
   };
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
-  const query: any = {
-    WithTags: "",
-  };
+  const query: any = map({
+    WithTags: [, ""],
+  });
   let body: any;
   if (input.DistributionConfigWithTags !== undefined) {
     body = serializeAws_restXmlDistributionConfigWithTags(input.DistributionConfigWithTags, context);
@@ -813,9 +815,7 @@ export const serializeAws_restXmlCreateFunctionCommand = async (
   const bodyNode = new __XmlNode("CreateFunctionRequest");
   bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
   if (input.FunctionCode !== undefined) {
-    const node = new __XmlNode("FunctionBlob")
-      .addChildNode(new __XmlText(context.base64Encoder(input.FunctionCode)))
-      .withName("FunctionCode");
+    const node = __XmlNode.of("FunctionBlob", context.base64Encoder(input.FunctionCode)).withName("FunctionCode");
     bodyNode.addChildNode(node);
   }
   if (input.FunctionConfig !== undefined) {
@@ -823,7 +823,7 @@ export const serializeAws_restXmlCreateFunctionCommand = async (
     bodyNode.addChildNode(node);
   }
   if (input.Name !== undefined) {
-    const node = new __XmlNode("FunctionName").addChildNode(new __XmlText(input.Name)).withName("Name");
+    const node = __XmlNode.of("FunctionName", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -849,15 +849,14 @@ export const serializeAws_restXmlCreateInvalidationCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/distribution/{DistributionId}/invalidation";
-  if (input.DistributionId !== undefined) {
-    const labelValue: string = input.DistributionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DistributionId.");
-    }
-    resolvedPath = resolvedPath.replace("{DistributionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DistributionId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "DistributionId",
+    () => input.DistributionId!,
+    "{DistributionId}",
+    false
+  );
   let body: any;
   if (input.InvalidationBatch !== undefined) {
     body = serializeAws_restXmlInvalidationBatch(input.InvalidationBatch, context);
@@ -922,15 +921,14 @@ export const serializeAws_restXmlCreateMonitoringSubscriptionCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/distributions/{DistributionId}/monitoring-subscription";
-  if (input.DistributionId !== undefined) {
-    const labelValue: string = input.DistributionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DistributionId.");
-    }
-    resolvedPath = resolvedPath.replace("{DistributionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DistributionId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "DistributionId",
+    () => input.DistributionId!,
+    "{DistributionId}",
+    false
+  );
   let body: any;
   if (input.MonitoringSubscription !== undefined) {
     body = serializeAws_restXmlMonitoringSubscription(input.MonitoringSubscription, context);
@@ -1047,11 +1045,11 @@ export const serializeAws_restXmlCreateRealtimeLogConfigCommand = async (
     bodyNode.addChildNode(containerNode);
   }
   if (input.Name !== undefined) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
+    const node = __XmlNode.of("string", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   if (input.SamplingRate !== undefined) {
-    const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.SamplingRate))).withName("SamplingRate");
+    const node = __XmlNode.of("long", String(input.SamplingRate)).withName("SamplingRate");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -1140,9 +1138,9 @@ export const serializeAws_restXmlCreateStreamingDistributionWithTagsCommand = as
   };
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/streaming-distribution";
-  const query: any = {
-    WithTags: "",
-  };
+  const query: any = map({
+    WithTags: [, ""],
+  });
   let body: any;
   if (input.StreamingDistributionConfigWithTags !== undefined) {
     body = serializeAws_restXmlStreamingDistributionConfigWithTags(input.StreamingDistributionConfigWithTags, context);
@@ -1174,20 +1172,12 @@ export const serializeAws_restXmlDeleteCachePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1205,21 +1195,13 @@ export const serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/origin-access-identity/cloudfront/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1237,20 +1219,12 @@ export const serializeAws_restXmlDeleteDistributionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1268,20 +1242,12 @@ export const serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/field-level-encryption/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1299,21 +1265,13 @@ export const serializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/field-level-encryption-profile/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1331,20 +1289,12 @@ export const serializeAws_restXmlDeleteFunctionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function/{Name}";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1362,20 +1312,12 @@ export const serializeAws_restXmlDeleteKeyGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1397,15 +1339,14 @@ export const serializeAws_restXmlDeleteMonitoringSubscriptionCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/distributions/{DistributionId}/monitoring-subscription";
-  if (input.DistributionId !== undefined) {
-    const labelValue: string = input.DistributionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DistributionId.");
-    }
-    resolvedPath = resolvedPath.replace("{DistributionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DistributionId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "DistributionId",
+    () => input.DistributionId!,
+    "{DistributionId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1423,20 +1364,12 @@ export const serializeAws_restXmlDeleteOriginRequestPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-request-policy/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1454,20 +1387,12 @@ export const serializeAws_restXmlDeletePublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1495,11 +1420,11 @@ export const serializeAws_restXmlDeleteRealtimeLogConfigCommand = async (
   const bodyNode = new __XmlNode("DeleteRealtimeLogConfigRequest");
   bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
   if (input.ARN !== undefined) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.ARN)).withName("ARN");
+    const node = __XmlNode.of("string", input.ARN).withName("ARN");
     bodyNode.addChildNode(node);
   }
   if (input.Name !== undefined) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
+    const node = __XmlNode.of("string", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -1519,20 +1444,12 @@ export const serializeAws_restXmlDeleteResponseHeadersPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1550,20 +1467,12 @@ export const serializeAws_restXmlDeleteStreamingDistributionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/streaming-distribution/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1584,18 +1493,10 @@ export const serializeAws_restXmlDescribeFunctionCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function/{Name}/describe";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
-  const query: any = {
-    ...(input.Stage !== undefined && { Stage: input.Stage }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  const query: any = map({
+    Stage: [, input.Stage!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1617,15 +1518,7 @@ export const serializeAws_restXmlGetCachePolicyCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1646,15 +1539,7 @@ export const serializeAws_restXmlGetCachePolicyConfigCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1676,15 +1561,7 @@ export const serializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand = asyn
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/origin-access-identity/cloudfront/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1706,15 +1583,7 @@ export const serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand 
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/origin-access-identity/cloudfront/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1735,15 +1604,7 @@ export const serializeAws_restXmlGetDistributionCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1764,15 +1625,7 @@ export const serializeAws_restXmlGetDistributionConfigCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1793,15 +1646,7 @@ export const serializeAws_restXmlGetFieldLevelEncryptionCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/field-level-encryption/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1823,15 +1668,7 @@ export const serializeAws_restXmlGetFieldLevelEncryptionConfigCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/field-level-encryption/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1853,15 +1690,7 @@ export const serializeAws_restXmlGetFieldLevelEncryptionProfileCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/field-level-encryption-profile/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1883,15 +1712,7 @@ export const serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand = a
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/field-level-encryption-profile/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1912,18 +1733,10 @@ export const serializeAws_restXmlGetFunctionCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function/{Name}";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
-  const query: any = {
-    ...(input.Stage !== undefined && { Stage: input.Stage }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  const query: any = map({
+    Stage: [, input.Stage!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1946,24 +1759,15 @@ export const serializeAws_restXmlGetInvalidationCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/distribution/{DistributionId}/invalidation/{Id}";
-  if (input.DistributionId !== undefined) {
-    const labelValue: string = input.DistributionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DistributionId.");
-    }
-    resolvedPath = resolvedPath.replace("{DistributionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DistributionId.");
-  }
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "DistributionId",
+    () => input.DistributionId!,
+    "{DistributionId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1984,15 +1788,7 @@ export const serializeAws_restXmlGetKeyGroupCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2013,15 +1809,7 @@ export const serializeAws_restXmlGetKeyGroupConfigCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2043,15 +1831,14 @@ export const serializeAws_restXmlGetMonitoringSubscriptionCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/distributions/{DistributionId}/monitoring-subscription";
-  if (input.DistributionId !== undefined) {
-    const labelValue: string = input.DistributionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DistributionId.");
-    }
-    resolvedPath = resolvedPath.replace("{DistributionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DistributionId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "DistributionId",
+    () => input.DistributionId!,
+    "{DistributionId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2072,15 +1859,7 @@ export const serializeAws_restXmlGetOriginRequestPolicyCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-request-policy/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2102,15 +1881,7 @@ export const serializeAws_restXmlGetOriginRequestPolicyConfigCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/origin-request-policy/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2131,15 +1902,7 @@ export const serializeAws_restXmlGetPublicKeyCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2160,15 +1923,7 @@ export const serializeAws_restXmlGetPublicKeyConfigCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2196,11 +1951,11 @@ export const serializeAws_restXmlGetRealtimeLogConfigCommand = async (
   const bodyNode = new __XmlNode("GetRealtimeLogConfigRequest");
   bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
   if (input.ARN !== undefined) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.ARN)).withName("ARN");
+    const node = __XmlNode.of("string", input.ARN).withName("ARN");
     bodyNode.addChildNode(node);
   }
   if (input.Name !== undefined) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
+    const node = __XmlNode.of("string", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -2223,15 +1978,7 @@ export const serializeAws_restXmlGetResponseHeadersPolicyCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2253,15 +2000,7 @@ export const serializeAws_restXmlGetResponseHeadersPolicyConfigCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/response-headers-policy/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2282,15 +2021,7 @@ export const serializeAws_restXmlGetStreamingDistributionCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/streaming-distribution/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2312,15 +2043,7 @@ export const serializeAws_restXmlGetStreamingDistributionConfigCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/streaming-distribution/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2341,11 +2064,11 @@ export const serializeAws_restXmlListCachePoliciesCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy";
-  const query: any = {
-    ...(input.Type !== undefined && { Type: input.Type }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  const query: any = map({
+    Type: [, input.Type!],
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2368,10 +2091,10 @@ export const serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand = a
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/origin-access-identity/cloudfront";
-  const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2393,12 +2116,12 @@ export const serializeAws_restXmlListConflictingAliasesCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/conflicting-alias";
-  const query: any = {
-    ...(input.DistributionId !== undefined && { DistributionId: input.DistributionId }),
-    ...(input.Alias !== undefined && { Alias: input.Alias }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  const query: any = map({
+    DistributionId: [, input.DistributionId!],
+    Alias: [, input.Alias!],
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2420,10 +2143,10 @@ export const serializeAws_restXmlListDistributionsCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
-  const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2446,19 +2169,18 @@ export const serializeAws_restXmlListDistributionsByCachePolicyIdCommand = async
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/distributionsByCachePolicyId/{CachePolicyId}";
-  if (input.CachePolicyId !== undefined) {
-    const labelValue: string = input.CachePolicyId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: CachePolicyId.");
-    }
-    resolvedPath = resolvedPath.replace("{CachePolicyId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: CachePolicyId.");
-  }
-  const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "CachePolicyId",
+    () => input.CachePolicyId!,
+    "{CachePolicyId}",
+    false
+  );
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2481,19 +2203,11 @@ export const serializeAws_restXmlListDistributionsByKeyGroupCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/distributionsByKeyGroupId/{KeyGroupId}";
-  if (input.KeyGroupId !== undefined) {
-    const labelValue: string = input.KeyGroupId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: KeyGroupId.");
-    }
-    resolvedPath = resolvedPath.replace("{KeyGroupId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: KeyGroupId.");
-  }
-  const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "KeyGroupId", () => input.KeyGroupId!, "{KeyGroupId}", false);
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2516,19 +2230,18 @@ export const serializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/distributionsByOriginRequestPolicyId/{OriginRequestPolicyId}";
-  if (input.OriginRequestPolicyId !== undefined) {
-    const labelValue: string = input.OriginRequestPolicyId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: OriginRequestPolicyId.");
-    }
-    resolvedPath = resolvedPath.replace("{OriginRequestPolicyId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: OriginRequestPolicyId.");
-  }
-  const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "OriginRequestPolicyId",
+    () => input.OriginRequestPolicyId!,
+    "{OriginRequestPolicyId}",
+    false
+  );
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2558,23 +2271,19 @@ export const serializeAws_restXmlListDistributionsByRealtimeLogConfigCommand = a
   const bodyNode = new __XmlNode("ListDistributionsByRealtimeLogConfigRequest");
   bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
   if (input.Marker !== undefined) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Marker)).withName("Marker");
+    const node = __XmlNode.of("string", input.Marker).withName("Marker");
     bodyNode.addChildNode(node);
   }
   if (input.MaxItems !== undefined) {
-    const node = new __XmlNode("Integer").addChildNode(new __XmlText(String(input.MaxItems))).withName("MaxItems");
+    const node = __XmlNode.of("Integer", String(input.MaxItems)).withName("MaxItems");
     bodyNode.addChildNode(node);
   }
   if (input.RealtimeLogConfigArn !== undefined) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.RealtimeLogConfigArn))
-      .withName("RealtimeLogConfigArn");
+    const node = __XmlNode.of("string", input.RealtimeLogConfigArn).withName("RealtimeLogConfigArn");
     bodyNode.addChildNode(node);
   }
   if (input.RealtimeLogConfigName !== undefined) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.RealtimeLogConfigName))
-      .withName("RealtimeLogConfigName");
+    const node = __XmlNode.of("string", input.RealtimeLogConfigName).withName("RealtimeLogConfigName");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -2598,19 +2307,18 @@ export const serializeAws_restXmlListDistributionsByResponseHeadersPolicyIdComma
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/distributionsByResponseHeadersPolicyId/{ResponseHeadersPolicyId}";
-  if (input.ResponseHeadersPolicyId !== undefined) {
-    const labelValue: string = input.ResponseHeadersPolicyId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResponseHeadersPolicyId.");
-    }
-    resolvedPath = resolvedPath.replace("{ResponseHeadersPolicyId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResponseHeadersPolicyId.");
-  }
-  const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ResponseHeadersPolicyId",
+    () => input.ResponseHeadersPolicyId!,
+    "{ResponseHeadersPolicyId}",
+    false
+  );
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2633,19 +2341,11 @@ export const serializeAws_restXmlListDistributionsByWebACLIdCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/distributionsByWebACLId/{WebACLId}";
-  if (input.WebACLId !== undefined) {
-    const labelValue: string = input.WebACLId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: WebACLId.");
-    }
-    resolvedPath = resolvedPath.replace("{WebACLId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: WebACLId.");
-  }
-  const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "WebACLId", () => input.WebACLId!, "{WebACLId}", false);
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2667,10 +2367,10 @@ export const serializeAws_restXmlListFieldLevelEncryptionConfigsCommand = async 
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/field-level-encryption";
-  const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2693,10 +2393,10 @@ export const serializeAws_restXmlListFieldLevelEncryptionProfilesCommand = async
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/field-level-encryption-profile";
-  const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2717,11 +2417,11 @@ export const serializeAws_restXmlListFunctionsCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function";
-  const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-    ...(input.Stage !== undefined && { Stage: input.Stage }),
-  };
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    Stage: [, input.Stage!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2744,19 +2444,18 @@ export const serializeAws_restXmlListInvalidationsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/distribution/{DistributionId}/invalidation";
-  if (input.DistributionId !== undefined) {
-    const labelValue: string = input.DistributionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DistributionId.");
-    }
-    resolvedPath = resolvedPath.replace("{DistributionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DistributionId.");
-  }
-  const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "DistributionId",
+    () => input.DistributionId!,
+    "{DistributionId}",
+    false
+  );
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2777,10 +2476,10 @@ export const serializeAws_restXmlListKeyGroupsCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group";
-  const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2802,11 +2501,11 @@ export const serializeAws_restXmlListOriginRequestPoliciesCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-request-policy";
-  const query: any = {
-    ...(input.Type !== undefined && { Type: input.Type }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  const query: any = map({
+    Type: [, input.Type!],
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2827,10 +2526,10 @@ export const serializeAws_restXmlListPublicKeysCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key";
-  const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2852,10 +2551,10 @@ export const serializeAws_restXmlListRealtimeLogConfigsCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/realtime-log-config";
-  const query: any = {
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-  };
+  const query: any = map({
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    Marker: [, input.Marker!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2877,11 +2576,11 @@ export const serializeAws_restXmlListResponseHeadersPoliciesCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy";
-  const query: any = {
-    ...(input.Type !== undefined && { Type: input.Type }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  const query: any = map({
+    Type: [, input.Type!],
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2903,10 +2602,10 @@ export const serializeAws_restXmlListStreamingDistributionsCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/streaming-distribution";
-  const query: any = {
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-  };
+  const query: any = map({
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2927,9 +2626,9 @@ export const serializeAws_restXmlListTagsForResourceCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
-  const query: any = {
-    ...(input.Resource !== undefined && { Resource: input.Resource }),
-  };
+  const query: any = map({
+    Resource: [, input.Resource!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2948,20 +2647,12 @@ export const serializeAws_restXmlPublishFunctionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function/{Name}/publish";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2983,10 +2674,10 @@ export const serializeAws_restXmlTagResourceCommand = async (
     "content-type": "application/xml",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
-  const query: any = {
-    Operation: "Tag",
-    ...(input.Resource !== undefined && { Resource: input.Resource }),
-  };
+  const query: any = map({
+    Operation: [, "Tag"],
+    Resource: [, input.Resource!],
+  });
   let body: any;
   if (input.Tags !== undefined) {
     body = serializeAws_restXmlTags(input.Tags, context);
@@ -3015,33 +2706,23 @@ export const serializeAws_restXmlTestFunctionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function/{Name}/test";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("TestFunctionRequest");
   bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
   if (input.EventObject !== undefined) {
-    const node = new __XmlNode("FunctionEventObject")
-      .addChildNode(new __XmlText(context.base64Encoder(input.EventObject)))
-      .withName("EventObject");
+    const node = __XmlNode.of("FunctionEventObject", context.base64Encoder(input.EventObject)).withName("EventObject");
     bodyNode.addChildNode(node);
   }
   if (input.Stage !== undefined) {
-    const node = new __XmlNode("FunctionStage").addChildNode(new __XmlText(input.Stage)).withName("Stage");
+    const node = __XmlNode.of("FunctionStage", input.Stage).withName("Stage");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -3065,10 +2746,10 @@ export const serializeAws_restXmlUntagResourceCommand = async (
     "content-type": "application/xml",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
-  const query: any = {
-    Operation: "Untag",
-    ...(input.Resource !== undefined && { Resource: input.Resource }),
-  };
+  const query: any = map({
+    Operation: [, "Untag"],
+    Resource: [, input.Resource!],
+  });
   let body: any;
   if (input.TagKeys !== undefined) {
     body = serializeAws_restXmlTagKeys(input.TagKeys, context);
@@ -3097,21 +2778,13 @@ export const serializeAws_restXmlUpdateCachePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   if (input.CachePolicyConfig !== undefined) {
     body = serializeAws_restXmlCachePolicyConfig(input.CachePolicyConfig, context);
@@ -3139,22 +2812,14 @@ export const serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/origin-access-identity/cloudfront/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   if (input.CloudFrontOriginAccessIdentityConfig !== undefined) {
     body = serializeAws_restXmlCloudFrontOriginAccessIdentityConfig(
@@ -3188,21 +2853,13 @@ export const serializeAws_restXmlUpdateDistributionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   if (input.DistributionConfig !== undefined) {
     body = serializeAws_restXmlDistributionConfig(input.DistributionConfig, context);
@@ -3230,22 +2887,14 @@ export const serializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/field-level-encryption/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   if (input.FieldLevelEncryptionConfig !== undefined) {
     body = serializeAws_restXmlFieldLevelEncryptionConfig(input.FieldLevelEncryptionConfig, context);
@@ -3273,22 +2922,14 @@ export const serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/field-level-encryption-profile/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   if (input.FieldLevelEncryptionProfileConfig !== undefined) {
     body = serializeAws_restXmlFieldLevelEncryptionProfileConfig(input.FieldLevelEncryptionProfileConfig, context);
@@ -3316,29 +2957,19 @@ export const serializeAws_restXmlUpdateFunctionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function/{Name}";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("UpdateFunctionRequest");
   bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
   if (input.FunctionCode !== undefined) {
-    const node = new __XmlNode("FunctionBlob")
-      .addChildNode(new __XmlText(context.base64Encoder(input.FunctionCode)))
-      .withName("FunctionCode");
+    const node = __XmlNode.of("FunctionBlob", context.base64Encoder(input.FunctionCode)).withName("FunctionCode");
     bodyNode.addChildNode(node);
   }
   if (input.FunctionConfig !== undefined) {
@@ -3362,21 +2993,13 @@ export const serializeAws_restXmlUpdateKeyGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   if (input.KeyGroupConfig !== undefined) {
     body = serializeAws_restXmlKeyGroupConfig(input.KeyGroupConfig, context);
@@ -3404,21 +3027,13 @@ export const serializeAws_restXmlUpdateOriginRequestPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-request-policy/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   if (input.OriginRequestPolicyConfig !== undefined) {
     body = serializeAws_restXmlOriginRequestPolicyConfig(input.OriginRequestPolicyConfig, context);
@@ -3446,21 +3061,13 @@ export const serializeAws_restXmlUpdatePublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   if (input.PublicKeyConfig !== undefined) {
     body = serializeAws_restXmlPublicKeyConfig(input.PublicKeyConfig, context);
@@ -3498,7 +3105,7 @@ export const serializeAws_restXmlUpdateRealtimeLogConfigCommand = async (
   const bodyNode = new __XmlNode("UpdateRealtimeLogConfigRequest");
   bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
   if (input.ARN !== undefined) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.ARN)).withName("ARN");
+    const node = __XmlNode.of("string", input.ARN).withName("ARN");
     bodyNode.addChildNode(node);
   }
   if (input.EndPoints !== undefined) {
@@ -3518,11 +3125,11 @@ export const serializeAws_restXmlUpdateRealtimeLogConfigCommand = async (
     bodyNode.addChildNode(containerNode);
   }
   if (input.Name !== undefined) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
+    const node = __XmlNode.of("string", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   if (input.SamplingRate !== undefined) {
-    const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.SamplingRate))).withName("SamplingRate");
+    const node = __XmlNode.of("long", String(input.SamplingRate)).withName("SamplingRate");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -3542,21 +3149,13 @@ export const serializeAws_restXmlUpdateResponseHeadersPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy/{Id}";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   if (input.ResponseHeadersPolicyConfig !== undefined) {
     body = serializeAws_restXmlResponseHeadersPolicyConfig(input.ResponseHeadersPolicyConfig, context);
@@ -3584,22 +3183,14 @@ export const serializeAws_restXmlUpdateStreamingDistributionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
-  };
+    "if-match": input.IfMatch!,
+  });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/streaming-distribution/{Id}/config";
-  if (input.Id !== undefined) {
-    const labelValue: string = input.Id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Id.");
-    }
-    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   if (input.StreamingDistributionConfig !== undefined) {
     body = serializeAws_restXmlStreamingDistributionConfig(input.StreamingDistributionConfig, context);
@@ -3629,11 +3220,11 @@ export const deserializeAws_restXmlAssociateAliasCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlAssociateAliasCommandError(output, context);
   }
-  const contents: AssociateAliasCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlAssociateAliasCommandError = async (
@@ -3644,7 +3235,6 @@ const deserializeAws_restXmlAssociateAliasCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -3664,14 +3254,12 @@ const deserializeAws_restXmlAssociateAliasCommandError = async (
       throw await deserializeAws_restXmlTooManyDistributionCNAMEsResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3682,21 +3270,14 @@ export const deserializeAws_restXmlCreateCachePolicyCommand = async (
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateCachePolicyCommandError(output, context);
   }
-  const contents: CreateCachePolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CachePolicy: undefined,
-    ETag: undefined,
-    Location: undefined,
-  };
-  if (output.headers["location"] !== undefined) {
-    contents.Location = output.headers["location"];
-  }
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CachePolicy = deserializeAws_restXmlCachePolicy(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateCachePolicyCommandError = async (
@@ -3707,7 +3288,6 @@ const deserializeAws_restXmlCreateCachePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -3736,14 +3316,12 @@ const deserializeAws_restXmlCreateCachePolicyCommandError = async (
       throw await deserializeAws_restXmlTooManyQueryStringsInCachePolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3754,21 +3332,14 @@ export const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand =
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError(output, context);
   }
-  const contents: CreateCloudFrontOriginAccessIdentityCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CloudFrontOriginAccessIdentity: undefined,
-    ETag: undefined,
-    Location: undefined,
-  };
-  if (output.headers["location"] !== undefined) {
-    contents.Location = output.headers["location"];
-  }
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CloudFrontOriginAccessIdentity = deserializeAws_restXmlCloudFrontOriginAccessIdentity(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = async (
@@ -3779,7 +3350,6 @@ const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudFrontOriginAccessIdentityAlreadyExists":
@@ -3799,14 +3369,12 @@ const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = a
       throw await deserializeAws_restXmlTooManyCloudFrontOriginAccessIdentitiesResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3817,21 +3385,14 @@ export const deserializeAws_restXmlCreateDistributionCommand = async (
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateDistributionCommandError(output, context);
   }
-  const contents: CreateDistributionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Distribution: undefined,
-    ETag: undefined,
-    Location: undefined,
-  };
-  if (output.headers["location"] !== undefined) {
-    contents.Location = output.headers["location"];
-  }
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateDistributionCommandError = async (
@@ -3842,7 +3403,6 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -4036,14 +3596,12 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
       throw await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4054,21 +3612,14 @@ export const deserializeAws_restXmlCreateDistributionWithTagsCommand = async (
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateDistributionWithTagsCommandError(output, context);
   }
-  const contents: CreateDistributionWithTagsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Distribution: undefined,
-    ETag: undefined,
-    Location: undefined,
-  };
-  if (output.headers["location"] !== undefined) {
-    contents.Location = output.headers["location"];
-  }
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
@@ -4079,7 +3630,6 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -4276,14 +3826,12 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
       throw await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4294,21 +3842,14 @@ export const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommand = asy
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError(output, context);
   }
-  const contents: CreateFieldLevelEncryptionConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    FieldLevelEncryption: undefined,
-    Location: undefined,
-  };
-  if (output.headers["location"] !== undefined) {
-    contents.Location = output.headers["location"];
-  }
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryption = deserializeAws_restXmlFieldLevelEncryption(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async (
@@ -4319,7 +3860,6 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FieldLevelEncryptionConfigAlreadyExists":
@@ -4348,14 +3888,12 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async
       throw await deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4366,21 +3904,14 @@ export const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommand = as
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError(output, context);
   }
-  const contents: CreateFieldLevelEncryptionProfileCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    FieldLevelEncryptionProfile: undefined,
-    Location: undefined,
-  };
-  if (output.headers["location"] !== undefined) {
-    contents.Location = output.headers["location"];
-  }
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionProfile = deserializeAws_restXmlFieldLevelEncryptionProfile(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = async (
@@ -4391,7 +3922,6 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FieldLevelEncryptionProfileAlreadyExists":
@@ -4420,14 +3950,12 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = asyn
       throw await deserializeAws_restXmlTooManyFieldLevelEncryptionProfilesResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4438,21 +3966,14 @@ export const deserializeAws_restXmlCreateFunctionCommand = async (
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateFunctionCommandError(output, context);
   }
-  const contents: CreateFunctionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    FunctionSummary: undefined,
-    Location: undefined,
-  };
-  if (output.headers["location"] !== undefined) {
-    contents.Location = output.headers["location"];
-  }
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FunctionSummary = deserializeAws_restXmlFunctionSummary(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateFunctionCommandError = async (
@@ -4463,7 +3984,6 @@ const deserializeAws_restXmlCreateFunctionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FunctionAlreadyExists":
@@ -4483,14 +4003,12 @@ const deserializeAws_restXmlCreateFunctionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4501,17 +4019,13 @@ export const deserializeAws_restXmlCreateInvalidationCommand = async (
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateInvalidationCommandError(output, context);
   }
-  const contents: CreateInvalidationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Invalidation: undefined,
-    Location: undefined,
-  };
-  if (output.headers["location"] !== undefined) {
-    contents.Location = output.headers["location"];
-  }
+    Location: [, output.headers["location"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Invalidation = deserializeAws_restXmlInvalidation(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateInvalidationCommandError = async (
@@ -4522,7 +4036,6 @@ const deserializeAws_restXmlCreateInvalidationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -4548,14 +4061,12 @@ const deserializeAws_restXmlCreateInvalidationCommandError = async (
       throw await deserializeAws_restXmlTooManyInvalidationsInProgressResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4566,21 +4077,14 @@ export const deserializeAws_restXmlCreateKeyGroupCommand = async (
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateKeyGroupCommandError(output, context);
   }
-  const contents: CreateKeyGroupCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    KeyGroup: undefined,
-    Location: undefined,
-  };
-  if (output.headers["location"] !== undefined) {
-    contents.Location = output.headers["location"];
-  }
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroup = deserializeAws_restXmlKeyGroup(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateKeyGroupCommandError = async (
@@ -4591,7 +4095,6 @@ const deserializeAws_restXmlCreateKeyGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -4608,14 +4111,12 @@ const deserializeAws_restXmlCreateKeyGroupCommandError = async (
       throw await deserializeAws_restXmlTooManyPublicKeysInKeyGroupResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4626,13 +4127,12 @@ export const deserializeAws_restXmlCreateMonitoringSubscriptionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateMonitoringSubscriptionCommandError(output, context);
   }
-  const contents: CreateMonitoringSubscriptionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    MonitoringSubscription: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MonitoringSubscription = deserializeAws_restXmlMonitoringSubscription(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateMonitoringSubscriptionCommandError = async (
@@ -4643,7 +4143,6 @@ const deserializeAws_restXmlCreateMonitoringSubscriptionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -4657,14 +4156,12 @@ const deserializeAws_restXmlCreateMonitoringSubscriptionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4675,21 +4172,14 @@ export const deserializeAws_restXmlCreateOriginRequestPolicyCommand = async (
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateOriginRequestPolicyCommandError(output, context);
   }
-  const contents: CreateOriginRequestPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    Location: undefined,
-    OriginRequestPolicy: undefined,
-  };
-  if (output.headers["location"] !== undefined) {
-    contents.Location = output.headers["location"];
-  }
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginRequestPolicy = deserializeAws_restXmlOriginRequestPolicy(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateOriginRequestPolicyCommandError = async (
@@ -4700,7 +4190,6 @@ const deserializeAws_restXmlCreateOriginRequestPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -4729,14 +4218,12 @@ const deserializeAws_restXmlCreateOriginRequestPolicyCommandError = async (
       throw await deserializeAws_restXmlTooManyQueryStringsInOriginRequestPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4747,21 +4234,14 @@ export const deserializeAws_restXmlCreatePublicKeyCommand = async (
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreatePublicKeyCommandError(output, context);
   }
-  const contents: CreatePublicKeyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    Location: undefined,
-    PublicKey: undefined,
-  };
-  if (output.headers["location"] !== undefined) {
-    contents.Location = output.headers["location"];
-  }
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicKey = deserializeAws_restXmlPublicKey(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreatePublicKeyCommandError = async (
@@ -4772,7 +4252,6 @@ const deserializeAws_restXmlCreatePublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -4786,14 +4265,12 @@ const deserializeAws_restXmlCreatePublicKeyCommandError = async (
       throw await deserializeAws_restXmlTooManyPublicKeysResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4804,15 +4281,14 @@ export const deserializeAws_restXmlCreateRealtimeLogConfigCommand = async (
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateRealtimeLogConfigCommandError(output, context);
   }
-  const contents: CreateRealtimeLogConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RealtimeLogConfig: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["RealtimeLogConfig"] !== undefined) {
     contents.RealtimeLogConfig = deserializeAws_restXmlRealtimeLogConfig(data["RealtimeLogConfig"], context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateRealtimeLogConfigCommandError = async (
@@ -4823,7 +4299,6 @@ const deserializeAws_restXmlCreateRealtimeLogConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -4840,14 +4315,12 @@ const deserializeAws_restXmlCreateRealtimeLogConfigCommandError = async (
       throw await deserializeAws_restXmlTooManyRealtimeLogConfigsResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4858,21 +4331,14 @@ export const deserializeAws_restXmlCreateResponseHeadersPolicyCommand = async (
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateResponseHeadersPolicyCommandError(output, context);
   }
-  const contents: CreateResponseHeadersPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    Location: undefined,
-    ResponseHeadersPolicy: undefined,
-  };
-  if (output.headers["location"] !== undefined) {
-    contents.Location = output.headers["location"];
-  }
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ResponseHeadersPolicy = deserializeAws_restXmlResponseHeadersPolicy(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateResponseHeadersPolicyCommandError = async (
@@ -4883,7 +4349,6 @@ const deserializeAws_restXmlCreateResponseHeadersPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -4909,14 +4374,12 @@ const deserializeAws_restXmlCreateResponseHeadersPolicyCommandError = async (
       throw await deserializeAws_restXmlTooManyResponseHeadersPoliciesResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4927,21 +4390,14 @@ export const deserializeAws_restXmlCreateStreamingDistributionCommand = async (
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateStreamingDistributionCommandError(output, context);
   }
-  const contents: CreateStreamingDistributionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    Location: undefined,
-    StreamingDistribution: undefined,
-  };
-  if (output.headers["location"] !== undefined) {
-    contents.Location = output.headers["location"];
-  }
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistribution = deserializeAws_restXmlStreamingDistribution(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
@@ -4952,7 +4408,6 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -4993,14 +4448,12 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
       throw await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5011,21 +4464,14 @@ export const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand = 
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError(output, context);
   }
-  const contents: CreateStreamingDistributionWithTagsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    Location: undefined,
-    StreamingDistribution: undefined,
-  };
-  if (output.headers["location"] !== undefined) {
-    contents.Location = output.headers["location"];
-  }
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistribution = deserializeAws_restXmlStreamingDistribution(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = async (
@@ -5036,7 +4482,6 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5080,14 +4525,12 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
       throw await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5098,11 +4541,11 @@ export const deserializeAws_restXmlDeleteCachePolicyCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteCachePolicyCommandError(output, context);
   }
-  const contents: DeleteCachePolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlDeleteCachePolicyCommandError = async (
@@ -5113,7 +4556,6 @@ const deserializeAws_restXmlDeleteCachePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5136,14 +4578,12 @@ const deserializeAws_restXmlDeleteCachePolicyCommandError = async (
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5154,11 +4594,11 @@ export const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand =
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError(output, context);
   }
-  const contents: DeleteCloudFrontOriginAccessIdentityCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = async (
@@ -5169,7 +4609,6 @@ const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5189,14 +4628,12 @@ const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = a
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5207,11 +4644,11 @@ export const deserializeAws_restXmlDeleteDistributionCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteDistributionCommandError(output, context);
   }
-  const contents: DeleteDistributionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlDeleteDistributionCommandError = async (
@@ -5222,7 +4659,6 @@ const deserializeAws_restXmlDeleteDistributionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5242,14 +4678,12 @@ const deserializeAws_restXmlDeleteDistributionCommandError = async (
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5260,11 +4694,11 @@ export const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand = asy
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError(output, context);
   }
-  const contents: DeleteFieldLevelEncryptionConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError = async (
@@ -5275,7 +4709,6 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5295,14 +4728,12 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError = async
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5313,11 +4744,11 @@ export const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand = as
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError(output, context);
   }
-  const contents: DeleteFieldLevelEncryptionProfileCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError = async (
@@ -5328,7 +4759,6 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5348,14 +4778,12 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError = asyn
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5366,11 +4794,11 @@ export const deserializeAws_restXmlDeleteFunctionCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteFunctionCommandError(output, context);
   }
-  const contents: DeleteFunctionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlDeleteFunctionCommandError = async (
@@ -5381,7 +4809,6 @@ const deserializeAws_restXmlDeleteFunctionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FunctionInUse":
@@ -5401,14 +4828,12 @@ const deserializeAws_restXmlDeleteFunctionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5419,11 +4844,11 @@ export const deserializeAws_restXmlDeleteKeyGroupCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteKeyGroupCommandError(output, context);
   }
-  const contents: DeleteKeyGroupCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlDeleteKeyGroupCommandError = async (
@@ -5434,7 +4859,6 @@ const deserializeAws_restXmlDeleteKeyGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidIfMatchVersion":
@@ -5451,14 +4875,12 @@ const deserializeAws_restXmlDeleteKeyGroupCommandError = async (
       throw await deserializeAws_restXmlResourceInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5469,11 +4891,11 @@ export const deserializeAws_restXmlDeleteMonitoringSubscriptionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteMonitoringSubscriptionCommandError(output, context);
   }
-  const contents: DeleteMonitoringSubscriptionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlDeleteMonitoringSubscriptionCommandError = async (
@@ -5484,7 +4906,6 @@ const deserializeAws_restXmlDeleteMonitoringSubscriptionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5498,14 +4919,12 @@ const deserializeAws_restXmlDeleteMonitoringSubscriptionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5516,11 +4935,11 @@ export const deserializeAws_restXmlDeleteOriginRequestPolicyCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteOriginRequestPolicyCommandError(output, context);
   }
-  const contents: DeleteOriginRequestPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlDeleteOriginRequestPolicyCommandError = async (
@@ -5531,7 +4950,6 @@ const deserializeAws_restXmlDeleteOriginRequestPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5554,14 +4972,12 @@ const deserializeAws_restXmlDeleteOriginRequestPolicyCommandError = async (
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5572,11 +4988,11 @@ export const deserializeAws_restXmlDeletePublicKeyCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeletePublicKeyCommandError(output, context);
   }
-  const contents: DeletePublicKeyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlDeletePublicKeyCommandError = async (
@@ -5587,7 +5003,6 @@ const deserializeAws_restXmlDeletePublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5607,14 +5022,12 @@ const deserializeAws_restXmlDeletePublicKeyCommandError = async (
       throw await deserializeAws_restXmlPublicKeyInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5625,11 +5038,11 @@ export const deserializeAws_restXmlDeleteRealtimeLogConfigCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteRealtimeLogConfigCommandError(output, context);
   }
-  const contents: DeleteRealtimeLogConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlDeleteRealtimeLogConfigCommandError = async (
@@ -5640,7 +5053,6 @@ const deserializeAws_restXmlDeleteRealtimeLogConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5657,14 +5069,12 @@ const deserializeAws_restXmlDeleteRealtimeLogConfigCommandError = async (
       throw await deserializeAws_restXmlRealtimeLogConfigInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5675,11 +5085,11 @@ export const deserializeAws_restXmlDeleteResponseHeadersPolicyCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteResponseHeadersPolicyCommandError(output, context);
   }
-  const contents: DeleteResponseHeadersPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlDeleteResponseHeadersPolicyCommandError = async (
@@ -5690,7 +5100,6 @@ const deserializeAws_restXmlDeleteResponseHeadersPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5713,14 +5122,12 @@ const deserializeAws_restXmlDeleteResponseHeadersPolicyCommandError = async (
       throw await deserializeAws_restXmlResponseHeadersPolicyInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5731,11 +5138,11 @@ export const deserializeAws_restXmlDeleteStreamingDistributionCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteStreamingDistributionCommandError(output, context);
   }
-  const contents: DeleteStreamingDistributionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlDeleteStreamingDistributionCommandError = async (
@@ -5746,7 +5153,6 @@ const deserializeAws_restXmlDeleteStreamingDistributionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5766,14 +5172,12 @@ const deserializeAws_restXmlDeleteStreamingDistributionCommandError = async (
       throw await deserializeAws_restXmlStreamingDistributionNotDisabledResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5784,17 +5188,13 @@ export const deserializeAws_restXmlDescribeFunctionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDescribeFunctionCommandError(output, context);
   }
-  const contents: DescribeFunctionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    FunctionSummary: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FunctionSummary = deserializeAws_restXmlFunctionSummary(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlDescribeFunctionCommandError = async (
@@ -5805,7 +5205,6 @@ const deserializeAws_restXmlDescribeFunctionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchFunctionExists":
@@ -5816,14 +5215,12 @@ const deserializeAws_restXmlDescribeFunctionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5834,17 +5231,13 @@ export const deserializeAws_restXmlGetCachePolicyCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetCachePolicyCommandError(output, context);
   }
-  const contents: GetCachePolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CachePolicy: undefined,
-    ETag: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CachePolicy = deserializeAws_restXmlCachePolicy(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetCachePolicyCommandError = async (
@@ -5855,7 +5248,6 @@ const deserializeAws_restXmlGetCachePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5866,14 +5258,12 @@ const deserializeAws_restXmlGetCachePolicyCommandError = async (
       throw await deserializeAws_restXmlNoSuchCachePolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5884,17 +5274,13 @@ export const deserializeAws_restXmlGetCachePolicyConfigCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetCachePolicyConfigCommandError(output, context);
   }
-  const contents: GetCachePolicyConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CachePolicyConfig: undefined,
-    ETag: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CachePolicyConfig = deserializeAws_restXmlCachePolicyConfig(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetCachePolicyConfigCommandError = async (
@@ -5905,7 +5291,6 @@ const deserializeAws_restXmlGetCachePolicyConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5916,14 +5301,12 @@ const deserializeAws_restXmlGetCachePolicyConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchCachePolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5934,17 +5317,13 @@ export const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand = as
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError(output, context);
   }
-  const contents: GetCloudFrontOriginAccessIdentityCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CloudFrontOriginAccessIdentity: undefined,
-    ETag: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CloudFrontOriginAccessIdentity = deserializeAws_restXmlCloudFrontOriginAccessIdentity(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError = async (
@@ -5955,7 +5334,6 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5966,14 +5344,12 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError = asyn
       throw await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5984,20 +5360,16 @@ export const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigComman
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError(output, context);
   }
-  const contents: GetCloudFrontOriginAccessIdentityConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CloudFrontOriginAccessIdentityConfig: undefined,
-    ETag: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CloudFrontOriginAccessIdentityConfig = deserializeAws_restXmlCloudFrontOriginAccessIdentityConfig(
     data,
     context
   );
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError = async (
@@ -6008,7 +5380,6 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6019,14 +5390,12 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError 
       throw await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6037,17 +5406,13 @@ export const deserializeAws_restXmlGetDistributionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetDistributionCommandError(output, context);
   }
-  const contents: GetDistributionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Distribution: undefined,
-    ETag: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetDistributionCommandError = async (
@@ -6058,7 +5423,6 @@ const deserializeAws_restXmlGetDistributionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6069,14 +5433,12 @@ const deserializeAws_restXmlGetDistributionCommandError = async (
       throw await deserializeAws_restXmlNoSuchDistributionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6087,17 +5449,13 @@ export const deserializeAws_restXmlGetDistributionConfigCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetDistributionConfigCommandError(output, context);
   }
-  const contents: GetDistributionConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DistributionConfig: undefined,
-    ETag: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionConfig = deserializeAws_restXmlDistributionConfig(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetDistributionConfigCommandError = async (
@@ -6108,7 +5466,6 @@ const deserializeAws_restXmlGetDistributionConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6119,14 +5476,12 @@ const deserializeAws_restXmlGetDistributionConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchDistributionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6137,17 +5492,13 @@ export const deserializeAws_restXmlGetFieldLevelEncryptionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetFieldLevelEncryptionCommandError(output, context);
   }
-  const contents: GetFieldLevelEncryptionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    FieldLevelEncryption: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryption = deserializeAws_restXmlFieldLevelEncryption(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetFieldLevelEncryptionCommandError = async (
@@ -6158,7 +5509,6 @@ const deserializeAws_restXmlGetFieldLevelEncryptionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6169,14 +5519,12 @@ const deserializeAws_restXmlGetFieldLevelEncryptionCommandError = async (
       throw await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6187,17 +5535,13 @@ export const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand = async 
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError(output, context);
   }
-  const contents: GetFieldLevelEncryptionConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    FieldLevelEncryptionConfig: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionConfig = deserializeAws_restXmlFieldLevelEncryptionConfig(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError = async (
@@ -6208,7 +5552,6 @@ const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6219,14 +5562,12 @@ const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6237,17 +5578,13 @@ export const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommand = async
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError(output, context);
   }
-  const contents: GetFieldLevelEncryptionProfileCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    FieldLevelEncryptionProfile: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionProfile = deserializeAws_restXmlFieldLevelEncryptionProfile(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError = async (
@@ -6258,7 +5595,6 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6269,14 +5605,12 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError = async (
       throw await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6287,17 +5621,13 @@ export const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand =
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError(output, context);
   }
-  const contents: GetFieldLevelEncryptionProfileConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    FieldLevelEncryptionProfileConfig: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionProfileConfig = deserializeAws_restXmlFieldLevelEncryptionProfileConfig(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError = async (
@@ -6308,7 +5638,6 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6319,14 +5648,12 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError = a
       throw await deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6337,21 +5664,14 @@ export const deserializeAws_restXmlGetFunctionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetFunctionCommandError(output, context);
   }
-  const contents: GetFunctionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ContentType: undefined,
-    ETag: undefined,
-    FunctionCode: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
-  if (output.headers["content-type"] !== undefined) {
-    contents.ContentType = output.headers["content-type"];
-  }
+    ETag: [, output.headers["etag"]],
+    ContentType: [, output.headers["content-type"]],
+  });
   const data: any = await collectBody(output.body, context);
   contents.FunctionCode = data;
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetFunctionCommandError = async (
@@ -6362,7 +5682,6 @@ const deserializeAws_restXmlGetFunctionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchFunctionExists":
@@ -6373,14 +5692,12 @@ const deserializeAws_restXmlGetFunctionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6391,13 +5708,12 @@ export const deserializeAws_restXmlGetInvalidationCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetInvalidationCommandError(output, context);
   }
-  const contents: GetInvalidationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Invalidation: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Invalidation = deserializeAws_restXmlInvalidation(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetInvalidationCommandError = async (
@@ -6408,7 +5724,6 @@ const deserializeAws_restXmlGetInvalidationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6422,14 +5737,12 @@ const deserializeAws_restXmlGetInvalidationCommandError = async (
       throw await deserializeAws_restXmlNoSuchInvalidationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6440,17 +5753,13 @@ export const deserializeAws_restXmlGetKeyGroupCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetKeyGroupCommandError(output, context);
   }
-  const contents: GetKeyGroupCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    KeyGroup: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroup = deserializeAws_restXmlKeyGroup(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetKeyGroupCommandError = async (
@@ -6461,7 +5770,6 @@ const deserializeAws_restXmlGetKeyGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchResource":
@@ -6469,14 +5777,12 @@ const deserializeAws_restXmlGetKeyGroupCommandError = async (
       throw await deserializeAws_restXmlNoSuchResourceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6487,17 +5793,13 @@ export const deserializeAws_restXmlGetKeyGroupConfigCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetKeyGroupConfigCommandError(output, context);
   }
-  const contents: GetKeyGroupConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    KeyGroupConfig: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroupConfig = deserializeAws_restXmlKeyGroupConfig(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetKeyGroupConfigCommandError = async (
@@ -6508,7 +5810,6 @@ const deserializeAws_restXmlGetKeyGroupConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchResource":
@@ -6516,14 +5817,12 @@ const deserializeAws_restXmlGetKeyGroupConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchResourceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6534,13 +5833,12 @@ export const deserializeAws_restXmlGetMonitoringSubscriptionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetMonitoringSubscriptionCommandError(output, context);
   }
-  const contents: GetMonitoringSubscriptionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    MonitoringSubscription: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MonitoringSubscription = deserializeAws_restXmlMonitoringSubscription(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetMonitoringSubscriptionCommandError = async (
@@ -6551,7 +5849,6 @@ const deserializeAws_restXmlGetMonitoringSubscriptionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6565,14 +5862,12 @@ const deserializeAws_restXmlGetMonitoringSubscriptionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6583,17 +5878,13 @@ export const deserializeAws_restXmlGetOriginRequestPolicyCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetOriginRequestPolicyCommandError(output, context);
   }
-  const contents: GetOriginRequestPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    OriginRequestPolicy: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginRequestPolicy = deserializeAws_restXmlOriginRequestPolicy(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetOriginRequestPolicyCommandError = async (
@@ -6604,7 +5895,6 @@ const deserializeAws_restXmlGetOriginRequestPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6615,14 +5905,12 @@ const deserializeAws_restXmlGetOriginRequestPolicyCommandError = async (
       throw await deserializeAws_restXmlNoSuchOriginRequestPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6633,17 +5921,13 @@ export const deserializeAws_restXmlGetOriginRequestPolicyConfigCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetOriginRequestPolicyConfigCommandError(output, context);
   }
-  const contents: GetOriginRequestPolicyConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    OriginRequestPolicyConfig: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginRequestPolicyConfig = deserializeAws_restXmlOriginRequestPolicyConfig(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetOriginRequestPolicyConfigCommandError = async (
@@ -6654,7 +5938,6 @@ const deserializeAws_restXmlGetOriginRequestPolicyConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6665,14 +5948,12 @@ const deserializeAws_restXmlGetOriginRequestPolicyConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchOriginRequestPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6683,17 +5964,13 @@ export const deserializeAws_restXmlGetPublicKeyCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetPublicKeyCommandError(output, context);
   }
-  const contents: GetPublicKeyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    PublicKey: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicKey = deserializeAws_restXmlPublicKey(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetPublicKeyCommandError = async (
@@ -6704,7 +5981,6 @@ const deserializeAws_restXmlGetPublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6715,14 +5991,12 @@ const deserializeAws_restXmlGetPublicKeyCommandError = async (
       throw await deserializeAws_restXmlNoSuchPublicKeyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6733,17 +6007,13 @@ export const deserializeAws_restXmlGetPublicKeyConfigCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetPublicKeyConfigCommandError(output, context);
   }
-  const contents: GetPublicKeyConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    PublicKeyConfig: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicKeyConfig = deserializeAws_restXmlPublicKeyConfig(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetPublicKeyConfigCommandError = async (
@@ -6754,7 +6024,6 @@ const deserializeAws_restXmlGetPublicKeyConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6765,14 +6034,12 @@ const deserializeAws_restXmlGetPublicKeyConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchPublicKeyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6783,15 +6050,14 @@ export const deserializeAws_restXmlGetRealtimeLogConfigCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetRealtimeLogConfigCommandError(output, context);
   }
-  const contents: GetRealtimeLogConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RealtimeLogConfig: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["RealtimeLogConfig"] !== undefined) {
     contents.RealtimeLogConfig = deserializeAws_restXmlRealtimeLogConfig(data["RealtimeLogConfig"], context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetRealtimeLogConfigCommandError = async (
@@ -6802,7 +6068,6 @@ const deserializeAws_restXmlGetRealtimeLogConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6816,14 +6081,12 @@ const deserializeAws_restXmlGetRealtimeLogConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchRealtimeLogConfigResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6834,17 +6097,13 @@ export const deserializeAws_restXmlGetResponseHeadersPolicyCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetResponseHeadersPolicyCommandError(output, context);
   }
-  const contents: GetResponseHeadersPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    ResponseHeadersPolicy: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ResponseHeadersPolicy = deserializeAws_restXmlResponseHeadersPolicy(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetResponseHeadersPolicyCommandError = async (
@@ -6855,7 +6114,6 @@ const deserializeAws_restXmlGetResponseHeadersPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6866,14 +6124,12 @@ const deserializeAws_restXmlGetResponseHeadersPolicyCommandError = async (
       throw await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6884,17 +6140,13 @@ export const deserializeAws_restXmlGetResponseHeadersPolicyConfigCommand = async
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetResponseHeadersPolicyConfigCommandError(output, context);
   }
-  const contents: GetResponseHeadersPolicyConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    ResponseHeadersPolicyConfig: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ResponseHeadersPolicyConfig = deserializeAws_restXmlResponseHeadersPolicyConfig(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetResponseHeadersPolicyConfigCommandError = async (
@@ -6905,7 +6157,6 @@ const deserializeAws_restXmlGetResponseHeadersPolicyConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6916,14 +6167,12 @@ const deserializeAws_restXmlGetResponseHeadersPolicyConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6934,17 +6183,13 @@ export const deserializeAws_restXmlGetStreamingDistributionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetStreamingDistributionCommandError(output, context);
   }
-  const contents: GetStreamingDistributionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    StreamingDistribution: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistribution = deserializeAws_restXmlStreamingDistribution(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetStreamingDistributionCommandError = async (
@@ -6955,7 +6200,6 @@ const deserializeAws_restXmlGetStreamingDistributionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6966,14 +6210,12 @@ const deserializeAws_restXmlGetStreamingDistributionCommandError = async (
       throw await deserializeAws_restXmlNoSuchStreamingDistributionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6984,17 +6226,13 @@ export const deserializeAws_restXmlGetStreamingDistributionConfigCommand = async
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetStreamingDistributionConfigCommandError(output, context);
   }
-  const contents: GetStreamingDistributionConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    StreamingDistributionConfig: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistributionConfig = deserializeAws_restXmlStreamingDistributionConfig(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlGetStreamingDistributionConfigCommandError = async (
@@ -7005,7 +6243,6 @@ const deserializeAws_restXmlGetStreamingDistributionConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7016,14 +6253,12 @@ const deserializeAws_restXmlGetStreamingDistributionConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchStreamingDistributionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7034,13 +6269,12 @@ export const deserializeAws_restXmlListCachePoliciesCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListCachePoliciesCommandError(output, context);
   }
-  const contents: ListCachePoliciesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CachePolicyList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CachePolicyList = deserializeAws_restXmlCachePolicyList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListCachePoliciesCommandError = async (
@@ -7051,7 +6285,6 @@ const deserializeAws_restXmlListCachePoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7065,14 +6298,12 @@ const deserializeAws_restXmlListCachePoliciesCommandError = async (
       throw await deserializeAws_restXmlNoSuchCachePolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7083,13 +6314,12 @@ export const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand =
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError(output, context);
   }
-  const contents: ListCloudFrontOriginAccessIdentitiesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CloudFrontOriginAccessIdentityList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CloudFrontOriginAccessIdentityList = deserializeAws_restXmlCloudFrontOriginAccessIdentityList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError = async (
@@ -7100,7 +6330,6 @@ const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -7108,14 +6337,12 @@ const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError = a
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7126,13 +6353,12 @@ export const deserializeAws_restXmlListConflictingAliasesCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListConflictingAliasesCommandError(output, context);
   }
-  const contents: ListConflictingAliasesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ConflictingAliasesList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ConflictingAliasesList = deserializeAws_restXmlConflictingAliasesList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListConflictingAliasesCommandError = async (
@@ -7143,7 +6369,6 @@ const deserializeAws_restXmlListConflictingAliasesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -7154,14 +6379,12 @@ const deserializeAws_restXmlListConflictingAliasesCommandError = async (
       throw await deserializeAws_restXmlNoSuchDistributionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7172,13 +6395,12 @@ export const deserializeAws_restXmlListDistributionsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListDistributionsCommandError(output, context);
   }
-  const contents: ListDistributionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DistributionList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionList = deserializeAws_restXmlDistributionList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListDistributionsCommandError = async (
@@ -7189,7 +6411,6 @@ const deserializeAws_restXmlListDistributionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -7197,14 +6418,12 @@ const deserializeAws_restXmlListDistributionsCommandError = async (
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7215,13 +6434,12 @@ export const deserializeAws_restXmlListDistributionsByCachePolicyIdCommand = asy
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListDistributionsByCachePolicyIdCommandError(output, context);
   }
-  const contents: ListDistributionsByCachePolicyIdCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DistributionIdList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionIdList = deserializeAws_restXmlDistributionIdList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListDistributionsByCachePolicyIdCommandError = async (
@@ -7232,7 +6450,6 @@ const deserializeAws_restXmlListDistributionsByCachePolicyIdCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7246,14 +6463,12 @@ const deserializeAws_restXmlListDistributionsByCachePolicyIdCommandError = async
       throw await deserializeAws_restXmlNoSuchCachePolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7264,13 +6479,12 @@ export const deserializeAws_restXmlListDistributionsByKeyGroupCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListDistributionsByKeyGroupCommandError(output, context);
   }
-  const contents: ListDistributionsByKeyGroupCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DistributionIdList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionIdList = deserializeAws_restXmlDistributionIdList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListDistributionsByKeyGroupCommandError = async (
@@ -7281,7 +6495,6 @@ const deserializeAws_restXmlListDistributionsByKeyGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -7292,14 +6505,12 @@ const deserializeAws_restXmlListDistributionsByKeyGroupCommandError = async (
       throw await deserializeAws_restXmlNoSuchResourceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7310,13 +6521,12 @@ export const deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdComma
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommandError(output, context);
   }
-  const contents: ListDistributionsByOriginRequestPolicyIdCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DistributionIdList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionIdList = deserializeAws_restXmlDistributionIdList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommandError = async (
@@ -7327,7 +6537,6 @@ const deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommandError
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7341,14 +6550,12 @@ const deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommandError
       throw await deserializeAws_restXmlNoSuchOriginRequestPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7359,13 +6566,12 @@ export const deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommand =
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommandError(output, context);
   }
-  const contents: ListDistributionsByRealtimeLogConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DistributionList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionList = deserializeAws_restXmlDistributionList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommandError = async (
@@ -7376,7 +6582,6 @@ const deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -7384,14 +6589,12 @@ const deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommandError = a
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7402,13 +6605,12 @@ export const deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCom
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommandError(output, context);
   }
-  const contents: ListDistributionsByResponseHeadersPolicyIdCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DistributionIdList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionIdList = deserializeAws_restXmlDistributionIdList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommandError = async (
@@ -7419,7 +6621,6 @@ const deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommandErr
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7433,14 +6634,12 @@ const deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommandErr
       throw await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7451,13 +6650,12 @@ export const deserializeAws_restXmlListDistributionsByWebACLIdCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListDistributionsByWebACLIdCommandError(output, context);
   }
-  const contents: ListDistributionsByWebACLIdCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DistributionList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionList = deserializeAws_restXmlDistributionList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListDistributionsByWebACLIdCommandError = async (
@@ -7468,7 +6666,6 @@ const deserializeAws_restXmlListDistributionsByWebACLIdCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -7479,14 +6676,12 @@ const deserializeAws_restXmlListDistributionsByWebACLIdCommandError = async (
       throw await deserializeAws_restXmlInvalidWebACLIdResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7497,13 +6692,12 @@ export const deserializeAws_restXmlListFieldLevelEncryptionConfigsCommand = asyn
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError(output, context);
   }
-  const contents: ListFieldLevelEncryptionConfigsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    FieldLevelEncryptionList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionList = deserializeAws_restXmlFieldLevelEncryptionList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError = async (
@@ -7514,7 +6708,6 @@ const deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -7522,14 +6715,12 @@ const deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError = async 
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7540,13 +6731,12 @@ export const deserializeAws_restXmlListFieldLevelEncryptionProfilesCommand = asy
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError(output, context);
   }
-  const contents: ListFieldLevelEncryptionProfilesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    FieldLevelEncryptionProfileList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionProfileList = deserializeAws_restXmlFieldLevelEncryptionProfileList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError = async (
@@ -7557,7 +6747,6 @@ const deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -7565,14 +6754,12 @@ const deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError = async
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7583,13 +6770,12 @@ export const deserializeAws_restXmlListFunctionsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListFunctionsCommandError(output, context);
   }
-  const contents: ListFunctionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    FunctionList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FunctionList = deserializeAws_restXmlFunctionList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListFunctionsCommandError = async (
@@ -7600,7 +6786,6 @@ const deserializeAws_restXmlListFunctionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -7611,14 +6796,12 @@ const deserializeAws_restXmlListFunctionsCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7629,13 +6812,12 @@ export const deserializeAws_restXmlListInvalidationsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListInvalidationsCommandError(output, context);
   }
-  const contents: ListInvalidationsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    InvalidationList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.InvalidationList = deserializeAws_restXmlInvalidationList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListInvalidationsCommandError = async (
@@ -7646,7 +6828,6 @@ const deserializeAws_restXmlListInvalidationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7660,14 +6841,12 @@ const deserializeAws_restXmlListInvalidationsCommandError = async (
       throw await deserializeAws_restXmlNoSuchDistributionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7678,13 +6857,12 @@ export const deserializeAws_restXmlListKeyGroupsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListKeyGroupsCommandError(output, context);
   }
-  const contents: ListKeyGroupsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    KeyGroupList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroupList = deserializeAws_restXmlKeyGroupList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListKeyGroupsCommandError = async (
@@ -7695,7 +6873,6 @@ const deserializeAws_restXmlListKeyGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -7703,14 +6880,12 @@ const deserializeAws_restXmlListKeyGroupsCommandError = async (
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7721,13 +6896,12 @@ export const deserializeAws_restXmlListOriginRequestPoliciesCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListOriginRequestPoliciesCommandError(output, context);
   }
-  const contents: ListOriginRequestPoliciesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    OriginRequestPolicyList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginRequestPolicyList = deserializeAws_restXmlOriginRequestPolicyList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListOriginRequestPoliciesCommandError = async (
@@ -7738,7 +6912,6 @@ const deserializeAws_restXmlListOriginRequestPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7752,14 +6925,12 @@ const deserializeAws_restXmlListOriginRequestPoliciesCommandError = async (
       throw await deserializeAws_restXmlNoSuchOriginRequestPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7770,13 +6941,12 @@ export const deserializeAws_restXmlListPublicKeysCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListPublicKeysCommandError(output, context);
   }
-  const contents: ListPublicKeysCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    PublicKeyList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicKeyList = deserializeAws_restXmlPublicKeyList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListPublicKeysCommandError = async (
@@ -7787,7 +6957,6 @@ const deserializeAws_restXmlListPublicKeysCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -7795,14 +6964,12 @@ const deserializeAws_restXmlListPublicKeysCommandError = async (
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7813,13 +6980,12 @@ export const deserializeAws_restXmlListRealtimeLogConfigsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListRealtimeLogConfigsCommandError(output, context);
   }
-  const contents: ListRealtimeLogConfigsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RealtimeLogConfigs: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.RealtimeLogConfigs = deserializeAws_restXmlRealtimeLogConfigs(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListRealtimeLogConfigsCommandError = async (
@@ -7830,7 +6996,6 @@ const deserializeAws_restXmlListRealtimeLogConfigsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7844,14 +7009,12 @@ const deserializeAws_restXmlListRealtimeLogConfigsCommandError = async (
       throw await deserializeAws_restXmlNoSuchRealtimeLogConfigResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7862,13 +7025,12 @@ export const deserializeAws_restXmlListResponseHeadersPoliciesCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListResponseHeadersPoliciesCommandError(output, context);
   }
-  const contents: ListResponseHeadersPoliciesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ResponseHeadersPolicyList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ResponseHeadersPolicyList = deserializeAws_restXmlResponseHeadersPolicyList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListResponseHeadersPoliciesCommandError = async (
@@ -7879,7 +7041,6 @@ const deserializeAws_restXmlListResponseHeadersPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7893,14 +7054,12 @@ const deserializeAws_restXmlListResponseHeadersPoliciesCommandError = async (
       throw await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7911,13 +7070,12 @@ export const deserializeAws_restXmlListStreamingDistributionsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListStreamingDistributionsCommandError(output, context);
   }
-  const contents: ListStreamingDistributionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    StreamingDistributionList: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistributionList = deserializeAws_restXmlStreamingDistributionList(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListStreamingDistributionsCommandError = async (
@@ -7928,7 +7086,6 @@ const deserializeAws_restXmlListStreamingDistributionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -7936,14 +7093,12 @@ const deserializeAws_restXmlListStreamingDistributionsCommandError = async (
       throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7954,13 +7109,12 @@ export const deserializeAws_restXmlListTagsForResourceCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListTagsForResourceCommandError(output, context);
   }
-  const contents: ListTagsForResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Tags: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Tags = deserializeAws_restXmlTags(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlListTagsForResourceCommandError = async (
@@ -7971,7 +7125,6 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7988,14 +7141,12 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
       throw await deserializeAws_restXmlNoSuchResourceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8006,13 +7157,12 @@ export const deserializeAws_restXmlPublishFunctionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPublishFunctionCommandError(output, context);
   }
-  const contents: PublishFunctionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    FunctionSummary: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FunctionSummary = deserializeAws_restXmlFunctionSummary(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlPublishFunctionCommandError = async (
@@ -8023,7 +7173,6 @@ const deserializeAws_restXmlPublishFunctionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -8043,14 +7192,12 @@ const deserializeAws_restXmlPublishFunctionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8061,11 +7208,11 @@ export const deserializeAws_restXmlTagResourceCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlTagResourceCommandError(output, context);
   }
-  const contents: TagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlTagResourceCommandError = async (
@@ -8076,7 +7223,6 @@ const deserializeAws_restXmlTagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8093,14 +7239,12 @@ const deserializeAws_restXmlTagResourceCommandError = async (
       throw await deserializeAws_restXmlNoSuchResourceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8111,13 +7255,12 @@ export const deserializeAws_restXmlTestFunctionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlTestFunctionCommandError(output, context);
   }
-  const contents: TestFunctionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    TestResult: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.TestResult = deserializeAws_restXmlTestResult(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlTestFunctionCommandError = async (
@@ -8128,7 +7271,6 @@ const deserializeAws_restXmlTestFunctionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -8148,14 +7290,12 @@ const deserializeAws_restXmlTestFunctionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8166,11 +7306,11 @@ export const deserializeAws_restXmlUntagResourceCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlUntagResourceCommandError(output, context);
   }
-  const contents: UntagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlUntagResourceCommandError = async (
@@ -8181,7 +7321,6 @@ const deserializeAws_restXmlUntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8198,14 +7337,12 @@ const deserializeAws_restXmlUntagResourceCommandError = async (
       throw await deserializeAws_restXmlNoSuchResourceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8216,17 +7353,13 @@ export const deserializeAws_restXmlUpdateCachePolicyCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateCachePolicyCommandError(output, context);
   }
-  const contents: UpdateCachePolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CachePolicy: undefined,
-    ETag: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CachePolicy = deserializeAws_restXmlCachePolicy(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlUpdateCachePolicyCommandError = async (
@@ -8237,7 +7370,6 @@ const deserializeAws_restXmlUpdateCachePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8275,14 +7407,12 @@ const deserializeAws_restXmlUpdateCachePolicyCommandError = async (
       throw await deserializeAws_restXmlTooManyQueryStringsInCachePolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8293,17 +7423,13 @@ export const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand =
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError(output, context);
   }
-  const contents: UpdateCloudFrontOriginAccessIdentityCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CloudFrontOriginAccessIdentity: undefined,
-    ETag: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CloudFrontOriginAccessIdentity = deserializeAws_restXmlCloudFrontOriginAccessIdentity(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = async (
@@ -8314,7 +7440,6 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8343,14 +7468,12 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8361,17 +7484,13 @@ export const deserializeAws_restXmlUpdateDistributionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateDistributionCommandError(output, context);
   }
-  const contents: UpdateDistributionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Distribution: undefined,
-    ETag: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlUpdateDistributionCommandError = async (
@@ -8382,7 +7501,6 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8576,14 +7694,12 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
       throw await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8594,17 +7710,13 @@ export const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand = asy
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError(output, context);
   }
-  const contents: UpdateFieldLevelEncryptionConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    FieldLevelEncryption: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryption = deserializeAws_restXmlFieldLevelEncryption(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async (
@@ -8615,7 +7727,6 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8653,14 +7764,12 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
       throw await deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8671,17 +7780,13 @@ export const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand = as
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError(output, context);
   }
-  const contents: UpdateFieldLevelEncryptionProfileCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    FieldLevelEncryptionProfile: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionProfile = deserializeAws_restXmlFieldLevelEncryptionProfile(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = async (
@@ -8692,7 +7797,6 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8733,14 +7837,12 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
       throw await deserializeAws_restXmlTooManyFieldLevelEncryptionFieldPatternsResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8751,17 +7853,13 @@ export const deserializeAws_restXmlUpdateFunctionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateFunctionCommandError(output, context);
   }
-  const contents: UpdateFunctionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    FunctionSummary: undefined,
-  };
-  if (output.headers["ettag"] !== undefined) {
-    contents.ETag = output.headers["ettag"];
-  }
+    ETag: [, output.headers["ettag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FunctionSummary = deserializeAws_restXmlFunctionSummary(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlUpdateFunctionCommandError = async (
@@ -8772,7 +7870,6 @@ const deserializeAws_restXmlUpdateFunctionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FunctionSizeLimitExceeded":
@@ -8795,14 +7892,12 @@ const deserializeAws_restXmlUpdateFunctionCommandError = async (
       throw await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8813,17 +7908,13 @@ export const deserializeAws_restXmlUpdateKeyGroupCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateKeyGroupCommandError(output, context);
   }
-  const contents: UpdateKeyGroupCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    KeyGroup: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroup = deserializeAws_restXmlKeyGroup(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlUpdateKeyGroupCommandError = async (
@@ -8834,7 +7925,6 @@ const deserializeAws_restXmlUpdateKeyGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -8857,14 +7947,12 @@ const deserializeAws_restXmlUpdateKeyGroupCommandError = async (
       throw await deserializeAws_restXmlTooManyPublicKeysInKeyGroupResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8875,17 +7963,13 @@ export const deserializeAws_restXmlUpdateOriginRequestPolicyCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateOriginRequestPolicyCommandError(output, context);
   }
-  const contents: UpdateOriginRequestPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    OriginRequestPolicy: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginRequestPolicy = deserializeAws_restXmlOriginRequestPolicy(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlUpdateOriginRequestPolicyCommandError = async (
@@ -8896,7 +7980,6 @@ const deserializeAws_restXmlUpdateOriginRequestPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8934,14 +8017,12 @@ const deserializeAws_restXmlUpdateOriginRequestPolicyCommandError = async (
       throw await deserializeAws_restXmlTooManyQueryStringsInOriginRequestPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8952,17 +8033,13 @@ export const deserializeAws_restXmlUpdatePublicKeyCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdatePublicKeyCommandError(output, context);
   }
-  const contents: UpdatePublicKeyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    PublicKey: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicKey = deserializeAws_restXmlPublicKey(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
@@ -8973,7 +8050,6 @@ const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8999,14 +8075,12 @@ const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
       throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9017,15 +8091,14 @@ export const deserializeAws_restXmlUpdateRealtimeLogConfigCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateRealtimeLogConfigCommandError(output, context);
   }
-  const contents: UpdateRealtimeLogConfigCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RealtimeLogConfig: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["RealtimeLogConfig"] !== undefined) {
     contents.RealtimeLogConfig = deserializeAws_restXmlRealtimeLogConfig(data["RealtimeLogConfig"], context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlUpdateRealtimeLogConfigCommandError = async (
@@ -9036,7 +8109,6 @@ const deserializeAws_restXmlUpdateRealtimeLogConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -9050,14 +8122,12 @@ const deserializeAws_restXmlUpdateRealtimeLogConfigCommandError = async (
       throw await deserializeAws_restXmlNoSuchRealtimeLogConfigResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9068,17 +8138,13 @@ export const deserializeAws_restXmlUpdateResponseHeadersPolicyCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateResponseHeadersPolicyCommandError(output, context);
   }
-  const contents: UpdateResponseHeadersPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    ResponseHeadersPolicy: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ResponseHeadersPolicy = deserializeAws_restXmlResponseHeadersPolicy(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlUpdateResponseHeadersPolicyCommandError = async (
@@ -9089,7 +8155,6 @@ const deserializeAws_restXmlUpdateResponseHeadersPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -9124,14 +8189,12 @@ const deserializeAws_restXmlUpdateResponseHeadersPolicyCommandError = async (
       throw await deserializeAws_restXmlTooManyCustomHeadersInResponseHeadersPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9142,17 +8205,13 @@ export const deserializeAws_restXmlUpdateStreamingDistributionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateStreamingDistributionCommandError(output, context);
   }
-  const contents: UpdateStreamingDistributionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: undefined,
-    StreamingDistribution: undefined,
-  };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
+    ETag: [, output.headers["etag"]],
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistribution = deserializeAws_restXmlStreamingDistribution(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
@@ -9163,7 +8222,6 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -9207,22 +8265,21 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
       throw await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
+const map = __map;
 const deserializeAws_restXmlAccessDeniedResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDenied> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9238,7 +8295,7 @@ const deserializeAws_restXmlBatchTooLargeResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BatchTooLarge> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9254,7 +8311,7 @@ const deserializeAws_restXmlCachePolicyAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CachePolicyAlreadyExists> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9270,7 +8327,7 @@ const deserializeAws_restXmlCachePolicyInUseResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CachePolicyInUse> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9286,7 +8343,7 @@ const deserializeAws_restXmlCannotChangeImmutablePublicKeyFieldsResponse = async
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CannotChangeImmutablePublicKeyFields> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9302,7 +8359,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityAlreadyExistsResponse 
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CloudFrontOriginAccessIdentityAlreadyExists> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9318,7 +8375,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityInUseResponse = async 
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CloudFrontOriginAccessIdentityInUse> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9334,7 +8391,7 @@ const deserializeAws_restXmlCNAMEAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CNAMEAlreadyExists> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9350,7 +8407,7 @@ const deserializeAws_restXmlDistributionAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DistributionAlreadyExists> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9366,7 +8423,7 @@ const deserializeAws_restXmlDistributionNotDisabledResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DistributionNotDisabled> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9382,7 +8439,7 @@ const deserializeAws_restXmlFieldLevelEncryptionConfigAlreadyExistsResponse = as
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FieldLevelEncryptionConfigAlreadyExists> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9398,7 +8455,7 @@ const deserializeAws_restXmlFieldLevelEncryptionConfigInUseResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FieldLevelEncryptionConfigInUse> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9414,7 +8471,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileAlreadyExistsResponse = a
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FieldLevelEncryptionProfileAlreadyExists> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9430,7 +8487,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileInUseResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FieldLevelEncryptionProfileInUse> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9446,7 +8503,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSizeExceededResponse = as
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FieldLevelEncryptionProfileSizeExceeded> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9462,7 +8519,7 @@ const deserializeAws_restXmlFunctionAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FunctionAlreadyExists> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9478,7 +8535,7 @@ const deserializeAws_restXmlFunctionInUseResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FunctionInUse> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9494,7 +8551,7 @@ const deserializeAws_restXmlFunctionSizeLimitExceededResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FunctionSizeLimitExceeded> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9510,7 +8567,7 @@ const deserializeAws_restXmlIllegalDeleteResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IllegalDelete> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9526,7 +8583,7 @@ const deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCach
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9542,7 +8599,7 @@ const deserializeAws_restXmlIllegalUpdateResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IllegalUpdate> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9558,7 +8615,7 @@ const deserializeAws_restXmlInconsistentQuantitiesResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InconsistentQuantities> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9574,7 +8631,7 @@ const deserializeAws_restXmlInvalidArgumentResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidArgument> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9590,7 +8647,7 @@ const deserializeAws_restXmlInvalidDefaultRootObjectResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDefaultRootObject> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9606,7 +8663,7 @@ const deserializeAws_restXmlInvalidErrorCodeResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidErrorCode> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9622,7 +8679,7 @@ const deserializeAws_restXmlInvalidForwardCookiesResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidForwardCookies> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9638,7 +8695,7 @@ const deserializeAws_restXmlInvalidFunctionAssociationResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidFunctionAssociation> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9654,7 +8711,7 @@ const deserializeAws_restXmlInvalidGeoRestrictionParameterResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidGeoRestrictionParameter> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9670,7 +8727,7 @@ const deserializeAws_restXmlInvalidHeadersForS3OriginResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidHeadersForS3Origin> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9686,7 +8743,7 @@ const deserializeAws_restXmlInvalidIfMatchVersionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidIfMatchVersion> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9702,7 +8759,7 @@ const deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidLambdaFunctionAssociation> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9718,7 +8775,7 @@ const deserializeAws_restXmlInvalidLocationCodeResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidLocationCode> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9734,7 +8791,7 @@ const deserializeAws_restXmlInvalidMinimumProtocolVersionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidMinimumProtocolVersion> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9750,7 +8807,7 @@ const deserializeAws_restXmlInvalidOriginResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOrigin> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9766,7 +8823,7 @@ const deserializeAws_restXmlInvalidOriginAccessIdentityResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOriginAccessIdentity> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9782,7 +8839,7 @@ const deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOriginKeepaliveTimeout> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9798,7 +8855,7 @@ const deserializeAws_restXmlInvalidOriginReadTimeoutResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOriginReadTimeout> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9814,7 +8871,7 @@ const deserializeAws_restXmlInvalidProtocolSettingsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidProtocolSettings> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9830,7 +8887,7 @@ const deserializeAws_restXmlInvalidQueryStringParametersResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidQueryStringParameters> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9846,7 +8903,7 @@ const deserializeAws_restXmlInvalidRelativePathResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRelativePath> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9862,7 +8919,7 @@ const deserializeAws_restXmlInvalidRequiredProtocolResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequiredProtocol> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9878,7 +8935,7 @@ const deserializeAws_restXmlInvalidResponseCodeResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidResponseCode> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9894,7 +8951,7 @@ const deserializeAws_restXmlInvalidTaggingResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTagging> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9910,7 +8967,7 @@ const deserializeAws_restXmlInvalidTTLOrderResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTTLOrder> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9926,7 +8983,7 @@ const deserializeAws_restXmlInvalidViewerCertificateResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidViewerCertificate> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9942,7 +8999,7 @@ const deserializeAws_restXmlInvalidWebACLIdResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidWebACLId> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9958,7 +9015,7 @@ const deserializeAws_restXmlKeyGroupAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KeyGroupAlreadyExists> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9974,7 +9031,7 @@ const deserializeAws_restXmlMissingBodyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MissingBody> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -9990,7 +9047,7 @@ const deserializeAws_restXmlNoSuchCachePolicyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchCachePolicy> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10006,7 +9063,7 @@ const deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse = async
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchCloudFrontOriginAccessIdentity> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10022,7 +9079,7 @@ const deserializeAws_restXmlNoSuchDistributionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchDistribution> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10038,7 +9095,7 @@ const deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchFieldLevelEncryptionConfig> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10054,7 +9111,7 @@ const deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchFieldLevelEncryptionProfile> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10070,7 +9127,7 @@ const deserializeAws_restXmlNoSuchFunctionExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchFunctionExists> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10086,7 +9143,7 @@ const deserializeAws_restXmlNoSuchInvalidationResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchInvalidation> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10102,7 +9159,7 @@ const deserializeAws_restXmlNoSuchOriginResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchOrigin> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10118,7 +9175,7 @@ const deserializeAws_restXmlNoSuchOriginRequestPolicyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchOriginRequestPolicy> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10134,7 +9191,7 @@ const deserializeAws_restXmlNoSuchPublicKeyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchPublicKey> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10150,7 +9207,7 @@ const deserializeAws_restXmlNoSuchRealtimeLogConfigResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchRealtimeLogConfig> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10166,7 +9223,7 @@ const deserializeAws_restXmlNoSuchResourceResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchResource> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10182,7 +9239,7 @@ const deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchResponseHeadersPolicy> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10198,7 +9255,7 @@ const deserializeAws_restXmlNoSuchStreamingDistributionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchStreamingDistribution> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10214,7 +9271,7 @@ const deserializeAws_restXmlOriginRequestPolicyAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OriginRequestPolicyAlreadyExists> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10230,7 +9287,7 @@ const deserializeAws_restXmlOriginRequestPolicyInUseResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OriginRequestPolicyInUse> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10246,7 +9303,7 @@ const deserializeAws_restXmlPreconditionFailedResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PreconditionFailed> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10262,7 +9319,7 @@ const deserializeAws_restXmlPublicKeyAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PublicKeyAlreadyExists> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10278,7 +9335,7 @@ const deserializeAws_restXmlPublicKeyInUseResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PublicKeyInUse> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10294,7 +9351,7 @@ const deserializeAws_restXmlQueryArgProfileEmptyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<QueryArgProfileEmpty> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10310,7 +9367,7 @@ const deserializeAws_restXmlRealtimeLogConfigAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RealtimeLogConfigAlreadyExists> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10326,7 +9383,7 @@ const deserializeAws_restXmlRealtimeLogConfigInUseResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RealtimeLogConfigInUse> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10342,7 +9399,7 @@ const deserializeAws_restXmlRealtimeLogConfigOwnerMismatchResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RealtimeLogConfigOwnerMismatch> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10358,7 +9415,7 @@ const deserializeAws_restXmlResourceInUseResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUse> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10374,7 +9431,7 @@ const deserializeAws_restXmlResponseHeadersPolicyAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResponseHeadersPolicyAlreadyExists> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10390,7 +9447,7 @@ const deserializeAws_restXmlResponseHeadersPolicyInUseResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResponseHeadersPolicyInUse> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10406,7 +9463,7 @@ const deserializeAws_restXmlStreamingDistributionAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<StreamingDistributionAlreadyExists> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10422,7 +9479,7 @@ const deserializeAws_restXmlStreamingDistributionNotDisabledResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<StreamingDistributionNotDisabled> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10438,7 +9495,7 @@ const deserializeAws_restXmlTestFunctionFailedResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TestFunctionFailed> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10454,7 +9511,7 @@ const deserializeAws_restXmlTooLongCSPInResponseHeadersPolicyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooLongCSPInResponseHeadersPolicy> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10470,7 +9527,7 @@ const deserializeAws_restXmlTooManyCacheBehaviorsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyCacheBehaviors> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10486,7 +9543,7 @@ const deserializeAws_restXmlTooManyCachePoliciesResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyCachePolicies> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10502,7 +9559,7 @@ const deserializeAws_restXmlTooManyCertificatesResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyCertificates> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10518,7 +9575,7 @@ const deserializeAws_restXmlTooManyCloudFrontOriginAccessIdentitiesResponse = as
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyCloudFrontOriginAccessIdentities> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10534,7 +9591,7 @@ const deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyCookieNamesInWhiteList> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10550,7 +9607,7 @@ const deserializeAws_restXmlTooManyCookiesInCachePolicyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyCookiesInCachePolicy> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10566,7 +9623,7 @@ const deserializeAws_restXmlTooManyCookiesInOriginRequestPolicyResponse = async 
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyCookiesInOriginRequestPolicy> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10582,7 +9639,7 @@ const deserializeAws_restXmlTooManyCustomHeadersInResponseHeadersPolicyResponse 
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyCustomHeadersInResponseHeadersPolicy> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10598,7 +9655,7 @@ const deserializeAws_restXmlTooManyDistributionCNAMEsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyDistributionCNAMEs> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10614,7 +9671,7 @@ const deserializeAws_restXmlTooManyDistributionsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyDistributions> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10630,7 +9687,7 @@ const deserializeAws_restXmlTooManyDistributionsAssociatedToCachePolicyResponse 
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyDistributionsAssociatedToCachePolicy> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10646,7 +9703,7 @@ const deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryption
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyDistributionsAssociatedToFieldLevelEncryptionConfig> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10662,7 +9719,7 @@ const deserializeAws_restXmlTooManyDistributionsAssociatedToKeyGroupResponse = a
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyDistributionsAssociatedToKeyGroup> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10678,7 +9735,7 @@ const deserializeAws_restXmlTooManyDistributionsAssociatedToOriginRequestPolicyR
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyDistributionsAssociatedToOriginRequestPolicy> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10694,7 +9751,7 @@ const deserializeAws_restXmlTooManyDistributionsAssociatedToResponseHeadersPolic
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyDistributionsAssociatedToResponseHeadersPolicy> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10710,7 +9767,7 @@ const deserializeAws_restXmlTooManyDistributionsWithFunctionAssociationsResponse
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyDistributionsWithFunctionAssociations> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10726,7 +9783,7 @@ const deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse =
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyDistributionsWithLambdaAssociations> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10742,7 +9799,7 @@ const deserializeAws_restXmlTooManyDistributionsWithSingleFunctionARNResponse = 
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyDistributionsWithSingleFunctionARN> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10758,7 +9815,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionConfigsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyFieldLevelEncryptionConfigs> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10774,7 +9831,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionContentTypeProfilesRespon
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyFieldLevelEncryptionContentTypeProfiles> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10790,7 +9847,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionEncryptionEntitiesRespons
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyFieldLevelEncryptionEncryptionEntities> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10806,7 +9863,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionFieldPatternsResponse = a
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyFieldLevelEncryptionFieldPatterns> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10822,7 +9879,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionProfilesResponse = async 
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyFieldLevelEncryptionProfiles> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10838,7 +9895,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse 
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyFieldLevelEncryptionQueryArgProfiles> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10854,7 +9911,7 @@ const deserializeAws_restXmlTooManyFunctionAssociationsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyFunctionAssociations> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10870,7 +9927,7 @@ const deserializeAws_restXmlTooManyFunctionsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyFunctions> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10886,7 +9943,7 @@ const deserializeAws_restXmlTooManyHeadersInCachePolicyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyHeadersInCachePolicy> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10902,7 +9959,7 @@ const deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyHeadersInForwardedValues> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10918,7 +9975,7 @@ const deserializeAws_restXmlTooManyHeadersInOriginRequestPolicyResponse = async 
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyHeadersInOriginRequestPolicy> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10934,7 +9991,7 @@ const deserializeAws_restXmlTooManyInvalidationsInProgressResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyInvalidationsInProgress> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10950,7 +10007,7 @@ const deserializeAws_restXmlTooManyKeyGroupsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyKeyGroups> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10966,7 +10023,7 @@ const deserializeAws_restXmlTooManyKeyGroupsAssociatedToDistributionResponse = a
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyKeyGroupsAssociatedToDistribution> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10982,7 +10039,7 @@ const deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyLambdaFunctionAssociations> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -10998,7 +10055,7 @@ const deserializeAws_restXmlTooManyOriginCustomHeadersResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyOriginCustomHeaders> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11014,7 +10071,7 @@ const deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyOriginGroupsPerDistribution> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11030,7 +10087,7 @@ const deserializeAws_restXmlTooManyOriginRequestPoliciesResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyOriginRequestPolicies> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11046,7 +10103,7 @@ const deserializeAws_restXmlTooManyOriginsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyOrigins> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11062,7 +10119,7 @@ const deserializeAws_restXmlTooManyPublicKeysResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyPublicKeys> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11078,7 +10135,7 @@ const deserializeAws_restXmlTooManyPublicKeysInKeyGroupResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyPublicKeysInKeyGroup> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11094,7 +10151,7 @@ const deserializeAws_restXmlTooManyQueryStringParametersResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyQueryStringParameters> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11110,7 +10167,7 @@ const deserializeAws_restXmlTooManyQueryStringsInCachePolicyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyQueryStringsInCachePolicy> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11126,7 +10183,7 @@ const deserializeAws_restXmlTooManyQueryStringsInOriginRequestPolicyResponse = a
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyQueryStringsInOriginRequestPolicy> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11142,7 +10199,7 @@ const deserializeAws_restXmlTooManyRealtimeLogConfigsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRealtimeLogConfigs> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11158,7 +10215,7 @@ const deserializeAws_restXmlTooManyResponseHeadersPoliciesResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyResponseHeadersPolicies> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11174,7 +10231,7 @@ const deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyStreamingDistributionCNAMEs> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11190,7 +10247,7 @@ const deserializeAws_restXmlTooManyStreamingDistributionsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyStreamingDistributions> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11206,7 +10263,7 @@ const deserializeAws_restXmlTooManyTrustedSignersResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTrustedSigners> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11222,7 +10279,7 @@ const deserializeAws_restXmlTrustedKeyGroupDoesNotExistResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TrustedKeyGroupDoesNotExist> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11238,7 +10295,7 @@ const deserializeAws_restXmlTrustedSignerDoesNotExistResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TrustedSignerDoesNotExist> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11254,7 +10311,7 @@ const deserializeAws_restXmlUnsupportedOperationResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedOperation> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
     contents.Message = __expectString(data["Message"]);
@@ -11270,10 +10327,7 @@ const serializeAws_restXmlAccessControlAllowHeadersList = (input: string[], cont
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("Header");
     });
 };
@@ -11285,12 +10339,7 @@ const serializeAws_restXmlAccessControlAllowMethodsList = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("ResponseHeadersPolicyAccessControlAllowMethodsValues").addChildNode(
-        new __XmlText(entry)
-      );
+      const node = __XmlNode.of("ResponseHeadersPolicyAccessControlAllowMethodsValues", entry);
       return node.withName("Method");
     });
 };
@@ -11299,10 +10348,7 @@ const serializeAws_restXmlAccessControlAllowOriginsList = (input: string[], cont
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("Origin");
     });
 };
@@ -11311,10 +10357,7 @@ const serializeAws_restXmlAccessControlExposeHeadersList = (input: string[], con
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("Header");
     });
 };
@@ -11322,7 +10365,7 @@ const serializeAws_restXmlAccessControlExposeHeadersList = (input: string[], con
 const serializeAws_restXmlAliases = (input: Aliases, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Aliases");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -11340,10 +10383,7 @@ const serializeAws_restXmlAliasList = (input: string[], context: __SerdeContext)
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("CNAME");
     });
 };
@@ -11351,7 +10391,7 @@ const serializeAws_restXmlAliasList = (input: string[], context: __SerdeContext)
 const serializeAws_restXmlAllowedMethods = (input: AllowedMethods, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("AllowedMethods");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -11373,10 +10413,7 @@ const serializeAws_restXmlAwsAccountNumberList = (input: string[], context: __Se
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("AwsAccountNumber");
     });
 };
@@ -11384,11 +10421,11 @@ const serializeAws_restXmlAwsAccountNumberList = (input: string[], context: __Se
 const serializeAws_restXmlCacheBehavior = (input: CacheBehavior, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CacheBehavior");
   if (input.PathPattern != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.PathPattern)).withName("PathPattern");
+    const node = __XmlNode.of("string", input.PathPattern).withName("PathPattern");
     bodyNode.addChildNode(node);
   }
   if (input.TargetOriginId != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.TargetOriginId)).withName("TargetOriginId");
+    const node = __XmlNode.of("string", input.TargetOriginId).withName("TargetOriginId");
     bodyNode.addChildNode(node);
   }
   if (input.TrustedSigners != null) {
@@ -11400,9 +10437,7 @@ const serializeAws_restXmlCacheBehavior = (input: CacheBehavior, context: __Serd
     bodyNode.addChildNode(node);
   }
   if (input.ViewerProtocolPolicy != null) {
-    const node = new __XmlNode("ViewerProtocolPolicy")
-      .addChildNode(new __XmlText(input.ViewerProtocolPolicy))
-      .withName("ViewerProtocolPolicy");
+    const node = __XmlNode.of("ViewerProtocolPolicy", input.ViewerProtocolPolicy).withName("ViewerProtocolPolicy");
     bodyNode.addChildNode(node);
   }
   if (input.AllowedMethods != null) {
@@ -11410,13 +10445,11 @@ const serializeAws_restXmlCacheBehavior = (input: CacheBehavior, context: __Serd
     bodyNode.addChildNode(node);
   }
   if (input.SmoothStreaming != null) {
-    const node = new __XmlNode("boolean")
-      .addChildNode(new __XmlText(String(input.SmoothStreaming)))
-      .withName("SmoothStreaming");
+    const node = __XmlNode.of("boolean", String(input.SmoothStreaming)).withName("SmoothStreaming");
     bodyNode.addChildNode(node);
   }
   if (input.Compress != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Compress))).withName("Compress");
+    const node = __XmlNode.of("boolean", String(input.Compress)).withName("Compress");
     bodyNode.addChildNode(node);
   }
   if (input.LambdaFunctionAssociations != null) {
@@ -11432,31 +10465,23 @@ const serializeAws_restXmlCacheBehavior = (input: CacheBehavior, context: __Serd
     bodyNode.addChildNode(node);
   }
   if (input.FieldLevelEncryptionId != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.FieldLevelEncryptionId))
-      .withName("FieldLevelEncryptionId");
+    const node = __XmlNode.of("string", input.FieldLevelEncryptionId).withName("FieldLevelEncryptionId");
     bodyNode.addChildNode(node);
   }
   if (input.RealtimeLogConfigArn != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.RealtimeLogConfigArn))
-      .withName("RealtimeLogConfigArn");
+    const node = __XmlNode.of("string", input.RealtimeLogConfigArn).withName("RealtimeLogConfigArn");
     bodyNode.addChildNode(node);
   }
   if (input.CachePolicyId != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.CachePolicyId)).withName("CachePolicyId");
+    const node = __XmlNode.of("string", input.CachePolicyId).withName("CachePolicyId");
     bodyNode.addChildNode(node);
   }
   if (input.OriginRequestPolicyId != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.OriginRequestPolicyId))
-      .withName("OriginRequestPolicyId");
+    const node = __XmlNode.of("string", input.OriginRequestPolicyId).withName("OriginRequestPolicyId");
     bodyNode.addChildNode(node);
   }
   if (input.ResponseHeadersPolicyId != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.ResponseHeadersPolicyId))
-      .withName("ResponseHeadersPolicyId");
+    const node = __XmlNode.of("string", input.ResponseHeadersPolicyId).withName("ResponseHeadersPolicyId");
     bodyNode.addChildNode(node);
   }
   if (input.ForwardedValues != null) {
@@ -11464,15 +10489,15 @@ const serializeAws_restXmlCacheBehavior = (input: CacheBehavior, context: __Serd
     bodyNode.addChildNode(node);
   }
   if (input.MinTTL != null) {
-    const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.MinTTL))).withName("MinTTL");
+    const node = __XmlNode.of("long", String(input.MinTTL)).withName("MinTTL");
     bodyNode.addChildNode(node);
   }
   if (input.DefaultTTL != null) {
-    const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.DefaultTTL))).withName("DefaultTTL");
+    const node = __XmlNode.of("long", String(input.DefaultTTL)).withName("DefaultTTL");
     bodyNode.addChildNode(node);
   }
   if (input.MaxTTL != null) {
-    const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.MaxTTL))).withName("MaxTTL");
+    const node = __XmlNode.of("long", String(input.MaxTTL)).withName("MaxTTL");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -11482,9 +10507,6 @@ const serializeAws_restXmlCacheBehaviorList = (input: CacheBehavior[], context: 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       const node = serializeAws_restXmlCacheBehavior(entry, context);
       return node.withName("CacheBehavior");
     });
@@ -11493,7 +10515,7 @@ const serializeAws_restXmlCacheBehaviorList = (input: CacheBehavior[], context: 
 const serializeAws_restXmlCacheBehaviors = (input: CacheBehaviors, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CacheBehaviors");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -11510,7 +10532,7 @@ const serializeAws_restXmlCacheBehaviors = (input: CacheBehaviors, context: __Se
 const serializeAws_restXmlCachedMethods = (input: CachedMethods, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CachedMethods");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -11527,23 +10549,23 @@ const serializeAws_restXmlCachedMethods = (input: CachedMethods, context: __Serd
 const serializeAws_restXmlCachePolicyConfig = (input: CachePolicyConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CachePolicyConfig");
   if (input.Comment != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
+    const node = __XmlNode.of("string", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   if (input.Name != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
+    const node = __XmlNode.of("string", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   if (input.DefaultTTL != null) {
-    const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.DefaultTTL))).withName("DefaultTTL");
+    const node = __XmlNode.of("long", String(input.DefaultTTL)).withName("DefaultTTL");
     bodyNode.addChildNode(node);
   }
   if (input.MaxTTL != null) {
-    const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.MaxTTL))).withName("MaxTTL");
+    const node = __XmlNode.of("long", String(input.MaxTTL)).withName("MaxTTL");
     bodyNode.addChildNode(node);
   }
   if (input.MinTTL != null) {
-    const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.MinTTL))).withName("MinTTL");
+    const node = __XmlNode.of("long", String(input.MinTTL)).withName("MinTTL");
     bodyNode.addChildNode(node);
   }
   if (input.ParametersInCacheKeyAndForwardedToOrigin != null) {
@@ -11562,9 +10584,7 @@ const serializeAws_restXmlCachePolicyCookiesConfig = (
 ): any => {
   const bodyNode = new __XmlNode("CachePolicyCookiesConfig");
   if (input.CookieBehavior != null) {
-    const node = new __XmlNode("CachePolicyCookieBehavior")
-      .addChildNode(new __XmlText(input.CookieBehavior))
-      .withName("CookieBehavior");
+    const node = __XmlNode.of("CachePolicyCookieBehavior", input.CookieBehavior).withName("CookieBehavior");
     bodyNode.addChildNode(node);
   }
   if (input.Cookies != null) {
@@ -11580,9 +10600,7 @@ const serializeAws_restXmlCachePolicyHeadersConfig = (
 ): any => {
   const bodyNode = new __XmlNode("CachePolicyHeadersConfig");
   if (input.HeaderBehavior != null) {
-    const node = new __XmlNode("CachePolicyHeaderBehavior")
-      .addChildNode(new __XmlText(input.HeaderBehavior))
-      .withName("HeaderBehavior");
+    const node = __XmlNode.of("CachePolicyHeaderBehavior", input.HeaderBehavior).withName("HeaderBehavior");
     bodyNode.addChildNode(node);
   }
   if (input.Headers != null) {
@@ -11598,8 +10616,8 @@ const serializeAws_restXmlCachePolicyQueryStringsConfig = (
 ): any => {
   const bodyNode = new __XmlNode("CachePolicyQueryStringsConfig");
   if (input.QueryStringBehavior != null) {
-    const node = new __XmlNode("CachePolicyQueryStringBehavior")
-      .addChildNode(new __XmlText(input.QueryStringBehavior))
+    const node = __XmlNode
+      .of("CachePolicyQueryStringBehavior", input.QueryStringBehavior)
       .withName("QueryStringBehavior");
     bodyNode.addChildNode(node);
   }
@@ -11616,11 +10634,11 @@ const serializeAws_restXmlCloudFrontOriginAccessIdentityConfig = (
 ): any => {
   const bodyNode = new __XmlNode("CloudFrontOriginAccessIdentityConfig");
   if (input.CallerReference != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
+    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
   if (input.Comment != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
+    const node = __XmlNode.of("string", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -11629,15 +10647,15 @@ const serializeAws_restXmlCloudFrontOriginAccessIdentityConfig = (
 const serializeAws_restXmlContentTypeProfile = (input: ContentTypeProfile, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ContentTypeProfile");
   if (input.Format != null) {
-    const node = new __XmlNode("Format").addChildNode(new __XmlText(input.Format)).withName("Format");
+    const node = __XmlNode.of("Format", input.Format).withName("Format");
     bodyNode.addChildNode(node);
   }
   if (input.ProfileId != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.ProfileId)).withName("ProfileId");
+    const node = __XmlNode.of("string", input.ProfileId).withName("ProfileId");
     bodyNode.addChildNode(node);
   }
   if (input.ContentType != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.ContentType)).withName("ContentType");
+    const node = __XmlNode.of("string", input.ContentType).withName("ContentType");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -11649,8 +10667,8 @@ const serializeAws_restXmlContentTypeProfileConfig = (
 ): any => {
   const bodyNode = new __XmlNode("ContentTypeProfileConfig");
   if (input.ForwardWhenContentTypeIsUnknown != null) {
-    const node = new __XmlNode("boolean")
-      .addChildNode(new __XmlText(String(input.ForwardWhenContentTypeIsUnknown)))
+    const node = __XmlNode
+      .of("boolean", String(input.ForwardWhenContentTypeIsUnknown))
       .withName("ForwardWhenContentTypeIsUnknown");
     bodyNode.addChildNode(node);
   }
@@ -11667,9 +10685,6 @@ const serializeAws_restXmlContentTypeProfileList = (input: ContentTypeProfile[],
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       const node = serializeAws_restXmlContentTypeProfile(entry, context);
       return node.withName("ContentTypeProfile");
     });
@@ -11678,7 +10693,7 @@ const serializeAws_restXmlContentTypeProfileList = (input: ContentTypeProfile[],
 const serializeAws_restXmlContentTypeProfiles = (input: ContentTypeProfiles, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ContentTypeProfiles");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -11696,10 +10711,7 @@ const serializeAws_restXmlCookieNameList = (input: string[], context: __SerdeCon
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("Name");
     });
 };
@@ -11707,7 +10719,7 @@ const serializeAws_restXmlCookieNameList = (input: string[], context: __SerdeCon
 const serializeAws_restXmlCookieNames = (input: CookieNames, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CookieNames");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -11724,7 +10736,7 @@ const serializeAws_restXmlCookieNames = (input: CookieNames, context: __SerdeCon
 const serializeAws_restXmlCookiePreference = (input: CookiePreference, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CookiePreference");
   if (input.Forward != null) {
-    const node = new __XmlNode("ItemSelection").addChildNode(new __XmlText(input.Forward)).withName("Forward");
+    const node = __XmlNode.of("ItemSelection", input.Forward).withName("Forward");
     bodyNode.addChildNode(node);
   }
   if (input.WhitelistedNames != null) {
@@ -11737,23 +10749,19 @@ const serializeAws_restXmlCookiePreference = (input: CookiePreference, context: 
 const serializeAws_restXmlCustomErrorResponse = (input: CustomErrorResponse, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CustomErrorResponse");
   if (input.ErrorCode != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.ErrorCode))).withName("ErrorCode");
+    const node = __XmlNode.of("integer", String(input.ErrorCode)).withName("ErrorCode");
     bodyNode.addChildNode(node);
   }
   if (input.ResponsePagePath != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.ResponsePagePath))
-      .withName("ResponsePagePath");
+    const node = __XmlNode.of("string", input.ResponsePagePath).withName("ResponsePagePath");
     bodyNode.addChildNode(node);
   }
   if (input.ResponseCode != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.ResponseCode)).withName("ResponseCode");
+    const node = __XmlNode.of("string", input.ResponseCode).withName("ResponseCode");
     bodyNode.addChildNode(node);
   }
   if (input.ErrorCachingMinTTL != null) {
-    const node = new __XmlNode("long")
-      .addChildNode(new __XmlText(String(input.ErrorCachingMinTTL)))
-      .withName("ErrorCachingMinTTL");
+    const node = __XmlNode.of("long", String(input.ErrorCachingMinTTL)).withName("ErrorCachingMinTTL");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -11763,9 +10771,6 @@ const serializeAws_restXmlCustomErrorResponseList = (input: CustomErrorResponse[
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       const node = serializeAws_restXmlCustomErrorResponse(entry, context);
       return node.withName("CustomErrorResponse");
     });
@@ -11774,7 +10779,7 @@ const serializeAws_restXmlCustomErrorResponseList = (input: CustomErrorResponse[
 const serializeAws_restXmlCustomErrorResponses = (input: CustomErrorResponses, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CustomErrorResponses");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -11791,7 +10796,7 @@ const serializeAws_restXmlCustomErrorResponses = (input: CustomErrorResponses, c
 const serializeAws_restXmlCustomHeaders = (input: CustomHeaders, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CustomHeaders");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -11808,17 +10813,15 @@ const serializeAws_restXmlCustomHeaders = (input: CustomHeaders, context: __Serd
 const serializeAws_restXmlCustomOriginConfig = (input: CustomOriginConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CustomOriginConfig");
   if (input.HTTPPort != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.HTTPPort))).withName("HTTPPort");
+    const node = __XmlNode.of("integer", String(input.HTTPPort)).withName("HTTPPort");
     bodyNode.addChildNode(node);
   }
   if (input.HTTPSPort != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.HTTPSPort))).withName("HTTPSPort");
+    const node = __XmlNode.of("integer", String(input.HTTPSPort)).withName("HTTPSPort");
     bodyNode.addChildNode(node);
   }
   if (input.OriginProtocolPolicy != null) {
-    const node = new __XmlNode("OriginProtocolPolicy")
-      .addChildNode(new __XmlText(input.OriginProtocolPolicy))
-      .withName("OriginProtocolPolicy");
+    const node = __XmlNode.of("OriginProtocolPolicy", input.OriginProtocolPolicy).withName("OriginProtocolPolicy");
     bodyNode.addChildNode(node);
   }
   if (input.OriginSslProtocols != null) {
@@ -11828,15 +10831,11 @@ const serializeAws_restXmlCustomOriginConfig = (input: CustomOriginConfig, conte
     bodyNode.addChildNode(node);
   }
   if (input.OriginReadTimeout != null) {
-    const node = new __XmlNode("integer")
-      .addChildNode(new __XmlText(String(input.OriginReadTimeout)))
-      .withName("OriginReadTimeout");
+    const node = __XmlNode.of("integer", String(input.OriginReadTimeout)).withName("OriginReadTimeout");
     bodyNode.addChildNode(node);
   }
   if (input.OriginKeepaliveTimeout != null) {
-    const node = new __XmlNode("integer")
-      .addChildNode(new __XmlText(String(input.OriginKeepaliveTimeout)))
-      .withName("OriginKeepaliveTimeout");
+    const node = __XmlNode.of("integer", String(input.OriginKeepaliveTimeout)).withName("OriginKeepaliveTimeout");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -11845,7 +10844,7 @@ const serializeAws_restXmlCustomOriginConfig = (input: CustomOriginConfig, conte
 const serializeAws_restXmlDefaultCacheBehavior = (input: DefaultCacheBehavior, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("DefaultCacheBehavior");
   if (input.TargetOriginId != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.TargetOriginId)).withName("TargetOriginId");
+    const node = __XmlNode.of("string", input.TargetOriginId).withName("TargetOriginId");
     bodyNode.addChildNode(node);
   }
   if (input.TrustedSigners != null) {
@@ -11857,9 +10856,7 @@ const serializeAws_restXmlDefaultCacheBehavior = (input: DefaultCacheBehavior, c
     bodyNode.addChildNode(node);
   }
   if (input.ViewerProtocolPolicy != null) {
-    const node = new __XmlNode("ViewerProtocolPolicy")
-      .addChildNode(new __XmlText(input.ViewerProtocolPolicy))
-      .withName("ViewerProtocolPolicy");
+    const node = __XmlNode.of("ViewerProtocolPolicy", input.ViewerProtocolPolicy).withName("ViewerProtocolPolicy");
     bodyNode.addChildNode(node);
   }
   if (input.AllowedMethods != null) {
@@ -11867,13 +10864,11 @@ const serializeAws_restXmlDefaultCacheBehavior = (input: DefaultCacheBehavior, c
     bodyNode.addChildNode(node);
   }
   if (input.SmoothStreaming != null) {
-    const node = new __XmlNode("boolean")
-      .addChildNode(new __XmlText(String(input.SmoothStreaming)))
-      .withName("SmoothStreaming");
+    const node = __XmlNode.of("boolean", String(input.SmoothStreaming)).withName("SmoothStreaming");
     bodyNode.addChildNode(node);
   }
   if (input.Compress != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Compress))).withName("Compress");
+    const node = __XmlNode.of("boolean", String(input.Compress)).withName("Compress");
     bodyNode.addChildNode(node);
   }
   if (input.LambdaFunctionAssociations != null) {
@@ -11889,31 +10884,23 @@ const serializeAws_restXmlDefaultCacheBehavior = (input: DefaultCacheBehavior, c
     bodyNode.addChildNode(node);
   }
   if (input.FieldLevelEncryptionId != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.FieldLevelEncryptionId))
-      .withName("FieldLevelEncryptionId");
+    const node = __XmlNode.of("string", input.FieldLevelEncryptionId).withName("FieldLevelEncryptionId");
     bodyNode.addChildNode(node);
   }
   if (input.RealtimeLogConfigArn != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.RealtimeLogConfigArn))
-      .withName("RealtimeLogConfigArn");
+    const node = __XmlNode.of("string", input.RealtimeLogConfigArn).withName("RealtimeLogConfigArn");
     bodyNode.addChildNode(node);
   }
   if (input.CachePolicyId != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.CachePolicyId)).withName("CachePolicyId");
+    const node = __XmlNode.of("string", input.CachePolicyId).withName("CachePolicyId");
     bodyNode.addChildNode(node);
   }
   if (input.OriginRequestPolicyId != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.OriginRequestPolicyId))
-      .withName("OriginRequestPolicyId");
+    const node = __XmlNode.of("string", input.OriginRequestPolicyId).withName("OriginRequestPolicyId");
     bodyNode.addChildNode(node);
   }
   if (input.ResponseHeadersPolicyId != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.ResponseHeadersPolicyId))
-      .withName("ResponseHeadersPolicyId");
+    const node = __XmlNode.of("string", input.ResponseHeadersPolicyId).withName("ResponseHeadersPolicyId");
     bodyNode.addChildNode(node);
   }
   if (input.ForwardedValues != null) {
@@ -11921,15 +10908,15 @@ const serializeAws_restXmlDefaultCacheBehavior = (input: DefaultCacheBehavior, c
     bodyNode.addChildNode(node);
   }
   if (input.MinTTL != null) {
-    const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.MinTTL))).withName("MinTTL");
+    const node = __XmlNode.of("long", String(input.MinTTL)).withName("MinTTL");
     bodyNode.addChildNode(node);
   }
   if (input.DefaultTTL != null) {
-    const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.DefaultTTL))).withName("DefaultTTL");
+    const node = __XmlNode.of("long", String(input.DefaultTTL)).withName("DefaultTTL");
     bodyNode.addChildNode(node);
   }
   if (input.MaxTTL != null) {
-    const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.MaxTTL))).withName("MaxTTL");
+    const node = __XmlNode.of("long", String(input.MaxTTL)).withName("MaxTTL");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -11938,7 +10925,7 @@ const serializeAws_restXmlDefaultCacheBehavior = (input: DefaultCacheBehavior, c
 const serializeAws_restXmlDistributionConfig = (input: DistributionConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("DistributionConfig");
   if (input.CallerReference != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
+    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
   if (input.Aliases != null) {
@@ -11946,9 +10933,7 @@ const serializeAws_restXmlDistributionConfig = (input: DistributionConfig, conte
     bodyNode.addChildNode(node);
   }
   if (input.DefaultRootObject != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.DefaultRootObject))
-      .withName("DefaultRootObject");
+    const node = __XmlNode.of("string", input.DefaultRootObject).withName("DefaultRootObject");
     bodyNode.addChildNode(node);
   }
   if (input.Origins != null) {
@@ -11976,7 +10961,7 @@ const serializeAws_restXmlDistributionConfig = (input: DistributionConfig, conte
     bodyNode.addChildNode(node);
   }
   if (input.Comment != null) {
-    const node = new __XmlNode("CommentType").addChildNode(new __XmlText(input.Comment)).withName("Comment");
+    const node = __XmlNode.of("CommentType", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   if (input.Logging != null) {
@@ -11984,11 +10969,11 @@ const serializeAws_restXmlDistributionConfig = (input: DistributionConfig, conte
     bodyNode.addChildNode(node);
   }
   if (input.PriceClass != null) {
-    const node = new __XmlNode("PriceClass").addChildNode(new __XmlText(input.PriceClass)).withName("PriceClass");
+    const node = __XmlNode.of("PriceClass", input.PriceClass).withName("PriceClass");
     bodyNode.addChildNode(node);
   }
   if (input.Enabled != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
+    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
     bodyNode.addChildNode(node);
   }
   if (input.ViewerCertificate != null) {
@@ -12000,17 +10985,15 @@ const serializeAws_restXmlDistributionConfig = (input: DistributionConfig, conte
     bodyNode.addChildNode(node);
   }
   if (input.WebACLId != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.WebACLId)).withName("WebACLId");
+    const node = __XmlNode.of("string", input.WebACLId).withName("WebACLId");
     bodyNode.addChildNode(node);
   }
   if (input.HttpVersion != null) {
-    const node = new __XmlNode("HttpVersion").addChildNode(new __XmlText(input.HttpVersion)).withName("HttpVersion");
+    const node = __XmlNode.of("HttpVersion", input.HttpVersion).withName("HttpVersion");
     bodyNode.addChildNode(node);
   }
   if (input.IsIPV6Enabled != null) {
-    const node = new __XmlNode("boolean")
-      .addChildNode(new __XmlText(String(input.IsIPV6Enabled)))
-      .withName("IsIPV6Enabled");
+    const node = __XmlNode.of("boolean", String(input.IsIPV6Enabled)).withName("IsIPV6Enabled");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -12037,7 +11020,7 @@ const serializeAws_restXmlDistributionConfigWithTags = (
 const serializeAws_restXmlEncryptionEntities = (input: EncryptionEntities, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("EncryptionEntities");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -12054,11 +11037,11 @@ const serializeAws_restXmlEncryptionEntities = (input: EncryptionEntities, conte
 const serializeAws_restXmlEncryptionEntity = (input: EncryptionEntity, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("EncryptionEntity");
   if (input.PublicKeyId != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.PublicKeyId)).withName("PublicKeyId");
+    const node = __XmlNode.of("string", input.PublicKeyId).withName("PublicKeyId");
     bodyNode.addChildNode(node);
   }
   if (input.ProviderId != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.ProviderId)).withName("ProviderId");
+    const node = __XmlNode.of("string", input.ProviderId).withName("ProviderId");
     bodyNode.addChildNode(node);
   }
   if (input.FieldPatterns != null) {
@@ -12072,9 +11055,6 @@ const serializeAws_restXmlEncryptionEntityList = (input: EncryptionEntity[], con
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       const node = serializeAws_restXmlEncryptionEntity(entry, context);
       return node.withName("EncryptionEntity");
     });
@@ -12083,7 +11063,7 @@ const serializeAws_restXmlEncryptionEntityList = (input: EncryptionEntity[], con
 const serializeAws_restXmlEndPoint = (input: EndPoint, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("EndPoint");
   if (input.StreamType != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.StreamType)).withName("StreamType");
+    const node = __XmlNode.of("string", input.StreamType).withName("StreamType");
     bodyNode.addChildNode(node);
   }
   if (input.KinesisStreamConfig != null) {
@@ -12099,9 +11079,6 @@ const serializeAws_restXmlEndPointList = (input: EndPoint[], context: __SerdeCon
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       const node = serializeAws_restXmlEndPoint(entry, context);
       return node.withName("member");
     });
@@ -12113,11 +11090,11 @@ const serializeAws_restXmlFieldLevelEncryptionConfig = (
 ): any => {
   const bodyNode = new __XmlNode("FieldLevelEncryptionConfig");
   if (input.CallerReference != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
+    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
   if (input.Comment != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
+    const node = __XmlNode.of("string", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   if (input.QueryArgProfileConfig != null) {
@@ -12141,15 +11118,15 @@ const serializeAws_restXmlFieldLevelEncryptionProfileConfig = (
 ): any => {
   const bodyNode = new __XmlNode("FieldLevelEncryptionProfileConfig");
   if (input.Name != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
+    const node = __XmlNode.of("string", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   if (input.CallerReference != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
+    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
   if (input.Comment != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
+    const node = __XmlNode.of("string", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   if (input.EncryptionEntities != null) {
@@ -12165,10 +11142,7 @@ const serializeAws_restXmlFieldList = (input: string[], context: __SerdeContext)
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("Field");
     });
 };
@@ -12177,10 +11151,7 @@ const serializeAws_restXmlFieldPatternList = (input: string[], context: __SerdeC
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("FieldPattern");
     });
 };
@@ -12188,7 +11159,7 @@ const serializeAws_restXmlFieldPatternList = (input: string[], context: __SerdeC
 const serializeAws_restXmlFieldPatterns = (input: FieldPatterns, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("FieldPatterns");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -12205,9 +11176,7 @@ const serializeAws_restXmlFieldPatterns = (input: FieldPatterns, context: __Serd
 const serializeAws_restXmlForwardedValues = (input: ForwardedValues, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ForwardedValues");
   if (input.QueryString != null) {
-    const node = new __XmlNode("boolean")
-      .addChildNode(new __XmlText(String(input.QueryString)))
-      .withName("QueryString");
+    const node = __XmlNode.of("boolean", String(input.QueryString)).withName("QueryString");
     bodyNode.addChildNode(node);
   }
   if (input.Cookies != null) {
@@ -12230,11 +11199,11 @@ const serializeAws_restXmlForwardedValues = (input: ForwardedValues, context: __
 const serializeAws_restXmlFunctionAssociation = (input: FunctionAssociation, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("FunctionAssociation");
   if (input.FunctionARN != null) {
-    const node = new __XmlNode("FunctionARN").addChildNode(new __XmlText(input.FunctionARN)).withName("FunctionARN");
+    const node = __XmlNode.of("FunctionARN", input.FunctionARN).withName("FunctionARN");
     bodyNode.addChildNode(node);
   }
   if (input.EventType != null) {
-    const node = new __XmlNode("EventType").addChildNode(new __XmlText(input.EventType)).withName("EventType");
+    const node = __XmlNode.of("EventType", input.EventType).withName("EventType");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -12244,9 +11213,6 @@ const serializeAws_restXmlFunctionAssociationList = (input: FunctionAssociation[
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       const node = serializeAws_restXmlFunctionAssociation(entry, context);
       return node.withName("FunctionAssociation");
     });
@@ -12255,7 +11221,7 @@ const serializeAws_restXmlFunctionAssociationList = (input: FunctionAssociation[
 const serializeAws_restXmlFunctionAssociations = (input: FunctionAssociations, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("FunctionAssociations");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -12272,11 +11238,11 @@ const serializeAws_restXmlFunctionAssociations = (input: FunctionAssociations, c
 const serializeAws_restXmlFunctionConfig = (input: FunctionConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("FunctionConfig");
   if (input.Comment != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
+    const node = __XmlNode.of("string", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   if (input.Runtime != null) {
-    const node = new __XmlNode("FunctionRuntime").addChildNode(new __XmlText(input.Runtime)).withName("Runtime");
+    const node = __XmlNode.of("FunctionRuntime", input.Runtime).withName("Runtime");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -12285,13 +11251,11 @@ const serializeAws_restXmlFunctionConfig = (input: FunctionConfig, context: __Se
 const serializeAws_restXmlGeoRestriction = (input: GeoRestriction, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("GeoRestriction");
   if (input.RestrictionType != null) {
-    const node = new __XmlNode("GeoRestrictionType")
-      .addChildNode(new __XmlText(input.RestrictionType))
-      .withName("RestrictionType");
+    const node = __XmlNode.of("GeoRestrictionType", input.RestrictionType).withName("RestrictionType");
     bodyNode.addChildNode(node);
   }
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -12309,10 +11273,7 @@ const serializeAws_restXmlHeaderList = (input: string[], context: __SerdeContext
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("Name");
     });
 };
@@ -12320,7 +11281,7 @@ const serializeAws_restXmlHeaderList = (input: string[], context: __SerdeContext
 const serializeAws_restXmlHeaders = (input: Headers, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Headers");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -12341,7 +11302,7 @@ const serializeAws_restXmlInvalidationBatch = (input: InvalidationBatch, context
     bodyNode.addChildNode(node);
   }
   if (input.CallerReference != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
+    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -12350,7 +11311,7 @@ const serializeAws_restXmlInvalidationBatch = (input: InvalidationBatch, context
 const serializeAws_restXmlKeyGroupConfig = (input: KeyGroupConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("KeyGroupConfig");
   if (input.Name != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
+    const node = __XmlNode.of("string", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -12362,7 +11323,7 @@ const serializeAws_restXmlKeyGroupConfig = (input: KeyGroupConfig, context: __Se
     bodyNode.addChildNode(containerNode);
   }
   if (input.Comment != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
+    const node = __XmlNode.of("string", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -12371,11 +11332,11 @@ const serializeAws_restXmlKeyGroupConfig = (input: KeyGroupConfig, context: __Se
 const serializeAws_restXmlKinesisStreamConfig = (input: KinesisStreamConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("KinesisStreamConfig");
   if (input.RoleARN != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.RoleARN)).withName("RoleARN");
+    const node = __XmlNode.of("string", input.RoleARN).withName("RoleARN");
     bodyNode.addChildNode(node);
   }
   if (input.StreamARN != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.StreamARN)).withName("StreamARN");
+    const node = __XmlNode.of("string", input.StreamARN).withName("StreamARN");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -12387,19 +11348,15 @@ const serializeAws_restXmlLambdaFunctionAssociation = (
 ): any => {
   const bodyNode = new __XmlNode("LambdaFunctionAssociation");
   if (input.LambdaFunctionARN != null) {
-    const node = new __XmlNode("LambdaFunctionARN")
-      .addChildNode(new __XmlText(input.LambdaFunctionARN))
-      .withName("LambdaFunctionARN");
+    const node = __XmlNode.of("LambdaFunctionARN", input.LambdaFunctionARN).withName("LambdaFunctionARN");
     bodyNode.addChildNode(node);
   }
   if (input.EventType != null) {
-    const node = new __XmlNode("EventType").addChildNode(new __XmlText(input.EventType)).withName("EventType");
+    const node = __XmlNode.of("EventType", input.EventType).withName("EventType");
     bodyNode.addChildNode(node);
   }
   if (input.IncludeBody != null) {
-    const node = new __XmlNode("boolean")
-      .addChildNode(new __XmlText(String(input.IncludeBody)))
-      .withName("IncludeBody");
+    const node = __XmlNode.of("boolean", String(input.IncludeBody)).withName("IncludeBody");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -12412,9 +11369,6 @@ const serializeAws_restXmlLambdaFunctionAssociationList = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       const node = serializeAws_restXmlLambdaFunctionAssociation(entry, context);
       return node.withName("LambdaFunctionAssociation");
     });
@@ -12426,7 +11380,7 @@ const serializeAws_restXmlLambdaFunctionAssociations = (
 ): any => {
   const bodyNode = new __XmlNode("LambdaFunctionAssociations");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -12444,10 +11398,7 @@ const serializeAws_restXmlLocationList = (input: string[], context: __SerdeConte
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("Location");
     });
 };
@@ -12455,21 +11406,19 @@ const serializeAws_restXmlLocationList = (input: string[], context: __SerdeConte
 const serializeAws_restXmlLoggingConfig = (input: LoggingConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("LoggingConfig");
   if (input.Enabled != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
+    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
     bodyNode.addChildNode(node);
   }
   if (input.IncludeCookies != null) {
-    const node = new __XmlNode("boolean")
-      .addChildNode(new __XmlText(String(input.IncludeCookies)))
-      .withName("IncludeCookies");
+    const node = __XmlNode.of("boolean", String(input.IncludeCookies)).withName("IncludeCookies");
     bodyNode.addChildNode(node);
   }
   if (input.Bucket != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Bucket)).withName("Bucket");
+    const node = __XmlNode.of("string", input.Bucket).withName("Bucket");
     bodyNode.addChildNode(node);
   }
   if (input.Prefix != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Prefix)).withName("Prefix");
+    const node = __XmlNode.of("string", input.Prefix).withName("Prefix");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -12479,10 +11428,7 @@ const serializeAws_restXmlMethodsList = (input: (Method | string)[], context: __
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("Method").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("Method", entry);
       return node.withName("Method");
     });
 };
@@ -12502,15 +11448,15 @@ const serializeAws_restXmlMonitoringSubscription = (input: MonitoringSubscriptio
 const serializeAws_restXmlOrigin = (input: Origin, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Origin");
   if (input.Id != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Id)).withName("Id");
+    const node = __XmlNode.of("string", input.Id).withName("Id");
     bodyNode.addChildNode(node);
   }
   if (input.DomainName != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.DomainName)).withName("DomainName");
+    const node = __XmlNode.of("string", input.DomainName).withName("DomainName");
     bodyNode.addChildNode(node);
   }
   if (input.OriginPath != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.OriginPath)).withName("OriginPath");
+    const node = __XmlNode.of("string", input.OriginPath).withName("OriginPath");
     bodyNode.addChildNode(node);
   }
   if (input.CustomHeaders != null) {
@@ -12528,15 +11474,11 @@ const serializeAws_restXmlOrigin = (input: Origin, context: __SerdeContext): any
     bodyNode.addChildNode(node);
   }
   if (input.ConnectionAttempts != null) {
-    const node = new __XmlNode("integer")
-      .addChildNode(new __XmlText(String(input.ConnectionAttempts)))
-      .withName("ConnectionAttempts");
+    const node = __XmlNode.of("integer", String(input.ConnectionAttempts)).withName("ConnectionAttempts");
     bodyNode.addChildNode(node);
   }
   if (input.ConnectionTimeout != null) {
-    const node = new __XmlNode("integer")
-      .addChildNode(new __XmlText(String(input.ConnectionTimeout)))
-      .withName("ConnectionTimeout");
+    const node = __XmlNode.of("integer", String(input.ConnectionTimeout)).withName("ConnectionTimeout");
     bodyNode.addChildNode(node);
   }
   if (input.OriginShield != null) {
@@ -12549,13 +11491,11 @@ const serializeAws_restXmlOrigin = (input: Origin, context: __SerdeContext): any
 const serializeAws_restXmlOriginCustomHeader = (input: OriginCustomHeader, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("OriginCustomHeader");
   if (input.HeaderName != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.HeaderName)).withName("HeaderName");
+    const node = __XmlNode.of("string", input.HeaderName).withName("HeaderName");
     bodyNode.addChildNode(node);
   }
   if (input.HeaderValue != null) {
-    const node = new __XmlNode("sensitiveStringType")
-      .addChildNode(new __XmlText(input.HeaderValue))
-      .withName("HeaderValue");
+    const node = __XmlNode.of("sensitiveStringType", input.HeaderValue).withName("HeaderValue");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -12565,9 +11505,6 @@ const serializeAws_restXmlOriginCustomHeadersList = (input: OriginCustomHeader[]
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       const node = serializeAws_restXmlOriginCustomHeader(entry, context);
       return node.withName("OriginCustomHeader");
     });
@@ -12576,7 +11513,7 @@ const serializeAws_restXmlOriginCustomHeadersList = (input: OriginCustomHeader[]
 const serializeAws_restXmlOriginGroup = (input: OriginGroup, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("OriginGroup");
   if (input.Id != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Id)).withName("Id");
+    const node = __XmlNode.of("string", input.Id).withName("Id");
     bodyNode.addChildNode(node);
   }
   if (input.FailoverCriteria != null) {
@@ -12608,9 +11545,6 @@ const serializeAws_restXmlOriginGroupList = (input: OriginGroup[], context: __Se
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       const node = serializeAws_restXmlOriginGroup(entry, context);
       return node.withName("OriginGroup");
     });
@@ -12619,7 +11553,7 @@ const serializeAws_restXmlOriginGroupList = (input: OriginGroup[], context: __Se
 const serializeAws_restXmlOriginGroupMember = (input: OriginGroupMember, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("OriginGroupMember");
   if (input.OriginId != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.OriginId)).withName("OriginId");
+    const node = __XmlNode.of("string", input.OriginId).withName("OriginId");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -12629,9 +11563,6 @@ const serializeAws_restXmlOriginGroupMemberList = (input: OriginGroupMember[], c
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       const node = serializeAws_restXmlOriginGroupMember(entry, context);
       return node.withName("OriginGroupMember");
     });
@@ -12640,7 +11571,7 @@ const serializeAws_restXmlOriginGroupMemberList = (input: OriginGroupMember[], c
 const serializeAws_restXmlOriginGroupMembers = (input: OriginGroupMembers, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("OriginGroupMembers");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -12657,7 +11588,7 @@ const serializeAws_restXmlOriginGroupMembers = (input: OriginGroupMembers, conte
 const serializeAws_restXmlOriginGroups = (input: OriginGroups, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("OriginGroups");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -12675,9 +11606,6 @@ const serializeAws_restXmlOriginList = (input: Origin[], context: __SerdeContext
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       const node = serializeAws_restXmlOrigin(entry, context);
       return node.withName("Origin");
     });
@@ -12689,11 +11617,11 @@ const serializeAws_restXmlOriginRequestPolicyConfig = (
 ): any => {
   const bodyNode = new __XmlNode("OriginRequestPolicyConfig");
   if (input.Comment != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
+    const node = __XmlNode.of("string", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   if (input.Name != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
+    const node = __XmlNode.of("string", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   if (input.HeadersConfig != null) {
@@ -12723,9 +11651,7 @@ const serializeAws_restXmlOriginRequestPolicyCookiesConfig = (
 ): any => {
   const bodyNode = new __XmlNode("OriginRequestPolicyCookiesConfig");
   if (input.CookieBehavior != null) {
-    const node = new __XmlNode("OriginRequestPolicyCookieBehavior")
-      .addChildNode(new __XmlText(input.CookieBehavior))
-      .withName("CookieBehavior");
+    const node = __XmlNode.of("OriginRequestPolicyCookieBehavior", input.CookieBehavior).withName("CookieBehavior");
     bodyNode.addChildNode(node);
   }
   if (input.Cookies != null) {
@@ -12741,9 +11667,7 @@ const serializeAws_restXmlOriginRequestPolicyHeadersConfig = (
 ): any => {
   const bodyNode = new __XmlNode("OriginRequestPolicyHeadersConfig");
   if (input.HeaderBehavior != null) {
-    const node = new __XmlNode("OriginRequestPolicyHeaderBehavior")
-      .addChildNode(new __XmlText(input.HeaderBehavior))
-      .withName("HeaderBehavior");
+    const node = __XmlNode.of("OriginRequestPolicyHeaderBehavior", input.HeaderBehavior).withName("HeaderBehavior");
     bodyNode.addChildNode(node);
   }
   if (input.Headers != null) {
@@ -12759,8 +11683,8 @@ const serializeAws_restXmlOriginRequestPolicyQueryStringsConfig = (
 ): any => {
   const bodyNode = new __XmlNode("OriginRequestPolicyQueryStringsConfig");
   if (input.QueryStringBehavior != null) {
-    const node = new __XmlNode("OriginRequestPolicyQueryStringBehavior")
-      .addChildNode(new __XmlText(input.QueryStringBehavior))
+    const node = __XmlNode
+      .of("OriginRequestPolicyQueryStringBehavior", input.QueryStringBehavior)
       .withName("QueryStringBehavior");
     bodyNode.addChildNode(node);
   }
@@ -12774,7 +11698,7 @@ const serializeAws_restXmlOriginRequestPolicyQueryStringsConfig = (
 const serializeAws_restXmlOrigins = (input: Origins, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Origins");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -12791,13 +11715,11 @@ const serializeAws_restXmlOrigins = (input: Origins, context: __SerdeContext): a
 const serializeAws_restXmlOriginShield = (input: OriginShield, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("OriginShield");
   if (input.Enabled != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
+    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
     bodyNode.addChildNode(node);
   }
   if (input.OriginShieldRegion != null) {
-    const node = new __XmlNode("OriginShieldRegion")
-      .addChildNode(new __XmlText(input.OriginShieldRegion))
-      .withName("OriginShieldRegion");
+    const node = __XmlNode.of("OriginShieldRegion", input.OriginShieldRegion).withName("OriginShieldRegion");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -12806,7 +11728,7 @@ const serializeAws_restXmlOriginShield = (input: OriginShield, context: __SerdeC
 const serializeAws_restXmlOriginSslProtocols = (input: OriginSslProtocols, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("OriginSslProtocols");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -12826,14 +11748,12 @@ const serializeAws_restXmlParametersInCacheKeyAndForwardedToOrigin = (
 ): any => {
   const bodyNode = new __XmlNode("ParametersInCacheKeyAndForwardedToOrigin");
   if (input.EnableAcceptEncodingGzip != null) {
-    const node = new __XmlNode("boolean")
-      .addChildNode(new __XmlText(String(input.EnableAcceptEncodingGzip)))
-      .withName("EnableAcceptEncodingGzip");
+    const node = __XmlNode.of("boolean", String(input.EnableAcceptEncodingGzip)).withName("EnableAcceptEncodingGzip");
     bodyNode.addChildNode(node);
   }
   if (input.EnableAcceptEncodingBrotli != null) {
-    const node = new __XmlNode("boolean")
-      .addChildNode(new __XmlText(String(input.EnableAcceptEncodingBrotli)))
+    const node = __XmlNode
+      .of("boolean", String(input.EnableAcceptEncodingBrotli))
       .withName("EnableAcceptEncodingBrotli");
     bodyNode.addChildNode(node);
   }
@@ -12858,10 +11778,7 @@ const serializeAws_restXmlPathList = (input: string[], context: __SerdeContext):
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("Path");
     });
 };
@@ -12869,7 +11786,7 @@ const serializeAws_restXmlPathList = (input: string[], context: __SerdeContext):
 const serializeAws_restXmlPaths = (input: Paths, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Paths");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -12886,19 +11803,19 @@ const serializeAws_restXmlPaths = (input: Paths, context: __SerdeContext): any =
 const serializeAws_restXmlPublicKeyConfig = (input: PublicKeyConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("PublicKeyConfig");
   if (input.CallerReference != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
+    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
   if (input.Name != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
+    const node = __XmlNode.of("string", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   if (input.EncodedKey != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.EncodedKey)).withName("EncodedKey");
+    const node = __XmlNode.of("string", input.EncodedKey).withName("EncodedKey");
     bodyNode.addChildNode(node);
   }
   if (input.Comment != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
+    const node = __XmlNode.of("string", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -12908,10 +11825,7 @@ const serializeAws_restXmlPublicKeyIdList = (input: string[], context: __SerdeCo
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("PublicKey");
     });
 };
@@ -12919,11 +11833,11 @@ const serializeAws_restXmlPublicKeyIdList = (input: string[], context: __SerdeCo
 const serializeAws_restXmlQueryArgProfile = (input: QueryArgProfile, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("QueryArgProfile");
   if (input.QueryArg != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.QueryArg)).withName("QueryArg");
+    const node = __XmlNode.of("string", input.QueryArg).withName("QueryArg");
     bodyNode.addChildNode(node);
   }
   if (input.ProfileId != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.ProfileId)).withName("ProfileId");
+    const node = __XmlNode.of("string", input.ProfileId).withName("ProfileId");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -12932,8 +11846,8 @@ const serializeAws_restXmlQueryArgProfile = (input: QueryArgProfile, context: __
 const serializeAws_restXmlQueryArgProfileConfig = (input: QueryArgProfileConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("QueryArgProfileConfig");
   if (input.ForwardWhenQueryArgProfileIsUnknown != null) {
-    const node = new __XmlNode("boolean")
-      .addChildNode(new __XmlText(String(input.ForwardWhenQueryArgProfileIsUnknown)))
+    const node = __XmlNode
+      .of("boolean", String(input.ForwardWhenQueryArgProfileIsUnknown))
       .withName("ForwardWhenQueryArgProfileIsUnknown");
     bodyNode.addChildNode(node);
   }
@@ -12948,9 +11862,6 @@ const serializeAws_restXmlQueryArgProfileList = (input: QueryArgProfile[], conte
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       const node = serializeAws_restXmlQueryArgProfile(entry, context);
       return node.withName("QueryArgProfile");
     });
@@ -12959,7 +11870,7 @@ const serializeAws_restXmlQueryArgProfileList = (input: QueryArgProfile[], conte
 const serializeAws_restXmlQueryArgProfiles = (input: QueryArgProfiles, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("QueryArgProfiles");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -12976,7 +11887,7 @@ const serializeAws_restXmlQueryArgProfiles = (input: QueryArgProfiles, context: 
 const serializeAws_restXmlQueryStringCacheKeys = (input: QueryStringCacheKeys, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("QueryStringCacheKeys");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -12994,10 +11905,7 @@ const serializeAws_restXmlQueryStringCacheKeysList = (input: string[], context: 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("Name");
     });
 };
@@ -13005,7 +11913,7 @@ const serializeAws_restXmlQueryStringCacheKeysList = (input: string[], context: 
 const serializeAws_restXmlQueryStringNames = (input: QueryStringNames, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("QueryStringNames");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -13023,10 +11931,7 @@ const serializeAws_restXmlQueryStringNamesList = (input: string[], context: __Se
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("Name");
     });
 };
@@ -13037,8 +11942,8 @@ const serializeAws_restXmlRealtimeMetricsSubscriptionConfig = (
 ): any => {
   const bodyNode = new __XmlNode("RealtimeMetricsSubscriptionConfig");
   if (input.RealtimeMetricsSubscriptionStatus != null) {
-    const node = new __XmlNode("RealtimeMetricsSubscriptionStatus")
-      .addChildNode(new __XmlText(input.RealtimeMetricsSubscriptionStatus))
+    const node = __XmlNode
+      .of("RealtimeMetricsSubscriptionStatus", input.RealtimeMetricsSubscriptionStatus)
       .withName("RealtimeMetricsSubscriptionStatus");
     bodyNode.addChildNode(node);
   }
@@ -13051,7 +11956,7 @@ const serializeAws_restXmlResponseHeadersPolicyAccessControlAllowHeaders = (
 ): any => {
   const bodyNode = new __XmlNode("ResponseHeadersPolicyAccessControlAllowHeaders");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -13071,7 +11976,7 @@ const serializeAws_restXmlResponseHeadersPolicyAccessControlAllowMethods = (
 ): any => {
   const bodyNode = new __XmlNode("ResponseHeadersPolicyAccessControlAllowMethods");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -13091,7 +11996,7 @@ const serializeAws_restXmlResponseHeadersPolicyAccessControlAllowOrigins = (
 ): any => {
   const bodyNode = new __XmlNode("ResponseHeadersPolicyAccessControlAllowOrigins");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -13111,7 +12016,7 @@ const serializeAws_restXmlResponseHeadersPolicyAccessControlExposeHeaders = (
 ): any => {
   const bodyNode = new __XmlNode("ResponseHeadersPolicyAccessControlExposeHeaders");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -13131,11 +12036,11 @@ const serializeAws_restXmlResponseHeadersPolicyConfig = (
 ): any => {
   const bodyNode = new __XmlNode("ResponseHeadersPolicyConfig");
   if (input.Comment != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
+    const node = __XmlNode.of("string", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   if (input.Name != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
+    const node = __XmlNode.of("string", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   if (input.CorsConfig != null) {
@@ -13172,13 +12077,11 @@ const serializeAws_restXmlResponseHeadersPolicyContentSecurityPolicy = (
 ): any => {
   const bodyNode = new __XmlNode("ResponseHeadersPolicyContentSecurityPolicy");
   if (input.Override != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Override))).withName("Override");
+    const node = __XmlNode.of("boolean", String(input.Override)).withName("Override");
     bodyNode.addChildNode(node);
   }
   if (input.ContentSecurityPolicy != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.ContentSecurityPolicy))
-      .withName("ContentSecurityPolicy");
+    const node = __XmlNode.of("string", input.ContentSecurityPolicy).withName("ContentSecurityPolicy");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13190,7 +12093,7 @@ const serializeAws_restXmlResponseHeadersPolicyContentTypeOptions = (
 ): any => {
   const bodyNode = new __XmlNode("ResponseHeadersPolicyContentTypeOptions");
   if (input.Override != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Override))).withName("Override");
+    const node = __XmlNode.of("boolean", String(input.Override)).withName("Override");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13223,8 +12126,8 @@ const serializeAws_restXmlResponseHeadersPolicyCorsConfig = (
     bodyNode.addChildNode(node);
   }
   if (input.AccessControlAllowCredentials != null) {
-    const node = new __XmlNode("boolean")
-      .addChildNode(new __XmlText(String(input.AccessControlAllowCredentials)))
+    const node = __XmlNode
+      .of("boolean", String(input.AccessControlAllowCredentials))
       .withName("AccessControlAllowCredentials");
     bodyNode.addChildNode(node);
   }
@@ -13236,15 +12139,11 @@ const serializeAws_restXmlResponseHeadersPolicyCorsConfig = (
     bodyNode.addChildNode(node);
   }
   if (input.AccessControlMaxAgeSec != null) {
-    const node = new __XmlNode("integer")
-      .addChildNode(new __XmlText(String(input.AccessControlMaxAgeSec)))
-      .withName("AccessControlMaxAgeSec");
+    const node = __XmlNode.of("integer", String(input.AccessControlMaxAgeSec)).withName("AccessControlMaxAgeSec");
     bodyNode.addChildNode(node);
   }
   if (input.OriginOverride != null) {
-    const node = new __XmlNode("boolean")
-      .addChildNode(new __XmlText(String(input.OriginOverride)))
-      .withName("OriginOverride");
+    const node = __XmlNode.of("boolean", String(input.OriginOverride)).withName("OriginOverride");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13256,15 +12155,15 @@ const serializeAws_restXmlResponseHeadersPolicyCustomHeader = (
 ): any => {
   const bodyNode = new __XmlNode("ResponseHeadersPolicyCustomHeader");
   if (input.Header != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Header)).withName("Header");
+    const node = __XmlNode.of("string", input.Header).withName("Header");
     bodyNode.addChildNode(node);
   }
   if (input.Value != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Value)).withName("Value");
+    const node = __XmlNode.of("string", input.Value).withName("Value");
     bodyNode.addChildNode(node);
   }
   if (input.Override != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Override))).withName("Override");
+    const node = __XmlNode.of("boolean", String(input.Override)).withName("Override");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13277,9 +12176,6 @@ const serializeAws_restXmlResponseHeadersPolicyCustomHeaderList = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       const node = serializeAws_restXmlResponseHeadersPolicyCustomHeader(entry, context);
       return node.withName("ResponseHeadersPolicyCustomHeader");
     });
@@ -13291,7 +12187,7 @@ const serializeAws_restXmlResponseHeadersPolicyCustomHeadersConfig = (
 ): any => {
   const bodyNode = new __XmlNode("ResponseHeadersPolicyCustomHeadersConfig");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -13311,13 +12207,11 @@ const serializeAws_restXmlResponseHeadersPolicyFrameOptions = (
 ): any => {
   const bodyNode = new __XmlNode("ResponseHeadersPolicyFrameOptions");
   if (input.Override != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Override))).withName("Override");
+    const node = __XmlNode.of("boolean", String(input.Override)).withName("Override");
     bodyNode.addChildNode(node);
   }
   if (input.FrameOption != null) {
-    const node = new __XmlNode("FrameOptionsList")
-      .addChildNode(new __XmlText(input.FrameOption))
-      .withName("FrameOption");
+    const node = __XmlNode.of("FrameOptionsList", input.FrameOption).withName("FrameOption");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13329,13 +12223,11 @@ const serializeAws_restXmlResponseHeadersPolicyReferrerPolicy = (
 ): any => {
   const bodyNode = new __XmlNode("ResponseHeadersPolicyReferrerPolicy");
   if (input.Override != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Override))).withName("Override");
+    const node = __XmlNode.of("boolean", String(input.Override)).withName("Override");
     bodyNode.addChildNode(node);
   }
   if (input.ReferrerPolicy != null) {
-    const node = new __XmlNode("ReferrerPolicyList")
-      .addChildNode(new __XmlText(input.ReferrerPolicy))
-      .withName("ReferrerPolicy");
+    const node = __XmlNode.of("ReferrerPolicyList", input.ReferrerPolicy).withName("ReferrerPolicy");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13394,13 +12286,11 @@ const serializeAws_restXmlResponseHeadersPolicyServerTimingHeadersConfig = (
 ): any => {
   const bodyNode = new __XmlNode("ResponseHeadersPolicyServerTimingHeadersConfig");
   if (input.Enabled != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
+    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
     bodyNode.addChildNode(node);
   }
   if (input.SamplingRate != null) {
-    const node = new __XmlNode("SamplingRate")
-      .addChildNode(new __XmlText(String(input.SamplingRate)))
-      .withName("SamplingRate");
+    const node = __XmlNode.of("SamplingRate", String(input.SamplingRate)).withName("SamplingRate");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13412,23 +12302,19 @@ const serializeAws_restXmlResponseHeadersPolicyStrictTransportSecurity = (
 ): any => {
   const bodyNode = new __XmlNode("ResponseHeadersPolicyStrictTransportSecurity");
   if (input.Override != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Override))).withName("Override");
+    const node = __XmlNode.of("boolean", String(input.Override)).withName("Override");
     bodyNode.addChildNode(node);
   }
   if (input.IncludeSubdomains != null) {
-    const node = new __XmlNode("boolean")
-      .addChildNode(new __XmlText(String(input.IncludeSubdomains)))
-      .withName("IncludeSubdomains");
+    const node = __XmlNode.of("boolean", String(input.IncludeSubdomains)).withName("IncludeSubdomains");
     bodyNode.addChildNode(node);
   }
   if (input.Preload != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Preload))).withName("Preload");
+    const node = __XmlNode.of("boolean", String(input.Preload)).withName("Preload");
     bodyNode.addChildNode(node);
   }
   if (input.AccessControlMaxAgeSec != null) {
-    const node = new __XmlNode("integer")
-      .addChildNode(new __XmlText(String(input.AccessControlMaxAgeSec)))
-      .withName("AccessControlMaxAgeSec");
+    const node = __XmlNode.of("integer", String(input.AccessControlMaxAgeSec)).withName("AccessControlMaxAgeSec");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13440,19 +12326,19 @@ const serializeAws_restXmlResponseHeadersPolicyXSSProtection = (
 ): any => {
   const bodyNode = new __XmlNode("ResponseHeadersPolicyXSSProtection");
   if (input.Override != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Override))).withName("Override");
+    const node = __XmlNode.of("boolean", String(input.Override)).withName("Override");
     bodyNode.addChildNode(node);
   }
   if (input.Protection != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Protection))).withName("Protection");
+    const node = __XmlNode.of("boolean", String(input.Protection)).withName("Protection");
     bodyNode.addChildNode(node);
   }
   if (input.ModeBlock != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.ModeBlock))).withName("ModeBlock");
+    const node = __XmlNode.of("boolean", String(input.ModeBlock)).withName("ModeBlock");
     bodyNode.addChildNode(node);
   }
   if (input.ReportUri != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.ReportUri)).withName("ReportUri");
+    const node = __XmlNode.of("string", input.ReportUri).withName("ReportUri");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13470,13 +12356,11 @@ const serializeAws_restXmlRestrictions = (input: Restrictions, context: __SerdeC
 const serializeAws_restXmlS3Origin = (input: S3Origin, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3Origin");
   if (input.DomainName != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.DomainName)).withName("DomainName");
+    const node = __XmlNode.of("string", input.DomainName).withName("DomainName");
     bodyNode.addChildNode(node);
   }
   if (input.OriginAccessIdentity != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.OriginAccessIdentity))
-      .withName("OriginAccessIdentity");
+    const node = __XmlNode.of("string", input.OriginAccessIdentity).withName("OriginAccessIdentity");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13485,9 +12369,7 @@ const serializeAws_restXmlS3Origin = (input: S3Origin, context: __SerdeContext):
 const serializeAws_restXmlS3OriginConfig = (input: S3OriginConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3OriginConfig");
   if (input.OriginAccessIdentity != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.OriginAccessIdentity))
-      .withName("OriginAccessIdentity");
+    const node = __XmlNode.of("string", input.OriginAccessIdentity).withName("OriginAccessIdentity");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13497,10 +12379,7 @@ const serializeAws_restXmlSslProtocolsList = (input: (SslProtocol | string)[], c
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("SslProtocol").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("SslProtocol", entry);
       return node.withName("SslProtocol");
     });
 };
@@ -13509,10 +12388,7 @@ const serializeAws_restXmlStatusCodeList = (input: number[], context: __SerdeCon
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("integer").addChildNode(new __XmlText(String(entry)));
+      const node = __XmlNode.of("integer", String(entry));
       return node.withName("StatusCode");
     });
 };
@@ -13520,7 +12396,7 @@ const serializeAws_restXmlStatusCodeList = (input: number[], context: __SerdeCon
 const serializeAws_restXmlStatusCodes = (input: StatusCodes, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("StatusCodes");
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -13540,7 +12416,7 @@ const serializeAws_restXmlStreamingDistributionConfig = (
 ): any => {
   const bodyNode = new __XmlNode("StreamingDistributionConfig");
   if (input.CallerReference != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
+    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
   if (input.S3Origin != null) {
@@ -13552,7 +12428,7 @@ const serializeAws_restXmlStreamingDistributionConfig = (
     bodyNode.addChildNode(node);
   }
   if (input.Comment != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
+    const node = __XmlNode.of("string", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   if (input.Logging != null) {
@@ -13564,11 +12440,11 @@ const serializeAws_restXmlStreamingDistributionConfig = (
     bodyNode.addChildNode(node);
   }
   if (input.PriceClass != null) {
-    const node = new __XmlNode("PriceClass").addChildNode(new __XmlText(input.PriceClass)).withName("PriceClass");
+    const node = __XmlNode.of("PriceClass", input.PriceClass).withName("PriceClass");
     bodyNode.addChildNode(node);
   }
   if (input.Enabled != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
+    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13595,15 +12471,15 @@ const serializeAws_restXmlStreamingDistributionConfigWithTags = (
 const serializeAws_restXmlStreamingLoggingConfig = (input: StreamingLoggingConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("StreamingLoggingConfig");
   if (input.Enabled != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
+    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
     bodyNode.addChildNode(node);
   }
   if (input.Bucket != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Bucket)).withName("Bucket");
+    const node = __XmlNode.of("string", input.Bucket).withName("Bucket");
     bodyNode.addChildNode(node);
   }
   if (input.Prefix != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Prefix)).withName("Prefix");
+    const node = __XmlNode.of("string", input.Prefix).withName("Prefix");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13612,11 +12488,11 @@ const serializeAws_restXmlStreamingLoggingConfig = (input: StreamingLoggingConfi
 const serializeAws_restXmlTag = (input: Tag, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Tag");
   if (input.Key != null) {
-    const node = new __XmlNode("TagKey").addChildNode(new __XmlText(input.Key)).withName("Key");
+    const node = __XmlNode.of("TagKey", input.Key).withName("Key");
     bodyNode.addChildNode(node);
   }
   if (input.Value != null) {
-    const node = new __XmlNode("TagValue").addChildNode(new __XmlText(input.Value)).withName("Value");
+    const node = __XmlNode.of("TagValue", input.Value).withName("Value");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13626,10 +12502,7 @@ const serializeAws_restXmlTagKeyList = (input: string[], context: __SerdeContext
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("TagKey").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("TagKey", entry);
       return node.withName("Key");
     });
 };
@@ -13651,9 +12524,6 @@ const serializeAws_restXmlTagList = (input: Tag[], context: __SerdeContext): any
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       const node = serializeAws_restXmlTag(entry, context);
       return node.withName("Tag");
     });
@@ -13676,10 +12546,7 @@ const serializeAws_restXmlTrustedKeyGroupIdList = (input: string[], context: __S
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      const node = __XmlNode.of("string", entry);
       return node.withName("KeyGroup");
     });
 };
@@ -13687,11 +12554,11 @@ const serializeAws_restXmlTrustedKeyGroupIdList = (input: string[], context: __S
 const serializeAws_restXmlTrustedKeyGroups = (input: TrustedKeyGroups, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("TrustedKeyGroups");
   if (input.Enabled != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
+    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
     bodyNode.addChildNode(node);
   }
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -13708,11 +12575,11 @@ const serializeAws_restXmlTrustedKeyGroups = (input: TrustedKeyGroups, context: 
 const serializeAws_restXmlTrustedSigners = (input: TrustedSigners, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("TrustedSigners");
   if (input.Enabled != null) {
-    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
+    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
     bodyNode.addChildNode(node);
   }
   if (input.Quantity != null) {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
     bodyNode.addChildNode(node);
   }
   if (input.Items != null) {
@@ -13729,43 +12596,35 @@ const serializeAws_restXmlTrustedSigners = (input: TrustedSigners, context: __Se
 const serializeAws_restXmlViewerCertificate = (input: ViewerCertificate, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ViewerCertificate");
   if (input.CloudFrontDefaultCertificate != null) {
-    const node = new __XmlNode("boolean")
-      .addChildNode(new __XmlText(String(input.CloudFrontDefaultCertificate)))
+    const node = __XmlNode
+      .of("boolean", String(input.CloudFrontDefaultCertificate))
       .withName("CloudFrontDefaultCertificate");
     bodyNode.addChildNode(node);
   }
   if (input.IAMCertificateId != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.IAMCertificateId))
-      .withName("IAMCertificateId");
+    const node = __XmlNode.of("string", input.IAMCertificateId).withName("IAMCertificateId");
     bodyNode.addChildNode(node);
   }
   if (input.ACMCertificateArn != null) {
-    const node = new __XmlNode("string")
-      .addChildNode(new __XmlText(input.ACMCertificateArn))
-      .withName("ACMCertificateArn");
+    const node = __XmlNode.of("string", input.ACMCertificateArn).withName("ACMCertificateArn");
     bodyNode.addChildNode(node);
   }
   if (input.SSLSupportMethod != null) {
-    const node = new __XmlNode("SSLSupportMethod")
-      .addChildNode(new __XmlText(input.SSLSupportMethod))
-      .withName("SSLSupportMethod");
+    const node = __XmlNode.of("SSLSupportMethod", input.SSLSupportMethod).withName("SSLSupportMethod");
     bodyNode.addChildNode(node);
   }
   if (input.MinimumProtocolVersion != null) {
-    const node = new __XmlNode("MinimumProtocolVersion")
-      .addChildNode(new __XmlText(input.MinimumProtocolVersion))
+    const node = __XmlNode
+      .of("MinimumProtocolVersion", input.MinimumProtocolVersion)
       .withName("MinimumProtocolVersion");
     bodyNode.addChildNode(node);
   }
   if (input.Certificate != null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Certificate)).withName("Certificate");
+    const node = __XmlNode.of("string", input.Certificate).withName("Certificate");
     bodyNode.addChildNode(node);
   }
   if (input.CertificateSource != null) {
-    const node = new __XmlNode("CertificateSource")
-      .addChildNode(new __XmlText(input.CertificateSource))
-      .withName("CertificateSource");
+    const node = __XmlNode.of("CertificateSource", input.CertificateSource).withName("CertificateSource");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13775,9 +12634,6 @@ const deserializeAws_restXmlAccessControlAllowHeadersList = (output: any, contex
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -13789,9 +12645,6 @@ const deserializeAws_restXmlAccessControlAllowMethodsList = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -13800,9 +12653,6 @@ const deserializeAws_restXmlAccessControlAllowOriginsList = (output: any, contex
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -13811,9 +12661,6 @@ const deserializeAws_restXmlAccessControlExposeHeadersList = (output: any, conte
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -13895,9 +12742,6 @@ const deserializeAws_restXmlAliasICPRecordals = (output: any, context: __SerdeCo
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlAliasICPRecordal(entry, context);
     });
 };
@@ -13906,9 +12750,6 @@ const deserializeAws_restXmlAliasList = (output: any, context: __SerdeContext): 
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -13937,9 +12778,6 @@ const deserializeAws_restXmlAwsAccountNumberList = (output: any, context: __Serd
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -14033,9 +12871,6 @@ const deserializeAws_restXmlCacheBehaviorList = (output: any, context: __SerdeCo
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlCacheBehavior(entry, context);
     });
 };
@@ -14222,9 +13057,6 @@ const deserializeAws_restXmlCachePolicySummaryList = (output: any, context: __Se
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlCachePolicySummary(entry, context);
     });
 };
@@ -14336,9 +13168,6 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentitySummaryList = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlCloudFrontOriginAccessIdentitySummary(entry, context);
     });
 };
@@ -14365,9 +13194,6 @@ const deserializeAws_restXmlConflictingAliases = (output: any, context: __SerdeC
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlConflictingAlias(entry, context);
     });
 };
@@ -14438,9 +13264,6 @@ const deserializeAws_restXmlContentTypeProfileList = (output: any, context: __Se
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlContentTypeProfile(entry, context);
     });
 };
@@ -14468,9 +13291,6 @@ const deserializeAws_restXmlCookieNameList = (output: any, context: __SerdeConte
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -14531,9 +13351,6 @@ const deserializeAws_restXmlCustomErrorResponseList = (output: any, context: __S
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlCustomErrorResponse(entry, context);
     });
 };
@@ -14857,9 +13674,6 @@ const deserializeAws_restXmlDistributionIdListSummary = (output: any, context: _
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -14997,9 +13811,6 @@ const deserializeAws_restXmlDistributionSummaryList = (output: any, context: __S
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlDistributionSummary(entry, context);
     });
 };
@@ -15045,9 +13856,6 @@ const deserializeAws_restXmlEncryptionEntityList = (output: any, context: __Serd
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlEncryptionEntity(entry, context);
     });
 };
@@ -15070,9 +13878,6 @@ const deserializeAws_restXmlEndPointList = (output: any, context: __SerdeContext
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlEndPoint(entry, context);
     });
 };
@@ -15274,9 +14079,6 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSummaryList = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlFieldLevelEncryptionProfileSummary(entry, context);
     });
 };
@@ -15323,9 +14125,6 @@ const deserializeAws_restXmlFieldLevelEncryptionSummaryList = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlFieldLevelEncryptionSummary(entry, context);
     });
 };
@@ -15334,9 +14133,6 @@ const deserializeAws_restXmlFieldList = (output: any, context: __SerdeContext): 
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -15345,9 +14141,6 @@ const deserializeAws_restXmlFieldPatternList = (output: any, context: __SerdeCon
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -15411,9 +14204,6 @@ const deserializeAws_restXmlFunctionAssociationList = (output: any, context: __S
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlFunctionAssociation(entry, context);
     });
 };
@@ -15455,9 +14245,6 @@ const deserializeAws_restXmlFunctionExecutionLogList = (output: any, context: __
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -15537,9 +14324,6 @@ const deserializeAws_restXmlFunctionSummaryList = (output: any, context: __Serde
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlFunctionSummary(entry, context);
     });
 };
@@ -15568,9 +14352,6 @@ const deserializeAws_restXmlHeaderList = (output: any, context: __SerdeContext):
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -15684,9 +14465,6 @@ const deserializeAws_restXmlInvalidationSummaryList = (output: any, context: __S
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlInvalidationSummary(entry, context);
     });
 };
@@ -15773,9 +14551,6 @@ const deserializeAws_restXmlKeyGroupSummaryList = (output: any, context: __Serde
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlKeyGroupSummary(entry, context);
     });
 };
@@ -15784,9 +14559,6 @@ const deserializeAws_restXmlKeyPairIdList = (output: any, context: __SerdeContex
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -15825,9 +14597,6 @@ const deserializeAws_restXmlKGKeyPairIdsList = (output: any, context: __SerdeCon
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlKGKeyPairIds(entry, context);
     });
 };
@@ -15874,9 +14643,6 @@ const deserializeAws_restXmlLambdaFunctionAssociationList = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlLambdaFunctionAssociation(entry, context);
     });
 };
@@ -15907,9 +14673,6 @@ const deserializeAws_restXmlLocationList = (output: any, context: __SerdeContext
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -15940,9 +14703,6 @@ const deserializeAws_restXmlMethodsList = (output: any, context: __SerdeContext)
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -16020,9 +14780,6 @@ const deserializeAws_restXmlOriginCustomHeadersList = (output: any, context: __S
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlOriginCustomHeader(entry, context);
     });
 };
@@ -16062,9 +14819,6 @@ const deserializeAws_restXmlOriginGroupList = (output: any, context: __SerdeCont
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlOriginGroup(entry, context);
     });
 };
@@ -16083,9 +14837,6 @@ const deserializeAws_restXmlOriginGroupMemberList = (output: any, context: __Ser
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlOriginGroupMember(entry, context);
     });
 };
@@ -16132,9 +14883,6 @@ const deserializeAws_restXmlOriginList = (output: any, context: __SerdeContext):
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlOrigin(entry, context);
     });
 };
@@ -16297,9 +15045,6 @@ const deserializeAws_restXmlOriginRequestPolicySummaryList = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlOriginRequestPolicySummary(entry, context);
     });
 };
@@ -16389,9 +15134,6 @@ const deserializeAws_restXmlPathList = (output: any, context: __SerdeContext): s
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -16456,9 +15198,6 @@ const deserializeAws_restXmlPublicKeyIdList = (output: any, context: __SerdeCont
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -16520,9 +15259,6 @@ const deserializeAws_restXmlPublicKeySummaryList = (output: any, context: __Serd
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlPublicKeySummary(entry, context);
     });
 };
@@ -16559,9 +15295,6 @@ const deserializeAws_restXmlQueryArgProfileList = (output: any, context: __Serde
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlQueryArgProfile(entry, context);
     });
 };
@@ -16608,9 +15341,6 @@ const deserializeAws_restXmlQueryStringCacheKeysList = (output: any, context: __
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -16638,9 +15368,6 @@ const deserializeAws_restXmlQueryStringNamesList = (output: any, context: __Serd
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -16682,9 +15409,6 @@ const deserializeAws_restXmlRealtimeLogConfigList = (output: any, context: __Ser
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlRealtimeLogConfig(entry, context);
     });
 };
@@ -16991,9 +15715,6 @@ const deserializeAws_restXmlResponseHeadersPolicyCustomHeaderList = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlResponseHeadersPolicyCustomHeader(entry, context);
     });
 };
@@ -17198,9 +15919,6 @@ const deserializeAws_restXmlResponseHeadersPolicySummaryList = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlResponseHeadersPolicySummary(entry, context);
     });
 };
@@ -17282,9 +16000,6 @@ const deserializeAws_restXmlSignerList = (output: any, context: __SerdeContext):
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlSigner(entry, context);
     });
 };
@@ -17293,9 +16008,6 @@ const deserializeAws_restXmlSslProtocolsList = (output: any, context: __SerdeCon
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -17304,9 +16016,6 @@ const deserializeAws_restXmlStatusCodeList = (output: any, context: __SerdeConte
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __strictParseInt32(entry) as number;
     });
 };
@@ -17506,9 +16215,6 @@ const deserializeAws_restXmlStreamingDistributionSummaryList = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlStreamingDistributionSummary(entry, context);
     });
 };
@@ -17549,9 +16255,6 @@ const deserializeAws_restXmlTagList = (output: any, context: __SerdeContext): Ta
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_restXmlTag(entry, context);
     });
 };
@@ -17603,9 +16306,6 @@ const deserializeAws_restXmlTrustedKeyGroupIdList = (output: any, context: __Ser
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };

@@ -72,14 +72,17 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
         // Filter out null entries if we don't have the sparse trait.
         String potentialFilter = "";
-        if (!shape.hasTrait(SparseTrait.ID)) {
+        boolean hasSparseTrait = shape.hasTrait(SparseTrait.ID);
+        if (!hasSparseTrait) {
             potentialFilter = ".filter((e: any) => e != null)";
         }
 
         // Dispatch to the output value provider for any additional handling.
         writer.openBlock("return (output || [])$L.map((entry: any) => {", "});", potentialFilter, () -> {
             // Short circuit null values from deserialization.
-            writer.write("if (entry === null) { return null as any; }");
+            if (hasSparseTrait) {
+                writer.write("if (entry === null) { return null as any; }");
+            }
 
             String dataSource = getUnnamedTargetWrapper(context, target, "entry");
             writer.write("return $L$L;", target.accept(getMemberVisitor(shape.getMember(), dataSource)),

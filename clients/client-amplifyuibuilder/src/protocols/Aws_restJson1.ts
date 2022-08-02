@@ -8,7 +8,10 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  map as __map,
   parseRfc3339DateTime as __parseRfc3339DateTime,
+  resolvedPath as __resolvedPath,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -80,27 +83,18 @@ export const serializeAws_restJson1CreateComponentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/app/{appId}/environment/{environmentName}/components";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
-  if (input.environmentName !== undefined) {
-    const labelValue: string = input.environmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: environmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: environmentName.");
-  }
-  const query: any = {
-    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "environmentName",
+    () => input.environmentName!,
+    "{environmentName}",
+    false
+  );
+  const query: any = map({
+    clientToken: [, input.clientToken!],
+  });
   let body: any;
   if (input.componentToCreate !== undefined) {
     body = serializeAws_restJson1CreateComponentData(input.componentToCreate, context);
@@ -132,27 +126,18 @@ export const serializeAws_restJson1CreateThemeCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/app/{appId}/environment/{environmentName}/themes";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
-  if (input.environmentName !== undefined) {
-    const labelValue: string = input.environmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: environmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: environmentName.");
-  }
-  const query: any = {
-    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "environmentName",
+    () => input.environmentName!,
+    "{environmentName}",
+    false
+  );
+  const query: any = map({
+    clientToken: [, input.clientToken!],
+  });
   let body: any;
   if (input.themeToCreate !== undefined) {
     body = serializeAws_restJson1CreateThemeData(input.themeToCreate, context);
@@ -182,33 +167,16 @@ export const serializeAws_restJson1DeleteComponentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/app/{appId}/environment/{environmentName}/components/{id}";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
-  if (input.environmentName !== undefined) {
-    const labelValue: string = input.environmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: environmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: environmentName.");
-  }
-  if (input.id !== undefined) {
-    const labelValue: string = input.id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: id.");
-    }
-    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "environmentName",
+    () => input.environmentName!,
+    "{environmentName}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -230,33 +198,16 @@ export const serializeAws_restJson1DeleteThemeCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/app/{appId}/environment/{environmentName}/themes/{id}";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
-  if (input.environmentName !== undefined) {
-    const labelValue: string = input.environmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: environmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: environmentName.");
-  }
-  if (input.id !== undefined) {
-    const labelValue: string = input.id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: id.");
-    }
-    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "environmentName",
+    () => input.environmentName!,
+    "{environmentName}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -278,15 +229,7 @@ export const serializeAws_restJson1ExchangeCodeForTokenCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tokens/{provider}";
-  if (input.provider !== undefined) {
-    const labelValue: string = input.provider;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: provider.");
-    }
-    resolvedPath = resolvedPath.replace("{provider}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: provider.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "provider", () => input.provider!, "{provider}", false);
   let body: any;
   if (input.request !== undefined) {
     body = serializeAws_restJson1ExchangeCodeForTokenRequestBody(input.request, context);
@@ -315,27 +258,18 @@ export const serializeAws_restJson1ExportComponentsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/export/app/{appId}/environment/{environmentName}/components";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
-  if (input.environmentName !== undefined) {
-    const labelValue: string = input.environmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: environmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: environmentName.");
-  }
-  const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "environmentName",
+    () => input.environmentName!,
+    "{environmentName}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -358,27 +292,18 @@ export const serializeAws_restJson1ExportThemesCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/export/app/{appId}/environment/{environmentName}/themes";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
-  if (input.environmentName !== undefined) {
-    const labelValue: string = input.environmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: environmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: environmentName.");
-  }
-  const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "environmentName",
+    () => input.environmentName!,
+    "{environmentName}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -401,33 +326,16 @@ export const serializeAws_restJson1GetComponentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/app/{appId}/environment/{environmentName}/components/{id}";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
-  if (input.environmentName !== undefined) {
-    const labelValue: string = input.environmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: environmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: environmentName.");
-  }
-  if (input.id !== undefined) {
-    const labelValue: string = input.id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: id.");
-    }
-    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "environmentName",
+    () => input.environmentName!,
+    "{environmentName}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -449,33 +357,16 @@ export const serializeAws_restJson1GetThemeCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/app/{appId}/environment/{environmentName}/themes/{id}";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
-  if (input.environmentName !== undefined) {
-    const labelValue: string = input.environmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: environmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: environmentName.");
-  }
-  if (input.id !== undefined) {
-    const labelValue: string = input.id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: id.");
-    }
-    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "environmentName",
+    () => input.environmentName!,
+    "{environmentName}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -497,28 +388,19 @@ export const serializeAws_restJson1ListComponentsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/app/{appId}/environment/{environmentName}/components";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
-  if (input.environmentName !== undefined) {
-    const labelValue: string = input.environmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: environmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: environmentName.");
-  }
-  const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "environmentName",
+    () => input.environmentName!,
+    "{environmentName}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -541,28 +423,19 @@ export const serializeAws_restJson1ListThemesCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/app/{appId}/environment/{environmentName}/themes";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
-  if (input.environmentName !== undefined) {
-    const labelValue: string = input.environmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: environmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: environmentName.");
-  }
-  const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "environmentName",
+    () => input.environmentName!,
+    "{environmentName}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -586,15 +459,7 @@ export const serializeAws_restJson1RefreshTokenCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tokens/{provider}/refresh";
-  if (input.provider !== undefined) {
-    const labelValue: string = input.provider;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: provider.");
-    }
-    resolvedPath = resolvedPath.replace("{provider}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: provider.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "provider", () => input.provider!, "{provider}", false);
   let body: any;
   if (input.refreshTokenBody !== undefined) {
     body = serializeAws_restJson1RefreshTokenRequestBody(input.refreshTokenBody, context);
@@ -625,36 +490,19 @@ export const serializeAws_restJson1UpdateComponentCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/app/{appId}/environment/{environmentName}/components/{id}";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
-  if (input.environmentName !== undefined) {
-    const labelValue: string = input.environmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: environmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: environmentName.");
-  }
-  if (input.id !== undefined) {
-    const labelValue: string = input.id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: id.");
-    }
-    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: id.");
-  }
-  const query: any = {
-    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "environmentName",
+    () => input.environmentName!,
+    "{environmentName}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  const query: any = map({
+    clientToken: [, input.clientToken!],
+  });
   let body: any;
   if (input.updatedComponent !== undefined) {
     body = serializeAws_restJson1UpdateComponentData(input.updatedComponent, context);
@@ -686,36 +534,19 @@ export const serializeAws_restJson1UpdateThemeCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/app/{appId}/environment/{environmentName}/themes/{id}";
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
-  if (input.environmentName !== undefined) {
-    const labelValue: string = input.environmentName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: environmentName.");
-    }
-    resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: environmentName.");
-  }
-  if (input.id !== undefined) {
-    const labelValue: string = input.id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: id.");
-    }
-    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: id.");
-  }
-  const query: any = {
-    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "environmentName",
+    () => input.environmentName!,
+    "{environmentName}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  const query: any = map({
+    clientToken: [, input.clientToken!],
+  });
   let body: any;
   if (input.updatedTheme !== undefined) {
     body = serializeAws_restJson1UpdateThemeData(input.updatedTheme, context);
@@ -743,13 +574,12 @@ export const deserializeAws_restJson1CreateComponentCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateComponentCommandError(output, context);
   }
-  const contents: CreateComponentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    entity: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = deserializeAws_restJson1Component(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CreateComponentCommandError = async (
@@ -760,7 +590,6 @@ const deserializeAws_restJson1CreateComponentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -777,14 +606,12 @@ const deserializeAws_restJson1CreateComponentCommandError = async (
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -795,13 +622,12 @@ export const deserializeAws_restJson1CreateThemeCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateThemeCommandError(output, context);
   }
-  const contents: CreateThemeCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    entity: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = deserializeAws_restJson1Theme(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CreateThemeCommandError = async (
@@ -812,7 +638,6 @@ const deserializeAws_restJson1CreateThemeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -829,14 +654,12 @@ const deserializeAws_restJson1CreateThemeCommandError = async (
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -847,11 +670,11 @@ export const deserializeAws_restJson1DeleteComponentCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteComponentCommandError(output, context);
   }
-  const contents: DeleteComponentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteComponentCommandError = async (
@@ -862,7 +685,6 @@ const deserializeAws_restJson1DeleteComponentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -876,14 +698,12 @@ const deserializeAws_restJson1DeleteComponentCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -894,11 +714,11 @@ export const deserializeAws_restJson1DeleteThemeCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteThemeCommandError(output, context);
   }
-  const contents: DeleteThemeCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteThemeCommandError = async (
@@ -909,7 +729,6 @@ const deserializeAws_restJson1DeleteThemeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -923,14 +742,12 @@ const deserializeAws_restJson1DeleteThemeCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -941,23 +758,20 @@ export const deserializeAws_restJson1ExchangeCodeForTokenCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ExchangeCodeForTokenCommandError(output, context);
   }
-  const contents: ExchangeCodeForTokenCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    accessToken: undefined,
-    expiresIn: undefined,
-    refreshToken: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accessToken !== undefined && data.accessToken !== null) {
+  if (data.accessToken != null) {
     contents.accessToken = __expectString(data.accessToken);
   }
-  if (data.expiresIn !== undefined && data.expiresIn !== null) {
+  if (data.expiresIn != null) {
     contents.expiresIn = __expectInt32(data.expiresIn);
   }
-  if (data.refreshToken !== undefined && data.refreshToken !== null) {
+  if (data.refreshToken != null) {
     contents.refreshToken = __expectString(data.refreshToken);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ExchangeCodeForTokenCommandError = async (
@@ -968,7 +782,6 @@ const deserializeAws_restJson1ExchangeCodeForTokenCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
@@ -976,14 +789,12 @@ const deserializeAws_restJson1ExchangeCodeForTokenCommandError = async (
       throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -994,19 +805,17 @@ export const deserializeAws_restJson1ExportComponentsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ExportComponentsCommandError(output, context);
   }
-  const contents: ExportComponentsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    entities: undefined,
-    nextToken: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.entities !== undefined && data.entities !== null) {
+  if (data.entities != null) {
     contents.entities = deserializeAws_restJson1ComponentList(data.entities, context);
   }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ExportComponentsCommandError = async (
@@ -1017,7 +826,6 @@ const deserializeAws_restJson1ExportComponentsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1028,14 +836,12 @@ const deserializeAws_restJson1ExportComponentsCommandError = async (
       throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1046,19 +852,17 @@ export const deserializeAws_restJson1ExportThemesCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ExportThemesCommandError(output, context);
   }
-  const contents: ExportThemesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    entities: undefined,
-    nextToken: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.entities !== undefined && data.entities !== null) {
+  if (data.entities != null) {
     contents.entities = deserializeAws_restJson1ThemeList(data.entities, context);
   }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ExportThemesCommandError = async (
@@ -1069,7 +873,6 @@ const deserializeAws_restJson1ExportThemesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1080,14 +883,12 @@ const deserializeAws_restJson1ExportThemesCommandError = async (
       throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1098,13 +899,12 @@ export const deserializeAws_restJson1GetComponentCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetComponentCommandError(output, context);
   }
-  const contents: GetComponentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    component: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.component = deserializeAws_restJson1Component(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetComponentCommandError = async (
@@ -1115,7 +915,6 @@ const deserializeAws_restJson1GetComponentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1129,14 +928,12 @@ const deserializeAws_restJson1GetComponentCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1147,13 +944,12 @@ export const deserializeAws_restJson1GetThemeCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetThemeCommandError(output, context);
   }
-  const contents: GetThemeCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    theme: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.theme = deserializeAws_restJson1Theme(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetThemeCommandError = async (
@@ -1164,7 +960,6 @@ const deserializeAws_restJson1GetThemeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1178,14 +973,12 @@ const deserializeAws_restJson1GetThemeCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1196,19 +989,17 @@ export const deserializeAws_restJson1ListComponentsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListComponentsCommandError(output, context);
   }
-  const contents: ListComponentsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    entities: undefined,
-    nextToken: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.entities !== undefined && data.entities !== null) {
+  if (data.entities != null) {
     contents.entities = deserializeAws_restJson1ComponentSummaryList(data.entities, context);
   }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListComponentsCommandError = async (
@@ -1219,7 +1010,6 @@ const deserializeAws_restJson1ListComponentsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1230,14 +1020,12 @@ const deserializeAws_restJson1ListComponentsCommandError = async (
       throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1248,19 +1036,17 @@ export const deserializeAws_restJson1ListThemesCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListThemesCommandError(output, context);
   }
-  const contents: ListThemesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    entities: undefined,
-    nextToken: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.entities !== undefined && data.entities !== null) {
+  if (data.entities != null) {
     contents.entities = deserializeAws_restJson1ThemeSummaryList(data.entities, context);
   }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListThemesCommandError = async (
@@ -1271,7 +1057,6 @@ const deserializeAws_restJson1ListThemesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1282,14 +1067,12 @@ const deserializeAws_restJson1ListThemesCommandError = async (
       throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1300,19 +1083,17 @@ export const deserializeAws_restJson1RefreshTokenCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RefreshTokenCommandError(output, context);
   }
-  const contents: RefreshTokenCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    accessToken: undefined,
-    expiresIn: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accessToken !== undefined && data.accessToken !== null) {
+  if (data.accessToken != null) {
     contents.accessToken = __expectString(data.accessToken);
   }
-  if (data.expiresIn !== undefined && data.expiresIn !== null) {
+  if (data.expiresIn != null) {
     contents.expiresIn = __expectInt32(data.expiresIn);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1RefreshTokenCommandError = async (
@@ -1323,7 +1104,6 @@ const deserializeAws_restJson1RefreshTokenCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
@@ -1331,14 +1111,12 @@ const deserializeAws_restJson1RefreshTokenCommandError = async (
       throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1349,13 +1127,12 @@ export const deserializeAws_restJson1UpdateComponentCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateComponentCommandError(output, context);
   }
-  const contents: UpdateComponentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    entity: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = deserializeAws_restJson1Component(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1UpdateComponentCommandError = async (
@@ -1366,7 +1143,6 @@ const deserializeAws_restJson1UpdateComponentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1380,14 +1156,12 @@ const deserializeAws_restJson1UpdateComponentCommandError = async (
       throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1398,13 +1172,12 @@ export const deserializeAws_restJson1UpdateThemeCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateThemeCommandError(output, context);
   }
-  const contents: UpdateThemeCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    entity: undefined,
-  };
+  });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.entity = deserializeAws_restJson1Theme(data, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1UpdateThemeCommandError = async (
@@ -1415,7 +1188,6 @@ const deserializeAws_restJson1UpdateThemeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1429,24 +1201,23 @@ const deserializeAws_restJson1UpdateThemeCommandError = async (
       throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1InternalServerExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new InternalServerException({
@@ -1460,9 +1231,9 @@ const deserializeAws_restJson1InvalidParameterExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new InvalidParameterException({
@@ -1476,9 +1247,9 @@ const deserializeAws_restJson1ResourceConflictExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceConflictException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ResourceConflictException({
@@ -1492,9 +1263,9 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ResourceNotFoundException({
@@ -1508,9 +1279,9 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ServiceQuotaExceededException({
@@ -1597,9 +1368,6 @@ const serializeAws_restJson1ComponentChildList = (input: ComponentChild[], conte
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1ComponentChild(entry, context);
     });
 };
@@ -1751,9 +1519,6 @@ const serializeAws_restJson1ComponentPropertyList = (input: ComponentProperty[],
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1ComponentProperty(entry, context);
     });
 };
@@ -1771,9 +1536,6 @@ const serializeAws_restJson1ComponentVariants = (input: ComponentVariant[], cont
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1ComponentVariant(entry, context);
     });
 };
@@ -1858,9 +1620,6 @@ const serializeAws_restJson1IdentifierList = (input: string[], context: __SerdeC
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -1890,9 +1649,6 @@ const serializeAws_restJson1PredicateList = (input: Predicate[], context: __Serd
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1Predicate(entry, context);
     });
 };
@@ -1917,9 +1673,6 @@ const serializeAws_restJson1SortPropertyList = (input: SortProperty[], context: 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1SortProperty(entry, context);
     });
 };
@@ -1954,9 +1707,6 @@ const serializeAws_restJson1ThemeValuesList = (input: ThemeValues[], context: __
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1ThemeValues(entry, context);
     });
 };

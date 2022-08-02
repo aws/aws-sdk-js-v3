@@ -3,7 +3,9 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   decorateServiceException as __decorateServiceException,
   expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  map as __map,
+  resolvedPath as __resolvedPath,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -36,15 +38,7 @@ export const serializeAws_restJson1GetRawMessageContentCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/messages/{messageId}";
-  if (input.messageId !== undefined) {
-    const labelValue: string = input.messageId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: messageId.");
-    }
-    resolvedPath = resolvedPath.replace("{messageId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: messageId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "messageId", () => input.messageId!, "{messageId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -66,15 +60,7 @@ export const serializeAws_restJson1PutRawMessageContentCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/messages/{messageId}";
-  if (input.messageId !== undefined) {
-    const labelValue: string = input.messageId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: messageId.");
-    }
-    resolvedPath = resolvedPath.replace("{messageId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: messageId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "messageId", () => input.messageId!, "{messageId}", false);
   let body: any;
   body = JSON.stringify({
     ...(input.content != null && { content: serializeAws_restJson1RawMessageContent(input.content, context) }),
@@ -97,13 +83,12 @@ export const deserializeAws_restJson1GetRawMessageContentCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetRawMessageContentCommandError(output, context);
   }
-  const contents: GetRawMessageContentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    messageContent: undefined,
-  };
+  });
   const data: any = output.body;
   contents.messageContent = data;
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetRawMessageContentCommandError = async (
@@ -114,7 +99,6 @@ const deserializeAws_restJson1GetRawMessageContentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
@@ -122,14 +106,12 @@ const deserializeAws_restJson1GetRawMessageContentCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -140,11 +122,11 @@ export const deserializeAws_restJson1PutRawMessageContentCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutRawMessageContentCommandError(output, context);
   }
-  const contents: PutRawMessageContentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1PutRawMessageContentCommandError = async (
@@ -155,7 +137,6 @@ const deserializeAws_restJson1PutRawMessageContentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidContentLocation":
@@ -172,24 +153,23 @@ const deserializeAws_restJson1PutRawMessageContentCommandError = async (
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1InvalidContentLocationResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidContentLocation> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new InvalidContentLocation({
@@ -203,9 +183,9 @@ const deserializeAws_restJson1MessageFrozenResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MessageFrozen> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new MessageFrozen({
@@ -219,9 +199,9 @@ const deserializeAws_restJson1MessageRejectedResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MessageRejected> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new MessageRejected({
@@ -235,9 +215,9 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ResourceNotFoundException({

@@ -5,8 +5,10 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  map as __map,
   parseRfc3339DateTime as __parseRfc3339DateTime,
+  resolvedPath as __resolvedPath,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -34,15 +36,14 @@ export const serializeAws_restJson1DeleteConnectionCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/@connections/{ConnectionId}";
-  if (input.ConnectionId !== undefined) {
-    const labelValue: string = input.ConnectionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConnectionId.");
-    }
-    resolvedPath = resolvedPath.replace("{ConnectionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConnectionId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConnectionId",
+    () => input.ConnectionId!,
+    "{ConnectionId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -63,15 +64,14 @@ export const serializeAws_restJson1GetConnectionCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/@connections/{ConnectionId}";
-  if (input.ConnectionId !== undefined) {
-    const labelValue: string = input.ConnectionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConnectionId.");
-    }
-    resolvedPath = resolvedPath.replace("{ConnectionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConnectionId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConnectionId",
+    () => input.ConnectionId!,
+    "{ConnectionId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -94,15 +94,14 @@ export const serializeAws_restJson1PostToConnectionCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/@connections/{ConnectionId}";
-  if (input.ConnectionId !== undefined) {
-    const labelValue: string = input.ConnectionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConnectionId.");
-    }
-    resolvedPath = resolvedPath.replace("{ConnectionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConnectionId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConnectionId",
+    () => input.ConnectionId!,
+    "{ConnectionId}",
+    false
+  );
   let body: any;
   if (input.Data !== undefined) {
     body = input.Data;
@@ -125,11 +124,11 @@ export const deserializeAws_restJson1DeleteConnectionCommand = async (
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteConnectionCommandError(output, context);
   }
-  const contents: DeleteConnectionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteConnectionCommandError = async (
@@ -140,7 +139,6 @@ const deserializeAws_restJson1DeleteConnectionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
@@ -154,14 +152,12 @@ const deserializeAws_restJson1DeleteConnectionCommandError = async (
       throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -172,23 +168,20 @@ export const deserializeAws_restJson1GetConnectionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetConnectionCommandError(output, context);
   }
-  const contents: GetConnectionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ConnectedAt: undefined,
-    Identity: undefined,
-    LastActiveAt: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.connectedAt !== undefined && data.connectedAt !== null) {
+  if (data.connectedAt != null) {
     contents.ConnectedAt = __expectNonNull(__parseRfc3339DateTime(data.connectedAt));
   }
-  if (data.identity !== undefined && data.identity !== null) {
+  if (data.identity != null) {
     contents.Identity = deserializeAws_restJson1Identity(data.identity, context);
   }
-  if (data.lastActiveAt !== undefined && data.lastActiveAt !== null) {
+  if (data.lastActiveAt != null) {
     contents.LastActiveAt = __expectNonNull(__parseRfc3339DateTime(data.lastActiveAt));
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetConnectionCommandError = async (
@@ -199,7 +192,6 @@ const deserializeAws_restJson1GetConnectionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
@@ -213,14 +205,12 @@ const deserializeAws_restJson1GetConnectionCommandError = async (
       throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -231,11 +221,11 @@ export const deserializeAws_restJson1PostToConnectionCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PostToConnectionCommandError(output, context);
   }
-  const contents: PostToConnectionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1PostToConnectionCommandError = async (
@@ -246,7 +236,6 @@ const deserializeAws_restJson1PostToConnectionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
@@ -263,22 +252,21 @@ const deserializeAws_restJson1PostToConnectionCommandError = async (
       throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ForbiddenException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -291,7 +279,7 @@ const deserializeAws_restJson1GoneExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<GoneException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
   const exception = new GoneException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -304,7 +292,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -317,9 +305,9 @@ const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PayloadTooLargeException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.Message = __expectString(data.message);
   }
   const exception = new PayloadTooLargeException({
