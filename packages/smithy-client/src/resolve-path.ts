@@ -26,4 +26,4 @@ export const resolvedPath = (
     throw new Error("No value provided for input HTTP label: " + memberName + ".");
   }
   return resolvedPath;
-}
+};

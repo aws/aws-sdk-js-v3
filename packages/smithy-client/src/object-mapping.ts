@@ -166,7 +166,7 @@ export function map(arg0: any, arg1?: any, arg2?: any): any {
 /**
  * Convert a regular object { k: v } to { k: [, v] } mapping instruction set with default
  * filter.
- * 
+ *
  * @private
  * @internal
  */
@@ -176,7 +176,7 @@ export const convertMap = (target: any): Record<string, any> => {
     output[k] = [, v];
   }
   return output;
-}
+};
 
 /**
  * Private, for codegen use only.
