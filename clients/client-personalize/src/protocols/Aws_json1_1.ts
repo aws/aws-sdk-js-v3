@@ -4207,6 +4207,7 @@ const serializeAws_json1_1CreateDatasetImportJobRequest = (
   return {
     ...(input.dataSource != null && { dataSource: serializeAws_json1_1DataSource(input.dataSource, context) }),
     ...(input.datasetArn != null && { datasetArn: input.datasetArn }),
+    ...(input.importMode != null && { importMode: input.importMode }),
     ...(input.jobName != null && { jobName: input.jobName }),
     ...(input.roleArn != null && { roleArn: input.roleArn }),
     ...(input.tags != null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
@@ -5485,6 +5486,7 @@ const deserializeAws_json1_1DatasetImportJob = (output: any, context: __SerdeCon
     datasetArn: __expectString(output.datasetArn),
     datasetImportJobArn: __expectString(output.datasetImportJobArn),
     failureReason: __expectString(output.failureReason),
+    importMode: __expectString(output.importMode),
     jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime != null
@@ -5518,6 +5520,7 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
         : undefined,
     datasetImportJobArn: __expectString(output.datasetImportJobArn),
     failureReason: __expectString(output.failureReason),
+    importMode: __expectString(output.importMode),
     jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime != null

@@ -539,13 +539,14 @@ export interface CreateDatasetRequest {
   name: string | undefined;
 
   /**
-   * <p>The ARN of the schema to associate with the dataset. The schema defines the dataset
-   *       fields.</p>
+   * <p>The ARN of the schema to associate with the dataset. The schema
+   *       defines the dataset fields.</p>
    */
   schemaArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group to add the dataset to.</p>
+   * <p>The Amazon Resource Name (ARN) of the dataset group to add the dataset
+   *       to.</p>
    */
   datasetGroupArn: string | undefined;
 
@@ -602,21 +603,24 @@ export interface CreateDatasetExportJobRequest {
   jobName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset that contains the data to export.</p>
+   * <p>The Amazon Resource Name (ARN) of the dataset that contains the data
+   *       to export.</p>
    */
   datasetArn: string | undefined;
 
   /**
-   * <p>The data to export, based on how you imported the data. You can choose to export only <code>BULK</code> data that you imported using a dataset import job,
-   *       only <code>PUT</code> data that you imported incrementally (using the console, PutEvents, PutUsers and PutItems operations), or <code>ALL</code>
-   *       for both types. The default value is <code>PUT</code>.
+   * <p>The data to export, based on how you imported the data. You can choose
+   *       to export only <code>BULK</code> data that you imported using a dataset
+   *       import job, only <code>PUT</code> data that you imported incrementally
+   *       (using the console, PutEvents, PutUsers and PutItems operations), or
+   *         <code>ALL</code> for both types. The default value is <code>PUT</code>.
    *     </p>
    */
   ingestionMode?: IngestionMode | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role that has permissions to add data to your
-   *       output Amazon S3 bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that has
+   *       permissions to add data to your output Amazon S3 bucket.</p>
    */
   roleArn: string | undefined;
 
@@ -650,21 +654,24 @@ export interface CreateDatasetGroupRequest {
   name: string | undefined;
 
   /**
-   * <p>The ARN of the Identity and Access Management (IAM) role that has permissions to access the Key Management Service (KMS) key. Supplying an IAM
-   *       role is only valid when also specifying a KMS key.</p>
+   * <p>The ARN of the Identity and Access Management (IAM) role that has permissions to access
+   *       the Key Management Service (KMS) key. Supplying an IAM role is only valid when also
+   *       specifying a KMS key.</p>
    */
   roleArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a Key Management Service (KMS) key used to encrypt the datasets.</p>
+   * <p>The Amazon Resource Name (ARN) of a Key Management Service (KMS) key used to
+   *       encrypt the datasets.</p>
    */
   kmsKeyArn?: string;
 
   /**
-   * <p>The domain of the dataset group. Specify a domain to create a Domain dataset group. The domain you specify
-   *       determines the default schemas for datasets and the use cases available for recommenders. If you don't specify a domain,
-   *       you create a Custom dataset group with solution versions that you deploy with a campaign.
-   *     </p>
+   * <p>The domain of the dataset group. Specify a domain to create a
+   *       Domain dataset group. The domain you specify determines the default
+   *       schemas for datasets and the use cases available for recommenders. If you
+   *       don't specify a domain, you create a Custom dataset group with solution
+   *       versions that you deploy with a campaign. </p>
    */
   domain?: Domain | string;
 
@@ -687,17 +694,23 @@ export interface CreateDatasetGroupResponse {
 }
 
 /**
- * <p>Describes the data source that contains the data to upload to a dataset.</p>
+ * <p>Describes the data source that contains the data to upload to a
+ *       dataset.</p>
  */
 export interface DataSource {
   /**
-   * <p>The path to the Amazon S3 bucket where the data that you want to upload to your dataset is
-   *       stored. For example: </p>
+   * <p>The path to the Amazon S3 bucket where the data that you want to upload to
+   *       your dataset is stored. For example: </p>
    *          <p>
    *             <code>s3://bucket-name/folder-name/</code>
    *          </p>
    */
   dataLocation?: string;
+}
+
+export enum ImportMode {
+  FULL = "FULL",
+  INCREMENTAL = "INCREMENTAL",
 }
 
 export interface CreateDatasetImportJobRequest {
@@ -717,7 +730,8 @@ export interface CreateDatasetImportJobRequest {
   dataSource: DataSource | undefined;
 
   /**
-   * <p>The ARN of the IAM role that has permissions to read from the Amazon S3 data source.</p>
+   * <p>The ARN of the IAM role that has permissions to read from the Amazon S3
+   *       data source.</p>
    */
   roleArn: string | undefined;
 
@@ -725,6 +739,24 @@ export interface CreateDatasetImportJobRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the dataset import job.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>Specify how to add the new records to an existing dataset. The default
+   *       import mode is <code>FULL</code>. If you haven't imported bulk records into the dataset previously, you
+   *       can only specify <code>FULL</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specify <code>FULL</code> to overwrite all existing bulk data in
+   *           your dataset. Data you imported individually is not replaced.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specify <code>INCREMENTAL</code> to append the new records to the
+   *           existing data in your dataset. Amazon Personalize replaces any record with the
+   *           same ID with the new one.</p>
+   *             </li>
+   *          </ul>
+   */
+  importMode?: ImportMode | string;
 }
 
 export interface CreateDatasetImportJobResponse {
@@ -1626,7 +1658,8 @@ export interface Dataset {
   name?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset that you want metadata for.</p>
+   * <p>The Amazon Resource Name (ARN) of the dataset that you want metadata
+   *       for.</p>
    */
   datasetArn?: string;
 
@@ -1661,7 +1694,8 @@ export interface Dataset {
    *          <p>A dataset can be in one of the following states:</p>
    *          <ul>
    *             <li>
-   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+   *           FAILED</p>
    *             </li>
    *             <li>
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
@@ -1690,17 +1724,20 @@ export interface DescribeDatasetResponse {
 
 export interface DescribeDatasetExportJobRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset export job to describe.</p>
+   * <p>The Amazon Resource Name (ARN) of the dataset export job to
+   *       describe.</p>
    */
   datasetExportJobArn: string | undefined;
 }
 
 /**
- * <p>Describes a job that exports a dataset to an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html">CreateDatasetExportJob</a>.</p>
+ * <p>Describes a job that exports a dataset to an Amazon S3 bucket. For more
+ *       information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html">CreateDatasetExportJob</a>.</p>
  *          <p>A dataset export job can be in one of the following states:</p>
  *          <ul>
  *             <li>
- *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+ *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+ *           FAILED</p>
  *             </li>
  *          </ul>
  */
@@ -1721,16 +1758,17 @@ export interface DatasetExportJob {
   datasetArn?: string;
 
   /**
-   * <p>The data to export, based on how you imported the data. You can choose to export <code>BULK</code> data that you imported using a dataset import job,
-   *       <code>PUT</code> data that you imported incrementally (using the console, PutEvents, PutUsers and PutItems operations), or <code>ALL</code>
-   *       for both types. The default value is <code>PUT</code>.
-   *     </p>
+   * <p>The data to export, based on how you imported the data. You can choose
+   *       to export <code>BULK</code> data that you imported using a dataset import
+   *       job, <code>PUT</code> data that you imported incrementally (using the
+   *       console, PutEvents, PutUsers and PutItems operations), or <code>ALL</code>
+   *       for both types. The default value is <code>PUT</code>. </p>
    */
   ingestionMode?: IngestionMode | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role that has permissions to add data to your
-   *       output Amazon S3 bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that has
+   *       permissions to add data to your output Amazon S3 bucket.</p>
    */
   roleArn?: string;
 
@@ -1739,14 +1777,16 @@ export interface DatasetExportJob {
    *          <p>A dataset export job can be in one of the following states:</p>
    *          <ul>
    *             <li>
-   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+   *           FAILED</p>
    *             </li>
    *          </ul>
    */
   status?: string;
 
   /**
-   * <p>The path to the Amazon S3 bucket where the job's output is stored.  For example:</p>
+   * <p>The path to the Amazon S3 bucket where the job's output is stored. For
+   *       example:</p>
    *          <p>
    *             <code>s3://bucket-name/folder-name/</code>
    *          </p>
@@ -1754,12 +1794,14 @@ export interface DatasetExportJob {
   jobOutput?: DatasetExportJobOutput;
 
   /**
-   * <p>The creation date and time (in Unix time) of the dataset export job.</p>
+   * <p>The creation date and time (in Unix time) of the dataset export
+   *       job.</p>
    */
   creationDateTime?: Date;
 
   /**
-   * <p>The date and time (in Unix time) the status of the dataset export job was last updated.</p>
+   * <p>The date and time (in Unix time) the status of the dataset export job
+   *       was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
@@ -1793,18 +1835,20 @@ export interface DescribeDatasetExportJobResponse {
 
 export interface DescribeDatasetGroupRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group to describe.</p>
+   * <p>The Amazon Resource Name (ARN) of the dataset group to
+   *       describe.</p>
    */
   datasetGroupArn: string | undefined;
 }
 
 /**
- * <p>A dataset group is a collection of related datasets (Interactions, User, and Item). You
- *       create a dataset group by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>. You then create a
- *       dataset and add it to a dataset group by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>. The dataset
- *       group is used to create and train a solution by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>. A
- *       dataset group can contain only one of each type of dataset.</p>
- *          <p>You can specify an Key Management Service (KMS) key to encrypt the datasets in the group.</p>
+ * <p>A dataset group is a collection of related datasets (Interactions,
+ *       User, and Item). You create a dataset group by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>. You then create a dataset and add it to a
+ *       dataset group by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>. The dataset group is used to create and train a
+ *       solution by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>. A dataset group can contain only one of each
+ *       type of dataset.</p>
+ *          <p>You can specify an Key Management Service (KMS) key to encrypt the datasets in
+ *       the group.</p>
  */
 export interface DatasetGroup {
   /**
@@ -1822,7 +1866,8 @@ export interface DatasetGroup {
    *          <p>A dataset group can be in one of the following states:</p>
    *          <ul>
    *             <li>
-   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+   *           FAILED</p>
    *             </li>
    *             <li>
    *                <p>DELETE PENDING</p>
@@ -1832,12 +1877,14 @@ export interface DatasetGroup {
   status?: string;
 
   /**
-   * <p>The ARN of the IAM role that has permissions to create the dataset group.</p>
+   * <p>The ARN of the IAM role that has permissions to create the dataset
+   *       group.</p>
    */
   roleArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to encrypt the datasets.</p>
+   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to
+   *       encrypt the datasets.</p>
    */
   kmsKeyArn?: string;
 
@@ -1847,7 +1894,8 @@ export interface DatasetGroup {
   creationDateTime?: Date;
 
   /**
-   * <p>The last update date and time (in Unix time) of the dataset group.</p>
+   * <p>The last update date and time (in Unix time) of the dataset
+   *       group.</p>
    */
   lastUpdatedDateTime?: Date;
 
@@ -1871,18 +1919,20 @@ export interface DescribeDatasetGroupResponse {
 
 export interface DescribeDatasetImportJobRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset import job to describe.</p>
+   * <p>The Amazon Resource Name (ARN) of the dataset import job to
+   *       describe.</p>
    */
   datasetImportJobArn: string | undefined;
 }
 
 /**
- * <p>Describes a job that imports training data from a data source (Amazon S3 bucket) to an
- *       Amazon Personalize dataset. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>.</p>
+ * <p>Describes a job that imports training data from a data source (Amazon S3
+ *       bucket) to an Amazon Personalize dataset. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>.</p>
  *          <p>A dataset import job can be in one of the following states:</p>
  *          <ul>
  *             <li>
- *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+ *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+ *           FAILED</p>
  *             </li>
  *          </ul>
  */
@@ -1898,7 +1948,8 @@ export interface DatasetImportJob {
   datasetImportJobArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset that receives the imported data.</p>
+   * <p>The Amazon Resource Name (ARN) of the dataset that receives the
+   *       imported data.</p>
    */
   datasetArn?: string;
 
@@ -1908,8 +1959,8 @@ export interface DatasetImportJob {
   dataSource?: DataSource;
 
   /**
-   * <p>The ARN of the IAM role that has permissions to read from the Amazon S3 data
-   *       source.</p>
+   * <p>The ARN of the IAM role that has permissions to read from the Amazon S3
+   *       data source.</p>
    */
   roleArn?: string;
 
@@ -1918,14 +1969,16 @@ export interface DatasetImportJob {
    *          <p>A dataset import job can be in one of the following states:</p>
    *          <ul>
    *             <li>
-   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+   *           FAILED</p>
    *             </li>
    *          </ul>
    */
   status?: string;
 
   /**
-   * <p>The creation date and time (in Unix time) of the dataset import job.</p>
+   * <p>The creation date and time (in Unix time) of the dataset import
+   *       job.</p>
    */
   creationDateTime?: Date;
 
@@ -1938,6 +1991,12 @@ export interface DatasetImportJob {
    * <p>If a dataset import job fails, provides the reason why.</p>
    */
   failureReason?: string;
+
+  /**
+   * <p>The import mode used by the dataset import job to import new
+   *       records.</p>
+   */
+  importMode?: ImportMode | string;
 }
 
 export interface DescribeDatasetImportJobResponse {
@@ -3000,13 +3059,15 @@ export interface ListCampaignsResponse {
 
 export interface ListDatasetExportJobsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset to list the dataset export jobs for.</p>
+   * <p>The Amazon Resource Name (ARN) of the dataset to list the dataset
+   *       export jobs for.</p>
    */
   datasetArn?: string;
 
   /**
-   * <p>A token returned from the previous call to <code>ListDatasetExportJobs</code> for getting
-   *       the next set of dataset export jobs (if they exist).</p>
+   * <p>A token returned from the previous call to
+   *         <code>ListDatasetExportJobs</code> for getting the next set of dataset
+   *       export jobs (if they exist).</p>
    */
   nextToken?: string;
 
@@ -3065,15 +3126,17 @@ export interface ListDatasetExportJobsResponse {
   datasetExportJobs?: DatasetExportJobSummary[];
 
   /**
-   * <p>A token for getting the next set of dataset export jobs (if they exist).</p>
+   * <p>A token for getting the next set of dataset export jobs (if they
+   *       exist).</p>
    */
   nextToken?: string;
 }
 
 export interface ListDatasetGroupsRequest {
   /**
-   * <p>A token returned from the previous call to <code>ListDatasetGroups</code> for getting the
-   *       next set of dataset groups (if they exist).</p>
+   * <p>A token returned from the previous call to
+   *         <code>ListDatasetGroups</code> for getting the next set of dataset
+   *       groups (if they exist).</p>
    */
   nextToken?: string;
 
@@ -3140,20 +3203,23 @@ export interface ListDatasetGroupsResponse {
   datasetGroups?: DatasetGroupSummary[];
 
   /**
-   * <p>A token for getting the next set of dataset groups (if they exist).</p>
+   * <p>A token for getting the next set of dataset groups (if they
+   *       exist).</p>
    */
   nextToken?: string;
 }
 
 export interface ListDatasetImportJobsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset to list the dataset import jobs for.</p>
+   * <p>The Amazon Resource Name (ARN) of the dataset to list the dataset
+   *       import jobs for.</p>
    */
   datasetArn?: string;
 
   /**
-   * <p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting
-   *       the next set of dataset import jobs (if they exist).</p>
+   * <p>A token returned from the previous call to
+   *         <code>ListDatasetImportJobs</code> for getting the next set of dataset
+   *       import jobs (if they exist).</p>
    */
   nextToken?: string;
 
@@ -3203,6 +3269,14 @@ export interface DatasetImportJobSummary {
    * <p>If a dataset import job fails, the reason behind the failure.</p>
    */
   failureReason?: string;
+
+  /**
+   * <p>The import mode the dataset import job used to update the data in the dataset.
+   *       For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/updating-existing-bulk-data.html">Updating existing bulk
+   *       data</a>.
+   *     </p>
+   */
+  importMode?: ImportMode | string;
 }
 
 export interface ListDatasetImportJobsResponse {
@@ -3212,21 +3286,23 @@ export interface ListDatasetImportJobsResponse {
   datasetImportJobs?: DatasetImportJobSummary[];
 
   /**
-   * <p>A token for getting the next set of dataset import jobs (if they exist).</p>
+   * <p>A token for getting the next set of dataset import jobs (if they
+   *       exist).</p>
    */
   nextToken?: string;
 }
 
 export interface ListDatasetsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group that contains the datasets to
-   *       list.</p>
+   * <p>The Amazon Resource Name (ARN) of the dataset group that contains the
+   *       datasets to list.</p>
    */
   datasetGroupArn?: string;
 
   /**
-   * <p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting
-   *       the next set of dataset import jobs (if they exist).</p>
+   * <p>A token returned from the previous call to
+   *         <code>ListDatasetImportJobs</code> for getting the next set of dataset
+   *       import jobs (if they exist).</p>
    */
   nextToken?: string;
 
@@ -3297,8 +3373,8 @@ export interface DatasetSummary {
 
 export interface ListDatasetsResponse {
   /**
-   * <p>An array of <code>Dataset</code> objects. Each object provides metadata
-   *       information.</p>
+   * <p>An array of <code>Dataset</code> objects. Each object provides
+   *       metadata information.</p>
    */
   datasets?: DatasetSummary[];
 

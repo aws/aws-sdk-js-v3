@@ -28,8 +28,7 @@ export interface DescribeDatasetImportJobCommandInput extends DescribeDatasetImp
 export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the dataset import job created by <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>,
- *       including the import job status.</p>
+ * <p>Describes the dataset import job created by <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>, including the import job status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
