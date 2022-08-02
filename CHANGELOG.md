@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.141.0...v3.142.0) (2022-08-02)
+
+
+### Features
+
+* **client-license-manager-user-subscriptions:** This release supports user based subscription for Microsoft Visual Studio Professional and Enterprise on EC2. ([9344c94](https://github.com/aws/aws-sdk-js-v3/commit/9344c94e6d74d7f7423f87301eac8dca3481b9d3))
+* **client-personalize:** This release adds support for incremental bulk ingestion for the Personalize CreateDatasetImportJob API. ([545008f](https://github.com/aws/aws-sdk-js-v3/commit/545008f6ced4a28be23a2e984df469e739e5e0a0))
+* **clients:** update client endpoints as of 2022-08-02 ([63abee5](https://github.com/aws/aws-sdk-js-v3/commit/63abee5d2e3cb571f09bd6a9aa8a9dc8d6a93d9b))
+* **codegen:** general data mapping function ([#3830](https://github.com/aws/aws-sdk-js-v3/issues/3830)) ([9417eae](https://github.com/aws/aws-sdk-js-v3/commit/9417eae722806799fb4c15c07921574268c1165c))
+* **smithy-client:** update client defaults provider ([70224cc](https://github.com/aws/aws-sdk-js-v3/commit/70224cc2dccebd7bcc1538e66e412100d85fe210))
+
+
+
+
+
 # [3.141.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.140.0...v3.141.0) (2022-08-01)
 
 
