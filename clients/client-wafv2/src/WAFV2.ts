@@ -227,11 +227,11 @@ import { WAFV2Client } from "./WAFV2Client";
  *             see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
  *          </note>
  *          <p>WAF is a web application firewall that lets you monitor the HTTP and HTTPS
- *          requests that are forwarded to Amazon CloudFront, an Amazon API Gateway REST API, an Application Load Balancer, or an AppSync
- *          GraphQL API. WAF also lets you control access to your content. Based on criteria that
+ *          requests that are forwarded to Amazon CloudFront, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync
+ *          GraphQL API, or an Amazon Cognito user pool. WAF also lets you control access to your content. Based on conditions that
  *          you specify, such as the IP addresses that requests originate from or the values of query
- *          strings, the Amazon API Gateway REST API, CloudFront distribution, the Application Load Balancer, or the AppSync GraphQL
- *          API responds to requests either with the requested content or with an HTTP 403 status code
+ *          strings, the Amazon API Gateway REST API, CloudFront distribution, the Application Load Balancer, the AppSync GraphQL
+ *          API, or the Amazon Cognito user pool responds to requests either with the requested content or with an HTTP 403 status code
  *          (Forbidden). You also can configure CloudFront to return a custom error page when a request is
  *          blocked.</p>
  *          <p>This API guide is for developers who need detailed information about WAF API actions,
@@ -242,7 +242,7 @@ import { WAFV2Client } from "./WAFV2Client";
  *          <ul>
  *             <li>
  *                <p>For regional applications, you can use any of the endpoints in the list.
- *                A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AppSync GraphQL API. </p>
+ *                A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, or an Amazon Cognito user pool. </p>
  *             </li>
  *             <li>
  *                <p>For Amazon CloudFront applications, you must use the API endpoint listed for
@@ -275,7 +275,7 @@ import { WAFV2Client } from "./WAFV2Client";
 export class WAFV2 extends WAFV2Client {
   /**
    * <p>Associates a web ACL with a regional application resource, to protect the resource.
-   *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AppSync GraphQL API.  </p>
+   *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, or an Amazon Cognito user pool.  </p>
    *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To
    *          associate a web ACL, in the CloudFront call <code>UpdateDistribution</code>, set the web ACL ID
    *          to the Amazon Resource Name (ARN) of the web ACL. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
@@ -451,7 +451,7 @@ export class WAFV2 extends WAFV2Client {
 
   /**
    * <p>Creates a <a>WebACL</a> per the specifications provided.</p>
-   *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, or an AppSync GraphQL API.  </p>
+   *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, or an Amazon Cognito user pool.  </p>
    */
   public createWebACL(
     args: CreateWebACLCommandInput,
@@ -764,7 +764,7 @@ export class WAFV2 extends WAFV2Client {
 
   /**
    * <p>Disassociates the specified regional application resource from any existing web ACL
-   *          association. A resource can have at most one web ACL association. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AppSync GraphQL API.  </p>
+   *          association. A resource can have at most one web ACL association. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, or an Amazon Cognito user pool.  </p>
    *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To
    *          disassociate a web ACL, provide an empty web ACL ID in the CloudFront call
    *             <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
@@ -1936,7 +1936,7 @@ export class WAFV2 extends WAFV2Client {
    *          <note>
    *             <p>This operation completely replaces the mutable specifications that you already have for the web ACL with the ones that you provide to this call. To modify the web ACL, retrieve it by calling <a>GetWebACL</a>, update the settings as needed, and then provide the complete web ACL specification to this call.</p>
    *          </note>
-   *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, or an AppSync GraphQL API.  </p>
+   *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, or an Amazon Cognito user pool.  </p>
    */
   public updateWebACL(
     args: UpdateWebACLCommandInput,

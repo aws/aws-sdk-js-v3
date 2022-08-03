@@ -1060,6 +1060,9 @@ const deserializeAws_json1_1CheckCapacityCommandError = async (
     case "WAFInternalErrorException":
     case "com.amazonaws.wafv2#WAFInternalErrorException":
       throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+    case "WAFInvalidOperationException":
+    case "com.amazonaws.wafv2#WAFInvalidOperationException":
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafv2#WAFInvalidParameterException":
       throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
