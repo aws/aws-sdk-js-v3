@@ -33,6 +33,16 @@ body:
       value: @aws-sdk/package-name@version, ...
     validations:
       required: true
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: Which JavaScript Runtime is this issue in?
+      options:
+        - Node.js
+        - Browser
+        - React Native
+    validations:
+      required: true
   - type: input
     id: environment
     attributes:
