@@ -30,7 +30,7 @@ body:
     id: sdk-version
     attributes:
       label: SDK version number
-      value: @aws-sdk/package-name@version, ...
+      value: "@aws-sdk/package-name@version, ..."
     validations:
       required: true
   - type: dropdown
