@@ -44,11 +44,12 @@ body:
     validations:
       required: true
   - type: input
-    id: environment
+    id: runtime-version
     attributes:
-      label: Environment details (OS name and version, etc.)
+      label: Details of the browser/Node.js/ReactNative version
+      description: Paste output of `node -v` or `npx envinfo --browsers` or `react-native -v`
     validations:
-        required: true
+      required: true
   - type: textarea
     id: expected
     attributes:
