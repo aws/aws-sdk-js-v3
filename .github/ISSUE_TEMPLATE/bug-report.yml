@@ -1,10 +1,23 @@
 ---
 name: "🐛 Bug Report"
 description: Report a bug
-title: "(short issue description)"
+title: "TITLE FOR BUG REPORT"
 labels: [bug, needs-triage]
 assignees: []
 body:
+  - type: checkboxes
+    attributes:
+      label: Checkboxes for prior research
+      options:
+        - label: I've gone through [Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide)
+            and [API reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest)
+          required: true
+        - label: I've checked [AWS Forums](https://forums.aws.amazon.com) and
+            [StackOverflow](https://stackoverflow.com/questions/tagged/aws-sdk-js).
+          required: true
+        - label: I've searched for [previous similar issues](https://github.com/aws/aws-sdk-js-v3/issues)
+            and didn't find any solution.
+          required: true
   - type: textarea
     id: description
     attributes:
