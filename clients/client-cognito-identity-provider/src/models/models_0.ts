@@ -937,7 +937,7 @@ export class InvalidSmsRoleAccessPolicyException extends __BaseException {
 /**
  * <p>This exception is thrown when the trust relationship is not valid for the role
  *             provided for SMS configuration. This can happen if you don't trust
- *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
  *             not match what is provided in the SMS configuration for the user pool.</p>
  */
 export class InvalidSmsRoleTrustRelationshipException extends __BaseException {
@@ -3008,8 +3008,8 @@ export interface AssociateSoftwareTokenRequest {
 
 export interface AssociateSoftwareTokenResponse {
   /**
-   * <p>A unique generated shared secret code that is used in the time-based one-time password
-   *             (TOTP) algorithm to generate a one-time code.</p>
+   * <p>A unique generated shared secret code that is used in the
+   *             TOTP algorithm to generate a one-time code.</p>
    */
   SecretCode?: string;
 
@@ -3037,6 +3037,25 @@ export class ConcurrentModificationException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
+}
+
+/**
+ * <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+ */
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
   }
 }
 
@@ -3163,13 +3182,13 @@ export interface ConfirmForgotPasswordRequest {
   Username: string | undefined;
 
   /**
-   * <p>The confirmation code sent by a user's request to retrieve a forgotten password. For
+   * <p>The confirmation code from your user's request to reset their password. For
    *             more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html">ForgotPassword</a>.</p>
    */
   ConfirmationCode: string | undefined;
 
   /**
-   * <p>The password sent by a user's request to retrieve a forgotten password.</p>
+   * <p>The new password that your user wants to set.</p>
    */
   Password: string | undefined;
 
@@ -3959,28 +3978,24 @@ export interface CreateUserImportJobResponse {
 }
 
 /**
- * <p>The device tracking configuration for a user pool. A user pool with device tracking
- *             deactivated returns a null value.</p>
- *         <note>
- *             <p>When you provide values for any DeviceConfiguration field, you activate device
- *                 tracking.</p>
- *         </note>
+ * <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p>
+ *          <note>
+ *             <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p>
+ *          </note>
  */
 export interface DeviceConfigurationType {
   /**
-   * <p>When true, device authentication can replace SMS and time-based one-time password
-   *             (TOTP) factors for multi-factor authentication (MFA).</p>
-   *         <note>
-   *             <p>Users that sign in with devices that have not been confirmed or remembered will
-   *                 still have to provide a second factor, whether or not ChallengeRequiredOnNewDevice
-   *                 is true, when your user pool requires MFA.</p>
-   *         </note>
+   * <p>When true, device authentication can replace SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).</p>
+   *          <note>
+   *             <p>Regardless of the value of this field, users that sign in with new devices that have not been confirmed or remembered must provide a second factor if your user pool requires MFA.</p>
+   *          </note>
    */
   ChallengeRequiredOnNewDevice?: boolean;
 
   /**
-   * <p>When true, users can opt in to remembering their device. Your app code must use
-   *             callback functions to return the user's choice.</p>
+   * <p>When true, Amazon Cognito doesn't remember newly-confirmed devices. Users who want to authenticate with their device
+   *             can instead opt in to remembering their device. To collect a choice from your user, create an input prompt
+   *             in your app and return the value that the user chooses in an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html">UpdateDeviceStatus</a> API request.</p>
    */
   DeviceOnlyRememberedOnUserPrompt?: boolean;
 }
@@ -4324,7 +4339,7 @@ export interface SmsConfigurationType {
  * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
  * a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
  * more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates">
- * Verifying updates to to email addresses and phone numbers</a>.</p>
+ * Verifying updates to email addresses and phone numbers</a>.</p>
  */
 export interface UserAttributeUpdateSettingsType {
   /**
@@ -4488,14 +4503,14 @@ export interface CreateUserPoolRequest {
   SmsVerificationMessage?: string;
 
   /**
-   * <p>A string representing the email verification message. EmailVerificationMessage is
-   *             allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
+   * <p>A string representing the email verification message.
+   *                 <code>EmailVerificationMessage</code> is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
    */
   EmailVerificationMessage?: string;
 
   /**
-   * <p>A string representing the email verification subject. EmailVerificationSubject is
-   *             allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
+   * <p>A string representing the email verification subject.
+   *                 <code>EmailVerificationSubject</code> is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
    */
   EmailVerificationSubject?: string;
 
@@ -4519,12 +4534,15 @@ export interface CreateUserPoolRequest {
    * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
    * a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
    * more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates">
-   * Verifying updates to to email addresses and phone numbers</a>.</p>
+   * Verifying updates to email addresses and phone numbers</a>.</p>
    */
   UserAttributeUpdateSettings?: UserAttributeUpdateSettingsType;
 
   /**
-   * <p>The device configuration.</p>
+   * <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p>
+   *         <note>
+   *             <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p>
+   *         </note>
    */
   DeviceConfiguration?: DeviceConfigurationType;
 
@@ -4680,7 +4698,7 @@ export interface UserPoolType {
    * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
    * a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
    * more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates">
-   * Verifying updates to to email addresses and phone numbers</a>.</p>
+   * Verifying updates to email addresses and phone numbers</a>.</p>
    */
   UserAttributeUpdateSettings?: UserAttributeUpdateSettingsType;
 
@@ -4707,7 +4725,10 @@ export interface UserPoolType {
   MfaConfiguration?: UserPoolMfaType | string;
 
   /**
-   * <p>The device configuration.</p>
+   * <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p>
+   *         <note>
+   *             <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p>
+   *         </note>
    */
   DeviceConfiguration?: DeviceConfigurationType;
 
@@ -4993,46 +5014,45 @@ export interface CreateUserPoolClientRequest {
    *                     <code>ALLOW_</code> prefix.</p>
    *         </note>
    *         <p>Valid values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password
+   *         <dl>
+   *             <dt>ALLOW_ADMIN_USER_PASSWORD_AUTH</dt>
+   *             <dd>
+   *                <p>Enable admin based user password
    *                     authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces
    *                     the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, Amazon Cognito
    *                     receives the password in the request instead of using the Secure Remote Password
    *                     (SRP) protocol to verify passwords.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based
-   *                     authentication.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based
+   *             </dd>
+   *             <dt>ALLOW_CUSTOM_AUTH</dt>
+   *             <dd>
+   *                <p>Enable Lambda trigger based authentication.</p>
+   *             </dd>
+   *             <dt>ALLOW_USER_PASSWORD_AUTH</dt>
+   *             <dd>
+   *                <p>Enable user password-based
    *                     authentication. In this flow, Amazon Cognito receives the password in the request instead
    *                     of using the SRP protocol to verify passwords.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh
-   *                     tokens.</p>
-   *             </li>
-   *          </ul>
-   *         <p>If you don't specify a value for <code>ExplicitAuthFlows</code>, your app client
-   *             activates the <code>ALLOW_USER_SRP_AUTH</code> and <code>ALLOW_CUSTOM_AUTH</code>
-   *             authentication flows.</p>
+   *             </dd>
+   *             <dt>ALLOW_USER_SRP_AUTH</dt>
+   *             <dd>
+   *                <p>Enable SRP-based authentication.</p>
+   *             </dd>
+   *             <dt>ALLOW_REFRESH_TOKEN_AUTH</dt>
+   *             <dd>
+   *                <p>Enable the authflow that refreshes tokens.</p>
+   *             </dd>
+   *          </dl>
+   *         <p>If you don't specify a value for <code>ExplicitAuthFlows</code>, your user client
+   *             supports <code>ALLOW_USER_SRP_AUTH</code> and <code>ALLOW_CUSTOM_AUTH</code>.</p>
    */
   ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
 
   /**
-   * <p>A list of provider names for the IdPs that this client supports. The following are
-   *             supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>
-   *             <code>LoginWithAmazon</code>, and the names of your own SAML and OIDC providers.</p>
+   * <p>A list of provider names for the identity providers (IdPs) that are supported on this
+   *             client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>,
+   *             <code>Google</code>, <code>SignInWithApple</code>, and <code>LoginWithAmazon</code>. You can also specify the names
+   *             that you configured for the SAML and OIDC IdPs in your user pool, for example
+   *                 <code>MySAMLIdP</code> or <code>MyOIDCIdP</code>.</p>
    */
   SupportedIdentityProviders?: string[];
 
@@ -5310,7 +5330,7 @@ export interface UserPoolClientType {
 
   /**
    * <p>A list of provider names for the IdPs that this client supports. The following are
-   *             supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>
+   *             supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>, <code>SignInWithApple</code>,
    *             <code>LoginWithAmazon</code>, and the names of your own SAML and OIDC providers.</p>
    */
   SupportedIdentityProviders?: string[];
@@ -6427,17 +6447,17 @@ export interface SoftwareTokenMfaConfigType {
 
 export interface GetUserPoolMfaConfigResponse {
   /**
-   * <p>The SMS text message multi-factor (MFA) configuration.</p>
+   * <p>The SMS text message multi-factor authentication (MFA) configuration.</p>
    */
   SmsMfaConfiguration?: SmsMfaConfigType;
 
   /**
-   * <p>The software token multi-factor (MFA) configuration.</p>
+   * <p>The software token multi-factor authentication (MFA) configuration.</p>
    */
   SoftwareTokenMfaConfiguration?: SoftwareTokenMfaConfigType;
 
   /**
-   * <p>The multi-factor (MFA) configuration. Valid values include:</p>
+   * <p>The multi-factor authentication (MFA) configuration. Valid values include:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -7668,7 +7688,7 @@ export interface SetUserMFAPreferenceRequest {
   SMSMfaSettings?: SMSMfaSettingsType;
 
   /**
-   * <p>The time-based one-time password software token MFA settings.</p>
+   * <p>The time-based one-time password (TOTP) software token MFA settings.</p>
    */
   SoftwareTokenMfaSettings?: SoftwareTokenMfaSettingsType;
 
@@ -7861,29 +7881,6 @@ export interface SignUpRequest {
    *         </note>
    */
   ClientMetadata?: Record<string, string>;
-}
-
-/**
- * <p>The response from the server for a registration request.</p>
- */
-export interface SignUpResponse {
-  /**
-   * <p>A response from the server indicating that a user registration has been
-   *             confirmed.</p>
-   */
-  UserConfirmed: boolean | undefined;
-
-  /**
-   * <p>The code delivery details returned by the server response to the user registration
-   *             request.</p>
-   */
-  CodeDeliveryDetails?: CodeDeliveryDetailsType;
-
-  /**
-   * <p>The UUID of the authenticated user. This isn't the same as
-   *             <code>username</code>.</p>
-   */
-  UserSub: string | undefined;
 }
 
 /**
@@ -9614,11 +9611,4 @@ export const SignUpRequestFilterSensitiveLog = (obj: SignUpRequest): any => ({
   ...(obj.ValidationData && {
     ValidationData: obj.ValidationData.map((item) => AttributeTypeFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const SignUpResponseFilterSensitiveLog = (obj: SignUpResponse): any => ({
-  ...obj,
 });

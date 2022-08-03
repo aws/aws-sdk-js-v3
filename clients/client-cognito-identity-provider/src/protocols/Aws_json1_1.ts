@@ -423,6 +423,7 @@ import {
   EventRiskType,
   ExpiredCodeException,
   ExplicitAuthFlowsType,
+  ForbiddenException,
   ForgetDeviceRequest,
   ForgotPasswordRequest,
   ForgotPasswordResponse,
@@ -522,7 +523,6 @@ import {
   SetUserSettingsRequest,
   SetUserSettingsResponse,
   SignUpRequest,
-  SignUpResponse,
   SmsConfigurationType,
   SmsMfaConfigType,
   SMSMfaSettingsType,
@@ -564,6 +564,7 @@ import {
 } from "../models/models_0";
 import {
   EnableSoftwareTokenMFAException,
+  SignUpResponse,
   StartUserImportJobRequest,
   StartUserImportJobResponse,
   StopUserImportJobRequest,
@@ -3619,6 +3620,9 @@ const deserializeAws_json1_1AssociateSoftwareTokenCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -3672,6 +3676,9 @@ const deserializeAws_json1_1ChangePasswordCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -3740,6 +3747,9 @@ const deserializeAws_json1_1ConfirmDeviceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -3820,6 +3830,9 @@ const deserializeAws_json1_1ConfirmForgotPasswordCommandError = async (
     case "ExpiredCodeException":
     case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
       throw await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -3906,6 +3919,9 @@ const deserializeAws_json1_1ConfirmSignUpCommandError = async (
     case "ExpiredCodeException":
     case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
       throw await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -4540,6 +4556,9 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -4602,6 +4621,9 @@ const deserializeAws_json1_1DeleteUserAttributesCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -5188,6 +5210,9 @@ const deserializeAws_json1_1ForgetDeviceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -5256,6 +5281,9 @@ const deserializeAws_json1_1ForgotPasswordCommandError = async (
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
       throw await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -5386,6 +5414,9 @@ const deserializeAws_json1_1GetDeviceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -5657,6 +5688,9 @@ const deserializeAws_json1_1GetUserCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -5722,6 +5756,9 @@ const deserializeAws_json1_1GetUserAttributeVerificationCodeCommandError = async
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
       throw await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -5858,6 +5895,9 @@ const deserializeAws_json1_1GlobalSignOutCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -5917,6 +5957,9 @@ const deserializeAws_json1_1InitiateAuthCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -5997,6 +6040,9 @@ const deserializeAws_json1_1ListDevicesCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -6539,6 +6585,9 @@ const deserializeAws_json1_1ResendConfirmationCodeCommandError = async (
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
       throw await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -6625,6 +6674,9 @@ const deserializeAws_json1_1RespondToAuthChallengeCommandError = async (
     case "ExpiredCodeException":
     case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
       throw await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -6714,6 +6766,9 @@ const deserializeAws_json1_1RevokeTokenCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -6885,6 +6940,9 @@ const deserializeAws_json1_1SetUserMFAPreferenceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -7003,6 +7061,9 @@ const deserializeAws_json1_1SetUserSettingsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -7065,6 +7126,9 @@ const deserializeAws_json1_1SignUpCommandError = async (
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
       throw await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -7419,6 +7483,9 @@ const deserializeAws_json1_1UpdateDeviceStatusCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -7658,6 +7725,9 @@ const deserializeAws_json1_1UpdateUserAttributesCommandError = async (
     case "ExpiredCodeException":
     case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
       throw await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -7930,6 +8000,9 @@ const deserializeAws_json1_1VerifySoftwareTokenCommandError = async (
     case "EnableSoftwareTokenMFAException":
     case "com.amazonaws.cognitoidentityprovider#EnableSoftwareTokenMFAException":
       throw await deserializeAws_json1_1EnableSoftwareTokenMFAExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -8007,6 +8080,9 @@ const deserializeAws_json1_1VerifyUserAttributeCommandError = async (
     case "ExpiredCodeException":
     case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
       throw await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -8130,6 +8206,19 @@ const deserializeAws_json1_1ExpiredCodeExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ExpiredCodeException(body, context);
   const exception = new ExpiredCodeException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ForbiddenExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ForbiddenException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ForbiddenException(body, context);
+  const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -11600,6 +11689,12 @@ const deserializeAws_json1_1ExplicitAuthFlowsListType = (
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_json1_1ForbiddenException = (output: any, context: __SerdeContext): ForbiddenException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
 };
 
 const deserializeAws_json1_1ForgotPasswordResponse = (output: any, context: __SerdeContext): ForgotPasswordResponse => {

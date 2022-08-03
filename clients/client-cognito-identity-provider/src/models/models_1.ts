@@ -36,6 +36,29 @@ import {
 } from "./models_0";
 
 /**
+ * <p>The response from the server for a registration request.</p>
+ */
+export interface SignUpResponse {
+  /**
+   * <p>A response from the server indicating that a user registration has been
+   *             confirmed.</p>
+   */
+  UserConfirmed: boolean | undefined;
+
+  /**
+   * <p>The code delivery details returned by the server response to the user registration
+   *             request.</p>
+   */
+  CodeDeliveryDetails?: CodeDeliveryDetailsType;
+
+  /**
+   * <p>The UUID of the authenticated user. This isn't the same as
+   *             <code>username</code>.</p>
+   */
+  UserSub: string | undefined;
+}
+
+/**
  * <p>Represents the request to start the user import job.</p>
  */
 export interface StartUserImportJobRequest {
@@ -397,7 +420,7 @@ export interface UpdateUserPoolRequest {
    * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
    * a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
    * more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates">
-   * Verifying updates to to email addresses and phone numbers</a>.</p>
+   * Verifying updates to email addresses and phone numbers</a>.</p>
    */
   UserAttributeUpdateSettings?: UserAttributeUpdateSettingsType;
 
@@ -426,7 +449,10 @@ export interface UpdateUserPoolRequest {
   MfaConfiguration?: UserPoolMfaType | string;
 
   /**
-   * <p>Device configuration.</p>
+   * <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p>
+   *         <note>
+   *             <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p>
+   *         </note>
    */
   DeviceConfiguration?: DeviceConfigurationType;
 
@@ -598,7 +624,7 @@ export interface UpdateUserPoolClientRequest {
 
   /**
    * <p>A list of provider names for the IdPs that this client supports. The following are
-   *             supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>
+   *             supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>, <code>SignInWithApple</code>,
    *             <code>LoginWithAmazon</code>, and the names of your own SAML and OIDC providers.</p>
    */
   SupportedIdentityProviders?: string[];
@@ -879,6 +905,13 @@ export interface VerifyUserAttributeRequest {
  *             attributes.</p>
  */
 export interface VerifyUserAttributeResponse {}
+
+/**
+ * @internal
+ */
+export const SignUpResponseFilterSensitiveLog = (obj: SignUpResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

@@ -17,12 +17,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  SignUpRequest,
-  SignUpRequestFilterSensitiveLog,
-  SignUpResponse,
-  SignUpResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SignUpRequest, SignUpRequestFilterSensitiveLog } from "../models/models_0";
+import { SignUpResponse, SignUpResponseFilterSensitiveLog } from "../models/models_1";
 import { deserializeAws_json1_1SignUpCommand, serializeAws_json1_1SignUpCommand } from "../protocols/Aws_json1_1";
 
 export interface SignUpCommandInput extends SignUpRequest {}
