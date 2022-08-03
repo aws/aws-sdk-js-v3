@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.143.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.142.0...v3.143.0) (2022-08-03)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Add a new exception type, ForbiddenException, that is returned when request is not allowed ([5426503](https://github.com/aws/aws-sdk-js-v3/commit/5426503b36125cea89153651b8755786a63c6529))
+* **client-wafv2:** You can now associate an AWS WAF web ACL with an Amazon Cognito user pool. ([81aeece](https://github.com/aws/aws-sdk-js-v3/commit/81aeeceae2444f9a8cd0ae933f5645bf83f0ab5e))
+
+
+
+
+
 # [3.142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.141.0...v3.142.0) (2022-08-02)
 
 
