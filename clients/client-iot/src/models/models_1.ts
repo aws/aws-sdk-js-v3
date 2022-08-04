@@ -54,12 +54,15 @@ import {
   Tag,
   TargetSelection,
   TaskStatisticsForAuditCheck,
+  TemplateType,
   ThingGroupProperties,
   ThingTypeProperties,
   TimeoutConfig,
   TopicRuleDestination,
   VerificationState,
 } from "./models_0";
+
+export interface DeleteRoleAliasResponse {}
 
 export interface DeleteScheduledAuditRequest {
   /**
@@ -625,6 +628,11 @@ export interface RegistrationConfig {
    * <p>The ARN of the role.</p>
    */
   roleArn?: string;
+
+  /**
+   * <p>The name of the provisioning template.</p>
+   */
+  templateName?: string;
 }
 
 /**
@@ -1966,34 +1974,34 @@ export interface DescribeMitigationActionResponse {
 
 export interface DescribeProvisioningTemplateRequest {
   /**
-   * <p>The name of the fleet provisioning template.</p>
+   * <p>The name of the provisioning template.</p>
    */
   templateName: string | undefined;
 }
 
 export interface DescribeProvisioningTemplateResponse {
   /**
-   * <p>The ARN of the fleet provisioning template.</p>
+   * <p>The ARN of the provisioning template.</p>
    */
   templateArn?: string;
 
   /**
-   * <p>The name of the fleet provisioning template.</p>
+   * <p>The name of the provisioning template.</p>
    */
   templateName?: string;
 
   /**
-   * <p>The description of the fleet provisioning template.</p>
+   * <p>The description of the provisioning template.</p>
    */
   description?: string;
 
   /**
-   * <p>The date when the fleet provisioning template was created.</p>
+   * <p>The date when the provisioning template was created.</p>
    */
   creationDate?: Date;
 
   /**
-   * <p>The date when the fleet provisioning template was last modified.</p>
+   * <p>The date when the provisioning template was last modified.</p>
    */
   lastModifiedDate?: Date;
 
@@ -2003,12 +2011,12 @@ export interface DescribeProvisioningTemplateResponse {
   defaultVersionId?: number;
 
   /**
-   * <p>The JSON formatted contents of the fleet provisioning template.</p>
+   * <p>The JSON formatted contents of the provisioning template.</p>
    */
   templateBody?: string;
 
   /**
-   * <p>True if the fleet provisioning template is enabled, otherwise false.</p>
+   * <p>True if the provisioning template is enabled, otherwise false.</p>
    */
   enabled?: boolean;
 
@@ -2022,6 +2030,14 @@ export interface DescribeProvisioningTemplateResponse {
    * <p>Gets information about a pre-provisioned hook.</p>
    */
   preProvisioningHook?: ProvisioningHook;
+
+  /**
+   * <p>The type you define in a provisioning template. You can create a template with only one type.
+   *          You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>.
+   *          For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>.
+   *       </p>
+   */
+  type?: TemplateType | string;
 }
 
 export interface DescribeProvisioningTemplateVersionRequest {
@@ -2031,29 +2047,29 @@ export interface DescribeProvisioningTemplateVersionRequest {
   templateName: string | undefined;
 
   /**
-   * <p>The fleet provisioning template version ID.</p>
+   * <p>The provisioning template version ID.</p>
    */
   versionId: number | undefined;
 }
 
 export interface DescribeProvisioningTemplateVersionResponse {
   /**
-   * <p>The fleet provisioning template version ID.</p>
+   * <p>The provisioning template version ID.</p>
    */
   versionId?: number;
 
   /**
-   * <p>The date when the fleet provisioning template version was created.</p>
+   * <p>The date when the provisioning template version was created.</p>
    */
   creationDate?: Date;
 
   /**
-   * <p>The JSON formatted contents of the fleet provisioning template version.</p>
+   * <p>The JSON formatted contents of the provisioning template version.</p>
    */
   templateBody?: string;
 
   /**
-   * <p>True if the fleet provisioning template version is the default version.</p>
+   * <p>True if the provisioning template version is the default version.</p>
    */
   isDefaultVersion?: boolean;
 }
@@ -4081,6 +4097,11 @@ export interface ListCACertificatesRequest {
    * <p>Determines the order of the results.</p>
    */
   ascendingOrder?: boolean;
+
+  /**
+   * <p>The name of the provisioning template.</p>
+   */
+  templateName?: string;
 }
 
 /**
@@ -5464,31 +5485,31 @@ export interface ListProvisioningTemplatesRequest {
 }
 
 /**
- * <p>A summary of information about a fleet provisioning template.</p>
+ * <p>A summary of information about a provisioning template.</p>
  */
 export interface ProvisioningTemplateSummary {
   /**
-   * <p>The ARN of the fleet provisioning template.</p>
+   * <p>The ARN of the provisioning template.</p>
    */
   templateArn?: string;
 
   /**
-   * <p>The name of the fleet provisioning template.</p>
+   * <p>The name of the provisioning template.</p>
    */
   templateName?: string;
 
   /**
-   * <p>The description of the fleet provisioning template.</p>
+   * <p>The description of the provisioning template.</p>
    */
   description?: string;
 
   /**
-   * <p>The date when the fleet provisioning template summary was created.</p>
+   * <p>The date when the provisioning template summary was created.</p>
    */
   creationDate?: Date;
 
   /**
-   * <p>The date when the fleet provisioning template summary was last modified.</p>
+   * <p>The date when the provisioning template summary was last modified.</p>
    */
   lastModifiedDate?: Date;
 
@@ -5496,11 +5517,19 @@ export interface ProvisioningTemplateSummary {
    * <p>True if the fleet provision template is enabled, otherwise false.</p>
    */
   enabled?: boolean;
+
+  /**
+   * <p>The type you define in a provisioning template. You can create a template with only one type.
+   *          You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>.
+   *          For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>.
+   *       </p>
+   */
+  type?: TemplateType | string;
 }
 
 export interface ListProvisioningTemplatesResponse {
   /**
-   * <p>A list of fleet provisioning templates</p>
+   * <p>A list of provisioning templates</p>
    */
   templates?: ProvisioningTemplateSummary[];
 
@@ -5512,7 +5541,7 @@ export interface ListProvisioningTemplatesResponse {
 
 export interface ListProvisioningTemplateVersionsRequest {
   /**
-   * <p>The name of the fleet provisioning template.</p>
+   * <p>The name of the provisioning template.</p>
    */
   templateName: string | undefined;
 
@@ -5537,12 +5566,12 @@ export interface ProvisioningTemplateVersionSummary {
   versionId?: number;
 
   /**
-   * <p>The date when the fleet provisioning template version was created</p>
+   * <p>The date when the provisioning template version was created</p>
    */
   creationDate?: Date;
 
   /**
-   * <p>True if the fleet provisioning template version is the default version, otherwise
+   * <p>True if the provisioning template version is the default version, otherwise
    *          false.</p>
    */
   isDefaultVersion?: boolean;
@@ -5550,7 +5579,7 @@ export interface ProvisioningTemplateVersionSummary {
 
 export interface ListProvisioningTemplateVersionsResponse {
   /**
-   * <p>The list of fleet provisioning template versions.</p>
+   * <p>The list of provisioning template versions.</p>
    */
   versions?: ProvisioningTemplateVersionSummary[];
 
@@ -5942,24 +5971,12 @@ export interface ListThingGroupsResponse {
   nextToken?: string;
 }
 
-export interface ListThingGroupsForThingRequest {
-  /**
-   * <p>The thing name.</p>
-   */
-  thingName: string | undefined;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-}
+/**
+ * @internal
+ */
+export const DeleteRoleAliasResponseFilterSensitiveLog = (obj: DeleteRoleAliasResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7931,12 +7948,5 @@ export const ListThingGroupsRequestFilterSensitiveLog = (obj: ListThingGroupsReq
  * @internal
  */
 export const ListThingGroupsResponseFilterSensitiveLog = (obj: ListThingGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingGroupsForThingRequestFilterSensitiveLog = (obj: ListThingGroupsForThingRequest): any => ({
   ...obj,
 });

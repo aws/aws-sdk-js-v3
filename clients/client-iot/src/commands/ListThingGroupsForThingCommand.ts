@@ -13,8 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListThingGroupsForThingRequest, ListThingGroupsForThingRequestFilterSensitiveLog } from "../models/models_1";
-import { ListThingGroupsForThingResponse, ListThingGroupsForThingResponseFilterSensitiveLog } from "../models/models_2";
+import {
+  ListThingGroupsForThingRequest,
+  ListThingGroupsForThingRequestFilterSensitiveLog,
+  ListThingGroupsForThingResponse,
+  ListThingGroupsForThingResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1ListThingGroupsForThingCommand,
   serializeAws_restJson1ListThingGroupsForThingCommand,

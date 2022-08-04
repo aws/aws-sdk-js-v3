@@ -28,7 +28,7 @@ export interface UpdateProvisioningTemplateCommandInput extends UpdateProvisioni
 export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvisioningTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a fleet provisioning template.</p>
+ * <p>Updates a provisioning template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateProvisioningTemplate</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

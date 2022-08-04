@@ -4637,29 +4637,34 @@ export interface ProvisioningHook {
   targetArn: string | undefined;
 }
 
+export enum TemplateType {
+  FLEET_PROVISIONING = "FLEET_PROVISIONING",
+  JITP = "JITP",
+}
+
 export interface CreateProvisioningTemplateRequest {
   /**
-   * <p>The name of the fleet provisioning template.</p>
+   * <p>The name of the provisioning template.</p>
    */
   templateName: string | undefined;
 
   /**
-   * <p>The description of the fleet provisioning template.</p>
+   * <p>The description of the provisioning template.</p>
    */
   description?: string;
 
   /**
-   * <p>The JSON formatted contents of the fleet provisioning template.</p>
+   * <p>The JSON formatted contents of the provisioning template.</p>
    */
   templateBody: string | undefined;
 
   /**
-   * <p>True to enable the fleet provisioning template, otherwise false.</p>
+   * <p>True to enable the provisioning template, otherwise false.</p>
    */
   enabled?: boolean;
 
   /**
-   * <p>The role ARN for the role associated with the fleet provisioning template. This IoT role
+   * <p>The role ARN for the role associated with the provisioning template. This IoT role
    *          grants permission to provision a device.</p>
    */
   provisioningRoleArn: string | undefined;
@@ -4670,7 +4675,7 @@ export interface CreateProvisioningTemplateRequest {
   preProvisioningHook?: ProvisioningHook;
 
   /**
-   * <p>Metadata which can be used to manage the fleet provisioning template.</p>
+   * <p>Metadata which can be used to manage the provisioning template.</p>
    *          <note>
    *             <p>For URI Request parameters use format: ...key1=value1&key2=value2...</p>
    *             <p>For the CLI command-line parameter use format: &&tags
@@ -4680,6 +4685,14 @@ export interface CreateProvisioningTemplateRequest {
    *          </note>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The type you define in a provisioning template. You can create a template with only one type.
+   *          You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>.
+   *          For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>.
+   *       </p>
+   */
+  type?: TemplateType | string;
 }
 
 export interface CreateProvisioningTemplateResponse {
@@ -4689,24 +4702,24 @@ export interface CreateProvisioningTemplateResponse {
   templateArn?: string;
 
   /**
-   * <p>The name of the fleet provisioning template.</p>
+   * <p>The name of the provisioning template.</p>
    */
   templateName?: string;
 
   /**
-   * <p>The default version of the fleet provisioning template.</p>
+   * <p>The default version of the provisioning template.</p>
    */
   defaultVersionId?: number;
 }
 
 export interface CreateProvisioningTemplateVersionRequest {
   /**
-   * <p>The name of the fleet provisioning template.</p>
+   * <p>The name of the provisioning template.</p>
    */
   templateName: string | undefined;
 
   /**
-   * <p>The JSON formatted contents of the fleet provisioning template.</p>
+   * <p>The JSON formatted contents of the provisioning template.</p>
    */
   templateBody: string | undefined;
 
@@ -4723,17 +4736,17 @@ export interface CreateProvisioningTemplateVersionResponse {
   templateArn?: string;
 
   /**
-   * <p>The name of the fleet provisioning template.</p>
+   * <p>The name of the provisioning template.</p>
    */
   templateName?: string;
 
   /**
-   * <p>The version of the fleet provisioning template.</p>
+   * <p>The version of the provisioning template.</p>
    */
   versionId?: number;
 
   /**
-   * <p>True if the fleet provisioning template version is the default version, otherwise
+   * <p>True if the provisioning template version is the default version, otherwise
    *          false.</p>
    */
   isDefaultVersion?: boolean;
@@ -5715,12 +5728,12 @@ export interface DeleteProvisioningTemplateResponse {}
 
 export interface DeleteProvisioningTemplateVersionRequest {
   /**
-   * <p>The name of the fleet provisioning template version to delete.</p>
+   * <p>The name of the provisioning template version to delete.</p>
    */
   templateName: string | undefined;
 
   /**
-   * <p>The fleet provisioning template version ID to delete.</p>
+   * <p>The provisioning template version ID to delete.</p>
    */
   versionId: number | undefined;
 }
@@ -5743,8 +5756,6 @@ export interface DeleteRoleAliasRequest {
    */
   roleAlias: string | undefined;
 }
-
-export interface DeleteRoleAliasResponse {}
 
 /**
  * @internal
@@ -7430,12 +7441,5 @@ export const DeleteRegistrationCodeResponseFilterSensitiveLog = (obj: DeleteRegi
  * @internal
  */
 export const DeleteRoleAliasRequestFilterSensitiveLog = (obj: DeleteRoleAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRoleAliasResponseFilterSensitiveLog = (obj: DeleteRoleAliasResponse): any => ({
   ...obj,
 });

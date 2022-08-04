@@ -30,7 +30,7 @@ export interface DeleteProvisioningTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes a fleet provisioning template version.</p>
+ * <p>Deletes a provisioning template version.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplateVersion</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

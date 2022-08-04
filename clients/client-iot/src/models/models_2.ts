@@ -59,6 +59,25 @@ import {
   ViolationEventOccurrenceRange,
 } from "./models_1";
 
+export interface ListThingGroupsForThingRequest {
+  /**
+   * <p>The thing name.</p>
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+}
+
 export interface ListThingGroupsForThingResponse {
   /**
    * <p>The thing groups.</p>
@@ -2334,17 +2353,17 @@ export interface UpdateMitigationActionResponse {
 
 export interface UpdateProvisioningTemplateRequest {
   /**
-   * <p>The name of the fleet provisioning template.</p>
+   * <p>The name of the provisioning template.</p>
    */
   templateName: string | undefined;
 
   /**
-   * <p>The description of the fleet provisioning template.</p>
+   * <p>The description of the provisioning template.</p>
    */
   description?: string;
 
   /**
-   * <p>True to enable the fleet provisioning template, otherwise false.</p>
+   * <p>True to enable the provisioning template, otherwise false.</p>
    */
   enabled?: boolean;
 
@@ -2800,6 +2819,13 @@ export interface ValidateSecurityProfileBehaviorsResponse {
    */
   validationErrors?: ValidationError[];
 }
+
+/**
+ * @internal
+ */
+export const ListThingGroupsForThingRequestFilterSensitiveLog = (obj: ListThingGroupsForThingRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

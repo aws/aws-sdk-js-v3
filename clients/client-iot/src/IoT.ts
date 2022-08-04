@@ -2315,7 +2315,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Creates a fleet provisioning template.</p>
+   * <p>Creates a provisioning template.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplate</a> action.</p>
    */
   public createProvisioningTemplate(
@@ -2348,7 +2348,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Creates a new version of a fleet provisioning template.</p>
+   * <p>Creates a new version of a provisioning template.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplateVersion</a> action.</p>
    */
   public createProvisioningTemplateVersion(
@@ -3306,7 +3306,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Deletes a fleet provisioning template.</p>
+   * <p>Deletes a provisioning template.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplate</a> action.</p>
    */
   public deleteProvisioningTemplate(
@@ -3339,7 +3339,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Deletes a fleet provisioning template version.</p>
+   * <p>Deletes a provisioning template version.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplateVersion</a> action.</p>
    */
   public deleteProvisioningTemplateVersion(
@@ -4524,7 +4524,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Returns information about a fleet provisioning template.</p>
+   * <p>Returns information about a provisioning template.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplate</a> action.</p>
    */
   public describeProvisioningTemplate(
@@ -4557,7 +4557,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Returns information about a fleet provisioning template version.</p>
+   * <p>Returns information about a provisioning template version.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplateVersion</a> action.</p>
    */
   public describeProvisioningTemplateVersion(
@@ -4891,9 +4891,9 @@ export class IoT extends IoTClient {
    * @deprecated
    *
    * <p>Removes the specified policy from the specified certificate.</p>
-   *          <note>
-   *             <p>This action is deprecated. Please use <a>DetachPolicy</a> instead.</p>
-   *          </note>
+   *          <p>
+   *             <b>Note:</b> This action is deprecated and works as
+   *          expected for backward compatibility, but we won't add enhancements. Use <a>DetachPolicy</a> instead.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachPrincipalPolicy</a> action.</p>
    */
   public detachPrincipalPolicy(
@@ -6559,7 +6559,8 @@ export class IoT extends IoTClient {
    *
    * <p>Lists the principals associated with the specified policy.</p>
    *          <p>
-   *             <b>Note:</b> This action is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p>
+   *             <b>Note:</b> This action is deprecated and works as
+   *          expected for backward compatibility, but we won't add enhancements. Use <a>ListTargetsForPolicy</a> instead.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyPrincipals</a> action.</p>
    */
   public listPolicyPrincipals(
@@ -6631,7 +6632,8 @@ export class IoT extends IoTClient {
    * <p>Lists the policies attached to the specified principal. If you use an Cognito
    *          identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p>
    *          <p>
-   *             <b>Note:</b> This action is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>
+   *             <b>Note:</b> This action is deprecated and works as
+   *          expected for backward compatibility, but we won't add enhancements. Use <a>ListAttachedPolicies</a> instead.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPrincipalPolicies</a> action.</p>
    */
   public listPrincipalPolicies(
@@ -6699,7 +6701,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Lists the fleet provisioning templates in your Amazon Web Services account.</p>
+   * <p>Lists the provisioning templates in your Amazon Web Services account.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplates</a> action.</p>
    */
   public listProvisioningTemplates(
@@ -6732,7 +6734,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>A list of fleet provisioning template versions.</p>
+   * <p>A list of provisioning template versions.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplateVersions</a> action.</p>
    */
   public listProvisioningTemplateVersions(
@@ -8827,7 +8829,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Updates a fleet provisioning template.</p>
+   * <p>Updates a provisioning template.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateProvisioningTemplate</a> action.</p>
    */
   public updateProvisioningTemplate(

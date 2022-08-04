@@ -1969,6 +1969,7 @@ export const serializeAws_restJson1CreateProvisioningTemplateCommand = async (
     ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
     ...(input.templateBody != null && { templateBody: input.templateBody }),
     ...(input.templateName != null && { templateName: input.templateName }),
+    ...(input.type != null && { type: input.type }),
   });
   return new __HttpRequest({
     protocol,
@@ -4800,6 +4801,7 @@ export const serializeAws_restJson1ListCACertificatesCommand = async (
     pageSize: [() => input.pageSize !== void 0, () => input.pageSize!.toString()],
     marker: [, input.marker!],
     isAscendingOrder: [() => input.ascendingOrder !== void 0, () => input.ascendingOrder!.toString()],
+    templateName: [, input.templateName!],
   });
   let body: any;
   return new __HttpRequest({
@@ -13344,6 +13346,9 @@ export const deserializeAws_restJson1DescribeProvisioningTemplateCommand = async
   if (data.templateName != null) {
     contents.templateName = __expectString(data.templateName);
   }
+  if (data.type != null) {
+    contents.type = __expectString(data.type);
+  }
   return contents;
 };
 
@@ -18416,6 +18421,9 @@ const deserializeAws_restJson1RegisterCACertificateCommandError = async (
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot#ResourceAlreadyExistsException":
       throw await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iot#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
@@ -22758,6 +22766,7 @@ const serializeAws_restJson1RegistrationConfig = (input: RegistrationConfig, con
   return {
     ...(input.roleArn != null && { roleArn: input.roleArn }),
     ...(input.templateBody != null && { templateBody: input.templateBody }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
@@ -25697,6 +25706,7 @@ const deserializeAws_restJson1ProvisioningTemplateSummary = (
         : undefined,
     templateArn: __expectString(output.templateArn),
     templateName: __expectString(output.templateName),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -25810,6 +25820,7 @@ const deserializeAws_restJson1RegistrationConfig = (output: any, context: __Serd
   return {
     roleArn: __expectString(output.roleArn),
     templateBody: __expectString(output.templateBody),
+    templateName: __expectString(output.templateName),
   } as any;
 };
 

@@ -28,7 +28,7 @@ export interface CreateProvisioningTemplateCommandInput extends CreateProvisioni
 export interface CreateProvisioningTemplateCommandOutput extends CreateProvisioningTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a fleet provisioning template.</p>
+ * <p>Creates a provisioning template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplate</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
