@@ -37,6 +37,10 @@ import { GetAttendeeCommandInput, GetAttendeeCommandOutput } from "../commands/G
 import { GetMeetingCommandInput, GetMeetingCommandOutput } from "../commands/GetMeetingCommand";
 import { ListAttendeesCommandInput, ListAttendeesCommandOutput } from "../commands/ListAttendeesCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
   StartMeetingTranscriptionCommandInput,
   StartMeetingTranscriptionCommandOutput,
 } from "../commands/StartMeetingTranscriptionCommand";
@@ -44,6 +48,8 @@ import {
   StopMeetingTranscriptionCommandInput,
   StopMeetingTranscriptionCommandOutput,
 } from "../commands/StopMeetingTranscriptionCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateAttendeeCapabilitiesCommandInput,
   UpdateAttendeeCapabilitiesCommandOutput,
@@ -67,9 +73,12 @@ import {
   MeetingFeaturesConfiguration,
   NotFoundException,
   NotificationsConfiguration,
+  ResourceNotFoundException,
   ServiceFailureException,
   ServiceUnavailableException,
+  Tag,
   ThrottlingException,
+  TooManyTagsException,
   TranscriptionConfiguration,
   UnauthorizedException,
   UnprocessableEntityException,
@@ -197,6 +206,7 @@ export const serializeAws_restJson1CreateMeetingCommand = async (
       ),
     }),
     ...(input.PrimaryMeetingId != null && { PrimaryMeetingId: input.PrimaryMeetingId }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
     ...(input.TenantIds != null && { TenantIds: serializeAws_restJson1TenantIdList(input.TenantIds, context) }),
   });
   return new __HttpRequest({
@@ -241,6 +251,7 @@ export const serializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
       ),
     }),
     ...(input.PrimaryMeetingId != null && { PrimaryMeetingId: input.PrimaryMeetingId }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
     ...(input.TenantIds != null && { TenantIds: serializeAws_restJson1TenantIdList(input.TenantIds, context) }),
   });
   return new __HttpRequest({
@@ -367,6 +378,29 @@ export const serializeAws_restJson1ListAttendeesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  const query: any = map({
+    arn: [, input.ResourceARN!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1StartMeetingTranscriptionCommand = async (
   input: StartMeetingTranscriptionCommandInput,
   context: __SerdeContext
@@ -415,6 +449,64 @@ export const serializeAws_restJson1StopMeetingTranscriptionCommand = async (
     operation: [, "stop"],
   });
   let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  const query: any = map({
+    operation: [, "tag-resource"],
+  });
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  const query: any = map({
+    operation: [, "untag-resource"],
+  });
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
+  });
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1059,6 +1151,47 @@ const deserializeAws_restJson1ListAttendeesCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Tags != null) {
+    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.chimesdkmeetings#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1StartMeetingTranscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1169,6 +1302,91 @@ const deserializeAws_restJson1StopMeetingTranscriptionCommandError = async (
     case "UnprocessableEntityException":
     case "com.amazonaws.chimesdkmeetings#UnprocessableEntityException":
       throw await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1TagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmeetings#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.chimesdkmeetings#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.chimesdkmeetings#TooManyTagsException":
+      throw await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmeetings#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.chimesdkmeetings#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1347,6 +1565,31 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Code != null) {
+    contents.Code = __expectString(data.Code);
+  }
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (data.ResourceName != null) {
+    contents.ResourceName = __expectString(data.ResourceName);
+  }
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1ServiceFailureExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1409,6 +1652,31 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     contents.RequestId = __expectString(data.RequestId);
   }
   const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Code != null) {
+    contents.Code = __expectString(data.Code);
+  }
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (data.ResourceName != null) {
+    contents.ResourceName = __expectString(data.ResourceName);
+  }
+  const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -1579,6 +1847,29 @@ const serializeAws_restJson1NotificationsConfiguration = (
   };
 };
 
+const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Tag(entry, context);
+    });
+};
+
 const serializeAws_restJson1TenantIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -1686,6 +1977,7 @@ const deserializeAws_restJson1Meeting = (output: any, context: __SerdeContext): 
         ? deserializeAws_restJson1MediaPlacement(output.MediaPlacement, context)
         : undefined,
     MediaRegion: __expectString(output.MediaRegion),
+    MeetingArn: __expectString(output.MeetingArn),
     MeetingFeatures:
       output.MeetingFeatures != null
         ? deserializeAws_restJson1MeetingFeaturesConfiguration(output.MeetingFeatures, context)
@@ -1704,6 +1996,25 @@ const deserializeAws_restJson1MeetingFeaturesConfiguration = (
   return {
     Audio: output.Audio != null ? deserializeAws_restJson1AudioFeatures(output.Audio, context) : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1TenantIdList = (output: any, context: __SerdeContext): string[] => {

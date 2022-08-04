@@ -73,6 +73,10 @@ import { GetAttendeeCommandInput, GetAttendeeCommandOutput } from "./commands/Ge
 import { GetMeetingCommandInput, GetMeetingCommandOutput } from "./commands/GetMeetingCommand";
 import { ListAttendeesCommandInput, ListAttendeesCommandOutput } from "./commands/ListAttendeesCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   StartMeetingTranscriptionCommandInput,
   StartMeetingTranscriptionCommandOutput,
 } from "./commands/StartMeetingTranscriptionCommand";
@@ -80,6 +84,8 @@ import {
   StopMeetingTranscriptionCommandInput,
   StopMeetingTranscriptionCommandOutput,
 } from "./commands/StopMeetingTranscriptionCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateAttendeeCapabilitiesCommandInput,
   UpdateAttendeeCapabilitiesCommandOutput,
@@ -97,8 +103,11 @@ export type ServiceInputTypes =
   | GetAttendeeCommandInput
   | GetMeetingCommandInput
   | ListAttendeesCommandInput
+  | ListTagsForResourceCommandInput
   | StartMeetingTranscriptionCommandInput
   | StopMeetingTranscriptionCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateAttendeeCapabilitiesCommandInput;
 
 export type ServiceOutputTypes =
@@ -112,8 +121,11 @@ export type ServiceOutputTypes =
   | GetAttendeeCommandOutput
   | GetMeetingCommandOutput
   | ListAttendeesCommandOutput
+  | ListTagsForResourceCommandOutput
   | StartMeetingTranscriptionCommandOutput
   | StopMeetingTranscriptionCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateAttendeeCapabilitiesCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

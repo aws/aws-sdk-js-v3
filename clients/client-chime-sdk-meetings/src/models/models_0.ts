@@ -313,6 +313,9 @@ export class ServiceFailureException extends __BaseException {
   readonly $fault: "server" = "server";
   Code?: string;
   Message?: string;
+  /**
+   * <p>The ID of the failed request.</p>
+   */
   RequestId?: string;
   /**
    * @internal
@@ -372,6 +375,9 @@ export class ThrottlingException extends __BaseException {
   readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
+  /**
+   * <p>The ID of the request that exceeded the throttling limit.</p>
+   */
   RequestId?: string;
   /**
    * @internal
@@ -470,6 +476,9 @@ export class ConflictException extends __BaseException {
   readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
+  /**
+   * <p>The ID of the request involved in the conflict.</p>
+   */
   RequestId?: string;
   /**
    * @internal
@@ -564,6 +573,21 @@ export interface NotificationsConfiguration {
   SqsQueueArn?: string;
 }
 
+/**
+ * <p>A key-value pair that you define.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The tag's key.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The tag's value.</p>
+   */
+  Value: string | undefined;
+}
+
 export interface CreateMeetingRequest {
   /**
    * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
@@ -627,6 +651,52 @@ export interface CreateMeetingRequest {
    * <p>A consistent and opaque identifier, created and maintained by the builder to represent a segment of their users.</p>
    */
   TenantIds?: string[];
+
+  /**
+   * <p>Applies one or more tags to an Amazon Chime SDK meeting. Note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Not all resources have tags. For a list of services with resources that support tagging using this operation, see
+   *         <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services that support the Resource Groups Tagging API</a>. If the resource
+   *         doesn't yet support this operation, the resource's service might support tagging using its own API operations. For more information, refer to the documentation for that service.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each resource can have up to 50 tags. For other limits, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag Naming and Usage Conventions</a> in the
+   *        <i>AWS General Reference</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can only tag resources that are located in the specified AWS Region for the AWS account.</p>
+   *             </li>
+   *             <li>
+   *                <p>To add tags to a resource, you need the necessary permissions for the service that the resource belongs to as well as permissions for adding tags. For more information, see the
+   *         documentation for each service.</p>
+   *             </li>
+   *          </ul>
+   *             <important>
+   *             <p>Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be
+   *             used for private or sensitive data.</p>
+   *          </important>
+   *             <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *
+   *                <p> In addition to the <code>tag:TagResources </code>permission required by this operation, you must also have the tagging permission defined by the service that created the resource. For example,
+   *                    to tag a <code>ChimeSDKMeetings</code> instance  using the <code>TagResources</code> operation, you must have both of the following permissions:</p>
+   *
+   *                 <p>
+   *             <code>tag:TagResources</code>
+   *          </p>
+   *
+   *                 <p>
+   *             <code>ChimeSDKMeetings:CreateTags</code>
+   *          </p>
+   *
+   *                 <note>
+   *             <p>Some services might have specific requirements for tagging some resources. For example, to tag an Amazon S3 bucket, you must also have the <code>s3:GetBucketTagging</code> permission.
+   *                 If the expected minimum permissions don't work, check the documentation for that service's tagging APIs for more information.</p>
+   *          </note>
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -723,6 +793,11 @@ export interface Meeting {
    * <p>Array of strings.</p>
    */
   TenantIds?: string[];
+
+  /**
+   * <p>The ARN of the meeting.</p>
+   */
+  MeetingArn?: string;
 }
 
 export interface CreateMeetingResponse {
@@ -801,6 +876,11 @@ export interface CreateMeetingWithAttendeesRequest {
    * <p>A consistent and opaque identifier, created and maintained by the builder to represent a segment of their users.</p>
    */
   TenantIds?: string[];
+
+  /**
+   * <p>The tags in the request.</p>
+   */
+  Tags?: Tag[];
 }
 
 export interface CreateMeetingWithAttendeesResponse {
@@ -900,6 +980,54 @@ export interface ListAttendeesResponse {
    * <p>The token to use to retrieve the next page of results.</p>
    */
   NextToken?: string;
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceARN: string | undefined;
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags requested for the specified resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * <p>The resource that you want to tag couldn't be found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Code?: string;
+  Message?: string;
+  /**
+   * <p>The ID of the resource that couldn't be found.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The name of the resource that couldn't be found.</p>
+   */
+  ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+    this.ResourceName = opts.ResourceName;
+  }
 }
 
 export enum TranscribeMedicalContentIdentificationType {
@@ -1140,6 +1268,68 @@ export interface StopMeetingTranscriptionRequest {
   MeetingId: string | undefined;
 }
 
+export interface TagResourceRequest {
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>Lists the requested tags.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export interface TagResourceResponse {}
+
+/**
+ * <p>Too many tags were added to the specified resource.</p>
+ */
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  Code?: string;
+  Message?: string;
+  /**
+   * <p>The ID of the request that contains too many tags.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The name of the resource that received too many tags.</p>
+   */
+  ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+    this.ResourceName = opts.ResourceName;
+  }
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The ARN of the resource that you're removing tags from.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>The tag keys being removed from the resources.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export interface UntagResourceResponse {}
+
 export interface UpdateAttendeeCapabilitiesRequest {
   /**
    * <p>The ID of the meeting associated with the update request.</p>
@@ -1272,6 +1462,13 @@ export const NotificationsConfigurationFilterSensitiveLog = (obj: NotificationsC
 /**
  * @internal
  */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateMeetingRequestFilterSensitiveLog = (obj: CreateMeetingRequest): any => ({
   ...obj,
   ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
@@ -1392,6 +1589,20 @@ export const ListAttendeesResponseFilterSensitiveLog = (obj: ListAttendeesRespon
 /**
  * @internal
  */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const EngineTranscribeMedicalSettingsFilterSensitiveLog = (obj: EngineTranscribeMedicalSettings): any => ({
   ...obj,
 });
@@ -1421,6 +1632,34 @@ export const StartMeetingTranscriptionRequestFilterSensitiveLog = (obj: StartMee
  * @internal
  */
 export const StopMeetingTranscriptionRequestFilterSensitiveLog = (obj: StopMeetingTranscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
   ...obj,
 });
 
