@@ -3,6 +3,24 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "af-south-1": {
+    variants: [
+      {
+        hostname: "compute-optimizer.af-south-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "af-south-1",
+  },
+  "ap-east-1": {
+    variants: [
+      {
+        hostname: "compute-optimizer.ap-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "ap-east-1",
+  },
   "ap-northeast-1": {
     variants: [
       {
@@ -20,6 +38,15 @@ const regionHash: RegionHash = {
       },
     ],
     signingRegion: "ap-northeast-2",
+  },
+  "ap-northeast-3": {
+    variants: [
+      {
+        hostname: "compute-optimizer.ap-northeast-3.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "ap-northeast-3",
   },
   "ap-south-1": {
     variants: [
@@ -93,6 +120,15 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "eu-north-1",
   },
+  "eu-south-1": {
+    variants: [
+      {
+        hostname: "compute-optimizer.eu-south-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "eu-south-1",
+  },
   "eu-west-1": {
     variants: [
       {
@@ -119,6 +155,15 @@ const regionHash: RegionHash = {
       },
     ],
     signingRegion: "eu-west-3",
+  },
+  "me-south-1": {
+    variants: [
+      {
+        hostname: "compute-optimizer.me-south-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "me-south-1",
   },
   "sa-east-1": {
     variants: [
