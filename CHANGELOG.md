@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.144.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.143.0...v3.144.0) (2022-08-04)
+
+
+### Bug Fixes
+
+* **docs:** re-add customizations in bug report template ([#3844](https://github.com/aws/aws-sdk-js-v3/issues/3844)) ([b76839d](https://github.com/aws/aws-sdk-js-v3/commit/b76839dabe9895ef3db5d474ccb18a7ab951f818))
+
+
+### Features
+
+* **client-chime-sdk-meetings:** Adds support for Tags on Amazon Chime SDK WebRTC sessions ([889af85](https://github.com/aws/aws-sdk-js-v3/commit/889af8589ed9523bd89f9c9c202455406d21c8c3))
+* **client-config-service:** Add resourceType enums for Athena, GlobalAccelerator, Detective and EC2 types ([a232401](https://github.com/aws/aws-sdk-js-v3/commit/a2324015c4be7bbb4d6fbdefb00a709c748e9f34))
+* **client-iot:** The release is to support attach a provisioning template to CACert for JITP function,  Customer now doesn't have to hardcode a roleArn and templateBody during register a CACert to enable JITP. ([1d537f3](https://github.com/aws/aws-sdk-js-v3/commit/1d537f3469daf0b5702656f32e6e5f4b52a33f59))
+* **clients:** update client endpoints as of 2022-08-04 ([e270ac2](https://github.com/aws/aws-sdk-js-v3/commit/e270ac2ef18484da33bb18ee469bbc06c0da2ce2))
+
+
+
+
+
 # [3.143.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.142.0...v3.143.0) (2022-08-03)
 
 

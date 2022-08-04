@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.144.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.143.0...v3.144.0) (2022-08-04)
+
+
+### Features
+
+* **client-iot:** The release is to support attach a provisioning template to CACert for JITP function,  Customer now doesn't have to hardcode a roleArn and templateBody during register a CACert to enable JITP. ([1d537f3](https://github.com/aws/aws-sdk-js-v3/commit/1d537f3469daf0b5702656f32e6e5f4b52a33f59))
+
+
+
+
+
 # [3.142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.141.0...v3.142.0) (2022-08-02)
 
 
