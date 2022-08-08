@@ -9,8 +9,8 @@
 
 AWS SDK for JavaScript Identitystore Client for Node.js, Browser and React Native.
 
-<p>The AWS Single Sign-On (SSO) Identity Store service provides a single place to retrieve all of your
-identities (users and groups). For more information about AWS, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">AWS Single Sign-On User
+<p>The identity store service used by Amazon Web Services Single Sign On provides a single place to retrieve all of
+your identities (users and groups). For more information, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">Amazon Web Services SSO User
 Guide</a>.</p>
 
 ## Installing

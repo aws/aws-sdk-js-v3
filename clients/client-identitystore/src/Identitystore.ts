@@ -16,13 +16,14 @@ import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from 
 import { IdentitystoreClient } from "./IdentitystoreClient";
 
 /**
- * <p>The AWS Single Sign-On (SSO) Identity Store service provides a single place to retrieve all of your
- *          identities (users and groups). For more information about AWS, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">AWS Single Sign-On User
+ * <p>The identity store service used by Amazon Web Services Single Sign On provides a single place to retrieve all of
+ *          your identities (users and groups). For more information, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">Amazon Web Services SSO User
  *             Guide</a>.</p>
  */
 export class Identitystore extends IdentitystoreClient {
   /**
-   * <p>Retrieves the group metadata and attributes from <code>GroupId</code> in an identity store.</p>
+   * <p>Retrieves the group metadata and attributes from <code>GroupId</code> in an identity
+   *          store.</p>
    */
   public describeGroup(
     args: DescribeGroupCommandInput,
@@ -54,7 +55,8 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
-   * <p>Retrieves the user metadata and attributes from <code>UserId</code> in an identity store.</p>
+   * <p>Retrieves the user metadata and attributes from <code>UserId</code> in an identity
+   *          store.</p>
    */
   public describeUser(
     args: DescribeUserCommandInput,
@@ -83,9 +85,10 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
-   * <p>Lists the attribute name and value of the group that you specified in the search. We only support <code>DisplayName</code> as a valid filter
-   *          attribute path currently, and filter is required. This API returns minimum attributes, including <code>GroupId</code> and group
-   *             <code>DisplayName</code> in the response.</p>
+   * <p>Lists the attribute name and value of the group that you specified in the search. We
+   *          only support <code>DisplayName</code> as a valid filter attribute path currently, and
+   *          filter is required. This API returns minimum attributes, including <code>GroupId</code> and
+   *          group <code>DisplayName</code> in the response.</p>
    */
   public listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
   public listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
@@ -111,9 +114,10 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
-   * <p>Lists the attribute name and value of the user that you specified in the search. We only support <code>UserName</code> as a valid filter attribute
-   *          path currently, and filter is required. This API returns minimum attributes, including <code>UserId</code> and <code>UserName</code> in the
-   *          response.</p>
+   * <p>Lists the attribute name and value of the user that you specified in the search. We only
+   *          support <code>UserName</code> as a valid filter attribute path currently, and filter is
+   *          required. This API returns minimum attributes, including <code>UserId</code> and
+   *             <code>UserName</code> in the response.</p>
    */
   public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
   public listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;

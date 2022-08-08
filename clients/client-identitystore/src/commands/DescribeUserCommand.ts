@@ -28,7 +28,8 @@ export interface DescribeUserCommandInput extends DescribeUserRequest {}
 export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the user metadata and attributes from <code>UserId</code> in an identity store.</p>
+ * <p>Retrieves the user metadata and attributes from <code>UserId</code> in an identity
+ *          store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
