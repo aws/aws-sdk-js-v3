@@ -28,7 +28,7 @@ export interface ListNamespacesCommandInput extends ListNamespacesRequest {}
 export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the namespaces for the specified Amazon Web Services account.</p>
+ * <p>Lists the namespaces for the specified Amazon Web Services account. This operation doesn't list deleted namespaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

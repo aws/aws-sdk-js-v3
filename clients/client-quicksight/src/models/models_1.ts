@@ -527,7 +527,11 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
   SessionTags?: SessionTag[];
 
   /**
-   * <p>The Amazon Resource Names (ARNs) for the Amazon QuickSight resources that the user is authorized to access during the lifetime of the session. If you choose <code>Dashboard</code> embedding experience, pass the list of dashboard ARNs in the account that you want the user to be able to view. Currently, you can pass up to 25 dashboard ARNs in each API call.</p>
+   * <p>The Amazon Resource Names (ARNs) for the Amazon QuickSight resources that the user
+   *             is authorized to access during the lifetime of the session. If you choose
+   *                 <code>Dashboard</code> embedding experience, pass the list of dashboard ARNs in the
+   *             account that you want the user to be able to view. Currently, you can pass up to 25
+   *             dashboard ARNs in each API call.</p>
    */
   AuthorizedResourceArns: string[] | undefined;
 
@@ -537,8 +541,14 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
   ExperienceConfiguration: AnonymousUserEmbeddingExperienceConfiguration | undefined;
 
   /**
-   * <p>The domains that you want to add to the allow list for access to the generated URL that is then embedded. This optional parameter overrides the static domains that are configured in the Manage QuickSight menu in the Amazon QuickSight console and instead allows only the domains that you include in this parameter. You can list up to three domains or subdomains in each API call.</p>
-   *          <p>To include a subdomain, use <code>*</code> to include all subdomains under a specific domain to the allow list. For example, <code>https://*.sapp.amazon.com,</code> includes all subdomains under <code>https://sapp.amazon.com</code>.</p>
+   * <p>The domains that you want to add to the allow list for access to the generated URL that
+   *             is then embedded. This optional parameter overrides the static domains that are
+   *             configured in the Manage QuickSight menu in the Amazon QuickSight console. Instead, it
+   *             allows only the domains that you include in this parameter. You can list up to three
+   *             domains or subdomains in each API call.</p>
+   *          <p>To include all subdomains under a specific domain to the allow list, use <code>*</code>.
+   *             For example, <code>https://*.sapp.amazon.com</code> includes all subdomains under
+   *             <code>https://sapp.amazon.com</code>.</p>
    */
   AllowedDomains?: string[];
 }
@@ -766,8 +776,14 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
   ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration | undefined;
 
   /**
-   * <p>The domains that you want to add to the allow list for access to the generated URL that is then embedded. This optional parameter overrides the static domains that are configured in the Manage QuickSight menu in the Amazon QuickSight console and instead allows only the domains that you include in this parameter. You can list up to three domains or subdomains in each API call.</p>
-   *          <p>To include a subdomain, use <code>*</code> to include all subdomains under a specific domain to the allow list. For example, <code>https://*.sapp.amazon.com,</code> includes all subdomains under <code>https://sapp.amazon.com</code>.</p>
+   * <p>The domains that you want to add to the allow list for access to the generated URL that
+   *           is then embedded. This optional parameter overrides the static domains that are
+   *           configured in the Manage QuickSight menu in the Amazon QuickSight console. Instead, it
+   *           allows only the domains that you include in this parameter. You can list up to three
+   *           domains or subdomains in each API call.</p>
+   *         <p>To include all subdomains under a specific domain to the allow list, use <code>*</code>.
+   *             For example, <code>https://*.sapp.amazon.com</code> includes all subdomains under
+   *             <code>https://sapp.amazon.com</code>.</p>
    */
   AllowedDomains?: string[];
 }
@@ -1614,7 +1630,7 @@ export interface ListNamespacesRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
+   * <p>A unique pagination token that can be used in a subsequent request. You will receive a pagination token in the response body of a previous <code>ListNameSpaces</code> API call if there is more data that can be returned. To receive the data, make another <code>ListNamespaces</code> API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code> API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code> error.</p>
    */
   NextToken?: string;
 
@@ -1633,7 +1649,7 @@ export interface ListNamespacesResponse {
   Namespaces?: NamespaceInfoV2[];
 
   /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
+   * <p>A unique pagination token that can be used in a subsequent request. Receiving <code>NextToken</code> in your response inticates that there is more data that can be returned. To receive the data, make another <code>ListNamespaces</code> API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code> API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code> error.</p>
    */
   NextToken?: string;
 
