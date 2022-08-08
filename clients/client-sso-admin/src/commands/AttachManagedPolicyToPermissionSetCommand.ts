@@ -30,14 +30,14 @@ export interface AttachManagedPolicyToPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Attaches an Amazon Web Services managed IAM policy ARN to a permission set.</p>
+ * <p>Attaches an Amazon Web Services managed policy ARN to a permission set.</p>
  *          <note>
  *             <p>If the permission set is already referenced by one or more account assignments, you will
  *         need to call <code>
  *                   <a>ProvisionPermissionSet</a>
  *                </code> after this operation.
- *         Calling <code>ProvisionPermissionSet</code> applies the corresponding IAM policy updates to
- *         all assigned accounts.</p>
+ *         Calling <code>ProvisionPermissionSet</code> applies the corresponding IAM policy updates
+ *         to all assigned accounts.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

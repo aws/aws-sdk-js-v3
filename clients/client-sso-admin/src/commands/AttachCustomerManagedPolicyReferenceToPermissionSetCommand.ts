@@ -31,7 +31,7 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
     __MetadataBearer {}
 
 /**
- * <p>Attaches the specified IAM customer managed policy to the specified <a>PermissionSet</a>.</p>
+ * <p>Attaches the specified customer managed policy to the specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

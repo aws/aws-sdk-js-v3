@@ -189,7 +189,7 @@ import { SSOAdminClient } from "./SSOAdminClient";
  */
 export class SSOAdmin extends SSOAdminClient {
   /**
-   * <p>Attaches the specified IAM customer managed policy to the specified <a>PermissionSet</a>.</p>
+   * <p>Attaches the specified customer managed policy to the specified <a>PermissionSet</a>.</p>
    */
   public attachCustomerManagedPolicyReferenceToPermissionSet(
     args: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
@@ -223,14 +223,14 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Attaches an Amazon Web Services managed IAM policy ARN to a permission set.</p>
+   * <p>Attaches an Amazon Web Services managed policy ARN to a permission set.</p>
    *          <note>
    *             <p>If the permission set is already referenced by one or more account assignments, you will
    *         need to call <code>
    *                   <a>ProvisionPermissionSet</a>
    *                </code> after this operation.
-   *         Calling <code>ProvisionPermissionSet</code> applies the corresponding IAM policy updates to
-   *         all assigned accounts.</p>
+   *         Calling <code>ProvisionPermissionSet</code> applies the corresponding IAM policy updates
+   *         to all assigned accounts.</p>
    *          </note>
    */
   public attachManagedPolicyToPermissionSet(
@@ -263,8 +263,8 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Assigns access to a principal for a specified Amazon Web Services account using a specified permission
-   *       set.</p>
+   * <p>Assigns access to a principal for a specified Amazon Web Services account using a specified
+   *       permission set.</p>
    *          <note>
    *             <p>The term <i>principal</i> here refers to a user or group that is defined
    *         in Amazon Web Services SSO.</p>
@@ -272,9 +272,9 @@ export class SSOAdmin extends SSOAdminClient {
    *          <note>
    *             <p>As part of a successful <code>CreateAccountAssignment</code> call, the specified
    *         permission set will automatically be provisioned to the account in the form of an IAM
-   *         policy. That policy is attached to the SSO-created IAM role. If the permission set is
-   *         subsequently updated, the corresponding IAM policies attached to roles in your accounts will
-   *         not be updated automatically. In this case, you must call <code>
+   *         policy. That policy is attached to the IAM role created in Amazon Web Services SSO. If the permission set
+   *         is subsequently updated, the corresponding IAM policies attached to roles in your accounts
+   *         will not be updated automatically. In this case, you must call <code>
    *                   <a>ProvisionPermissionSet</a>
    *                </code> to make these updates.</p>
    *          </note>
@@ -345,7 +345,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Creates a permission set within a specified SSO instance.</p>
+   * <p>Creates a permission set within a specified Amazon Web Services SSO instance.</p>
    *          <note>
    *             <p>To grant users and groups access to Amazon Web Services account resources, use <code>
    *                   <a>CreateAccountAssignment</a>
@@ -618,10 +618,9 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Returns the list of Amazon Web Services SSO identity store attributes that have been configured to
-   *       work with attributes-based access control (ABAC) for the specified Amazon Web Services SSO instance. This
-   *       will not return attributes configured and sent by an external identity provider.
-   *       For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.</p>
+   * <p>Returns the list of Amazon Web Services SSO identity store attributes that have been configured to work
+   *       with attributes-based access control (ABAC) for the specified Amazon Web Services SSO instance. This will not
+   *       return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.</p>
    */
   public describeInstanceAccessControlAttributeConfiguration(
     args: DescribeInstanceAccessControlAttributeConfigurationCommandInput,
@@ -721,7 +720,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Detaches the specified IAM customer managed policy from the specified <a>PermissionSet</a>.</p>
+   * <p>Detaches the specified customer managed policy from the specified <a>PermissionSet</a>.</p>
    */
   public detachCustomerManagedPolicyReferenceFromPermissionSet(
     args: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
@@ -755,7 +754,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Detaches the attached Amazon Web Services managed IAM policy ARN from the specified permission set.</p>
+   * <p>Detaches the attached Amazon Web Services managed policy ARN from the specified permission set.</p>
    */
   public detachManagedPolicyFromPermissionSet(
     args: DetachManagedPolicyFromPermissionSetCommandInput,
@@ -853,7 +852,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the status of the Amazon Web Services account assignment creation requests for a specified SSO
+   * <p>Lists the status of the Amazon Web Services account assignment creation requests for a specified Amazon Web Services SSO
    *       instance.</p>
    */
   public listAccountAssignmentCreationStatus(
@@ -886,7 +885,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the status of the Amazon Web Services account assignment deletion requests for a specified SSO
+   * <p>Lists the status of the Amazon Web Services account assignment deletion requests for a specified Amazon Web Services SSO
    *       instance.</p>
    */
   public listAccountAssignmentDeletionStatus(
@@ -919,8 +918,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the assignee of the specified Amazon Web Services account with the specified permission
-   *       set.</p>
+   * <p>Lists the assignee of the specified Amazon Web Services account with the specified permission set.</p>
    */
   public listAccountAssignments(
     args: ListAccountAssignmentsCommandInput,
@@ -986,7 +984,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists all IAM customer managed policies attached to a specified <a>PermissionSet</a>.</p>
+   * <p>Lists all customer managed policies attached to a specified <a>PermissionSet</a>.</p>
    */
   public listCustomerManagedPolicyReferencesInPermissionSet(
     args: ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
@@ -1020,7 +1018,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the SSO instances that the caller has access to.</p>
+   * <p>Lists the Amazon Web Services SSO instances that the caller has access to.</p>
    */
   public listInstances(
     args: ListInstancesCommandInput,
@@ -1052,7 +1050,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the Amazon Web Services managed IAM policy that is attached to a specified permission set.</p>
+   * <p>Lists the Amazon Web Services managed policy that is attached to a specified permission set.</p>
    */
   public listManagedPoliciesInPermissionSet(
     args: ListManagedPoliciesInPermissionSetCommandInput,
@@ -1084,7 +1082,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the status of the permission set provisioning requests for a specified SSO
+   * <p>Lists the status of the permission set provisioning requests for a specified Amazon Web Services SSO
    *       instance.</p>
    */
   public listPermissionSetProvisioningStatus(
@@ -1117,7 +1115,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the <a>PermissionSet</a>s in an SSO instance.</p>
+   * <p>Lists the <a>PermissionSet</a>s in an Amazon Web Services SSO instance.</p>
    */
   public listPermissionSets(
     args: ListPermissionSetsCommandInput,
@@ -1248,7 +1246,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Attaches an IAM inline policy to a permission set.</p>
+   * <p>Attaches an inline policy to a permission set.</p>
    *          <note>
    *             <p>If the permission set is already referenced by one or more account assignments, you will
    *         need to call <code>
@@ -1287,7 +1285,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Attaches an Amazon Web Services managed or customer managed IAM policy to the specified <a>PermissionSet</a> as a permissions boundary.</p>
+   * <p>Attaches an Amazon Web Services managed or customer managed policy to the specified <a>PermissionSet</a> as a permissions boundary.</p>
    */
   public putPermissionsBoundaryToPermissionSet(
     args: PutPermissionsBoundaryToPermissionSetCommandInput,
@@ -1379,9 +1377,9 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Updates the Amazon Web Services SSO identity store attributes that you can use with the Amazon Web Services SSO
-   *       instance for attributes-based access control (ABAC). When using an external identity provider
-   *       as an identity source, you can pass attributes through the SAML assertion as an alternative to
+   * <p>Updates the Amazon Web Services SSO identity store attributes that you can use with the Amazon Web Services SSO instance
+   *       for attributes-based access control (ABAC). When using an external identity provider as an
+   *       identity source, you can pass attributes through the SAML assertion as an alternative to
    *       configuring attributes from the Amazon Web Services SSO identity store. If a SAML assertion passes any of
    *       these attributes, Amazon Web Services SSO replaces the attribute value with the value from the Amazon Web Services SSO
    *       identity store. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.</p>

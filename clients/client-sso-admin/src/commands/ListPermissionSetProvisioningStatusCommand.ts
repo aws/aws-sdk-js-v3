@@ -30,7 +30,7 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the status of the permission set provisioning requests for a specified SSO
+ * <p>Lists the status of the permission set provisioning requests for a specified Amazon Web Services SSO
  *       instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

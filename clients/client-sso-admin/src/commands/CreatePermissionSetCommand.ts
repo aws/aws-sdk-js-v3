@@ -28,7 +28,7 @@ export interface CreatePermissionSetCommandInput extends CreatePermissionSetRequ
 export interface CreatePermissionSetCommandOutput extends CreatePermissionSetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a permission set within a specified SSO instance.</p>
+ * <p>Creates a permission set within a specified Amazon Web Services SSO instance.</p>
  *          <note>
  *             <p>To grant users and groups access to Amazon Web Services account resources, use <code>
  *                   <a>CreateAccountAssignment</a>

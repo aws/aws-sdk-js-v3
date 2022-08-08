@@ -30,7 +30,7 @@ export interface PutInlinePolicyToPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Attaches an IAM inline policy to a permission set.</p>
+ * <p>Attaches an inline policy to a permission set.</p>
  *          <note>
  *             <p>If the permission set is already referenced by one or more account assignments, you will
  *         need to call <code>

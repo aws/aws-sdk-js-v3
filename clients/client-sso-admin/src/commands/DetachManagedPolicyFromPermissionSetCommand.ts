@@ -30,7 +30,7 @@ export interface DetachManagedPolicyFromPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Detaches the attached Amazon Web Services managed IAM policy ARN from the specified permission set.</p>
+ * <p>Detaches the attached Amazon Web Services managed policy ARN from the specified permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

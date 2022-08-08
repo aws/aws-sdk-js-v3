@@ -31,7 +31,7 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all IAM customer managed policies attached to a specified <a>PermissionSet</a>.</p>
+ * <p>Lists all customer managed policies attached to a specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

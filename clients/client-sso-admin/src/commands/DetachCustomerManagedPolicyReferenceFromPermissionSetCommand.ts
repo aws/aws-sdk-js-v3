@@ -31,7 +31,7 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOut
     __MetadataBearer {}
 
 /**
- * <p>Detaches the specified IAM customer managed policy from the specified <a>PermissionSet</a>.</p>
+ * <p>Detaches the specified customer managed policy from the specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,7 +28,7 @@ export interface ListInstancesCommandInput extends ListInstancesRequest {}
 export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the SSO instances that the caller has access to.</p>
+ * <p>Lists the Amazon Web Services SSO instances that the caller has access to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
