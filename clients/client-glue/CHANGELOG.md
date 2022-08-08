@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.144.0...v3.145.0) (2022-08-08)
+
+
+### Features
+
+* **client-glue:** Add an option to run non-urgent or non-time sensitive Glue Jobs on spare capacity ([3040530](https://github.com/aws/aws-sdk-js-v3/commit/30405306f0fb22d50702b64fd53c4c0ce06903fc))
+
+
+
+
+
 # [3.142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.141.0...v3.142.0) (2022-08-02)
 
 

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.144.0...v3.145.0) (2022-08-08)
+
+
+### Features
+
+* **client-glue:** Add an option to run non-urgent or non-time sensitive Glue Jobs on spare capacity ([3040530](https://github.com/aws/aws-sdk-js-v3/commit/30405306f0fb22d50702b64fd53c4c0ce06903fc))
+* **client-iot-wireless:** AWS IoT Wireless release support for sidewalk data reliability. ([962583c](https://github.com/aws/aws-sdk-js-v3/commit/962583c9ced0efc84ae34bcdc06c3a22a624e89b))
+* **client-pinpoint:** Adds support for Advance Quiet Time in Journeys. Adds RefreshOnSegmentUpdate and WaitForQuietTime to JourneyResponse. ([ded8662](https://github.com/aws/aws-sdk-js-v3/commit/ded8662576d32b2a8d7ecf941cf9e2cbd1a22ac2))
+* **clients:** update client endpoints as of 2022-08-08 ([8a11fde](https://github.com/aws/aws-sdk-js-v3/commit/8a11fdebd9fe799fb6e8f4def59408a875920a84))
+
+
+
+
+
 # [3.144.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.143.0...v3.144.0) (2022-08-04)
 
 

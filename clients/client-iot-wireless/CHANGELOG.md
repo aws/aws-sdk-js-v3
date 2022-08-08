@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.144.0...v3.145.0) (2022-08-08)
+
+
+### Features
+
+* **client-iot-wireless:** AWS IoT Wireless release support for sidewalk data reliability. ([962583c](https://github.com/aws/aws-sdk-js-v3/commit/962583c9ced0efc84ae34bcdc06c3a22a624e89b))
+
+
+
+
+
 # [3.142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.141.0...v3.142.0) (2022-08-02)
 
 
