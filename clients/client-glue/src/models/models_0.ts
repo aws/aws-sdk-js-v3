@@ -3890,6 +3890,11 @@ export interface ConnectionsList {
   Connections?: string[];
 }
 
+export enum ExecutionClass {
+  FLEX = "FLEX",
+  STANDARD = "STANDARD",
+}
+
 /**
  * <p>An execution property of a job.</p>
  */
@@ -4040,6 +4045,7 @@ export interface EventBatchingCondition {
 export enum CrawlState {
   CANCELLED = "CANCELLED",
   CANCELLING = "CANCELLING",
+  ERROR = "ERROR",
   FAILED = "FAILED",
   RUNNING = "RUNNING",
   SUCCEEDED = "SUCCEEDED",
@@ -4050,6 +4056,7 @@ export enum LogicalOperator {
 }
 
 export enum JobRunState {
+  ERROR = "ERROR",
   FAILED = "FAILED",
   RUNNING = "RUNNING",
   STARTING = "STARTING",
@@ -4057,6 +4064,7 @@ export enum JobRunState {
   STOPPING = "STOPPING",
   SUCCEEDED = "SUCCEEDED",
   TIMEOUT = "TIMEOUT",
+  WAITING = "WAITING",
 }
 
 /**
@@ -4479,6 +4487,15 @@ export interface JobRun {
    * <p>This field populates only for Auto Scaling job runs, and represents the total time each executor ran during the lifecycle of a job run in seconds, multiplied by a DPU factor (1 for <code>G.1X</code>, 2 for <code>G.2X</code>, or 0.25 for <code>G.025X</code> workers). This value may be different than the <code>executionEngineRuntime</code> * <code>MaxCapacity</code> as in the case of Auto Scaling jobs, as the number of executors running at a given time may be less than the <code>MaxCapacity</code>. Therefore, it is possible that the value of <code>DPUSeconds</code> is less than <code>executionEngineRuntime</code> * <code>MaxCapacity</code>.</p>
    */
   DPUSeconds?: number;
+
+  /**
+   * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
+   *
+   *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
+   *
+   * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   */
+  ExecutionClass?: ExecutionClass | string;
 }
 
 /**
@@ -4608,6 +4625,16 @@ export interface WorkflowRunStatistics {
    * <p>Total number Actions in running state.</p>
    */
   RunningActions?: number;
+
+  /**
+   * <p>Indicates the count of job runs in the ERROR state in the workflow run.</p>
+   */
+  ErroredActions?: number;
+
+  /**
+   * <p>Indicates the count of job runs in WAITING state in the workflow run.</p>
+   */
+  WaitingActions?: number;
 }
 
 export enum WorkflowRunStatus {
@@ -7131,13 +7158,6 @@ export interface DeleteBlueprintResponse {
   Name?: string;
 }
 
-export interface DeleteClassifierRequest {
-  /**
-   * <p>Name of the classifier to remove.</p>
-   */
-  Name: string | undefined;
-}
-
 /**
  * @internal
  */
@@ -8777,12 +8797,5 @@ export const DeleteBlueprintRequestFilterSensitiveLog = (obj: DeleteBlueprintReq
  * @internal
  */
 export const DeleteBlueprintResponseFilterSensitiveLog = (obj: DeleteBlueprintResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClassifierRequestFilterSensitiveLog = (obj: DeleteClassifierRequest): any => ({
   ...obj,
 });

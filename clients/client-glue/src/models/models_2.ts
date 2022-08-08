@@ -25,6 +25,7 @@ import {
   DynamoDBCatalogSource,
   ErrorDetail,
   EventBatchingCondition,
+  ExecutionClass,
   ExecutionProperty,
   FillMissingValues,
   Filter,
@@ -82,11 +83,29 @@ import {
 import {
   ColumnStatistics,
   JobBookmarkEntry,
+  MetadataInfo,
   MetadataKeyValuePair,
   ResourceShareType,
   SchemaVersionNumber,
   Table,
 } from "./models_1";
+
+export interface QuerySchemaVersionMetadataResponse {
+  /**
+   * <p>A map of a metadata key and associated values.</p>
+   */
+  MetadataInfoMap?: Record<string, MetadataInfo>;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   */
+  NextToken?: string;
+}
 
 export interface RegisterSchemaVersionInput {
   /**
@@ -679,6 +698,15 @@ export interface StartJobRunRequest {
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
    */
   NumberOfWorkers?: number;
+
+  /**
+   * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
+   *
+   *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
+   *
+   * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   */
+  ExecutionClass?: ExecutionClass | string;
 }
 
 export interface StartJobRunResponse {
@@ -2285,6 +2313,15 @@ export interface CreateJobRequest {
    * <p>The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.</p>
    */
   CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
+
+  /**
+   * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
+   *
+   *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
+   *
+   * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   */
+  ExecutionClass?: ExecutionClass | string;
 }
 
 /**
@@ -2451,6 +2488,15 @@ export interface Job {
    * <p>The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.</p>
    */
   CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
+
+  /**
+   * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
+   *
+   *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
+   *
+   * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   */
+  ExecutionClass?: ExecutionClass | string;
 }
 
 /**
@@ -2599,6 +2645,15 @@ export interface JobUpdate {
    * <p>The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.</p>
    */
   CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
+
+  /**
+   * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
+   *
+   *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
+   *
+   * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   */
+  ExecutionClass?: ExecutionClass | string;
 }
 
 export interface GetJobResponse {
@@ -2643,6 +2698,13 @@ export interface GetJobsResponse {
    */
   NextToken?: string;
 }
+
+/**
+ * @internal
+ */
+export const QuerySchemaVersionMetadataResponseFilterSensitiveLog = (obj: QuerySchemaVersionMetadataResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

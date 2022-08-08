@@ -45,6 +45,13 @@ import {
   WorkflowRun,
 } from "./models_0";
 
+export interface DeleteClassifierRequest {
+  /**
+   * <p>Name of the classifier to remove.</p>
+   */
+  Name: string | undefined;
+}
+
 export interface DeleteClassifierResponse {}
 
 export interface DeleteColumnStatisticsForPartitionRequest {
@@ -5738,22 +5745,12 @@ export interface MetadataInfo {
   OtherMetadataValueList?: OtherMetadataValueListItem[];
 }
 
-export interface QuerySchemaVersionMetadataResponse {
-  /**
-   * <p>A map of a metadata key and associated values.</p>
-   */
-  MetadataInfoMap?: Record<string, MetadataInfo>;
-
-  /**
-   * <p>The unique version ID of the schema version.</p>
-   */
-  SchemaVersionId?: string;
-
-  /**
-   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeleteClassifierRequestFilterSensitiveLog = (obj: DeleteClassifierRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7704,12 +7701,5 @@ export const OtherMetadataValueListItemFilterSensitiveLog = (obj: OtherMetadataV
  * @internal
  */
 export const MetadataInfoFilterSensitiveLog = (obj: MetadataInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QuerySchemaVersionMetadataResponseFilterSensitiveLog = (obj: QuerySchemaVersionMetadataResponse): any => ({
   ...obj,
 });

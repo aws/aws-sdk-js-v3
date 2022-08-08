@@ -490,7 +490,6 @@ import {
   Datatype,
   DeleteBlueprintRequest,
   DeleteBlueprintResponse,
-  DeleteClassifierRequest,
   DeltaTarget,
   DevEndpoint,
   DirectKafkaSource,
@@ -653,6 +652,7 @@ import {
   DateColumnStatisticsData,
   DecimalColumnStatisticsData,
   DecimalNumber,
+  DeleteClassifierRequest,
   DeleteClassifierResponse,
   DeleteColumnStatisticsForPartitionRequest,
   DeleteColumnStatisticsForPartitionResponse,
@@ -882,7 +882,6 @@ import {
   PutWorkflowRunPropertiesRequest,
   PutWorkflowRunPropertiesResponse,
   QuerySchemaVersionMetadataInput,
-  QuerySchemaVersionMetadataResponse,
   RegistryListItem,
   SchedulerTransitioningException,
   SchemaColumn,
@@ -928,6 +927,7 @@ import {
   MLTransformNotReadyException,
   NoScheduleException,
   PropertyPredicate,
+  QuerySchemaVersionMetadataResponse,
   RegisterSchemaVersionInput,
   RegisterSchemaVersionResponse,
   RemoveSchemaVersionMetadataInput,
@@ -14334,6 +14334,7 @@ const serializeAws_json1_1CreateJobRequest = (input: CreateJobRequest, context: 
       DefaultArguments: serializeAws_json1_1GenericMap(input.DefaultArguments, context),
     }),
     ...(input.Description != null && { Description: input.Description }),
+    ...(input.ExecutionClass != null && { ExecutionClass: input.ExecutionClass }),
     ...(input.ExecutionProperty != null && {
       ExecutionProperty: serializeAws_json1_1ExecutionProperty(input.ExecutionProperty, context),
     }),
@@ -15954,6 +15955,7 @@ const serializeAws_json1_1JobUpdate = (input: JobUpdate, context: __SerdeContext
       DefaultArguments: serializeAws_json1_1GenericMap(input.DefaultArguments, context),
     }),
     ...(input.Description != null && { Description: input.Description }),
+    ...(input.ExecutionClass != null && { ExecutionClass: input.ExecutionClass }),
     ...(input.ExecutionProperty != null && {
       ExecutionProperty: serializeAws_json1_1ExecutionProperty(input.ExecutionProperty, context),
     }),
@@ -17316,6 +17318,7 @@ const serializeAws_json1_1StartJobRunRequest = (input: StartJobRunRequest, conte
   return {
     ...(input.AllocatedCapacity != null && { AllocatedCapacity: input.AllocatedCapacity }),
     ...(input.Arguments != null && { Arguments: serializeAws_json1_1GenericMap(input.Arguments, context) }),
+    ...(input.ExecutionClass != null && { ExecutionClass: input.ExecutionClass }),
     ...(input.JobName != null && { JobName: input.JobName }),
     ...(input.JobRunId != null && { JobRunId: input.JobRunId }),
     ...(input.MaxCapacity != null && { MaxCapacity: __serializeFloat(input.MaxCapacity) }),
@@ -21377,6 +21380,7 @@ const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job =>
     DefaultArguments:
       output.DefaultArguments != null ? deserializeAws_json1_1GenericMap(output.DefaultArguments, context) : undefined,
     Description: __expectString(output.Description),
+    ExecutionClass: __expectString(output.ExecutionClass),
     ExecutionProperty:
       output.ExecutionProperty != null
         ? deserializeAws_json1_1ExecutionProperty(output.ExecutionProperty, context)
@@ -21474,6 +21478,7 @@ const deserializeAws_json1_1JobRun = (output: any, context: __SerdeContext): Job
         : undefined,
     DPUSeconds: __limitedParseDouble(output.DPUSeconds),
     ErrorMessage: __expectString(output.ErrorMessage),
+    ExecutionClass: __expectString(output.ExecutionClass),
     ExecutionTime: __expectInt32(output.ExecutionTime),
     GlueVersion: __expectString(output.GlueVersion),
     Id: __expectString(output.Id),
@@ -24174,12 +24179,14 @@ const deserializeAws_json1_1WorkflowRuns = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1WorkflowRunStatistics = (output: any, context: __SerdeContext): WorkflowRunStatistics => {
   return {
+    ErroredActions: __expectInt32(output.ErroredActions),
     FailedActions: __expectInt32(output.FailedActions),
     RunningActions: __expectInt32(output.RunningActions),
     StoppedActions: __expectInt32(output.StoppedActions),
     SucceededActions: __expectInt32(output.SucceededActions),
     TimeoutActions: __expectInt32(output.TimeoutActions),
     TotalActions: __expectInt32(output.TotalActions),
+    WaitingActions: __expectInt32(output.WaitingActions),
   } as any;
 };
 
