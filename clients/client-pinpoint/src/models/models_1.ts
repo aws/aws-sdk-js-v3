@@ -22,6 +22,7 @@ import {
   CampaignHook,
   CampaignLimits,
   CampaignResponse,
+  ChannelsResponse,
   DefaultPushNotificationTemplate,
   DeliveryStatus,
   DirectMessageConfiguration,
@@ -63,6 +64,46 @@ import {
   WriteJourneyRequest,
   WriteSegmentRequest,
 } from "./models_0";
+
+export interface GetChannelsRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+}
+
+export interface GetChannelsResponse {
+  /**
+   * <p>Provides information about the general settings and status of all channels for an application, including channels that aren't enabled for the application.</p>
+   */
+  ChannelsResponse: ChannelsResponse | undefined;
+}
+
+export interface GetEmailChannelRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+}
+
+export interface GetEmailChannelResponse {
+  /**
+   * <p>Provides information about the status and settings of the email channel for an application.</p>
+   */
+  EmailChannelResponse: EmailChannelResponse | undefined;
+}
+
+export interface GetEmailTemplateRequest {
+  /**
+   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+   */
+  Version?: string;
+}
 
 export interface GetEmailTemplateResponse {
   /**
@@ -2600,6 +2641,41 @@ export interface VerifyOTPMessageResponse {
    */
   VerificationResponse: VerificationResponse | undefined;
 }
+
+/**
+ * @internal
+ */
+export const GetChannelsRequestFilterSensitiveLog = (obj: GetChannelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChannelsResponseFilterSensitiveLog = (obj: GetChannelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEmailChannelRequestFilterSensitiveLog = (obj: GetEmailChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEmailChannelResponseFilterSensitiveLog = (obj: GetEmailChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEmailTemplateRequestFilterSensitiveLog = (obj: GetEmailTemplateRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

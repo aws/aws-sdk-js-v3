@@ -2870,6 +2870,56 @@ export interface ChannelsResponse {
 }
 
 /**
+ * <p>Closed Days Rule. Part of Journey sending schedule.</p>
+ */
+export interface ClosedDaysRule {
+  /**
+   * <p>Name of the rule.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Start Datetime in ISO 8601 format.</p>
+   */
+  StartDateTime?: string;
+
+  /**
+   * <p>End Datetime in ISO 8601 format.</p>
+   */
+  EndDateTime?: string;
+}
+
+/**
+ * <p>The time when journey will stop sending messages.</p>
+ */
+export interface ClosedDays {
+  /**
+   * <p>Rules for Email Channel.</p>
+   */
+  EMAIL?: ClosedDaysRule[];
+
+  /**
+   * <p>Rules for SMS Channel.</p>
+   */
+  SMS?: ClosedDaysRule[];
+
+  /**
+   * <p>Rules for Push Channel.</p>
+   */
+  PUSH?: ClosedDaysRule[];
+
+  /**
+   * <p>Rules for Voice Channel.</p>
+   */
+  VOICE?: ClosedDaysRule[];
+
+  /**
+   * <p>Rules for Custom Channel.</p>
+   */
+  CUSTOM?: ClosedDaysRule[];
+}
+
+/**
  * <p>Provides information about an API request or response.</p>
  */
 export class ConflictException extends __BaseException {
@@ -3780,6 +3830,61 @@ export interface JourneyLimits {
   EndpointReentryInterval?: string;
 }
 
+export enum DayOfWeek {
+  FRIDAY = "FRIDAY",
+  MONDAY = "MONDAY",
+  SATURDAY = "SATURDAY",
+  SUNDAY = "SUNDAY",
+  THURSDAY = "THURSDAY",
+  TUESDAY = "TUESDAY",
+  WEDNESDAY = "WEDNESDAY",
+}
+
+/**
+ * <p>List of OpenHours Rules.</p>
+ */
+export interface OpenHoursRule {
+  /**
+   * <p>Local start time in ISO 8601 format.</p>
+   */
+  StartTime?: string;
+
+  /**
+   * <p>Local start time in ISO 8601 format.</p>
+   */
+  EndTime?: string;
+}
+
+/**
+ * <p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+ */
+export interface OpenHours {
+  /**
+   * <p>Rules for Email Channel.</p>
+   */
+  EMAIL?: Record<string, OpenHoursRule[]>;
+
+  /**
+   * <p>Rules for SMS Channel.</p>
+   */
+  SMS?: Record<string, OpenHoursRule[]>;
+
+  /**
+   * <p>Rules for Push Channel.</p>
+   */
+  PUSH?: Record<string, OpenHoursRule[]>;
+
+  /**
+   * <p>Rules for Voice Channel.</p>
+   */
+  VOICE?: Record<string, OpenHoursRule[]>;
+
+  /**
+   * <p>Rules for Custom Channel.</p>
+   */
+  CUSTOM?: Record<string, OpenHoursRule[]>;
+}
+
 /**
  * <p>Specifies the schedule settings for a journey.</p>
  */
@@ -3939,6 +4044,21 @@ export interface WriteJourneyRequest {
    * <p>The channel-specific configurations for the journey.</p>
    */
   JourneyChannelSettings?: JourneyChannelSettings;
+
+  /**
+   * <p>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag should be set to true in order to allow (OpenHours and ClosedDays)</p>
+   */
+  SendingSchedule?: boolean;
+
+  /**
+   * <p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+   */
+  OpenHours?: OpenHours;
+
+  /**
+   * <p>The time when journey will stop sending messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+   */
+  ClosedDays?: ClosedDays;
 }
 
 export interface CreateJourneyRequest {
@@ -4046,6 +4166,21 @@ export interface JourneyResponse {
    * <p>The channel-specific configurations for the journey.</p>
    */
   JourneyChannelSettings?: JourneyChannelSettings;
+
+  /**
+   * <p>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag should be set to true in order to allow (OpenHours and ClosedDays)</p>
+   */
+  SendingSchedule?: boolean;
+
+  /**
+   * <p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+   */
+  OpenHours?: OpenHours;
+
+  /**
+   * <p>The time when journey will stop sending messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+   */
+  ClosedDays?: ClosedDays;
 }
 
 export interface CreateJourneyResponse {
@@ -6754,46 +6889,6 @@ export interface GetCampaignVersionsResponse {
   CampaignsResponse: CampaignsResponse | undefined;
 }
 
-export interface GetChannelsRequest {
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-}
-
-export interface GetChannelsResponse {
-  /**
-   * <p>Provides information about the general settings and status of all channels for an application, including channels that aren't enabled for the application.</p>
-   */
-  ChannelsResponse: ChannelsResponse | undefined;
-}
-
-export interface GetEmailChannelRequest {
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-}
-
-export interface GetEmailChannelResponse {
-  /**
-   * <p>Provides information about the status and settings of the email channel for an application.</p>
-   */
-  EmailChannelResponse: EmailChannelResponse | undefined;
-}
-
-export interface GetEmailTemplateRequest {
-  /**
-   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
-   */
-  TemplateName: string | undefined;
-
-  /**
-   * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
-   */
-  Version?: string;
-}
-
 /**
  * @internal
  */
@@ -7413,6 +7508,20 @@ export const ChannelsResponseFilterSensitiveLog = (obj: ChannelsResponse): any =
 /**
  * @internal
  */
+export const ClosedDaysRuleFilterSensitiveLog = (obj: ClosedDaysRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClosedDaysFilterSensitiveLog = (obj: ClosedDays): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
   ...obj,
 });
@@ -7596,6 +7705,20 @@ export const JourneyChannelSettingsFilterSensitiveLog = (obj: JourneyChannelSett
  * @internal
  */
 export const JourneyLimitsFilterSensitiveLog = (obj: JourneyLimits): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenHoursRuleFilterSensitiveLog = (obj: OpenHoursRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenHoursFilterSensitiveLog = (obj: OpenHours): any => ({
   ...obj,
 });
 
@@ -8639,40 +8762,5 @@ export const GetCampaignVersionsRequestFilterSensitiveLog = (obj: GetCampaignVer
  * @internal
  */
 export const GetCampaignVersionsResponseFilterSensitiveLog = (obj: GetCampaignVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChannelsRequestFilterSensitiveLog = (obj: GetChannelsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChannelsResponseFilterSensitiveLog = (obj: GetChannelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEmailChannelRequestFilterSensitiveLog = (obj: GetEmailChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEmailChannelResponseFilterSensitiveLog = (obj: GetEmailChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEmailTemplateRequestFilterSensitiveLog = (obj: GetEmailTemplateRequest): any => ({
   ...obj,
 });

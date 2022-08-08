@@ -17,7 +17,7 @@ import {
   GetChannelsRequestFilterSensitiveLog,
   GetChannelsResponse,
   GetChannelsResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetChannelsCommand,

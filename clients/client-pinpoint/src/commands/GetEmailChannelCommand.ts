@@ -17,7 +17,7 @@ import {
   GetEmailChannelRequestFilterSensitiveLog,
   GetEmailChannelResponse,
   GetEmailChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetEmailChannelCommand,

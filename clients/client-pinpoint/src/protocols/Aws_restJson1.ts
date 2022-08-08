@@ -301,6 +301,8 @@ import {
   CampaignState,
   ChannelResponse,
   ChannelsResponse,
+  ClosedDays,
+  ClosedDaysRule,
   Condition,
   ConditionalSplitActivity,
   ConflictException,
@@ -310,6 +312,7 @@ import {
   CreateTemplateMessageBody,
   CustomDeliveryConfiguration,
   CustomMessageActivity,
+  DayOfWeek,
   DefaultButtonConfiguration,
   DefaultMessage,
   DefaultPushNotificationMessage,
@@ -379,6 +382,8 @@ import {
   MultiConditionalBranch,
   MultiConditionalSplitActivity,
   NotFoundException,
+  OpenHours,
+  OpenHoursRule,
   OverrideButtonConfiguration,
   PayloadTooLargeException,
   PublicEndpoint,
@@ -11541,6 +11546,24 @@ const serializeAws_restJson1CampaignSmsMessage = (input: CampaignSmsMessage, con
   };
 };
 
+const serializeAws_restJson1ClosedDays = (input: ClosedDays, context: __SerdeContext): any => {
+  return {
+    ...(input.CUSTOM != null && { CUSTOM: serializeAws_restJson1ListOfClosedDaysRules(input.CUSTOM, context) }),
+    ...(input.EMAIL != null && { EMAIL: serializeAws_restJson1ListOfClosedDaysRules(input.EMAIL, context) }),
+    ...(input.PUSH != null && { PUSH: serializeAws_restJson1ListOfClosedDaysRules(input.PUSH, context) }),
+    ...(input.SMS != null && { SMS: serializeAws_restJson1ListOfClosedDaysRules(input.SMS, context) }),
+    ...(input.VOICE != null && { VOICE: serializeAws_restJson1ListOfClosedDaysRules(input.VOICE, context) }),
+  };
+};
+
+const serializeAws_restJson1ClosedDaysRule = (input: ClosedDaysRule, context: __SerdeContext): any => {
+  return {
+    ...(input.EndDateTime != null && { EndDateTime: input.EndDateTime }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.StartDateTime != null && { StartDateTime: input.StartDateTime }),
+  };
+};
+
 const serializeAws_restJson1Condition = (input: Condition, context: __SerdeContext): any => {
   return {
     ...(input.Conditions != null && {
@@ -12132,6 +12155,14 @@ const serializeAws_restJson1ListOf__string = (input: string[], context: __SerdeC
     });
 };
 
+const serializeAws_restJson1ListOfClosedDaysRules = (input: ClosedDaysRule[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ClosedDaysRule(entry, context);
+    });
+};
+
 const serializeAws_restJson1ListOfEndpointBatchItem = (input: EndpointBatchItem[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -12159,6 +12190,14 @@ const serializeAws_restJson1ListOfMultiConditionalBranch = (
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_restJson1MultiConditionalBranch(entry, context);
+    });
+};
+
+const serializeAws_restJson1ListOfOpenHoursRules = (input: OpenHoursRule[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1OpenHoursRule(entry, context);
     });
 };
 
@@ -12330,6 +12369,21 @@ const serializeAws_restJson1MapOfListOf__string = (input: Record<string, string[
   }, {});
 };
 
+const serializeAws_restJson1MapOfListOfOpenHoursRules = (
+  input: Record<string, OpenHoursRule[]>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [DayOfWeek | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1ListOfOpenHoursRules(value, context),
+    };
+  }, {});
+};
+
 const serializeAws_restJson1MapOfMetricDimension = (
   input: Record<string, MetricDimension>,
   context: __SerdeContext
@@ -12438,6 +12492,23 @@ const serializeAws_restJson1NumberValidateRequest = (input: NumberValidateReques
   return {
     ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
     ...(input.PhoneNumber != null && { PhoneNumber: input.PhoneNumber }),
+  };
+};
+
+const serializeAws_restJson1OpenHours = (input: OpenHours, context: __SerdeContext): any => {
+  return {
+    ...(input.CUSTOM != null && { CUSTOM: serializeAws_restJson1MapOfListOfOpenHoursRules(input.CUSTOM, context) }),
+    ...(input.EMAIL != null && { EMAIL: serializeAws_restJson1MapOfListOfOpenHoursRules(input.EMAIL, context) }),
+    ...(input.PUSH != null && { PUSH: serializeAws_restJson1MapOfListOfOpenHoursRules(input.PUSH, context) }),
+    ...(input.SMS != null && { SMS: serializeAws_restJson1MapOfListOfOpenHoursRules(input.SMS, context) }),
+    ...(input.VOICE != null && { VOICE: serializeAws_restJson1MapOfListOfOpenHoursRules(input.VOICE, context) }),
+  };
+};
+
+const serializeAws_restJson1OpenHoursRule = (input: OpenHoursRule, context: __SerdeContext): any => {
+  return {
+    ...(input.EndTime != null && { EndTime: input.EndTime }),
+    ...(input.StartTime != null && { StartTime: input.StartTime }),
   };
 };
 
@@ -12935,6 +13006,7 @@ const serializeAws_restJson1WriteEventStream = (input: WriteEventStream, context
 const serializeAws_restJson1WriteJourneyRequest = (input: WriteJourneyRequest, context: __SerdeContext): any => {
   return {
     ...(input.Activities != null && { Activities: serializeAws_restJson1MapOfActivity(input.Activities, context) }),
+    ...(input.ClosedDays != null && { ClosedDays: serializeAws_restJson1ClosedDays(input.ClosedDays, context) }),
     ...(input.CreationDate != null && { CreationDate: input.CreationDate }),
     ...(input.JourneyChannelSettings != null && {
       JourneyChannelSettings: serializeAws_restJson1JourneyChannelSettings(input.JourneyChannelSettings, context),
@@ -12943,10 +13015,12 @@ const serializeAws_restJson1WriteJourneyRequest = (input: WriteJourneyRequest, c
     ...(input.Limits != null && { Limits: serializeAws_restJson1JourneyLimits(input.Limits, context) }),
     ...(input.LocalTime != null && { LocalTime: input.LocalTime }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.OpenHours != null && { OpenHours: serializeAws_restJson1OpenHours(input.OpenHours, context) }),
     ...(input.QuietTime != null && { QuietTime: serializeAws_restJson1QuietTime(input.QuietTime, context) }),
     ...(input.RefreshFrequency != null && { RefreshFrequency: input.RefreshFrequency }),
     ...(input.RefreshOnSegmentUpdate != null && { RefreshOnSegmentUpdate: input.RefreshOnSegmentUpdate }),
     ...(input.Schedule != null && { Schedule: serializeAws_restJson1JourneySchedule(input.Schedule, context) }),
+    ...(input.SendingSchedule != null && { SendingSchedule: input.SendingSchedule }),
     ...(input.StartActivity != null && { StartActivity: input.StartActivity }),
     ...(input.StartCondition != null && {
       StartCondition: serializeAws_restJson1StartCondition(input.StartCondition, context),
@@ -13398,6 +13472,24 @@ const deserializeAws_restJson1ChannelsResponse = (output: any, context: __SerdeC
   return {
     Channels:
       output.Channels != null ? deserializeAws_restJson1MapOfChannelResponse(output.Channels, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ClosedDays = (output: any, context: __SerdeContext): ClosedDays => {
+  return {
+    CUSTOM: output.CUSTOM != null ? deserializeAws_restJson1ListOfClosedDaysRules(output.CUSTOM, context) : undefined,
+    EMAIL: output.EMAIL != null ? deserializeAws_restJson1ListOfClosedDaysRules(output.EMAIL, context) : undefined,
+    PUSH: output.PUSH != null ? deserializeAws_restJson1ListOfClosedDaysRules(output.PUSH, context) : undefined,
+    SMS: output.SMS != null ? deserializeAws_restJson1ListOfClosedDaysRules(output.SMS, context) : undefined,
+    VOICE: output.VOICE != null ? deserializeAws_restJson1ListOfClosedDaysRules(output.VOICE, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ClosedDaysRule = (output: any, context: __SerdeContext): ClosedDaysRule => {
+  return {
+    EndDateTime: __expectString(output.EndDateTime),
+    Name: __expectString(output.Name),
+    StartDateTime: __expectString(output.StartDateTime),
   } as any;
 };
 
@@ -14012,6 +14104,7 @@ const deserializeAws_restJson1JourneyResponse = (output: any, context: __SerdeCo
     Activities:
       output.Activities != null ? deserializeAws_restJson1MapOfActivity(output.Activities, context) : undefined,
     ApplicationId: __expectString(output.ApplicationId),
+    ClosedDays: output.ClosedDays != null ? deserializeAws_restJson1ClosedDays(output.ClosedDays, context) : undefined,
     CreationDate: __expectString(output.CreationDate),
     Id: __expectString(output.Id),
     JourneyChannelSettings:
@@ -14022,10 +14115,12 @@ const deserializeAws_restJson1JourneyResponse = (output: any, context: __SerdeCo
     Limits: output.Limits != null ? deserializeAws_restJson1JourneyLimits(output.Limits, context) : undefined,
     LocalTime: __expectBoolean(output.LocalTime),
     Name: __expectString(output.Name),
+    OpenHours: output.OpenHours != null ? deserializeAws_restJson1OpenHours(output.OpenHours, context) : undefined,
     QuietTime: output.QuietTime != null ? deserializeAws_restJson1QuietTime(output.QuietTime, context) : undefined,
     RefreshFrequency: __expectString(output.RefreshFrequency),
     RefreshOnSegmentUpdate: __expectBoolean(output.RefreshOnSegmentUpdate),
     Schedule: output.Schedule != null ? deserializeAws_restJson1JourneySchedule(output.Schedule, context) : undefined,
+    SendingSchedule: __expectBoolean(output.SendingSchedule),
     StartActivity: __expectString(output.StartActivity),
     StartCondition:
       output.StartCondition != null
@@ -14128,6 +14223,18 @@ const deserializeAws_restJson1ListOfCampaignResponse = (output: any, context: __
   return retVal;
 };
 
+const deserializeAws_restJson1ListOfClosedDaysRules = (output: any, context: __SerdeContext): ClosedDaysRule[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ClosedDaysRule(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1ListOfEndpointResponse = (output: any, context: __SerdeContext): EndpointResponse[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -14217,6 +14324,18 @@ const deserializeAws_restJson1ListOfMultiConditionalBranch = (
         return null as any;
       }
       return deserializeAws_restJson1MultiConditionalBranch(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ListOfOpenHoursRules = (output: any, context: __SerdeContext): OpenHoursRule[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1OpenHoursRule(entry, context);
     });
   return retVal;
 };
@@ -14522,6 +14641,24 @@ const deserializeAws_restJson1MapOfListOf__string = (
   }, {});
 };
 
+const deserializeAws_restJson1MapOfListOfOpenHoursRules = (
+  output: any,
+  context: __SerdeContext
+): Record<string, OpenHoursRule[]> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, OpenHoursRule[]>, [key, value]: [DayOfWeek | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1ListOfOpenHoursRules(value, context),
+      };
+    },
+    {}
+  );
+};
+
 const deserializeAws_restJson1MapOfMapOfEndpointMessageResult = (
   output: any,
   context: __SerdeContext
@@ -14696,6 +14833,24 @@ const deserializeAws_restJson1NumberValidateResponse = (
     PhoneTypeCode: __expectInt32(output.PhoneTypeCode),
     Timezone: __expectString(output.Timezone),
     ZipCode: __expectString(output.ZipCode),
+  } as any;
+};
+
+const deserializeAws_restJson1OpenHours = (output: any, context: __SerdeContext): OpenHours => {
+  return {
+    CUSTOM:
+      output.CUSTOM != null ? deserializeAws_restJson1MapOfListOfOpenHoursRules(output.CUSTOM, context) : undefined,
+    EMAIL: output.EMAIL != null ? deserializeAws_restJson1MapOfListOfOpenHoursRules(output.EMAIL, context) : undefined,
+    PUSH: output.PUSH != null ? deserializeAws_restJson1MapOfListOfOpenHoursRules(output.PUSH, context) : undefined,
+    SMS: output.SMS != null ? deserializeAws_restJson1MapOfListOfOpenHoursRules(output.SMS, context) : undefined,
+    VOICE: output.VOICE != null ? deserializeAws_restJson1MapOfListOfOpenHoursRules(output.VOICE, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1OpenHoursRule = (output: any, context: __SerdeContext): OpenHoursRule => {
+  return {
+    EndTime: __expectString(output.EndTime),
+    StartTime: __expectString(output.StartTime),
   } as any;
 };
 
