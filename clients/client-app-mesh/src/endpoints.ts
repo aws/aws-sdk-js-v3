@@ -35,6 +35,14 @@ const regionHash: RegionHash = {
       },
     ],
   },
+  "ap-northeast-3": {
+    variants: [
+      {
+        hostname: "appmesh.ap-northeast-3.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
+  },
   "ap-south-1": {
     variants: [
       {
@@ -55,6 +63,14 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "appmesh.ap-southeast-2.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
+  },
+  "ap-southeast-3": {
+    variants: [
+      {
+        hostname: "appmesh.ap-southeast-3.api.aws",
         tags: ["dualstack"],
       },
     ],

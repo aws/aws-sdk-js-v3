@@ -1409,6 +1409,14 @@
                 }
               ]
             },
+            "ap-northeast-3": {
+              "variants": [
+                {
+                  "hostname": "appmesh.ap-northeast-3.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "ap-south-1": {
               "variants": [
                 {
@@ -1429,6 +1437,14 @@
               "variants": [
                 {
                   "hostname": "appmesh.ap-southeast-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-southeast-3": {
+              "variants": [
+                {
+                  "hostname": "appmesh.ap-southeast-3.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -6653,6 +6669,19 @@
         "gamesparks": {
           "endpoints": {
             "us-east-1": {}
+          }
+        },
+        "geo": {
+          "endpoints": {
+            "ap-northeast-1": {},
+            "ap-southeast-1": {},
+            "ap-southeast-2": {},
+            "eu-central-1": {},
+            "eu-north-1": {},
+            "eu-west-1": {},
+            "us-east-1": {},
+            "us-east-2": {},
+            "us-west-2": {}
           }
         },
         "glacier": {
