@@ -28,7 +28,7 @@ export interface ListAccountRolesCommandInput extends ListAccountRolesRequest {}
 export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all roles that are assigned to the user for a given AWS account.</p>
+ * <p>Lists all roles that are assigned to the user for a given Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
