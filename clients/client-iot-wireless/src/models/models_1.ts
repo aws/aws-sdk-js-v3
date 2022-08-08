@@ -7,12 +7,38 @@ import {
   EventNotificationPartnerType,
   IdentifierType,
   JoinEventConfiguration,
+  LoRaWANMulticast,
+  MessageDeliveryStatusEventConfiguration,
   PartnerType,
   Positioning,
   PositionResourceType,
   ProximityEventConfiguration,
   TraceContent,
 } from "./models_0";
+
+export interface UpdateMulticastGroupRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the multicast group.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the new resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The LoRaWAN information that is to be used with the multicast group.</p>
+   */
+  LoRaWAN?: LoRaWANMulticast;
+}
+
+export interface UpdateMulticastGroupResponse {}
 
 export interface UpdateNetworkAnalyzerConfigurationRequest {
   /**
@@ -141,6 +167,11 @@ export interface UpdateResourceEventConfigurationRequest {
    * <p>Event configuration for the connection status event.</p>
    */
   ConnectionStatus?: ConnectionStatusEventConfiguration;
+
+  /**
+   * <p>Event configuration for the message delivery status event.</p>
+   */
+  MessageDeliveryStatus?: MessageDeliveryStatusEventConfiguration;
 }
 
 export interface UpdateResourceEventConfigurationResponse {}
@@ -262,6 +293,20 @@ export interface UpdateWirelessGatewayRequest {
 }
 
 export interface UpdateWirelessGatewayResponse {}
+
+/**
+ * @internal
+ */
+export const UpdateMulticastGroupRequestFilterSensitiveLog = (obj: UpdateMulticastGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMulticastGroupResponseFilterSensitiveLog = (obj: UpdateMulticastGroupResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

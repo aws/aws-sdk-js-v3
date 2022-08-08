@@ -888,6 +888,16 @@ export interface LoRaWANServiceProfile {
    * <p>The AddGWMetaData value.</p>
    */
   AddGwMetadata?: boolean;
+
+  /**
+   * <p>The DrMin value.</p>
+   */
+  DrMin?: number;
+
+  /**
+   * <p>The DrMax value.</p>
+   */
+  DrMax?: number;
 }
 
 export interface CreateServiceProfileRequest {
@@ -1694,6 +1704,25 @@ export interface JoinEventConfiguration {
 }
 
 /**
+ * <p>Message delivery status event configuration object for enabling and disabling relevant
+ *             topics.</p>
+ */
+export interface MessageDeliveryStatusEventConfiguration {
+  /**
+   * <p>
+   *             <code>SidewalkEventNotificationConfigurations</code>  object, which is the event configuration
+   *             object for Sidewalk-related event topics.</p>
+   */
+  Sidewalk?: SidewalkEventNotificationConfigurations;
+
+  /**
+   * <p>Enum to denote whether the wireless device id device registration state event topic is enabled
+   *             or disabled.</p>
+   */
+  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
+}
+
+/**
  * <p>Proximity event configuration object for enabling and disabling relevant topics.</p>
  */
 export interface ProximityEventConfiguration {
@@ -1731,6 +1760,11 @@ export interface EventNotificationItemConfigurations {
    * <p>Connection status event configuration for an event configuration item.</p>
    */
   ConnectionStatus?: ConnectionStatusEventConfiguration;
+
+  /**
+   * <p>Message delivery status event configuration for an event configuration item.</p>
+   */
+  MessageDeliveryStatus?: MessageDeliveryStatusEventConfiguration;
 }
 
 export enum IdentifierType {
@@ -1910,6 +1944,17 @@ export interface JoinResourceTypeEventConfiguration {
 }
 
 /**
+ * <p>Message delivery status resource type event configuration object for enabling or disabling
+ *             relevant topic.</p>
+ */
+export interface MessageDeliveryStatusResourceTypeEventConfiguration {
+  /**
+   * <p>Sidewalk resource type event configuration object for enabling or disabling topic.</p>
+   */
+  Sidewalk?: SidewalkResourceTypeEventConfiguration;
+}
+
+/**
  * <p>Proximity resource type event configuration object for enabling or disabling topic.</p>
  */
 export interface ProximityResourceTypeEventConfiguration {
@@ -1939,6 +1984,11 @@ export interface GetEventConfigurationByResourceTypesResponse {
    * <p>Resource type event configuration for the connection status event.</p>
    */
   ConnectionStatus?: ConnectionStatusResourceTypeEventConfiguration;
+
+  /**
+   * <p>Resource type event configuration object for the message delivery status event.</p>
+   */
+  MessageDeliveryStatus?: MessageDeliveryStatusResourceTypeEventConfiguration;
 }
 
 export interface GetFuotaTaskRequest {
@@ -2482,6 +2532,11 @@ export interface GetResourceEventConfigurationResponse {
    * <p>Event configuration for the connection status event.</p>
    */
   ConnectionStatus?: ConnectionStatusEventConfiguration;
+
+  /**
+   * <p>Event configuration for the message delivery status event.</p>
+   */
+  MessageDeliveryStatus?: MessageDeliveryStatusEventConfiguration;
 }
 
 export interface GetResourceLogLevelRequest {
@@ -3884,6 +3939,11 @@ export interface SidewalkSendDataToDevice {
    * <p>Sidewalk device message type. Default value is <code>CUSTOM_COMMAND_ID_NOTIFY</code>.</p>
    */
   MessageType?: MessageType | string;
+
+  /**
+   * <p>The duration of time in seconds for which you want to retry sending the ACK.</p>
+   */
+  AckModeRetryDurationSecs?: number;
 }
 
 /**
@@ -4124,6 +4184,11 @@ export interface UpdateEventConfigurationByResourceTypesRequest {
    * <p>Connection status resource type event configuration object for enabling and disabling wireless gateway topic.</p>
    */
   ConnectionStatus?: ConnectionStatusResourceTypeEventConfiguration;
+
+  /**
+   * <p>Message delivery status resource type event configuration object for enabling and disabling wireless device topic.</p>
+   */
+  MessageDeliveryStatus?: MessageDeliveryStatusResourceTypeEventConfiguration;
 }
 
 export interface UpdateEventConfigurationByResourceTypesResponse {}
@@ -4181,30 +4246,6 @@ export interface UpdateLogLevelsByResourceTypesRequest {
 }
 
 export interface UpdateLogLevelsByResourceTypesResponse {}
-
-export interface UpdateMulticastGroupRequest {
-  /**
-   * <p>The ID of the multicast group.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The name of the multicast group.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The description of the new resource.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The LoRaWAN information that is to be used with the multicast group.</p>
-   */
-  LoRaWAN?: LoRaWANMulticast;
-}
-
-export interface UpdateMulticastGroupResponse {}
 
 /**
  * @internal
@@ -5058,6 +5099,15 @@ export const JoinEventConfigurationFilterSensitiveLog = (obj: JoinEventConfigura
 /**
  * @internal
  */
+export const MessageDeliveryStatusEventConfigurationFilterSensitiveLog = (
+  obj: MessageDeliveryStatusEventConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ProximityEventConfigurationFilterSensitiveLog = (obj: ProximityEventConfiguration): any => ({
   ...obj,
 });
@@ -5135,6 +5185,15 @@ export const LoRaWANJoinResourceTypeEventConfigurationFilterSensitiveLog = (
  * @internal
  */
 export const JoinResourceTypeEventConfigurationFilterSensitiveLog = (obj: JoinResourceTypeEventConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageDeliveryStatusResourceTypeEventConfigurationFilterSensitiveLog = (
+  obj: MessageDeliveryStatusResourceTypeEventConfiguration
+): any => ({
   ...obj,
 });
 
@@ -6180,19 +6239,5 @@ export const UpdateLogLevelsByResourceTypesRequestFilterSensitiveLog = (
 export const UpdateLogLevelsByResourceTypesResponseFilterSensitiveLog = (
   obj: UpdateLogLevelsByResourceTypesResponse
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMulticastGroupRequestFilterSensitiveLog = (obj: UpdateMulticastGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMulticastGroupResponseFilterSensitiveLog = (obj: UpdateMulticastGroupResponse): any => ({
   ...obj,
 });

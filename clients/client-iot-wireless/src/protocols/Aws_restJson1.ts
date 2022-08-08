@@ -389,6 +389,8 @@ import {
   LoRaWANStartFuotaTask,
   LoRaWANUpdateGatewayTaskCreate,
   LoRaWANUpdateGatewayTaskEntry,
+  MessageDeliveryStatusEventConfiguration,
+  MessageDeliveryStatusResourceTypeEventConfiguration,
   MulticastGroup,
   MulticastGroupByFuotaTask,
   MulticastWirelessMetadata,
@@ -2723,6 +2725,12 @@ export const serializeAws_restJson1UpdateEventConfigurationByResourceTypesComman
       ),
     }),
     ...(input.Join != null && { Join: serializeAws_restJson1JoinResourceTypeEventConfiguration(input.Join, context) }),
+    ...(input.MessageDeliveryStatus != null && {
+      MessageDeliveryStatus: serializeAws_restJson1MessageDeliveryStatusResourceTypeEventConfiguration(
+        input.MessageDeliveryStatus,
+        context
+      ),
+    }),
     ...(input.Proximity != null && {
       Proximity: serializeAws_restJson1ProximityResourceTypeEventConfiguration(input.Proximity, context),
     }),
@@ -2980,6 +2988,12 @@ export const serializeAws_restJson1UpdateResourceEventConfigurationCommand = asy
       ),
     }),
     ...(input.Join != null && { Join: serializeAws_restJson1JoinEventConfiguration(input.Join, context) }),
+    ...(input.MessageDeliveryStatus != null && {
+      MessageDeliveryStatus: serializeAws_restJson1MessageDeliveryStatusEventConfiguration(
+        input.MessageDeliveryStatus,
+        context
+      ),
+    }),
     ...(input.Proximity != null && {
       Proximity: serializeAws_restJson1ProximityEventConfiguration(input.Proximity, context),
     }),
@@ -5147,6 +5161,12 @@ export const deserializeAws_restJson1GetEventConfigurationByResourceTypesCommand
   if (data.Join != null) {
     contents.Join = deserializeAws_restJson1JoinResourceTypeEventConfiguration(data.Join, context);
   }
+  if (data.MessageDeliveryStatus != null) {
+    contents.MessageDeliveryStatus = deserializeAws_restJson1MessageDeliveryStatusResourceTypeEventConfiguration(
+      data.MessageDeliveryStatus,
+      context
+    );
+  }
   if (data.Proximity != null) {
     contents.Proximity = deserializeAws_restJson1ProximityResourceTypeEventConfiguration(data.Proximity, context);
   }
@@ -5719,6 +5739,12 @@ export const deserializeAws_restJson1GetResourceEventConfigurationCommand = asyn
   }
   if (data.Join != null) {
     contents.Join = deserializeAws_restJson1JoinEventConfiguration(data.Join, context);
+  }
+  if (data.MessageDeliveryStatus != null) {
+    contents.MessageDeliveryStatus = deserializeAws_restJson1MessageDeliveryStatusEventConfiguration(
+      data.MessageDeliveryStatus,
+      context
+    );
   }
   if (data.Proximity != null) {
     contents.Proximity = deserializeAws_restJson1ProximityEventConfiguration(data.Proximity, context);
@@ -8878,6 +8904,8 @@ const serializeAws_restJson1LoRaWANSendDataToDevice = (
 const serializeAws_restJson1LoRaWANServiceProfile = (input: LoRaWANServiceProfile, context: __SerdeContext): any => {
   return {
     ...(input.AddGwMetadata != null && { AddGwMetadata: input.AddGwMetadata }),
+    ...(input.DrMax != null && { DrMax: input.DrMax }),
+    ...(input.DrMin != null && { DrMin: input.DrMin }),
   };
 };
 
@@ -8909,6 +8937,29 @@ const serializeAws_restJson1LoRaWANUpdateGatewayTaskCreate = (
     ...(input.UpdateSignature != null && { UpdateSignature: input.UpdateSignature }),
     ...(input.UpdateVersion != null && {
       UpdateVersion: serializeAws_restJson1LoRaWANGatewayVersion(input.UpdateVersion, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1MessageDeliveryStatusEventConfiguration = (
+  input: MessageDeliveryStatusEventConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Sidewalk != null && {
+      Sidewalk: serializeAws_restJson1SidewalkEventNotificationConfigurations(input.Sidewalk, context),
+    }),
+    ...(input.WirelessDeviceIdEventTopic != null && { WirelessDeviceIdEventTopic: input.WirelessDeviceIdEventTopic }),
+  };
+};
+
+const serializeAws_restJson1MessageDeliveryStatusResourceTypeEventConfiguration = (
+  input: MessageDeliveryStatusResourceTypeEventConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Sidewalk != null && {
+      Sidewalk: serializeAws_restJson1SidewalkResourceTypeEventConfiguration(input.Sidewalk, context),
     }),
   };
 };
@@ -9052,6 +9103,7 @@ const serializeAws_restJson1SidewalkSendDataToDevice = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AckModeRetryDurationSecs != null && { AckModeRetryDurationSecs: input.AckModeRetryDurationSecs }),
     ...(input.MessageType != null && { MessageType: input.MessageType }),
     ...(input.Seq != null && { Seq: input.Seq }),
   };
@@ -9447,6 +9499,10 @@ const deserializeAws_restJson1EventNotificationItemConfigurations = (
         ? deserializeAws_restJson1DeviceRegistrationStateEventConfiguration(output.DeviceRegistrationState, context)
         : undefined,
     Join: output.Join != null ? deserializeAws_restJson1JoinEventConfiguration(output.Join, context) : undefined,
+    MessageDeliveryStatus:
+      output.MessageDeliveryStatus != null
+        ? deserializeAws_restJson1MessageDeliveryStatusEventConfiguration(output.MessageDeliveryStatus, context)
+        : undefined,
     Proximity:
       output.Proximity != null
         ? deserializeAws_restJson1ProximityEventConfiguration(output.Proximity, context)
@@ -9799,6 +9855,31 @@ const deserializeAws_restJson1LoRaWANUpdateGatewayTaskEntry = (
     UpdateVersion:
       output.UpdateVersion != null
         ? deserializeAws_restJson1LoRaWANGatewayVersion(output.UpdateVersion, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MessageDeliveryStatusEventConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MessageDeliveryStatusEventConfiguration => {
+  return {
+    Sidewalk:
+      output.Sidewalk != null
+        ? deserializeAws_restJson1SidewalkEventNotificationConfigurations(output.Sidewalk, context)
+        : undefined,
+    WirelessDeviceIdEventTopic: __expectString(output.WirelessDeviceIdEventTopic),
+  } as any;
+};
+
+const deserializeAws_restJson1MessageDeliveryStatusResourceTypeEventConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MessageDeliveryStatusResourceTypeEventConfiguration => {
+  return {
+    Sidewalk:
+      output.Sidewalk != null
+        ? deserializeAws_restJson1SidewalkResourceTypeEventConfiguration(output.Sidewalk, context)
         : undefined,
   } as any;
 };
