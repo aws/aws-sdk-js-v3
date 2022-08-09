@@ -41,7 +41,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  *                 operations are being performed on the endpoint. To update an endpoint, you must
  *                 create a new <code>EndpointConfig</code>.</p>
  *         </note>
- *         <p>The endpoint name must be unique within an Amazon Web Services Region in your Amazon Web Services account. </p>
+ *         <p>The endpoint name must be unique within an Amazon Web Services Region in your
+ *                 Amazon Web Services account. </p>
  *         <p>When it receives the request, SageMaker creates the endpoint, launches the resources (ML
  *             compute instances), and deploys the model(s) on them. </p>
  *
@@ -63,11 +64,12 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  *             check the status of an endpoint, use the <a>DescribeEndpoint</a>
  *             API.</p>
  *         <p>If any of the models hosted at this endpoint get model data from an Amazon S3 location,
- *             SageMaker uses Amazon Web Services Security Token Service to download model artifacts from the S3 path you
- *             provided. Amazon Web Services STS is activated in your IAM user account by default. If you previously
- *             deactivated Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS for that region. For
- *             more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
- *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>Amazon Web Services Identity and Access Management User
+ *             SageMaker uses Amazon Web Services Security Token Service to download model artifacts from the
+ *             S3 path you provided. Amazon Web Services STS is activated in your IAM user account by
+ *             default. If you previously deactivated Amazon Web Services STS for a region, you need to
+ *             reactivate Amazon Web Services STS for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
+ *                     <i>Amazon Web Services Identity and Access Management User
  *                 Guide</i>.</p>
  *         <note>
  *             <p> To add the IAM role policies for using this API operation, go to the <a href="https://console.aws.amazon.com/iam/">IAM console</a>, and choose

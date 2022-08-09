@@ -430,11 +430,11 @@ export interface AdditionalInferenceSpecificationDefinition {
  *         <p>You can add tags to notebook instances, training jobs, hyperparameter tuning jobs,
  *             batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and
  *             endpoints. For more information on adding tags to SageMaker resources, see <a>AddTags</a>.</p>
- *         <p>For more information on adding metadata to your Amazon Web Services resources with tagging, see
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
- *                 resources</a>. For advice on best practices for managing Amazon Web Services resources with
- *             tagging, see <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
- *                 Best Practices: Implement an Effective Amazon Web Services Resource Tagging Strategy</a>.</p>
+ *         <p>For more information on adding metadata to your Amazon Web Services resources with
+ *             tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>. For advice on best practices for
+ *             managing Amazon Web Services resources with tagging, see <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+ *                 Best Practices: Implement an Effective Amazon Web Services Resource Tagging
+ *                 Strategy</a>.</p>
  */
 export interface Tag {
   /**
@@ -455,10 +455,9 @@ export interface AddTagsInput {
   ResourceArn: string | undefined;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags: Tag[] | undefined;
 }
@@ -543,73 +542,78 @@ export interface AlgorithmSpecification {
   /**
    * <p>The registry path of the Docker image
    *              that contains the training algorithm.
-   *             For information about docker registry paths for SageMaker built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Docker Registry Paths and Example Code</a> in the <i>Amazon SageMaker developer guide</i>.
-   *                 SageMaker supports both <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
-   *             image path formats. For more information about using your custom training container, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon SageMaker</a>.</p>
+   *             For information about docker registry paths for SageMaker built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Docker Registry
+   *                 Paths and Example Code</a> in the <i>Amazon SageMaker developer guide</i>.
+   *             SageMaker supports both <code>registry/repository[:tag]</code> and
+   *                 <code>registry/repository[@digest]</code> image path formats. For more information
+   *             about using your custom training container, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
+   *                 Amazon SageMaker</a>.</p>
    *         <note>
-   *             <p>You must specify either the algorithm name to the <code>AlgorithmName</code> parameter
-   *                 or the image URI of the algorithm container
-   *                 to the <code>TrainingImage</code> parameter.</p>
-   *             <p>For more information, see the note in the <code>AlgorithmName</code> parameter description.</p>
+   *             <p>You must specify either the algorithm name to the <code>AlgorithmName</code>
+   *                 parameter or the image URI of the algorithm container to the
+   *                     <code>TrainingImage</code> parameter.</p>
+   *             <p>For more information, see the note in the <code>AlgorithmName</code> parameter
+   *                 description.</p>
    *         </note>
    */
   TrainingImage?: string;
 
   /**
    * <p>The name of the algorithm resource to use for the training job. This must be an
-   *             algorithm resource that you created or subscribe to on Amazon Web Services Marketplace.</p>
+   *             algorithm resource that you created or subscribe to on Amazon Web Services
+   *             Marketplace.</p>
    *         <note>
-   *             <p>You must specify either the algorithm name to the <code>AlgorithmName</code> parameter
-   *                 or the image URI of the algorithm container
-   *                 to the <code>TrainingImage</code> parameter.</p>
-   *             <p>Note that the <code>AlgorithmName</code> parameter is mutually exclusive
-   *                 with the <code>TrainingImage</code> parameter.
-   *                 If you specify a value for the <code>AlgorithmName</code> parameter,
-   *                 you can't specify a value for <code>TrainingImage</code>, and vice versa.</p>
-   *             <p>If you specify values for both parameters, the training job might break; if you don't specify
-   *                 any value for both parameters, the training job might raise a <code>null</code> error.</p>
+   *             <p>You must specify either the algorithm name to the <code>AlgorithmName</code>
+   *                 parameter or the image URI of the algorithm container to the
+   *                     <code>TrainingImage</code> parameter.</p>
+   *             <p>Note that the <code>AlgorithmName</code> parameter is mutually exclusive with the
+   *                     <code>TrainingImage</code> parameter. If you specify a value for the
+   *                     <code>AlgorithmName</code> parameter, you can't specify a value for
+   *                     <code>TrainingImage</code>, and vice versa.</p>
+   *             <p>If you specify values for both parameters, the training job might break; if you
+   *                 don't specify any value for both parameters, the training job might raise a
+   *                     <code>null</code> error.</p>
    *         </note>
    */
   AlgorithmName?: string;
 
   /**
-   * <p>The training input mode that the algorithm supports. For more information about input modes, see
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
+   * <p>The training input mode that the algorithm supports. For more information about input
+   *             modes, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
    *
    *         <p>
    *             <b>Pipe mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly
-   *             from Amazon S3 to the container.</p>
+   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly from
+   *             Amazon S3 to the container.</p>
    *
    *         <p>
    *             <b>File mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>File</code> mode, SageMaker
-   *             downloads the training data from S3 to the provisioned ML storage volume, and mounts the
-   *             directory to the Docker volume for the training container.</p>
-   *         <p>You must provision the ML storage volume with sufficient capacity
-   *             to accommodate the data downloaded from S3. In addition to the training data, the ML
-   *             storage volume also stores the output model. The algorithm container uses the ML storage
-   *             volume to also store intermediate information, if any.</p>
-   *         <p>For distributed algorithms, training data is distributed uniformly.
-   *             Your training duration is predictable if the input data objects sizes are
-   *             approximately the same. SageMaker does not split the files any further for model training.
-   *             If the object sizes are skewed, training won't be optimal as the data distribution is also
-   *             skewed when one host in a training cluster is overloaded, thus becoming a bottleneck in
-   *             training.</p>
+   *         <p>If an algorithm supports <code>File</code> mode, SageMaker downloads the training data from
+   *             S3 to the provisioned ML storage volume, and mounts the directory to the Docker volume
+   *             for the training container.</p>
+   *         <p>You must provision the ML storage volume with sufficient capacity to accommodate the
+   *             data downloaded from S3. In addition to the training data, the ML storage volume also
+   *             stores the output model. The algorithm container uses the ML storage volume to also
+   *             store intermediate information, if any.</p>
+   *         <p>For distributed algorithms, training data is distributed uniformly. Your training
+   *             duration is predictable if the input data objects sizes are approximately the same. SageMaker
+   *             does not split the files any further for model training. If the object sizes are skewed,
+   *             training won't be optimal as the data distribution is also skewed when one host in a
+   *             training cluster is overloaded, thus becoming a bottleneck in training.</p>
    *
    *         <p>
    *             <b>FastFile mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly
-   *             from S3 to the container with no code changes, and provides file system access to
-   *             the data. Users can author their training script to interact with these files as if
-   *             they were stored on disk.</p>
+   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly from
+   *             S3 to the container with no code changes, and provides file system access to the data.
+   *             Users can author their training script to interact with these files as if they were
+   *             stored on disk.</p>
    *         <p>
-   *             <code>FastFile</code> mode works best when the data is read sequentially.
-   *             Augmented manifest files aren't supported.
-   *             The startup time is lower when there are fewer files in the S3 bucket provided.</p>
+   *             <code>FastFile</code> mode works best when the data is read sequentially. Augmented
+   *             manifest files aren't supported. The startup time is lower when there are fewer files in
+   *             the S3 bucket provided.</p>
    */
   TrainingInputMode: TrainingInputMode | string | undefined;
 
@@ -887,8 +891,7 @@ export interface S3DataSource {
   AttributeNames?: string[];
 
   /**
-   * <p>A list of names of instance groups that get data
-   *             from the S3 data source.</p>
+   * <p>A list of names of instance groups that get data from the S3 data source.</p>
    */
   InstanceGroupNames?: string[];
 }
@@ -1012,9 +1015,9 @@ export interface Channel {
  */
 export interface OutputDataConfig {
   /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the model artifacts at rest using
-   *             Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following
-   *             formats: </p>
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker
+   *             uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption. The
+   *                 <code>KmsKeyId</code> can be any of the following formats: </p>
    *         <ul>
    *             <li>
    *                 <p>// KMS Key ID</p>
@@ -1056,8 +1059,8 @@ export interface OutputDataConfig {
    *                 <code>CreateTrainingJob</code>, <code>CreateTransformJob</code>, or
    *                 <code>CreateHyperParameterTuningJob</code> requests. For more information, see
    *                 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
-   *                     Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer
-   *                 Guide</i>.</p>
+   *                 Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services
+   *                 Key Management Service Developer Guide</i>.</p>
    */
   KmsKeyId?: string;
 
@@ -1119,9 +1122,8 @@ export enum TrainingInstanceType {
 }
 
 /**
- * <p>Defines an instance group for heterogeneous cluster training.
- *             When requesting a training job using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API,
- *             you can configure multiple instance groups .</p>
+ * <p>Defines an instance group for heterogeneous cluster training. When requesting a
+ *             training job using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API, you can configure multiple instance groups .</p>
  */
 export interface InstanceGroup {
   /**
@@ -1180,8 +1182,8 @@ export interface ResourceConfig {
   VolumeSizeInGB: number | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key that SageMaker uses to encrypt data on the storage volume attached to the ML
-   *             compute instance(s) that run the training job.</p>
+   * <p>The Amazon Web Services KMS key that SageMaker uses to encrypt data on the storage volume
+   *             attached to the ML compute instance(s) that run the training job.</p>
    *         <note>
    *             <p>Certain Nitro-based instances include local storage, dependent on the instance
    *                 type. Local storage volumes are encrypted using a hardware module on the instance.
@@ -1216,13 +1218,13 @@ export interface ResourceConfig {
 }
 
 /**
- * <p>Specifies a limit to how long a model training job or model compilation job
- *             can run. It also specifies how long a managed spot training
- *             job has to complete. When the job reaches the time limit, SageMaker ends the training or
- *             compilation job. Use this API to cap model training costs.</p>
- *         <p>To stop a training job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
- *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
- *             model artifacts, so the results of training are not lost. </p>
+ * <p>Specifies a limit to how long a model training job or model compilation job can run.
+ *             It also specifies how long a managed spot training job has to complete. When the job
+ *             reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap
+ *             model training costs.</p>
+ *         <p>To stop a training job, SageMaker sends the algorithm the <code>SIGTERM</code> signal,
+ *             which delays job termination for 120 seconds. Algorithms can use this 120-second window
+ *             to save the model artifacts, so the results of training are not lost. </p>
  *         <p>The training algorithms provided by SageMaker automatically save the intermediate results
  *             of a model training job when possible. This attempt to save artifacts is only a best
  *             effort case as model might not be in a state from which it can be saved. For example, if
@@ -1237,14 +1239,16 @@ export interface ResourceConfig {
  */
 export interface StoppingCondition {
   /**
-   * <p>The maximum length of time, in seconds, that a training or compilation job can run.</p>
-   *         <p>For compilation jobs, if the job does not complete during this time, a <code>TimeOut</code> error
-   *             is generated. We recommend starting with 900 seconds and increasing as
-   *             necessary based on your model.</p>
-   *         <p>For all other jobs, if the job does not complete during this time, SageMaker ends the job. When
-   *             <code>RetryStrategy</code> is specified in the job request,
+   * <p>The maximum length of time, in seconds, that a training or compilation job can
+   *             run.</p>
+   *         <p>For compilation jobs, if the job does not complete during this time, a
+   *                 <code>TimeOut</code> error is generated. We recommend starting with 900 seconds and
+   *             increasing as necessary based on your model.</p>
+   *         <p>For all other jobs, if the job does not complete during this time, SageMaker ends the job.
+   *             When <code>RetryStrategy</code> is specified in the job request,
    *                 <code>MaxRuntimeInSeconds</code> specifies the maximum time for all of the attempts
-   *             in total, not each individual attempt. The default value is 1 day. The maximum value is 28 days.</p>
+   *             in total, not each individual attempt. The default value is 1 day. The maximum value is
+   *             28 days.</p>
    */
   MaxRuntimeInSeconds?: number;
 
@@ -1266,43 +1270,42 @@ export interface StoppingCondition {
  */
 export interface TrainingJobDefinition {
   /**
-   * <p>The training input mode that the algorithm supports. For more information about input modes, see
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
+   * <p>The training input mode that the algorithm supports. For more information about input
+   *             modes, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
    *
    *         <p>
    *             <b>Pipe mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly
-   *             from Amazon S3 to the container.</p>
+   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly from
+   *             Amazon S3 to the container.</p>
    *
    *         <p>
    *             <b>File mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>File</code> mode, SageMaker
-   *             downloads the training data from S3 to the provisioned ML storage volume, and mounts the
-   *             directory to the Docker volume for the training container.</p>
-   *         <p>You must provision the ML storage volume with sufficient capacity
-   *             to accommodate the data downloaded from S3. In addition to the training data, the ML
-   *             storage volume also stores the output model. The algorithm container uses the ML storage
-   *             volume to also store intermediate information, if any.</p>
-   *         <p>For distributed algorithms, training data is distributed uniformly.
-   *             Your training duration is predictable if the input data objects sizes are
-   *             approximately the same. SageMaker does not split the files any further for model training.
-   *             If the object sizes are skewed, training won't be optimal as the data distribution is also
-   *             skewed when one host in a training cluster is overloaded, thus becoming a bottleneck in
-   *             training.</p>
+   *         <p>If an algorithm supports <code>File</code> mode, SageMaker downloads the training data from
+   *             S3 to the provisioned ML storage volume, and mounts the directory to the Docker volume
+   *             for the training container.</p>
+   *         <p>You must provision the ML storage volume with sufficient capacity to accommodate the
+   *             data downloaded from S3. In addition to the training data, the ML storage volume also
+   *             stores the output model. The algorithm container uses the ML storage volume to also
+   *             store intermediate information, if any.</p>
+   *         <p>For distributed algorithms, training data is distributed uniformly. Your training
+   *             duration is predictable if the input data objects sizes are approximately the same. SageMaker
+   *             does not split the files any further for model training. If the object sizes are skewed,
+   *             training won't be optimal as the data distribution is also skewed when one host in a
+   *             training cluster is overloaded, thus becoming a bottleneck in training.</p>
    *
    *         <p>
    *             <b>FastFile mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly
-   *             from S3 to the container with no code changes, and provides file system access to
-   *             the data. Users can author their training script to interact with these files as if
-   *             they were stored on disk.</p>
+   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly from
+   *             S3 to the container with no code changes, and provides file system access to the data.
+   *             Users can author their training script to interact with these files as if they were
+   *             stored on disk.</p>
    *         <p>
-   *             <code>FastFile</code> mode works best when the data is read sequentially.
-   *             Augmented manifest files aren't supported.
-   *             The startup time is lower when there are fewer files in the S3 bucket provided.</p>
+   *             <code>FastFile</code> mode works best when the data is read sequentially. Augmented
+   *             manifest files aren't supported. The startup time is lower when there are fewer files in
+   *             the S3 bucket provided.</p>
    */
   TrainingInputMode: TrainingInputMode | string | undefined;
 
@@ -1697,8 +1700,8 @@ export interface TransformJobDefinition {
 /**
  * <p>Defines a training job and a batch transform job that SageMaker runs to validate your
  *             algorithm.</p>
- *         <p>The data provided in the validation profile is made available to your buyers on Amazon Web Services
- *             Marketplace.</p>
+ *         <p>The data provided in the validation profile is made available to your buyers on
+ *                 Amazon Web Services Marketplace.</p>
  */
 export interface AlgorithmValidationProfile {
   /**
@@ -3644,30 +3647,31 @@ export interface AssociationSummary {
 }
 
 /**
- * <p>Configures the behavior of the client used by SageMaker to interact with the
- *             model container during asynchronous inference.</p>
+ * <p>Configures the behavior of the client used by SageMaker to interact with the model
+ *             container during asynchronous inference.</p>
  */
 export interface AsyncInferenceClientConfig {
   /**
-   * <p>The maximum number of concurrent requests sent by the SageMaker client to the
-   *             model container. If no value is provided, SageMaker chooses an optimal value.</p>
+   * <p>The maximum number of concurrent requests sent by the SageMaker client to the model
+   *             container. If no value is provided, SageMaker chooses an optimal value.</p>
    */
   MaxConcurrentInvocationsPerInstance?: number;
 }
 
 /**
- * <p>Specifies the configuration for notifications of inference results for asynchronous inference.</p>
+ * <p>Specifies the configuration for notifications of inference results for asynchronous
+ *             inference.</p>
  */
 export interface AsyncInferenceNotificationConfig {
   /**
-   * <p>Amazon SNS topic to post a notification to when inference completes successfully.
-   *             If no topic is provided, no notification is sent on success.</p>
+   * <p>Amazon SNS topic to post a notification to when inference completes successfully. If no
+   *             topic is provided, no notification is sent on success.</p>
    */
   SuccessTopic?: string;
 
   /**
-   * <p>Amazon SNS topic to post a notification to when inference fails.
-   *             If no topic is provided, no notification is sent on failure.</p>
+   * <p>Amazon SNS topic to post a notification to when inference fails. If no topic is provided,
+   *             no notification is sent on failure.</p>
    */
   ErrorTopic?: string;
 }
@@ -3677,8 +3681,8 @@ export interface AsyncInferenceNotificationConfig {
  */
 export interface AsyncInferenceOutputConfig {
   /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
-   *             SageMaker uses to encrypt the asynchronous inference output in Amazon S3.</p>
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker
+   *             uses to encrypt the asynchronous inference output in Amazon S3.</p>
    *         <p></p>
    */
   KmsKeyId?: string;
@@ -3689,7 +3693,8 @@ export interface AsyncInferenceOutputConfig {
   S3OutputPath: string | undefined;
 
   /**
-   * <p>Specifies the configuration for notifications of inference results for asynchronous inference.</p>
+   * <p>Specifies the configuration for notifications of inference results for asynchronous
+   *             inference.</p>
    */
   NotificationConfig?: AsyncInferenceNotificationConfig;
 }
@@ -3699,8 +3704,8 @@ export interface AsyncInferenceOutputConfig {
  */
 export interface AsyncInferenceConfig {
   /**
-   * <p>Configures the behavior of the client used by SageMaker to interact
-   *             with the model container during asynchronous inference.</p>
+   * <p>Configures the behavior of the client used by SageMaker to interact with the model
+   *             container during asynchronous inference.</p>
    */
   ClientConfig?: AsyncInferenceClientConfig;
 
@@ -4458,12 +4463,14 @@ export enum AutoMLSortOrder {
 }
 
 /**
- * <p>Automatic rollback configuration for handling endpoint deployment failures and recovery.</p>
+ * <p>Automatic rollback configuration for handling endpoint deployment failures and
+ *             recovery.</p>
  */
 export interface AutoRollbackConfig {
   /**
-   * <p>List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint.
-   *             If any alarms are tripped during a deployment, SageMaker rolls back the deployment.</p>
+   * <p>List of CloudWatch alarms in your account that are configured to monitor metrics on an
+   *             endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the
+   *             deployment.</p>
    */
   Alarms?: Alarm[];
 }
@@ -4655,21 +4662,22 @@ export interface CapacitySize {
    * <p>Specifies the endpoint capacity type.</p>
    *         <ul>
    *             <li>
-   *                <p>
-   *                   <code>INSTANCE_COUNT</code>: The endpoint activates based on
-   *                 the number of instances.</p>
+   *                 <p>
+   *                   <code>INSTANCE_COUNT</code>: The endpoint activates based on the number of
+   *                     instances.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>CAPACITY_PERCENT</code>: The endpoint activates based on
-   *                 the specified percentage of capacity.</p>
+   *                 <p>
+   *                   <code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified
+   *                     percentage of capacity.</p>
    *             </li>
    *          </ul>
    */
   Type: CapacitySizeType | string | undefined;
 
   /**
-   * <p>Defines the capacity size, either as a number of instances or a capacity percentage.</p>
+   * <p>Defines the capacity size, either as a number of instances or a capacity
+   *             percentage.</p>
    */
   Value: number | undefined;
 }
@@ -4740,8 +4748,8 @@ export interface TrafficRoutingConfig {
  */
 export interface BlueGreenUpdatePolicy {
   /**
-   * <p>Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet
-   *             during an endpoint deployment.</p>
+   * <p>Defines the traffic routing strategy to shift traffic from the old fleet to the new
+   *             fleet during an endpoint deployment.</p>
    */
   TrafficRoutingConfiguration: TrafficRoutingConfig | undefined;
 
@@ -4752,8 +4760,9 @@ export interface BlueGreenUpdatePolicy {
   TerminationWaitInSeconds?: number;
 
   /**
-   * <p>Maximum execution timeout for the deployment. Note that the timeout value should be larger
-   *             than the total waiting time specified in <code>TerminationWaitInSeconds</code> and <code>WaitIntervalInSeconds</code>.</p>
+   * <p>Maximum execution timeout for the deployment. Note that the timeout value should be
+   *             larger than the total waiting time specified in <code>TerminationWaitInSeconds</code>
+   *             and <code>WaitIntervalInSeconds</code>.</p>
    */
   MaximumExecutionTimeoutInSeconds?: number;
 }
@@ -5013,7 +5022,8 @@ export enum CodeRepositorySortOrder {
 }
 
 /**
- * <p>Specifies configuration details for a Git repository in your Amazon Web Services account.</p>
+ * <p>Specifies configuration details for a Git repository in your Amazon Web Services
+ *             account.</p>
  */
 export interface GitConfig {
   /**
@@ -5027,9 +5037,9 @@ export interface GitConfig {
   Branch?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
-   *             credentials used to access the git repository. The secret must have a staging label of
-   *                 <code>AWSCURRENT</code> and must be in the following format:</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that
+   *             contains the credentials used to access the git repository. The secret must have a
+   *             staging label of <code>AWSCURRENT</code> and must be in the following format:</p>
    *         <p>
    *             <code>{"username": <i>UserName</i>, "password":
    *                     <i>Password</i>}</code>
@@ -5064,8 +5074,8 @@ export interface CodeRepositorySummary {
 
   /**
    * <p>Configuration details for the Git repository, including the URL where it is located
-   *             and the ARN of the Amazon Web Services Secrets Manager secret that contains the credentials used to
-   *             access the repository.</p>
+   *             and the ARN of the Amazon Web Services Secrets Manager secret that contains the
+   *             credentials used to access the repository.</p>
    */
   GitConfig?: GitConfig;
 }
@@ -5306,18 +5316,19 @@ export enum RepositoryAccessMode {
 /**
  * <p>Specifies an authentication configuration for the private docker registry where your
  *             model image is hosted. Specify a value for this property only if you specified
- *             <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field of the
- *             <code>ImageConfig</code> object that you passed to a call to <code>CreateModel</code>
- *             and the private Docker registry where the model image is
+ *                 <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field of the
+ *                 <code>ImageConfig</code> object that you passed to a call to
+ *                 <code>CreateModel</code> and the private Docker registry where the model image is
  *             hosted requires authentication.</p>
  */
 export interface RepositoryAuthConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services Lambda function that provides credentials to
-   *             authenticate to the private Docker registry where your model image is hosted. For
-   *             information about how to create an Amazon Web Services Lambda function, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html">Create a Lambda function
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services Lambda function that provides
+   *             credentials to authenticate to the private Docker registry where your model image is
+   *             hosted. For information about how to create an Amazon Web Services Lambda function, see
+   *                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html">Create a Lambda function
    *                 with the console</a> in the <i>Amazon Web Services Lambda Developer
-   *             Guide</i>.</p>
+   *                 Guide</i>.</p>
    */
   RepositoryCredentialsProviderArn: string | undefined;
 }
@@ -5435,11 +5446,13 @@ export interface ContainerDefinition {
    *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
    *                 model or endpoint you are creating.</p>
    *         </note>
-   *         <p>If you provide a value for this parameter, SageMaker uses Amazon Web Services Security Token Service to
-   *             download model artifacts from the S3 path you provide. Amazon Web Services STS is activated in your
-   *             IAM user account by default. If you previously deactivated Amazon Web Services STS for a region, you
-   *             need to reactivate Amazon Web Services STS for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
-   *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>Amazon Web Services Identity and Access Management User
+   *         <p>If you provide a value for this parameter, SageMaker uses Amazon Web Services Security Token
+   *             Service to download model artifacts from the S3 path you provide. Amazon Web Services STS
+   *             is activated in your IAM user account by default. If you previously deactivated
+   *                 Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS
+   *             for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+   *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
+   *                     <i>Amazon Web Services Identity and Access Management User
    *                 Guide</i>.</p>
    *         <important>
    *             <p>If you use a built-in algorithm to create a model, SageMaker requires that you provide
@@ -5927,15 +5940,15 @@ export interface CreateAlgorithmInput {
   ValidationSpecification?: AlgorithmValidationSpecification;
 
   /**
-   * <p>Whether to certify the algorithm so that it can be listed in Amazon Web Services Marketplace.</p>
+   * <p>Whether to certify the algorithm so that it can be listed in Amazon Web Services
+   *             Marketplace.</p>
    */
   CertifyForMarketplace?: boolean;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags?: Tag[];
 }
@@ -6059,7 +6072,9 @@ export interface CreateAppImageConfigRequest {
   Tags?: Tag[];
 
   /**
-   * <p>The KernelGatewayImageConfig.</p>
+   * <p>The KernelGatewayImageConfig. You can only specify one image kernel in the
+   * 	AppImageConfig API. This kernel will be shown to users before the
+   * 	image starts. Once the image runs, all kernels are visible in JupyterLab.</p>
    */
   KernelGatewayImageConfig?: KernelGatewayImageConfig;
 }
@@ -6229,10 +6244,9 @@ export interface CreateCodeRepositoryInput {
   GitConfig: GitConfig | undefined;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags?: Tag[];
 }
@@ -7723,16 +7737,22 @@ export enum RStudioServerProUserGroup {
 }
 
 /**
- * <p>A collection of settings that configure user interaction with the <code>RStudioServerPro</code> app. <code>RStudioServerProAppSettings</code> cannot be updated. The <code>RStudioServerPro</code> app must be deleted and a new one created to make any changes.</p>
+ * <p>A collection of settings that configure user interaction with the
+ *                 <code>RStudioServerPro</code> app. <code>RStudioServerProAppSettings</code> cannot
+ *             be updated. The <code>RStudioServerPro</code> app must be deleted and a new one created
+ *             to make any changes.</p>
  */
 export interface RStudioServerProAppSettings {
   /**
-   * <p>Indicates whether the current user has access to the <code>RStudioServerPro</code> app.</p>
+   * <p>Indicates whether the current user has access to the <code>RStudioServerPro</code>
+   *             app.</p>
    */
   AccessStatus?: RStudioServerProAccessStatus | string;
 
   /**
-   * <p>The level of permissions that the user has within the <code>RStudioServerPro</code> app. This value defaults to `User`. The `Admin` value allows the user access to the RStudio Administrative Dashboard.</p>
+   * <p>The level of permissions that the user has within the <code>RStudioServerPro</code>
+   *             app. This value defaults to `User`. The `Admin` value allows the user access to the
+   *             RStudio Administrative Dashboard.</p>
    */
   UserGroup?: RStudioServerProUserGroup | string;
 }
@@ -7826,7 +7846,8 @@ export interface UserSettings {
   TensorBoardAppSettings?: TensorBoardAppSettings;
 
   /**
-   * <p>A collection of settings that configure user interaction with the <code>RStudioServerPro</code> app.</p>
+   * <p>A collection of settings that configure user interaction with the
+   *                 <code>RStudioServerPro</code> app.</p>
    */
   RStudioServerProAppSettings?: RStudioServerProAppSettings;
 
@@ -7837,11 +7858,13 @@ export interface UserSettings {
 }
 
 /**
- * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level app.</p>
+ * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level
+ *             app.</p>
  */
 export interface RStudioServerProDomainSettings {
   /**
-   * <p>The ARN of the execution role for the <code>RStudioServerPro</code> Domain-level app.</p>
+   * <p>The ARN of the execution role for the <code>RStudioServerPro</code> Domain-level
+   *             app.</p>
    */
   DomainExecutionRoleArn: string | undefined;
 
@@ -7863,16 +7886,19 @@ export interface RStudioServerProDomainSettings {
 }
 
 /**
- * <p>A collection of settings that apply to the <code>SageMaker Domain</code>. These settings are specified through the <code>CreateDomain</code> API call.</p>
+ * <p>A collection of settings that apply to the <code>SageMaker Domain</code>. These
+ *             settings are specified through the <code>CreateDomain</code> API call.</p>
  */
 export interface DomainSettings {
   /**
-   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for communication between Domain-level apps and user apps.</p>
+   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for
+   *             communication between Domain-level apps and user apps.</p>
    */
   SecurityGroupIds?: string[];
 
   /**
-   * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level app.</p>
+   * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level
+   *             app.</p>
    */
   RStudioServerProDomainSettings?: RStudioServerProDomainSettings;
 }
@@ -7950,8 +7976,8 @@ export interface CreateDomainRequest {
   /**
    * <p>The entity that creates and manages the required security groups for inter-app
    *             communication in <code>VPCOnly</code> mode. Required when
-   *             <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
-   *             <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
+   *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
+   *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
    *             provided.</p>
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
@@ -8160,16 +8186,17 @@ export interface DeploymentConfig {
   BlueGreenUpdatePolicy: BlueGreenUpdatePolicy | undefined;
 
   /**
-   * <p>Automatic rollback configuration for handling endpoint deployment failures and recovery.</p>
+   * <p>Automatic rollback configuration for handling endpoint deployment failures and
+   *             recovery.</p>
    */
   AutoRollbackConfiguration?: AutoRollbackConfig;
 }
 
 export interface CreateEndpointInput {
   /**
-   * <p>The name of the endpoint.The name must be unique within an Amazon Web Services Region in your Amazon Web Services
-   *             account. The name is case-insensitive in <code>CreateEndpoint</code>, but the case is
-   *             preserved and must be matched in .</p>
+   * <p>The name of the endpoint.The name must be unique within an Amazon Web Services
+   *             Region in your Amazon Web Services account. The name is case-insensitive in
+   *                 <code>CreateEndpoint</code>, but the case is preserved and must be matched in .</p>
    */
   EndpointName: string | undefined;
 
@@ -8185,10 +8212,9 @@ export interface CreateEndpointInput {
   DeploymentConfig?: DeploymentConfig;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags?: Tag[];
 }
@@ -8280,9 +8306,9 @@ export interface ProductionVariantCoreDumpConfig {
   DestinationS3Uri: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using
-   *             Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following
-   *             formats: </p>
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker
+   *             uses to encrypt the core dump data at rest using Amazon S3 server-side encryption. The
+   *                 <code>KmsKeyId</code> can be any of the following formats: </p>
    *         <ul>
    *             <li>
    *                 <p>// KMS Key ID</p>
@@ -8322,8 +8348,8 @@ export interface ProductionVariantCoreDumpConfig {
    *          </p>
    *         <p>The KMS key policy must grant permission to the IAM role that you specify in your
    *                 <code>CreateEndpoint</code> and <code>UpdateEndpoint</code> requests. For more
-   *             information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using Key Policies in Amazon Web Services
-   *                 KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management
+   *                 Service Developer Guide</i>.</p>
    */
   KmsKeyId?: string;
 }
@@ -8417,16 +8443,16 @@ export interface CreateEndpointConfigInput {
   DataCaptureConfig?: DataCaptureConfig;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags?: Tag[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker uses to encrypt data on
-   *             the storage volume attached to the ML compute instance that hosts the endpoint.</p>
+   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that
+   *             SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that
+   *             hosts the endpoint.</p>
    *         <p>The KmsKeyId can be any of the following formats: </p>
    *         <ul>
    *             <li>
@@ -8470,9 +8496,8 @@ export interface CreateEndpointConfigInput {
   KmsKeyId?: string;
 
   /**
-   * <p>Specifies configuration for how an endpoint performs asynchronous inference.
-   *             This is a required field in order for your Endpoint to be invoked using
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html">InvokeEndpointAsync</a>.</p>
+   * <p>Specifies configuration for how an endpoint performs asynchronous inference. This is a
+   *             required field in order for your Endpoint to be invoked using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html">InvokeEndpointAsync</a>.</p>
    */
   AsyncInferenceConfig?: AsyncInferenceConfig;
 }
@@ -9745,8 +9770,8 @@ export interface IntegerParameterRange {
  *             result in the training job with the best performance as measured by the objective metric
  *             of the hyperparameter tuning job.</p>
  *         <note>
- *             <p>The maximum number of items specified for <code>Array Members</code> refers to
- *                 the maximum number of hyperparameters for each range and also the maximum for the
+ *             <p>The maximum number of items specified for <code>Array Members</code> refers to the
+ *                 maximum number of hyperparameters for each range and also the maximum for the
  *                 hyperparameter tuning job itself. That is, the sum of the number of hyperparameters
  *                 for all the ranges can't exceed the maximum number specified.</p>
  *         </note>

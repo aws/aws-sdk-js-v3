@@ -1080,7 +1080,6 @@ import {
   DescribeFlowDefinitionRequest,
   DescribeFlowDefinitionResponse,
   DescribeHumanTaskUiRequest,
-  DescribeHumanTaskUiResponse,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1099,8 +1098,10 @@ import {
   HumanTaskConfig,
   HyperParameterAlgorithmSpecification,
   HyperParameterTrainingJobDefinition,
+  HyperParameterTuningInstanceConfig,
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobWarmStartConfig,
+  HyperParameterTuningResourceConfig,
   InferenceExecutionConfig,
   InstanceMetadataServiceConfiguration,
   LabelingJobAlgorithmsConfig,
@@ -1186,10 +1187,10 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
   UiConfig,
-  UiTemplateInfo,
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DescribeHumanTaskUiResponse,
   DescribeHyperParameterTuningJobRequest,
   DescribeHyperParameterTuningJobResponse,
   DescribeImageRequest,
@@ -1390,8 +1391,6 @@ import {
   ListNotebookInstanceLifecycleConfigsOutput,
   ListNotebookInstancesInput,
   ListNotebookInstancesOutput,
-  ListPipelineExecutionsRequest,
-  ListPipelineExecutionsResponse,
   MetricData,
   ModelConfiguration,
   ModelMetadataFilter,
@@ -1410,7 +1409,6 @@ import {
   NotebookInstanceSummary,
   ObjectiveStatusCounters,
   OidcConfigForResponse,
-  PipelineExecutionSummary,
   PipelineExperimentConfig,
   ProfilerRuleEvaluationStatus,
   PropertyNameQuery,
@@ -1425,11 +1423,14 @@ import {
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
+  UiTemplateInfo,
   Workforce,
   WorkforceVpcConfigResponse,
   Workteam,
 } from "../models/models_2";
 import {
+  ListPipelineExecutionsRequest,
+  ListPipelineExecutionsResponse,
   ListPipelineExecutionStepsRequest,
   ListPipelineExecutionStepsResponse,
   ListPipelineParametersForExecutionRequest,
@@ -1474,6 +1475,7 @@ import {
   PipelineExecution,
   PipelineExecutionStep,
   PipelineExecutionStepMetadata,
+  PipelineExecutionSummary,
   PipelineSummary,
   ProcessingJob,
   ProcessingJobStepMetadata,
@@ -18673,6 +18675,12 @@ const serializeAws_json1_1HyperParameterTrainingJobDefinition = (
     ...(input.HyperParameterRanges != null && {
       HyperParameterRanges: serializeAws_json1_1ParameterRanges(input.HyperParameterRanges, context),
     }),
+    ...(input.HyperParameterTuningResourceConfig != null && {
+      HyperParameterTuningResourceConfig: serializeAws_json1_1HyperParameterTuningResourceConfig(
+        input.HyperParameterTuningResourceConfig,
+        context
+      ),
+    }),
     ...(input.InputDataConfig != null && {
       InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
     }),
@@ -18707,6 +18715,28 @@ const serializeAws_json1_1HyperParameterTrainingJobDefinitions = (
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_json1_1HyperParameterTrainingJobDefinition(entry, context);
+    });
+};
+
+const serializeAws_json1_1HyperParameterTuningInstanceConfig = (
+  input: HyperParameterTuningInstanceConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstanceCount != null && { InstanceCount: input.InstanceCount }),
+    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
+    ...(input.VolumeSizeInGB != null && { VolumeSizeInGB: input.VolumeSizeInGB }),
+  };
+};
+
+const serializeAws_json1_1HyperParameterTuningInstanceConfigs = (
+  input: HyperParameterTuningInstanceConfig[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1HyperParameterTuningInstanceConfig(entry, context);
     });
 };
 
@@ -18773,6 +18803,22 @@ const serializeAws_json1_1HyperParameterTuningJobWarmStartConfig = (
       ),
     }),
     ...(input.WarmStartType != null && { WarmStartType: input.WarmStartType }),
+  };
+};
+
+const serializeAws_json1_1HyperParameterTuningResourceConfig = (
+  input: HyperParameterTuningResourceConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AllocationStrategy != null && { AllocationStrategy: input.AllocationStrategy }),
+    ...(input.InstanceConfigs != null && {
+      InstanceConfigs: serializeAws_json1_1HyperParameterTuningInstanceConfigs(input.InstanceConfigs, context),
+    }),
+    ...(input.InstanceCount != null && { InstanceCount: input.InstanceCount }),
+    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
+    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VolumeSizeInGB != null && { VolumeSizeInGB: input.VolumeSizeInGB }),
   };
 };
 
@@ -27918,6 +27964,10 @@ const deserializeAws_json1_1HyperParameterTrainingJobDefinition = (
       output.HyperParameterRanges != null
         ? deserializeAws_json1_1ParameterRanges(output.HyperParameterRanges, context)
         : undefined,
+    HyperParameterTuningResourceConfig:
+      output.HyperParameterTuningResourceConfig != null
+        ? deserializeAws_json1_1HyperParameterTuningResourceConfig(output.HyperParameterTuningResourceConfig, context)
+        : undefined,
     InputDataConfig:
       output.InputDataConfig != null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
@@ -28013,6 +28063,32 @@ const deserializeAws_json1_1HyperParameterTrainingJobSummary = (
         : undefined,
     TuningJobName: __expectString(output.TuningJobName),
   } as any;
+};
+
+const deserializeAws_json1_1HyperParameterTuningInstanceConfig = (
+  output: any,
+  context: __SerdeContext
+): HyperParameterTuningInstanceConfig => {
+  return {
+    InstanceCount: __expectInt32(output.InstanceCount),
+    InstanceType: __expectString(output.InstanceType),
+    VolumeSizeInGB: __expectInt32(output.VolumeSizeInGB),
+  } as any;
+};
+
+const deserializeAws_json1_1HyperParameterTuningInstanceConfigs = (
+  output: any,
+  context: __SerdeContext
+): HyperParameterTuningInstanceConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HyperParameterTuningInstanceConfig(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1HyperParameterTuningJobConfig = (
@@ -28123,6 +28199,23 @@ const deserializeAws_json1_1HyperParameterTuningJobWarmStartConfig = (
         ? deserializeAws_json1_1ParentHyperParameterTuningJobs(output.ParentHyperParameterTuningJobs, context)
         : undefined,
     WarmStartType: __expectString(output.WarmStartType),
+  } as any;
+};
+
+const deserializeAws_json1_1HyperParameterTuningResourceConfig = (
+  output: any,
+  context: __SerdeContext
+): HyperParameterTuningResourceConfig => {
+  return {
+    AllocationStrategy: __expectString(output.AllocationStrategy),
+    InstanceConfigs:
+      output.InstanceConfigs != null
+        ? deserializeAws_json1_1HyperParameterTuningInstanceConfigs(output.InstanceConfigs, context)
+        : undefined,
+    InstanceCount: __expectInt32(output.InstanceCount),
+    InstanceType: __expectString(output.InstanceType),
+    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
+    VolumeSizeInGB: __expectInt32(output.VolumeSizeInGB),
   } as any;
 };
 

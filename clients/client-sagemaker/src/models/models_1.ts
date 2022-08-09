@@ -99,6 +99,7 @@ import {
   StoppingCondition,
   Tag,
   TrainingInputMode,
+  TrainingInstanceType,
   TrainingJobEarlyStoppingType,
   TrainingSpecification,
   TransformInput,
@@ -190,43 +191,42 @@ export interface HyperParameterAlgorithmSpecification {
   TrainingImage?: string;
 
   /**
-   * <p>The training input mode that the algorithm supports. For more information about input modes, see
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
+   * <p>The training input mode that the algorithm supports. For more information about input
+   *             modes, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
    *
    *         <p>
    *             <b>Pipe mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly
-   *             from Amazon S3 to the container.</p>
+   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly from
+   *             Amazon S3 to the container.</p>
    *
    *         <p>
    *             <b>File mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>File</code> mode, SageMaker
-   *             downloads the training data from S3 to the provisioned ML storage volume, and mounts the
-   *             directory to the Docker volume for the training container.</p>
-   *         <p>You must provision the ML storage volume with sufficient capacity
-   *             to accommodate the data downloaded from S3. In addition to the training data, the ML
-   *             storage volume also stores the output model. The algorithm container uses the ML storage
-   *             volume to also store intermediate information, if any.</p>
-   *         <p>For distributed algorithms, training data is distributed uniformly.
-   *             Your training duration is predictable if the input data objects sizes are
-   *             approximately the same. SageMaker does not split the files any further for model training.
-   *             If the object sizes are skewed, training won't be optimal as the data distribution is also
-   *             skewed when one host in a training cluster is overloaded, thus becoming a bottleneck in
-   *             training.</p>
+   *         <p>If an algorithm supports <code>File</code> mode, SageMaker downloads the training data from
+   *             S3 to the provisioned ML storage volume, and mounts the directory to the Docker volume
+   *             for the training container.</p>
+   *         <p>You must provision the ML storage volume with sufficient capacity to accommodate the
+   *             data downloaded from S3. In addition to the training data, the ML storage volume also
+   *             stores the output model. The algorithm container uses the ML storage volume to also
+   *             store intermediate information, if any.</p>
+   *         <p>For distributed algorithms, training data is distributed uniformly. Your training
+   *             duration is predictable if the input data objects sizes are approximately the same. SageMaker
+   *             does not split the files any further for model training. If the object sizes are skewed,
+   *             training won't be optimal as the data distribution is also skewed when one host in a
+   *             training cluster is overloaded, thus becoming a bottleneck in training.</p>
    *
    *         <p>
    *             <b>FastFile mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly
-   *             from S3 to the container with no code changes, and provides file system access to
-   *             the data. Users can author their training script to interact with these files as if
-   *             they were stored on disk.</p>
+   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly from
+   *             S3 to the container with no code changes, and provides file system access to the data.
+   *             Users can author their training script to interact with these files as if they were
+   *             stored on disk.</p>
    *         <p>
-   *             <code>FastFile</code> mode works best when the data is read sequentially.
-   *             Augmented manifest files aren't supported.
-   *             The startup time is lower when there are fewer files in the S3 bucket provided.</p>
+   *             <code>FastFile</code> mode works best when the data is read sequentially. Augmented
+   *             manifest files aren't supported. The startup time is lower when there are fewer files in
+   *             the S3 bucket provided.</p>
    */
   TrainingInputMode: TrainingInputMode | string | undefined;
 
@@ -243,6 +243,119 @@ export interface HyperParameterAlgorithmSpecification {
    *             that the algorithm emits.</p>
    */
   MetricDefinitions?: MetricDefinition[];
+}
+
+export enum HyperParameterTuningAllocationStrategy {
+  PRIORITIZED = "Prioritized",
+}
+
+/**
+ * <p>The configuration for hyperparameter tuning resources for use in training jobs
+ *             launched by the tuning job. These resources include compute instances and storage
+ *             volumes. Specify one or more compute instance configurations and allocation strategies
+ *             to select resources (optional).</p>
+ */
+export interface HyperParameterTuningInstanceConfig {
+  /**
+   * <p>The instance type used for processing of hyperparameter optimization jobs. Choose from
+   *             general purpose (no GPUs) instance types: ml.m5.xlarge, ml.m5.2xlarge, and ml.m5.4xlarge
+   *             or compute optimized (no GPUs) instance types: ml.c5.xlarge and ml.c5.2xlarge. For more
+   *             information about instance types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html">instance type
+   *                 descriptions</a>.</p>
+   */
+  InstanceType: TrainingInstanceType | string | undefined;
+
+  /**
+   * <p>The number of instances of the type specified by <code>InstanceType</code>. Choose an
+   *             instance count larger than 1 for distributed training algorithms. See <a href="https://docs.aws.amazon.com/data-parallel-use-api.html">SageMaker distributed training
+   *                 jobs</a> for more information.</p>
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>The volume size in GB of the data to be processed for hyperparameter optimization
+   *             (optional).</p>
+   */
+  VolumeSizeInGB: number | undefined;
+}
+
+/**
+ * <p>The configuration of resources, including compute instances and storage volumes for
+ *             use in training jobs launched by hyperparameter tuning jobs. Specify one or more
+ *             instance type and count and the allocation strategy for instance selection.</p>
+ *         <note>
+ *             <p>HyperParameterTuningResourceConfig supports all of the capabilities of
+ *                 ResourceConfig with added functionality for flexible instance management.</p>
+ *         </note>
+ */
+export interface HyperParameterTuningResourceConfig {
+  /**
+   * <p>The instance type used to run hyperparameter optimization tuning jobs. See <a href="https://docs.aws.amazon.com/notebooks-available-instance-types.html"> descriptions of
+   *                 instance types</a> for more information.</p>
+   */
+  InstanceType?: TrainingInstanceType | string;
+
+  /**
+   * <p>The number of compute instances of type <code>InstanceType</code> to use. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html">distributed training</a>, select a value greater than 1.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>The volume size in GB for the storage volume to be used in processing hyperparameter
+   *             optimization jobs (optional). These volumes store model artifacts, incremental states
+   *             and optionally, scratch space for training algorithms. Do not provide a value for this
+   *             parameter if a value for <code>InstanceConfigs</code> is also specified.</p>
+   *         <p>Some instance types have a fixed total local storage size. If you select one of these
+   *             instances for training, <code>VolumeSizeInGB</code> cannot be greater than this total
+   *             size. For a list of instance types with local instance storage and their sizes, see
+   *                 <a href="https://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance store volumes</a>.</p>
+   *         <note>
+   *             <p>SageMaker supports only the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html">General Purpose SSD (gp2)</a> storage volume type.</p>
+   *         </note>
+   */
+  VolumeSizeInGB?: number;
+
+  /**
+   * <p>A key used by AWS Key Management Service to encrypt data on the storage volume attached to the compute
+   *             instances used to run the training job. You can use either of the following formats to
+   *             specify a key.</p>
+   *         <p>KMS Key ID:</p>
+   *         <p>
+   *             <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *          </p>
+   *         <p>Amazon Resource Name (ARN) of a AWS KMS key:</p>
+   *         <p>
+   *             <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *          </p>
+   *         <p>Some instances use local storage, which use a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">hardware module to encrypt</a> storage volumes. If you choose one of these
+   *             instance types, you cannot request a <code>VolumeKmsKeyId</code>. For a list of instance
+   *             types that use local storage, see <a href="https://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance store volumes</a>. For more information about AWS Key Management Service, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html">AWS KMS encryption</a> for more information.</p>
+   */
+  VolumeKmsKeyId?: string;
+
+  /**
+   * <p>The strategy that determines the order of preference for resources specified in
+   *                 <code>InstanceConfigs</code> used in hyperparameter optimization.</p>
+   */
+  AllocationStrategy?: HyperParameterTuningAllocationStrategy | string;
+
+  /**
+   * <p>A list containing the configuration(s) for one or more resources for processing
+   *             hyperparameter jobs. These resources include compute instances and storage volumes to
+   *             use in model training jobs launched by hyperparameter tuning jobs. The
+   *                 <code>AllocationStrategy</code> controls the order in which multiple configurations
+   *             provided in <code>InstanceConfigs</code> are used.</p>
+   *         <note>
+   *             <p>If you only want to use a single InstanceConfig inside the
+   *                     <code>HyperParameterTuningResourceConfig</code> API, do not provide a value for
+   *                     <code>InstanceConfigs</code>. Instead, use <code>InstanceType</code>,
+   *                     <code>VolumeSizeInGB</code> and <code>InstanceCount</code>. If you use
+   *                     <code>InstanceConfigs</code>, do not provide values for
+   *                     <code>InstanceType</code>, <code>VolumeSizeInGB</code> or
+   *                     <code>InstanceCount</code>.</p>
+   *         </note>
+   */
+  InstanceConfigs?: HyperParameterTuningInstanceConfig[];
 }
 
 /**
@@ -287,8 +400,8 @@ export interface HyperParameterTrainingJobDefinition {
    *             result in the training job with the best performance as measured by the objective metric
    *             of the hyperparameter tuning job.</p>
    *         <note>
-   *             <p>The maximum number of items specified for <code>Array Members</code> refers to
-   *                 the maximum number of hyperparameters for each range and also the maximum for the
+   *             <p>The maximum number of items specified for <code>Array Members</code> refers to the
+   *                 maximum number of hyperparameters for each range and also the maximum for the
    *                 hyperparameter tuning job itself. That is, the sum of the number of hyperparameters
    *                 for all the ranges can't exceed the maximum number specified.</p>
    *         </note>
@@ -357,8 +470,11 @@ export interface HyperParameterTrainingJobDefinition {
    *             training data, choose <code>File</code> as the <code>TrainingInputMode</code> in the
    *             algorithm specification. For distributed training algorithms, specify an instance count
    *             greater than 1.</p>
+   *         <note>
+   *             <p>If you want to use hyperparameter optimization with instance type flexibility, use <code>HyperParameterTuningResourceConfig</code> instead.</p>
+   *          </note>
    */
-  ResourceConfig: ResourceConfig | undefined;
+  ResourceConfig?: ResourceConfig;
 
   /**
    * <p>Specifies a limit to how long a model hyperparameter training job can run. It also
@@ -402,6 +518,16 @@ export interface HyperParameterTrainingJobDefinition {
    *                 <code>InternalServerError</code>.</p>
    */
   RetryStrategy?: RetryStrategy;
+
+  /**
+   * <p>The configuration for the hyperparameter tuning resources, including the compute
+   *             instances and storage volumes, used for training jobs launched by the tuning job. By
+   *             default, storage volumes hold model artifacts and incremental states. Choose
+   *                 <code>File</code> for <code>TrainingInputMode</code> in the
+   *                 <code>AlgorithmSpecification</code>parameter to additionally store training data in
+   *             the storage volume (optional).</p>
+   */
+  HyperParameterTuningResourceConfig?: HyperParameterTuningResourceConfig;
 }
 
 /**
@@ -485,9 +611,9 @@ export interface HyperParameterTuningJobWarmStartConfig {
 export interface CreateHyperParameterTuningJobRequest {
   /**
    * <p>The name of the tuning job. This name is the prefix for the names of all training jobs
-   *             that this tuning job launches. The name must be unique within the same Amazon Web Services account and
-   *             Amazon Web Services Region. The name must have 1 to 32 characters. Valid characters are a-z, A-Z, 0-9,
-   *             and : + = @ _ % - (hyphen). The name is not case sensitive.</p>
+   *             that this tuning job launches. The name must be unique within the same Amazon Web Services account and Amazon Web Services Region. The name must have 1 to 32 characters. Valid
+   *             characters are a-z, A-Z, 0-9, and : + = @ _ % - (hyphen). The name is not case
+   *             sensitive.</p>
    */
   HyperParameterTuningJobName: string | undefined;
 
@@ -534,10 +660,9 @@ export interface CreateHyperParameterTuningJobRequest {
   WarmStartConfig?: HyperParameterTuningJobWarmStartConfig;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    *         <p>Tags that you specify for the tuning job are also added to all training jobs that the
    *             tuning job launches.</p>
    */
@@ -3147,10 +3272,9 @@ export interface CreateModelInput {
   ExecutionRoleArn: string | undefined;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags?: Tag[];
 
@@ -3597,8 +3721,7 @@ export interface ModelMetrics {
 
 /**
  * <p>Specifies an algorithm that was used to create the model package. The algorithm must
- *             be either an algorithm resource in your SageMaker account or an algorithm in Amazon Web Services Marketplace that you
- *             are subscribed to.</p>
+ *             be either an algorithm resource in your SageMaker account or an algorithm in Amazon Web Services Marketplace that you are subscribed to.</p>
  */
 export interface SourceAlgorithm {
   /**
@@ -3614,8 +3737,7 @@ export interface SourceAlgorithm {
 
   /**
    * <p>The name of an algorithm that was used to create the model package. The algorithm must
-   *             be either an algorithm resource in your SageMaker account or an algorithm in Amazon Web Services Marketplace that you
-   *             are subscribed to.</p>
+   *             be either an algorithm resource in your SageMaker account or an algorithm in Amazon Web Services Marketplace that you are subscribed to.</p>
    */
   AlgorithmName: string | undefined;
 }
@@ -4376,11 +4498,11 @@ export interface CreateNotebookInstanceInput {
   SecurityGroupIds?: string[];
 
   /**
-   * <p> When you send any requests to Amazon Web Services resources from the notebook instance, SageMaker
-   *             assumes this role to perform tasks on your behalf. You must grant this role necessary
-   *             permissions so SageMaker can perform these tasks. The policy must allow the SageMaker service
-   *             principal (sagemaker.amazonaws.com) permissions to assume this role. For more
-   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p>
+   * <p> When you send any requests to Amazon Web Services resources from the notebook
+   *             instance, SageMaker assumes this role to perform tasks on your behalf. You must grant this
+   *             role necessary permissions so SageMaker can perform these tasks. The policy must allow the
+   *             SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For
+   *             more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p>
    *         <note>
    *             <p>To be able to pass this role to SageMaker, the caller of this API must have the
    *                     <code>iam:PassRole</code> permission.</p>
@@ -4389,18 +4511,18 @@ export interface CreateNotebookInstanceInput {
   RoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker uses to encrypt data on
-   *             the storage volume attached to your notebook instance. The KMS key you provide must be
-   *             enabled. For information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html">Enabling and Disabling
-   *                 Keys</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that
+   *             SageMaker uses to encrypt data on the storage volume attached to your notebook instance. The
+   *             KMS key you provide must be enabled. For information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html">Enabling and Disabling
+   *                 Keys</a> in the <i>Amazon Web Services Key Management Service Developer
+   *                 Guide</i>.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags?: Tag[];
 
@@ -4438,19 +4560,19 @@ export interface CreateNotebookInstanceInput {
   /**
    * <p>A Git repository to associate with the notebook instance as its default code
    *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository. When you open a notebook instance, it opens in the directory that
-   *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with SageMaker
-   *                 Notebook Instances</a>.</p>
+   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *             or in any other Git repository. When you open a notebook instance, it opens in the
+   *             directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *                 Repositories with SageMaker Notebook Instances</a>.</p>
    */
   DefaultCodeRepository?: string;
 
   /**
    * <p>An array of up to three Git repositories to associate with the notebook instance.
    *             These can be either the names of Git repositories stored as resources in your account,
-   *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository. These repositories are cloned at the same level as the default
-   *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *             or in any other Git repository. These repositories are cloned at the same level as the
+   *             default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
    *                 Repositories with SageMaker Notebook Instances</a>.</p>
    */
   AdditionalCodeRepositories?: string[];
@@ -5435,8 +5557,8 @@ export interface TensorBoardOutputConfig {
 
 export interface CreateTrainingJobRequest {
   /**
-   * <p>The name of the training job. The name must be unique within an Amazon Web Services Region in an
-   *             Amazon Web Services account. </p>
+   * <p>The name of the training job. The name must be unique within an Amazon Web Services
+   *             Region in an Amazon Web Services account. </p>
    */
   TrainingJobName: string | undefined;
 
@@ -5486,8 +5608,7 @@ export interface CreateTrainingJobRequest {
    *         <p>Depending on the input mode that the algorithm supports, SageMaker either copies input
    *             data files from an S3 bucket to a local directory in the Docker container, or makes it
    *             available as input streams. For example, if you specify an EFS location, input data
-   *             files are available as input streams. They do not need to be
-   *             downloaded.</p>
+   *             files are available as input streams. They do not need to be downloaded.</p>
    */
   InputDataConfig?: Channel[];
 
@@ -5527,10 +5648,9 @@ export interface CreateTrainingJobRequest {
   StoppingCondition: StoppingCondition | undefined;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags?: Tag[];
 
@@ -5709,12 +5829,14 @@ export interface DataProcessing {
  */
 export interface ModelClientConfig {
   /**
-   * <p>The timeout value in seconds for an invocation request. The default value is 600.</p>
+   * <p>The timeout value in seconds for an invocation request. The default value is
+   *             600.</p>
    */
   InvocationsTimeoutInSeconds?: number;
 
   /**
-   * <p>The maximum number of retries when invocation requests are failing. The default value is 3.</p>
+   * <p>The maximum number of retries when invocation requests are failing. The default value
+   *             is 3.</p>
    */
   InvocationsMaxRetries?: number;
 }
@@ -7111,7 +7233,8 @@ export interface DescribeAlgorithmOutput {
   ProductId?: string;
 
   /**
-   * <p>Whether the algorithm is certified to be listed in Amazon Web Services Marketplace.</p>
+   * <p>Whether the algorithm is certified to be listed in Amazon Web Services
+   *             Marketplace.</p>
    */
   CertifyForMarketplace?: boolean;
 }
@@ -7480,8 +7603,8 @@ export interface DescribeCodeRepositoryOutput {
 
   /**
    * <p>Configuration details about the repository, including the URL where the repository is
-   *             located, the default branch, and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets
-   *             Manager secret that contains the credentials used to access the repository.</p>
+   *             located, the default branch, and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the
+   *             repository.</p>
    */
   GitConfig?: GitConfig;
 }
@@ -8032,13 +8155,17 @@ export interface DescribeDomainResponse {
   DomainSettings?: DomainSettings;
 
   /**
-   * <p>The entity that creates and manages the required security groups for inter-app communication in <code>VPCOnly</code> mode.
-   *             Required when <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is provided.</p>
+   * <p>The entity that creates and manages the required security groups for inter-app
+   *             communication in <code>VPCOnly</code> mode. Required when
+   *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
+   *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
+   *             provided.</p>
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
 
   /**
-   * <p>The ID of the security group that authorizes traffic between the <code>RSessionGateway</code> apps and the <code>RStudioServerPro</code> app.</p>
+   * <p>The ID of the security group that authorizes traffic between the
+   *                 <code>RSessionGateway</code> apps and the <code>RStudioServerPro</code> app.</p>
    */
   SecurityGroupIdForDomainBoundary?: string;
 }
@@ -8272,15 +8399,18 @@ export enum VariantStatus {
  */
 export interface ProductionVariantStatus {
   /**
-   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
+   * <p>The endpoint variant status which describes the current deployment stage status or
+   *             operational status.</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>Creating</code>: Creating inference resources for the production variant.</p>
+   *                   <code>Creating</code>: Creating inference resources for the production
+   *                     variant.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>Deleting</code>: Terminating inference resources for the production variant.</p>
+   *                   <code>Deleting</code>: Terminating inference resources for the production
+   *                     variant.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -8288,12 +8418,13 @@ export interface ProductionVariantStatus {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>ActivatingTraffic</code>: Turning on traffic for the production variant.</p>
+   *                   <code>ActivatingTraffic</code>: Turning on traffic for the production
+   *                     variant.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>Baking</code>: Waiting period to monitor the CloudWatch alarms in the
-   *                 automatic rollback configuration.</p>
+   *                     automatic rollback configuration.</p>
    *             </li>
    *          </ul>
    */
@@ -8311,16 +8442,14 @@ export interface ProductionVariantStatus {
 }
 
 /**
- * <p>The production variant summary for a deployment when an endpoint is
- *             creating or updating with the <code>
+ * <p>The production variant summary for a deployment when an endpoint is creating or
+ *             updating with the <code>
  *                <a>CreateEndpoint</a>
- *             </code>
- *             or <code>
+ *             </code> or <code>
  *                <a>UpdateEndpoint</a>
- *             </code> operations.
- *             Describes the <code>VariantStatus </code>, weight and capacity for a production
- *             variant associated with an endpoint.
- *            </p>
+ *             </code> operations. Describes the <code>VariantStatus
+ *             </code>, weight and capacity for a production variant associated with an endpoint.
+ *         </p>
  */
 export interface PendingProductionVariantSummary {
   /**
@@ -8329,9 +8458,9 @@ export interface PendingProductionVariantSummary {
   VariantName: string | undefined;
 
   /**
-   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2
-   *             Container Registry paths of the inference images deployed on instances of this
-   *             <code>ProductionVariant</code>.</p>
+   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container
+   *             Registry paths of the inference images deployed on instances of this
+   *                 <code>ProductionVariant</code>.</p>
    */
   DeployedImages?: DeployedImage[];
 
@@ -8341,8 +8470,8 @@ export interface PendingProductionVariantSummary {
   CurrentWeight?: number;
 
   /**
-   * <p>The requested weight for the variant in this deployment, as specified in the endpoint configuration
-   *             for the endpoint. The value is taken from the request to the <code>
+   * <p>The requested weight for the variant in this deployment, as specified in the endpoint
+   *             configuration for the endpoint. The value is taken from the request to the <code>
    *                <a>CreateEndpointConfig</a>
    *             </code> operation.</p>
    */
@@ -8354,8 +8483,8 @@ export interface PendingProductionVariantSummary {
   CurrentInstanceCount?: number;
 
   /**
-   * <p>The number of instances requested in this deployment, as specified in the endpoint configuration
-   *             for the endpoint. The value is taken from the request to the <code>
+   * <p>The number of instances requested in this deployment, as specified in the endpoint
+   *             configuration for the endpoint. The value is taken from the request to the <code>
    *                <a>CreateEndpointConfig</a>
    *             </code> operation.</p>
    */
@@ -8369,13 +8498,14 @@ export interface PendingProductionVariantSummary {
   /**
    * <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI
    *             instances provide on-demand GPU computing for inference. For more information, see
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
    *                 Inference in Amazon SageMaker</a>.</p>
    */
   AcceleratorType?: ProductionVariantAcceleratorType | string;
 
   /**
-   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
+   * <p>The endpoint variant status which describes the current deployment stage status or
+   *             operational status.</p>
    */
   VariantStatus?: ProductionVariantStatus[];
 
@@ -8391,8 +8521,8 @@ export interface PendingProductionVariantSummary {
 }
 
 /**
- * <p>The summary of an in-progress deployment when an endpoint is creating or
- *             updating with a new endpoint configuration.</p>
+ * <p>The summary of an in-progress deployment when an endpoint is creating or updating with
+ *             a new endpoint configuration.</p>
  */
 export interface PendingDeploymentSummary {
   /**
@@ -8452,7 +8582,8 @@ export interface ProductionVariantSummary {
   DesiredInstanceCount?: number;
 
   /**
-   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
+   * <p>The endpoint variant status which describes the current deployment stage status or
+   *             operational status.</p>
    */
   VariantStatus?: ProductionVariantStatus[];
 
@@ -8569,8 +8700,7 @@ export interface DescribeEndpointOutput {
   LastDeploymentConfig?: DeploymentConfig;
 
   /**
-   * <p>Returns the description of an endpoint configuration created
-   *             using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">
+   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">
    *                <code>CreateEndpointConfig</code>
    *             </a> API.</p>
    */
@@ -8613,8 +8743,8 @@ export interface DescribeEndpointConfigOutput {
   DataCaptureConfig?: DataCaptureConfig;
 
   /**
-   * <p>Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage
-   *             volume attached to the instance.</p>
+   * <p>Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data when storing it on
+   *             the ML storage volume attached to the instance.</p>
    */
   KmsKeyId?: string;
 
@@ -8624,8 +8754,7 @@ export interface DescribeEndpointConfigOutput {
   CreationTime: Date | undefined;
 
   /**
-   * <p>Returns the description of an endpoint configuration created using the
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">
+   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">
    *                <code>CreateEndpointConfig</code>
    *             </a> API.</p>
    */
@@ -9022,53 +9151,6 @@ export interface DescribeHumanTaskUiRequest {
   HumanTaskUiName: string | undefined;
 }
 
-export enum HumanTaskUiStatus {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-}
-
-/**
- * <p>Container for user interface template information.</p>
- */
-export interface UiTemplateInfo {
-  /**
-   * <p>The URL for the user interface template.</p>
-   */
-  Url?: string;
-
-  /**
-   * <p>The SHA-256 digest of the contents of the template.</p>
-   */
-  ContentSha256?: string;
-}
-
-export interface DescribeHumanTaskUiResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the human task user interface (worker task template).</p>
-   */
-  HumanTaskUiArn: string | undefined;
-
-  /**
-   * <p>The name of the human task user interface (worker task template).</p>
-   */
-  HumanTaskUiName: string | undefined;
-
-  /**
-   * <p>The status of the human task user interface (worker task template). Valid values are listed below.</p>
-   */
-  HumanTaskUiStatus?: HumanTaskUiStatus | string;
-
-  /**
-   * <p>The timestamp when the human task user interface was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Container for user interface template information.</p>
-   */
-  UiTemplate: UiTemplateInfo | undefined;
-}
-
 /**
  * @internal
  */
@@ -9082,6 +9164,20 @@ export const HyperParameterTuningJobConfigFilterSensitiveLog = (obj: HyperParame
 export const HyperParameterAlgorithmSpecificationFilterSensitiveLog = (
   obj: HyperParameterAlgorithmSpecification
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HyperParameterTuningInstanceConfigFilterSensitiveLog = (obj: HyperParameterTuningInstanceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HyperParameterTuningResourceConfigFilterSensitiveLog = (obj: HyperParameterTuningResourceConfig): any => ({
   ...obj,
 });
 
@@ -11001,19 +11097,5 @@ export const DescribeFlowDefinitionResponseFilterSensitiveLog = (obj: DescribeFl
  * @internal
  */
 export const DescribeHumanTaskUiRequestFilterSensitiveLog = (obj: DescribeHumanTaskUiRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UiTemplateInfoFilterSensitiveLog = (obj: UiTemplateInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHumanTaskUiResponseFilterSensitiveLog = (obj: DescribeHumanTaskUiResponse): any => ({
   ...obj,
 });

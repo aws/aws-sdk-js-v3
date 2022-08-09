@@ -138,6 +138,53 @@ import {
   TrialComponentStatus,
 } from "./models_1";
 
+export enum HumanTaskUiStatus {
+  ACTIVE = "Active",
+  DELETING = "Deleting",
+}
+
+/**
+ * <p>Container for user interface template information.</p>
+ */
+export interface UiTemplateInfo {
+  /**
+   * <p>The URL for the user interface template.</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The SHA-256 digest of the contents of the template.</p>
+   */
+  ContentSha256?: string;
+}
+
+export interface DescribeHumanTaskUiResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the human task user interface (worker task template).</p>
+   */
+  HumanTaskUiArn: string | undefined;
+
+  /**
+   * <p>The name of the human task user interface (worker task template).</p>
+   */
+  HumanTaskUiName: string | undefined;
+
+  /**
+   * <p>The status of the human task user interface (worker task template). Valid values are listed below.</p>
+   */
+  HumanTaskUiStatus?: HumanTaskUiStatus | string;
+
+  /**
+   * <p>The timestamp when the human task user interface was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Container for user interface template information.</p>
+   */
+  UiTemplate: UiTemplateInfo | undefined;
+}
+
 export interface DescribeHyperParameterTuningJobRequest {
   /**
    * <p>The name of the tuning job.</p>
@@ -894,8 +941,8 @@ export interface DescribeLabelingJobResponse {
   InputConfig: LabelingJobInputConfig | undefined;
 
   /**
-   * <p>The location of the job's output data and the Amazon Web Services Key Management Service key ID for the key used to
-   *             encrypt the output data, if any.</p>
+   * <p>The location of the job's output data and the Amazon Web Services Key Management
+   *             Service key ID for the key used to encrypt the output data, if any.</p>
    */
   OutputConfig: LabelingJobOutputConfig | undefined;
 
@@ -983,10 +1030,9 @@ export interface DescribeLabelingJobResponse {
   HumanTaskConfig: HumanTaskConfig | undefined;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags?: Tag[];
 
@@ -1772,8 +1818,8 @@ export interface DescribeNotebookInstanceOutput {
   RoleArn?: string;
 
   /**
-   * <p>The Amazon Web Services KMS key ID SageMaker uses to encrypt data when storing it on the ML storage
-   *             volume attached to the instance. </p>
+   * <p>The Amazon Web Services KMS key ID SageMaker uses to encrypt data when storing it on the
+   *             ML storage volume attached to the instance. </p>
    */
   KmsKeyId?: string;
 
@@ -1827,19 +1873,19 @@ export interface DescribeNotebookInstanceOutput {
   /**
    * <p>The Git repository associated with the notebook instance as its default code
    *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository. When you open a notebook instance, it opens in the directory that
-   *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with SageMaker
-   *                 Notebook Instances</a>.</p>
+   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *             or in any other Git repository. When you open a notebook instance, it opens in the
+   *             directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *                 Repositories with SageMaker Notebook Instances</a>.</p>
    */
   DefaultCodeRepository?: string;
 
   /**
    * <p>An array of up to three Git repositories associated with the notebook instance. These
    *             can be either the names of Git repositories stored as resources in your account, or the
-   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository. These repositories are cloned at the same level as the default
-   *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *             or in any other Git repository. These repositories are cloned at the same level as the
+   *             default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
    *                 Repositories with SageMaker Notebook Instances</a>.</p>
    */
   AdditionalCodeRepositories?: string[];
@@ -2894,7 +2940,8 @@ export interface DescribeTrainingJobResponse {
   AlgorithmSpecification: AlgorithmSpecification | undefined;
 
   /**
-   * <p>The Amazon Web Services Identity and Access Management (IAM) role configured for the training job. </p>
+   * <p>The Amazon Web Services Identity and Access Management (IAM) role configured for
+   *             the training job. </p>
    */
   RoleArn?: string;
 
@@ -4132,7 +4179,8 @@ export interface DomainDetails {
 }
 
 /**
- * <p>A collection of settings that update the current configuration for the <code>RStudioServerPro</code> Domain-level app.</p>
+ * <p>A collection of settings that update the current configuration for the
+ *                 <code>RStudioServerPro</code> Domain-level app.</p>
  */
 export interface RStudioServerProDomainSettingsForUpdate {
   /**
@@ -4152,7 +4200,8 @@ export interface RStudioServerProDomainSettingsForUpdate {
  */
 export interface DomainSettingsForUpdate {
   /**
-   * <p>A collection of <code>RStudioServerPro</code> Domain-level app settings to update.</p>
+   * <p>A collection of <code>RStudioServerPro</code> Domain-level app settings to
+   *             update.</p>
    */
   RStudioServerProDomainSettingsForUpdate?: RStudioServerProDomainSettingsForUpdate;
 }
@@ -4471,8 +4520,8 @@ export interface Endpoint {
   MonitoringSchedules?: MonitoringSchedule[];
 
   /**
-   * <p>A list of the tags associated with the endpoint. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   * <p>A list of the tags associated with the endpoint. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General
+   *                 Reference Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -5316,9 +5365,9 @@ export interface GetSearchSuggestionsResponse {
  */
 export interface GitConfigForUpdate {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
-   *             credentials used to access the git repository. The secret must have a staging label of
-   *                 <code>AWSCURRENT</code> and must be in the following format:</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that
+   *             contains the credentials used to access the git repository. The secret must have a
+   *             staging label of <code>AWSCURRENT</code> and must be in the following format:</p>
    *         <p>
    *             <code>{"username": <i>UserName</i>, "password":
    *                     <i>Password</i>}</code>
@@ -5623,7 +5672,8 @@ export interface LabelingJobForWorkteamSummary {
   JobReferenceCode: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the account used to start the labeling job.</p>
+   * <p>The Amazon Web Services account ID of the account used to start the labeling
+   *             job.</p>
    */
   WorkRequesterAccountId: string | undefined;
 
@@ -6324,8 +6374,8 @@ export interface ListCodeRepositoriesOutput {
    *             </li>
    *             <li>
    *                 <p>Configuration information, including the URL location of the repository and
-   *                     the ARN of the Amazon Web Services Secrets Manager secret that contains the credentials used
-   *                     to access the repository.</p>
+   *                     the ARN of the Amazon Web Services Secrets Manager secret that contains the
+   *                     credentials used to access the repository.</p>
    *             </li>
    *          </ul>
    */
@@ -8199,8 +8249,8 @@ export interface ListModelsInput {
   MaxResults?: number;
 
   /**
-   * <p>A string in the model name. This filter returns only models whose
-   *             name contains the specified string.</p>
+   * <p>A string in the model name. This filter returns only models whose name contains the
+   *             specified string.</p>
    */
   NameContains?: string;
 
@@ -8739,19 +8789,19 @@ export interface NotebookInstanceSummary {
   /**
    * <p>The Git repository associated with the notebook instance as its default code
    *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository. When you open a notebook instance, it opens in the directory that
-   *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with SageMaker
-   *                 Notebook Instances</a>.</p>
+   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *             or in any other Git repository. When you open a notebook instance, it opens in the
+   *             directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *                 Repositories with SageMaker Notebook Instances</a>.</p>
    */
   DefaultCodeRepository?: string;
 
   /**
    * <p>An array of up to three Git repositories associated with the notebook instance. These
    *             can be either the names of Git repositories stored as resources in your account, or the
-   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository. These repositories are cloned at the same level as the default
-   *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *             or in any other Git repository. These repositories are cloned at the same level as the
+   *             default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
    *                 Repositories with SageMaker Notebook Instances</a>.</p>
    */
   AdditionalCodeRepositories?: string[];
@@ -8777,95 +8827,19 @@ export enum SortPipelineExecutionsBy {
   PIPELINE_EXECUTION_ARN = "PipelineExecutionArn",
 }
 
-export interface ListPipelineExecutionsRequest {
-  /**
-   * <p>The name of the pipeline.</p>
-   */
-  PipelineName: string | undefined;
-
-  /**
-   * <p>A filter that returns the pipeline executions that were created after a specified
-   *          time.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>A filter that returns the pipeline executions that were created before a specified
-   *          time.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
-   */
-  SortBy?: SortPipelineExecutionsBy | string;
-
-  /**
-   * <p>The sort order for results.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the result of the previous <code>ListPipelineExecutions</code> request was truncated,
-   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline executions, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of pipeline executions to return in the response.</p>
-   */
-  MaxResults?: number;
-}
+/**
+ * @internal
+ */
+export const UiTemplateInfoFilterSensitiveLog = (obj: UiTemplateInfo): any => ({
+  ...obj,
+});
 
 /**
- * <p>A pipeline execution summary.</p>
+ * @internal
  */
-export interface PipelineExecutionSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn?: string;
-
-  /**
-   * <p>The start time of the pipeline execution.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The status of the pipeline execution.</p>
-   */
-  PipelineExecutionStatus?: PipelineExecutionStatus | string;
-
-  /**
-   * <p>The description of the pipeline execution.</p>
-   */
-  PipelineExecutionDescription?: string;
-
-  /**
-   * <p>The display name of the pipeline execution.</p>
-   */
-  PipelineExecutionDisplayName?: string;
-
-  /**
-   * <p>A message generated by SageMaker Pipelines describing why the pipeline execution failed.</p>
-   */
-  PipelineExecutionFailureReason?: string;
-}
-
-export interface ListPipelineExecutionsResponse {
-  /**
-   * <p>Contains a sorted list of pipeline execution summary objects matching the specified
-   *          filters. Each run summary includes the Amazon Resource Name (ARN) of the pipeline execution, the run date,
-   *          and the status. This list can be empty. </p>
-   */
-  PipelineExecutionSummaries?: PipelineExecutionSummary[];
-
-  /**
-   * <p>If the result of the previous <code>ListPipelineExecutions</code> request was truncated,
-   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline executions, use the token in the next request.</p>
-   */
-  NextToken?: string;
-}
+export const DescribeHumanTaskUiResponseFilterSensitiveLog = (obj: DescribeHumanTaskUiResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10591,26 +10565,5 @@ export const NotebookInstanceSummaryFilterSensitiveLog = (obj: NotebookInstanceS
  * @internal
  */
 export const ListNotebookInstancesOutputFilterSensitiveLog = (obj: ListNotebookInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPipelineExecutionsRequestFilterSensitiveLog = (obj: ListPipelineExecutionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipelineExecutionSummaryFilterSensitiveLog = (obj: PipelineExecutionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPipelineExecutionsResponseFilterSensitiveLog = (obj: ListPipelineExecutionsResponse): any => ({
   ...obj,
 });

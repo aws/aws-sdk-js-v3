@@ -12,12 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeHumanTaskUiRequest,
-  DescribeHumanTaskUiRequestFilterSensitiveLog,
-  DescribeHumanTaskUiResponse,
-  DescribeHumanTaskUiResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeHumanTaskUiRequest, DescribeHumanTaskUiRequestFilterSensitiveLog } from "../models/models_1";
+import { DescribeHumanTaskUiResponse, DescribeHumanTaskUiResponseFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeHumanTaskUiCommand,
   serializeAws_json1_1DescribeHumanTaskUiCommand,

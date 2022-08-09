@@ -28,8 +28,7 @@ export interface CreateAlgorithmCommandInput extends CreateAlgorithmInput {}
 export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __MetadataBearer {}
 
 /**
- * <p>Create a machine learning algorithm that you can use in SageMaker and list in the Amazon Web Services
- *             Marketplace.</p>
+ * <p>Create a machine learning algorithm that you can use in SageMaker and list in the Amazon Web Services Marketplace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1291,8 +1291,7 @@ export class SageMaker extends SageMakerClient {
    *             jobs, models, labeling jobs, work teams, endpoint configurations, and
    *             endpoints.</p>
    *         <p>Each tag consists of a key and an optional value. Tag keys must be unique per
-   *             resource. For more information about tags, see For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Amazon Web Services
-   *                 Tagging Strategies</a>.</p>
+   *             resource. For more information about tags, see For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Amazon Web Services Tagging Strategies</a>.</p>
    *         <note>
    *             <p>Tags that you add to a hyperparameter tuning job by calling this API are also
    *                 added to any training jobs that the hyperparameter tuning job launches after you
@@ -1435,8 +1434,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Create a machine learning algorithm that you can use in SageMaker and list in the Amazon Web Services
-   *             Marketplace.</p>
+   * <p>Create a machine learning algorithm that you can use in SageMaker and list in the Amazon Web Services Marketplace.</p>
    */
   public createAlgorithm(
     args: CreateAlgorithmCommandInput,
@@ -1607,8 +1605,8 @@ export class SageMaker extends SageMakerClient {
    *             notebooks you create. The Git repository is a resource in your SageMaker account, so it can
    *             be associated with more than one notebook instance, and it persists independently from
    *             the lifecycle of any notebook instances it is associated with.</p>
-   *         <p>The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository.</p>
+   *         <p>The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *             or in any other Git repository.</p>
    */
   public createCodeRepository(
     args: CreateCodeRepositoryCommandInput,
@@ -1988,7 +1986,8 @@ export class SageMaker extends SageMakerClient {
    *                 operations are being performed on the endpoint. To update an endpoint, you must
    *                 create a new <code>EndpointConfig</code>.</p>
    *         </note>
-   *         <p>The endpoint name must be unique within an Amazon Web Services Region in your Amazon Web Services account. </p>
+   *         <p>The endpoint name must be unique within an Amazon Web Services Region in your
+   *                 Amazon Web Services account. </p>
    *         <p>When it receives the request, SageMaker creates the endpoint, launches the resources (ML
    *             compute instances), and deploys the model(s) on them. </p>
    *
@@ -2010,11 +2009,12 @@ export class SageMaker extends SageMakerClient {
    *             check the status of an endpoint, use the <a>DescribeEndpoint</a>
    *             API.</p>
    *         <p>If any of the models hosted at this endpoint get model data from an Amazon S3 location,
-   *             SageMaker uses Amazon Web Services Security Token Service to download model artifacts from the S3 path you
-   *             provided. Amazon Web Services STS is activated in your IAM user account by default. If you previously
-   *             deactivated Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS for that region. For
-   *             more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
-   *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>Amazon Web Services Identity and Access Management User
+   *             SageMaker uses Amazon Web Services Security Token Service to download model artifacts from the
+   *             S3 path you provided. Amazon Web Services STS is activated in your IAM user account by
+   *             default. If you previously deactivated Amazon Web Services STS for a region, you need to
+   *             reactivate Amazon Web Services STS for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+   *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
+   *                     <i>Amazon Web Services Identity and Access Management User
    *                 Guide</i>.</p>
    *         <note>
    *             <p> To add the IAM role policies for using this API operation, go to the <a href="https://console.aws.amazon.com/iam/">IAM console</a>, and choose
@@ -2509,8 +2509,7 @@ export class SageMaker extends SageMakerClient {
    *                 <code>CreateEndpoint</code> API. SageMaker then deploys all of the containers that you
    *             defined for the model in the hosting environment. </p>
    *         <p>For an example that calls this method when deploying a model to SageMaker hosting services,
-   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-deployment.html#realtime-endpoints-deployment-create-model">Create a Model (Amazon Web Services SDK for Python (Boto
-   *             3)).</a>
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-deployment.html#realtime-endpoints-deployment-create-model">Create a Model (Amazon Web Services SDK for Python (Boto 3)).</a>
    *          </p>
    *         <p>To run a batch transform using your model, you start a job with the
    *                 <code>CreateTransformJob</code> API. SageMaker uses your model and your dataset to get
@@ -2518,8 +2517,7 @@ export class SageMaker extends SageMakerClient {
    *         <p>In the request, you also provide an IAM role that SageMaker can assume to access model
    *             artifacts and docker image for deployment on ML compute hosting instances or for batch
    *             transform jobs. In addition, you also use the IAM role to manage permissions the
-   *             inference code needs. For example, if the inference code access any other Amazon Web Services resources,
-   *             you grant necessary permissions via this role.</p>
+   *             inference code needs. For example, if the inference code access any other Amazon Web Services resources, you grant necessary permissions via this role.</p>
    */
   public createModel(args: CreateModelCommandInput, options?: __HttpHandlerOptions): Promise<CreateModelCommandOutput>;
   public createModel(args: CreateModelCommandInput, cb: (err: any, data?: CreateModelCommandOutput) => void): void;
@@ -2971,7 +2969,7 @@ export class SageMaker extends SageMakerClient {
    *         <note>
    *             <p>The URL that you get from a call to <a>CreatePresignedNotebookInstanceUrl</a> is valid only for 5 minutes. If
    *                 you try to use the URL after the 5-minute limit expires, you are directed to the
-   *                 Amazon Web Services console sign-in page.</p>
+   *                     Amazon Web Services console sign-in page.</p>
    *         </note>
    */
   public createPresignedNotebookInstanceUrl(
@@ -3886,13 +3884,13 @@ export class SageMaker extends SageMakerClient {
    *             endpoint was created. </p>
    *         <p>SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't
    *             need to use the <a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a> API call.</p>
-   *         <p>When you delete your endpoint, SageMaker asynchronously deletes associated endpoint resources such as KMS key grants.
-   *             You might still see these resources in your account for a few minutes after deleting your endpoint.
-   *             Do not delete or revoke the permissions for your
-   *             <code>
+   *         <p>When you delete your endpoint, SageMaker asynchronously deletes associated endpoint
+   *             resources such as KMS key grants. You might still see these resources in your account
+   *             for a few minutes after deleting your endpoint. Do not delete or revoke the permissions
+   *             for your <code>
    *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html#sagemaker-CreateModel-request-ExecutionRoleArn">ExecutionRoleArn</a>
-   *             </code>,
-   *             otherwise SageMaker cannot delete these resources.</p>
+   *             </code>, otherwise SageMaker cannot delete these
+   *             resources.</p>
    */
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -4164,9 +4162,9 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that
-   *             was created in SageMaker when you called the <code>CreateModel</code> API. It does not
-   *             delete model artifacts, inference code, or the IAM role that you specified when
-   *             creating the model. </p>
+   *             was created in SageMaker when you called the <code>CreateModel</code> API. It does not delete
+   *             model artifacts, inference code, or the IAM role that you specified when creating the
+   *             model. </p>
    */
   public deleteModel(args: DeleteModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteModelCommandOutput>;
   public deleteModel(args: DeleteModelCommandInput, cb: (err: any, data?: DeleteModelCommandOutput) => void): void;
@@ -8025,8 +8023,8 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Returns a list of the SageMaker notebook instances in the requester's account in an Amazon Web Services
-   *             Region. </p>
+   * <p>Returns a list of the SageMaker notebook instances in the requester's account in an
+   *                 Amazon Web Services Region. </p>
    */
   public listNotebookInstances(
     args: ListNotebookInstancesCommandInput,
@@ -8386,7 +8384,8 @@ export class SageMaker extends SageMakerClient {
    *                     <code>InProgress</code>, are selected (sorted according to the creation time,
    *                 from the most current to the oldest). Next, those with a status of
    *                     <code>InProgress</code> are returned.</p>
-   *             <p>You can quickly test the API using the following Amazon Web Services CLI code.</p>
+   *             <p>You can quickly test the API using the following Amazon Web Services CLI
+   *                 code.</p>
    *             <p>
    *                <code>aws sagemaker list-training-jobs --max-results 100 --status-equals
    *                     InProgress</code>
