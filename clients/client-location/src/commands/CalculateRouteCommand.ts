@@ -56,6 +56,10 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  *                     the routes. This also lets you specify additional route preferences in
  *                         <code>CarModeOptions</code> if traveling by <code>Car</code>, or
  *                         <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p>
+ *                 <note>
+ *                   <p>If you specify <code>walking</code> for the travel mode and your data
+ *                     provider is Esri, the start and destination must be within 40km.</p>
+ *                </note>
  *             </li>
  *          </ul>
  * @example

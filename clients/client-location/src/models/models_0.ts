@@ -491,7 +491,26 @@ export interface BatchGetDevicePositionResponse {
 }
 
 /**
+ * <p>A circle on the earth, as defined by a center point and a radius.</p>
+ */
+export interface Circle {
+  /**
+   * <p>A single point geometry, specifying the center of the circle, using <a href="https://gisgeography.com/wgs84-world-geodetic-system/">WGS 84</a>
+   *             coordinates, in the form <code>[longitude, latitude]</code>.</p>
+   */
+  Center: number[] | undefined;
+
+  /**
+   * <p>The radius of the circle in meters. Must be greater than zero and no
+   *             larger than 100,000 (100 kilometers).</p>
+   */
+  Radius: number | undefined;
+}
+
+/**
  * <p>Contains the geofence geometry details.</p>
+ *         <p>A geofence geometry is made up of either a polygon or a circle. Can be either a
+ *             polygon or a circle. Including both will return a validation error.</p>
  *         <note>
  *             <p>Amazon Location doesn't currently support polygons with holes, multipolygons, polygons
  *                 that are wound clockwise, or that cross the antimeridian. </p>
@@ -507,8 +526,14 @@ export interface GeofenceGeometry {
    *             list their vertices in counter-clockwise order around the ring's center, where the left
    *             side is the polygon's exterior. Inner rings must list their vertices in clockwise order,
    *             where the left side is the polygon's interior.</p>
+   *         <p>A geofence polygon can consist of between 4 and 1,000 vertices.</p>
    */
   Polygon?: number[][][];
+
+  /**
+   * <p>A circle on the earth, as defined by a center point and a radius.</p>
+   */
+  Circle?: Circle;
 }
 
 /**
@@ -521,9 +546,11 @@ export interface BatchPutGeofenceRequestEntry {
   GeofenceId: string | undefined;
 
   /**
-   * <p>Contains the polygon details to specify the position of the geofence.</p>
+   * <p>Contains the details of the position of the geofence. Can be either a
+   *             polygon or a circle. Including both will return a validation error.</p>
    *         <note>
-   *             <p>Each <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">geofence polygon</a> can have a maximum of 1,000 vertices.</p>
+   *             <p>Each <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">
+   *                 geofence polygon</a> can have a maximum of 1,000 vertices.</p>
    *         </note>
    */
   Geometry: GeofenceGeometry | undefined;
@@ -679,6 +706,11 @@ export interface TruckDimensions {
    *                 <p>For example, <code>15.5</code>.</p>
    *             </li>
    *          </ul>
+   *         <note>
+   *             <p>
+   *                 For routes calculated with a HERE resource, this value must be between 0 and 300 meters.
+   *             </p>
+   *         </note>
    */
   Length?: number;
 
@@ -689,6 +721,11 @@ export interface TruckDimensions {
    *                 <p>For example, <code>4.5</code>.</p>
    *             </li>
    *          </ul>
+   *         <note>
+   *             <p>
+   *                 For routes calculated with a HERE resource, this value must be between 0 and 50 meters.
+   *             </p>
+   *         </note>
    */
   Height?: number;
 
@@ -699,6 +736,11 @@ export interface TruckDimensions {
    *                 <p>For example, <code>4.5</code>.</p>
    *             </li>
    *          </ul>
+   *         <note>
+   *             <p>
+   *                 For routes calculated with a HERE resource, this value must be between 0 and 50 meters.
+   *             </p>
+   *         </note>
    */
   Width?: number;
 
@@ -847,7 +889,8 @@ export interface CalculateRouteRequest {
 
   /**
    * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
-   *             of travel and road compatibility.</p>
+   *             of travel and road compatibility. You can choose <code>Car</code>, <code>Truck</code>,
+   *             or <code>Walking</code> as options for the <code>TravelMode</code>.</p>
    *         <p>The <code>TravelMode</code> you specify also determines how you specify route
    *             preferences: </p>
    *         <ul>
@@ -1639,7 +1682,7 @@ export interface MapConfiguration {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>VectorHereBerlin</code> – The HERE Berlin map style is a high contrast
+   *                   <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a high contrast
    *                     detailed base map of the world that blends 3D and 2D rendering.</p>
    *             </li>
    *             <li>
@@ -1656,6 +1699,11 @@ export interface MapConfiguration {
    *                     within transport and logistics.</p>
    *             </li>
    *          </ul>
+   *         <note>
+   *             <p>The <code>VectorHereContrast</code> style has been renamed from <code>VectorHereBerlin</code>.
+   *             <code>VectorHereBerlin</code> has been deprecated, but will continue to work in
+   *             applications that use it.</p>
+   *          </note>
    */
   Style: string | undefined;
 }
@@ -2738,7 +2786,7 @@ export interface GetGeofenceResponse {
   GeofenceId: string | undefined;
 
   /**
-   * <p>Contains the geofence geometry details describing a polygon.</p>
+   * <p>Contains the geofence geometry details describing a polygon or a circle.</p>
    */
   Geometry: GeofenceGeometry | undefined;
 
@@ -2892,7 +2940,7 @@ export interface ListGeofenceResponseEntry {
   GeofenceId: string | undefined;
 
   /**
-   * <p>Contains the geofence geometry details describing a polygon.</p>
+   * <p>Contains the geofence geometry details describing a polygon or a circle.</p>
    */
   Geometry: GeofenceGeometry | undefined;
 
@@ -2966,9 +3014,11 @@ export interface PutGeofenceRequest {
   GeofenceId: string | undefined;
 
   /**
-   * <p>Contains the polygon details to specify the position of the geofence.</p>
+   * <p>Contains the details to specify the position of the geofence. Can be either a
+   *             polygon or a circle. Including both will return a validation error.</p>
    *         <note>
-   *             <p>Each <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">geofence polygon</a> can have a maximum of 1,000 vertices.</p>
+   *             <p>Each <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">
+   *                 geofence polygon</a> can have a maximum of 1,000 vertices.</p>
    *         </note>
    */
   Geometry: GeofenceGeometry | undefined;
@@ -3205,7 +3255,7 @@ export interface GetMapGlyphsRequest {
    *         <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles: </p>
    *         <ul>
    *             <li>
-   *                 <p>VectorHereBerlin – <code>Fira
+   *                 <p>VectorHereContrast – <code>Fira
    *                     GO Regular</code> | <code>Fira GO Bold</code>
    *                </p>
    *             </li>
@@ -4757,9 +4807,18 @@ export const BatchGetDevicePositionResponseFilterSensitiveLog = (obj: BatchGetDe
 /**
  * @internal
  */
+export const CircleFilterSensitiveLog = (obj: Circle): any => ({
+  ...obj,
+  ...(obj.Center && { Center: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GeofenceGeometryFilterSensitiveLog = (obj: GeofenceGeometry): any => ({
   ...obj,
   ...(obj.Polygon && { Polygon: obj.Polygon.map((item) => SENSITIVE_STRING) }),
+  ...(obj.Circle && { Circle: SENSITIVE_STRING }),
 });
 
 /**

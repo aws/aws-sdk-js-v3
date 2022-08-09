@@ -171,6 +171,7 @@ import {
   CalculateRouteMatrixSummary,
   CalculateRouteSummary,
   CalculateRouteTruckModeOptions,
+  Circle,
   ConflictException,
   DataSourceConfiguration,
   DevicePosition,
@@ -5221,6 +5222,13 @@ const serializeAws_restJson1CalculateRouteTruckModeOptions = (
   };
 };
 
+const serializeAws_restJson1Circle = (input: Circle, context: __SerdeContext): any => {
+  return {
+    ...(input.Center != null && { Center: serializeAws_restJson1Position(input.Center, context) }),
+    ...(input.Radius != null && { Radius: __serializeFloat(input.Radius) }),
+  };
+};
+
 const serializeAws_restJson1CountryCodeList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -5271,6 +5279,7 @@ const serializeAws_restJson1DevicePositionUpdateList = (
 
 const serializeAws_restJson1GeofenceGeometry = (input: GeofenceGeometry, context: __SerdeContext): any => {
   return {
+    ...(input.Circle != null && { Circle: serializeAws_restJson1Circle(input.Circle, context) }),
     ...(input.Polygon != null && { Polygon: serializeAws_restJson1LinearRings(input.Polygon, context) }),
   };
 };
@@ -5603,6 +5612,13 @@ const deserializeAws_restJson1CalculateRouteSummary = (output: any, context: __S
   } as any;
 };
 
+const deserializeAws_restJson1Circle = (output: any, context: __SerdeContext): Circle => {
+  return {
+    Center: output.Center != null ? deserializeAws_restJson1Position(output.Center, context) : undefined,
+    Radius: __limitedParseDouble(output.Radius),
+  } as any;
+};
+
 const deserializeAws_restJson1CountryCodeList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -5654,6 +5670,7 @@ const deserializeAws_restJson1DevicePositionList = (output: any, context: __Serd
 
 const deserializeAws_restJson1GeofenceGeometry = (output: any, context: __SerdeContext): GeofenceGeometry => {
   return {
+    Circle: output.Circle != null ? deserializeAws_restJson1Circle(output.Circle, context) : undefined,
     Polygon: output.Polygon != null ? deserializeAws_restJson1LinearRings(output.Polygon, context) : undefined,
   } as any;
 };

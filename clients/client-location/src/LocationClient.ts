@@ -447,7 +447,7 @@ type LocationClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
 export interface LocationClientResolvedConfig extends LocationClientResolvedConfigType {}
 
 /**
- * Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing
+ * <p>"Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing"</p>
  */
 export class LocationClient extends __Client<
   __HttpHandlerOptions,

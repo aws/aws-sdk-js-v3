@@ -228,7 +228,7 @@ import {
 import { LocationClient } from "./LocationClient";
 
 /**
- * Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing
+ * <p>"Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing"</p>
  */
 export class Location extends LocationClient {
   /**
@@ -540,6 +540,10 @@ export class Location extends LocationClient {
    *                     the routes. This also lets you specify additional route preferences in
    *                         <code>CarModeOptions</code> if traveling by <code>Car</code>, or
    *                         <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p>
+   *                 <note>
+   *                   <p>If you specify <code>walking</code> for the travel mode and your data
+   *                     provider is Esri, the start and destination must be within 40km.</p>
+   *                </note>
    *             </li>
    *          </ul>
    */
