@@ -10,11 +10,12 @@ export type AllNodes = {
   children?: KeyNode[] | AllNodes;
 };
 
-const processObj = (obj: any, processFunc: Function, children?: KeyNode[] | AllNodes): any => {
+const processObj = (obj: any, processFunc: Function, key: String, children?: KeyNode[] | AllNodes): any => {
   if (obj !== undefined) {
     if (!children || (Array.isArray(children) && children.length === 0)) {
       // Leaf of KeyNode, process the object.
-      return processFunc(obj);
+      // If it is a Value it could be a List or a Map and we need to marshall it as such
+      return key === 'Value' ? processFunc({ X: obj }).X : processFunc(obj);
     } else {
       // Not leaf node, process the children.
       if (Array.isArray(children)) {
@@ -29,18 +30,18 @@ const processObj = (obj: any, processFunc: Function, children?: KeyNode[] | AllN
   return undefined;
 };
 
-const processKeyInObj = (obj: any, processFunc: Function, children?: KeyNode[] | AllNodes): any => {
+const processKeyInObj = (obj: any, processFunc: Function, key: String, children?: KeyNode[] | AllNodes): any => {
   if (Array.isArray(obj)) {
-    return obj.map((item: any) => processObj(item, processFunc, children));
+    return obj.map((item: any) => processObj(item, processFunc, key, children));
   }
-  return processObj(obj, processFunc, children);
+  return processObj(obj, processFunc, key, children);
 };
 
 const processKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNode[]) =>
   keyNodes.reduce(
     (acc, { key, children }) => ({
       ...acc,
-      [key]: processKeyInObj(acc[key], processFunc, children),
+      [key]: processKeyInObj(acc[key], processFunc, key, children),
     }),
     obj
   );
@@ -49,7 +50,7 @@ const processAllKeysInObj = (obj: any, processFunc: Function, children?: KeyNode
   Object.entries(obj).reduce(
     (acc, [key, value]) => ({
       ...acc,
-      [key]: processKeyInObj(value, processFunc, children),
+      [key]: processKeyInObj(value, processFunc, key, children),
     }),
     {}
   );
