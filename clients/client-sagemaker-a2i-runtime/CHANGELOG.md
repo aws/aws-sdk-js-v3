@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.146.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.145.0...v3.146.0) (2022-08-09)
+
+
+### Features
+
+* **client-sagemaker-a2i-runtime:** Fix bug with parsing ISO-8601 CreationTime in Java SDK in DescribeHumanLoop ([d2380d7](https://github.com/aws/aws-sdk-js-v3/commit/d2380d70e1b23d94b77415b373a433487ffb9e95))
+
+
+
+
+
 # [3.145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.144.0...v3.145.0) (2022-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker-a2i-runtime

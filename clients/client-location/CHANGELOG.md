@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.146.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.145.0...v3.146.0) (2022-08-09)
+
+
+### Features
+
+* **client-location:** Amazon Location Service now allows circular geofences in BatchPutGeofence, PutGeofence, and GetGeofence  APIs. ([c4ac25d](https://github.com/aws/aws-sdk-js-v3/commit/c4ac25d8816e0a6b85901eab400322badbe6dfe7))
+
+
+
+
+
 # [3.145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.144.0...v3.145.0) (2022-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-location

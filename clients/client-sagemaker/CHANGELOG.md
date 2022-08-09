@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.146.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.145.0...v3.146.0) (2022-08-09)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Automatic Model Tuning now supports specifying multiple alternate EC2 instance types to make tuning jobs more robust when the preferred instance type is not available due to insufficient capacity. ([928a5b6](https://github.com/aws/aws-sdk-js-v3/commit/928a5b62b468f487d35031cbdc2619a36285350f))
+
+
+
+
+
 # [3.145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.144.0...v3.145.0) (2022-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

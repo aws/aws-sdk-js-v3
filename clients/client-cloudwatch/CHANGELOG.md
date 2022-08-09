@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.146.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.145.0...v3.146.0) (2022-08-09)
+
+
+### Features
+
+* **client-cloudwatch:** Various quota increases related to dimensions and custom metrics ([e4f6fb5](https://github.com/aws/aws-sdk-js-v3/commit/e4f6fb583df1eaca859392e5ddc9252c0a62396e))
+
+
+
+
+
 # [3.145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.144.0...v3.145.0) (2022-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch
