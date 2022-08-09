@@ -95,7 +95,7 @@ export interface AnomalyDetectorConfiguration {
  * 			your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish
  * 		<code>InstanceId</code> as a dimension name, and the actual instance ID as the value for that dimension.</p>
  * 		       <p>You
- * 		can assign up to 10 dimensions to a metric.</p>
+ * 		can assign up to 30 dimensions to a metric.</p>
  */
 export interface Dimension {
   /**
@@ -3095,7 +3095,7 @@ export interface PutMetricAlarmInput {
    * 			works as intended.</p>
    * 			      <p>However, if the metric is published with multiple types of units and you don't specify a unit, the alarm's
    * 			behavior is not defined and
-   * 			it behaves predictably.</p>
+   * 			it behaves unpredictably.</p>
    * 		       <p>We recommend omitting <code>Unit</code> so that you don't inadvertently
    * 			specify an incorrect unit that is not published for this metric. Doing so
    * 			causes the alarm to be stuck in the <code>INSUFFICIENT DATA</code> state.</p>
@@ -3258,7 +3258,7 @@ export interface MetricDatum {
   /**
    * <p>Array of numbers representing the values for the metric during the period. Each unique value is listed just once
    * 		in this array, and the corresponding number in the <code>Counts</code> array specifies the number of times that value occurred during the period.
-   * 		You can include up to 150 unique values in each <code>PutMetricData</code> action that specifies a <code>Values</code> array.</p>
+   * 		You can include up to 500 unique values in each <code>PutMetricData</code> action that specifies a <code>Values</code> array.</p>
    * 		       <p>Although the <code>Values</code> array accepts numbers of type
    * 			<code>Double</code>, CloudWatch rejects values that are either too small
    * 			or too large. Values must be in the range of -2^360 to 2^360. In addition, special values (for example, NaN, +Infinity,
@@ -3304,7 +3304,7 @@ export interface PutMetricDataInput {
   Namespace: string | undefined;
 
   /**
-   * <p>The data for the metric. The array can include no more than 20 metrics per call.</p>
+   * <p>The data for the metric. The array can include no more than 1000 metrics per call.</p>
    */
   MetricData: MetricDatum[] | undefined;
 }
