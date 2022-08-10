@@ -7324,6 +7324,8 @@ export interface InstanceSpecification {
    * <p>Excludes the root volume from being snapshotted.</p>
    */
   ExcludeBootVolume?: boolean;
+
+  ExcludeDataVolumeIds?: string[];
 }
 
 export interface CreateSnapshotsRequest {

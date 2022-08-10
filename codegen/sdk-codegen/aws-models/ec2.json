@@ -45841,6 +45841,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Excludes the root volume from being snapshotted.</p>"
           }
+        },
+        "ExcludeDataVolumeIds": {
+          "target": "com.amazonaws.ec2#VolumeIdStringList",
+          "traits": {
+            "smithy.api#xmlName": "ExcludeDataVolumeId"
+          }
         }
       },
       "traits": {

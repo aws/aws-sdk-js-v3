@@ -43406,6 +43406,13 @@ const serializeAws_ec2InstanceSpecification = (input: InstanceSpecification, con
   if (input.ExcludeBootVolume != null) {
     entries["ExcludeBootVolume"] = input.ExcludeBootVolume;
   }
+  if (input.ExcludeDataVolumeIds != null) {
+    const memberEntries = serializeAws_ec2VolumeIdStringList(input.ExcludeDataVolumeIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ExcludeDataVolumeId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
