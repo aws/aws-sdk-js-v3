@@ -84,7 +84,7 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
 
         TypeScriptWriter writer = context.getWriter();
         writer.addUseImports(getApplicationProtocol().getResponseType());
-        writer.write(IoUtils.readUtf8Resource(getClass(), "load-json-error-code-stub.ts"));
+        writer.write(JsonErrorCodeStubGenerator.getStub(getClass()));
     }
 
     @Override

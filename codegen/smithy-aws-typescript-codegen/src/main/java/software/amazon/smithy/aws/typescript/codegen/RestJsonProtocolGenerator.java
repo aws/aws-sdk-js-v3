@@ -83,7 +83,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
         TypeScriptWriter writer = context.getWriter();
         writer.addUseImports(getApplicationProtocol().getResponseType());
-        writer.write(IoUtils.readUtf8Resource(getClass(), "load-json-error-code-stub.ts"));
+        writer.write(JsonErrorCodeStubGenerator.getStub(getClass()));
     }
 
     @Override
@@ -93,7 +93,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
     @Override
     protected void writeDefaultErrorHeaders(GenerationContext context, StructureShape error) {
-        context.getWriter().write("'x-amzn-errortype': $S,", error.getId().getName());
+        context.getWriter().write("'$L': $S,", ResolvedErrorHeaderProvider.getSingletonInstance().getErrorHeader(), error.getId().getName());
     }
 
     @Override
