@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.147.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.146.0...v3.147.0) (2022-08-10)
+
+
+### Features
+
+* **client-ec2:** This release adds support for excluding specific data (non-root) volumes from multi-volume snapshot sets created from instances. ([8917e47](https://github.com/aws/aws-sdk-js-v3/commit/8917e47393dc7ba118a5ddc0580f4ad43eaa731a))
+
+
+
+
+
 # [3.145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.144.0...v3.145.0) (2022-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2
