@@ -873,6 +873,14 @@ const serializeAws_restJson1EventSource = (input: EventSource, context: __SerdeC
   };
 };
 
+const serializeAws_restJson1ExcludeDataVolumeTagList = (input: Tag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Tag(entry, context);
+    });
+};
+
 const serializeAws_restJson1FastRestoreRule = (input: FastRestoreRule, context: __SerdeContext): any => {
   return {
     ...(input.AvailabilityZones != null && {
@@ -887,6 +895,9 @@ const serializeAws_restJson1FastRestoreRule = (input: FastRestoreRule, context: 
 const serializeAws_restJson1_Parameters = (input: _Parameters, context: __SerdeContext): any => {
   return {
     ...(input.ExcludeBootVolume != null && { ExcludeBootVolume: input.ExcludeBootVolume }),
+    ...(input.ExcludeDataVolumeTags != null && {
+      ExcludeDataVolumeTags: serializeAws_restJson1ExcludeDataVolumeTagList(input.ExcludeDataVolumeTags, context),
+    }),
     ...(input.NoReboot != null && { NoReboot: input.NoReboot }),
   };
 };
@@ -1214,6 +1225,18 @@ const deserializeAws_restJson1EventSource = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_restJson1ExcludeDataVolumeTagList = (output: any, context: __SerdeContext): Tag[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1FastRestoreRule = (output: any, context: __SerdeContext): FastRestoreRule => {
   return {
     AvailabilityZones:
@@ -1291,6 +1314,10 @@ const deserializeAws_restJson1ParameterList = (output: any, context: __SerdeCont
 const deserializeAws_restJson1_Parameters = (output: any, context: __SerdeContext): _Parameters => {
   return {
     ExcludeBootVolume: __expectBoolean(output.ExcludeBootVolume),
+    ExcludeDataVolumeTags:
+      output.ExcludeDataVolumeTags != null
+        ? deserializeAws_restJson1ExcludeDataVolumeTagList(output.ExcludeDataVolumeTags, context)
+        : undefined,
     NoReboot: __expectBoolean(output.NoReboot),
   } as any;
 };
