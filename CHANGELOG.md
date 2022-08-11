@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.148.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.147.0...v3.148.0) (2022-08-11)
+
+
+### Features
+
+* **client-backupstorage:** This is the first public release of AWS Backup Storage. We are exposing some previously-internal APIs for use by external services. These APIs are not meant to be used directly by customers. ([1161db1](https://github.com/aws/aws-sdk-js-v3/commit/1161db10ce562744a6c573f0a450e9d85ba6e7f8))
+* **client-glue:** Add support for Python 3.9 AWS Glue Python Shell jobs ([2baf73b](https://github.com/aws/aws-sdk-js-v3/commit/2baf73bf24253b3237ce1e9b6a20fc0a26e01eea))
+* **client-privatenetworks:** This is the initial SDK release for AWS Private 5G. AWS Private 5G is a managed service that makes it easy to deploy, operate, and scale your own private mobile network at your on-premises location. ([ffaee5e](https://github.com/aws/aws-sdk-js-v3/commit/ffaee5e942684d22da89d756a64de28d5be107ff))
+* **clients:** update client endpoints as of 2022-08-11 ([46522ee](https://github.com/aws/aws-sdk-js-v3/commit/46522ee49a98584dfe732d1da940c4ebb45748dc))
+
+
+
+
+
 # [3.147.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.146.0...v3.147.0) (2022-08-10)
 
 
