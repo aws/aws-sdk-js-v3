@@ -193,6 +193,10 @@ const regionHash: RegionHash = {
         hostname: "lambda-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "lambda.us-gov-east-1.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
   "us-gov-west-1": {
@@ -200,6 +204,10 @@ const regionHash: RegionHash = {
       {
         hostname: "lambda-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "lambda.us-gov-west-1.api.aws",
+        tags: ["dualstack"],
       },
     ],
   },

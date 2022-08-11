@@ -1910,6 +1910,14 @@
             "us-west-2": {}
           }
         },
+        "backupstorage": {
+          "endpoints": {
+            "eu-west-1": {},
+            "us-east-1": {},
+            "us-east-2": {},
+            "us-west-2": {}
+          }
+        },
         "batch": {
           "defaults": {
             "variants": [
@@ -19248,6 +19256,10 @@
                 {
                   "hostname": "lambda-fips.us-gov-east-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "lambda.us-gov-east-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -19256,6 +19268,10 @@
                 {
                   "hostname": "lambda-fips.us-gov-west-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "lambda.us-gov-west-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             }
