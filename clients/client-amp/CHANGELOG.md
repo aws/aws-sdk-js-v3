@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.148.0...v3.149.0) (2022-08-12)
+
+
+### Features
+
+* **client-amp:** This release adds log APIs that allow customers to manage logging for their Amazon Managed Service for Prometheus workspaces. ([f97fc3c](https://github.com/aws/aws-sdk-js-v3/commit/f97fc3cb2d6cd140aa4abd0a247ed803809552a8))
+
+
+
+
+
 # [3.145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.144.0...v3.145.0) (2022-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-amp

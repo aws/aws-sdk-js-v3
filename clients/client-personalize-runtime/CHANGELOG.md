@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.148.0...v3.149.0) (2022-08-12)
+
+
+### Features
+
+* **client-personalize-runtime:** This release provides support for promotions in AWS Personalize runtime. ([f7e4104](https://github.com/aws/aws-sdk-js-v3/commit/f7e410466be43961aec27fa05f5e0aa3eae0df8b))
+
+
+
+
+
 # [3.145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.144.0...v3.145.0) (2022-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-personalize-runtime

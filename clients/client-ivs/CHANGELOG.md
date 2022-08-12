@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.148.0...v3.149.0) (2022-08-12)
+
+
+### Features
+
+* **client-ivs:** Updates various list api MaxResults ranges ([807e21e](https://github.com/aws/aws-sdk-js-v3/commit/807e21e70ae1cd9b55e757f7fce8eb2c8e362224))
+
+
+
+
+
 # [3.145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.144.0...v3.145.0) (2022-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs

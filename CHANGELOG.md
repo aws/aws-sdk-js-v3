@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.148.0...v3.149.0) (2022-08-12)
+
+
+### Features
+
+* **client-amp:** This release adds log APIs that allow customers to manage logging for their Amazon Managed Service for Prometheus workspaces. ([f97fc3c](https://github.com/aws/aws-sdk-js-v3/commit/f97fc3cb2d6cd140aa4abd0a247ed803809552a8))
+* **client-chime-sdk-messaging:** The Amazon Chime SDK now supports channels with up to one million participants with elastic channels. ([2fb5091](https://github.com/aws/aws-sdk-js-v3/commit/2fb50915ca71e3338fc904813bb7ef36b80555ad))
+* **client-ivs:** Updates various list api MaxResults ranges ([807e21e](https://github.com/aws/aws-sdk-js-v3/commit/807e21e70ae1cd9b55e757f7fce8eb2c8e362224))
+* **client-personalize-runtime:** This release provides support for promotions in AWS Personalize runtime. ([f7e4104](https://github.com/aws/aws-sdk-js-v3/commit/f7e410466be43961aec27fa05f5e0aa3eae0df8b))
+* **clients:** update client endpoints as of 2022-08-12 ([40619f5](https://github.com/aws/aws-sdk-js-v3/commit/40619f569be213c3dee37070fb2190777fa4e1f6))
+
+
+
+
+
 # [3.148.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.147.0...v3.148.0) (2022-08-11)
 
 
