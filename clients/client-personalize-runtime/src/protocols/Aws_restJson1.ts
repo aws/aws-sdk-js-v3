@@ -20,7 +20,7 @@ import {
   GetPersonalizedRankingCommandOutput,
 } from "../commands/GetPersonalizedRankingCommand";
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand";
-import { InvalidInputException, PredictedItem, ResourceNotFoundException } from "../models/models_0";
+import { InvalidInputException, PredictedItem, Promotion, ResourceNotFoundException } from "../models/models_0";
 import { PersonalizeRuntimeServiceException as __BaseException } from "../models/PersonalizeRuntimeServiceException";
 
 export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
@@ -73,6 +73,7 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
     }),
     ...(input.itemId != null && { itemId: input.itemId }),
     ...(input.numResults != null && { numResults: input.numResults }),
+    ...(input.promotions != null && { promotions: serializeAws_restJson1PromotionList(input.promotions, context) }),
     ...(input.recommenderArn != null && { recommenderArn: input.recommenderArn }),
     ...(input.userId != null && { userId: input.userId }),
   });
@@ -246,6 +247,25 @@ const serializeAws_restJson1InputList = (input: string[], context: __SerdeContex
     });
 };
 
+const serializeAws_restJson1Promotion = (input: Promotion, context: __SerdeContext): any => {
+  return {
+    ...(input.filterArn != null && { filterArn: input.filterArn }),
+    ...(input.filterValues != null && {
+      filterValues: serializeAws_restJson1FilterValues(input.filterValues, context),
+    }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.percentPromotedItems != null && { percentPromotedItems: input.percentPromotedItems }),
+  };
+};
+
+const serializeAws_restJson1PromotionList = (input: Promotion[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Promotion(entry, context);
+    });
+};
+
 const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext): PredictedItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -261,6 +281,7 @@ const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1PredictedItem = (output: any, context: __SerdeContext): PredictedItem => {
   return {
     itemId: __expectString(output.itemId),
+    promotionName: __expectString(output.promotionName),
     score: __limitedParseDouble(output.score),
   } as any;
 };

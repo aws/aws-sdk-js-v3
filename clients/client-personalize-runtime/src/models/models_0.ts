@@ -66,6 +66,11 @@ export interface PredictedItem {
    *       selection. For more information on scoring logic, see <a>how-scores-work</a>.</p>
    */
   score?: number;
+
+  /**
+   * <p>The name of the promotion that included the predicted item.</p>
+   */
+  promotionName?: string;
 }
 
 export interface GetPersonalizedRankingResponse {
@@ -118,6 +123,41 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * <p>Contains information on a promotion. A promotion defines additional business rules that apply to a configurable subset of recommended items.</p>
+ */
+export interface Promotion {
+  /**
+   * <p>The name of the promotion.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The percentage of recommended items to apply the promotion to.</p>
+   */
+  percentPromotedItems?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the filter used by the promotion. This filter defines the criteria for promoted items. For more information, see
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/promoting-items.html#promotion-filters">Promotion filters</a>.</p>
+   */
+  filterArn?: string;
+
+  /**
+   * <p>The values to use when promoting items.
+   *       For each placeholder parameter in your promotion's filter expression, provide the parameter name (in matching case) as a key and the filter value(s) as the corresponding value. Separate multiple values for one parameter with a comma.
+   *     </p>
+   *          <p>For filter expressions that use an <code>INCLUDE</code> element to include items,
+   *       you must provide values for all parameters that are defined in the expression. For
+   *       filters with expressions that use an <code>EXCLUDE</code> element to exclude items, you
+   *       can omit the <code>filter-values</code>. In this case, Amazon Personalize doesn't use that portion of
+   *       the expression to filter recommendations.</p>
+   *          <p>For more information on creating filters, see
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering recommendations and user segments</a>.</p>
+   */
+  filterValues?: Record<string, string>;
+}
+
 export interface GetRecommendationsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign to use for getting recommendations.</p>
@@ -165,7 +205,7 @@ export interface GetRecommendationsRequest {
    *       can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't use that portion of
    *     the expression to filter recommendations.</p>
    *          <p>For more information, see
-   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>.</p>
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering recommendations and user segments</a>.</p>
    */
   filterValues?: Record<string, string>;
 
@@ -174,6 +214,12 @@ export interface GetRecommendationsRequest {
    *     created a Domain dataset group with a recommender for a domain use case.</p>
    */
   recommenderArn?: string;
+
+  /**
+   * <p>The promotions to apply to the recommendation request.
+   *       A promotion defines additional business rules that apply to a configurable subset of recommended items.</p>
+   */
+  promotions?: Promotion[];
 }
 
 export interface GetRecommendationsResponse {
@@ -215,10 +261,19 @@ export const GetPersonalizedRankingResponseFilterSensitiveLog = (obj: GetPersona
 /**
  * @internal
  */
+export const PromotionFilterSensitiveLog = (obj: Promotion): any => ({
+  ...obj,
+  ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GetRecommendationsRequestFilterSensitiveLog = (obj: GetRecommendationsRequest): any => ({
   ...obj,
   ...(obj.context && { context: SENSITIVE_STRING }),
   ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
+  ...(obj.promotions && { promotions: obj.promotions.map((item) => PromotionFilterSensitiveLog(item)) }),
 });
 
 /**
