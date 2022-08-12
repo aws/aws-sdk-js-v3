@@ -157,6 +157,7 @@ import {
   ListChannelsModeratedByAppInstanceUserCommandInput,
   ListChannelsModeratedByAppInstanceUserCommandOutput,
 } from "./commands/ListChannelsModeratedByAppInstanceUserCommand";
+import { ListSubChannelsCommandInput, ListSubChannelsCommandOutput } from "./commands/ListSubChannelsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -221,6 +222,7 @@ export type ServiceInputTypes =
   | ListChannelsAssociatedWithChannelFlowCommandInput
   | ListChannelsCommandInput
   | ListChannelsModeratedByAppInstanceUserCommandInput
+  | ListSubChannelsCommandInput
   | ListTagsForResourceCommandInput
   | PutChannelMembershipPreferencesCommandInput
   | RedactChannelMessageCommandInput
@@ -269,6 +271,7 @@ export type ServiceOutputTypes =
   | ListChannelsAssociatedWithChannelFlowCommandOutput
   | ListChannelsCommandOutput
   | ListChannelsModeratedByAppInstanceUserCommandOutput
+  | ListSubChannelsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutChannelMembershipPreferencesCommandOutput
   | RedactChannelMessageCommandOutput

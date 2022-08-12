@@ -178,6 +178,11 @@ import {
   ListChannelsModeratedByAppInstanceUserCommandOutput,
 } from "./commands/ListChannelsModeratedByAppInstanceUserCommand";
 import {
+  ListSubChannelsCommand,
+  ListSubChannelsCommandInput,
+  ListSubChannelsCommandOutput,
+} from "./commands/ListSubChannelsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -1663,6 +1668,38 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
     cb?: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
   ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput> | void {
     const command = new ListChannelsModeratedByAppInstanceUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the SubChannels in an elastic channel when given a channel ID. Available only to the app instance admins and channel moderators of elastic channels.</p>
+   */
+  public listSubChannels(
+    args: ListSubChannelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSubChannelsCommandOutput>;
+  public listSubChannels(
+    args: ListSubChannelsCommandInput,
+    cb: (err: any, data?: ListSubChannelsCommandOutput) => void
+  ): void;
+  public listSubChannels(
+    args: ListSubChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSubChannelsCommandOutput) => void
+  ): void;
+  public listSubChannels(
+    args: ListSubChannelsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSubChannelsCommandOutput) => void),
+    cb?: (err: any, data?: ListSubChannelsCommandOutput) => void
+  ): Promise<ListSubChannelsCommandOutput> | void {
+    const command = new ListSubChannelsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -9,4 +9,5 @@ export * from "./ListChannelModeratorsPaginator";
 export * from "./ListChannelsAssociatedWithChannelFlowPaginator";
 export * from "./ListChannelsModeratedByAppInstanceUserPaginator";
 export * from "./ListChannelsPaginator";
+export * from "./ListSubChannelsPaginator";
 export * from "./SearchChannelsPaginator";

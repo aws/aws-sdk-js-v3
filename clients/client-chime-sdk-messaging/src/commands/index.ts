@@ -34,6 +34,7 @@ export * from "./ListChannelModeratorsCommand";
 export * from "./ListChannelsAssociatedWithChannelFlowCommand";
 export * from "./ListChannelsCommand";
 export * from "./ListChannelsModeratedByAppInstanceUserCommand";
+export * from "./ListSubChannelsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PutChannelMembershipPreferencesCommand";
 export * from "./RedactChannelMessageCommand";

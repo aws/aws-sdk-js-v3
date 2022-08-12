@@ -27,6 +27,11 @@ export interface AppInstanceUserMembershipSummary {
    * <p>The time at which an <code>AppInstanceUser</code> last marked a channel as read.</p>
    */
   ReadMarkerTimestamp?: Date;
+
+  /**
+   * <p>The ID of the SubChannel that the <code>AppInstanceUser</code> is a member of.</p>
+   */
+  SubChannelId?: string;
 }
 
 export interface AssociateChannelFlowRequest {
@@ -288,6 +293,11 @@ export interface BatchChannelMemberships {
    * <p>The ARN of the channel to which you're adding users.</p>
    */
   ChannelArn?: string;
+
+  /**
+   * <p>The ID of the SubChannel.</p>
+   */
+  SubChannelId?: string;
 }
 
 export interface BatchCreateChannelMembershipRequest {
@@ -314,6 +324,14 @@ export interface BatchCreateChannelMembershipRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The ID of the SubChannel in the request. </p>
+   *          <note>
+   *             <p>Only required when creating membership in a SubChannel for a moderator in an elastic channel.</p>
+   *          </note>
+   */
+  SubChannelId?: string;
 }
 
 /**
@@ -347,6 +365,49 @@ export interface BatchCreateChannelMembershipResponse {
    *          memberships is returned, along with error codes and error messages.</p>
    */
   Errors?: BatchCreateChannelMembershipError[];
+}
+
+/**
+ * <p>The request exceeds the resource limit.</p>
+ */
+export class ResourceLimitExceededException extends __BaseException {
+  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
+  readonly $fault: "client" = "client";
+  Code?: ErrorCode | string;
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
+    super({
+      name: "ResourceLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.</p>
+ */
+export interface ElasticChannelConfiguration {
+  /**
+   * <p>The maximum number of SubChannels that you want to allow in the elastic channel.</p>
+   */
+  MaximumSubChannels: number | undefined;
+
+  /**
+   * <p>The maximum number of members allowed in a SubChannel.</p>
+   */
+  TargetMembershipsPerSubChannel: number | undefined;
+
+  /**
+   * <p>The minimum allowed percentage of TargetMembershipsPerSubChannel users. Ceil of the calculated value is used in balancing members among SubChannels of the elastic channel.</p>
+   */
+  MinimumMembershipPercentage: number | undefined;
 }
 
 export enum ChannelMode {
@@ -412,6 +473,11 @@ export interface Channel {
    * <p>The ARN of the channel flow.</p>
    */
   ChannelFlowArn?: string;
+
+  /**
+   * <p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.</p>
+   */
+  ElasticChannelConfiguration?: ElasticChannelConfiguration;
 }
 
 /**
@@ -636,6 +702,11 @@ export interface ChannelMessageCallback {
    * <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>. </p>
    */
   MessageAttributes?: Record<string, MessageAttributeValue>;
+
+  /**
+   * <p>The ID of the SubChannel.</p>
+   */
+  SubChannelId?: string;
 }
 
 export interface ChannelFlowCallbackRequest {
@@ -725,6 +796,11 @@ export interface ChannelMembership {
    * <p>The time at which a channel membership was last updated.</p>
    */
   LastUpdatedTimestamp?: Date;
+
+  /**
+   * <p>The ID of the SubChannel that a user belongs to.</p>
+   */
+  SubChannelId?: string;
 }
 
 /**
@@ -914,6 +990,11 @@ export interface ChannelMessage {
    * <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>.</p>
    */
   MessageAttributes?: Record<string, MessageAttributeValue>;
+
+  /**
+   * <p>The ID of the SubChannel.</p>
+   */
+  SubChannelId?: string;
 }
 
 /**
@@ -1096,6 +1177,11 @@ export interface CreateChannelRequest {
    * <p>The ARNs of the channel moderators in the request.</p>
    */
   ModeratorArns?: string[];
+
+  /**
+   * <p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million users, excluding moderators.</p>
+   */
+  ElasticChannelConfiguration?: ElasticChannelConfiguration;
 }
 
 export interface CreateChannelResponse {
@@ -1103,29 +1189,6 @@ export interface CreateChannelResponse {
    * <p>The ARN of the channel.</p>
    */
   ChannelArn?: string;
-}
-
-/**
- * <p>The request exceeds the resource limit.</p>
- */
-export class ResourceLimitExceededException extends __BaseException {
-  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
-    super({
-      name: "ResourceLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
 }
 
 export interface CreateChannelBanRequest {
@@ -1216,6 +1279,14 @@ export interface CreateChannelMembershipRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The ID of the SubChannel in the request.</p>
+   *          <note>
+   *             <p>Only required when creating membership in a SubChannel for a moderator in an elastic channel.</p>
+   *          </note>
+   */
+  SubChannelId?: string;
 }
 
 export interface CreateChannelMembershipResponse {
@@ -1228,6 +1299,11 @@ export interface CreateChannelMembershipResponse {
    * <p>The ARN and metadata of the member being added.</p>
    */
   Member?: Identity;
+
+  /**
+   * <p>The ID of the SubChannel in the response.</p>
+   */
+  SubChannelId?: string;
 }
 
 export interface CreateChannelModeratorRequest {
@@ -1269,6 +1345,11 @@ export interface DeleteChannelRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The ID of the SubChannel in the request.</p>
+   */
+  SubChannelId?: string;
 }
 
 export interface DeleteChannelBanRequest {
@@ -1310,6 +1391,14 @@ export interface DeleteChannelMembershipRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The ID of the SubChannel in the request.</p>
+   *          <note>
+   *             <p>Only for use by moderators.</p>
+   *          </note>
+   */
+  SubChannelId?: string;
 }
 
 export interface DeleteChannelMessageRequest {
@@ -1327,6 +1416,14 @@ export interface DeleteChannelMessageRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The ID of the SubChannel in the request.</p>
+   *          <note>
+   *             <p>Only required when deleting messages in a SubChannel that the user belongs to.</p>
+   *          </note>
+   */
+  SubChannelId?: string;
 }
 
 export interface DeleteChannelModeratorRequest {
@@ -1418,6 +1515,14 @@ export interface DescribeChannelMembershipRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The ID of the SubChannel in the request. The response contains an <code>ElasticChannelConfiguration</code> object.</p>
+   *          <note>
+   *             <p>Only required to get a user’s SubChannel membership details.</p>
+   *          </note>
+   */
+  SubChannelId?: string;
 }
 
 export interface DescribeChannelMembershipResponse {
@@ -1565,6 +1670,14 @@ export interface GetChannelMessageRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The ID of the SubChannel in the request.</p>
+   *          <note>
+   *             <p>Only required when getting messages in a SubChannel that the user belongs to.</p>
+   *          </note>
+   */
+  SubChannelId?: string;
 }
 
 export interface GetChannelMessageResponse {
@@ -1589,6 +1702,14 @@ export interface GetChannelMessageStatusRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The ID of the SubChannel in the request.</p>
+   *          <note>
+   *             <p>Only required when getting message status in a SubChannel that the user belongs to.</p>
+   *          </note>
+   */
+  SubChannelId?: string;
 }
 
 export interface GetChannelMessageStatusResponse {
@@ -1714,6 +1835,14 @@ export interface ListChannelMembershipsRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The ID of the SubChannel in the request.</p>
+   *          <note>
+   *             <p>Only required when listing a user's memberships in a particular sub-channel of an elastic channel.</p>
+   *          </note>
+   */
+  SubChannelId?: string;
 }
 
 export interface ListChannelMembershipsResponse {
@@ -1810,6 +1939,14 @@ export interface ListChannelMessagesRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The ID of the SubChannel in the request.</p>
+   *          <note>
+   *             <p>Only required when listing the messages in a SubChannel that the user belongs to.</p>
+   *          </note>
+   */
+  SubChannelId?: string;
 }
 
 export interface ListChannelMessagesResponse {
@@ -1827,6 +1964,11 @@ export interface ListChannelMessagesResponse {
    * <p>The information about, and content of, each requested message.</p>
    */
   ChannelMessages?: ChannelMessageSummary[];
+
+  /**
+   * <p>The ID of the SubChannel in the response.</p>
+   */
+  SubChannelId?: string;
 }
 
 export interface ListChannelModeratorsRequest {
@@ -1977,6 +2119,60 @@ export interface ListChannelsModeratedByAppInstanceUserResponse {
   NextToken?: string;
 }
 
+export interface ListSubChannelsRequest {
+  /**
+   * <p>The ARN of elastic channel.</p>
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
+   */
+  ChimeBearer: string | undefined;
+
+  /**
+   * <p>The maximum number of sub-channels that you want to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token passed by previous API calls until all requested sub-channels are returned.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Summary of the sub-channels associated with the elastic channel.</p>
+ */
+export interface SubChannelSummary {
+  /**
+   * <p>The unique ID of a SubChannel.</p>
+   */
+  SubChannelId?: string;
+
+  /**
+   * <p>The number of members in a SubChannel.</p>
+   */
+  MembershipCount?: number;
+}
+
+export interface ListSubChannelsResponse {
+  /**
+   * <p>The ARN of elastic channel.</p>
+   */
+  ChannelArn?: string;
+
+  /**
+   * <p>The information about each sub-channel.</p>
+   */
+  SubChannels?: SubChannelSummary[];
+
+  /**
+   * <p>The token passed by previous API calls until all requested sub-channels are returned.</p>
+   */
+  NextToken?: string;
+}
+
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -2045,6 +2241,11 @@ export interface RedactChannelMessageRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The ID of the SubChannel in the request.</p>
+   */
+  SubChannelId?: string;
 }
 
 export interface RedactChannelMessageResponse {
@@ -2057,6 +2258,14 @@ export interface RedactChannelMessageResponse {
    * <p>The ID of the message being redacted.</p>
    */
   MessageId?: string;
+
+  /**
+   * <p>The ID of the SubChannel in the response.</p>
+   *          <note>
+   *             <p>Only required when redacting messages in a SubChannel that the user belongs to.</p>
+   *          </note>
+   */
+  SubChannelId?: string;
 }
 
 export enum SearchFieldKey {
@@ -2172,6 +2381,11 @@ export interface SendChannelMessageRequest {
    * <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>.</p>
    */
   MessageAttributes?: Record<string, MessageAttributeValue>;
+
+  /**
+   * <p>The ID of the SubChannel in the request.</p>
+   */
+  SubChannelId?: string;
 }
 
 export interface SendChannelMessageResponse {
@@ -2189,6 +2403,11 @@ export interface SendChannelMessageResponse {
    * <p>The status of the channel message.</p>
    */
   Status?: ChannelMessageStatusStructure;
+
+  /**
+   * <p>The ID of the SubChannel in the response.</p>
+   */
+  SubChannelId?: string;
 }
 
 export interface TagResourceRequest {
@@ -2298,6 +2517,14 @@ export interface UpdateChannelMessageRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The ID of the SubChannel in the request.</p>
+   *          <note>
+   *             <p>Only required when updating messages in a SubChannel that the user belongs to.</p>
+   *          </note>
+   */
+  SubChannelId?: string;
 }
 
 export interface UpdateChannelMessageResponse {
@@ -2315,6 +2542,11 @@ export interface UpdateChannelMessageResponse {
    * <p>The status of the message update.</p>
    */
   Status?: ChannelMessageStatusStructure;
+
+  /**
+   * <p>The ID of the SubChannel in the response.</p>
+   */
+  SubChannelId?: string;
 }
 
 export interface UpdateChannelReadMarkerRequest {
@@ -2327,6 +2559,11 @@ export interface UpdateChannelReadMarkerRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The ID of the SubChannel in the request.</p>
+   */
+  SubChannelId?: string;
 }
 
 export interface UpdateChannelReadMarkerResponse {
@@ -2334,6 +2571,11 @@ export interface UpdateChannelReadMarkerResponse {
    * <p>The ARN of the channel.</p>
    */
   ChannelArn?: string;
+
+  /**
+   * <p>The ID of the SubChannel in the response.</p>
+   */
+  SubChannelId?: string;
 }
 
 /**
@@ -2393,6 +2635,13 @@ export const BatchCreateChannelMembershipResponseFilterSensitiveLog = (
   ...(obj.BatchChannelMemberships && {
     BatchChannelMemberships: BatchChannelMembershipsFilterSensitiveLog(obj.BatchChannelMemberships),
   }),
+});
+
+/**
+ * @internal
+ */
+export const ElasticChannelConfigurationFilterSensitiveLog = (obj: ElasticChannelConfiguration): any => ({
+  ...obj,
 });
 
 /**
@@ -3153,6 +3402,29 @@ export const ListChannelsModeratedByAppInstanceUserResponseFilterSensitiveLog = 
   ...(obj.Channels && {
     Channels: obj.Channels.map((item) => ChannelModeratedByAppInstanceUserSummaryFilterSensitiveLog(item)),
   }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListSubChannelsRequestFilterSensitiveLog = (obj: ListSubChannelsRequest): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SubChannelSummaryFilterSensitiveLog = (obj: SubChannelSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSubChannelsResponseFilterSensitiveLog = (obj: ListSubChannelsResponse): any => ({
+  ...obj,
   ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
 });
 

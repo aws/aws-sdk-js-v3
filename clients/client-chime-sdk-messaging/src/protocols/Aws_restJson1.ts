@@ -125,6 +125,7 @@ import {
   ListChannelsModeratedByAppInstanceUserCommandInput,
   ListChannelsModeratedByAppInstanceUserCommandOutput,
 } from "../commands/ListChannelsModeratedByAppInstanceUserCommand";
+import { ListSubChannelsCommandInput, ListSubChannelsCommandOutput } from "../commands/ListSubChannelsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -176,6 +177,7 @@ import {
   ChannelModeratorSummary,
   ChannelSummary,
   ConflictException,
+  ElasticChannelConfiguration,
   ForbiddenException,
   Identity,
   LambdaConfiguration,
@@ -190,6 +192,7 @@ import {
   SearchField,
   ServiceFailureException,
   ServiceUnavailableException,
+  SubChannelSummary,
   Tag,
   ThrottledClientException,
   UnauthorizedClientException,
@@ -240,6 +243,7 @@ export const serializeAws_restJson1BatchCreateChannelMembershipCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.MemberArns != null && { MemberArns: serializeAws_restJson1MemberArns(input.MemberArns, context) }),
+    ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
     ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
@@ -302,6 +306,12 @@ export const serializeAws_restJson1CreateChannelCommand = async (
     ...(input.AppInstanceArn != null && { AppInstanceArn: input.AppInstanceArn }),
     ...(input.ChannelId != null && { ChannelId: input.ChannelId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.ElasticChannelConfiguration != null && {
+      ElasticChannelConfiguration: serializeAws_restJson1ElasticChannelConfiguration(
+        input.ElasticChannelConfiguration,
+        context
+      ),
+    }),
     ...(input.MemberArns != null && { MemberArns: serializeAws_restJson1ChannelMemberArns(input.MemberArns, context) }),
     ...(input.Metadata != null && { Metadata: input.Metadata }),
     ...(input.Mode != null && { Mode: input.Mode }),
@@ -393,6 +403,7 @@ export const serializeAws_restJson1CreateChannelMembershipCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.MemberArn != null && { MemberArn: input.MemberArn }),
+    ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
     ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
@@ -443,6 +454,9 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  const query: any = map({
+    "sub-channel-id": [, input.SubChannelId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -451,6 +465,7 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -520,6 +535,9 @@ export const serializeAws_restJson1DeleteChannelMembershipCommand = async (
     "/channels/{ChannelArn}/memberships/{MemberArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "MemberArn", () => input.MemberArn!, "{MemberArn}", false);
+  const query: any = map({
+    "sub-channel-id": [, input.SubChannelId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -528,6 +546,7 @@ export const serializeAws_restJson1DeleteChannelMembershipCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -545,6 +564,9 @@ export const serializeAws_restJson1DeleteChannelMessageCommand = async (
     "/channels/{ChannelArn}/messages/{MessageId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "MessageId", () => input.MessageId!, "{MessageId}", false);
+  const query: any = map({
+    "sub-channel-id": [, input.SubChannelId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -553,6 +575,7 @@ export const serializeAws_restJson1DeleteChannelMessageCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -676,6 +699,9 @@ export const serializeAws_restJson1DescribeChannelMembershipCommand = async (
     "/channels/{ChannelArn}/memberships/{MemberArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "MemberArn", () => input.MemberArn!, "{MemberArn}", false);
+  const query: any = map({
+    "sub-channel-id": [, input.SubChannelId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -684,6 +710,7 @@ export const serializeAws_restJson1DescribeChannelMembershipCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -844,6 +871,9 @@ export const serializeAws_restJson1GetChannelMessageCommand = async (
     "/channels/{ChannelArn}/messages/{MessageId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "MessageId", () => input.MessageId!, "{MessageId}", false);
+  const query: any = map({
+    "sub-channel-id": [, input.SubChannelId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -852,6 +882,7 @@ export const serializeAws_restJson1GetChannelMessageCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -871,6 +902,7 @@ export const serializeAws_restJson1GetChannelMessageStatusCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "MessageId", () => input.MessageId!, "{MessageId}", false);
   const query: any = map({
     scope: [, "message-status"],
+    "sub-channel-id": [, input.SubChannelId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -976,6 +1008,7 @@ export const serializeAws_restJson1ListChannelMembershipsCommand = async (
     type: [, input.Type!],
     "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     "next-token": [, input.NextToken!],
+    "sub-channel-id": [, input.SubChannelId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1041,6 +1074,7 @@ export const serializeAws_restJson1ListChannelMessagesCommand = async (
     ],
     "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     "next-token": [, input.NextToken!],
+    "sub-channel-id": [, input.SubChannelId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1165,6 +1199,34 @@ export const serializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand
   });
 };
 
+export const serializeAws_restJson1ListSubChannelsCommand = async (
+  input: ListSubChannelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-chime-bearer": input.ChimeBearer!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/subchannels";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  const query: any = map({
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    "next-token": [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
@@ -1225,6 +1287,7 @@ export const serializeAws_restJson1RedactChannelMessageCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -1236,6 +1299,9 @@ export const serializeAws_restJson1RedactChannelMessageCommand = async (
     operation: [, "redact"],
   });
   let body: any;
+  body = JSON.stringify({
+    ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
+  });
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1303,6 +1369,7 @@ export const serializeAws_restJson1SendChannelMessageCommand = async (
     ...(input.PushNotification != null && {
       PushNotification: serializeAws_restJson1PushNotificationConfiguration(input.PushNotification, context),
     }),
+    ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
     ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
@@ -1454,6 +1521,7 @@ export const serializeAws_restJson1UpdateChannelMessageCommand = async (
   body = JSON.stringify({
     ...(input.Content != null && { Content: input.Content }),
     ...(input.Metadata != null && { Metadata: input.Metadata }),
+    ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
   });
   return new __HttpRequest({
     protocol,
@@ -1472,12 +1540,16 @@ export const serializeAws_restJson1UpdateChannelReadMarkerCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/readMarker";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
+  body = JSON.stringify({
+    ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
+  });
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1587,6 +1659,12 @@ const deserializeAws_restJson1BatchCreateChannelMembershipCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
       throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmessaging#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
+      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
       throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
@@ -1878,6 +1956,9 @@ export const deserializeAws_restJson1CreateChannelMembershipCommand = async (
   if (data.Member != null) {
     contents.Member = deserializeAws_restJson1Identity(data.Member, context);
   }
+  if (data.SubChannelId != null) {
+    contents.SubChannelId = __expectString(data.SubChannelId);
+  }
   return contents;
 };
 
@@ -1900,6 +1981,9 @@ const deserializeAws_restJson1CreateChannelMembershipCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
       throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmessaging#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
       throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
@@ -3276,6 +3360,9 @@ export const deserializeAws_restJson1ListChannelMessagesCommand = async (
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
   }
+  if (data.SubChannelId != null) {
+    contents.SubChannelId = __expectString(data.SubChannelId);
+  }
   return contents;
 };
 
@@ -3557,6 +3644,68 @@ const deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommandError
   }
 };
 
+export const deserializeAws_restJson1ListSubChannelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSubChannelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListSubChannelsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ChannelArn != null) {
+    contents.ChannelArn = __expectString(data.ChannelArn);
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.SubChannels != null) {
+    contents.SubChannels = deserializeAws_restJson1SubChannelSummaryList(data.SubChannels, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListSubChannelsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSubChannelsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3695,6 +3844,9 @@ export const deserializeAws_restJson1RedactChannelMessageCommand = async (
   if (data.MessageId != null) {
     contents.MessageId = __expectString(data.MessageId);
   }
+  if (data.SubChannelId != null) {
+    contents.SubChannelId = __expectString(data.SubChannelId);
+  }
   return contents;
 };
 
@@ -3818,6 +3970,9 @@ export const deserializeAws_restJson1SendChannelMessageCommand = async (
   }
   if (data.Status != null) {
     contents.Status = deserializeAws_restJson1ChannelMessageStatusStructure(data.Status, context);
+  }
+  if (data.SubChannelId != null) {
+    contents.SubChannelId = __expectString(data.SubChannelId);
   }
   return contents;
 };
@@ -4111,6 +4266,9 @@ export const deserializeAws_restJson1UpdateChannelMessageCommand = async (
   if (data.Status != null) {
     contents.Status = deserializeAws_restJson1ChannelMessageStatusStructure(data.Status, context);
   }
+  if (data.SubChannelId != null) {
+    contents.SubChannelId = __expectString(data.SubChannelId);
+  }
   return contents;
 };
 
@@ -4169,6 +4327,9 @@ export const deserializeAws_restJson1UpdateChannelReadMarkerCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn != null) {
     contents.ChannelArn = __expectString(data.ChannelArn);
+  }
+  if (data.SubChannelId != null) {
+    contents.SubChannelId = __expectString(data.SubChannelId);
   }
   return contents;
 };
@@ -4417,6 +4578,7 @@ const serializeAws_restJson1ChannelMessageCallback = (input: ChannelMessageCallb
     ...(input.PushNotification != null && {
       PushNotification: serializeAws_restJson1PushNotificationConfiguration(input.PushNotification, context),
     }),
+    ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
   };
 };
 
@@ -4426,6 +4588,21 @@ const serializeAws_restJson1ChannelModeratorArns = (input: string[], context: __
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_restJson1ElasticChannelConfiguration = (
+  input: ElasticChannelConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaximumSubChannels != null && { MaximumSubChannels: input.MaximumSubChannels }),
+    ...(input.MinimumMembershipPercentage != null && {
+      MinimumMembershipPercentage: input.MinimumMembershipPercentage,
+    }),
+    ...(input.TargetMembershipsPerSubChannel != null && {
+      TargetMembershipsPerSubChannel: input.TargetMembershipsPerSubChannel,
+    }),
+  };
 };
 
 const serializeAws_restJson1LambdaConfiguration = (input: LambdaConfiguration, context: __SerdeContext): any => {
@@ -4576,6 +4753,7 @@ const deserializeAws_restJson1AppInstanceUserMembershipSummary = (
       output.ReadMarkerTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadMarkerTimestamp)))
         : undefined,
+    SubChannelId: __expectString(output.SubChannelId),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -4588,6 +4766,7 @@ const deserializeAws_restJson1BatchChannelMemberships = (
     ChannelArn: __expectString(output.ChannelArn),
     InvitedBy: output.InvitedBy != null ? deserializeAws_restJson1Identity(output.InvitedBy, context) : undefined,
     Members: output.Members != null ? deserializeAws_restJson1Members(output.Members, context) : undefined,
+    SubChannelId: __expectString(output.SubChannelId),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -4626,6 +4805,10 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
     CreatedTimestamp:
       output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
+        : undefined,
+    ElasticChannelConfiguration:
+      output.ElasticChannelConfiguration != null
+        ? deserializeAws_restJson1ElasticChannelConfiguration(output.ElasticChannelConfiguration, context)
         : undefined,
     LastMessageTimestamp:
       output.LastMessageTimestamp != null
@@ -4751,6 +4934,7 @@ const deserializeAws_restJson1ChannelMembership = (output: any, context: __Serde
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     Member: output.Member != null ? deserializeAws_restJson1Identity(output.Member, context) : undefined,
+    SubChannelId: __expectString(output.SubChannelId),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -4849,6 +5033,7 @@ const deserializeAws_restJson1ChannelMessage = (output: any, context: __SerdeCon
     Sender: output.Sender != null ? deserializeAws_restJson1Identity(output.Sender, context) : undefined,
     Status:
       output.Status != null ? deserializeAws_restJson1ChannelMessageStatusStructure(output.Status, context) : undefined,
+    SubChannelId: __expectString(output.SubChannelId),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -4996,6 +5181,17 @@ const deserializeAws_restJson1ChannelSummaryList = (output: any, context: __Serd
   return retVal;
 };
 
+const deserializeAws_restJson1ElasticChannelConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ElasticChannelConfiguration => {
+  return {
+    MaximumSubChannels: __expectInt32(output.MaximumSubChannels),
+    MinimumMembershipPercentage: __expectInt32(output.MinimumMembershipPercentage),
+    TargetMembershipsPerSubChannel: __expectInt32(output.TargetMembershipsPerSubChannel),
+  } as any;
+};
+
 const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext): Identity => {
   return {
     Arn: __expectString(output.Arn),
@@ -5108,6 +5304,25 @@ const deserializeAws_restJson1PushNotificationPreferences = (
     AllowNotifications: __expectString(output.AllowNotifications),
     FilterRule: __expectString(output.FilterRule),
   } as any;
+};
+
+const deserializeAws_restJson1SubChannelSummary = (output: any, context: __SerdeContext): SubChannelSummary => {
+  return {
+    MembershipCount: __expectInt32(output.MembershipCount),
+    SubChannelId: __expectString(output.SubChannelId),
+  } as any;
+};
+
+const deserializeAws_restJson1SubChannelSummaryList = (output: any, context: __SerdeContext): SubChannelSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SubChannelSummary(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
