@@ -672,6 +672,173 @@ export interface ListWorkspacesResponse {
 }
 
 /**
+ * Represents the input of a CreateLoggingConfiguration operation.
+ */
+export interface CreateLoggingConfigurationRequest {
+  /**
+   * The ID of the workspace to vend logs to.
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * The ARN of the CW log group to which the vended log data will be published.
+   */
+  logGroupArn: string | undefined;
+
+  /**
+   * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
+   */
+  clientToken?: string;
+}
+
+export enum LoggingConfigurationStatusCode {
+  /**
+   * Logging configuration has been created/updated. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
+   */
+  ACTIVE = "ACTIVE",
+  /**
+   * Logging configuration is being created. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
+   */
+  CREATING = "CREATING",
+  /**
+   * Logging configuration creation failed.
+   */
+  CREATION_FAILED = "CREATION_FAILED",
+  /**
+   * Logging configuration is being deleting. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
+   */
+  DELETING = "DELETING",
+  /**
+   * Logging configuration update failed.
+   */
+  UPDATE_FAILED = "UPDATE_FAILED",
+  /**
+   * Logging configuration is being updated. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
+   */
+  UPDATING = "UPDATING",
+}
+
+/**
+ * Represents the status of a logging configuration.
+ */
+export interface LoggingConfigurationStatus {
+  /**
+   * Status code of the logging configuration.
+   */
+  statusCode: LoggingConfigurationStatusCode | string | undefined;
+
+  /**
+   * The reason for failure if any.
+   */
+  statusReason?: string;
+}
+
+/**
+ * Represents the output of a CreateLoggingConfiguration operation.
+ */
+export interface CreateLoggingConfigurationResponse {
+  /**
+   * The status of the logging configuration.
+   */
+  status: LoggingConfigurationStatus | undefined;
+}
+
+/**
+ * Represents the input of a DeleteLoggingConfiguration operation.
+ */
+export interface DeleteLoggingConfigurationRequest {
+  /**
+   * The ID of the workspace to vend logs to.
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
+   */
+  clientToken?: string;
+}
+
+/**
+ * Represents the input of a DescribeLoggingConfiguration operation.
+ */
+export interface DescribeLoggingConfigurationRequest {
+  /**
+   * The ID of the workspace to vend logs to.
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * Represents the properties of a logging configuration metadata.
+ */
+export interface LoggingConfigurationMetadata {
+  /**
+   * The status of the logging configuration.
+   */
+  status: LoggingConfigurationStatus | undefined;
+
+  /**
+   * The workspace where the logging configuration exists.
+   */
+  workspace: string | undefined;
+
+  /**
+   * The ARN of the CW log group to which the vended log data will be published.
+   */
+  logGroupArn: string | undefined;
+
+  /**
+   * The time when the logging configuration was created.
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * The time when the logging configuration was modified.
+   */
+  modifiedAt: Date | undefined;
+}
+
+/**
+ * Represents the output of a DescribeLoggingConfiguration operation.
+ */
+export interface DescribeLoggingConfigurationResponse {
+  /**
+   * Metadata object containing information about the logging configuration of a workspace.
+   */
+  loggingConfiguration: LoggingConfigurationMetadata | undefined;
+}
+
+/**
+ * Represents the input of an UpdateLoggingConfiguration operation.
+ */
+export interface UpdateLoggingConfigurationRequest {
+  /**
+   * The ID of the workspace to vend logs to.
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * The ARN of the CW log group to which the vended log data will be published.
+   */
+  logGroupArn: string | undefined;
+
+  /**
+   * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
+   */
+  clientToken?: string;
+}
+
+/**
+ * Represents the output of an UpdateLoggingConfiguration operation.
+ */
+export interface UpdateLoggingConfigurationResponse {
+  /**
+   * The status of the logging configuration.
+   */
+  status: LoggingConfigurationStatus | undefined;
+}
+
+/**
  * Represents the input of a CreateRuleGroupsNamespace operation.
  */
 export interface CreateRuleGroupsNamespaceRequest {
@@ -1187,6 +1354,73 @@ export const WorkspaceSummaryFilterSensitiveLog = (obj: WorkspaceSummary): any =
  * @internal
  */
 export const ListWorkspacesResponseFilterSensitiveLog = (obj: ListWorkspacesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLoggingConfigurationRequestFilterSensitiveLog = (obj: CreateLoggingConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingConfigurationStatusFilterSensitiveLog = (obj: LoggingConfigurationStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLoggingConfigurationResponseFilterSensitiveLog = (obj: CreateLoggingConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLoggingConfigurationRequestFilterSensitiveLog = (obj: DeleteLoggingConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoggingConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeLoggingConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingConfigurationMetadataFilterSensitiveLog = (obj: LoggingConfigurationMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoggingConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeLoggingConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLoggingConfigurationRequestFilterSensitiveLog = (obj: UpdateLoggingConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLoggingConfigurationResponseFilterSensitiveLog = (obj: UpdateLoggingConfigurationResponse): any => ({
   ...obj,
 });
 

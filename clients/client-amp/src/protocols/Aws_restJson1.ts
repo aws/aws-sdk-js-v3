@@ -25,6 +25,10 @@ import {
   CreateAlertManagerDefinitionCommandOutput,
 } from "../commands/CreateAlertManagerDefinitionCommand";
 import {
+  CreateLoggingConfigurationCommandInput,
+  CreateLoggingConfigurationCommandOutput,
+} from "../commands/CreateLoggingConfigurationCommand";
+import {
   CreateRuleGroupsNamespaceCommandInput,
   CreateRuleGroupsNamespaceCommandOutput,
 } from "../commands/CreateRuleGroupsNamespaceCommand";
@@ -34,6 +38,10 @@ import {
   DeleteAlertManagerDefinitionCommandOutput,
 } from "../commands/DeleteAlertManagerDefinitionCommand";
 import {
+  DeleteLoggingConfigurationCommandInput,
+  DeleteLoggingConfigurationCommandOutput,
+} from "../commands/DeleteLoggingConfigurationCommand";
+import {
   DeleteRuleGroupsNamespaceCommandInput,
   DeleteRuleGroupsNamespaceCommandOutput,
 } from "../commands/DeleteRuleGroupsNamespaceCommand";
@@ -42,6 +50,10 @@ import {
   DescribeAlertManagerDefinitionCommandInput,
   DescribeAlertManagerDefinitionCommandOutput,
 } from "../commands/DescribeAlertManagerDefinitionCommand";
+import {
+  DescribeLoggingConfigurationCommandInput,
+  DescribeLoggingConfigurationCommandOutput,
+} from "../commands/DescribeLoggingConfigurationCommand";
 import {
   DescribeRuleGroupsNamespaceCommandInput,
   DescribeRuleGroupsNamespaceCommandOutput,
@@ -67,6 +79,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  UpdateLoggingConfigurationCommandInput,
+  UpdateLoggingConfigurationCommandOutput,
+} from "../commands/UpdateLoggingConfigurationCommand";
+import {
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
 } from "../commands/UpdateWorkspaceAliasCommand";
@@ -77,6 +93,8 @@ import {
   AlertManagerDefinitionStatus,
   ConflictException,
   InternalServerException,
+  LoggingConfigurationMetadata,
+  LoggingConfigurationStatus,
   ResourceNotFoundException,
   RuleGroupsNamespaceDescription,
   RuleGroupsNamespaceStatus,
@@ -106,6 +124,33 @@ export const serializeAws_restJson1CreateAlertManagerDefinitionCommand = async (
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.data != null && { data: context.base64Encoder(input.data) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateLoggingConfigurationCommand = async (
+  input: CreateLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/logging";
+  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.logGroupArn != null && { logGroupArn: input.logGroupArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -200,6 +245,31 @@ export const serializeAws_restJson1DeleteAlertManagerDefinitionCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteLoggingConfigurationCommand = async (
+  input: DeleteLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/logging";
+  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  const query: any = map({
+    clientToken: [, input.clientToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteRuleGroupsNamespaceCommand = async (
   input: DeleteRuleGroupsNamespaceCommandInput,
   context: __SerdeContext
@@ -261,6 +331,27 @@ export const serializeAws_restJson1DescribeAlertManagerDefinitionCommand = async
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/workspaces/{workspaceId}/alertmanager/definition";
+  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeLoggingConfigurationCommand = async (
+  input: DescribeLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/logging";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   return new __HttpRequest({
@@ -497,6 +588,33 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateLoggingConfigurationCommand = async (
+  input: UpdateLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/logging";
+  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.logGroupArn != null && { logGroupArn: input.logGroupArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateWorkspaceAliasCommand = async (
   input: UpdateWorkspaceAliasCommandInput,
   context: __SerdeContext
@@ -569,6 +687,56 @@ const deserializeAws_restJson1CreateAlertManagerDefinitionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.amp#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1CreateLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateLoggingConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.status != null) {
+    contents.status = deserializeAws_restJson1LoggingConfigurationStatus(data.status, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateLoggingConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLoggingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.amp#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -769,6 +937,56 @@ const deserializeAws_restJson1DeleteAlertManagerDefinitionCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DeleteLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteLoggingConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteLoggingConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLoggingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.amp#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1DeleteRuleGroupsNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -917,6 +1135,59 @@ const deserializeAws_restJson1DescribeAlertManagerDefinitionCommandError = async
     case "ThrottlingException":
     case "com.amazonaws.amp#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DescribeLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeLoggingConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.loggingConfiguration != null) {
+    contents.loggingConfiguration = deserializeAws_restJson1LoggingConfigurationMetadata(
+      data.loggingConfiguration,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeLoggingConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLoggingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.amp#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -1432,6 +1703,59 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateLoggingConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.status != null) {
+    contents.status = deserializeAws_restJson1LoggingConfigurationStatus(data.status, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateLoggingConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLoggingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.amp#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdateWorkspaceAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1678,6 +2002,32 @@ const deserializeAws_restJson1AlertManagerDefinitionStatus = (
   output: any,
   context: __SerdeContext
 ): AlertManagerDefinitionStatus => {
+  return {
+    statusCode: __expectString(output.statusCode),
+    statusReason: __expectString(output.statusReason),
+  } as any;
+};
+
+const deserializeAws_restJson1LoggingConfigurationMetadata = (
+  output: any,
+  context: __SerdeContext
+): LoggingConfigurationMetadata => {
+  return {
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
+    logGroupArn: __expectString(output.logGroupArn),
+    modifiedAt:
+      output.modifiedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt))) : undefined,
+    status:
+      output.status != null ? deserializeAws_restJson1LoggingConfigurationStatus(output.status, context) : undefined,
+    workspace: __expectString(output.workspace),
+  } as any;
+};
+
+const deserializeAws_restJson1LoggingConfigurationStatus = (
+  output: any,
+  context: __SerdeContext
+): LoggingConfigurationStatus => {
   return {
     statusCode: __expectString(output.statusCode),
     statusReason: __expectString(output.statusReason),

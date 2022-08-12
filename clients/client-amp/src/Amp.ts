@@ -8,6 +8,11 @@ import {
   CreateAlertManagerDefinitionCommandOutput,
 } from "./commands/CreateAlertManagerDefinitionCommand";
 import {
+  CreateLoggingConfigurationCommand,
+  CreateLoggingConfigurationCommandInput,
+  CreateLoggingConfigurationCommandOutput,
+} from "./commands/CreateLoggingConfigurationCommand";
+import {
   CreateRuleGroupsNamespaceCommand,
   CreateRuleGroupsNamespaceCommandInput,
   CreateRuleGroupsNamespaceCommandOutput,
@@ -23,6 +28,11 @@ import {
   DeleteAlertManagerDefinitionCommandOutput,
 } from "./commands/DeleteAlertManagerDefinitionCommand";
 import {
+  DeleteLoggingConfigurationCommand,
+  DeleteLoggingConfigurationCommandInput,
+  DeleteLoggingConfigurationCommandOutput,
+} from "./commands/DeleteLoggingConfigurationCommand";
+import {
   DeleteRuleGroupsNamespaceCommand,
   DeleteRuleGroupsNamespaceCommandInput,
   DeleteRuleGroupsNamespaceCommandOutput,
@@ -37,6 +47,11 @@ import {
   DescribeAlertManagerDefinitionCommandInput,
   DescribeAlertManagerDefinitionCommandOutput,
 } from "./commands/DescribeAlertManagerDefinitionCommand";
+import {
+  DescribeLoggingConfigurationCommand,
+  DescribeLoggingConfigurationCommandInput,
+  DescribeLoggingConfigurationCommandOutput,
+} from "./commands/DescribeLoggingConfigurationCommand";
 import {
   DescribeRuleGroupsNamespaceCommand,
   DescribeRuleGroupsNamespaceCommandInput,
@@ -79,6 +94,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateLoggingConfigurationCommand,
+  UpdateLoggingConfigurationCommandInput,
+  UpdateLoggingConfigurationCommandOutput,
+} from "./commands/UpdateLoggingConfigurationCommand";
+import {
   UpdateWorkspaceAliasCommand,
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
@@ -110,6 +130,38 @@ export class Amp extends AmpClient {
     cb?: (err: any, data?: CreateAlertManagerDefinitionCommandOutput) => void
   ): Promise<CreateAlertManagerDefinitionCommandOutput> | void {
     const command = new CreateAlertManagerDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Create logging configuration.
+   */
+  public createLoggingConfiguration(
+    args: CreateLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLoggingConfigurationCommandOutput>;
+  public createLoggingConfiguration(
+    args: CreateLoggingConfigurationCommandInput,
+    cb: (err: any, data?: CreateLoggingConfigurationCommandOutput) => void
+  ): void;
+  public createLoggingConfiguration(
+    args: CreateLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLoggingConfigurationCommandOutput) => void
+  ): void;
+  public createLoggingConfiguration(
+    args: CreateLoggingConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLoggingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateLoggingConfigurationCommandOutput) => void
+  ): Promise<CreateLoggingConfigurationCommandOutput> | void {
+    const command = new CreateLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -217,6 +269,38 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * Delete logging configuration.
+   */
+  public deleteLoggingConfiguration(
+    args: DeleteLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLoggingConfigurationCommandOutput>;
+  public deleteLoggingConfiguration(
+    args: DeleteLoggingConfigurationCommandInput,
+    cb: (err: any, data?: DeleteLoggingConfigurationCommandOutput) => void
+  ): void;
+  public deleteLoggingConfiguration(
+    args: DeleteLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLoggingConfigurationCommandOutput) => void
+  ): void;
+  public deleteLoggingConfiguration(
+    args: DeleteLoggingConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLoggingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLoggingConfigurationCommandOutput) => void
+  ): Promise<DeleteLoggingConfigurationCommandOutput> | void {
+    const command = new DeleteLoggingConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * Delete a rule groups namespace.
    */
   public deleteRuleGroupsNamespace(
@@ -302,6 +386,38 @@ export class Amp extends AmpClient {
     cb?: (err: any, data?: DescribeAlertManagerDefinitionCommandOutput) => void
   ): Promise<DescribeAlertManagerDefinitionCommandOutput> | void {
     const command = new DescribeAlertManagerDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Describes logging configuration.
+   */
+  public describeLoggingConfiguration(
+    args: DescribeLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLoggingConfigurationCommandOutput>;
+  public describeLoggingConfiguration(
+    args: DescribeLoggingConfigurationCommandInput,
+    cb: (err: any, data?: DescribeLoggingConfigurationCommandOutput) => void
+  ): void;
+  public describeLoggingConfiguration(
+    args: DescribeLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLoggingConfigurationCommandOutput) => void
+  ): void;
+  public describeLoggingConfiguration(
+    args: DescribeLoggingConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLoggingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLoggingConfigurationCommandOutput) => void
+  ): Promise<DescribeLoggingConfigurationCommandOutput> | void {
+    const command = new DescribeLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -584,6 +700,38 @@ export class Amp extends AmpClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Update logging configuration.
+   */
+  public updateLoggingConfiguration(
+    args: UpdateLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLoggingConfigurationCommandOutput>;
+  public updateLoggingConfiguration(
+    args: UpdateLoggingConfigurationCommandInput,
+    cb: (err: any, data?: UpdateLoggingConfigurationCommandOutput) => void
+  ): void;
+  public updateLoggingConfiguration(
+    args: UpdateLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLoggingConfigurationCommandOutput) => void
+  ): void;
+  public updateLoggingConfiguration(
+    args: UpdateLoggingConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLoggingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLoggingConfigurationCommandOutput) => void
+  ): Promise<UpdateLoggingConfigurationCommandOutput> | void {
+    const command = new UpdateLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

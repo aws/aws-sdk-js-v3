@@ -58,6 +58,10 @@ import {
   CreateAlertManagerDefinitionCommandOutput,
 } from "./commands/CreateAlertManagerDefinitionCommand";
 import {
+  CreateLoggingConfigurationCommandInput,
+  CreateLoggingConfigurationCommandOutput,
+} from "./commands/CreateLoggingConfigurationCommand";
+import {
   CreateRuleGroupsNamespaceCommandInput,
   CreateRuleGroupsNamespaceCommandOutput,
 } from "./commands/CreateRuleGroupsNamespaceCommand";
@@ -67,6 +71,10 @@ import {
   DeleteAlertManagerDefinitionCommandOutput,
 } from "./commands/DeleteAlertManagerDefinitionCommand";
 import {
+  DeleteLoggingConfigurationCommandInput,
+  DeleteLoggingConfigurationCommandOutput,
+} from "./commands/DeleteLoggingConfigurationCommand";
+import {
   DeleteRuleGroupsNamespaceCommandInput,
   DeleteRuleGroupsNamespaceCommandOutput,
 } from "./commands/DeleteRuleGroupsNamespaceCommand";
@@ -75,6 +83,10 @@ import {
   DescribeAlertManagerDefinitionCommandInput,
   DescribeAlertManagerDefinitionCommandOutput,
 } from "./commands/DescribeAlertManagerDefinitionCommand";
+import {
+  DescribeLoggingConfigurationCommandInput,
+  DescribeLoggingConfigurationCommandOutput,
+} from "./commands/DescribeLoggingConfigurationCommand";
 import {
   DescribeRuleGroupsNamespaceCommandInput,
   DescribeRuleGroupsNamespaceCommandOutput,
@@ -100,6 +112,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
+  UpdateLoggingConfigurationCommandInput,
+  UpdateLoggingConfigurationCommandOutput,
+} from "./commands/UpdateLoggingConfigurationCommand";
+import {
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
 } from "./commands/UpdateWorkspaceAliasCommand";
@@ -107,12 +123,15 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CreateAlertManagerDefinitionCommandInput
+  | CreateLoggingConfigurationCommandInput
   | CreateRuleGroupsNamespaceCommandInput
   | CreateWorkspaceCommandInput
   | DeleteAlertManagerDefinitionCommandInput
+  | DeleteLoggingConfigurationCommandInput
   | DeleteRuleGroupsNamespaceCommandInput
   | DeleteWorkspaceCommandInput
   | DescribeAlertManagerDefinitionCommandInput
+  | DescribeLoggingConfigurationCommandInput
   | DescribeRuleGroupsNamespaceCommandInput
   | DescribeWorkspaceCommandInput
   | ListRuleGroupsNamespacesCommandInput
@@ -122,16 +141,20 @@ export type ServiceInputTypes =
   | PutRuleGroupsNamespaceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateLoggingConfigurationCommandInput
   | UpdateWorkspaceAliasCommandInput;
 
 export type ServiceOutputTypes =
   | CreateAlertManagerDefinitionCommandOutput
+  | CreateLoggingConfigurationCommandOutput
   | CreateRuleGroupsNamespaceCommandOutput
   | CreateWorkspaceCommandOutput
   | DeleteAlertManagerDefinitionCommandOutput
+  | DeleteLoggingConfigurationCommandOutput
   | DeleteRuleGroupsNamespaceCommandOutput
   | DeleteWorkspaceCommandOutput
   | DescribeAlertManagerDefinitionCommandOutput
+  | DescribeLoggingConfigurationCommandOutput
   | DescribeRuleGroupsNamespaceCommandOutput
   | DescribeWorkspaceCommandOutput
   | ListRuleGroupsNamespacesCommandOutput
@@ -141,6 +164,7 @@ export type ServiceOutputTypes =
   | PutRuleGroupsNamespaceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateLoggingConfigurationCommandOutput
   | UpdateWorkspaceAliasCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
