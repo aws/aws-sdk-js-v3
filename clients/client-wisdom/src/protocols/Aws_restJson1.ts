@@ -68,6 +68,7 @@ import {
   NotifyRecommendationsReceivedCommandInput,
   NotifyRecommendationsReceivedCommandOutput,
 } from "../commands/NotifyRecommendationsReceivedCommand";
+import { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "../commands/PutFeedbackCommand";
 import { QueryAssistantCommandInput, QueryAssistantCommandOutput } from "../commands/QueryAssistantCommand";
 import {
   RemoveKnowledgeBaseTemplateUriCommandInput,
@@ -98,6 +99,7 @@ import {
   ContentSummary,
   Document,
   DocumentText,
+  FeedbackData,
   Filter,
   Highlight,
   KnowledgeBaseAssociationData,
@@ -748,6 +750,34 @@ export const serializeAws_restJson1NotifyRecommendationsReceivedCommand = async 
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutFeedbackCommand = async (
+  input: PutFeedbackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/feedback";
+  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.feedback != null && { feedback: serializeAws_restJson1FeedbackData(input.feedback, context) }),
+    ...(input.targetId != null && { targetId: input.targetId }),
+    ...(input.targetType != null && { targetType: input.targetType }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -2098,6 +2128,65 @@ const deserializeAws_restJson1NotifyRecommendationsReceivedCommandError = async 
   }
 };
 
+export const deserializeAws_restJson1PutFeedbackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutFeedbackCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutFeedbackCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.assistantArn != null) {
+    contents.assistantArn = __expectString(data.assistantArn);
+  }
+  if (data.assistantId != null) {
+    contents.assistantId = __expectString(data.assistantId);
+  }
+  if (data.feedback != null) {
+    contents.feedback = deserializeAws_restJson1FeedbackData(data.feedback, context);
+  }
+  if (data.targetId != null) {
+    contents.targetId = __expectString(data.targetId);
+  }
+  if (data.targetType != null) {
+    contents.targetType = __expectString(data.targetType);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1PutFeedbackCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutFeedbackCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wisdom#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wisdom#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wisdom#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1QueryAssistantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2677,6 +2766,12 @@ const serializeAws_restJson1ContentMetadata = (input: Record<string, string>, co
   }, {});
 };
 
+const serializeAws_restJson1FeedbackData = (input: FeedbackData, context: __SerdeContext): any => {
+  return {
+    ...(input.relevance != null && { relevance: input.relevance }),
+  };
+};
+
 const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.field != null && { field: input.field }),
@@ -2956,6 +3051,12 @@ const deserializeAws_restJson1DocumentText = (output: any, context: __SerdeConte
   return {
     highlights: output.highlights != null ? deserializeAws_restJson1Highlights(output.highlights, context) : undefined,
     text: __expectString(output.text),
+  } as any;
+};
+
+const deserializeAws_restJson1FeedbackData = (output: any, context: __SerdeContext): FeedbackData => {
+  return {
+    relevance: __expectString(output.relevance),
   } as any;
 };
 

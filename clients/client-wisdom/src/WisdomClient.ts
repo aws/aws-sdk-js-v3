@@ -99,6 +99,7 @@ import {
   NotifyRecommendationsReceivedCommandInput,
   NotifyRecommendationsReceivedCommandOutput,
 } from "./commands/NotifyRecommendationsReceivedCommand";
+import { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
 import { QueryAssistantCommandInput, QueryAssistantCommandOutput } from "./commands/QueryAssistantCommand";
 import {
   RemoveKnowledgeBaseTemplateUriCommandInput,
@@ -139,6 +140,7 @@ export type ServiceInputTypes =
   | ListKnowledgeBasesCommandInput
   | ListTagsForResourceCommandInput
   | NotifyRecommendationsReceivedCommandInput
+  | PutFeedbackCommandInput
   | QueryAssistantCommandInput
   | RemoveKnowledgeBaseTemplateUriCommandInput
   | SearchContentCommandInput
@@ -172,6 +174,7 @@ export type ServiceOutputTypes =
   | ListKnowledgeBasesCommandOutput
   | ListTagsForResourceCommandOutput
   | NotifyRecommendationsReceivedCommandOutput
+  | PutFeedbackCommandOutput
   | QueryAssistantCommandOutput
   | RemoveKnowledgeBaseTemplateUriCommandOutput
   | SearchContentCommandOutput
