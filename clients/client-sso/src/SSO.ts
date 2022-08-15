@@ -30,7 +30,7 @@ import { SSOClient } from "./SSOClient";
  *         backward compatibility purposes. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed">Amazon Web Services SSO rename</a>.</p>
  *          </note>
  *
- *          <p>This API reference guide describes the Amazon Web Services SSO Portal operations that you can call
+ *          <p>This reference guide describes the Amazon Web Services SSO Portal operations that you can call
  *       programatically and includes detailed information on data types and errors.</p>
  *
  *          <note>
