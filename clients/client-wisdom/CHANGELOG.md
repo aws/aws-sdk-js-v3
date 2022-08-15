@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.149.0...v3.150.0) (2022-08-15)
+
+
+### Features
+
+* **client-wisdom:** This release introduces a new API PutFeedback that allows submitting feedback to Wisdom on content relevance. ([53b4df1](https://github.com/aws/aws-sdk-js-v3/commit/53b4df188f94ede91121c7bac0470d7dbda37046))
+
+
+
+
+
 # [3.145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.144.0...v3.145.0) (2022-08-08)
 
 **Note:** Version bump only for package @aws-sdk/client-wisdom

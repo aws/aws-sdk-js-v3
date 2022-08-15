@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.149.0...v3.150.0) (2022-08-15)
+
+
+### Features
+
+* **client-cloudfront:** Adds Http 3 support to distributions ([0f250fe](https://github.com/aws/aws-sdk-js-v3/commit/0f250fe532116c548bcee919174ec0896601cc5f))
+* **client-wisdom:** This release introduces a new API PutFeedback that allows submitting feedback to Wisdom on content relevance. ([53b4df1](https://github.com/aws/aws-sdk-js-v3/commit/53b4df188f94ede91121c7bac0470d7dbda37046))
+
+
+
+
+
 # [3.149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.148.0...v3.149.0) (2022-08-12)
 
 
