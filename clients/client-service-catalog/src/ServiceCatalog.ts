@@ -437,10 +437,10 @@ import { ServiceCatalogClient } from "./ServiceCatalogClient";
 /**
  * <fullname>AWS Service Catalog</fullname>
  *          <p>
- *             <a href="https://aws.amazon.com/servicecatalog/">AWS Service Catalog</a> enables
- *          organizations to create and manage catalogs of IT services that are approved for AWS. To
+ *             <a href="https://aws.amazon.com/servicecatalog/">Service Catalog</a> enables
+ *          organizations to create and manage catalogs of IT services that are approved for Amazon Web Services. To
  *          get the most out of this documentation, you should be familiar with the terminology
- *          discussed in <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html">AWS Service Catalog
+ *          discussed in <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html">Service Catalog
  *          Concepts</a>.</p>
  */
 export class ServiceCatalog extends ServiceCatalogClient {
@@ -708,9 +708,11 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Copies the specified source product to the specified target product or a new product.</p>
-   *          <p>You can copy a product to the same account or another account.
-   *          You can copy a product to the same region or another region.</p>
+   * <p>Copies the specified source product to the specified target product or a new
+   *          product.</p>
+   *          <p>You can copy a product to the same account or another account. You can copy a product
+   *          to the same Region or another Region. If you copy a product to another account, you must
+   *          first share the product in a portfolio using <a>CreatePortfolioShare</a>.</p>
    *          <p>This operation is performed asynchronously. To track the progress of the
    *          operation, use <a>DescribeCopyProductStatus</a>.</p>
    */
@@ -882,11 +884,12 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Creates a plan. A plan includes the list of resources to be
+   * <p>Creates a plan.</p>
+   *          <p>A plan includes the list of resources to be
    *          created (when provisioning a new product) or modified (when updating a provisioned product)
    *          when the plan is executed.</p>
-   *          <p>You can create one plan per provisioned product. To create a plan for an existing
-   *          provisioned product, the product status must be AVAILBLE or TAINTED.</p>
+   *          <p>You can create one plan for each provisioned product. To create a plan for an existing
+   *          provisioned product, the product status must be AVAILABLE or TAINTED.</p>
    *          <p>To view the resource changes in the change set, use <a>DescribeProvisionedProductPlan</a>.
    *          To create or modify the provisioned product, use <a>ExecuteProvisionedProductPlan</a>.</p>
    */
@@ -1825,13 +1828,19 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Disable portfolio sharing through AWS Organizations feature. This feature will not
-   *          delete your current shares but it will prevent you from creating new shares throughout your
-   *          organization. Current shares will not be in sync with your organization structure if it
-   *          changes after calling this API. This API can only be called by the management  account in
-   *          the organization.</p>
-   *          <p>This API can't be invoked if there are active delegated administrators in the organization.</p>
+   * <p>Disable portfolio sharing through the Organizations service. This command will not
+   *          delete your current shares, but prevents you from creating new shares throughout your
+   *          organization. Current shares are not kept in sync with your organization structure if the structure
+   *          changes after calling this API. Only the management account in the organization can call this API.</p>
+   *          <p>You cannot call this API if there are active delegated administrators in the organization.</p>
    *          <p>Note that a delegated administrator is not authorized to invoke <code>DisableAWSOrganizationsAccess</code>.</p>
+   *          <important>
+   *             <p>If you share an Service Catalog portfolio in an organization within
+   *          Organizations, and then disable Organizations access for Service Catalog,
+   *          the portfolio access permissions will not sync with the latest changes to the organization
+   *          structure. Specifically, accounts that you removed from the organization after
+   *          disabling Service Catalog access will retain access to the previously shared portfolio.</p>
+   *          </important>
    */
   public disableAWSOrganizationsAccess(
     args: DisableAWSOrganizationsAccessCommandInput,
@@ -2027,12 +2036,19 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Enable portfolio sharing feature through AWS Organizations. This API will allow Service
-   *          Catalog to receive updates on your organization in order to sync your shares with the
-   *          current structure. This API can only be called by the management  account in the
-   *          organization.</p>
-   *          <p>By calling this API Service Catalog will make a call to organizations:EnableAWSServiceAccess on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.</p>
+   * <p>Enable portfolio sharing feature through Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the
+   *          current structure. This API can only be called by the management account in the organization.</p>
+   *          <p>When you call this API, Service Catalog calls <code>organizations:EnableAWSServiceAccess</code> on your behalf so that your shares stay in sync with any changes in your Organizations structure.</p>
    *          <p>Note that a delegated administrator is not authorized to invoke <code>EnableAWSOrganizationsAccess</code>.</p>
+   *          <important>
+   *             <p>If you have previously disabled Organizations access for Service Catalog, and then
+   *          enable access again, the portfolio access permissions might not sync with the latest changes to
+   *          the organization structure. Specifically, accounts that you removed from the organization after
+   *          disabling Service Catalog access, and before you enabled access again, can retain access to the
+   *          previously shared portfolio. As a result, an account that has been removed from the organization
+   *          might still be able to create or manage Amazon Web Services resources when it is no longer
+   *          authorized to do so. Amazon Web Services is working to resolve this issue.</p>
+   *          </important>
    */
   public enableAWSOrganizationsAccess(
     args: EnableAWSOrganizationsAccessCommandInput,
@@ -2130,7 +2146,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Get the Access Status for AWS Organization portfolio share feature. This API can only be
+   * <p>Get the Access Status for Organizations portfolio share feature. This API can only be
    *          called by the management account in the organization or by a delegated admin.</p>
    */
   public getAWSOrganizationsAccessStatus(
@@ -2195,9 +2211,9 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Requests the import of a resource as a Service Catalog provisioned product that is
-   *          associated to a Service Catalog product and provisioning artifact. Once imported, all
-   *          supported Service Catalog governance actions are supported on the provisioned
+   * <p>Requests the import of a resource as a Amazon Web Services Service Catalog provisioned product that is
+   *          associated to a Amazon Web Services Service Catalog product and provisioning artifact. Once imported, all
+   *          supported Amazon Web Services Service Catalog governance actions are supported on the provisioned
    *          product.</p>
    *          <p>Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets and
    *          non-root nested stacks are not supported.</p>
@@ -2205,7 +2221,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
    *          <code>CREATE_COMPLETE</code>, <code>UPDATE_COMPLETE</code>, <code>UPDATE_ROLLBACK_COMPLETE</code>, <code>IMPORT_COMPLETE</code>,
    *          <code>IMPORT_ROLLBACK_COMPLETE</code>.</p>
    *          <p>Import of the resource requires that the CloudFormation stack template matches the
-   *          associated Service Catalog product provisioning artifact. </p>
+   *          associated Amazon Web Services Service Catalog product provisioning artifact. </p>
    *
    *          <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
    *          and <code>cloudformation:DescribeStacks</code> IAM policy permissions. </p>
@@ -2764,7 +2780,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Returns summary information about stack instances that are associated with the specified <code>CFN_STACKSET</code> type provisioned product. You can filter for stack instances that are associated with a specific AWS account name or region. </p>
+   * <p>Returns summary information about stack instances that are associated with the specified <code>CFN_STACKSET</code> type provisioned product. You can filter for stack instances that are associated with a specific Amazon Web Services account name or Region. </p>
    */
   public listStackInstancesForProvisionedProduct(
     args: ListStackInstancesForProvisionedProductCommandInput,
@@ -3000,6 +3016,16 @@ export class ServiceCatalog extends ServiceCatalogClient {
 
   /**
    * <p>Gets information about the provisioned products that meet the specified criteria.</p>
+   *
+   *          <note>
+   *             <p>To ensure a complete list of provisioned products and remove duplicate products, use
+   *                <code>sort-by createdTime</code>. </p>
+   *             <p>Here is a CLI example: <code> </code>
+   *             </p>
+   *             <p>
+   *                <code>aws servicecatalog search-provisioned-products --sort-by createdTime </code>
+   *             </p>
+   *          </note>
    */
   public searchProvisionedProducts(
     args: SearchProvisionedProductsCommandInput,

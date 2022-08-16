@@ -30,7 +30,7 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Get the Access Status for AWS Organization portfolio share feature. This API can only be
+ * <p>Get the Access Status for Organizations portfolio share feature. This API can only be
  *          called by the management account in the organization or by a delegated admin.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

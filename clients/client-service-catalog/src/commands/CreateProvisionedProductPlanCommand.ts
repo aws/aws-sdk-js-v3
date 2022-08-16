@@ -30,11 +30,12 @@ export interface CreateProvisionedProductPlanCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a plan. A plan includes the list of resources to be
+ * <p>Creates a plan.</p>
+ *          <p>A plan includes the list of resources to be
  *          created (when provisioning a new product) or modified (when updating a provisioned product)
  *          when the plan is executed.</p>
- *          <p>You can create one plan per provisioned product. To create a plan for an existing
- *          provisioned product, the product status must be AVAILBLE or TAINTED.</p>
+ *          <p>You can create one plan for each provisioned product. To create a plan for an existing
+ *          provisioned product, the product status must be AVAILABLE or TAINTED.</p>
  *          <p>To view the resource changes in the change set, use <a>DescribeProvisionedProductPlan</a>.
  *          To create or modify the provisioned product, use <a>ExecuteProvisionedProductPlan</a>.</p>
  * @example

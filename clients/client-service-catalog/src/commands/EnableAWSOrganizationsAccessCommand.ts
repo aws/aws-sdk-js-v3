@@ -30,12 +30,19 @@ export interface EnableAWSOrganizationsAccessCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Enable portfolio sharing feature through AWS Organizations. This API will allow Service
- *          Catalog to receive updates on your organization in order to sync your shares with the
- *          current structure. This API can only be called by the management  account in the
- *          organization.</p>
- *          <p>By calling this API Service Catalog will make a call to organizations:EnableAWSServiceAccess on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.</p>
+ * <p>Enable portfolio sharing feature through Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the
+ *          current structure. This API can only be called by the management account in the organization.</p>
+ *          <p>When you call this API, Service Catalog calls <code>organizations:EnableAWSServiceAccess</code> on your behalf so that your shares stay in sync with any changes in your Organizations structure.</p>
  *          <p>Note that a delegated administrator is not authorized to invoke <code>EnableAWSOrganizationsAccess</code>.</p>
+ *          <important>
+ *             <p>If you have previously disabled Organizations access for Service Catalog, and then
+ *          enable access again, the portfolio access permissions might not sync with the latest changes to
+ *          the organization structure. Specifically, accounts that you removed from the organization after
+ *          disabling Service Catalog access, and before you enabled access again, can retain access to the
+ *          previously shared portfolio. As a result, an account that has been removed from the organization
+ *          might still be able to create or manage Amazon Web Services resources when it is no longer
+ *          authorized to do so. Amazon Web Services is working to resolve this issue.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
