@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.151.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.150.0...v3.151.0) (2022-08-16)
+
+
+### Features
+
+* **client-rekognition:** This release adds APIs which support copying an Amazon Rekognition Custom Labels model and managing project policies across AWS account. ([5814059](https://github.com/aws/aws-sdk-js-v3/commit/581405949a6852dae34e3b5fca292d31f5597250))
+
+
+
+
+
 # [3.150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.149.0...v3.150.0) (2022-08-15)
 
 **Note:** Version bump only for package @aws-sdk/client-rekognition
