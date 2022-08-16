@@ -31,11 +31,12 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * <p>Deletes an Amazon Rekognition Custom Labels project.  To delete a project you must first delete all models associated
  *          with the project. To delete a model, see <a>DeleteProjectVersion</a>.</p>
  *          <p>
- *             <code>DeleteProject</code> is an asynchronous operation. To check if the project is deleted,
- *       call <a>DescribeProjects</a>. The project is deleted when the project no longer appears in the
- *       response.</p>
+ *             <code>DeleteProject</code> is an asynchronous operation. To check if the project is
+ *          deleted, call <a>DescribeProjects</a>. The project is deleted when the project
+ *          no longer appears in the response. Be aware that deleting a given project will also delete
+ *          any <code>ProjectPolicies</code> associated with that project.</p>
  *          <p>This operation requires permissions to perform the
- *          <code>rekognition:DeleteProject</code> action. </p>
+ *             <code>rekognition:DeleteProject</code> action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

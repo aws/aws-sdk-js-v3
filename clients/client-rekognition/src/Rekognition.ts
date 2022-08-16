@@ -7,6 +7,11 @@ import {
   CompareFacesCommandOutput,
 } from "./commands/CompareFacesCommand";
 import {
+  CopyProjectVersionCommand,
+  CopyProjectVersionCommandInput,
+  CopyProjectVersionCommandOutput,
+} from "./commands/CopyProjectVersionCommand";
+import {
   CreateCollectionCommand,
   CreateCollectionCommandInput,
   CreateCollectionCommandOutput,
@@ -47,6 +52,11 @@ import {
   DeleteProjectCommandInput,
   DeleteProjectCommandOutput,
 } from "./commands/DeleteProjectCommand";
+import {
+  DeleteProjectPolicyCommand,
+  DeleteProjectPolicyCommandInput,
+  DeleteProjectPolicyCommandOutput,
+} from "./commands/DeleteProjectPolicyCommand";
 import {
   DeleteProjectVersionCommand,
   DeleteProjectVersionCommandInput,
@@ -172,6 +182,11 @@ import {
 } from "./commands/ListDatasetLabelsCommand";
 import { ListFacesCommand, ListFacesCommandInput, ListFacesCommandOutput } from "./commands/ListFacesCommand";
 import {
+  ListProjectPoliciesCommand,
+  ListProjectPoliciesCommandInput,
+  ListProjectPoliciesCommandOutput,
+} from "./commands/ListProjectPoliciesCommand";
+import {
   ListStreamProcessorsCommand,
   ListStreamProcessorsCommandInput,
   ListStreamProcessorsCommandOutput,
@@ -181,6 +196,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutProjectPolicyCommand,
+  PutProjectPolicyCommandInput,
+  PutProjectPolicyCommandOutput,
+} from "./commands/PutProjectPolicyCommand";
 import {
   RecognizeCelebritiesCommand,
   RecognizeCelebritiesCommandInput,
@@ -379,6 +399,11 @@ import { RekognitionClient } from "./RekognitionClient";
  *          <ul>
  *             <li>
  *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CopyProjectVersion.html">CopyProjectVersion</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset.html">CreateDataset</a>
  *                </p>
  *             </li>
@@ -400,6 +425,11 @@ import { RekognitionClient } from "./RekognitionClient";
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProject.html">DeleteProject</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectPolicy.html">DeleteProjectPolicy</a>
  *                </p>
  *             </li>
  *             <li>
@@ -440,6 +470,16 @@ import { RekognitionClient } from "./RekognitionClient";
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetLabels.html">ListDatasetLabels</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListProjectPolicies.html">ListProjectPolicies</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_PutProjectPolicy.html">PutProjectPolicy</a>
  *                </p>
  *             </li>
  *             <li>
@@ -582,6 +622,11 @@ import { RekognitionClient } from "./RekognitionClient";
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopStreamProcessor.html">StopStreamProcessor</a>
  *                </p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateStreamProcessor.html">UpdateStreamProcessor</a>
+ *                </p>
+ *             </li>
  *          </ul>
  */
 export class Rekognition extends RekognitionClient {
@@ -666,6 +711,59 @@ export class Rekognition extends RekognitionClient {
     cb?: (err: any, data?: CompareFacesCommandOutput) => void
   ): Promise<CompareFacesCommandOutput> | void {
     const command = new CompareFacesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project. The source and
+   *          destination projects can be in different AWS accounts but must be in the same AWS Region.
+   *          You can't copy a model to another AWS service.
+   *
+   *       </p>
+   *          <p>To copy a model version to a different AWS account, you need to create a resource-based policy known as a
+   *          <i>project policy</i>. You attach the project policy to the
+   *          source project by calling <a>PutProjectPolicy</a>. The project policy
+   *       gives permission to copy the model version from a trusting AWS account to a trusted account.</p>
+   *
+   *
+   *          <p>For more information creating and attaching a project policy, see Attaching a project policy (SDK)
+   *          in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
+   *       </p>
+   *          <p>If you are copying a model version to a project in the same AWS account, you don't need to create a project policy.</p>
+   *          <note>
+   *             <p>To copy a model, the destination project, source project, and source model version must already exist.</p>
+   *          </note>
+   *
+   *          <p>Copying a model version takes a while to complete. To get the current status, call <a>DescribeProjectVersions</a> and check the value of <code>Status</code> in the
+   *             <a>ProjectVersionDescription</a> object. The copy operation has finished when
+   *          the value of <code>Status</code> is <code>COPYING_COMPLETED</code>.</p>
+   */
+  public copyProjectVersion(
+    args: CopyProjectVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopyProjectVersionCommandOutput>;
+  public copyProjectVersion(
+    args: CopyProjectVersionCommandInput,
+    cb: (err: any, data?: CopyProjectVersionCommandOutput) => void
+  ): void;
+  public copyProjectVersion(
+    args: CopyProjectVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CopyProjectVersionCommandOutput) => void
+  ): void;
+  public copyProjectVersion(
+    args: CopyProjectVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyProjectVersionCommandOutput) => void),
+    cb?: (err: any, data?: CopyProjectVersionCommandOutput) => void
+  ): Promise<CopyProjectVersionCommandOutput> | void {
+    const command = new CopyProjectVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1044,11 +1142,12 @@ export class Rekognition extends RekognitionClient {
    * <p>Deletes an Amazon Rekognition Custom Labels project.  To delete a project you must first delete all models associated
    *          with the project. To delete a model, see <a>DeleteProjectVersion</a>.</p>
    *          <p>
-   *             <code>DeleteProject</code> is an asynchronous operation. To check if the project is deleted,
-   *       call <a>DescribeProjects</a>. The project is deleted when the project no longer appears in the
-   *       response.</p>
+   *             <code>DeleteProject</code> is an asynchronous operation. To check if the project is
+   *          deleted, call <a>DescribeProjects</a>. The project is deleted when the project
+   *          no longer appears in the response. Be aware that deleting a given project will also delete
+   *          any <code>ProjectPolicies</code> associated with that project.</p>
    *          <p>This operation requires permissions to perform the
-   *          <code>rekognition:DeleteProject</code> action. </p>
+   *             <code>rekognition:DeleteProject</code> action. </p>
    */
   public deleteProject(
     args: DeleteProjectCommandInput,
@@ -1069,6 +1168,39 @@ export class Rekognition extends RekognitionClient {
     cb?: (err: any, data?: DeleteProjectCommandOutput) => void
   ): Promise<DeleteProjectCommandOutput> | void {
     const command = new DeleteProjectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an existing project policy.</p>
+   *          <p>To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. To attach a project policy to a project, call <a>PutProjectPolicy</a>.</p>
+   */
+  public deleteProjectPolicy(
+    args: DeleteProjectPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProjectPolicyCommandOutput>;
+  public deleteProjectPolicy(
+    args: DeleteProjectPolicyCommandInput,
+    cb: (err: any, data?: DeleteProjectPolicyCommandOutput) => void
+  ): void;
+  public deleteProjectPolicy(
+    args: DeleteProjectPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProjectPolicyCommandOutput) => void
+  ): void;
+  public deleteProjectPolicy(
+    args: DeleteProjectPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProjectPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteProjectPolicyCommandOutput) => void
+  ): Promise<DeleteProjectPolicyCommandOutput> | void {
+    const command = new DeleteProjectPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2536,6 +2668,39 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
+   * <p>Gets a list of the project policies attached to a project.</p>
+   *          <p>To attach a project policy to a project, call <a>PutProjectPolicy</a>. To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.</p>
+   */
+  public listProjectPolicies(
+    args: ListProjectPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProjectPoliciesCommandOutput>;
+  public listProjectPolicies(
+    args: ListProjectPoliciesCommandInput,
+    cb: (err: any, data?: ListProjectPoliciesCommandOutput) => void
+  ): void;
+  public listProjectPolicies(
+    args: ListProjectPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProjectPoliciesCommandOutput) => void
+  ): void;
+  public listProjectPolicies(
+    args: ListProjectPoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProjectPoliciesCommandOutput) => void),
+    cb?: (err: any, data?: ListProjectPoliciesCommandOutput) => void
+  ): Promise<ListProjectPoliciesCommandOutput> | void {
+    const command = new ListProjectPoliciesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of stream processors that you have created with <a>CreateStreamProcessor</a>. </p>
    */
   public listStreamProcessors(
@@ -2593,6 +2758,54 @@ export class Rekognition extends RekognitionClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account. A
+   *          project policy specifies that a trusted AWS account can copy a model version from a
+   *          trusting AWS account to a project in the trusted AWS account. To copy a model version you use
+   *        the <a>CopyProjectVersion</a> operation.</p>
+   *
+   *
+   *          <p>For more information about the format of a project policy document, see Attaching a project policy (SDK)
+   *          in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
+   *       </p>
+   *
+   *          <p>The response from <code>PutProjectPolicy</code> is a revision ID for the project policy.
+   *          You can attach multiple project policies to a project. You can also update an existing
+   *          project policy by specifying the policy revision ID of the existing policy.</p>
+   *          <p>To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.
+   *          To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. </p>
+   *
+   *          <p>You copy a model version by calling <a>CopyProjectVersion</a>.</p>
+   */
+  public putProjectPolicy(
+    args: PutProjectPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutProjectPolicyCommandOutput>;
+  public putProjectPolicy(
+    args: PutProjectPolicyCommandInput,
+    cb: (err: any, data?: PutProjectPolicyCommandOutput) => void
+  ): void;
+  public putProjectPolicy(
+    args: PutProjectPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutProjectPolicyCommandOutput) => void
+  ): void;
+  public putProjectPolicy(
+    args: PutProjectPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutProjectPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutProjectPolicyCommandOutput) => void
+  ): Promise<PutProjectPolicyCommandOutput> | void {
+    const command = new PutProjectPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

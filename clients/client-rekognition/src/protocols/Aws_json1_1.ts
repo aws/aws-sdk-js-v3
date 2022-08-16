@@ -22,6 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CompareFacesCommandInput, CompareFacesCommandOutput } from "../commands/CompareFacesCommand";
+import { CopyProjectVersionCommandInput, CopyProjectVersionCommandOutput } from "../commands/CopyProjectVersionCommand";
 import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "../commands/CreateCollectionCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "../commands/CreateDatasetCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
@@ -37,6 +38,10 @@ import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "../
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "../commands/DeleteDatasetCommand";
 import { DeleteFacesCommandInput, DeleteFacesCommandOutput } from "../commands/DeleteFacesCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
+import {
+  DeleteProjectPolicyCommandInput,
+  DeleteProjectPolicyCommandOutput,
+} from "../commands/DeleteProjectPolicyCommand";
 import {
   DeleteProjectVersionCommandInput,
   DeleteProjectVersionCommandOutput,
@@ -96,6 +101,10 @@ import { ListDatasetEntriesCommandInput, ListDatasetEntriesCommandOutput } from 
 import { ListDatasetLabelsCommandInput, ListDatasetLabelsCommandOutput } from "../commands/ListDatasetLabelsCommand";
 import { ListFacesCommandInput, ListFacesCommandOutput } from "../commands/ListFacesCommand";
 import {
+  ListProjectPoliciesCommandInput,
+  ListProjectPoliciesCommandOutput,
+} from "../commands/ListProjectPoliciesCommand";
+import {
   ListStreamProcessorsCommandInput,
   ListStreamProcessorsCommandOutput,
 } from "../commands/ListStreamProcessorsCommand";
@@ -103,6 +112,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { PutProjectPolicyCommandInput, PutProjectPolicyCommandOutput } from "../commands/PutProjectPolicyCommand";
 import {
   RecognizeCelebritiesCommandInput,
   RecognizeCelebritiesCommandOutput,
@@ -176,6 +186,8 @@ import {
   ConnectedHomeSettingsForUpdate,
   ContentClassifier,
   ContentModerationDetection,
+  CopyProjectVersionRequest,
+  CopyProjectVersionResponse,
   CoversBodyPart,
   CreateCollectionRequest,
   CreateCollectionResponse,
@@ -201,6 +213,8 @@ import {
   DeleteDatasetResponse,
   DeleteFacesRequest,
   DeleteFacesResponse,
+  DeleteProjectPolicyRequest,
+  DeleteProjectPolicyResponse,
   DeleteProjectRequest,
   DeleteProjectResponse,
   DeleteProjectVersionRequest,
@@ -281,6 +295,7 @@ import {
   InvalidImageFormatException,
   InvalidPaginationTokenException,
   InvalidParameterException,
+  InvalidPolicyRevisionIdException,
   InvalidS3ObjectException,
   KinesisDataStream,
   KinesisVideoStream,
@@ -298,10 +313,13 @@ import {
   ListDatasetLabelsResponse,
   ListFacesRequest,
   ListFacesResponse,
+  ListProjectPoliciesRequest,
+  ListProjectPoliciesResponse,
   ListStreamProcessorsRequest,
   ListStreamProcessorsResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  MalformedPolicyDocumentException,
   ModerationLabel,
   MouthOpen,
   Mustache,
@@ -314,6 +332,7 @@ import {
   Point,
   Pose,
   ProjectDescription,
+  ProjectPolicy,
   ProjectVersionDescription,
   ProtectiveEquipmentBodyPart,
   ProtectiveEquipmentPerson,
@@ -321,6 +340,8 @@ import {
   ProtectiveEquipmentSummary,
   ProtectiveEquipmentType,
   ProvisionedThroughputExceededException,
+  PutProjectPolicyRequest,
+  PutProjectPolicyResponse,
   Reason,
   RecognizeCelebritiesRequest,
   RecognizeCelebritiesResponse,
@@ -415,6 +436,19 @@ export const serializeAws_json1_1CompareFacesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CompareFacesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CopyProjectVersionCommand = async (
+  input: CopyProjectVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RekognitionService.CopyProjectVersion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CopyProjectVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -532,6 +566,19 @@ export const serializeAws_json1_1DeleteProjectCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteProjectRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteProjectPolicyCommand = async (
+  input: DeleteProjectPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RekognitionService.DeleteProjectPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteProjectPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -899,6 +946,19 @@ export const serializeAws_json1_1ListFacesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListProjectPoliciesCommand = async (
+  input: ListProjectPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RekognitionService.ListProjectPolicies",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListProjectPoliciesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListStreamProcessorsCommand = async (
   input: ListStreamProcessorsCommandInput,
   context: __SerdeContext
@@ -922,6 +982,19 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PutProjectPolicyCommand = async (
+  input: PutProjectPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RekognitionService.PutProjectPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutProjectPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1220,6 +1293,71 @@ const deserializeAws_json1_1CompareFacesCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CopyProjectVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyProjectVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CopyProjectVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CopyProjectVersionResponse(data, context);
+  const response: CopyProjectVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CopyProjectVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyProjectVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.rekognition#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.rekognition#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rekognition#ThrottlingException":
       throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
@@ -1760,6 +1898,65 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.rekognition#ResourceInUseException":
       throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteProjectPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProjectPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteProjectPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteProjectPolicyResponse(data, context);
+  const response: DeleteProjectPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteProjectPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProjectPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidPolicyRevisionIdException":
+    case "com.amazonaws.rekognition#InvalidPolicyRevisionIdException":
+      throw await deserializeAws_json1_1InvalidPolicyRevisionIdExceptionResponse(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rekognition#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -3465,6 +3662,65 @@ const deserializeAws_json1_1ListFacesCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListProjectPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProjectPoliciesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListProjectPoliciesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListProjectPoliciesResponse(data, context);
+  const response: ListProjectPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListProjectPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProjectPoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
+      throw await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ListStreamProcessorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3563,6 +3819,77 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.rekognition#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1PutProjectPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutProjectPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutProjectPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutProjectPolicyResponse(data, context);
+  const response: PutProjectPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutProjectPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutProjectPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidPolicyRevisionIdException":
+    case "com.amazonaws.rekognition#InvalidPolicyRevisionIdException":
+      throw await deserializeAws_json1_1InvalidPolicyRevisionIdExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "MalformedPolicyDocumentException":
+    case "com.amazonaws.rekognition#MalformedPolicyDocumentException":
+      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      throw await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.rekognition#ResourceAlreadyExistsException":
+      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.rekognition#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rekognition#ThrottlingException":
       throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
@@ -4859,6 +5186,19 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1InvalidPolicyRevisionIdExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidPolicyRevisionIdException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidPolicyRevisionIdException(body, context);
+  const exception = new InvalidPolicyRevisionIdException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1InvalidS3ObjectExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4879,6 +5219,19 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const exception = new LimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MalformedPolicyDocumentException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1MalformedPolicyDocumentException(body, context);
+  const exception = new MalformedPolicyDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5076,6 +5429,21 @@ const serializeAws_json1_1ContentClassifiers = (
     });
 };
 
+const serializeAws_json1_1CopyProjectVersionRequest = (
+  input: CopyProjectVersionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationProjectArn != null && { DestinationProjectArn: input.DestinationProjectArn }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.OutputConfig != null && { OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context) }),
+    ...(input.SourceProjectArn != null && { SourceProjectArn: input.SourceProjectArn }),
+    ...(input.SourceProjectVersionArn != null && { SourceProjectVersionArn: input.SourceProjectVersionArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
+    ...(input.VersionName != null && { VersionName: input.VersionName }),
+  };
+};
+
 const serializeAws_json1_1CreateCollectionRequest = (input: CreateCollectionRequest, context: __SerdeContext): any => {
   return {
     ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
@@ -5180,6 +5548,17 @@ const serializeAws_json1_1DeleteFacesRequest = (input: DeleteFacesRequest, conte
   return {
     ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
     ...(input.FaceIds != null && { FaceIds: serializeAws_json1_1FaceIdList(input.FaceIds, context) }),
+  };
+};
+
+const serializeAws_json1_1DeleteProjectPolicyRequest = (
+  input: DeleteProjectPolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
+    ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
+    ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
   };
 };
 
@@ -5572,6 +5951,17 @@ const serializeAws_json1_1ListFacesRequest = (input: ListFacesRequest, context: 
   };
 };
 
+const serializeAws_json1_1ListProjectPoliciesRequest = (
+  input: ListProjectPoliciesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
+  };
+};
+
 const serializeAws_json1_1ListStreamProcessorsRequest = (
   input: ListStreamProcessorsRequest,
   context: __SerdeContext
@@ -5649,6 +6039,15 @@ const serializeAws_json1_1ProtectiveEquipmentTypes = (
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_json1_1PutProjectPolicyRequest = (input: PutProjectPolicyRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.PolicyDocument != null && { PolicyDocument: input.PolicyDocument }),
+    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
+    ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
+    ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
+  };
 };
 
 const serializeAws_json1_1RecognizeCelebritiesRequest = (
@@ -6397,6 +6796,15 @@ const deserializeAws_json1_1ContentModerationDetections = (
   return retVal;
 };
 
+const deserializeAws_json1_1CopyProjectVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): CopyProjectVersionResponse => {
+  return {
+    ProjectVersionArn: __expectString(output.ProjectVersionArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CoversBodyPart = (output: any, context: __SerdeContext): CoversBodyPart => {
   return {
     Confidence: __limitedParseFloat32(output.Confidence),
@@ -6581,6 +6989,13 @@ const deserializeAws_json1_1DeleteFacesResponse = (output: any, context: __Serde
     DeletedFaces:
       output.DeletedFaces != null ? deserializeAws_json1_1FaceIdList(output.DeletedFaces, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1DeleteProjectPolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteProjectPolicyResponse => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteProjectResponse = (output: any, context: __SerdeContext): DeleteProjectResponse => {
@@ -7276,6 +7691,17 @@ const deserializeAws_json1_1InvalidParameterException = (
   } as any;
 };
 
+const deserializeAws_json1_1InvalidPolicyRevisionIdException = (
+  output: any,
+  context: __SerdeContext
+): InvalidPolicyRevisionIdException => {
+  return {
+    Code: __expectString(output.Code),
+    Logref: __expectString(output.Logref),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidS3ObjectException = (
   output: any,
   context: __SerdeContext
@@ -7420,6 +7846,19 @@ const deserializeAws_json1_1ListFacesResponse = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1ListProjectPoliciesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListProjectPoliciesResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    ProjectPolicies:
+      output.ProjectPolicies != null
+        ? deserializeAws_json1_1ProjectPolicies(output.ProjectPolicies, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListStreamProcessorsResponse = (
   output: any,
   context: __SerdeContext
@@ -7439,6 +7878,17 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   return {
     Tags: output.Tags != null ? deserializeAws_json1_1TagMap(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MalformedPolicyDocumentException = (
+  output: any,
+  context: __SerdeContext
+): MalformedPolicyDocumentException => {
+  return {
+    Code: __expectString(output.Code),
+    Logref: __expectString(output.Logref),
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7601,6 +8051,35 @@ const deserializeAws_json1_1ProjectDescriptions = (output: any, context: __Serde
   return retVal;
 };
 
+const deserializeAws_json1_1ProjectPolicies = (output: any, context: __SerdeContext): ProjectPolicy[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ProjectPolicy(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ProjectPolicy = (output: any, context: __SerdeContext): ProjectPolicy => {
+  return {
+    CreationTimestamp:
+      output.CreationTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
+        : undefined,
+    LastUpdatedTimestamp:
+      output.LastUpdatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
+        : undefined,
+    PolicyDocument: __expectString(output.PolicyDocument),
+    PolicyName: __expectString(output.PolicyName),
+    PolicyRevisionId: __expectString(output.PolicyRevisionId),
+    ProjectArn: __expectString(output.ProjectArn),
+  } as any;
+};
+
 const deserializeAws_json1_1ProjectVersionDescription = (
   output: any,
   context: __SerdeContext
@@ -7625,6 +8104,7 @@ const deserializeAws_json1_1ProjectVersionDescription = (
     OutputConfig:
       output.OutputConfig != null ? deserializeAws_json1_1OutputConfig(output.OutputConfig, context) : undefined,
     ProjectVersionArn: __expectString(output.ProjectVersionArn),
+    SourceProjectVersionArn: __expectString(output.SourceProjectVersionArn),
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
     TestingDataResult:
@@ -7739,6 +8219,15 @@ const deserializeAws_json1_1ProvisionedThroughputExceededException = (
     Code: __expectString(output.Code),
     Logref: __expectString(output.Logref),
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1PutProjectPolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): PutProjectPolicyResponse => {
+  return {
+    PolicyRevisionId: __expectString(output.PolicyRevisionId),
   } as any;
 };
 

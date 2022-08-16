@@ -1318,6 +1318,204 @@ export enum ContentModerationSortBy {
   TIMESTAMP = "TIMESTAMP",
 }
 
+/**
+ * <p>The S3 bucket and folder location where training output is placed.</p>
+ */
+export interface OutputConfig {
+  /**
+   * <p>The S3 bucket where training output is placed.</p>
+   */
+  S3Bucket?: string;
+
+  /**
+   * <p>The prefix applied to the training output files. </p>
+   */
+  S3KeyPrefix?: string;
+}
+
+export interface CopyProjectVersionRequest {
+  /**
+   * <p>The ARN of the source project in the trusting AWS account.</p>
+   */
+  SourceProjectArn: string | undefined;
+
+  /**
+   * <p>The ARN of the model version in the source project that you want to copy to a destination project.</p>
+   */
+  SourceProjectVersionArn: string | undefined;
+
+  /**
+   * <p>The ARN of the project in the trusted AWS account that you want to copy the model version to. </p>
+   */
+  DestinationProjectArn: string | undefined;
+
+  /**
+   * <p>A name for the version of the model that's copied to the destination project.</p>
+   */
+  VersionName: string | undefined;
+
+  /**
+   * <p>The S3 bucket and folder location where the training output for the source model version is placed.</p>
+   */
+  OutputConfig: OutputConfig | undefined;
+
+  /**
+   * <p>The key-value tags to assign to the model version. </p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * <p>The identifier for your AWS Key Management Service key (AWS KMS key).
+   *          You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key,
+   *          an alias for your KMS key, or an alias ARN.
+   *          The key is used to encrypt training results
+   *          and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p>
+   *          <p>If you choose to use your own KMS key, you need the following permissions on the KMS key.</p>
+   *          <ul>
+   *             <li>
+   *                <p>kms:CreateGrant</p>
+   *             </li>
+   *             <li>
+   *                <p>kms:DescribeKey</p>
+   *             </li>
+   *             <li>
+   *                <p>kms:GenerateDataKey</p>
+   *             </li>
+   *             <li>
+   *                <p>kms:Decrypt</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted
+   *          using a key that AWS owns and manages.</p>
+   */
+  KmsKeyId?: string;
+}
+
+export interface CopyProjectVersionResponse {
+  /**
+   * <p>The ARN of the copied model version in the destination project. </p>
+   */
+  ProjectVersionArn?: string;
+}
+
+/**
+ * <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
+ *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
+ *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * <p>A universally unique identifier (UUID) for the request.</p>
+   */
+  Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
+}
+
+/**
+ * <p>The specified resource is already being used.</p>
+ */
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * <p>A universally unique identifier (UUID) for the request.</p>
+   */
+  Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
+}
+
+/**
+ * <p>The resource specified in the request cannot be found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * <p>A universally unique identifier (UUID) for the request.</p>
+   */
+  Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
+}
+
+/**
+ * <p></p>
+ *
+ *
+ *          <p>The size of the collection exceeds the allowed limit. For more information, see
+ *       Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * <p>A universally unique identifier (UUID) for the request.</p>
+   */
+  Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
+}
+
 export interface CreateCollectionRequest {
   /**
    * <p>ID for the collection that you are creating.</p>
@@ -1372,38 +1570,6 @@ export class ResourceAlreadyExistsException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-    this.Logref = opts.Logref;
-  }
-}
-
-/**
- * <p></p>
- *
- *
- *          <p>The size of the collection exceeds the allowed limit. For more information, see
- *       Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
-  /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
-   */
-  Logref?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
     this.Message = opts.Message;
     this.Code = opts.Code;
     this.Logref = opts.Logref;
@@ -1478,64 +1644,6 @@ export interface CreateDatasetResponse {
   DatasetArn?: string;
 }
 
-/**
- * <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
- *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
- *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
-  /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
-   */
-  Logref?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-    this.Logref = opts.Logref;
-  }
-}
-
-/**
- * <p>The resource specified in the request cannot be found.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
-  /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
-   */
-  Logref?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-    this.Logref = opts.Logref;
-  }
-}
-
 export interface CreateProjectRequest {
   /**
    * <p>The name of the project to create.</p>
@@ -1549,49 +1657,6 @@ export interface CreateProjectResponse {
    *       configure IAM access to the project. </p>
    */
   ProjectArn?: string;
-}
-
-/**
- * <p>The specified resource is already being used.</p>
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
-  /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
-   */
-  Logref?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-    this.Logref = opts.Logref;
-  }
-}
-
-/**
- * <p>The S3 bucket and folder location where training output is placed.</p>
- */
-export interface OutputConfig {
-  /**
-   * <p>The S3 bucket where training output is placed.</p>
-   */
-  S3Bucket?: string;
-
-  /**
-   * <p>The prefix applied to the training output files. </p>
-   */
-  S3KeyPrefix?: string;
 }
 
 /**
@@ -2297,6 +2362,53 @@ export interface DeleteProjectResponse {
   Status?: ProjectStatus | string;
 }
 
+export interface DeleteProjectPolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project that the project policy you want to delete is attached to.</p>
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * <p>The name of the policy that you want to delete.</p>
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>The ID of the project policy revision that you want to delete.</p>
+   */
+  PolicyRevisionId?: string;
+}
+
+export interface DeleteProjectPolicyResponse {}
+
+/**
+ * <p>The supplied revision id for the project policy is invalid.</p>
+ */
+export class InvalidPolicyRevisionIdException extends __BaseException {
+  readonly name: "InvalidPolicyRevisionIdException" = "InvalidPolicyRevisionIdException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * <p>A universally unique identifier (UUID) for the request.</p>
+   */
+  Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPolicyRevisionIdException, __BaseException>) {
+    super({
+      name: "InvalidPolicyRevisionIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPolicyRevisionIdException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
+}
+
 export interface DeleteProjectVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the model version that you want to delete.</p>
@@ -2305,6 +2417,9 @@ export interface DeleteProjectVersionRequest {
 }
 
 export enum ProjectVersionStatus {
+  COPYING_COMPLETED = "COPYING_COMPLETED",
+  COPYING_FAILED = "COPYING_FAILED",
+  COPYING_IN_PROGRESS = "COPYING_IN_PROGRESS",
   DELETING = "DELETING",
   FAILED = "FAILED",
   RUNNING = "RUNNING",
@@ -2681,6 +2796,11 @@ export interface ProjectVersionDescription {
    *          For more information, see <a>StartProjectVersion</a>.</p>
    */
   MaxInferenceUnits?: number;
+
+  /**
+   * <p>If the model version was copied from a different project, <code>SourceProjectVersionArn</code> contains the ARN of the source model version. </p>
+   */
+  SourceProjectVersionArn?: string;
 }
 
 export interface DescribeProjectVersionsResponse {
@@ -4765,6 +4885,77 @@ export interface ListFacesResponse {
   FaceModelVersion?: string;
 }
 
+export interface ListProjectPoliciesRequest {
+  /**
+   * <p>The ARN of the project for which you want to list the project policies.</p>
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more results to retrieve),
+   *          Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token
+   *          to retrieve the next set of results. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per paginated call. The largest value you can
+   *          specify is 5. If you specify a value greater than 5, a ValidationException error
+   *          occurs. The default value is 5. </p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Describes a project policy in the response from <a>ListProjectPolicies</a>. </p>
+ *
+ *          <p> </p>
+ */
+export interface ProjectPolicy {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project to which the project policy is attached.</p>
+   */
+  ProjectArn?: string;
+
+  /**
+   * <p>The name of the project policy.</p>
+   */
+  PolicyName?: string;
+
+  /**
+   * <p>The revision ID of the project policy.</p>
+   */
+  PolicyRevisionId?: string;
+
+  /**
+   * <p>The JSON document for the project policy.</p>
+   */
+  PolicyDocument?: string;
+
+  /**
+   * <p>The Unix datetime for the creation of the project policy.</p>
+   */
+  CreationTimestamp?: Date;
+
+  /**
+   * <p>The Unix datetime for when the project policy was last updated. </p>
+   */
+  LastUpdatedTimestamp?: Date;
+}
+
+export interface ListProjectPoliciesResponse {
+  /**
+   * <p>A list of project policies attached to the project.</p>
+   */
+  ProjectPolicies?: ProjectPolicy[];
+
+  /**
+   * <p>If the response is truncated, Amazon Rekognition returns this token that you can use in the
+   *       subsequent request to retrieve the next set of project policies.</p>
+   */
+  NextToken?: string;
+}
+
 export interface ListStreamProcessorsRequest {
   /**
    * <p>If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video
@@ -4828,6 +5019,35 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * <p>The format of the project policy document that you supplied to
+ *       <code>PutProjectPolicy</code> is incorrect. </p>
+ */
+export class MalformedPolicyDocumentException extends __BaseException {
+  readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * <p>A universally unique identifier (UUID) for the request.</p>
+   */
+  Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedPolicyDocumentException, __BaseException>) {
+    super({
+      name: "MalformedPolicyDocumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedPolicyDocumentException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
+}
+
+/**
  * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see
  *           <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video.html">Calling Amazon Rekognition Video operations</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.
  *           For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics">Giving access to multiple Amazon SNS topics</a>.</p>
@@ -4842,6 +5062,41 @@ export interface NotificationChannel {
    * <p>The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic. </p>
    */
   RoleArn: string | undefined;
+}
+
+export interface PutProjectPolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project that the project policy is attached to.</p>
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * <p>A name for the policy.</p>
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>The revision ID for the Project Policy. Each time you modify a policy, Amazon Rekognition Custom Labels
+   *          generates and assigns a new <code>PolicyRevisionId</code> and then deletes the previous version of the
+   *          policy.</p>
+   */
+  PolicyRevisionId?: string;
+
+  /**
+   * <p>A resource policy to add to the model. The policy is a JSON structure that contains
+   *          one or more statements that define the policy.
+   *          The policy must follow the IAM syntax. For
+   *          more information about the contents of a JSON policy document, see
+   *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON policy reference</a>. </p>
+   */
+  PolicyDocument: string | undefined;
+}
+
+export interface PutProjectPolicyResponse {
+  /**
+   * <p>The ID of the project policy.</p>
+   */
+  PolicyRevisionId?: string;
 }
 
 export interface RecognizeCelebritiesRequest {
@@ -5950,6 +6205,27 @@ export const ContentModerationDetectionFilterSensitiveLog = (obj: ContentModerat
 /**
  * @internal
  */
+export const OutputConfigFilterSensitiveLog = (obj: OutputConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyProjectVersionRequestFilterSensitiveLog = (obj: CopyProjectVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyProjectVersionResponseFilterSensitiveLog = (obj: CopyProjectVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateCollectionRequestFilterSensitiveLog = (obj: CreateCollectionRequest): any => ({
   ...obj,
 });
@@ -5993,13 +6269,6 @@ export const CreateProjectRequestFilterSensitiveLog = (obj: CreateProjectRequest
  * @internal
  */
 export const CreateProjectResponseFilterSensitiveLog = (obj: CreateProjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputConfigFilterSensitiveLog = (obj: OutputConfig): any => ({
   ...obj,
 });
 
@@ -6233,6 +6502,20 @@ export const DeleteProjectRequestFilterSensitiveLog = (obj: DeleteProjectRequest
  * @internal
  */
 export const DeleteProjectResponseFilterSensitiveLog = (obj: DeleteProjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectPolicyRequestFilterSensitiveLog = (obj: DeleteProjectPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectPolicyResponseFilterSensitiveLog = (obj: DeleteProjectPolicyResponse): any => ({
   ...obj,
 });
 
@@ -6885,6 +7168,27 @@ export const ListFacesResponseFilterSensitiveLog = (obj: ListFacesResponse): any
 /**
  * @internal
  */
+export const ListProjectPoliciesRequestFilterSensitiveLog = (obj: ListProjectPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectPolicyFilterSensitiveLog = (obj: ProjectPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProjectPoliciesResponseFilterSensitiveLog = (obj: ListProjectPoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListStreamProcessorsRequestFilterSensitiveLog = (obj: ListStreamProcessorsRequest): any => ({
   ...obj,
 });
@@ -6921,6 +7225,20 @@ export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForRe
  * @internal
  */
 export const NotificationChannelFilterSensitiveLog = (obj: NotificationChannel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutProjectPolicyRequestFilterSensitiveLog = (obj: PutProjectPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutProjectPolicyResponseFilterSensitiveLog = (obj: PutProjectPolicyResponse): any => ({
   ...obj,
 });
 

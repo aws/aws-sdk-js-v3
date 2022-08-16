@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./CompareFacesCommand";
+export * from "./CopyProjectVersionCommand";
 export * from "./CreateCollectionCommand";
 export * from "./CreateDatasetCommand";
 export * from "./CreateProjectCommand";
@@ -9,6 +10,7 @@ export * from "./DeleteCollectionCommand";
 export * from "./DeleteDatasetCommand";
 export * from "./DeleteFacesCommand";
 export * from "./DeleteProjectCommand";
+export * from "./DeleteProjectPolicyCommand";
 export * from "./DeleteProjectVersionCommand";
 export * from "./DeleteStreamProcessorCommand";
 export * from "./DescribeCollectionCommand";
@@ -37,8 +39,10 @@ export * from "./ListCollectionsCommand";
 export * from "./ListDatasetEntriesCommand";
 export * from "./ListDatasetLabelsCommand";
 export * from "./ListFacesCommand";
+export * from "./ListProjectPoliciesCommand";
 export * from "./ListStreamProcessorsCommand";
 export * from "./ListTagsForResourceCommand";
+export * from "./PutProjectPolicyCommand";
 export * from "./RecognizeCelebritiesCommand";
 export * from "./SearchFacesByImageCommand";
 export * from "./SearchFacesCommand";

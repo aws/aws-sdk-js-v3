@@ -54,6 +54,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CompareFacesCommandInput, CompareFacesCommandOutput } from "./commands/CompareFacesCommand";
+import { CopyProjectVersionCommandInput, CopyProjectVersionCommandOutput } from "./commands/CopyProjectVersionCommand";
 import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "./commands/CreateCollectionCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
@@ -69,6 +70,10 @@ import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "./c
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import { DeleteFacesCommandInput, DeleteFacesCommandOutput } from "./commands/DeleteFacesCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import {
+  DeleteProjectPolicyCommandInput,
+  DeleteProjectPolicyCommandOutput,
+} from "./commands/DeleteProjectPolicyCommand";
 import {
   DeleteProjectVersionCommandInput,
   DeleteProjectVersionCommandOutput,
@@ -128,6 +133,10 @@ import { ListDatasetEntriesCommandInput, ListDatasetEntriesCommandOutput } from 
 import { ListDatasetLabelsCommandInput, ListDatasetLabelsCommandOutput } from "./commands/ListDatasetLabelsCommand";
 import { ListFacesCommandInput, ListFacesCommandOutput } from "./commands/ListFacesCommand";
 import {
+  ListProjectPoliciesCommandInput,
+  ListProjectPoliciesCommandOutput,
+} from "./commands/ListProjectPoliciesCommand";
+import {
   ListStreamProcessorsCommandInput,
   ListStreamProcessorsCommandOutput,
 } from "./commands/ListStreamProcessorsCommand";
@@ -135,6 +144,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutProjectPolicyCommandInput, PutProjectPolicyCommandOutput } from "./commands/PutProjectPolicyCommand";
 import {
   RecognizeCelebritiesCommandInput,
   RecognizeCelebritiesCommandOutput,
@@ -191,6 +201,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CompareFacesCommandInput
+  | CopyProjectVersionCommandInput
   | CreateCollectionCommandInput
   | CreateDatasetCommandInput
   | CreateProjectCommandInput
@@ -200,6 +211,7 @@ export type ServiceInputTypes =
   | DeleteDatasetCommandInput
   | DeleteFacesCommandInput
   | DeleteProjectCommandInput
+  | DeleteProjectPolicyCommandInput
   | DeleteProjectVersionCommandInput
   | DeleteStreamProcessorCommandInput
   | DescribeCollectionCommandInput
@@ -228,8 +240,10 @@ export type ServiceInputTypes =
   | ListDatasetEntriesCommandInput
   | ListDatasetLabelsCommandInput
   | ListFacesCommandInput
+  | ListProjectPoliciesCommandInput
   | ListStreamProcessorsCommandInput
   | ListTagsForResourceCommandInput
+  | PutProjectPolicyCommandInput
   | RecognizeCelebritiesCommandInput
   | SearchFacesByImageCommandInput
   | SearchFacesCommandInput
@@ -252,6 +266,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | CompareFacesCommandOutput
+  | CopyProjectVersionCommandOutput
   | CreateCollectionCommandOutput
   | CreateDatasetCommandOutput
   | CreateProjectCommandOutput
@@ -261,6 +276,7 @@ export type ServiceOutputTypes =
   | DeleteDatasetCommandOutput
   | DeleteFacesCommandOutput
   | DeleteProjectCommandOutput
+  | DeleteProjectPolicyCommandOutput
   | DeleteProjectVersionCommandOutput
   | DeleteStreamProcessorCommandOutput
   | DescribeCollectionCommandOutput
@@ -289,8 +305,10 @@ export type ServiceOutputTypes =
   | ListDatasetEntriesCommandOutput
   | ListDatasetLabelsCommandOutput
   | ListFacesCommandOutput
+  | ListProjectPoliciesCommandOutput
   | ListStreamProcessorsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutProjectPolicyCommandOutput
   | RecognizeCelebritiesCommandOutput
   | SearchFacesByImageCommandOutput
   | SearchFacesCommandOutput
@@ -573,6 +591,11 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *          <ul>
  *             <li>
  *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CopyProjectVersion.html">CopyProjectVersion</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset.html">CreateDataset</a>
  *                </p>
  *             </li>
@@ -594,6 +617,11 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProject.html">DeleteProject</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectPolicy.html">DeleteProjectPolicy</a>
  *                </p>
  *             </li>
  *             <li>
@@ -634,6 +662,16 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetLabels.html">ListDatasetLabels</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListProjectPolicies.html">ListProjectPolicies</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_PutProjectPolicy.html">PutProjectPolicy</a>
  *                </p>
  *             </li>
  *             <li>
@@ -774,6 +812,11 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopStreamProcessor.html">StopStreamProcessor</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateStreamProcessor.html">UpdateStreamProcessor</a>
  *                </p>
  *             </li>
  *          </ul>
