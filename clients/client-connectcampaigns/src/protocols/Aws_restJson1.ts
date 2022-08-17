@@ -963,6 +963,9 @@ const deserializeAws_restJson1GetCampaignStateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.connectcampaigns#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1278,6 +1281,9 @@ const deserializeAws_restJson1PauseCampaignCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.connectcampaigns#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1393,6 +1399,9 @@ const deserializeAws_restJson1ResumeCampaignCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.connectcampaigns#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1446,6 +1455,9 @@ const deserializeAws_restJson1StartCampaignCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.connectcampaigns#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1558,6 +1570,9 @@ const deserializeAws_restJson1StopCampaignCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.connectcampaigns#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
