@@ -13,12 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DescribeIntentRequest,
-  DescribeIntentRequestFilterSensitiveLog,
-  DescribeIntentResponse,
-  DescribeIntentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeIntentRequest, DescribeIntentRequestFilterSensitiveLog } from "../models/models_0";
+import { DescribeIntentResponse, DescribeIntentResponseFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeIntentCommand,
   serializeAws_restJson1DescribeIntentCommand,

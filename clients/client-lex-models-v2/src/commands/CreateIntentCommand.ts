@@ -18,7 +18,7 @@ import {
   CreateIntentRequestFilterSensitiveLog,
   CreateIntentResponse,
   CreateIntentResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1CreateIntentCommand,
   serializeAws_restJson1CreateIntentCommand,

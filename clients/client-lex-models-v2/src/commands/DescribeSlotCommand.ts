@@ -13,12 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DescribeSlotRequest,
-  DescribeSlotRequestFilterSensitiveLog,
-  DescribeSlotResponse,
-  DescribeSlotResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeSlotRequest, DescribeSlotRequestFilterSensitiveLog } from "../models/models_0";
+import { DescribeSlotResponse, DescribeSlotResponseFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeSlotCommand,
   serializeAws_restJson1DescribeSlotCommand,

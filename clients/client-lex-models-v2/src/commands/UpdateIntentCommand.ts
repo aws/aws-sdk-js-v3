@@ -18,7 +18,7 @@ import {
   UpdateIntentRequestFilterSensitiveLog,
   UpdateIntentResponse,
   UpdateIntentResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateIntentCommand,
   serializeAws_restJson1UpdateIntentCommand,
