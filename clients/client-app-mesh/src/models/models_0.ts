@@ -4,6 +4,64 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { AppMeshServiceException as __BaseException } from "./AppMeshServiceException";
 
 /**
+ * <p>An object that represents the key value pairs for the JSON.</p>
+ */
+export interface JsonFormatRef {
+  /**
+   * <p>The specified key for the JSON.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The specified value for the JSON.</p>
+   */
+  value: string | undefined;
+}
+
+/**
+ * <p>An object that represents the format for the logs.</p>
+ */
+export type LoggingFormat = LoggingFormat.JsonMember | LoggingFormat.TextMember | LoggingFormat.$UnknownMember;
+
+export namespace LoggingFormat {
+  /**
+   * <p/>
+   */
+  export interface TextMember {
+    text: string;
+    json?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p/>
+   */
+  export interface JsonMember {
+    text?: never;
+    json: JsonFormatRef[];
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    text?: never;
+    json?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    json: (value: JsonFormatRef[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: LoggingFormat, visitor: Visitor<T>): T => {
+    if (value.text !== undefined) return visitor.text(value.text);
+    if (value.json !== undefined) return visitor.json(value.json);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>An object that represents an access log file.</p>
  */
 export interface FileAccessLog {
@@ -20,6 +78,12 @@ export interface FileAccessLog {
    *          </note>
    */
   path: string | undefined;
+
+  /**
+   * <p>The specified format for the logs. The format is either <code>json_format</code> or
+   *             <code>text_format</code>.</p>
+   */
+  format?: LoggingFormat;
 }
 
 /**
@@ -1303,6 +1367,12 @@ export interface VirtualGatewayFileAccessLog {
    *          the files to disk.</p>
    */
   path: string | undefined;
+
+  /**
+   * <p>The specified format for the virtual gateway access logs. It can be either
+   *             <code>json_format</code> or <code>text_format</code>.</p>
+   */
+  format?: LoggingFormat;
 }
 
 /**
@@ -1550,6 +1620,11 @@ export interface GatewayRouteTarget {
    * <p>An object that represents a virtual service gateway route target.</p>
    */
   virtualService: GatewayRouteVirtualService | undefined;
+
+  /**
+   * <p>The port number of the gateway route target.</p>
+   */
+  port?: number;
 }
 
 /**
@@ -1736,6 +1811,11 @@ export interface GrpcGatewayRouteMatch {
    * <p>The gateway route metadata to be matched on.</p>
    */
   metadata?: GrpcGatewayRouteMetadata[];
+
+  /**
+   * <p>The port number to match from the request.</p>
+   */
+  port?: number;
 }
 
 /**
@@ -2026,6 +2106,11 @@ export interface HttpGatewayRouteMatch {
    * <p>The client request headers to match on.</p>
    */
   headers?: HttpGatewayRouteHeader[];
+
+  /**
+   * <p>The port number to match on.</p>
+   */
+  port?: number;
 }
 
 /**
@@ -2703,7 +2788,13 @@ export interface TlsValidationContext {
   trust: TlsValidationContextTrust | undefined;
 
   /**
-   * <p>A reference to an object that represents the SANs for a Transport Layer Security (TLS) validation context.</p>
+   * <p>A reference to an object that represents the SANs for a Transport Layer Security (TLS) validation context. If you
+   *          don't specify SANs on the <i>terminating</i> mesh endpoint, the Envoy proxy
+   *          for that node doesn't verify the SAN on a peer client certificate. If you don't specify
+   *          SANs on the <i>originating</i> mesh endpoint, the SAN on the certificate
+   *          provided by the terminating endpoint must match the mesh endpoint service discovery
+   *          configuration. Since SPIRE vended certificates have a SPIFFE ID as a name, you must set the
+   *          SAN since the name doesn't match the service discovery name.</p>
    */
   subjectAlternativeNames?: SubjectAlternativeNames;
 }
@@ -3445,7 +3536,9 @@ export interface AwsCloudMapServiceDiscovery {
   attributes?: AwsCloudMapInstanceAttribute[];
 
   /**
-   * <p>The IP version to use to control traffic within the mesh.</p>
+   * <p>The preferred IP version that this virtual node uses. Setting the IP preference on the
+   *          virtual node only overrides the IP preference set for the mesh on this specific
+   *          node.</p>
    */
   ipPreference?: IpPreference | string;
 }
@@ -3471,7 +3564,9 @@ export interface DnsServiceDiscovery {
   responseType?: DnsResponseType | string;
 
   /**
-   * <p>The IP version to use to control traffic within the mesh.</p>
+   * <p>The preferred IP version that this virtual node uses. Setting the IP preference on the
+   *          virtual node only overrides the IP preference set for the mesh on this specific
+   *          node.</p>
    */
   ipPreference?: IpPreference | string;
 }
@@ -4154,6 +4249,11 @@ export interface WeightedTarget {
    * <p>The relative weight of the weighted target.</p>
    */
   weight: number | undefined;
+
+  /**
+   * <p>The targeted port of the weighted object.</p>
+   */
+  port?: number;
 }
 
 /**
@@ -4305,6 +4405,11 @@ export interface GrpcRouteMatch {
    * <p>An object that represents the data to match from the request.</p>
    */
   metadata?: GrpcRouteMetadata[];
+
+  /**
+   * <p>The port number to match on.</p>
+   */
+  port?: number;
 }
 
 export enum GrpcRetryPolicyEvent {
@@ -4472,6 +4577,11 @@ export interface HttpRouteMatch {
    * <p>The client request headers to match on.</p>
    */
   headers?: HttpRouteHeader[];
+
+  /**
+   * <p>The port number to match on.</p>
+   */
+  port?: number;
 }
 
 /**
@@ -4558,6 +4668,16 @@ export interface TcpRouteAction {
 }
 
 /**
+ * <p>An object representing the TCP route to match.</p>
+ */
+export interface TcpRouteMatch {
+  /**
+   * <p>The port number to match on.</p>
+   */
+  port?: number;
+}
+
+/**
  * <p>An object that represents a TCP route type.</p>
  */
 export interface TcpRoute {
@@ -4570,6 +4690,11 @@ export interface TcpRoute {
    * <p>An object that represents types of timeouts. </p>
    */
   timeout?: TcpTimeout;
+
+  /**
+   * <p>An object that represents the criteria for determining a request match.</p>
+   */
+  match?: TcpRouteMatch;
 }
 
 /**
@@ -5429,8 +5554,25 @@ export interface UntagResourceOutput {}
 /**
  * @internal
  */
+export const JsonFormatRefFilterSensitiveLog = (obj: JsonFormatRef): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingFormatFilterSensitiveLog = (obj: LoggingFormat): any => {
+  if (obj.text !== undefined) return { text: obj.text };
+  if (obj.json !== undefined) return { json: obj.json.map((item) => JsonFormatRefFilterSensitiveLog(item)) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const FileAccessLogFilterSensitiveLog = (obj: FileAccessLog): any => ({
   ...obj,
+  ...(obj.format && { format: LoggingFormatFilterSensitiveLog(obj.format) }),
 });
 
 /**
@@ -5804,6 +5946,7 @@ export const VirtualGatewayListenerFilterSensitiveLog = (obj: VirtualGatewayList
  */
 export const VirtualGatewayFileAccessLogFilterSensitiveLog = (obj: VirtualGatewayFileAccessLog): any => ({
   ...obj,
+  ...(obj.format && { format: LoggingFormatFilterSensitiveLog(obj.format) }),
 });
 
 /**
@@ -6789,6 +6932,13 @@ export const HttpRouteFilterSensitiveLog = (obj: HttpRoute): any => ({
  * @internal
  */
 export const TcpRouteActionFilterSensitiveLog = (obj: TcpRouteAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TcpRouteMatchFilterSensitiveLog = (obj: TcpRouteMatch): any => ({
   ...obj,
 });
 
