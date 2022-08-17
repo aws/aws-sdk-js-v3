@@ -44,13 +44,6 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  *       <code>VersionId</code>, the operation results in an error. You can't modify an existing
  *       version, you can only create a new version. To remove a version, remove all staging labels from it. See
  *     <a>UpdateSecretVersionStage</a>.</p>
- *          <p>If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web Services managed key
- *       <code>aws/secretsmanager</code>. If this key doesn't already exist in your account, then Secrets Manager
- *       creates it for you automatically. All users and roles in the Amazon Web Services account automatically have access
- *       to use <code>aws/secretsmanager</code>. Creating <code>aws/secretsmanager</code> can result in a one-time
- *       significant delay in returning the result.  </p>
- *          <p>If the secret is in a different Amazon Web Services account from the credentials calling the API, then you can't
- *       use <code>aws/secretsmanager</code> to encrypt the secret, and you must create and use a customer managed key. </p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:UpdateSecret</code>.

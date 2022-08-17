@@ -34,6 +34,8 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  *          <p>We recommend that you cache your secret values by using client-side caching.
  *       Caching secrets improves speed and reduces your costs. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html">Cache secrets for
  *         your applications</a>.</p>
+ *          <p>To retrieve the previous version of a secret, use <code>VersionStage</code> and specify
+ *       AWSPREVIOUS. To revert to the previous version of a secret, call <a href="https://docs.aws.amazon.com/cli/latest/reference/secretsmanager/update-secret-version-stage.html">UpdateSecretVersionStage</a>.</p>
  *
  *          <p>
  *             <b>Required permissions: </b>

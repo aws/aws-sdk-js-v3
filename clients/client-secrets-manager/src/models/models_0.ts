@@ -102,6 +102,10 @@ export class InvalidParameterException extends __BaseException {
  *                <p>You tried to enable rotation on a secret that doesn't already have a Lambda function
  *           ARN configured and you didn't include such an ARN as a parameter in this call. </p>
  *             </li>
+ *             <li>
+ *                <p>The secret is managed by another service, and you must use that service to update it.
+ *           For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
+ *             </li>
  *          </ul>
  */
 export class InvalidRequestException extends __BaseException {
@@ -214,7 +218,8 @@ export interface CreateSecretRequest {
 
   /**
    * <p>The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
-   *       encrypt the secret value in the secret.</p>
+   *       encrypt the secret value in the secret. An alias is always prefixed by <code>alias/</code>,
+   *       for example <code>alias/aws/secretsmanager</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html">About aliases</a>.</p>
    *          <p>To use a KMS key in a different account, use the key ARN or the alias ARN.</p>
    *          <p>If you don't specify this value, then Secrets Manager uses the key <code>aws/secretsmanager</code>.
    *       If that key doesn't yet exist, then Secrets Manager creates it for you automatically the first time it
@@ -337,7 +342,7 @@ export interface ReplicationStatusType {
   StatusMessage?: string;
 
   /**
-   * <p>The date that you last accessed the secret in the Region. </p>
+   * <p>The date that the secret was last accessed in the Region. This field is omitted if the secret has never been retrieved in the Region.</p>
    */
   LastAccessedDate?: Date;
 }
@@ -654,8 +659,9 @@ export interface DescribeSecretResponse {
   Description?: string;
 
   /**
-   * <p>The ARN of the KMS key that Secrets Manager uses to encrypt the secret value. If the secret is encrypted with
-   *       the Amazon Web Services managed key <code>aws/secretsmanager</code>, this field is omitted.</p>
+   * <p>The key ID or alias ARN of the KMS key that Secrets Manager uses to encrypt the secret value.
+   *       If the secret is encrypted with the Amazon Web Services managed key <code>aws/secretsmanager</code>,
+   *       this field is omitted. Secrets created using the console use an KMS key ID.</p>
    */
   KmsKeyId?: string;
 
@@ -691,7 +697,7 @@ export interface DescribeSecretResponse {
   LastChangedDate?: Date;
 
   /**
-   * <p>The last date that the secret value was retrieved. This value does not include the time. This field is omitted if the secret has never been retrieved.</p>
+   * <p>The date that the secret was last accessed in the Region. This field is omitted if the secret has never been retrieved in the Region.</p>
    */
   LastAccessedDate?: Date;
 
@@ -741,7 +747,7 @@ export interface DescribeSecretResponse {
   VersionIdsToStages?: Record<string, string[]>;
 
   /**
-   * <p>The name of the service that created this secret.</p>
+   * <p>The ID of the service that created this secret. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
    */
   OwningService?: string;
 
@@ -1094,8 +1100,7 @@ export interface SecretListEntry {
   LastChangedDate?: Date;
 
   /**
-   * <p>The last date that this secret was accessed. This value is truncated to midnight of the
-   *       date and therefore shows only the date, not the time.</p>
+   * <p>The date that the secret was last accessed in the Region. This field is omitted if the secret has never been retrieved in the Region.</p>
    */
   LastAccessedDate?: Date;
 
@@ -1624,9 +1629,16 @@ export interface UpdateSecretRequest {
 
   /**
    * <p>The ARN, key ID, or alias of the KMS key that Secrets Manager
-   *       uses to encrypt new secret versions as well as any existing versions the staging labels
+   *       uses to encrypt new secret versions as well as any existing versions with the staging labels
    *       <code>AWSCURRENT</code>, <code>AWSPENDING</code>, or <code>AWSPREVIOUS</code>.
    *       For more information about versions and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts: Version</a>.</p>
+   *         <p>A key alias is always prefixed by <code>alias/</code>, for example <code>alias/aws/secretsmanager</code>.
+   *           For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html">About aliases</a>.</p>
+   *           <p>If you set this to an empty string, Secrets Manager uses the Amazon Web Services managed key
+   *           <code>aws/secretsmanager</code>. If this key doesn't already exist in your account, then Secrets Manager
+   *           creates it for you automatically. All users and roles in the Amazon Web Services account automatically have access
+   *           to use <code>aws/secretsmanager</code>. Creating <code>aws/secretsmanager</code> can result in a one-time
+   *           significant delay in returning the result.  </p>
    *          <important>
    *             <p>You can only use the Amazon Web Services managed key <code>aws/secretsmanager</code> if you call this
    *         operation using credentials from the same Amazon Web Services account that owns the secret. If the secret is in

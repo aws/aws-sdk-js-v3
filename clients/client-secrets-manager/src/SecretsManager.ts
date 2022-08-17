@@ -482,6 +482,8 @@ export class SecretsManager extends SecretsManagerClient {
    *          <p>We recommend that you cache your secret values by using client-side caching.
    *       Caching secrets improves speed and reduces your costs. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html">Cache secrets for
    *         your applications</a>.</p>
+   *          <p>To retrieve the previous version of a secret, use <code>VersionStage</code> and specify
+   *       AWSPREVIOUS. To revert to the previous version of a secret, call <a href="https://docs.aws.amazon.com/cli/latest/reference/secretsmanager/update-secret-version-stage.html">UpdateSecretVersionStage</a>.</p>
    *
    *          <p>
    *             <b>Required permissions: </b>
@@ -1045,13 +1047,6 @@ export class SecretsManager extends SecretsManagerClient {
    *       <code>VersionId</code>, the operation results in an error. You can't modify an existing
    *       version, you can only create a new version. To remove a version, remove all staging labels from it. See
    *     <a>UpdateSecretVersionStage</a>.</p>
-   *          <p>If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web Services managed key
-   *       <code>aws/secretsmanager</code>. If this key doesn't already exist in your account, then Secrets Manager
-   *       creates it for you automatically. All users and roles in the Amazon Web Services account automatically have access
-   *       to use <code>aws/secretsmanager</code>. Creating <code>aws/secretsmanager</code> can result in a one-time
-   *       significant delay in returning the result.  </p>
-   *          <p>If the secret is in a different Amazon Web Services account from the credentials calling the API, then you can't
-   *       use <code>aws/secretsmanager</code> to encrypt the secret, and you must create and use a customer managed key. </p>
    *          <p>
    *             <b>Required permissions: </b>
    *             <code>secretsmanager:UpdateSecret</code>.
