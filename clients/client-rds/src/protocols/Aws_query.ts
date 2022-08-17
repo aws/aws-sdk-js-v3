@@ -11991,6 +11991,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
       entries[loc] = value;
     });
   }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
   return entries;
 };
 
@@ -14235,6 +14238,9 @@ const serializeAws_queryModifyDBClusterMessage = (input: ModifyDBClusterMessage,
       entries[loc] = value;
     });
   }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
   return entries;
 };
 
@@ -15232,6 +15238,9 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
       entries[loc] = value;
     });
   }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
   return entries;
 };
 
@@ -15348,6 +15357,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
       entries[loc] = value;
     });
   }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
   return entries;
 };
 
@@ -15456,6 +15468,9 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
       const loc = `ServerlessV2ScalingConfiguration.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
   }
   return entries;
 };
@@ -16910,6 +16925,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     PerformanceInsightsKMSKeyId: undefined,
     PerformanceInsightsRetentionPeriod: undefined,
     ServerlessV2ScalingConfiguration: undefined,
+    NetworkType: undefined,
   };
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
@@ -17190,6 +17206,9 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
       output["ServerlessV2ScalingConfiguration"],
       context
     );
+  }
+  if (output["NetworkType"] !== undefined) {
+    contents.NetworkType = __expectString(output["NetworkType"]);
   }
   return contents;
 };
