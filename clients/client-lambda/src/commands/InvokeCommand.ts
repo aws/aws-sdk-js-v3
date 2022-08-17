@@ -51,7 +51,9 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  *       waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long
  *       connections with timeout or keep-alive settings.</p>
  *
- *          <p>This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a> action.</p>
+ *          <p>This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a> action. For details on how to set up
+ *       permissions for cross-account invocations, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke">Granting function
+ *       access to other accounts</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

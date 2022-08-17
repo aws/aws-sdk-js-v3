@@ -489,7 +489,7 @@ export class Lambda extends LambdaClient {
 
   /**
    * <p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the
-   *       event source and triggers the function.</p>
+   *       event source and invokes the function.</p>
    *          <p>For details about how to configure different event sources, see the following topics. </p>
    *          <ul>
    *             <li>
@@ -530,7 +530,7 @@ export class Lambda extends LambdaClient {
    *             </li>
    *          </ul>
    *
-   *          <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>
+   *          <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1561,7 +1561,9 @@ export class Lambda extends LambdaClient {
    *       waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long
    *       connections with timeout or keep-alive settings.</p>
    *
-   *          <p>This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a> action.</p>
+   *          <p>This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a> action. For details on how to set up
+   *       permissions for cross-account invocations, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke">Granting function
+   *       access to other accounts</a>.</p>
    */
   public invoke(args: InvokeCommandInput, options?: __HttpHandlerOptions): Promise<InvokeCommandOutput>;
   public invoke(args: InvokeCommandInput, cb: (err: any, data?: InvokeCommandOutput) => void): void;
@@ -1679,7 +1681,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Lists event source mappings. Specify an <code>EventSourceArn</code> to only show event source mappings for a
+   * <p>Lists event source mappings. Specify an <code>EventSourceArn</code> to show only event source mappings for a
    *       single event source.</p>
    */
   public listEventSourceMappings(
@@ -2456,7 +2458,7 @@ export class Lambda extends LambdaClient {
    *             </li>
    *          </ul>
    *
-   *          <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>
+   *          <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p>
    *          <ul>
    *             <li>
    *                <p>

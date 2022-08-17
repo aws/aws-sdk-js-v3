@@ -29,7 +29,7 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
 
 /**
  * <p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the
- *       event source and triggers the function.</p>
+ *       event source and invokes the function.</p>
  *          <p>For details about how to configure different event sources, see the following topics. </p>
  *          <ul>
  *             <li>
@@ -70,7 +70,7 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *             </li>
  *          </ul>
  *
- *          <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>
+ *          <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p>
  *          <ul>
  *             <li>
  *                <p>

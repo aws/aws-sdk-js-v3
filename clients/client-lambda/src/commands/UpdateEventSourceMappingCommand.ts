@@ -70,7 +70,7 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *             </li>
  *          </ul>
  *
- *          <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>
+ *          <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p>
  *          <ul>
  *             <li>
  *                <p>

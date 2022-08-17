@@ -210,6 +210,7 @@ import {
   AliasConfiguration,
   AliasRoutingConfiguration,
   AllowedPublishers,
+  AmazonManagedKafkaEventSourceConfig,
   Architecture,
   CodeSigningConfig,
   CodeSigningConfigNotFoundException,
@@ -275,6 +276,7 @@ import {
   ResourceNotReadyException,
   Runtime,
   SelfManagedEventSource,
+  SelfManagedKafkaEventSourceConfig,
   ServiceException,
   SourceAccessConfiguration,
   SubnetIPAddressLimitReachedException,
@@ -456,6 +458,12 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings";
   let body: any;
   body = JSON.stringify({
+    ...(input.AmazonManagedKafkaEventSourceConfig != null && {
+      AmazonManagedKafkaEventSourceConfig: serializeAws_restJson1AmazonManagedKafkaEventSourceConfig(
+        input.AmazonManagedKafkaEventSourceConfig,
+        context
+      ),
+    }),
     ...(input.BatchSize != null && { BatchSize: input.BatchSize }),
     ...(input.BisectBatchOnFunctionError != null && { BisectBatchOnFunctionError: input.BisectBatchOnFunctionError }),
     ...(input.DestinationConfig != null && {
@@ -479,6 +487,12 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
     ...(input.Queues != null && { Queues: serializeAws_restJson1Queues(input.Queues, context) }),
     ...(input.SelfManagedEventSource != null && {
       SelfManagedEventSource: serializeAws_restJson1SelfManagedEventSource(input.SelfManagedEventSource, context),
+    }),
+    ...(input.SelfManagedKafkaEventSourceConfig != null && {
+      SelfManagedKafkaEventSourceConfig: serializeAws_restJson1SelfManagedKafkaEventSourceConfig(
+        input.SelfManagedKafkaEventSourceConfig,
+        context
+      ),
     }),
     ...(input.SourceAccessConfigurations != null && {
       SourceAccessConfigurations: serializeAws_restJson1SourceAccessConfigurations(
@@ -2667,6 +2681,12 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AmazonManagedKafkaEventSourceConfig != null) {
+    contents.AmazonManagedKafkaEventSourceConfig = deserializeAws_restJson1AmazonManagedKafkaEventSourceConfig(
+      data.AmazonManagedKafkaEventSourceConfig,
+      context
+    );
+  }
   if (data.BatchSize != null) {
     contents.BatchSize = __expectInt32(data.BatchSize);
   }
@@ -2715,6 +2735,12 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
   if (data.SelfManagedEventSource != null) {
     contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
       data.SelfManagedEventSource,
+      context
+    );
+  }
+  if (data.SelfManagedKafkaEventSourceConfig != null) {
+    contents.SelfManagedKafkaEventSourceConfig = deserializeAws_restJson1SelfManagedKafkaEventSourceConfig(
+      data.SelfManagedKafkaEventSourceConfig,
       context
     );
   }
@@ -3117,6 +3143,12 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AmazonManagedKafkaEventSourceConfig != null) {
+    contents.AmazonManagedKafkaEventSourceConfig = deserializeAws_restJson1AmazonManagedKafkaEventSourceConfig(
+      data.AmazonManagedKafkaEventSourceConfig,
+      context
+    );
+  }
   if (data.BatchSize != null) {
     contents.BatchSize = __expectInt32(data.BatchSize);
   }
@@ -3165,6 +3197,12 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
   if (data.SelfManagedEventSource != null) {
     contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
       data.SelfManagedEventSource,
+      context
+    );
+  }
+  if (data.SelfManagedKafkaEventSourceConfig != null) {
+    contents.SelfManagedKafkaEventSourceConfig = deserializeAws_restJson1SelfManagedKafkaEventSourceConfig(
+      data.SelfManagedKafkaEventSourceConfig,
       context
     );
   }
@@ -3747,6 +3785,12 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AmazonManagedKafkaEventSourceConfig != null) {
+    contents.AmazonManagedKafkaEventSourceConfig = deserializeAws_restJson1AmazonManagedKafkaEventSourceConfig(
+      data.AmazonManagedKafkaEventSourceConfig,
+      context
+    );
+  }
   if (data.BatchSize != null) {
     contents.BatchSize = __expectInt32(data.BatchSize);
   }
@@ -3795,6 +3839,12 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
   if (data.SelfManagedEventSource != null) {
     contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
       data.SelfManagedEventSource,
+      context
+    );
+  }
+  if (data.SelfManagedKafkaEventSourceConfig != null) {
+    contents.SelfManagedKafkaEventSourceConfig = deserializeAws_restJson1SelfManagedKafkaEventSourceConfig(
+      data.SelfManagedKafkaEventSourceConfig,
       context
     );
   }
@@ -6232,6 +6282,12 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AmazonManagedKafkaEventSourceConfig != null) {
+    contents.AmazonManagedKafkaEventSourceConfig = deserializeAws_restJson1AmazonManagedKafkaEventSourceConfig(
+      data.AmazonManagedKafkaEventSourceConfig,
+      context
+    );
+  }
   if (data.BatchSize != null) {
     contents.BatchSize = __expectInt32(data.BatchSize);
   }
@@ -6280,6 +6336,12 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
   if (data.SelfManagedEventSource != null) {
     contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
       data.SelfManagedEventSource,
+      context
+    );
+  }
+  if (data.SelfManagedKafkaEventSourceConfig != null) {
+    contents.SelfManagedKafkaEventSourceConfig = deserializeAws_restJson1SelfManagedKafkaEventSourceConfig(
+      data.SelfManagedKafkaEventSourceConfig,
       context
     );
   }
@@ -7520,6 +7582,15 @@ const serializeAws_restJson1AllowOriginsList = (input: string[], context: __Serd
     });
 };
 
+const serializeAws_restJson1AmazonManagedKafkaEventSourceConfig = (
+  input: AmazonManagedKafkaEventSourceConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConsumerGroupId != null && { ConsumerGroupId: input.ConsumerGroupId }),
+  };
+};
+
 const serializeAws_restJson1ArchitecturesList = (input: (Architecture | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7755,6 +7826,15 @@ const serializeAws_restJson1SelfManagedEventSource = (input: SelfManagedEventSou
   };
 };
 
+const serializeAws_restJson1SelfManagedKafkaEventSourceConfig = (
+  input: SelfManagedKafkaEventSourceConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConsumerGroupId != null && { ConsumerGroupId: input.ConsumerGroupId }),
+  };
+};
+
 const serializeAws_restJson1SigningProfileVersionArns = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7938,6 +8018,15 @@ const deserializeAws_restJson1AllowOriginsList = (output: any, context: __SerdeC
   return retVal;
 };
 
+const deserializeAws_restJson1AmazonManagedKafkaEventSourceConfig = (
+  output: any,
+  context: __SerdeContext
+): AmazonManagedKafkaEventSourceConfig => {
+  return {
+    ConsumerGroupId: __expectString(output.ConsumerGroupId),
+  } as any;
+};
+
 const deserializeAws_restJson1ArchitecturesList = (output: any, context: __SerdeContext): (Architecture | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -8108,6 +8197,13 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
   context: __SerdeContext
 ): EventSourceMappingConfiguration => {
   return {
+    AmazonManagedKafkaEventSourceConfig:
+      output.AmazonManagedKafkaEventSourceConfig != null
+        ? deserializeAws_restJson1AmazonManagedKafkaEventSourceConfig(
+            output.AmazonManagedKafkaEventSourceConfig,
+            context
+          )
+        : undefined,
     BatchSize: __expectInt32(output.BatchSize),
     BisectBatchOnFunctionError: __expectBoolean(output.BisectBatchOnFunctionError),
     DestinationConfig:
@@ -8137,6 +8233,10 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
     SelfManagedEventSource:
       output.SelfManagedEventSource != null
         ? deserializeAws_restJson1SelfManagedEventSource(output.SelfManagedEventSource, context)
+        : undefined,
+    SelfManagedKafkaEventSourceConfig:
+      output.SelfManagedKafkaEventSourceConfig != null
+        ? deserializeAws_restJson1SelfManagedKafkaEventSourceConfig(output.SelfManagedKafkaEventSourceConfig, context)
         : undefined,
     SourceAccessConfigurations:
       output.SourceAccessConfigurations != null
@@ -8570,6 +8670,15 @@ const deserializeAws_restJson1SelfManagedEventSource = (
 ): SelfManagedEventSource => {
   return {
     Endpoints: output.Endpoints != null ? deserializeAws_restJson1Endpoints(output.Endpoints, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SelfManagedKafkaEventSourceConfig = (
+  output: any,
+  context: __SerdeContext
+): SelfManagedKafkaEventSourceConfig => {
+  return {
+    ConsumerGroupId: __expectString(output.ConsumerGroupId),
   } as any;
 };
 

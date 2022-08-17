@@ -442,6 +442,18 @@ export interface AllowedPublishers {
   SigningProfileVersionArns: string[] | undefined;
 }
 
+/**
+ * <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+ */
+export interface AmazonManagedKafkaEventSourceConfig {
+  /**
+   * <p>The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources.
+   *   After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see
+   *   <a>services-msk-consumer-group-id</a>.</p>
+   */
+  ConsumerGroupId?: string;
+}
+
 export enum Architecture {
   arm64 = "arm64",
   x86_64 = "x86_64",
@@ -657,6 +669,18 @@ export interface SelfManagedEventSource {
   Endpoints?: Record<string, string[]>;
 }
 
+/**
+ * <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+ */
+export interface SelfManagedKafkaEventSourceConfig {
+  /**
+   * <p>The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources.
+   *   After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see
+   *   <a>services-msk-consumer-group-id</a>.</p>
+   */
+  ConsumerGroupId?: string;
+}
+
 export enum SourceAccessType {
   BASIC_AUTH = "BASIC_AUTH",
   CLIENT_CERTIFICATE_TLS_AUTH = "CLIENT_CERTIFICATE_TLS_AUTH",
@@ -706,7 +730,7 @@ export interface SourceAccessConfiguration {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CLIENT_CERTIFICATE_TLS_AUTH</code> - (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM),
+   *                   <code>CLIENT_CERTIFICATE_TLS_AUTH</code> - (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM),
    *   private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.</p>
    *             </li>
    *             <li>
@@ -810,7 +834,7 @@ export interface CreateEventSourceMappingRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p>
+   *                   <b>Self-managed Apache Kafka</b> - Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -839,8 +863,9 @@ export interface CreateEventSourceMappingRequest {
   ParallelizationFactor?: number;
 
   /**
-   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon
-   *       MSK Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon
+   *       DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is supported only for
+   *       Amazon Kinesis streams.</p>
    */
   StartingPosition?: EventSourcePosition | string;
 
@@ -866,12 +891,12 @@ export interface CreateEventSourceMappingRequest {
   BisectBatchOnFunctionError?: boolean;
 
   /**
-   * <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
+   * <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+   * <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second and 900 seconds.</p>
    */
   TumblingWindowInSeconds?: number;
 
@@ -891,7 +916,7 @@ export interface CreateEventSourceMappingRequest {
   SourceAccessConfigurations?: SourceAccessConfiguration[];
 
   /**
-   * <p>The Self-Managed Apache Kafka cluster to send records.</p>
+   * <p>The self-managed Apache Kafka cluster to receive records from.</p>
    */
   SelfManagedEventSource?: SelfManagedEventSource;
 
@@ -899,6 +924,16 @@ export interface CreateEventSourceMappingRequest {
    * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
+
+  /**
+   * <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+   */
+  AmazonManagedKafkaEventSourceConfig?: AmazonManagedKafkaEventSourceConfig;
+
+  /**
+   * <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+   */
+  SelfManagedKafkaEventSourceConfig?: SelfManagedKafkaEventSourceConfig;
 }
 
 /**
@@ -1030,6 +1065,16 @@ export interface EventSourceMappingConfiguration {
    * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
+
+  /**
+   * <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+   */
+  AmazonManagedKafkaEventSourceConfig?: AmazonManagedKafkaEventSourceConfig;
+
+  /**
+   * <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+   */
+  SelfManagedKafkaEventSourceConfig?: SelfManagedKafkaEventSourceConfig;
 }
 
 /**
@@ -4764,7 +4809,7 @@ export interface UpdateEventSourceMappingRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p>
+   *                   <b>Self-managed Apache Kafka</b> - Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4803,7 +4848,7 @@ export interface UpdateEventSourceMappingRequest {
   BisectBatchOnFunctionError?: boolean;
 
   /**
-   * <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
+   * <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
    */
   MaximumRetryAttempts?: number;
 
@@ -4818,7 +4863,7 @@ export interface UpdateEventSourceMappingRequest {
   SourceAccessConfigurations?: SourceAccessConfiguration[];
 
   /**
-   * <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+   * <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second and 900 seconds.</p>
    */
   TumblingWindowInSeconds?: number;
 
@@ -5239,6 +5284,15 @@ export const AllowedPublishersFilterSensitiveLog = (obj: AllowedPublishers): any
 /**
  * @internal
  */
+export const AmazonManagedKafkaEventSourceConfigFilterSensitiveLog = (
+  obj: AmazonManagedKafkaEventSourceConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateAliasRequestFilterSensitiveLog = (obj: CreateAliasRequest): any => ({
   ...obj,
 });
@@ -5310,6 +5364,13 @@ export const FilterCriteriaFilterSensitiveLog = (obj: FilterCriteria): any => ({
  * @internal
  */
 export const SelfManagedEventSourceFilterSensitiveLog = (obj: SelfManagedEventSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelfManagedKafkaEventSourceConfigFilterSensitiveLog = (obj: SelfManagedKafkaEventSourceConfig): any => ({
   ...obj,
 });
 
