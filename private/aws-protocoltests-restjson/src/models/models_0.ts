@@ -824,15 +824,15 @@ export const UnionInputOutputFilterSensitiveLog = (obj: UnionInputOutput): any =
   ...(obj.contents && { contents: MyUnionFilterSensitiveLog(obj.contents) }),
 });
 
-export interface MalformedAcceptWithGenericStringInput {
-  payload?: Uint8Array;
+export interface MalformedAcceptWithGenericStringOutput {
+  payload?: string;
 }
 
 /**
  * @internal
  */
-export const MalformedAcceptWithGenericStringInputFilterSensitiveLog = (
-  obj: MalformedAcceptWithGenericStringInput
+export const MalformedAcceptWithGenericStringOutputFilterSensitiveLog = (
+  obj: MalformedAcceptWithGenericStringOutput
 ): any => ({
   ...obj,
 });
@@ -1000,18 +1000,6 @@ export interface MalformedRequestBodyInput {
  * @internal
  */
 export const MalformedRequestBodyInputFilterSensitiveLog = (obj: MalformedRequestBodyInput): any => ({
-  ...obj,
-});
-
-export interface MalformedSetInput {
-  set?: string[];
-  blobSet?: Uint8Array[];
-}
-
-/**
- * @internal
- */
-export const MalformedSetInputFilterSensitiveLog = (obj: MalformedSetInput): any => ({
   ...obj,
 });
 
@@ -1374,6 +1362,89 @@ export interface PostPlayerActionOutput {
 export const PostPlayerActionOutputFilterSensitiveLog = (obj: PostPlayerActionOutput): any => ({
   ...obj,
   ...(obj.action && { action: PlayerActionFilterSensitiveLog(obj.action) }),
+});
+
+export type UnionWithJsonName =
+  | UnionWithJsonName.BarMember
+  | UnionWithJsonName.BazMember
+  | UnionWithJsonName.FooMember
+  | UnionWithJsonName.$UnknownMember;
+
+export namespace UnionWithJsonName {
+  export interface FooMember {
+    foo: string;
+    bar?: never;
+    baz?: never;
+    $unknown?: never;
+  }
+
+  export interface BarMember {
+    foo?: never;
+    bar: string;
+    baz?: never;
+    $unknown?: never;
+  }
+
+  export interface BazMember {
+    foo?: never;
+    bar?: never;
+    baz: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    foo?: never;
+    bar?: never;
+    baz?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    foo: (value: string) => T;
+    bar: (value: string) => T;
+    baz: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UnionWithJsonName, visitor: Visitor<T>): T => {
+    if (value.foo !== undefined) return visitor.foo(value.foo);
+    if (value.bar !== undefined) return visitor.bar(value.bar);
+    if (value.baz !== undefined) return visitor.baz(value.baz);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+/**
+ * @internal
+ */
+export const UnionWithJsonNameFilterSensitiveLog = (obj: UnionWithJsonName): any => {
+  if (obj.foo !== undefined) return { foo: obj.foo };
+  if (obj.bar !== undefined) return { bar: obj.bar };
+  if (obj.baz !== undefined) return { baz: obj.baz };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+export interface PostUnionWithJsonNameInput {
+  value?: UnionWithJsonName;
+}
+
+/**
+ * @internal
+ */
+export const PostUnionWithJsonNameInputFilterSensitiveLog = (obj: PostUnionWithJsonNameInput): any => ({
+  ...obj,
+  ...(obj.value && { value: UnionWithJsonNameFilterSensitiveLog(obj.value) }),
+});
+
+export interface PostUnionWithJsonNameOutput {
+  value: UnionWithJsonName | undefined;
+}
+
+/**
+ * @internal
+ */
+export const PostUnionWithJsonNameOutputFilterSensitiveLog = (obj: PostUnionWithJsonNameOutput): any => ({
+  ...obj,
+  ...(obj.value && { value: UnionWithJsonNameFilterSensitiveLog(obj.value) }),
 });
 
 export interface QueryIdempotencyTokenAutoFillInput {

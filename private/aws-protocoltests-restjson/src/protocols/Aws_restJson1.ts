@@ -173,7 +173,6 @@ import {
   MalformedRequestBodyCommandInput,
   MalformedRequestBodyCommandOutput,
 } from "../commands/MalformedRequestBodyCommand";
-import { MalformedSetCommandInput, MalformedSetCommandOutput } from "../commands/MalformedSetCommand";
 import { MalformedShortCommandInput, MalformedShortCommandOutput } from "../commands/MalformedShortCommand";
 import { MalformedStringCommandInput, MalformedStringCommandOutput } from "../commands/MalformedStringCommand";
 import {
@@ -242,6 +241,10 @@ import {
 } from "../commands/OmitsNullSerializesEmptyStringCommand";
 import { PostPlayerActionCommandInput, PostPlayerActionCommandOutput } from "../commands/PostPlayerActionCommand";
 import {
+  PostUnionWithJsonNameCommandInput,
+  PostUnionWithJsonNameCommandOutput,
+} from "../commands/PostUnionWithJsonNameCommand";
+import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
 } from "../commands/QueryIdempotencyTokenAutoFillCommand";
@@ -293,6 +296,7 @@ import {
   SimpleUnion,
   StructureListMember,
   TestConfig,
+  UnionWithJsonName,
   Unit,
 } from "../models/models_0";
 import { RestJsonProtocolServiceException as __BaseException } from "../models/RestJsonProtocolServiceException";
@@ -314,7 +318,7 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
     ],
     StringSet: [
       () => input.queryStringSet !== void 0,
-      () => (Array.from(input.queryStringSet!.values()) || []).map((_entry) => _entry as any),
+      () => (input.queryStringSet! || []).map((_entry) => _entry as any),
     ],
     Byte: [() => input.queryByte !== void 0, () => input.queryByte!.toString()],
     Short: [() => input.queryShort !== void 0, () => input.queryShort!.toString()],
@@ -325,7 +329,7 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
     ],
     IntegerSet: [
       () => input.queryIntegerSet !== void 0,
-      () => (Array.from(input.queryIntegerSet!.values()) || []).map((_entry) => _entry.toString() as any),
+      () => (input.queryIntegerSet! || []).map((_entry) => _entry.toString() as any),
     ],
     Long: [() => input.queryLong !== void 0, () => input.queryLong!.toString()],
     Float: [
@@ -1092,7 +1096,7 @@ export const serializeAws_restJson1InputAndOutputWithHeadersCommand = async (
     ],
     "x-stringset": [
       () => isSerializableHeaderValue(input.headerStringSet),
-      () => (Array.from(input.headerStringSet!.values()) || []).map((_entry) => _entry as any).join(", "),
+      () => (input.headerStringSet! || []).map((_entry) => _entry as any).join(", "),
     ],
     "x-integerlist": [
       () => isSerializableHeaderValue(input.headerIntegerList),
@@ -1350,14 +1354,12 @@ export const serializeAws_restJson1MalformedAcceptWithGenericStringCommand = asy
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
-    "content-type": "application/octet-stream",
+    "content-type": "application/json",
   };
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedAcceptWithGenericString";
   let body: any;
-  if (input.payload !== undefined) {
-    body = input.payload;
-  }
+  body = "";
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1815,31 +1817,6 @@ export const serializeAws_restJson1MalformedRequestBodyCommand = async (
   body = JSON.stringify({
     ...(input.float != null && { float: __serializeFloat(input.float) }),
     ...(input.int != null && { int: input.int }),
-  });
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
-export const serializeAws_restJson1MalformedSetCommand = async (
-  input: MalformedSetCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/json",
-  };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedSet";
-  let body: any;
-  body = JSON.stringify({
-    ...(input.blobSet != null && { blobSet: serializeAws_restJson1BlobSet(input.blobSet, context) }),
-    ...(input.set != null && { set: serializeAws_restJson1SimpleSet(input.set, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2400,6 +2377,30 @@ export const serializeAws_restJson1PostPlayerActionCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.action != null && { action: serializeAws_restJson1PlayerAction(input.action, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PostUnionWithJsonNameCommand = async (
+  input: PostUnionWithJsonNameCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PostUnionWithJsonName";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.value != null && { value: serializeAws_restJson1UnionWithJsonName(input.value, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -4053,7 +4054,8 @@ export const deserializeAws_restJson1MalformedAcceptWithGenericStringCommand = a
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  await collectBody(output.body, context);
+  const data: any = await collectBodyString(output.body, context);
+  contents.payload = __expectString(data);
   return contents;
 };
 
@@ -4542,38 +4544,6 @@ const deserializeAws_restJson1MalformedRequestBodyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MalformedRequestBodyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  throwDefaultError({
-    output,
-    parsedBody,
-    exceptionCtor: __BaseException,
-    errorCode,
-  });
-};
-
-export const deserializeAws_restJson1MalformedSetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MalformedSetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1MalformedSetCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-const deserializeAws_restJson1MalformedSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MalformedSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -5311,6 +5281,41 @@ const deserializeAws_restJson1PostPlayerActionCommandError = async (
   });
 };
 
+export const deserializeAws_restJson1PostUnionWithJsonNameCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PostUnionWithJsonNameCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PostUnionWithJsonNameCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.value != null) {
+    contents.value = deserializeAws_restJson1UnionWithJsonName(__expectUnion(data.value), context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1PostUnionWithJsonNameCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PostUnionWithJsonNameCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_restJson1QueryIdempotencyTokenAutoFillCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5882,14 +5887,6 @@ const deserializeAws_restJson1InvalidGreetingResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1BlobSet = (input: Uint8Array[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return context.base64Encoder(entry);
-    });
-};
-
 const serializeAws_restJson1DenseBooleanMap = (input: Record<string, boolean>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -6036,14 +6033,6 @@ const serializeAws_restJson1SimpleMap = (input: Record<string, string>, context:
   }, {});
 };
 
-const serializeAws_restJson1SimpleSet = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
 const serializeAws_restJson1SimpleUnion = (input: SimpleUnion, context: __SerdeContext): any => {
   return SimpleUnion.visit(input, {
     int: (value) => ({ int: value }),
@@ -6119,6 +6108,15 @@ const serializeAws_restJson1TestConfig = (input: TestConfig, context: __SerdeCon
   return {
     ...(input.timeout != null && { timeout: input.timeout }),
   };
+};
+
+const serializeAws_restJson1UnionWithJsonName = (input: UnionWithJsonName, context: __SerdeContext): any => {
+  return UnionWithJsonName.visit(input, {
+    bar: (value) => ({ bar: value }),
+    baz: (value) => ({ _baz: value }),
+    foo: (value) => ({ FOO: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1RenamedGreeting = (input: RenamedGreeting, context: __SerdeContext): any => {
@@ -6490,6 +6488,19 @@ const deserializeAws_restJson1TestConfig = (output: any, context: __SerdeContext
   return {
     timeout: __expectInt32(output.timeout),
   } as any;
+};
+
+const deserializeAws_restJson1UnionWithJsonName = (output: any, context: __SerdeContext): UnionWithJsonName => {
+  if (__expectString(output.bar) !== undefined) {
+    return { bar: __expectString(output.bar) as any };
+  }
+  if (__expectString(output._baz) !== undefined) {
+    return { baz: __expectString(output._baz) as any };
+  }
+  if (__expectString(output.FOO) !== undefined) {
+    return { foo: __expectString(output.FOO) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1RenamedGreeting = (output: any, context: __SerdeContext): RenamedGreeting => {

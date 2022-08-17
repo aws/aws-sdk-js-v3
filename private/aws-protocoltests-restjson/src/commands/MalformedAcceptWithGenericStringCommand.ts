@@ -13,8 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  MalformedAcceptWithGenericStringInput,
-  MalformedAcceptWithGenericStringInputFilterSensitiveLog,
+  MalformedAcceptWithGenericStringOutput,
+  MalformedAcceptWithGenericStringOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedAcceptWithGenericStringCommand,
@@ -22,8 +22,10 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
-export interface MalformedAcceptWithGenericStringCommandInput extends MalformedAcceptWithGenericStringInput {}
-export interface MalformedAcceptWithGenericStringCommandOutput extends __MetadataBearer {}
+export interface MalformedAcceptWithGenericStringCommandInput {}
+export interface MalformedAcceptWithGenericStringCommandOutput
+  extends MalformedAcceptWithGenericStringOutput,
+    __MetadataBearer {}
 
 export class MalformedAcceptWithGenericStringCommand extends $Command<
   MalformedAcceptWithGenericStringCommandInput,
@@ -58,8 +60,8 @@ export class MalformedAcceptWithGenericStringCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedAcceptWithGenericStringInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: MalformedAcceptWithGenericStringOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
