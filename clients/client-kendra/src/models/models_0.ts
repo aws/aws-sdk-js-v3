@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { DocumentType as __DocumentType } from "@aws-sdk/types";
 
 import { KendraServiceException as __BaseException } from "./KendraServiceException";
 
@@ -21,7 +22,7 @@ export interface AccessControlConfigurationSummary {
  */
 export interface AccessControlListConfiguration {
   /**
-   * <p>Path to the Amazon Web Services S3 bucket that contains the ACL files.</p>
+   * <p>Path to the Amazon S3 bucket that contains the ACL files.</p>
    */
   KeyPath?: string;
 }
@@ -1701,6 +1702,38 @@ export interface ConfluencePageConfiguration {
   PageFieldMappings?: ConfluencePageToIndexFieldMapping[];
 }
 
+/**
+ * <p>Provides the configuration information for a web proxy to connect to
+ *             website hosts.</p>
+ */
+export interface ProxyConfiguration {
+  /**
+   * <p>The name of the website host you want to connect to
+   *             via a web proxy server.</p>
+   *         <p>For example, the host name of https://a.example.com/page1.html
+   *             is "a.example.com".</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>The port number of the website host you want to connect
+   *             to via a web proxy server. </p>
+   *         <p>For example, the port for https://a.example.com/page1.html
+   *             is 443, the standard port for HTTPS.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>Your secret ARN, which you can create in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">Secrets Manager</a>
+   *          </p>
+   *         <p>The credentials are optional. You use a secret if web proxy credentials
+   *             are required to connect to a website host. Amazon Kendra currently support basic
+   *             authentication to connect to a web proxy server. The secret stores your
+   *             credentials.</p>
+   */
+  Credentials?: string;
+}
+
 export enum ConfluenceSpaceFieldName {
   DISPLAY_URL = "DISPLAY_URL",
   ITEM_TYPE = "ITEM_TYPE",
@@ -1866,6 +1899,24 @@ export interface ConfluenceConfiguration {
    *             exclusion pattern takes precedence and the content isn't included in the index.</p>
    */
   ExclusionPatterns?: string[];
+
+  /**
+   * <p>Configuration information to connect to your Confluence URL instance via a web proxy.
+   *             You can use this option for Confluence Server.</p>
+   *         <p>You must provide the website host name and port number. For example, the host name of
+   *             <i>https://a.example.com/page1.html</i> is "a.example.com" and the port
+   *             is 443, the standard port for HTTPS.</p>
+   *         <p>Web proxy credentials are optional and you can use them to connect to a web proxy
+   *             server that requires basic authentication of user name and password. To store web
+   *             proxy credentials, you use a secret in Secrets Manager.</p>
+   *         <p>It is recommended that you follow best security practices when configuring your
+   *             web proxy. This includes setting up throttling, setting up logging and monitoring,
+   *             and applying security patches on a regular basis. If you use your web proxy with
+   *             multiple data sources, sync jobs that occur at the same time could strain the load
+   *             on your proxy. It is recommended you prepare your proxy beforehand for any security
+   *             and load requirements.</p>
+   */
+  ProxyConfiguration?: ProxyConfiguration;
 }
 
 /**
@@ -2724,7 +2775,10 @@ export interface QuipConfiguration {
   CrawlAttachments?: boolean;
 
   /**
-   * <p>The identifiers of the Quip folders you want to index.</p>
+   * <p>The identifiers of the Quip folders you want to index. You
+   *             can find in your browser URL when you access your folder
+   *             in Quip. For example,
+   *             <i>https://quip-company.com/zlLuOVNSarTL/folder-name</i>.</p>
    */
   FolderIds?: string[];
 
@@ -3495,6 +3549,24 @@ export interface SharePointConfiguration {
    *             SharePoint Online.</p>
    */
   AuthenticationType?: SharePointOnlineAuthenticationType | string;
+
+  /**
+   * <p>Configuration information to connect to your Microsoft SharePoint site URLs
+   *             via instance via a web proxy. You can use this option for SharePoint Server.</p>
+   *         <p>You must provide the website host name and port number. For example, the host name of
+   *             <i>https://a.example.com/page1.html</i> is "a.example.com" and the port
+   *             is 443, the standard port for HTTPS.</p>
+   *         <p>Web proxy credentials are optional and you can use them to connect to a web proxy
+   *             server that requires basic authentication of user name and password. To store web
+   *             proxy credentials, you use a secret in Secrets Manager.</p>
+   *         <p>It is recommended that you follow best security practices when configuring your
+   *             web proxy. This includes setting up throttling, setting up logging and monitoring,
+   *             and applying security patches on a regular basis. If you use your web proxy with
+   *             multiple data sources, sync jobs that occur at the same time could strain the load
+   *             on your proxy. It is recommended you prepare your proxy beforehand for any security
+   *             and load requirements.</p>
+   */
+  ProxyConfiguration?: ProxyConfiguration;
 }
 
 export enum SlackEntity {
@@ -3626,35 +3698,24 @@ export interface SlackConfiguration {
 }
 
 /**
- * <p>Provides the configuration information for a web proxy to connect to
- *             website hosts.</p>
+ * <p>Provides a template for the configuration information to connect
+ *       to your data source.</p>
  */
-export interface ProxyConfiguration {
+export interface TemplateConfiguration {
   /**
-   * <p>The name of the website host you want to connect to
-   *             via a web proxy server.</p>
-   *         <p>For example, the host name of https://a.example.com/page1.html
-   *             is "a.example.com".</p>
+   * <p>The template schema used for the data source.</p>
+   *          <p>The following links to the template schema for data sources
+   *       where templates are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-zendesk.html#zendesk-template-schema">Zendesk
+   *           template schema</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
-  Host: string | undefined;
-
-  /**
-   * <p>The port number of the website host you want to connect
-   *             to via a web proxy server. </p>
-   *         <p>For example, the port for https://a.example.com/page1.html
-   *             is 443, the standard port for HTTPS.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Your secret ARN, which you can create in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">Secrets Manager</a>
-   *          </p>
-   *         <p>The credentials are optional. You use a secret if web proxy credentials
-   *             are required to connect to a website host. Amazon Kendra currently support basic
-   *             authentication to connect to a web proxy server. The secret stores your
-   *             credentials.</p>
-   */
-  Credentials?: string;
+  Template?: __DocumentType;
 }
 
 export enum WebCrawlerMode {
@@ -4032,6 +4093,12 @@ export interface DataSourceConfiguration {
    *             data source.</p>
    */
   AlfrescoConfiguration?: AlfrescoConfiguration;
+
+  /**
+   * <p>Provides a template for the configuration information to connect
+   *             to your data source.</p>
+   */
+  TemplateConfiguration?: TemplateConfiguration;
 }
 
 /**
@@ -4070,14 +4137,14 @@ export enum DataSourceType {
   SERVICENOW = "SERVICENOW",
   SHAREPOINT = "SHAREPOINT",
   SLACK = "SLACK",
+  TEMPLATE = "TEMPLATE",
   WEBCRAWLER = "WEBCRAWLER",
   WORKDOCS = "WORKDOCS",
 }
 
 export interface CreateDataSourceRequest {
   /**
-   * <p>A unique name for the data source connector. A data source name can't be changed
-   *       without deleting and recreating the data source connector.</p>
+   * <p>A name for the data source connector.</p>
    */
   Name: string | undefined;
 
@@ -4100,6 +4167,12 @@ export interface CreateDataSourceRequest {
    *       data sources.</p>
    */
   Configuration?: DataSourceConfiguration;
+
+  /**
+   * <p>Configuration information for an Amazon Virtual Private Cloud to connect to your
+   *       data source. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html">Configuring a VPC</a>.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
 
   /**
    * <p>A description for the data source connector.</p>
@@ -4897,7 +4970,7 @@ export interface DescribeDataSourceResponse {
   IndexId?: string;
 
   /**
-   * <p>The name that you gave the data source when it was created.</p>
+   * <p>The name for the data source.</p>
    */
   Name?: string;
 
@@ -4912,6 +4985,12 @@ export interface DescribeDataSourceResponse {
    *       source depend on the data source provider.</p>
    */
   Configuration?: DataSourceConfiguration;
+
+  /**
+   * <p>Configuration information for an Amazon Virtual Private Cloud to connect to your
+   *       data source. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html">Configuring a VPC</a>.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
 
   /**
    * <p>The Unix timestamp of when the data source was created.</p>
@@ -7758,9 +7837,7 @@ export interface UpdateDataSourceRequest {
   Id: string | undefined;
 
   /**
-   * <p>A new name for the data source connector. You must
-   *       first delete the data source and re-create it to change the
-   *       name of the data source.</p>
+   * <p>A new name for the data source connector.</p>
    */
   Name?: string;
 
@@ -7773,6 +7850,12 @@ export interface UpdateDataSourceRequest {
    * <p>Configuration information you want to update for the data source connector.</p>
    */
   Configuration?: DataSourceConfiguration;
+
+  /**
+   * <p>Configuration information for an Amazon Virtual Private Cloud to connect to your
+   *       data source. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html">Configuring a VPC</a>.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
 
   /**
    * <p>A new description for the data source connector.</p>
@@ -8131,103 +8214,6 @@ export interface FacetResult {
    *          value.</p>
    */
   DocumentAttributeValueCountPairs?: DocumentAttributeValueCountPair[];
-}
-
-/**
- * <p>Provides filtering the query results based on document
- *          attributes.</p>
- *          <p>When you use the <code>AndAllFilters</code> or
- *             <code>OrAllFilters</code>, filters you can use 2 layers under the
- *          first attribute filter. For example, you can use:</p>
- *          <p>
- *             <code><AndAllFilters></code>
- *          </p>
- *          <ol>
- *             <li>
- *                <p>
- *                   <code> <OrAllFilters></code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code> <EqualsTo></code>
- *                </p>
- *             </li>
- *          </ol>
- *          <p>If you use more than 2 layers, you receive a
- *             <code>ValidationException</code> exception with the message
- *             "<code>AttributeFilter</code> cannot have a depth of more
- *          than 2."</p>
- *          <p>If you use more than 10 attribute filters in a given list for
- *          <code>AndAllFilters</code> or <code>OrAllFilters</code>, you receive
- *          a <code>ValidationException</code> with the message
- *          "<code>AttributeFilter</code> cannot have a length of more than 10".</p>
- */
-export interface AttributeFilter {
-  /**
-   * <p>Performs a logical <code>AND</code> operation on all supplied
-   *          filters.</p>
-   */
-  AndAllFilters?: AttributeFilter[];
-
-  /**
-   * <p>Performs a logical <code>OR</code> operation on all supplied
-   *          filters.</p>
-   */
-  OrAllFilters?: AttributeFilter[];
-
-  /**
-   * <p>Performs a logical <code>NOT</code> operation on all supplied
-   *          filters.</p>
-   */
-  NotFilter?: AttributeFilter;
-
-  /**
-   * <p>Performs an equals operation on two document attributes.</p>
-   */
-  EqualsTo?: DocumentAttribute;
-
-  /**
-   * <p>Returns true when a document contains all of the specified document
-   *          attributes. This filter is only applicable to
-   *             <code>StringListValue</code> metadata.</p>
-   */
-  ContainsAll?: DocumentAttribute;
-
-  /**
-   * <p>Returns true when a document contains any of the specified document
-   *          attributes. This filter is only applicable to
-   *             <code>StringListValue</code> metadata.</p>
-   */
-  ContainsAny?: DocumentAttribute;
-
-  /**
-   * <p>Performs a greater than operation on two document attributes. Use
-   *          with a document attribute of type <code>Date</code> or
-   *             <code>Long</code>.</p>
-   */
-  GreaterThan?: DocumentAttribute;
-
-  /**
-   * <p>Performs a greater or equals than operation on two document
-   *          attributes. Use with a document attribute of type <code>Date</code>
-   *          or <code>Long</code>.</p>
-   */
-  GreaterThanOrEquals?: DocumentAttribute;
-
-  /**
-   * <p>Performs a less than operation on two document attributes. Use with
-   *          a document attribute of type <code>Date</code> or
-   *          <code>Long</code>.</p>
-   */
-  LessThan?: DocumentAttribute;
-
-  /**
-   * <p>Performs a less than or equals operation on two document attributes.
-   *          Use with a document attribute of type <code>Date</code> or
-   *             <code>Long</code>.</p>
-   */
-  LessThanOrEquals?: DocumentAttribute;
 }
 
 /**
@@ -8619,6 +8605,13 @@ export const ConfluencePageConfigurationFilterSensitiveLog = (obj: ConfluencePag
 /**
  * @internal
  */
+export const ProxyConfigurationFilterSensitiveLog = (obj: ProxyConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ConfluenceSpaceToIndexFieldMappingFilterSensitiveLog = (obj: ConfluenceSpaceToIndexFieldMapping): any => ({
   ...obj,
 });
@@ -8850,7 +8843,7 @@ export const SlackConfigurationFilterSensitiveLog = (obj: SlackConfiguration): a
 /**
  * @internal
  */
-export const ProxyConfigurationFilterSensitiveLog = (obj: ProxyConfiguration): any => ({
+export const TemplateConfigurationFilterSensitiveLog = (obj: TemplateConfiguration): any => ({
   ...obj,
 });
 
@@ -9957,12 +9950,5 @@ export const DocumentAttributeValueCountPairFilterSensitiveLog = (obj: DocumentA
  * @internal
  */
 export const FacetResultFilterSensitiveLog = (obj: FacetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributeFilterFilterSensitiveLog = (obj: AttributeFilter): any => ({
   ...obj,
 });

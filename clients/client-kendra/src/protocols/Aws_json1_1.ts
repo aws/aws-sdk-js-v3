@@ -14,6 +14,7 @@ import {
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
@@ -182,7 +183,6 @@ import {
   AssociateEntitiesToExperienceResponse,
   AssociatePersonasToEntitiesRequest,
   AssociatePersonasToEntitiesResponse,
-  AttributeFilter,
   AuthenticationConfiguration,
   BasicAuthenticationConfiguration,
   BatchDeleteDocumentRequest,
@@ -395,6 +395,7 @@ import {
   Tag,
   TagResourceRequest,
   TagResourceResponse,
+  TemplateConfiguration,
   TextDocumentStatistics,
   TextWithHighlights,
   ThesaurusSummary,
@@ -420,7 +421,7 @@ import {
   WebCrawlerConfiguration,
   WorkDocsConfiguration,
 } from "../models/models_0";
-import { QueryRequest, QueryResult } from "../models/models_1";
+import { AttributeFilter, QueryRequest, QueryResult } from "../models/models_1";
 
 export const serializeAws_json1_1AssociateEntitiesToExperienceCommand = async (
   input: AssociateEntitiesToExperienceCommandInput,
@@ -4995,6 +4996,9 @@ const serializeAws_json1_1ConfluenceConfiguration = (input: ConfluenceConfigurat
     ...(input.PageConfiguration != null && {
       PageConfiguration: serializeAws_json1_1ConfluencePageConfiguration(input.PageConfiguration, context),
     }),
+    ...(input.ProxyConfiguration != null && {
+      ProxyConfiguration: serializeAws_json1_1ProxyConfiguration(input.ProxyConfiguration, context),
+    }),
     ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
     ...(input.ServerUrl != null && { ServerUrl: input.ServerUrl }),
     ...(input.SpaceConfiguration != null && {
@@ -5153,6 +5157,9 @@ const serializeAws_json1_1CreateDataSourceRequest = (input: CreateDataSourceRequ
     ...(input.Schedule != null && { Schedule: input.Schedule }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.Type != null && { Type: input.Type }),
+    ...(input.VpcConfiguration != null && {
+      VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
+    }),
   };
 };
 
@@ -5331,6 +5338,9 @@ const serializeAws_json1_1DataSourceConfiguration = (input: DataSourceConfigurat
     }),
     ...(input.SlackConfiguration != null && {
       SlackConfiguration: serializeAws_json1_1SlackConfiguration(input.SlackConfiguration, context),
+    }),
+    ...(input.TemplateConfiguration != null && {
+      TemplateConfiguration: serializeAws_json1_1TemplateConfiguration(input.TemplateConfiguration, context),
     }),
     ...(input.WebCrawlerConfiguration != null && {
       WebCrawlerConfiguration: serializeAws_json1_1WebCrawlerConfiguration(input.WebCrawlerConfiguration, context),
@@ -6964,6 +6974,9 @@ const serializeAws_json1_1SharePointConfiguration = (input: SharePointConfigurat
     ...(input.InclusionPatterns != null && {
       InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
     }),
+    ...(input.ProxyConfiguration != null && {
+      ProxyConfiguration: serializeAws_json1_1ProxyConfiguration(input.ProxyConfiguration, context),
+    }),
     ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
     ...(input.SharePointVersion != null && { SharePointVersion: input.SharePointVersion }),
     ...(input.SslCertificateS3Path != null && {
@@ -7145,6 +7158,16 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
   };
 };
 
+const serializeAws_json1_1Template = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
+const serializeAws_json1_1TemplateConfiguration = (input: TemplateConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Template != null && { Template: serializeAws_json1_1Template(input.Template, context) }),
+  };
+};
+
 const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
     ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
@@ -7198,6 +7221,9 @@ const serializeAws_json1_1UpdateDataSourceRequest = (input: UpdateDataSourceRequ
     ...(input.Name != null && { Name: input.Name }),
     ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
     ...(input.Schedule != null && { Schedule: input.Schedule }),
+    ...(input.VpcConfiguration != null && {
+      VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
+    }),
   };
 };
 
@@ -7921,6 +7947,10 @@ const deserializeAws_json1_1ConfluenceConfiguration = (
       output.PageConfiguration != null
         ? deserializeAws_json1_1ConfluencePageConfiguration(output.PageConfiguration, context)
         : undefined,
+    ProxyConfiguration:
+      output.ProxyConfiguration != null
+        ? deserializeAws_json1_1ProxyConfiguration(output.ProxyConfiguration, context)
+        : undefined,
     SecretArn: __expectString(output.SecretArn),
     ServerUrl: __expectString(output.ServerUrl),
     SpaceConfiguration:
@@ -8248,6 +8278,10 @@ const deserializeAws_json1_1DataSourceConfiguration = (
       output.SlackConfiguration != null
         ? deserializeAws_json1_1SlackConfiguration(output.SlackConfiguration, context)
         : undefined,
+    TemplateConfiguration:
+      output.TemplateConfiguration != null
+        ? deserializeAws_json1_1TemplateConfiguration(output.TemplateConfiguration, context)
+        : undefined,
     WebCrawlerConfiguration:
       output.WebCrawlerConfiguration != null
         ? deserializeAws_json1_1WebCrawlerConfiguration(output.WebCrawlerConfiguration, context)
@@ -8458,6 +8492,10 @@ const deserializeAws_json1_1DescribeDataSourceResponse = (
     Type: __expectString(output.Type),
     UpdatedAt:
       output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
+    VpcConfiguration:
+      output.VpcConfiguration != null
+        ? deserializeAws_json1_1DataSourceVpcConfiguration(output.VpcConfiguration, context)
+        : undefined,
   } as any;
 };
 
@@ -10415,6 +10453,10 @@ const deserializeAws_json1_1SharePointConfiguration = (
       output.InclusionPatterns != null
         ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.InclusionPatterns, context)
         : undefined,
+    ProxyConfiguration:
+      output.ProxyConfiguration != null
+        ? deserializeAws_json1_1ProxyConfiguration(output.ProxyConfiguration, context)
+        : undefined,
     SecretArn: __expectString(output.SecretArn),
     SharePointVersion: __expectString(output.SharePointVersion),
     SslCertificateS3Path:
@@ -10692,6 +10734,16 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1Template = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
+const deserializeAws_json1_1TemplateConfiguration = (output: any, context: __SerdeContext): TemplateConfiguration => {
+  return {
+    Template: output.Template != null ? deserializeAws_json1_1Template(output.Template, context) : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1TextDocumentStatistics = (output: any, context: __SerdeContext): TextDocumentStatistics => {

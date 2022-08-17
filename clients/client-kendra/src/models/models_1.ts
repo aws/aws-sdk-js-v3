@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import {
-  AttributeFilter,
+  DocumentAttribute,
   DocumentRelevanceConfiguration,
   Facet,
   FacetResult,
@@ -12,6 +12,103 @@ import {
   UserContext,
   Warning,
 } from "./models_0";
+
+/**
+ * <p>Provides filtering the query results based on document
+ *          attributes.</p>
+ *          <p>When you use the <code>AndAllFilters</code> or
+ *             <code>OrAllFilters</code>, filters you can use 2 layers under the
+ *          first attribute filter. For example, you can use:</p>
+ *          <p>
+ *             <code><AndAllFilters></code>
+ *          </p>
+ *          <ol>
+ *             <li>
+ *                <p>
+ *                   <code> <OrAllFilters></code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code> <EqualsTo></code>
+ *                </p>
+ *             </li>
+ *          </ol>
+ *          <p>If you use more than 2 layers, you receive a
+ *             <code>ValidationException</code> exception with the message
+ *             "<code>AttributeFilter</code> cannot have a depth of more
+ *          than 2."</p>
+ *          <p>If you use more than 10 attribute filters in a given list for
+ *          <code>AndAllFilters</code> or <code>OrAllFilters</code>, you receive
+ *          a <code>ValidationException</code> with the message
+ *          "<code>AttributeFilter</code> cannot have a length of more than 10".</p>
+ */
+export interface AttributeFilter {
+  /**
+   * <p>Performs a logical <code>AND</code> operation on all supplied
+   *          filters.</p>
+   */
+  AndAllFilters?: AttributeFilter[];
+
+  /**
+   * <p>Performs a logical <code>OR</code> operation on all supplied
+   *          filters.</p>
+   */
+  OrAllFilters?: AttributeFilter[];
+
+  /**
+   * <p>Performs a logical <code>NOT</code> operation on all supplied
+   *          filters.</p>
+   */
+  NotFilter?: AttributeFilter;
+
+  /**
+   * <p>Performs an equals operation on two document attributes.</p>
+   */
+  EqualsTo?: DocumentAttribute;
+
+  /**
+   * <p>Returns true when a document contains all of the specified document
+   *          attributes. This filter is only applicable to
+   *             <code>StringListValue</code> metadata.</p>
+   */
+  ContainsAll?: DocumentAttribute;
+
+  /**
+   * <p>Returns true when a document contains any of the specified document
+   *          attributes. This filter is only applicable to
+   *             <code>StringListValue</code> metadata.</p>
+   */
+  ContainsAny?: DocumentAttribute;
+
+  /**
+   * <p>Performs a greater than operation on two document attributes. Use
+   *          with a document attribute of type <code>Date</code> or
+   *             <code>Long</code>.</p>
+   */
+  GreaterThan?: DocumentAttribute;
+
+  /**
+   * <p>Performs a greater or equals than operation on two document
+   *          attributes. Use with a document attribute of type <code>Date</code>
+   *          or <code>Long</code>.</p>
+   */
+  GreaterThanOrEquals?: DocumentAttribute;
+
+  /**
+   * <p>Performs a less than operation on two document attributes. Use with
+   *          a document attribute of type <code>Date</code> or
+   *          <code>Long</code>.</p>
+   */
+  LessThan?: DocumentAttribute;
+
+  /**
+   * <p>Performs a less than or equals operation on two document attributes.
+   *          Use with a document attribute of type <code>Date</code> or
+   *             <code>Long</code>.</p>
+   */
+  LessThanOrEquals?: DocumentAttribute;
+}
 
 export interface QueryResult {
   /**
@@ -154,6 +251,13 @@ export interface QueryRequest {
    */
   SpellCorrectionConfiguration?: SpellCorrectionConfiguration;
 }
+
+/**
+ * @internal
+ */
+export const AttributeFilterFilterSensitiveLog = (obj: AttributeFilter): any => ({
+  ...obj,
+});
 
 /**
  * @internal
