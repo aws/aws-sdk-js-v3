@@ -28,6 +28,10 @@ import {
   AddLFTagsToResourceCommandOutput,
 } from "../commands/AddLFTagsToResourceCommand";
 import {
+  AssumeDecoratedRoleWithSAMLCommandInput,
+  AssumeDecoratedRoleWithSAMLCommandOutput,
+} from "../commands/AssumeDecoratedRoleWithSAMLCommand";
+import {
   BatchGrantPermissionsCommandInput,
   BatchGrantPermissionsCommandOutput,
 } from "../commands/BatchGrantPermissionsCommand";
@@ -204,6 +208,34 @@ export const serializeAws_restJson1AddLFTagsToResourceCommand = async (
     ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
     ...(input.LFTags != null && { LFTags: serializeAws_restJson1LFTagsList(input.LFTags, context) }),
     ...(input.Resource != null && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand = async (
+  input: AssumeDecoratedRoleWithSAMLCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AssumeDecoratedRoleWithSAML";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.DurationSeconds != null && { DurationSeconds: input.DurationSeconds }),
+    ...(input.PrincipalArn != null && { PrincipalArn: input.PrincipalArn }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.SAMLAssertion != null && { SAMLAssertion: input.SAMLAssertion }),
   });
   return new __HttpRequest({
     protocol,
@@ -1444,6 +1476,68 @@ const deserializeAws_restJson1AddLFTagsToResourceCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.lakeformation#ConcurrentModificationException":
       throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssumeDecoratedRoleWithSAMLCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssumeDecoratedRoleWithSAMLCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AccessKeyId != null) {
+    contents.AccessKeyId = __expectString(data.AccessKeyId);
+  }
+  if (data.Expiration != null) {
+    contents.Expiration = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.Expiration)));
+  }
+  if (data.SecretAccessKey != null) {
+    contents.SecretAccessKey = __expectString(data.SecretAccessKey);
+  }
+  if (data.SessionToken != null) {
+    contents.SessionToken = __expectString(data.SessionToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1AssumeDecoratedRoleWithSAMLCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssumeDecoratedRoleWithSAMLCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
       throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./AddLFTagsToResourceCommand";
+export * from "./AssumeDecoratedRoleWithSAMLCommand";
 export * from "./BatchGrantPermissionsCommand";
 export * from "./BatchRevokePermissionsCommand";
 export * from "./CancelTransactionCommand";

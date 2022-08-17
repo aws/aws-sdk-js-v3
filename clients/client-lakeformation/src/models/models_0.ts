@@ -515,6 +515,50 @@ export class AlreadyExistsException extends __BaseException {
   }
 }
 
+export interface AssumeDecoratedRoleWithSAMLRequest {
+  /**
+   * <p>A SAML assertion consisting of an assertion statement for the user who needs temporary credentials. This must match the SAML assertion that was issued to IAM. This must be Base64 encoded.</p>
+   */
+  SAMLAssertion: string | undefined;
+
+  /**
+   * <p>The role that represents an IAM principal whose scope down policy allows it to call credential vending APIs such as <code>GetTemporaryTableCredentials</code>. The caller must also have iam:PassRole permission on this role.  </p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the IdP.</p>
+   */
+  PrincipalArn: string | undefined;
+
+  /**
+   * <p>The time period, between 900 and 43,200 seconds, for the timeout of the temporary credentials.</p>
+   */
+  DurationSeconds?: number;
+}
+
+export interface AssumeDecoratedRoleWithSAMLResponse {
+  /**
+   * <p>The access key ID for the temporary credentials. (The access key consists of an access key ID and a secret key).</p>
+   */
+  AccessKeyId?: string;
+
+  /**
+   * <p>The secret key for the temporary credentials. (The access key consists of an access key ID and a secret key).</p>
+   */
+  SecretAccessKey?: string;
+
+  /**
+   * <p>The session token for the temporary credentials.</p>
+   */
+  SessionToken?: string;
+
+  /**
+   * <p>The date and time when the temporary credentials expire.</p>
+   */
+  Expiration?: Date;
+}
+
 /**
  * <p>A structure used to include auditing information on the privileged API. </p>
  */
@@ -2732,6 +2776,22 @@ export const AddObjectInputFilterSensitiveLog = (obj: AddObjectInput): any => ({
  * @internal
  */
 export const AllRowsWildcardFilterSensitiveLog = (obj: AllRowsWildcard): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssumeDecoratedRoleWithSAMLRequestFilterSensitiveLog = (obj: AssumeDecoratedRoleWithSAMLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssumeDecoratedRoleWithSAMLResponseFilterSensitiveLog = (
+  obj: AssumeDecoratedRoleWithSAMLResponse
+): any => ({
   ...obj,
 });
 

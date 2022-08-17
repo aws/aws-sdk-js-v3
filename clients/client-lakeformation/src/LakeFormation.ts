@@ -7,6 +7,11 @@ import {
   AddLFTagsToResourceCommandOutput,
 } from "./commands/AddLFTagsToResourceCommand";
 import {
+  AssumeDecoratedRoleWithSAMLCommand,
+  AssumeDecoratedRoleWithSAMLCommandInput,
+  AssumeDecoratedRoleWithSAMLCommandOutput,
+} from "./commands/AssumeDecoratedRoleWithSAMLCommand";
+import {
   BatchGrantPermissionsCommand,
   BatchGrantPermissionsCommandInput,
   BatchGrantPermissionsCommandOutput,
@@ -241,6 +246,43 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
+   * <p>Allows a caller to assume an IAM role decorated as the SAML user specified in the SAML assertion included in the request. This decoration allows Lake Formation to enforce access policies against the SAML users and groups.  This API operation requires SAML federation setup in the caller’s account as it can only be called with valid SAML assertions.
+   *       Lake Formation does not scope down the permission of the assumed role.  All permissions attached to the role via the SAML federation setup will be included in the role session.
+   *     </p>
+   *          <p>
+   *       This decorated role is expected to access data in Amazon S3 by getting temporary access from Lake Formation which is authorized via the virtual API <code>GetDataAccess</code>.  Therefore, all SAML roles that can be assumed via <code>AssumeDecoratedRoleWithSAML</code> must at a minimum include <code>lakeformation:GetDataAccess</code> in their role policies.  A typical IAM policy attached to such a role would look as follows:
+   *     </p>
+   */
+  public assumeDecoratedRoleWithSAML(
+    args: AssumeDecoratedRoleWithSAMLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssumeDecoratedRoleWithSAMLCommandOutput>;
+  public assumeDecoratedRoleWithSAML(
+    args: AssumeDecoratedRoleWithSAMLCommandInput,
+    cb: (err: any, data?: AssumeDecoratedRoleWithSAMLCommandOutput) => void
+  ): void;
+  public assumeDecoratedRoleWithSAML(
+    args: AssumeDecoratedRoleWithSAMLCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssumeDecoratedRoleWithSAMLCommandOutput) => void
+  ): void;
+  public assumeDecoratedRoleWithSAML(
+    args: AssumeDecoratedRoleWithSAMLCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssumeDecoratedRoleWithSAMLCommandOutput) => void),
+    cb?: (err: any, data?: AssumeDecoratedRoleWithSAMLCommandOutput) => void
+  ): Promise<AssumeDecoratedRoleWithSAMLCommandOutput> | void {
+    const command = new AssumeDecoratedRoleWithSAMLCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Batch operation to grant permissions to the principal.</p>
    */
   public batchGrantPermissions(
@@ -459,7 +501,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   * <p>Deletes the specified LF-tag key name. If the attribute key does not exist or the LF-tag does not exist, then the operation will not do anything. If the attribute key exists, then the operation checks if any resources are tagged with this attribute key, if yes, the API throws a 400 Exception with the message "Delete not allowed" as the LF-tag key is still attached with resources. You can consider untagging resources with this LF-tag key.</p>
+   * <p>Deletes the specified LF-tag given a key name. If the input parameter tag key was not found, then the operation will throw an exception. When you delete an LF-tag, the <code>LFTagPolicy</code> attached to the LF-tag becomes invalid. If the deleted LF-tag was still assigned to any resource, the tag policy attach to the deleted LF-tag will no longer be applied to the resource.</p>
    */
   public deleteLFTag(args: DeleteLFTagCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLFTagCommandOutput>;
   public deleteLFTag(args: DeleteLFTagCommandInput, cb: (err: any, data?: DeleteLFTagCommandOutput) => void): void;

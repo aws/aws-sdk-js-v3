@@ -58,6 +58,10 @@ import {
   AddLFTagsToResourceCommandOutput,
 } from "./commands/AddLFTagsToResourceCommand";
 import {
+  AssumeDecoratedRoleWithSAMLCommandInput,
+  AssumeDecoratedRoleWithSAMLCommandOutput,
+} from "./commands/AssumeDecoratedRoleWithSAMLCommand";
+import {
   BatchGrantPermissionsCommandInput,
   BatchGrantPermissionsCommandOutput,
 } from "./commands/BatchGrantPermissionsCommand";
@@ -155,6 +159,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AddLFTagsToResourceCommandInput
+  | AssumeDecoratedRoleWithSAMLCommandInput
   | BatchGrantPermissionsCommandInput
   | BatchRevokePermissionsCommandInput
   | CancelTransactionCommandInput
@@ -201,6 +206,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AddLFTagsToResourceCommandOutput
+  | AssumeDecoratedRoleWithSAMLCommandOutput
   | BatchGrantPermissionsCommandOutput
   | BatchRevokePermissionsCommandOutput
   | CancelTransactionCommandOutput
