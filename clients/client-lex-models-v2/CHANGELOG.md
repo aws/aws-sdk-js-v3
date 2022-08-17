@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.151.0...v3.152.0) (2022-08-17)
+
+
+### Features
+
+* **client-lex-models-v2:** This release introduces support for enhanced conversation design with the ability to define custom conversation flows with conditional branching and new bot responses. ([3fedcd6](https://github.com/aws/aws-sdk-js-v3/commit/3fedcd63f92c0050bbeaa55e502a0b917fc9883f))
+
+
+
+
+
 # [3.150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.149.0...v3.150.0) (2022-08-15)
 
 **Note:** Version bump only for package @aws-sdk/client-lex-models-v2

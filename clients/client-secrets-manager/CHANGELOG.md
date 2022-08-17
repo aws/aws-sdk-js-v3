@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.151.0...v3.152.0) (2022-08-17)
+
+**Note:** Version bump only for package @aws-sdk/client-secrets-manager
+
+
+
+
+
 # [3.150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.149.0...v3.150.0) (2022-08-15)
 
 **Note:** Version bump only for package @aws-sdk/client-secrets-manager

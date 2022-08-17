@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.151.0...v3.152.0) (2022-08-17)
+
+
+### Features
+
+* **client-app-mesh:** AWS App Mesh release to support Multiple Listener and Access Log Format feature ([1cc2947](https://github.com/aws/aws-sdk-js-v3/commit/1cc2947829ebabb0aa150c933a41bde45512dfa9))
+* **client-connectcampaigns:** Updated exceptions for Amazon Connect Outbound Campaign api's. ([e924bbe](https://github.com/aws/aws-sdk-js-v3/commit/e924bbe7c7cb3a7b34a17b282b13bed32b898ea1))
+* **client-kendra:** This release adds Zendesk connector (which allows you to specify Zendesk SAAS platform as data source), Proxy Support for Sharepoint and Confluence Server (which allows you to specify the proxy configuration if proxy is required to connect to your Sharepoint/Confluence Server as data source). ([5bc8cef](https://github.com/aws/aws-sdk-js-v3/commit/5bc8cef902aa063fb2fe46dc02dc89120ce1e28e))
+* **client-lakeformation:** This release adds a new API support "AssumeDecoratedRoleWithSAML" and also release updates the corresponding documentation. ([5e56990](https://github.com/aws/aws-sdk-js-v3/commit/5e569903edf52eefa85f85ac0903eccbe8764f15))
+* **client-lambda:** Added support for customization of Consumer Group ID for MSK and Kafka Event Source Mappings. ([ce4030b](https://github.com/aws/aws-sdk-js-v3/commit/ce4030b850cde79cc50d3c6c569c44018a4c2d0b))
+* **client-lex-models-v2:** This release introduces support for enhanced conversation design with the ability to define custom conversation flows with conditional branching and new bot responses. ([3fedcd6](https://github.com/aws/aws-sdk-js-v3/commit/3fedcd63f92c0050bbeaa55e502a0b917fc9883f))
+* **client-rds:** Adds support for Internet Protocol Version 6 (IPv6) for RDS Aurora database clusters. ([77a9475](https://github.com/aws/aws-sdk-js-v3/commit/77a94757c2aa1d94081e7669cd4a5a06e3370a5c))
+
+
+
+
+
 # [3.151.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.150.0...v3.151.0) (2022-08-16)
 
 

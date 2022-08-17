@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.151.0...v3.152.0) (2022-08-17)
+
+
+### Features
+
+* **client-rds:** Adds support for Internet Protocol Version 6 (IPv6) for RDS Aurora database clusters. ([77a9475](https://github.com/aws/aws-sdk-js-v3/commit/77a94757c2aa1d94081e7669cd4a5a06e3370a5c))
+
+
+
+
+
 # [3.150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.149.0...v3.150.0) (2022-08-15)
 
 **Note:** Version bump only for package @aws-sdk/client-rds
