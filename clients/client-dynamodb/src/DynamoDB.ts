@@ -70,6 +70,11 @@ import {
   DescribeGlobalTableSettingsCommandOutput,
 } from "./commands/DescribeGlobalTableSettingsCommand";
 import {
+  DescribeImportCommand,
+  DescribeImportCommandInput,
+  DescribeImportCommandOutput,
+} from "./commands/DescribeImportCommand";
+import {
   DescribeKinesisStreamingDestinationCommand,
   DescribeKinesisStreamingDestinationCommandInput,
   DescribeKinesisStreamingDestinationCommandOutput,
@@ -120,6 +125,7 @@ import {
   ExportTableToPointInTimeCommandOutput,
 } from "./commands/ExportTableToPointInTimeCommand";
 import { GetItemCommand, GetItemCommandInput, GetItemCommandOutput } from "./commands/GetItemCommand";
+import { ImportTableCommand, ImportTableCommandInput, ImportTableCommandOutput } from "./commands/ImportTableCommand";
 import { ListBackupsCommand, ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand";
 import {
   ListContributorInsightsCommand,
@@ -132,6 +138,7 @@ import {
   ListGlobalTablesCommandInput,
   ListGlobalTablesCommandOutput,
 } from "./commands/ListGlobalTablesCommand";
+import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import {
   ListTagsOfResourceCommand,
@@ -998,6 +1005,40 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * <p>
+   *                 Represents the properties of the import.
+   *                 </p>
+   */
+  public describeImport(
+    args: DescribeImportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImportCommandOutput>;
+  public describeImport(
+    args: DescribeImportCommandInput,
+    cb: (err: any, data?: DescribeImportCommandOutput) => void
+  ): void;
+  public describeImport(
+    args: DescribeImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImportCommandOutput) => void
+  ): void;
+  public describeImport(
+    args: DescribeImportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImportCommandOutput) => void),
+    cb?: (err: any, data?: DescribeImportCommandOutput) => void
+  ): Promise<DescribeImportCommandOutput> | void {
+    const command = new DescribeImportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about the status of Kinesis streaming.</p>
    */
   public describeKinesisStreamingDestination(
@@ -1461,6 +1502,35 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * <p>
+   *                 Imports table data from an S3 bucket.
+   *
+   *             </p>
+   */
+  public importTable(args: ImportTableCommandInput, options?: __HttpHandlerOptions): Promise<ImportTableCommandOutput>;
+  public importTable(args: ImportTableCommandInput, cb: (err: any, data?: ImportTableCommandOutput) => void): void;
+  public importTable(
+    args: ImportTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportTableCommandOutput) => void
+  ): void;
+  public importTable(
+    args: ImportTableCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportTableCommandOutput) => void),
+    cb?: (err: any, data?: ImportTableCommandOutput) => void
+  ): Promise<ImportTableCommandOutput> | void {
+    const command = new ImportTableCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>List backups associated with an Amazon Web Services account. To list backups for a
    *             given table, specify <code>TableName</code>. <code>ListBackups</code> returns a
    *             paginated list of results with at most 1 MB worth of items in a page. You can also
@@ -1577,6 +1647,34 @@ export class DynamoDB extends DynamoDBClient {
     cb?: (err: any, data?: ListGlobalTablesCommandOutput) => void
   ): Promise<ListGlobalTablesCommandOutput> | void {
     const command = new ListGlobalTablesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *                 Lists completed imports within the past 90 days.
+   *                 </p>
+   */
+  public listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
+  public listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
+  public listImports(
+    args: ListImportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportsCommandOutput) => void
+  ): void;
+  public listImports(
+    args: ListImportsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportsCommandOutput) => void),
+    cb?: (err: any, data?: ListImportsCommandOutput) => void
+  ): Promise<ListImportsCommandOutput> | void {
+    const command = new ListImportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

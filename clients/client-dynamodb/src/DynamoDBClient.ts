@@ -93,6 +93,7 @@ import {
   DescribeGlobalTableSettingsCommandInput,
   DescribeGlobalTableSettingsCommandOutput,
 } from "./commands/DescribeGlobalTableSettingsCommand";
+import { DescribeImportCommandInput, DescribeImportCommandOutput } from "./commands/DescribeImportCommand";
 import {
   DescribeKinesisStreamingDestinationCommandInput,
   DescribeKinesisStreamingDestinationCommandOutput,
@@ -119,6 +120,7 @@ import {
   ExportTableToPointInTimeCommandOutput,
 } from "./commands/ExportTableToPointInTimeCommand";
 import { GetItemCommandInput, GetItemCommandOutput } from "./commands/GetItemCommand";
+import { ImportTableCommandInput, ImportTableCommandOutput } from "./commands/ImportTableCommand";
 import { ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand";
 import {
   ListContributorInsightsCommandInput,
@@ -126,6 +128,7 @@ import {
 } from "./commands/ListContributorInsightsCommand";
 import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import { ListGlobalTablesCommandInput, ListGlobalTablesCommandOutput } from "./commands/ListGlobalTablesCommand";
+import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import { ListTagsOfResourceCommandInput, ListTagsOfResourceCommandOutput } from "./commands/ListTagsOfResourceCommand";
 import { PutItemCommandInput, PutItemCommandOutput } from "./commands/PutItemCommand";
@@ -182,6 +185,7 @@ export type ServiceInputTypes =
   | DescribeExportCommandInput
   | DescribeGlobalTableCommandInput
   | DescribeGlobalTableSettingsCommandInput
+  | DescribeImportCommandInput
   | DescribeKinesisStreamingDestinationCommandInput
   | DescribeLimitsCommandInput
   | DescribeTableCommandInput
@@ -193,10 +197,12 @@ export type ServiceInputTypes =
   | ExecuteTransactionCommandInput
   | ExportTableToPointInTimeCommandInput
   | GetItemCommandInput
+  | ImportTableCommandInput
   | ListBackupsCommandInput
   | ListContributorInsightsCommandInput
   | ListExportsCommandInput
   | ListGlobalTablesCommandInput
+  | ListImportsCommandInput
   | ListTablesCommandInput
   | ListTagsOfResourceCommandInput
   | PutItemCommandInput
@@ -234,6 +240,7 @@ export type ServiceOutputTypes =
   | DescribeExportCommandOutput
   | DescribeGlobalTableCommandOutput
   | DescribeGlobalTableSettingsCommandOutput
+  | DescribeImportCommandOutput
   | DescribeKinesisStreamingDestinationCommandOutput
   | DescribeLimitsCommandOutput
   | DescribeTableCommandOutput
@@ -245,10 +252,12 @@ export type ServiceOutputTypes =
   | ExecuteTransactionCommandOutput
   | ExportTableToPointInTimeCommandOutput
   | GetItemCommandOutput
+  | ImportTableCommandOutput
   | ListBackupsCommandOutput
   | ListContributorInsightsCommandOutput
   | ListExportsCommandOutput
   | ListGlobalTablesCommandOutput
+  | ListImportsCommandOutput
   | ListTablesCommandOutput
   | ListTagsOfResourceCommandOutput
   | PutItemCommandOutput

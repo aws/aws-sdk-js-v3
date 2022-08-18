@@ -967,7 +967,7 @@ export interface BatchStatementError {
   Code?: BatchStatementErrorCodeEnum | string;
 
   /**
-   * <p> The error message associated with the PartiQL batch resposne. </p>
+   * <p> The error message associated with the PartiQL batch response. </p>
    */
   Message?: string;
 }
@@ -2802,6 +2802,29 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * <p>
+ *             Processing options for the CSV file being imported.
+ *             </p>
+ */
+export interface CsvOptions {
+  /**
+   * <p>
+   *             The delimiter used for separating items in the CSV file being imported.
+   *             </p>
+   */
+  Delimiter?: string;
+
+  /**
+   * <p> List of the headers used to specify a common header for all source CSV files being
+   *             imported. If this field is specified then the first line of each CSV file is treated as
+   *             data instead of the header. If this field is not specified the the first line of each
+   *             CSV file is treated as the header.
+   *             </p>
+   */
+  HeaderList?: string[];
+}
+
 export interface DeleteBackupInput {
   /**
    * <p>The ARN associated with the backup.</p>
@@ -3369,6 +3392,307 @@ export interface DescribeGlobalTableSettingsOutput {
   ReplicaSettings?: ReplicaSettingsDescription[];
 }
 
+export interface DescribeImportInput {
+  /**
+   * <p>
+   *                 The Amazon Resource Name (ARN) associated with the table you're importing to.
+   *             </p>
+   */
+  ImportArn: string | undefined;
+}
+
+export enum ImportStatus {
+  CANCELLED = "CANCELLED",
+  CANCELLING = "CANCELLING",
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+}
+
+export enum InputCompressionType {
+  GZIP = "GZIP",
+  NONE = "NONE",
+  ZSTD = "ZSTD",
+}
+
+export enum InputFormat {
+  CSV = "CSV",
+  DYNAMODB_JSON = "DYNAMODB_JSON",
+  ION = "ION",
+}
+
+/**
+ * <p>
+ *             The format options for the data that was imported into the target table. There is one value, CsvOption.</p>
+ */
+export interface InputFormatOptions {
+  /**
+   * <p>
+   *             The options for imported source files in CSV format. The values are Delimiter and HeaderList.
+   *             </p>
+   */
+  Csv?: CsvOptions;
+}
+
+/**
+ * <p>
+ *             The S3 bucket that is being imported from.
+ *             </p>
+ */
+export interface S3BucketSource {
+  /**
+   * <p>
+   *             The account number of the S3 bucket that is being imported from.
+   *             If the bucket is owned by the requester this is optional.
+   *             </p>
+   */
+  S3BucketOwner?: string;
+
+  /**
+   * <p>
+   *             The S3 bucket that is being imported from.
+   *             </p>
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * <p>
+   *             The key prefix shared by all S3 Objects that are being imported.
+   *             </p>
+   */
+  S3KeyPrefix?: string;
+}
+
+/**
+ * <p> The parameters for the table created as part of the import operation.
+ *             </p>
+ */
+export interface TableCreationParameters {
+  /**
+   * <p>
+   *             The name of the table created as part of the import operation.
+   *             </p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>
+   *             The attributes of the table created as part of the import operation.
+   *             </p>
+   */
+  AttributeDefinitions: AttributeDefinition[] | undefined;
+
+  /**
+   * <p>
+   *             The primary key and option sort key of the table created as part of the import operation.
+   *             </p>
+   */
+  KeySchema: KeySchemaElement[] | undefined;
+
+  /**
+   * <p>
+   *             The billing mode for provisioning the table created as part of the import operation.
+   *             </p>
+   */
+  BillingMode?: BillingMode | string;
+
+  /**
+   * <p>Represents the provisioned throughput settings for a specified table or index. The
+   *             settings can be modified using the <code>UpdateTable</code> operation.</p>
+   *         <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
+   *                 Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ProvisionedThroughput?: ProvisionedThroughput;
+
+  /**
+   * <p>Represents the settings used to enable server-side encryption.</p>
+   */
+  SSESpecification?: SSESpecification;
+
+  /**
+   * <p>
+   *             The Global Secondary Indexes (GSI) of the table to be created as part of the import operation.
+   *             </p>
+   */
+  GlobalSecondaryIndexes?: GlobalSecondaryIndex[];
+}
+
+/**
+ * <p>
+ *             Represents the properties of the table being imported into.
+ *             </p>
+ */
+export interface ImportTableDescription {
+  /**
+   * <p>
+   *             The Amazon Resource Number (ARN) corresponding to the import request.
+   *             </p>
+   */
+  ImportArn?: string;
+
+  /**
+   * <p>
+   *             The status of the import.
+   *             </p>
+   */
+  ImportStatus?: ImportStatus | string;
+
+  /**
+   * <p>
+   *             The Amazon Resource Number (ARN) of the table being imported into.
+   *             </p>
+   */
+  TableArn?: string;
+
+  /**
+   * <p>
+   *             The table id corresponding to the table created by import table process.
+   *
+   *             </p>
+   */
+  TableId?: string;
+
+  /**
+   * <p>
+   *             The client token that was provided for the import task. Reusing the client token
+   *             on retry makes a call to <code>ImportTable</code> idempotent.
+   *             </p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>
+   *             Values for the S3 bucket the source file is imported from. Includes bucket name (required),
+   *             key prefix (optional) and bucket account owner ID (optional).
+   *             </p>
+   */
+  S3BucketSource?: S3BucketSource;
+
+  /**
+   * <p>
+   *             The number of errors occurred on importing the source file into the target table.
+   *             </p>
+   */
+  ErrorCount?: number;
+
+  /**
+   * <p>
+   *             The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with the target table.
+   *             </p>
+   */
+  CloudWatchLogGroupArn?: string;
+
+  /**
+   * <p>
+   *             The format of the source data going into the target table.
+   *             </p>
+   */
+  InputFormat?: InputFormat | string;
+
+  /**
+   * <p> The format options for the data that was imported into the target table. There is one value, CsvOption.
+   *             </p>
+   */
+  InputFormatOptions?: InputFormatOptions;
+
+  /**
+   * <p>
+   *             The compression options for the data that has been imported into the target table. The values are
+   *             NONE, GZIP, or ZSTD.
+   *             </p>
+   */
+  InputCompressionType?: InputCompressionType | string;
+
+  /**
+   * <p>
+   *             The parameters for the new table that is being imported into.
+   *             </p>
+   */
+  TableCreationParameters?: TableCreationParameters;
+
+  /**
+   * <p>
+   *             The time when this import task started.
+   *             </p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>
+   *             The time at which the creation of the table associated with this import task completed.
+   *             </p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>
+   *             The total size of data processed from the source file, in Bytes.
+   *             </p>
+   */
+  ProcessedSizeBytes?: number;
+
+  /**
+   * <p>
+   *             The total number of items processed from the source file.
+   *             </p>
+   */
+  ProcessedItemCount?: number;
+
+  /**
+   * <p>
+   *             The number of items successfully imported into the new table.
+   *             </p>
+   */
+  ImportedItemCount?: number;
+
+  /**
+   * <p>
+   *             The error code corresponding to the failure that the import job ran into during execution.
+   *             </p>
+   */
+  FailureCode?: string;
+
+  /**
+   * <p>
+   *             The error message corresponding to the failure that the import job ran into during execution.
+   *             </p>
+   */
+  FailureMessage?: string;
+}
+
+export interface DescribeImportOutput {
+  /**
+   * <p>
+   *                 Represents the properties of the table created for the import, and parameters of
+   *                 the import. The import parameters include import status, how many items were processed,
+   *                 and how many errors were encountered.
+   *                 </p>
+   */
+  ImportTableDescription: ImportTableDescription | undefined;
+}
+
+/**
+ * <p>
+ *             The specified import was not found.
+ *             </p>
+ */
+export class ImportNotFoundException extends __BaseException {
+  readonly name: "ImportNotFoundException" = "ImportNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ImportNotFoundException, __BaseException>) {
+    super({
+      name: "ImportNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ImportNotFoundException.prototype);
+  }
+}
+
 export interface DescribeKinesisStreamingDestinationInput {
   /**
    * <p>The name of the table being described.</p>
@@ -3762,7 +4086,7 @@ export interface ExportTableToPointInTimeInput {
    *             result might not be idempotent.</p>
    *         <p>If you submit a request with the same client token but a change in other parameters
    *             within the 8-hour idempotency window, DynamoDB returns an
-   *                 <code>IdempotentParameterMismatch</code> exception.</p>
+   *             <code>ImportConflictException</code>.</p>
    */
   ClientToken?: string;
 
@@ -3858,6 +4182,90 @@ export class PointInTimeRecoveryUnavailableException extends __BaseException {
     });
     Object.setPrototypeOf(this, PointInTimeRecoveryUnavailableException.prototype);
   }
+}
+
+/**
+ * <p>
+ *             There was a conflict when importing from the specified S3 source.
+ *             This can occur when the current import conflicts with a previous import request
+ *             that had the same client token.
+ *             </p>
+ */
+export class ImportConflictException extends __BaseException {
+  readonly name: "ImportConflictException" = "ImportConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ImportConflictException, __BaseException>) {
+    super({
+      name: "ImportConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ImportConflictException.prototype);
+  }
+}
+
+export interface ImportTableInput {
+  /**
+   * <p>Providing a <code>ClientToken</code> makes the call to
+   *                     <code>ImportTableInput</code> idempotent, meaning that multiple
+   *                     identical calls have the same effect as one single call.</p>
+   *                 <p>A client token is valid for 8 hours after the first request that uses it is completed.
+   *                     After 8 hours, any request with the same client token is treated as a new request. Do
+   *                     not resubmit the same request with the same client token for more than 8 hours, or the
+   *                     result might not be idempotent.</p>
+   *                 <p>If you submit a request with the same client token but a change in other parameters
+   *                     within the 8-hour idempotency window, DynamoDB returns an
+   *                     <code>IdempotentParameterMismatch</code> exception.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>
+   *                 The S3 bucket that provides the source for the import.
+   *                 </p>
+   */
+  S3BucketSource: S3BucketSource | undefined;
+
+  /**
+   * <p> The format of the source data. Valid values for <code>ImportFormat</code> are
+   *                 <code>CSV</code>,  <code>DYNAMODB_JSON</code> or <code>ION</code>.
+   *             </p>
+   */
+  InputFormat: InputFormat | string | undefined;
+
+  /**
+   * <p>
+   *                 Additional properties that specify how the input is formatted,
+   *                 </p>
+   */
+  InputFormatOptions?: InputFormatOptions;
+
+  /**
+   * <p>
+   *                 Type of compression to be used on the input coming from the imported table.
+   *                 </p>
+   */
+  InputCompressionType?: InputCompressionType | string;
+
+  /**
+   * <p>Parameters for the table to import the data into.
+   *             </p>
+   */
+  TableCreationParameters: TableCreationParameters | undefined;
+}
+
+export interface ImportTableOutput {
+  /**
+   * <p>
+   *                 Represents the properties of the table created for the import, and parameters of
+   *                 the import. The import parameters include import status, how many items were processed,
+   *                 and how many errors were encountered.
+   *                 </p>
+   */
+  ImportTableDescription: ImportTableDescription | undefined;
 }
 
 export interface ListBackupsInput {
@@ -4059,6 +4467,114 @@ export interface ListGlobalTablesOutput {
    * <p>Last evaluated global table name.</p>
    */
   LastEvaluatedGlobalTableName?: string;
+}
+
+export interface ListImportsInput {
+  /**
+   * <p>
+   *                 The Amazon Resource Name (ARN) associated with the table that was imported to.
+   *                 </p>
+   */
+  TableArn?: string;
+
+  /**
+   * <p>
+   *                 The number of <code>ImportSummary </code>objects returned in a single page.
+   *                 </p>
+   */
+  PageSize?: number;
+
+  /**
+   * <p>
+   *                 An optional string that, if supplied, must be copied from the output of a previous
+   *                 call to <code>ListImports</code>. When provided in this manner, the API fetches the next
+   *                 page of results.
+   *                 </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>
+ *             Summary information about the source file for the import.
+ *             </p>
+ */
+export interface ImportSummary {
+  /**
+   * <p>
+   *             The Amazon Resource Number (ARN) corresponding to the import request.
+   *             </p>
+   */
+  ImportArn?: string;
+
+  /**
+   * <p>
+   *             The status of the import operation.
+   *             </p>
+   */
+  ImportStatus?: ImportStatus | string;
+
+  /**
+   * <p>
+   *             The Amazon Resource Number (ARN) of the table being imported into.
+   *             </p>
+   */
+  TableArn?: string;
+
+  /**
+   * <p>
+   *             The path and S3 bucket of the source file that is being imported. This includes the S3Bucket (required),
+   *             S3KeyPrefix (optional) and S3BucketOwner (optional if the bucket is owned by the requester).
+   *             </p>
+   */
+  S3BucketSource?: S3BucketSource;
+
+  /**
+   * <p>
+   *             The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with this import task.
+   *             </p>
+   */
+  CloudWatchLogGroupArn?: string;
+
+  /**
+   * <p>
+   *             The format of the source data. Valid values are <code>CSV</code>,
+   *             <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
+   */
+  InputFormat?: InputFormat | string;
+
+  /**
+   * <p>
+   *             The time at which this import task began.
+   *             </p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>
+   *             The time at which this import task ended. (Does this include the successful complete creation of
+   *             the table it was imported to?)
+   *             </p>
+   */
+  EndTime?: Date;
+}
+
+export interface ListImportsOutput {
+  /**
+   * <p>
+   *                 A list of <code>ImportSummary</code> objects.
+   *                 </p>
+   */
+  ImportSummaryList?: ImportSummary[];
+
+  /**
+   * <p>
+   *                 If this value is returned, there are additional results to be displayed. To retrieve
+   *                 them, call <code>ListImports</code> again, with <code>NextToken</code> set to this
+   *                 value.
+   *                 </p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -9622,6 +10138,13 @@ export const CreateTableOutputFilterSensitiveLog = (obj: CreateTableOutput): any
 /**
  * @internal
  */
+export const CsvOptionsFilterSensitiveLog = (obj: CsvOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteBackupInputFilterSensitiveLog = (obj: DeleteBackupInput): any => ({
   ...obj,
 });
@@ -9806,6 +10329,48 @@ export const DescribeGlobalTableSettingsOutputFilterSensitiveLog = (obj: Describ
 /**
  * @internal
  */
+export const DescribeImportInputFilterSensitiveLog = (obj: DescribeImportInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputFormatOptionsFilterSensitiveLog = (obj: InputFormatOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3BucketSourceFilterSensitiveLog = (obj: S3BucketSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableCreationParametersFilterSensitiveLog = (obj: TableCreationParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportTableDescriptionFilterSensitiveLog = (obj: ImportTableDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImportOutputFilterSensitiveLog = (obj: DescribeImportOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeKinesisStreamingDestinationInputFilterSensitiveLog = (
   obj: DescribeKinesisStreamingDestinationInput
 ): any => ({
@@ -9942,6 +10507,20 @@ export const ExportTableToPointInTimeOutputFilterSensitiveLog = (obj: ExportTabl
 /**
  * @internal
  */
+export const ImportTableInputFilterSensitiveLog = (obj: ImportTableInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportTableOutputFilterSensitiveLog = (obj: ImportTableOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListBackupsInputFilterSensitiveLog = (obj: ListBackupsInput): any => ({
   ...obj,
 });
@@ -10006,6 +10585,27 @@ export const GlobalTableFilterSensitiveLog = (obj: GlobalTable): any => ({
  * @internal
  */
 export const ListGlobalTablesOutputFilterSensitiveLog = (obj: ListGlobalTablesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportsInputFilterSensitiveLog = (obj: ListImportsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportSummaryFilterSensitiveLog = (obj: ImportSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportsOutputFilterSensitiveLog = (obj: ListImportsOutput): any => ({
   ...obj,
 });
 
