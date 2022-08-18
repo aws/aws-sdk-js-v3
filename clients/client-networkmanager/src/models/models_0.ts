@@ -2187,6 +2187,11 @@ export interface TransitGatewayPeering {
    * <p>The ARN of the transit gateway.</p>
    */
   TransitGatewayArn?: string;
+
+  /**
+   * <p>The ID of the transit gateway peering attachment.</p>
+   */
+  TransitGatewayPeeringAttachmentId?: string;
 }
 
 export interface CreateTransitGatewayPeeringResponse {

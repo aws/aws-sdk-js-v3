@@ -9346,6 +9346,7 @@ const deserializeAws_restJson1TransitGatewayPeering = (output: any, context: __S
   return {
     Peering: output.Peering != null ? deserializeAws_restJson1Peering(output.Peering, context) : undefined,
     TransitGatewayArn: __expectString(output.TransitGatewayArn),
+    TransitGatewayPeeringAttachmentId: __expectString(output.TransitGatewayPeeringAttachmentId),
   } as any;
 };
 
