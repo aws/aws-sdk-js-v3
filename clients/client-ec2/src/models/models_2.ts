@@ -11,7 +11,6 @@ import {
   CapacityReservation,
   CapacityReservationFleetState,
   CarrierGateway,
-  ClientVpnAuthorizationRuleStatus,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   DnsSupportValue,
@@ -2108,6 +2107,40 @@ export interface IKEVersionsRequestListValue {
 }
 
 /**
+ * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
+ */
+export interface CloudWatchLogOptionsSpecification {
+  /**
+   * <p>Enable or disable VPN tunnel logging feature. Default value is <code>False</code>.</p>
+   *         <p>Valid values: <code>True</code> | <code>False</code>
+   *          </p>
+   */
+  LogEnabled?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.</p>
+   */
+  LogGroupArn?: string;
+
+  /**
+   * <p>Set log format. Default format is <code>json</code>.</p>
+   * 	        <p>Valid values: <code>json</code> | <code>text</code>
+   *          </p>
+   */
+  LogOutputFormat?: string;
+}
+
+/**
+ * <p>Options for logging VPN tunnel activity.</p>
+ */
+export interface VpnTunnelLogOptionsSpecification {
+  /**
+   * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
+   */
+  CloudWatchLogOptions?: CloudWatchLogOptionsSpecification;
+}
+
+/**
  * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE
  *             negotiations.</p>
  */
@@ -2376,6 +2409,11 @@ export interface VpnTunnelOptionsSpecification {
    *          </p>
    */
   StartupAction?: string;
+
+  /**
+   * <p>Options for logging VPN tunnel activity.</p>
+   */
+  LogOptions?: VpnTunnelLogOptionsSpecification;
 }
 
 /**
@@ -2514,6 +2552,40 @@ export interface IKEVersionsListValue {
    * <p>The IKE version.</p>
    */
   Value?: string;
+}
+
+/**
+ * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
+ */
+export interface CloudWatchLogOptions {
+  /**
+   * <p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p>
+   *         <p>Valid values: <code>True</code> | <code>False</code>
+   *          </p>
+   */
+  LogEnabled?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.</p>
+   */
+  LogGroupArn?: string;
+
+  /**
+   * <p>Configured log format. Default format is <code>json</code>.</p>
+   *         <p>Valid values: <code>json</code> | <code>text</code>
+   *          </p>
+   */
+  LogOutputFormat?: string;
+}
+
+/**
+ * <p>Options for logging VPN tunnel activity.</p>
+ */
+export interface VpnTunnelLogOptions {
+  /**
+   * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
+   */
+  CloudWatchLogOptions?: CloudWatchLogOptions;
 }
 
 /**
@@ -2683,6 +2755,11 @@ export interface TunnelOption {
    * <p>The action to take when the establishing the VPN tunnels for a VPN connection.</p>
    */
   StartupAction?: string;
+
+  /**
+   * <p>Options for logging VPN tunnel activity.</p>
+   */
+  LogOptions?: VpnTunnelLogOptions;
 }
 
 /**
@@ -5904,133 +5981,6 @@ export interface DescribeClassicLinkInstancesResult {
   NextToken?: string;
 }
 
-export interface DescribeClientVpnAuthorizationRulesRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>
-   *                   <code>description</code> - The description of the authorization rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>destination-cidr</code> - The CIDR of the network to which the authorization rule
-   *                     applies.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>group-id</code> - The ID of the Active Directory group to which the authorization rule grants access.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>Information about an authorization rule.</p>
- */
-export interface AuthorizationRule {
-  /**
-   * <p>The ID of the Client VPN endpoint with which the authorization rule is associated.</p>
-   */
-  ClientVpnEndpointId?: string;
-
-  /**
-   * <p>A brief description of the authorization rule.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the Active Directory group to which the authorization rule grants access.</p>
-   */
-  GroupId?: string;
-
-  /**
-   * <p>Indicates whether the authorization rule grants access to all clients.</p>
-   */
-  AccessAll?: boolean;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.</p>
-   */
-  DestinationCidr?: string;
-
-  /**
-   * <p>The current state of the authorization rule.</p>
-   */
-  Status?: ClientVpnAuthorizationRuleStatus;
-}
-
-export interface DescribeClientVpnAuthorizationRulesResult {
-  /**
-   * <p>Information about the authorization rules.</p>
-   */
-  AuthorizationRules?: AuthorizationRule[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeClientVpnConnectionsRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>
-   *                   <code>connection-id</code> - The ID of the connection.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>username</code> - For Active Directory client authentication, the user name of the
-   *                     client who established the client connection.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
 /**
  * @internal
  */
@@ -6547,6 +6497,20 @@ export const IKEVersionsRequestListValueFilterSensitiveLog = (obj: IKEVersionsRe
 /**
  * @internal
  */
+export const CloudWatchLogOptionsSpecificationFilterSensitiveLog = (obj: CloudWatchLogOptionsSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpnTunnelLogOptionsSpecificationFilterSensitiveLog = (obj: VpnTunnelLogOptionsSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const Phase1DHGroupNumbersRequestListValueFilterSensitiveLog = (
   obj: Phase1DHGroupNumbersRequestListValue
 ): any => ({
@@ -6623,6 +6587,20 @@ export const CreateVpnConnectionRequestFilterSensitiveLog = (obj: CreateVpnConne
  * @internal
  */
 export const IKEVersionsListValueFilterSensitiveLog = (obj: IKEVersionsListValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchLogOptionsFilterSensitiveLog = (obj: CloudWatchLogOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpnTunnelLogOptionsFilterSensitiveLog = (obj: VpnTunnelLogOptions): any => ({
   ...obj,
 });
 
@@ -8004,39 +7982,5 @@ export const ClassicLinkInstanceFilterSensitiveLog = (obj: ClassicLinkInstance):
  * @internal
  */
 export const DescribeClassicLinkInstancesResultFilterSensitiveLog = (obj: DescribeClassicLinkInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClientVpnAuthorizationRulesRequestFilterSensitiveLog = (
-  obj: DescribeClientVpnAuthorizationRulesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizationRuleFilterSensitiveLog = (obj: AuthorizationRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClientVpnAuthorizationRulesResultFilterSensitiveLog = (
-  obj: DescribeClientVpnAuthorizationRulesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClientVpnConnectionsRequestFilterSensitiveLog = (
-  obj: DescribeClientVpnConnectionsRequest
-): any => ({
   ...obj,
 });

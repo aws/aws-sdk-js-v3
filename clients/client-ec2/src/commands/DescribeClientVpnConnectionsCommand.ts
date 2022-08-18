@@ -16,8 +16,6 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeClientVpnConnectionsRequest,
   DescribeClientVpnConnectionsRequestFilterSensitiveLog,
-} from "../models/models_2";
-import {
   DescribeClientVpnConnectionsResult,
   DescribeClientVpnConnectionsResultFilterSensitiveLog,
 } from "../models/models_3";

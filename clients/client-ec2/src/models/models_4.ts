@@ -54,6 +54,7 @@ import {
   InstanceRequirements,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  NetworkInsightsAccessScope,
   NetworkInsightsPath,
   NetworkInterface,
   NetworkInterfaceAttachment,
@@ -99,8 +100,6 @@ import {
   VpnGateway,
 } from "./models_2";
 import {
-  AnalysisLoadBalancerListener,
-  AnalysisLoadBalancerTarget,
   AnalysisStatus,
   AttributeBooleanValue,
   EventInformation,
@@ -112,6 +111,111 @@ import {
   PermissionGroup,
   ProductCode,
 } from "./models_3";
+
+export interface DescribeNetworkInsightsAccessScopesResult {
+  /**
+   * <p>The Network Access Scopes.</p>
+   */
+  NetworkInsightsAccessScopes?: NetworkInsightsAccessScope[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeNetworkInsightsAnalysesRequest {
+  /**
+   * <p>The ID of the network insights analyses. You must specify either analysis IDs or a path ID.</p>
+   */
+  NetworkInsightsAnalysisIds?: string[];
+
+  /**
+   * <p>The ID of the path. You must specify either a path ID or analysis IDs.</p>
+   */
+  NetworkInsightsPathId?: string;
+
+  /**
+   * <p>The time when the network insights analyses started.</p>
+   */
+  AnalysisStartTime?: Date;
+
+  /**
+   * <p>The time when the network insights analyses ended.</p>
+   */
+  AnalysisEndTime?: Date;
+
+  /**
+   * <p>The filters. The following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>PathFound - A Boolean value that indicates whether a feasible path is found.</p>
+   *             </li>
+   *             <li>
+   *                <p>Status - The status of the analysis (running | succeeded | failed).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Describes a load balancer listener.</p>
+ */
+export interface AnalysisLoadBalancerListener {
+  /**
+   * <p>The port on which the load balancer is listening.</p>
+   */
+  LoadBalancerPort?: number;
+
+  /**
+   * <p>[Classic Load Balancers] The back-end port for the listener.</p>
+   */
+  InstancePort?: number;
+}
+
+/**
+ * <p>Describes a load balancer target.</p>
+ */
+export interface AnalysisLoadBalancerTarget {
+  /**
+   * <p>The IP address.</p>
+   */
+  Address?: string;
+
+  /**
+   * <p>The Availability Zone.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>Information about the instance.</p>
+   */
+  Instance?: AnalysisComponent;
+
+  /**
+   * <p>The port on which the target is listening.</p>
+   */
+  Port?: number;
+}
 
 /**
  * <p>Describes an explanation code for an unreachable path. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
@@ -9404,51 +9508,37 @@ export interface ClientCertificateRevocationListStatus {
   Message?: string;
 }
 
-export interface ExportClientVpnClientCertificateRevocationListResult {
-  /**
-   * <p>Information about the client certificate revocation list.</p>
-   */
-  CertificateRevocationList?: string;
-
-  /**
-   * <p>The current state of the client certificate revocation list.</p>
-   */
-  Status?: ClientCertificateRevocationListStatus;
-}
-
-export interface ExportClientVpnClientConfigurationRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface ExportClientVpnClientConfigurationResult {
-  /**
-   * <p>The contents of the Client VPN endpoint configuration file.</p>
-   */
-  ClientConfiguration?: string;
-}
+/**
+ * @internal
+ */
+export const DescribeNetworkInsightsAccessScopesResultFilterSensitiveLog = (
+  obj: DescribeNetworkInsightsAccessScopesResult
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the destination for an export image task.</p>
+ * @internal
  */
-export interface ExportTaskS3LocationRequest {
-  /**
-   * <p>The destination Amazon S3 bucket.</p>
-   */
-  S3Bucket: string | undefined;
+export const DescribeNetworkInsightsAnalysesRequestFilterSensitiveLog = (
+  obj: DescribeNetworkInsightsAnalysesRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The prefix (logical hierarchy) in the bucket.</p>
-   */
-  S3Prefix?: string;
-}
+/**
+ * @internal
+ */
+export const AnalysisLoadBalancerListenerFilterSensitiveLog = (obj: AnalysisLoadBalancerListener): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisLoadBalancerTargetFilterSensitiveLog = (obj: AnalysisLoadBalancerTarget): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11580,39 +11670,5 @@ export const ExportClientVpnClientCertificateRevocationListRequestFilterSensitiv
 export const ClientCertificateRevocationListStatusFilterSensitiveLog = (
   obj: ClientCertificateRevocationListStatus
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportClientVpnClientCertificateRevocationListResultFilterSensitiveLog = (
-  obj: ExportClientVpnClientCertificateRevocationListResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportClientVpnClientConfigurationRequestFilterSensitiveLog = (
-  obj: ExportClientVpnClientConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportClientVpnClientConfigurationResultFilterSensitiveLog = (
-  obj: ExportClientVpnClientConfigurationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportTaskS3LocationRequestFilterSensitiveLog = (obj: ExportTaskS3LocationRequest): any => ({
   ...obj,
 });

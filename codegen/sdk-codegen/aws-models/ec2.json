@@ -9136,6 +9136,67 @@
         }
       }
     },
+    "com.amazonaws.ec2#CloudWatchLogGroupArn": {
+      "type": "string"
+    },
+    "com.amazonaws.ec2#CloudWatchLogOptions": {
+      "type": "structure",
+      "members": {
+        "LogEnabled": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LogEnabled",
+            "smithy.api#documentation": "<p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p>\n        <p>Valid values: <code>True</code> | <code>False</code>\n         </p>",
+            "smithy.api#xmlName": "logEnabled"
+          }
+        },
+        "LogGroupArn": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LogGroupArn",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.</p>",
+            "smithy.api#xmlName": "logGroupArn"
+          }
+        },
+        "LogOutputFormat": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LogOutputFormat",
+            "smithy.api#documentation": "<p>Configured log format. Default format is <code>json</code>.</p>\n        <p>Valid values: <code>json</code> | <code>text</code>\n         </p>",
+            "smithy.api#xmlName": "logOutputFormat"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Options for sending VPN tunnel logs to CloudWatch.</p>"
+      }
+    },
+    "com.amazonaws.ec2#CloudWatchLogOptionsSpecification": {
+      "type": "structure",
+      "members": {
+        "LogEnabled": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Enable or disable VPN tunnel logging feature. Default value is <code>False</code>.</p>\n        <p>Valid values: <code>True</code> | <code>False</code>\n         </p>"
+          }
+        },
+        "LogGroupArn": {
+          "target": "com.amazonaws.ec2#CloudWatchLogGroupArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.</p>"
+          }
+        },
+        "LogOutputFormat": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Set log format. Default format is <code>json</code>.</p>\n\t        <p>Valid values: <code>json</code> | <code>text</code>\n         </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Options for sending VPN tunnel logs to CloudWatch.</p>"
+      }
+    },
     "com.amazonaws.ec2#CoipAddressUsage": {
       "type": "structure",
       "members": {
@@ -58161,6 +58222,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The action to take when the establishing the tunnel for the VPN connection. By\n            default, your customer gateway device must initiate the IKE negotiation and bring up the\n            tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE\n            negotiation.</p>\n        <p>Valid Values: <code>add</code> | <code>start</code>\n         </p>\n        <p>Default: <code>add</code>\n         </p>"
           }
+        },
+        "LogOptions": {
+          "target": "com.amazonaws.ec2#VpnTunnelLogOptionsSpecification",
+          "traits": {
+            "smithy.api#documentation": "<p>Options for logging VPN tunnel activity.</p>"
+          }
         }
       },
       "traits": {
@@ -78350,6 +78417,14 @@
             "smithy.api#documentation": "<p>The action to take when the establishing the VPN tunnels for a VPN connection.</p>",
             "smithy.api#xmlName": "startupAction"
           }
+        },
+        "LogOptions": {
+          "target": "com.amazonaws.ec2#VpnTunnelLogOptions",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LogOptions",
+            "smithy.api#documentation": "<p>Options for logging VPN tunnel activity.</p>",
+            "smithy.api#xmlName": "logOptions"
+          }
         }
       },
       "traits": {
@@ -81608,6 +81683,36 @@
         ]
       }
     },
+    "com.amazonaws.ec2#VpnTunnelLogOptions": {
+      "type": "structure",
+      "members": {
+        "CloudWatchLogOptions": {
+          "target": "com.amazonaws.ec2#CloudWatchLogOptions",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CloudWatchLogOptions",
+            "smithy.api#documentation": "<p>Options for sending VPN tunnel logs to CloudWatch.</p>",
+            "smithy.api#xmlName": "cloudWatchLogOptions"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Options for logging VPN tunnel activity.</p>"
+      }
+    },
+    "com.amazonaws.ec2#VpnTunnelLogOptionsSpecification": {
+      "type": "structure",
+      "members": {
+        "CloudWatchLogOptions": {
+          "target": "com.amazonaws.ec2#CloudWatchLogOptionsSpecification",
+          "traits": {
+            "smithy.api#documentation": "<p>Options for sending VPN tunnel logs to CloudWatch.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Options for logging VPN tunnel activity.</p>"
+      }
+    },
     "com.amazonaws.ec2#VpnTunnelOptionsSpecification": {
       "type": "structure",
       "members": {
@@ -81724,6 +81829,12 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "smithy.api#documentation": "<p>The action to take when the establishing the tunnel for the VPN connection. By\n            default, your customer gateway device must initiate the IKE negotiation and bring up the\n            tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE\n            negotiation.</p>\n        <p>Valid Values: <code>add</code> | <code>start</code>\n         </p>\n        <p>Default: <code>add</code>\n         </p>"
+          }
+        },
+        "LogOptions": {
+          "target": "com.amazonaws.ec2#VpnTunnelLogOptionsSpecification",
+          "traits": {
+            "smithy.api#documentation": "<p>Options for logging VPN tunnel activity.</p>"
           }
         }
       },

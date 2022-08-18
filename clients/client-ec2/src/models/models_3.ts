@@ -4,12 +4,12 @@ import {
   ActiveInstance,
   AllocationState,
   AllowsMultipleInstanceTypes,
-  AnalysisComponent,
   AssociationStatus,
   AttachmentStatus,
   AttributeValue,
   AutoPlacement,
   ClientVpnAuthenticationType,
+  ClientVpnAuthorizationRuleStatus,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CurrencyCodeValues,
@@ -55,7 +55,6 @@ import {
   ManagedPrefixList,
   NatGateway,
   NetworkAcl,
-  NetworkInsightsAccessScope,
   NetworkInterfaceStatus,
   Placement,
   PlatformValues,
@@ -65,6 +64,133 @@ import {
   TrafficType,
 } from "./models_1";
 import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_2";
+
+export interface DescribeClientVpnAuthorizationRulesRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>
+   *                   <code>description</code> - The description of the authorization rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>destination-cidr</code> - The CIDR of the network to which the authorization rule
+   *                     applies.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>group-id</code> - The ID of the Active Directory group to which the authorization rule grants access.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Information about an authorization rule.</p>
+ */
+export interface AuthorizationRule {
+  /**
+   * <p>The ID of the Client VPN endpoint with which the authorization rule is associated.</p>
+   */
+  ClientVpnEndpointId?: string;
+
+  /**
+   * <p>A brief description of the authorization rule.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the Active Directory group to which the authorization rule grants access.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>Indicates whether the authorization rule grants access to all clients.</p>
+   */
+  AccessAll?: boolean;
+
+  /**
+   * <p>The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.</p>
+   */
+  DestinationCidr?: string;
+
+  /**
+   * <p>The current state of the authorization rule.</p>
+   */
+  Status?: ClientVpnAuthorizationRuleStatus;
+}
+
+export interface DescribeClientVpnAuthorizationRulesResult {
+  /**
+   * <p>Information about the authorization rules.</p>
+   */
+  AuthorizationRules?: AuthorizationRule[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeClientVpnConnectionsRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>
+   *                   <code>connection-id</code> - The ID of the connection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>username</code> - For Active Directory client authentication, the user name of the
+   *                     client who established the client connection.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 export type ClientVpnConnectionStatusCode = "active" | "failed-to-terminate" | "terminated" | "terminating";
 
@@ -9384,110 +9510,39 @@ export interface DescribeNetworkInsightsAccessScopesRequest {
   NextToken?: string;
 }
 
-export interface DescribeNetworkInsightsAccessScopesResult {
-  /**
-   * <p>The Network Access Scopes.</p>
-   */
-  NetworkInsightsAccessScopes?: NetworkInsightsAccessScope[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeNetworkInsightsAnalysesRequest {
-  /**
-   * <p>The ID of the network insights analyses. You must specify either analysis IDs or a path ID.</p>
-   */
-  NetworkInsightsAnalysisIds?: string[];
-
-  /**
-   * <p>The ID of the path. You must specify either a path ID or analysis IDs.</p>
-   */
-  NetworkInsightsPathId?: string;
-
-  /**
-   * <p>The time when the network insights analyses started.</p>
-   */
-  AnalysisStartTime?: Date;
-
-  /**
-   * <p>The time when the network insights analyses ended.</p>
-   */
-  AnalysisEndTime?: Date;
-
-  /**
-   * <p>The filters. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PathFound - A Boolean value that indicates whether a feasible path is found.</p>
-   *             </li>
-   *             <li>
-   *                <p>Status - The status of the analysis (running | succeeded | failed).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DescribeClientVpnAuthorizationRulesRequestFilterSensitiveLog = (
+  obj: DescribeClientVpnAuthorizationRulesRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a load balancer listener.</p>
+ * @internal
  */
-export interface AnalysisLoadBalancerListener {
-  /**
-   * <p>The port on which the load balancer is listening.</p>
-   */
-  LoadBalancerPort?: number;
-
-  /**
-   * <p>[Classic Load Balancers] The back-end port for the listener.</p>
-   */
-  InstancePort?: number;
-}
+export const AuthorizationRuleFilterSensitiveLog = (obj: AuthorizationRule): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a load balancer target.</p>
+ * @internal
  */
-export interface AnalysisLoadBalancerTarget {
-  /**
-   * <p>The IP address.</p>
-   */
-  Address?: string;
+export const DescribeClientVpnAuthorizationRulesResultFilterSensitiveLog = (
+  obj: DescribeClientVpnAuthorizationRulesResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>Information about the instance.</p>
-   */
-  Instance?: AnalysisComponent;
-
-  /**
-   * <p>The port on which the target is listening.</p>
-   */
-  Port?: number;
-}
+/**
+ * @internal
+ */
+export const DescribeClientVpnConnectionsRequestFilterSensitiveLog = (
+  obj: DescribeClientVpnConnectionsRequest
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11232,37 +11287,5 @@ export const DescribeNetworkInsightsAccessScopeAnalysesResultFilterSensitiveLog 
 export const DescribeNetworkInsightsAccessScopesRequestFilterSensitiveLog = (
   obj: DescribeNetworkInsightsAccessScopesRequest
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInsightsAccessScopesResultFilterSensitiveLog = (
-  obj: DescribeNetworkInsightsAccessScopesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInsightsAnalysesRequestFilterSensitiveLog = (
-  obj: DescribeNetworkInsightsAnalysesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisLoadBalancerListenerFilterSensitiveLog = (obj: AnalysisLoadBalancerListener): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisLoadBalancerTargetFilterSensitiveLog = (obj: AnalysisLoadBalancerTarget): any => ({
   ...obj,
 });

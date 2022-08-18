@@ -18,7 +18,7 @@ import {
   DescribeClientVpnAuthorizationRulesRequestFilterSensitiveLog,
   DescribeClientVpnAuthorizationRulesResult,
   DescribeClientVpnAuthorizationRulesResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommand,
   serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand,

@@ -18,7 +18,7 @@ import {
   ExportClientVpnClientConfigurationRequestFilterSensitiveLog,
   ExportClientVpnClientConfigurationResult,
   ExportClientVpnClientConfigurationResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2ExportClientVpnClientConfigurationCommand,
   serializeAws_ec2ExportClientVpnClientConfigurationCommand,

@@ -2279,11 +2279,12 @@ import {
   VCpuCountRangeRequest,
 } from "../models/models_1";
 import {
-  AuthorizationRule,
   AvailabilityZone,
   AvailabilityZoneMessage,
   CapacityReservationFleet,
   ClassicLinkInstance,
+  CloudWatchLogOptions,
+  CloudWatchLogOptionsSpecification,
   ConnectionNotification,
   CreateTransitGatewayConnectPeerRequest,
   CreateTransitGatewayConnectPeerResult,
@@ -2476,9 +2477,6 @@ import {
   DescribeCarrierGatewaysResult,
   DescribeClassicLinkInstancesRequest,
   DescribeClassicLinkInstancesResult,
-  DescribeClientVpnAuthorizationRulesRequest,
-  DescribeClientVpnAuthorizationRulesResult,
-  DescribeClientVpnConnectionsRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2539,14 +2537,15 @@ import {
   VpnConnectionOptionsSpecification,
   VpnGateway,
   VpnStaticRoute,
+  VpnTunnelLogOptions,
+  VpnTunnelLogOptionsSpecification,
   VpnTunnelOptionsSpecification,
 } from "../models/models_2";
 import {
-  AnalysisLoadBalancerListener,
-  AnalysisLoadBalancerTarget,
   ArchitectureType,
   AssociatedTargetNetwork,
   AttributeBooleanValue,
+  AuthorizationRule,
   AvailableCapacity,
   BootModeType,
   CapacityReservationOptions,
@@ -2564,6 +2563,9 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DescribeClientVpnAuthorizationRulesRequest,
+  DescribeClientVpnAuthorizationRulesResult,
+  DescribeClientVpnConnectionsRequest,
   DescribeClientVpnConnectionsResult,
   DescribeClientVpnEndpointsRequest,
   DescribeClientVpnEndpointsResult,
@@ -2680,8 +2682,6 @@ import {
   DescribeNetworkInsightsAccessScopeAnalysesRequest,
   DescribeNetworkInsightsAccessScopeAnalysesResult,
   DescribeNetworkInsightsAccessScopesRequest,
-  DescribeNetworkInsightsAccessScopesResult,
-  DescribeNetworkInsightsAnalysesRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2792,11 +2792,15 @@ import {
   VirtualizationType,
 } from "../models/models_3";
 import {
+  AnalysisLoadBalancerListener,
+  AnalysisLoadBalancerTarget,
   ClassicLinkDnsSupport,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   ClientCertificateRevocationListStatus,
   CreateVolumePermission,
+  DescribeNetworkInsightsAccessScopesResult,
+  DescribeNetworkInsightsAnalysesRequest,
   DescribeNetworkInsightsAnalysesResult,
   DescribeNetworkInsightsPathsRequest,
   DescribeNetworkInsightsPathsResult,
@@ -3003,10 +3007,6 @@ import {
   EnableVpcClassicLinkResult,
   Explanation,
   ExportClientVpnClientCertificateRevocationListRequest,
-  ExportClientVpnClientCertificateRevocationListResult,
-  ExportClientVpnClientConfigurationRequest,
-  ExportClientVpnClientConfigurationResult,
-  ExportTaskS3LocationRequest,
   FastLaunchLaunchTemplateSpecificationRequest,
   FastLaunchSnapshotConfigurationRequest,
   HistoryRecord,
@@ -3086,8 +3086,12 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  ExportClientVpnClientCertificateRevocationListResult,
+  ExportClientVpnClientConfigurationRequest,
+  ExportClientVpnClientConfigurationResult,
   ExportImageRequest,
   ExportImageResult,
+  ExportTaskS3LocationRequest,
   ExportTransitGatewayRoutesRequest,
   ExportTransitGatewayRoutesResult,
   GetAssociatedEnclaveCertificateIamRolesRequest,
@@ -3327,10 +3331,6 @@ import {
   PurchaseReservedInstancesOfferingRequest,
   PurchaseReservedInstancesOfferingResult,
   PurchaseScheduledInstancesRequest,
-  PurchaseScheduledInstancesResult,
-  RebootInstancesRequest,
-  RegisterImageRequest,
-  RegisterImageResult,
   RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
   ReservationValue,
@@ -3372,6 +3372,10 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  PurchaseScheduledInstancesResult,
+  RebootInstancesRequest,
+  RegisterImageRequest,
+  RegisterImageResult,
   RegisterInstanceEventNotificationAttributesRequest,
   RegisterInstanceEventNotificationAttributesResult,
   RegisterInstanceTagAttributeRequest,
@@ -32167,6 +32171,23 @@ const serializeAws_ec2ClientVpnSecurityGroupIdSet = (input: string[], context: _
   return entries;
 };
 
+const serializeAws_ec2CloudWatchLogOptionsSpecification = (
+  input: CloudWatchLogOptionsSpecification,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.LogEnabled != null) {
+    entries["LogEnabled"] = input.LogEnabled;
+  }
+  if (input.LogGroupArn != null) {
+    entries["LogGroupArn"] = input.LogGroupArn;
+  }
+  if (input.LogOutputFormat != null) {
+    entries["LogOutputFormat"] = input.LogOutputFormat;
+  }
+  return entries;
+};
+
 const serializeAws_ec2CoipPoolIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -46607,6 +46628,13 @@ const serializeAws_ec2ModifyVpnTunnelOptionsSpecification = (
   if (input.StartupAction != null) {
     entries["StartupAction"] = input.StartupAction;
   }
+  if (input.LogOptions != null) {
+    const memberEntries = serializeAws_ec2VpnTunnelLogOptionsSpecification(input.LogOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LogOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -51751,6 +51779,21 @@ const serializeAws_ec2VpnGatewayIdStringList = (input: string[], context: __Serd
   return entries;
 };
 
+const serializeAws_ec2VpnTunnelLogOptionsSpecification = (
+  input: VpnTunnelLogOptionsSpecification,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.CloudWatchLogOptions != null) {
+    const memberEntries = serializeAws_ec2CloudWatchLogOptionsSpecification(input.CloudWatchLogOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CloudWatchLogOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_ec2VpnTunnelOptionsSpecification = (
   input: VpnTunnelOptionsSpecification,
   context: __SerdeContext
@@ -51849,6 +51892,13 @@ const serializeAws_ec2VpnTunnelOptionsSpecification = (
   }
   if (input.StartupAction != null) {
     entries["StartupAction"] = input.StartupAction;
+  }
+  if (input.LogOptions != null) {
+    const memberEntries = serializeAws_ec2VpnTunnelLogOptionsSpecification(input.LogOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LogOptions.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -54636,6 +54686,24 @@ const deserializeAws_ec2ClientVpnSecurityGroupIdSet = (output: any, context: __S
     .map((entry: any) => {
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_ec2CloudWatchLogOptions = (output: any, context: __SerdeContext): CloudWatchLogOptions => {
+  const contents: any = {
+    LogEnabled: undefined,
+    LogGroupArn: undefined,
+    LogOutputFormat: undefined,
+  };
+  if (output["logEnabled"] !== undefined) {
+    contents.LogEnabled = __parseBoolean(output["logEnabled"]);
+  }
+  if (output["logGroupArn"] !== undefined) {
+    contents.LogGroupArn = __expectString(output["logGroupArn"]);
+  }
+  if (output["logOutputFormat"] !== undefined) {
+    contents.LogOutputFormat = __expectString(output["logOutputFormat"]);
+  }
+  return contents;
 };
 
 const deserializeAws_ec2CoipAddressUsage = (output: any, context: __SerdeContext): CoipAddressUsage => {
@@ -77590,6 +77658,7 @@ const deserializeAws_ec2TunnelOption = (output: any, context: __SerdeContext): T
     Phase2DHGroupNumbers: undefined,
     IkeVersions: undefined,
     StartupAction: undefined,
+    LogOptions: undefined,
   };
   if (output["outsideIpAddress"] !== undefined) {
     contents.OutsideIpAddress = __expectString(output["outsideIpAddress"]);
@@ -77694,6 +77763,9 @@ const deserializeAws_ec2TunnelOption = (output: any, context: __SerdeContext): T
   }
   if (output["startupAction"] !== undefined) {
     contents.StartupAction = __expectString(output["startupAction"]);
+  }
+  if (output["logOptions"] !== undefined) {
+    contents.LogOptions = deserializeAws_ec2VpnTunnelLogOptions(output["logOptions"], context);
   }
   return contents;
 };
@@ -79229,6 +79301,16 @@ const deserializeAws_ec2VpnStaticRouteList = (output: any, context: __SerdeConte
     .map((entry: any) => {
       return deserializeAws_ec2VpnStaticRoute(entry, context);
     });
+};
+
+const deserializeAws_ec2VpnTunnelLogOptions = (output: any, context: __SerdeContext): VpnTunnelLogOptions => {
+  const contents: any = {
+    CloudWatchLogOptions: undefined,
+  };
+  if (output["cloudWatchLogOptions"] !== undefined) {
+    contents.CloudWatchLogOptions = deserializeAws_ec2CloudWatchLogOptions(output["cloudWatchLogOptions"], context);
+  }
+  return contents;
 };
 
 const deserializeAws_ec2WithdrawByoipCidrResult = (output: any, context: __SerdeContext): WithdrawByoipCidrResult => {

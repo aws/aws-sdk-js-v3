@@ -18,7 +18,7 @@ import {
   RegisterImageRequestFilterSensitiveLog,
   RegisterImageResult,
   RegisterImageResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import { deserializeAws_ec2RegisterImageCommand, serializeAws_ec2RegisterImageCommand } from "../protocols/Aws_ec2";
 
 export interface RegisterImageCommandInput extends RegisterImageRequest {}

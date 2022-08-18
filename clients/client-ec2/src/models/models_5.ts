@@ -38,7 +38,6 @@ import {
 } from "./models_0";
 import {
   AutoAcceptSharedAttachmentsValue,
-  BlockDeviceMapping,
   CapacityReservationPreference,
   CapacityReservationTarget,
   DefaultRouteTableAssociationValue,
@@ -88,6 +87,7 @@ import {
   TransitGateway,
   TransitGatewayPrefixListReference,
   VpnConnection,
+  VpnTunnelLogOptionsSpecification,
 } from "./models_2";
 import {
   AnalysisStatus,
@@ -114,21 +114,65 @@ import {
   PermissionGroup,
   SnapshotDetail,
   SnapshotTaskDetail,
-  TpmSupportValues,
   VirtualizationType,
 } from "./models_3";
 import {
+  ClientCertificateRevocationListStatus,
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
-  ExportTaskS3LocationRequest,
   LaunchTemplateConfig,
   PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
-  ScheduledInstance,
   SnapshotAttributeName,
   TransitGatewayPropagationState,
   VolumeModification,
 } from "./models_4";
+
+export interface ExportClientVpnClientCertificateRevocationListResult {
+  /**
+   * <p>Information about the client certificate revocation list.</p>
+   */
+  CertificateRevocationList?: string;
+
+  /**
+   * <p>The current state of the client certificate revocation list.</p>
+   */
+  Status?: ClientCertificateRevocationListStatus;
+}
+
+export interface ExportClientVpnClientConfigurationRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface ExportClientVpnClientConfigurationResult {
+  /**
+   * <p>The contents of the Client VPN endpoint configuration file.</p>
+   */
+  ClientConfiguration?: string;
+}
+
+/**
+ * <p>Describes the destination for an export image task.</p>
+ */
+export interface ExportTaskS3LocationRequest {
+  /**
+   * <p>The destination Amazon S3 bucket.</p>
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * <p>The prefix (logical hierarchy) in the bucket.</p>
+   */
+  S3Prefix?: string;
+}
 
 export interface ExportImageRequest {
   /**
@@ -6718,6 +6762,11 @@ export interface ModifyVpnTunnelOptionsSpecification {
    *          </p>
    */
   StartupAction?: string;
+
+  /**
+   * <p>Options for logging VPN tunnel activity.</p>
+   */
+  LogOptions?: VpnTunnelLogOptionsSpecification;
 }
 
 export interface ModifyVpnTunnelOptionsRequest {
@@ -7168,148 +7217,38 @@ export interface PurchaseScheduledInstancesRequest {
 }
 
 /**
- * <p>Contains the output of PurchaseScheduledInstances.</p>
+ * @internal
  */
-export interface PurchaseScheduledInstancesResult {
-  /**
-   * <p>Information about the Scheduled Instances.</p>
-   */
-  ScheduledInstanceSet?: ScheduledInstance[];
-}
-
-export interface RebootInstancesRequest {
-  /**
-   * <p>The instance IDs.</p>
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+export const ExportClientVpnClientCertificateRevocationListResultFilterSensitiveLog = (
+  obj: ExportClientVpnClientCertificateRevocationListResult
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for RegisterImage.</p>
+ * @internal
  */
-export interface RegisterImageRequest {
-  /**
-   * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the
-   *    		<code>aws-exec-read</code> canned access control list (ACL) to ensure that it can be accessed
-   *    		by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned ACLs</a> in the
-   *    		<i>Amazon S3 Service Developer Guide</i>.</p>
-   */
-  ImageLocation?: string;
-
-  /**
-   * <p>The architecture of the AMI.</p>
-   *    	     <p>Default: For Amazon EBS-backed AMIs, <code>i386</code>.
-   *         For instance store-backed AMIs, the architecture specified in the manifest file.</p>
-   */
-  Architecture?: ArchitectureValues | string;
-
-  /**
-   * <p>The block device mapping entries.</p>
-   *    	     <p>If you specify an Amazon EBS volume using the ID of an Amazon EBS snapshot, you can't specify the encryption state of the volume.</p>
-   *          <p>If you create an AMI on an Outpost, then all backing snapshots must be on the same Outpost or in the Region
-   *     	 of that Outpost. AMIs on an Outpost that include local snapshots can be used to launch instances on the same Outpost
-   *     	 only. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
-   *     	 	Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * <p>A description for your AMI.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Set to <code>true</code> to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.</p>
-   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
-   */
-  EnaSupport?: boolean;
-
-  /**
-   * <p>The ID of the kernel.</p>
-   */
-  KernelId?: string;
-
-  /**
-   * <p>A name for your AMI.</p>
-   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The billing product codes. Your account must be authorized to specify billing product codes. Otherwise,
-   *      	you can use the Amazon Web Services Marketplace to bill for the use of an AMI.</p>
-   */
-  BillingProducts?: string[];
-
-  /**
-   * <p>The ID of the RAM disk.</p>
-   */
-  RamdiskId?: string;
-
-  /**
-   * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
-   */
-  RootDeviceName?: string;
-
-  /**
-   * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.</p>
-   *          <p>There is no way to disable <code>sriovNetSupport</code> at this time.</p>
-   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
-   */
-  SriovNetSupport?: string;
-
-  /**
-   * <p>The type of virtualization (<code>hvm</code> | <code>paravirtual</code>).</p>
-   *          <p>Default: <code>paravirtual</code>
-   *          </p>
-   */
-  VirtualizationType?: string;
-
-  /**
-   * <p>The boot mode of the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  BootMode?: BootModeValues | string;
-
-  /**
-   * <p>Set to <code>v2.0</code> to enable Trusted Platform Module (TPM) support. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  TpmSupport?: TpmSupportValues | string;
-
-  /**
-   * <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,
-   *       use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the
-   *         <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
-   *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  UefiData?: string;
-}
+export const ExportClientVpnClientConfigurationRequestFilterSensitiveLog = (
+  obj: ExportClientVpnClientConfigurationRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the output of RegisterImage.</p>
+ * @internal
  */
-export interface RegisterImageResult {
-  /**
-   * <p>The ID of the newly registered AMI.</p>
-   */
-  ImageId?: string;
-}
+export const ExportClientVpnClientConfigurationResultFilterSensitiveLog = (
+  obj: ExportClientVpnClientConfigurationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportTaskS3LocationRequestFilterSensitiveLog = (obj: ExportTaskS3LocationRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9449,33 +9388,5 @@ export const PurchaseRequestFilterSensitiveLog = (obj: PurchaseRequest): any => 
  * @internal
  */
 export const PurchaseScheduledInstancesRequestFilterSensitiveLog = (obj: PurchaseScheduledInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseScheduledInstancesResultFilterSensitiveLog = (obj: PurchaseScheduledInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootInstancesRequestFilterSensitiveLog = (obj: RebootInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterImageRequestFilterSensitiveLog = (obj: RegisterImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterImageResultFilterSensitiveLog = (obj: RegisterImageResult): any => ({
   ...obj,
 });
