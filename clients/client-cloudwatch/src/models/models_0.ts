@@ -1532,6 +1532,13 @@ export interface InsightRule {
    * 				Rule Syntax</a>.</p>
    */
   Definition: string | undefined;
+
+  /**
+   * <p>
+   * 			An optional built-in rule that Amazon Web Services manages.
+   * 		</p>
+   */
+  ManagedRule?: boolean;
 }
 
 export interface DescribeInsightRulesOutput {
@@ -2188,7 +2195,7 @@ export enum MetricStreamOutputFormat {
 
 /**
  * <p>This object contains the information for one metric that is to be streamed with
- * 		additional statistics.</p>
+ * 			additional statistics.</p>
  */
 export interface MetricStreamStatisticsMetric {
   /**
@@ -2213,16 +2220,16 @@ export interface MetricStreamStatisticsMetric {
 export interface MetricStreamStatisticsConfiguration {
   /**
    * <p>An array of metric name and namespace pairs that stream the additional statistics listed
-   * 		in the value of the <code>AdditionalStatistics</code> parameter. There can be as many as
-   * 		100 pairs in the array.</p>
+   * 			in the value of the <code>AdditionalStatistics</code> parameter. There can be as many as
+   * 			100 pairs in the array.</p>
    * 		       <p>All metrics that match the combination of metric name and namespace will be streamed
-   * 		with the additional statistics, no matter their dimensions.</p>
+   * 			with the additional statistics, no matter their dimensions.</p>
    */
   IncludeMetrics: MetricStreamStatisticsMetric[] | undefined;
 
   /**
    * <p>The list of additional statistics that are to be streamed for the metrics listed
-   * 		in the <code>IncludeMetrics</code> array in this structure. This list can include as many as 20 statistics.</p>
+   * 			in the <code>IncludeMetrics</code> array in this structure. This list can include as many as 20 statistics.</p>
    * 		       <p>If the <code>OutputFormat</code> for the stream is <code>opentelemetry0.7</code>, the only
    * 			valid values are <code>p<i>??</i>
    *             </code> percentile statistics such as <code>p90</code>, <code>p99</code> and so on.</p>
@@ -2230,7 +2237,7 @@ export interface MetricStreamStatisticsConfiguration {
    * 			the valid values include the abbreviations for all of the statistics listed in
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
    * 				CloudWatch statistics definitions</a>. For example, this includes
-   * 		<code>tm98, </code>
+   * 			<code>tm98, </code>
    *             <code>wm90</code>, <code>PR(:300)</code>, and so on.</p>
    */
   AdditionalStatistics: string[] | undefined;
@@ -2289,11 +2296,10 @@ export interface GetMetricStreamOutput {
   LastUpdateDate?: Date;
 
   /**
-   * <p>The output format for the stream. Valid values are <code>json</code>
-   * 			and <code>opentelemetry0.7</code>. For more information about metric stream
-   * 			output formats, see
-   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html">
-   * 				Metric streams output formats</a>.</p>
+   * <p>The output format for the stream.
+   * 			Valid values are <code>json</code> and <code>opentelemetry0.7</code>.
+   * 			For more information about metric stream output formats,
+   * 			see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html">Metric streams output formats</a>.</p>
    */
   OutputFormat?: MetricStreamOutputFormat | string;
 
@@ -2397,6 +2403,133 @@ export interface ListDashboardsOutput {
 
   /**
    * <p>The token that marks the start of the next batch of returned results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListManagedInsightRulesInput {
+  /**
+   * <p>
+   * 			The ARN
+   * 			of an Amazon Web Services resource
+   * 			that has managed Contributor Insights rules.
+   * 		</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>
+   * 			Include this value
+   * 			to get
+   * 			the next set
+   * 			of rules
+   * 			if the value was returned
+   * 			by the previous operation.
+   * 		</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   * 			The maximum number
+   * 			of results
+   * 			to return
+   * 			in one operation.
+   * 			If you omit this parameter,
+   * 			the default number is used.
+   * 			The default number is <code>100</code>.
+   * 		</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>
+ * 			The status
+ * 			of a managed Contributor Insights rule.
+ * 		</p>
+ */
+export interface ManagedRuleState {
+  /**
+   * <p>
+   * 			The name
+   * 			of the Contributor Insights rule
+   * 			that contains data
+   * 			for the specified Amazon Web Services resource.
+   * 		</p>
+   */
+  RuleName: string | undefined;
+
+  /**
+   * <p>
+   * 			Indicates whether the rule is enabled or disabled.
+   * 		</p>
+   */
+  State: string | undefined;
+}
+
+/**
+ * <p>
+ * 			Contains information
+ * 			about managed Contributor Insights rules,
+ * 			as returned
+ * 			by <code>ListManagedInsightRules</code>.
+ *
+ * 		</p>
+ */
+export interface ManagedRuleDescription {
+  /**
+   * <p>
+   * 			The template name
+   * 			for the managed rule.
+   * 			Used
+   * 			to enable managed rules using <code>PutManagedInsightRules</code>.
+   * 		</p>
+   */
+  TemplateName?: string;
+
+  /**
+   * <p>
+   * 			If a managed rule is enabled,
+   * 			this is the ARN
+   * 			for the related Amazon Web Services resource.
+   * 		</p>
+   */
+  ResourceARN?: string;
+
+  /**
+   * <p>
+   * 			Describes the state
+   * 			of a managed rule.
+   * 			If present,
+   * 			it contains information
+   * 			about the Contributor Insights rule
+   * 			that contains information
+   * 			about the related Amazon Web Services resource.
+   * 		</p>
+   */
+  RuleState?: ManagedRuleState;
+}
+
+export interface ListManagedInsightRulesOutput {
+  /**
+   * <p>
+   * 			The managed rules
+   * 			that are available
+   * 			for the specified Amazon Web Services resource.
+   * 		</p>
+   */
+  ManagedRules?: ManagedRuleDescription[];
+
+  /**
+   * <p>
+   * 			Include this value
+   * 			to get
+   * 			the next set
+   * 			of rules
+   * 			if the value was returned
+   * 			by the previous operation.
+   * 		</p>
    */
   NextToken?: string;
 }
@@ -2939,6 +3072,89 @@ export interface PutInsightRuleInput {
 
 export interface PutInsightRuleOutput {}
 
+/**
+ * <p>
+ * 			Contains the information
+ * 			that's required
+ * 			to enable a managed Contributor Insights rule
+ * 			for an Amazon Web Services resource.
+ *
+ * 		</p>
+ */
+export interface ManagedRule {
+  /**
+   * <p>
+   * 			The template name
+   * 			for the managed Contributor Insights rule,
+   * 			as returned
+   * 			by <code>ListManagedInsightRules</code>.
+   * 		</p>
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>
+   * 			The ARN
+   * 			of an Amazon Web Services resource
+   * 			that has managed Contributor Insights rules.
+   * 		</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>
+   * 			A list
+   * 			of key-value pairs
+   * 			that you can associate
+   * 			with a managed Contributor Insights rule.
+   * 			You can associate as many as 50 tags
+   * 			with a rule.
+   * 			Tags can help you organize and categorize your resources.
+   * 			You also can use them
+   * 			to scope user permissions
+   * 			by granting a user permission
+   * 			to access or change only the resources
+   * 			that have certain tag values.
+   * 			To associate tags
+   * 			with a rule,
+   * 			you must have the <code>cloudwatch:TagResource</code> permission
+   * 			in addition
+   * 			to the <code>cloudwatch:PutInsightRule</code> permission.
+   * 			If you are using this operation
+   * 			to update an existing Contributor Insights rule,
+   * 			any tags
+   * 			that you specify
+   * 			in this parameter are ignored.
+   * 			To change the tags
+   * 			of an existing rule,
+   * 			use <code>TagResource</code>.
+   * 		</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface PutManagedInsightRulesInput {
+  /**
+   * <p>
+   * 			A list
+   * 			of <code>ManagedRules</code>
+   * 			to enable.
+   * 		</p>
+   */
+  ManagedRules: ManagedRule[] | undefined;
+}
+
+export interface PutManagedInsightRulesOutput {
+  /**
+   * <p>
+   * 			An array
+   * 			that lists the rules
+   * 			that could not be enabled.
+   * 		</p>
+   */
+  Failures?: PartialFailure[];
+}
+
 export interface PutMetricAlarmInput {
   /**
    * <p>The name for the alarm. This name must be unique within the Region.</p>
@@ -3258,7 +3474,7 @@ export interface MetricDatum {
   /**
    * <p>Array of numbers representing the values for the metric during the period. Each unique value is listed just once
    * 		in this array, and the corresponding number in the <code>Counts</code> array specifies the number of times that value occurred during the period.
-   * 		You can include up to 500 unique values in each <code>PutMetricData</code> action that specifies a <code>Values</code> array.</p>
+   * 		You can include up to 150 unique values in each <code>PutMetricData</code> action that specifies a <code>Values</code> array.</p>
    * 		       <p>Although the <code>Values</code> array accepts numbers of type
    * 			<code>Double</code>, CloudWatch rejects values that are either too small
    * 			or too large. Values must be in the range of -2^360 to 2^360. In addition, special values (for example, NaN, +Infinity,
@@ -3985,6 +4201,34 @@ export const ListDashboardsOutputFilterSensitiveLog = (obj: ListDashboardsOutput
 /**
  * @internal
  */
+export const ListManagedInsightRulesInputFilterSensitiveLog = (obj: ListManagedInsightRulesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedRuleStateFilterSensitiveLog = (obj: ManagedRuleState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedRuleDescriptionFilterSensitiveLog = (obj: ManagedRuleDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListManagedInsightRulesOutputFilterSensitiveLog = (obj: ListManagedInsightRulesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListMetricsInputFilterSensitiveLog = (obj: ListMetricsInput): any => ({
   ...obj,
 });
@@ -4084,6 +4328,27 @@ export const PutInsightRuleInputFilterSensitiveLog = (obj: PutInsightRuleInput):
  * @internal
  */
 export const PutInsightRuleOutputFilterSensitiveLog = (obj: PutInsightRuleOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedRuleFilterSensitiveLog = (obj: ManagedRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutManagedInsightRulesInputFilterSensitiveLog = (obj: PutManagedInsightRulesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutManagedInsightRulesOutputFilterSensitiveLog = (obj: PutManagedInsightRulesOutput): any => ({
   ...obj,
 });
 

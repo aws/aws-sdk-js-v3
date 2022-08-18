@@ -75,6 +75,10 @@ import {
   GetMetricWidgetImageCommandOutput,
 } from "../commands/GetMetricWidgetImageCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "../commands/ListDashboardsCommand";
+import {
+  ListManagedInsightRulesCommandInput,
+  ListManagedInsightRulesCommandOutput,
+} from "../commands/ListManagedInsightRulesCommand";
 import { ListMetricsCommandInput, ListMetricsCommandOutput } from "../commands/ListMetricsCommand";
 import { ListMetricStreamsCommandInput, ListMetricStreamsCommandOutput } from "../commands/ListMetricStreamsCommand";
 import {
@@ -85,6 +89,10 @@ import { PutAnomalyDetectorCommandInput, PutAnomalyDetectorCommandOutput } from 
 import { PutCompositeAlarmCommandInput, PutCompositeAlarmCommandOutput } from "../commands/PutCompositeAlarmCommand";
 import { PutDashboardCommandInput, PutDashboardCommandOutput } from "../commands/PutDashboardCommand";
 import { PutInsightRuleCommandInput, PutInsightRuleCommandOutput } from "../commands/PutInsightRuleCommand";
+import {
+  PutManagedInsightRulesCommandInput,
+  PutManagedInsightRulesCommandOutput,
+} from "../commands/PutManagedInsightRulesCommand";
 import { PutMetricAlarmCommandInput, PutMetricAlarmCommandOutput } from "../commands/PutMetricAlarmCommand";
 import { PutMetricDataCommandInput, PutMetricDataCommandOutput } from "../commands/PutMetricDataCommand";
 import { PutMetricStreamCommandInput, PutMetricStreamCommandOutput } from "../commands/PutMetricStreamCommand";
@@ -160,12 +168,17 @@ import {
   LimitExceededFault,
   ListDashboardsInput,
   ListDashboardsOutput,
+  ListManagedInsightRulesInput,
+  ListManagedInsightRulesOutput,
   ListMetricsInput,
   ListMetricsOutput,
   ListMetricStreamsInput,
   ListMetricStreamsOutput,
   ListTagsForResourceInput,
   ListTagsForResourceOutput,
+  ManagedRule,
+  ManagedRuleDescription,
+  ManagedRuleState,
   MessageData,
   Metric,
   MetricAlarm,
@@ -187,6 +200,8 @@ import {
   PutDashboardOutput,
   PutInsightRuleInput,
   PutInsightRuleOutput,
+  PutManagedInsightRulesInput,
+  PutManagedInsightRulesOutput,
   PutMetricAlarmInput,
   PutMetricDataInput,
   PutMetricStreamInput,
@@ -545,6 +560,22 @@ export const serializeAws_queryListDashboardsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryListManagedInsightRulesCommand = async (
+  input: ListManagedInsightRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryListManagedInsightRulesInput(input, context),
+    Action: "ListManagedInsightRules",
+    Version: "2010-08-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryListMetricsCommand = async (
   input: ListMetricsCommandInput,
   context: __SerdeContext
@@ -652,6 +683,22 @@ export const serializeAws_queryPutInsightRuleCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryPutInsightRuleInput(input, context),
     Action: "PutInsightRule",
+    Version: "2010-08-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryPutManagedInsightRulesCommand = async (
+  input: PutManagedInsightRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryPutManagedInsightRulesInput(input, context),
+    Action: "PutManagedInsightRules",
     Version: "2010-08-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1694,6 +1741,53 @@ const deserializeAws_queryListDashboardsCommandError = async (
   }
 };
 
+export const deserializeAws_queryListManagedInsightRulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedInsightRulesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryListManagedInsightRulesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryListManagedInsightRulesOutput(data.ListManagedInsightRulesResult, context);
+  const response: ListManagedInsightRulesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryListManagedInsightRulesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedInsightRulesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextToken":
+    case "com.amazonaws.cloudwatch#InvalidNextToken":
+      throw await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
+      throw await deserializeAws_queryMissingRequiredParameterExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_queryListMetricsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2003,6 +2097,50 @@ const deserializeAws_queryPutInsightRuleCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.cloudwatch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
+      throw await deserializeAws_queryMissingRequiredParameterExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_queryPutManagedInsightRulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutManagedInsightRulesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryPutManagedInsightRulesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryPutManagedInsightRulesOutput(data.PutManagedInsightRulesResult, context);
+  const response: PutManagedInsightRulesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryPutManagedInsightRulesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutManagedInsightRulesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
       throw await deserializeAws_queryMissingRequiredParameterExceptionResponse(parsedOutput, context);
@@ -3201,6 +3339,23 @@ const serializeAws_queryListDashboardsInput = (input: ListDashboardsInput, conte
   return entries;
 };
 
+const serializeAws_queryListManagedInsightRulesInput = (
+  input: ListManagedInsightRulesInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ResourceARN != null) {
+    entries["ResourceARN"] = input.ResourceARN;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  return entries;
+};
+
 const serializeAws_queryListMetricsInput = (input: ListMetricsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Namespace != null) {
@@ -3240,6 +3395,40 @@ const serializeAws_queryListTagsForResourceInput = (input: ListTagsForResourceIn
   const entries: any = {};
   if (input.ResourceARN != null) {
     entries["ResourceARN"] = input.ResourceARN;
+  }
+  return entries;
+};
+
+const serializeAws_queryManagedRule = (input: ManagedRule, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.TemplateName != null) {
+    entries["TemplateName"] = input.TemplateName;
+  }
+  if (input.ResourceARN != null) {
+    entries["ResourceARN"] = input.ResourceARN;
+  }
+  if (input.Tags != null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryManagedRules = (input: ManagedRule[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_queryManagedRule(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
   }
   return entries;
 };
@@ -3660,6 +3849,21 @@ const serializeAws_queryPutInsightRuleInput = (input: PutInsightRuleInput, conte
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryPutManagedInsightRulesInput = (
+  input: PutManagedInsightRulesInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ManagedRules != null) {
+    const memberEntries = serializeAws_queryManagedRules(input.ManagedRules, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ManagedRules.${key}`;
       entries[loc] = value;
     });
   }
@@ -4860,6 +5064,7 @@ const deserializeAws_queryInsightRule = (output: any, context: __SerdeContext): 
     State: undefined,
     Schema: undefined,
     Definition: undefined,
+    ManagedRule: undefined,
   };
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
@@ -4872,6 +5077,9 @@ const deserializeAws_queryInsightRule = (output: any, context: __SerdeContext): 
   }
   if (output["Definition"] !== undefined) {
     contents.Definition = __expectString(output["Definition"]);
+  }
+  if (output["ManagedRule"] !== undefined) {
+    contents.ManagedRule = __parseBoolean(output["ManagedRule"]);
   }
   return contents;
 };
@@ -5114,6 +5322,28 @@ const deserializeAws_queryListDashboardsOutput = (output: any, context: __SerdeC
   return contents;
 };
 
+const deserializeAws_queryListManagedInsightRulesOutput = (
+  output: any,
+  context: __SerdeContext
+): ListManagedInsightRulesOutput => {
+  const contents: any = {
+    ManagedRules: undefined,
+    NextToken: undefined,
+  };
+  if (output.ManagedRules === "") {
+    contents.ManagedRules = [];
+  } else if (output["ManagedRules"] !== undefined && output["ManagedRules"]["member"] !== undefined) {
+    contents.ManagedRules = deserializeAws_queryManagedRuleDescriptions(
+      __getArrayIfSingleItem(output["ManagedRules"]["member"]),
+      context
+    );
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["NextToken"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryListMetricsOutput = (output: any, context: __SerdeContext): ListMetricsOutput => {
   const contents: any = {
     Metrics: undefined,
@@ -5160,6 +5390,49 @@ const deserializeAws_queryListTagsForResourceOutput = (
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_queryTagList(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryManagedRuleDescription = (output: any, context: __SerdeContext): ManagedRuleDescription => {
+  const contents: any = {
+    TemplateName: undefined,
+    ResourceARN: undefined,
+    RuleState: undefined,
+  };
+  if (output["TemplateName"] !== undefined) {
+    contents.TemplateName = __expectString(output["TemplateName"]);
+  }
+  if (output["ResourceARN"] !== undefined) {
+    contents.ResourceARN = __expectString(output["ResourceARN"]);
+  }
+  if (output["RuleState"] !== undefined) {
+    contents.RuleState = deserializeAws_queryManagedRuleState(output["RuleState"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryManagedRuleDescriptions = (
+  output: any,
+  context: __SerdeContext
+): ManagedRuleDescription[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_queryManagedRuleDescription(entry, context);
+    });
+};
+
+const deserializeAws_queryManagedRuleState = (output: any, context: __SerdeContext): ManagedRuleState => {
+  const contents: any = {
+    RuleName: undefined,
+    State: undefined,
+  };
+  if (output["RuleName"] !== undefined) {
+    contents.RuleName = __expectString(output["RuleName"]);
+  }
+  if (output["State"] !== undefined) {
+    contents.State = __expectString(output["State"]);
   }
   return contents;
 };
@@ -5701,6 +5974,24 @@ const deserializeAws_queryPutDashboardOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_queryPutInsightRuleOutput = (output: any, context: __SerdeContext): PutInsightRuleOutput => {
   const contents: any = {};
+  return contents;
+};
+
+const deserializeAws_queryPutManagedInsightRulesOutput = (
+  output: any,
+  context: __SerdeContext
+): PutManagedInsightRulesOutput => {
+  const contents: any = {
+    Failures: undefined,
+  };
+  if (output.Failures === "") {
+    contents.Failures = [];
+  } else if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
+    contents.Failures = deserializeAws_queryBatchFailures(
+      __getArrayIfSingleItem(output["Failures"]["member"]),
+      context
+    );
+  }
   return contents;
 };
 

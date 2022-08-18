@@ -104,6 +104,10 @@ import {
   GetMetricWidgetImageCommandOutput,
 } from "./commands/GetMetricWidgetImageCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
+import {
+  ListManagedInsightRulesCommandInput,
+  ListManagedInsightRulesCommandOutput,
+} from "./commands/ListManagedInsightRulesCommand";
 import { ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
 import { ListMetricStreamsCommandInput, ListMetricStreamsCommandOutput } from "./commands/ListMetricStreamsCommand";
 import {
@@ -114,6 +118,10 @@ import { PutAnomalyDetectorCommandInput, PutAnomalyDetectorCommandOutput } from 
 import { PutCompositeAlarmCommandInput, PutCompositeAlarmCommandOutput } from "./commands/PutCompositeAlarmCommand";
 import { PutDashboardCommandInput, PutDashboardCommandOutput } from "./commands/PutDashboardCommand";
 import { PutInsightRuleCommandInput, PutInsightRuleCommandOutput } from "./commands/PutInsightRuleCommand";
+import {
+  PutManagedInsightRulesCommandInput,
+  PutManagedInsightRulesCommandOutput,
+} from "./commands/PutManagedInsightRulesCommand";
 import { PutMetricAlarmCommandInput, PutMetricAlarmCommandOutput } from "./commands/PutMetricAlarmCommand";
 import { PutMetricDataCommandInput, PutMetricDataCommandOutput } from "./commands/PutMetricDataCommand";
 import { PutMetricStreamCommandInput, PutMetricStreamCommandOutput } from "./commands/PutMetricStreamCommand";
@@ -146,6 +154,7 @@ export type ServiceInputTypes =
   | GetMetricStreamCommandInput
   | GetMetricWidgetImageCommandInput
   | ListDashboardsCommandInput
+  | ListManagedInsightRulesCommandInput
   | ListMetricStreamsCommandInput
   | ListMetricsCommandInput
   | ListTagsForResourceCommandInput
@@ -153,6 +162,7 @@ export type ServiceInputTypes =
   | PutCompositeAlarmCommandInput
   | PutDashboardCommandInput
   | PutInsightRuleCommandInput
+  | PutManagedInsightRulesCommandInput
   | PutMetricAlarmCommandInput
   | PutMetricDataCommandInput
   | PutMetricStreamCommandInput
@@ -184,6 +194,7 @@ export type ServiceOutputTypes =
   | GetMetricStreamCommandOutput
   | GetMetricWidgetImageCommandOutput
   | ListDashboardsCommandOutput
+  | ListManagedInsightRulesCommandOutput
   | ListMetricStreamsCommandOutput
   | ListMetricsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -191,6 +202,7 @@ export type ServiceOutputTypes =
   | PutCompositeAlarmCommandOutput
   | PutDashboardCommandOutput
   | PutInsightRuleCommandOutput
+  | PutManagedInsightRulesCommandOutput
   | PutMetricAlarmCommandOutput
   | PutMetricDataCommandOutput
   | PutMetricStreamCommandOutput

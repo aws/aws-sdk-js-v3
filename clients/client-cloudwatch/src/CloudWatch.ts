@@ -107,6 +107,11 @@ import {
   ListDashboardsCommandInput,
   ListDashboardsCommandOutput,
 } from "./commands/ListDashboardsCommand";
+import {
+  ListManagedInsightRulesCommand,
+  ListManagedInsightRulesCommandInput,
+  ListManagedInsightRulesCommandOutput,
+} from "./commands/ListManagedInsightRulesCommand";
 import { ListMetricsCommand, ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
 import {
   ListMetricStreamsCommand,
@@ -138,6 +143,11 @@ import {
   PutInsightRuleCommandInput,
   PutInsightRuleCommandOutput,
 } from "./commands/PutInsightRuleCommand";
+import {
+  PutManagedInsightRulesCommand,
+  PutManagedInsightRulesCommandInput,
+  PutManagedInsightRulesCommandOutput,
+} from "./commands/PutManagedInsightRulesCommand";
 import {
   PutMetricAlarmCommand,
   PutMetricAlarmCommandInput,
@@ -1080,6 +1090,44 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * <p>
+   * 			Returns a list
+   * 			that contains the number
+   * 			of managed Contributor Insights rules
+   * 			in your account.
+   *
+   * 		</p>
+   */
+  public listManagedInsightRules(
+    args: ListManagedInsightRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListManagedInsightRulesCommandOutput>;
+  public listManagedInsightRules(
+    args: ListManagedInsightRulesCommandInput,
+    cb: (err: any, data?: ListManagedInsightRulesCommandOutput) => void
+  ): void;
+  public listManagedInsightRules(
+    args: ListManagedInsightRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListManagedInsightRulesCommandOutput) => void
+  ): void;
+  public listManagedInsightRules(
+    args: ListManagedInsightRulesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListManagedInsightRulesCommandOutput) => void),
+    cb?: (err: any, data?: ListManagedInsightRulesCommandOutput) => void
+  ): Promise<ListManagedInsightRulesCommandOutput> | void {
+    const command = new ListManagedInsightRulesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>List the specified metrics. You can use the returned metrics with
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> to obtain statistical data.</p>
@@ -1357,6 +1405,54 @@ export class CloudWatch extends CloudWatchClient {
     cb?: (err: any, data?: PutInsightRuleCommandOutput) => void
   ): Promise<PutInsightRuleCommandOutput> | void {
     const command = new PutInsightRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   * 			Creates a managed Contributor Insights rule
+   * 			for a specified Amazon Web Services resource.
+   * 			When you enable a managed rule,
+   * 			you create a Contributor Insights rule
+   * 			that collects data
+   * 			from Amazon Web Services services.
+   * 			You cannot edit these rules
+   * 			with <code>PutInsightRule</code>.
+   * 			The rules can be enabled, disabled, and deleted using <code>EnableInsightRules</code>, <code>DisableInsightRules</code>, and <code>DeleteInsightRules</code>.
+   * 			If a previously created managed rule is currently disabled,
+   * 			a subsequent call
+   * 			to this API will re-enable it.
+   * 			Use <code>ListManagedInsightRules</code>
+   * 			to describe all available rules.
+   *
+   * 		</p>
+   */
+  public putManagedInsightRules(
+    args: PutManagedInsightRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutManagedInsightRulesCommandOutput>;
+  public putManagedInsightRules(
+    args: PutManagedInsightRulesCommandInput,
+    cb: (err: any, data?: PutManagedInsightRulesCommandOutput) => void
+  ): void;
+  public putManagedInsightRules(
+    args: PutManagedInsightRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutManagedInsightRulesCommandOutput) => void
+  ): void;
+  public putManagedInsightRules(
+    args: PutManagedInsightRulesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutManagedInsightRulesCommandOutput) => void),
+    cb?: (err: any, data?: PutManagedInsightRulesCommandOutput) => void
+  ): Promise<PutManagedInsightRulesCommandOutput> | void {
+    const command = new PutManagedInsightRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
