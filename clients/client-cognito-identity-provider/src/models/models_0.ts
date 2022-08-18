@@ -2191,8 +2191,9 @@ export interface EventFeedbackType {
 }
 
 export enum EventResponseType {
-  Failure = "Failure",
-  Success = "Success",
+  Fail = "Fail",
+  InProgress = "InProgress",
+  Pass = "Pass",
 }
 
 export enum RiskDecisionType {
@@ -2230,6 +2231,8 @@ export interface EventRiskType {
 
 export enum EventType {
   ForgotPassword = "ForgotPassword",
+  PasswordChange = "PasswordChange",
+  ResendCode = "ResendCode",
   SignIn = "SignIn",
   SignUp = "SignUp",
 }
