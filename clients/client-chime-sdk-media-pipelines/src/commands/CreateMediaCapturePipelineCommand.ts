@@ -32,7 +32,7 @@ export interface CreateMediaCapturePipelineCommandInput extends CreateMediaCaptu
 export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapturePipelineResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a media capture pipeline.</p>
+ * <p>Creates a media pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

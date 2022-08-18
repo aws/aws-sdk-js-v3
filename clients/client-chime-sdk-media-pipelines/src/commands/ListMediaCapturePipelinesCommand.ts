@@ -32,7 +32,7 @@ export interface ListMediaCapturePipelinesCommandInput extends ListMediaCaptureP
 export interface ListMediaCapturePipelinesCommandOutput extends ListMediaCapturePipelinesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of media capture pipelines.</p>
+ * <p>Returns a list of media pipelines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

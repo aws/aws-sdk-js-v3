@@ -32,7 +32,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the specified tags from the specified Amazon Chime SDK media capture pipeline.</p>
+ * <p>Removes any tags from a media pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

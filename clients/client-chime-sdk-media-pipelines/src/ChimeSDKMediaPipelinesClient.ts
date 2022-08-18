@@ -58,17 +58,31 @@ import {
   CreateMediaCapturePipelineCommandOutput,
 } from "./commands/CreateMediaCapturePipelineCommand";
 import {
+  CreateMediaConcatenationPipelineCommandInput,
+  CreateMediaConcatenationPipelineCommandOutput,
+} from "./commands/CreateMediaConcatenationPipelineCommand";
+import {
+  CreateMediaLiveConnectorPipelineCommandInput,
+  CreateMediaLiveConnectorPipelineCommandOutput,
+} from "./commands/CreateMediaLiveConnectorPipelineCommand";
+import {
   DeleteMediaCapturePipelineCommandInput,
   DeleteMediaCapturePipelineCommandOutput,
 } from "./commands/DeleteMediaCapturePipelineCommand";
 import {
+  DeleteMediaPipelineCommandInput,
+  DeleteMediaPipelineCommandOutput,
+} from "./commands/DeleteMediaPipelineCommand";
+import {
   GetMediaCapturePipelineCommandInput,
   GetMediaCapturePipelineCommandOutput,
 } from "./commands/GetMediaCapturePipelineCommand";
+import { GetMediaPipelineCommandInput, GetMediaPipelineCommandOutput } from "./commands/GetMediaPipelineCommand";
 import {
   ListMediaCapturePipelinesCommandInput,
   ListMediaCapturePipelinesCommandOutput,
 } from "./commands/ListMediaCapturePipelinesCommand";
+import { ListMediaPipelinesCommandInput, ListMediaPipelinesCommandOutput } from "./commands/ListMediaPipelinesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -79,18 +93,28 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CreateMediaCapturePipelineCommandInput
+  | CreateMediaConcatenationPipelineCommandInput
+  | CreateMediaLiveConnectorPipelineCommandInput
   | DeleteMediaCapturePipelineCommandInput
+  | DeleteMediaPipelineCommandInput
   | GetMediaCapturePipelineCommandInput
+  | GetMediaPipelineCommandInput
   | ListMediaCapturePipelinesCommandInput
+  | ListMediaPipelinesCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | CreateMediaCapturePipelineCommandOutput
+  | CreateMediaConcatenationPipelineCommandOutput
+  | CreateMediaLiveConnectorPipelineCommandOutput
   | DeleteMediaCapturePipelineCommandOutput
+  | DeleteMediaPipelineCommandOutput
   | GetMediaCapturePipelineCommandOutput
+  | GetMediaPipelineCommandOutput
   | ListMediaCapturePipelinesCommandOutput
+  | ListMediaPipelinesCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
@@ -249,10 +273,8 @@ type ChimeSDKMediaPipelinesClientResolvedConfigType = __SmithyResolvedConfigurat
 export interface ChimeSDKMediaPipelinesClientResolvedConfig extends ChimeSDKMediaPipelinesClientResolvedConfigType {}
 
 /**
- * <p>The Amazon Chime SDK media pipeline APIs in this section allow software developers to create Amazon Chime SDK media pipelines
- *          and capture audio, video, events, and data messages from Amazon Chime SDK meetings. For more information about media pipleines, see
- *          <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html">Amzon Chime SDK media pipelines</a>.
- *       </p>
+ * <p>The Amazon Chime SDK media pipeline APIs in this section allow software developers to
+ *          create Amazon Chime SDK media pipelines that capture, concatenate, or stream your Amazon Chime SDK meetings. For more information about media pipleines, see <a href="http://amazonaws.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html">Amazon Chime SDK media pipelines</a>. </p>
  */
 export class ChimeSDKMediaPipelinesClient extends __Client<
   __HttpHandlerOptions,

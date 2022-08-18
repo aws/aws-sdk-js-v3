@@ -18,43 +18,47 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
 import {
-  DeleteMediaCapturePipelineRequest,
-  DeleteMediaCapturePipelineRequestFilterSensitiveLog,
+  CreateMediaConcatenationPipelineRequest,
+  CreateMediaConcatenationPipelineRequestFilterSensitiveLog,
+  CreateMediaConcatenationPipelineResponse,
+  CreateMediaConcatenationPipelineResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteMediaCapturePipelineCommand,
-  serializeAws_restJson1DeleteMediaCapturePipelineCommand,
+  deserializeAws_restJson1CreateMediaConcatenationPipelineCommand,
+  serializeAws_restJson1CreateMediaConcatenationPipelineCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface DeleteMediaCapturePipelineCommandInput extends DeleteMediaCapturePipelineRequest {}
-export interface DeleteMediaCapturePipelineCommandOutput extends __MetadataBearer {}
+export interface CreateMediaConcatenationPipelineCommandInput extends CreateMediaConcatenationPipelineRequest {}
+export interface CreateMediaConcatenationPipelineCommandOutput
+  extends CreateMediaConcatenationPipelineResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Deletes the media pipeline.</p>
+ * <p>Creates a media concatenation pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMediaPipelinesClient, DeleteMediaCapturePipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
- * // const { ChimeSDKMediaPipelinesClient, DeleteMediaCapturePipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * import { ChimeSDKMediaPipelinesClient, CreateMediaConcatenationPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
+ * // const { ChimeSDKMediaPipelinesClient, CreateMediaConcatenationPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const command = new DeleteMediaCapturePipelineCommand(input);
+ * const command = new CreateMediaConcatenationPipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DeleteMediaCapturePipelineCommandInput} for command's `input` shape.
- * @see {@link DeleteMediaCapturePipelineCommandOutput} for command's `response` shape.
+ * @see {@link CreateMediaConcatenationPipelineCommandInput} for command's `input` shape.
+ * @see {@link CreateMediaConcatenationPipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
  *
  */
-export class DeleteMediaCapturePipelineCommand extends $Command<
-  DeleteMediaCapturePipelineCommandInput,
-  DeleteMediaCapturePipelineCommandOutput,
+export class CreateMediaConcatenationPipelineCommand extends $Command<
+  CreateMediaConcatenationPipelineCommandInput,
+  CreateMediaConcatenationPipelineCommandOutput,
   ChimeSDKMediaPipelinesClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DeleteMediaCapturePipelineCommandInput) {
+  constructor(readonly input: CreateMediaConcatenationPipelineCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -67,20 +71,20 @@ export class DeleteMediaCapturePipelineCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeSDKMediaPipelinesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteMediaCapturePipelineCommandInput, DeleteMediaCapturePipelineCommandOutput> {
+  ): Handler<CreateMediaConcatenationPipelineCommandInput, CreateMediaConcatenationPipelineCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ChimeSDKMediaPipelinesClient";
-    const commandName = "DeleteMediaCapturePipelineCommand";
+    const commandName = "CreateMediaConcatenationPipelineCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMediaCapturePipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: CreateMediaConcatenationPipelineRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateMediaConcatenationPipelineResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,15 +94,18 @@ export class DeleteMediaCapturePipelineCommand extends $Command<
     );
   }
 
-  private serialize(input: DeleteMediaCapturePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMediaCapturePipelineCommand(input, context);
+  private serialize(
+    input: CreateMediaConcatenationPipelineCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1CreateMediaConcatenationPipelineCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DeleteMediaCapturePipelineCommandOutput> {
-    return deserializeAws_restJson1DeleteMediaCapturePipelineCommand(output, context);
+  ): Promise<CreateMediaConcatenationPipelineCommandOutput> {
+    return deserializeAws_restJson1CreateMediaConcatenationPipelineCommand(output, context);
   }
 
   // Start section: command_body_extra
