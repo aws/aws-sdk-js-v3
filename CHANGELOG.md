@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.152.0...v3.153.0) (2022-08-18)
+
+
+### Features
+
+* **client-chime-sdk-media-pipelines:** The Amazon Chime SDK now supports live streaming of real-time video from the Amazon Chime SDK sessions to streaming platforms such as Amazon IVS and Amazon Elemental MediaLive. We have also added support for concatenation to create a single media capture file. ([002e420](https://github.com/aws/aws-sdk-js-v3/commit/002e420099602a3f6de658f346fbf817069e00ba))
+* **client-cloudwatch:** Add support for managed Contributor Insights Rules ([101b4c2](https://github.com/aws/aws-sdk-js-v3/commit/101b4c2f298f5ad209687a53267fc4b9cf325352))
+* **client-dynamodb:** This release adds support for importing data from S3 into a new DynamoDB table ([58a3e7a](https://github.com/aws/aws-sdk-js-v3/commit/58a3e7a2e5f45343d3ce203e69a49373046b87be))
+* **client-ec2:** This release adds support for VPN log options , a new feature allowing S2S VPN connections to send IKE activity logs to CloudWatch Logs ([a7c0bbd](https://github.com/aws/aws-sdk-js-v3/commit/a7c0bbd50e15fdfe4b59669684bbea9f9427002f))
+* **client-networkmanager:** Add TransitGatewayPeeringAttachmentId property to TransitGatewayPeering Model ([098d7ca](https://github.com/aws/aws-sdk-js-v3/commit/098d7ca4a41fbf03da3f7c5206837c27ccb00fc4))
+
+
+
+
+
 # [3.152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.151.0...v3.152.0) (2022-08-17)
 
 

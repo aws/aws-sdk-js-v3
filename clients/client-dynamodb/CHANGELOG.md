@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.152.0...v3.153.0) (2022-08-18)
+
+
+### Features
+
+* **client-dynamodb:** This release adds support for importing data from S3 into a new DynamoDB table ([58a3e7a](https://github.com/aws/aws-sdk-js-v3/commit/58a3e7a2e5f45343d3ce203e69a49373046b87be))
+
+
+
+
+
 # [3.150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.149.0...v3.150.0) (2022-08-15)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb

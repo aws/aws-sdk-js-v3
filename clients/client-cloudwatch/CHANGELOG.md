@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.152.0...v3.153.0) (2022-08-18)
+
+
+### Features
+
+* **client-cloudwatch:** Add support for managed Contributor Insights Rules ([101b4c2](https://github.com/aws/aws-sdk-js-v3/commit/101b4c2f298f5ad209687a53267fc4b9cf325352))
+
+
+
+
+
 # [3.150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.149.0...v3.150.0) (2022-08-15)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch
