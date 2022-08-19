@@ -286,7 +286,6 @@ import {
   ExperienceEntitiesSummary,
   ExperiencesSummary,
   Facet,
-  FacetResult,
   FailedEntity,
   FaqStatistics,
   FaqSummary,
@@ -421,7 +420,7 @@ import {
   WebCrawlerConfiguration,
   WorkDocsConfiguration,
 } from "../models/models_0";
-import { AttributeFilter, QueryRequest, QueryResult } from "../models/models_1";
+import { AttributeFilter, FacetResult, QueryRequest, QueryResult } from "../models/models_1";
 
 export const serializeAws_json1_1AssociateEntitiesToExperienceCommand = async (
   input: AssociateEntitiesToExperienceCommandInput,
@@ -4984,6 +4983,7 @@ const serializeAws_json1_1ConfluenceConfiguration = (input: ConfluenceConfigurat
         context
       ),
     }),
+    ...(input.AuthenticationType != null && { AuthenticationType: input.AuthenticationType }),
     ...(input.BlogConfiguration != null && {
       BlogConfiguration: serializeAws_json1_1ConfluenceBlogConfiguration(input.BlogConfiguration, context),
     }),
@@ -7931,6 +7931,7 @@ const deserializeAws_json1_1ConfluenceConfiguration = (
       output.AttachmentConfiguration != null
         ? deserializeAws_json1_1ConfluenceAttachmentConfiguration(output.AttachmentConfiguration, context)
         : undefined,
+    AuthenticationType: __expectString(output.AuthenticationType),
     BlogConfiguration:
       output.BlogConfiguration != null
         ? deserializeAws_json1_1ConfluenceBlogConfiguration(output.BlogConfiguration, context)

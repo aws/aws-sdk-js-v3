@@ -3,6 +3,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { DocumentType as __DocumentType } from "@aws-sdk/types";
 
 import { KendraServiceException as __BaseException } from "./KendraServiceException";
+import { FacetResult } from "./models_1";
 
 /**
  * <p>Summary information on an access control configuration that you created for
@@ -251,7 +252,12 @@ export interface AlfrescoConfiguration {
 
   /**
    * <p>The path to the SSL certificate stored in an Amazon S3 bucket. You
-   *             use this to connect to Alfresco.</p>
+   *             use this to connect to Alfresco if you require a secure SSL
+   *             connection.</p>
+   *         <p>You can simply generate a self-signed X509 certificate on any computer using
+   *             OpenSSL. For an example of using OpenSSL to create an X509 certificate, see
+   *             <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl.html">Create and sign
+   *                 an X509 certificate</a>.</p>
    */
   SslCertificateS3Path: S3Path | undefined;
 
@@ -1582,6 +1588,11 @@ export interface ConfluenceAttachmentConfiguration {
   AttachmentFieldMappings?: ConfluenceAttachmentToIndexFieldMapping[];
 }
 
+export enum ConfluenceAuthenticationType {
+  HTTP_BASIC = "HTTP_BASIC",
+  PAT = "PAT",
+}
+
 export enum ConfluenceBlogFieldName {
   AUTHOR = "AUTHOR",
   DISPLAY_URL = "DISPLAY_URL",
@@ -1843,10 +1854,13 @@ export interface ConfluenceConfiguration {
   /**
    * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret
    *             that contains the user name and password required to connect to the
-   *             Confluence instance. If you use Confluence cloud, you use a
+   *             Confluence instance. If you use Confluence Cloud, you use a
    *             generated API token as the password. For more information, see
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html">Using a
    *                 Confluence data source</a>.</p>
+   *         <p>You can also provide authentication credentials in the form of a
+   *             personal access token. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html#confluence-authentication">Authentication
+   *                 for a Confluence data source</a>.</p>
    */
   SecretArn: string | undefined;
 
@@ -1917,6 +1931,13 @@ export interface ConfluenceConfiguration {
    *             and load requirements.</p>
    */
   ProxyConfiguration?: ProxyConfiguration;
+
+  /**
+   * <p>Whether you want to connect to Confluence using basic authentication of
+   *             user name and password, or a personal access token. You can use a personal access
+   *             token for Confluence Server.</p>
+   */
+  AuthenticationType?: ConfluenceAuthenticationType | string;
 }
 
 /**
@@ -2217,8 +2238,13 @@ export interface OnPremiseConfiguration {
   OrganizationName: string | undefined;
 
   /**
-   * <p>The path to the SSL certificate stored in an Amazon S3 bucket.
-   *             You use this to connect to GitHub. </p>
+   * <p>The path to the SSL certificate stored in an Amazon S3 bucket. You
+   *             use this to connect to GitHub if you require a secure SSL
+   *             connection.</p>
+   *         <p>You can simply generate a self-signed X509 certificate on any computer using
+   *             OpenSSL. For an example of using OpenSSL to create an X509 certificate, see
+   *             <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl.html">Create and sign
+   *                 an X509 certificate</a>.</p>
    */
   SslCertificateS3Path: S3Path | undefined;
 }
@@ -2738,7 +2764,8 @@ export interface OneDriveConfiguration {
  */
 export interface QuipConfiguration {
   /**
-   * <p>The Quip site domain.</p>
+   * <p>The Quip site domain. For example, <i>https://quip-company.quipdomain.com/browse</i>.
+   *             The domain in this example is "quipdomain".</p>
    */
   Domain: string | undefined;
 
@@ -2776,9 +2803,10 @@ export interface QuipConfiguration {
 
   /**
    * <p>The identifiers of the Quip folders you want to index. You
-   *             can find in your browser URL when you access your folder
+   *             can find the folder ID in your browser URL when you access your folder
    *             in Quip. For example,
-   *             <i>https://quip-company.com/zlLuOVNSarTL/folder-name</i>.</p>
+   *             <i>https://quip-company.quipdomain.com/zlLuOVNSarTL/folder-name</i>.
+   *             The folder ID in this example is "zlLuOVNSarTL".</p>
    */
   FolderIds?: string[];
 
@@ -3451,7 +3479,7 @@ export interface SharePointConfiguration {
   SharePointVersion: SharePointVersion | string | undefined;
 
   /**
-   * <p>The Microsoft SharePoint site URLs for the documents you want to indext.</p>
+   * <p>The Microsoft SharePoint site URLs for the documents you want to index.</p>
    */
   Urls: string[] | undefined;
 
@@ -3537,8 +3565,13 @@ export interface SharePointConfiguration {
   DisableLocalGroups?: boolean;
 
   /**
-   * <p>The path to the SSL certificate stored in an Amazon S3 bucket. You use
-   *             this to connect to SharePoint.</p>
+   * <p>The path to the SSL certificate stored in an Amazon S3 bucket. You
+   *             use this to connect to SharePoint Server if you require a secure SSL
+   *             connection.</p>
+   *         <p>You can simply generate a self-signed X509 certificate on any computer using
+   *             OpenSSL. For an example of using OpenSSL to create an X509 certificate, see
+   *             <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl.html">Create and sign
+   *                 an X509 certificate</a>.</p>
    */
   SslCertificateS3Path?: S3Path;
 
@@ -4193,7 +4226,8 @@ export interface CreateDataSourceRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of a role with permission to access the
-   *       data source connector. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM Roles for
+   *       data source and required resources. For more information, see
+   *       <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for
    *         Amazon Kendra</a>.</p>
    *          <p>You can't specify the <code>RoleArn</code> parameter when the
    *         <code>Type</code> parameter is set to <code>CUSTOM</code>. If you do,
@@ -4784,12 +4818,12 @@ export interface DeleteAccessControlConfigurationResponse {}
 
 export interface DeleteDataSourceRequest {
   /**
-   * <p>The identifier of the data source you want to delete.</p>
+   * <p>The identifier of the data source connector you want to delete.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The identifier of the index used with the data source.</p>
+   * <p>The identifier of the index used with the data source connector.</p>
    */
   IndexId: string | undefined;
 }
@@ -4940,12 +4974,12 @@ export interface DescribeAccessControlConfigurationResponse {
 
 export interface DescribeDataSourceRequest {
   /**
-   * <p>The identifier of the data source.</p>
+   * <p>The identifier of the data source connector.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The identifier of the index used with the data source.</p>
+   * <p>The identifier of the index used with the data source connector.</p>
    */
   IndexId: string | undefined;
 }
@@ -4960,27 +4994,27 @@ export enum DataSourceStatus {
 
 export interface DescribeDataSourceResponse {
   /**
-   * <p>The identifier of the data source.</p>
+   * <p>The identifier of the data source connector.</p>
    */
   Id?: string;
 
   /**
-   * <p>The identifier of the index that contains the data source.</p>
+   * <p>The identifier of the index used with the data source connector.</p>
    */
   IndexId?: string;
 
   /**
-   * <p>The name for the data source.</p>
+   * <p>The name for the data source connector.</p>
    */
   Name?: string;
 
   /**
-   * <p>The type of the data source.</p>
+   * <p>The type of the data source. For example, <code>SHAREPOINT</code>.</p>
    */
   Type?: DataSourceType | string;
 
   /**
-   * <p>Configuration details for the data source. This shows how the
+   * <p>Configuration details for the data source connector. This shows how the
    *       data source is configured. The configuration options for a data
    *       source depend on the data source provider.</p>
    */
@@ -4993,22 +5027,22 @@ export interface DescribeDataSourceResponse {
   VpcConfiguration?: DataSourceVpcConfiguration;
 
   /**
-   * <p>The Unix timestamp of when the data source was created.</p>
+   * <p>The Unix timestamp of when the data source connector was created.</p>
    */
   CreatedAt?: Date;
 
   /**
-   * <p>The Unix timestamp of when the data source was last updated.</p>
+   * <p>The Unix timestamp of when the data source connector was last updated.</p>
    */
   UpdatedAt?: Date;
 
   /**
-   * <p>The description for the data source.</p>
+   * <p>The description for the data source connector.</p>
    */
   Description?: string;
 
   /**
-   * <p>The current status of the data source. When the status is
+   * <p>The current status of the data source connector. When the status is
    *         <code>ACTIVE</code> the data source is ready to use. When the status is
    *         <code>FAILED</code>, the <code>ErrorMessage</code> field contains the
    *       reason that the data source failed.</p>
@@ -5021,8 +5055,8 @@ export interface DescribeDataSourceResponse {
   Schedule?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role that enables the data
-   *       source to access its resources.</p>
+   * <p>The Amazon Resource Name (ARN) of the role with permission to access
+   *       the data source and required resources.</p>
    */
   RoleArn?: string;
 
@@ -6320,20 +6354,20 @@ export interface ListAccessControlConfigurationsResponse {
 
 export interface ListDataSourcesRequest {
   /**
-   * <p>The identifier of the index used with one or more data sources.</p>
+   * <p>The identifier of the index used with one or more data source connectors.</p>
    */
   IndexId: string | undefined;
 
   /**
    * <p>If the previous response was incomplete (because there is more data to
    *       retrieve), Amazon Kendra returns a pagination token in the response. You
-   *       can use this pagination token to retrieve the next set of data sources
+   *       can use this pagination token to retrieve the next set of data source connectors
    *         (<code>DataSourceSummaryItems</code>). </p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of data sources to return.</p>
+   * <p>The maximum number of data source connectors to return.</p>
    */
   MaxResults?: number;
 }
@@ -6386,14 +6420,14 @@ export interface DataSourceSummary {
 
 export interface ListDataSourcesResponse {
   /**
-   * <p>An array of summary information for one or more data sources.</p>
+   * <p>An array of summary information for one or more data source connector.</p>
    */
   SummaryItems?: DataSourceSummary[];
 
   /**
    * <p>If the response is truncated, Amazon Kendra returns this token that you
    *       can use in the subsequent request to retrieve the next set of data
-   *       sources. </p>
+   *       source connectors.</p>
    */
   NextToken?: string;
 }
@@ -6410,12 +6444,12 @@ export enum DataSourceSyncJobStatus {
 
 export interface ListDataSourceSyncJobsRequest {
   /**
-   * <p>The identifier of the data source.</p>
+   * <p>The identifier of the data source connector.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The identifier of the index used with the data source.</p>
+   * <p>The identifier of the index used with the data source connector.</p>
    */
   IndexId: string | undefined;
 
@@ -6435,12 +6469,12 @@ export interface ListDataSourceSyncJobsRequest {
 
   /**
    * <p>When specified, the synchronization jobs returned in the list are
-   *       limited to jobs between the specified dates. </p>
+   *       limited to jobs between the specified dates.</p>
    */
   StartTimeFilter?: TimeRange;
 
   /**
-   * <p>When specified, only returns synchronization jobs with the
+   * <p>Only returns synchronization jobs with the
    *         <code>Status</code> field equal to the specified status.</p>
    */
   StatusFilter?: DataSourceSyncJobStatus | string;
@@ -6544,7 +6578,7 @@ export interface DataSourceSyncJob {
 
 export interface ListDataSourceSyncJobsResponse {
   /**
-   * <p>A history of synchronization jobs for the data source.</p>
+   * <p>A history of synchronization jobs for the data source connector.</p>
    */
   History?: DataSourceSyncJob[];
 
@@ -7661,12 +7695,12 @@ export class ResourceInUseException extends __BaseException {
 
 export interface StartDataSourceSyncJobRequest {
   /**
-   * <p>The identifier of the data source to synchronize.</p>
+   * <p>The identifier of the data source connector to synchronize.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The identifier of the index that contains the data source.</p>
+   * <p>The identifier of the index used with the data source connector.</p>
    */
   IndexId: string | undefined;
 }
@@ -7680,13 +7714,13 @@ export interface StartDataSourceSyncJobResponse {
 
 export interface StopDataSourceSyncJobRequest {
   /**
-   * <p>The identifier of the data source for which to stop the
+   * <p>The identifier of the data source connector for which to stop the
    *       synchronization jobs.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The identifier of the index that contains the data source.</p>
+   * <p>The identifier of the index used with the data source connector.</p>
    */
   IndexId: string | undefined;
 }
@@ -7832,7 +7866,7 @@ export interface UpdateAccessControlConfigurationResponse {}
 
 export interface UpdateDataSourceRequest {
   /**
-   * <p>The identifier of the data source you want to update.</p>
+   * <p>The identifier of the data source connector you want to update.</p>
    */
   Id: string | undefined;
 
@@ -7869,7 +7903,7 @@ export interface UpdateDataSourceRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of a role with permission to access
-   *       the data source. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM Roles for
+   *       the data source and required resources. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for
    *         Amazon Kendra</a>.</p>
    */
   RoleArn?: string;
@@ -8190,30 +8224,6 @@ export interface DocumentAttributeValueCountPair {
    *             are returned for a query.</p>
    */
   FacetResults?: FacetResult[];
-}
-
-/**
- * <p>The facet values for the documents in the response.</p>
- */
-export interface FacetResult {
-  /**
-   * <p>The key for the facet values. This is the same as the
-   *             <code>DocumentAttributeKey</code> provided in the query.</p>
-   */
-  DocumentAttributeKey?: string;
-
-  /**
-   * <p>The data type of the facet value. This is the same as the type
-   *          defined for the index field when it was created.</p>
-   */
-  DocumentAttributeValueType?: DocumentAttributeValueType | string;
-
-  /**
-   * <p>An array of key/value pairs, where the key is the value of the
-   *          attribute and the count is the number of documents that share the key
-   *          value.</p>
-   */
-  DocumentAttributeValueCountPairs?: DocumentAttributeValueCountPair[];
 }
 
 /**
@@ -9943,12 +9953,5 @@ export const FacetFilterSensitiveLog = (obj: Facet): any => ({
  * @internal
  */
 export const DocumentAttributeValueCountPairFilterSensitiveLog = (obj: DocumentAttributeValueCountPair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FacetResultFilterSensitiveLog = (obj: FacetResult): any => ({
   ...obj,
 });

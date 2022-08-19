@@ -28,7 +28,7 @@ export interface StartDataSourceSyncJobCommandInput extends StartDataSourceSyncJ
 export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSyncJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a synchronization job for a data source. If a synchronization
+ * <p>Starts a synchronization job for a data source connector. If a synchronization
  *       job is already in progress, Amazon Kendra returns a
  *         <code>ResourceInUseException</code> exception.</p>
  * @example

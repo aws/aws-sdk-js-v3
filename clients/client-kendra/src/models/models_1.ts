@@ -1,9 +1,10 @@
 // smithy-typescript generated code
 import {
   DocumentAttribute,
+  DocumentAttributeValueCountPair,
+  DocumentAttributeValueType,
   DocumentRelevanceConfiguration,
   Facet,
-  FacetResult,
   QueryResultItem,
   QueryResultType,
   SortingConfiguration,
@@ -12,6 +13,30 @@ import {
   UserContext,
   Warning,
 } from "./models_0";
+
+/**
+ * <p>The facet values for the documents in the response.</p>
+ */
+export interface FacetResult {
+  /**
+   * <p>The key for the facet values. This is the same as the
+   *             <code>DocumentAttributeKey</code> provided in the query.</p>
+   */
+  DocumentAttributeKey?: string;
+
+  /**
+   * <p>The data type of the facet value. This is the same as the type
+   *          defined for the index field when it was created.</p>
+   */
+  DocumentAttributeValueType?: DocumentAttributeValueType | string;
+
+  /**
+   * <p>An array of key/value pairs, where the key is the value of the
+   *          attribute and the count is the number of documents that share the key
+   *          value.</p>
+   */
+  DocumentAttributeValueCountPairs?: DocumentAttributeValueCountPair[];
+}
 
 /**
  * <p>Provides filtering the query results based on document
@@ -251,6 +276,13 @@ export interface QueryRequest {
    */
   SpellCorrectionConfiguration?: SpellCorrectionConfiguration;
 }
+
+/**
+ * @internal
+ */
+export const FacetResultFilterSensitiveLog = (obj: FacetResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal

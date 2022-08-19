@@ -28,7 +28,7 @@ export interface ListDataSourcesCommandInput extends ListDataSourcesRequest {}
 export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the data sources that you have created.</p>
+ * <p>Lists the data source connectors that you have created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

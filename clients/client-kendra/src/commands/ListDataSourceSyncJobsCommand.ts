@@ -28,8 +28,8 @@ export interface ListDataSourceSyncJobsCommandInput extends ListDataSourceSyncJo
 export interface ListDataSourceSyncJobsCommandOutput extends ListDataSourceSyncJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets statistics about synchronizing Amazon Kendra with a data
- *       source.</p>
+ * <p>Gets statistics about synchronizing a data
+ *       source connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -558,7 +558,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Creates a data source that you want to use with an Amazon Kendra index. </p>
+   * <p>Creates a data source connector that you want to use with an Amazon Kendra index.</p>
    *          <p>You specify a name, data source connector type and description for
    *       your data source. You also specify configuration information for the
    *       data source connector.</p>
@@ -822,7 +822,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Deletes an Amazon Kendra data source. An exception is not thrown if the
+   * <p>Deletes an Amazon Kendra data source connector. An exception is not thrown if the
    *       data source is already being deleted. While the data source is being
    *       deleted, the <code>Status</code> field returned by a call to the
    *         <code>DescribeDataSource</code> API is set to
@@ -1100,7 +1100,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Gets information about an Amazon Kendra data source.</p>
+   * <p>Gets information about an Amazon Kendra data source connector.</p>
    */
   public describeDataSource(
     args: DescribeDataSourceCommandInput,
@@ -1545,7 +1545,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Lists the data sources that you have created.</p>
+   * <p>Lists the data source connectors that you have created.</p>
    */
   public listDataSources(
     args: ListDataSourcesCommandInput,
@@ -1577,8 +1577,8 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Gets statistics about synchronizing Amazon Kendra with a data
-   *       source.</p>
+   * <p>Gets statistics about synchronizing a data
+   *       source connector.</p>
    */
   public listDataSourceSyncJobs(
     args: ListDataSourceSyncJobsCommandInput,
@@ -1999,7 +1999,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Starts a synchronization job for a data source. If a synchronization
+   * <p>Starts a synchronization job for a data source connector. If a synchronization
    *       job is already in progress, Amazon Kendra returns a
    *         <code>ResourceInUseException</code> exception.</p>
    */
@@ -2213,7 +2213,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Updates an existing Amazon Kendra data source.</p>
+   * <p>Updates an existing Amazon Kendra data source connector.</p>
    */
   public updateDataSource(
     args: UpdateDataSourceCommandInput,

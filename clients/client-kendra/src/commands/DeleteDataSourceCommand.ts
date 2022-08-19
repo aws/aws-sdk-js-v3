@@ -23,7 +23,7 @@ export interface DeleteDataSourceCommandInput extends DeleteDataSourceRequest {}
 export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Kendra data source. An exception is not thrown if the
+ * <p>Deletes an Amazon Kendra data source connector. An exception is not thrown if the
  *       data source is already being deleted. While the data source is being
  *       deleted, the <code>Status</code> field returned by a call to the
  *         <code>DescribeDataSource</code> API is set to
