@@ -6,7 +6,7 @@ import { isProcessProfile, resolveProcessCredentials } from "./resolveProcessCre
 jest.mock("@aws-sdk/credential-provider-process");
 
 const getMockProcessProfile = () => ({
-  credential_process: "mock_command"
+  credential_process: "mock_command",
 });
 
 describe(isProcessProfile.name, () => {
@@ -48,7 +48,7 @@ describe(resolveProcessCredentials.name, () => {
   });
 
   it("throws error when fromProcess throws", async () => {
-    const mockProfileName = 'mockProfileName';
+    const mockProfileName = "mockProfileName";
     const mockOptions = {};
     const expectedError = new Error("error from fromProcess");
 
@@ -66,7 +66,7 @@ describe(resolveProcessCredentials.name, () => {
   });
 
   it("returns creds from fromProcess", async () => {
-    const mockProfile = getMockProcessProfile();
+    const mockProfileName = "mockProfileName";
     const mockOptions = {};
 
     (fromProcess as jest.Mock).mockReturnValue(() => Promise.resolve(mockCreds));
