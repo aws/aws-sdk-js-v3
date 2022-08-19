@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
+
+
+### Bug Fixes
+
+* **util-body-length-browser:** handle trail surrogate character ([#3866](https://github.com/aws/aws-sdk-js-v3/issues/3866)) ([62657b1](https://github.com/aws/aws-sdk-js-v3/commit/62657b13af635928bf2c5ee8f449be711a379dd9))
+
+
+### Features
+
+* **client-connect:** This release adds SearchSecurityProfiles API which can be used to search for Security Profile resources within a Connect Instance. ([9a021ff](https://github.com/aws/aws-sdk-js-v3/commit/9a021ff73ad092b31866bca5cafb840828547cf5))
+* **client-kendra:** This release adds support for a new authentication type - Personal Access Token (PAT) for confluence server. ([66a1950](https://github.com/aws/aws-sdk-js-v3/commit/66a195085417bb9734538c9e8cc1f741ea01f67f))
+* **client-lookoutmetrics:** This release is to make GetDataQualityMetrics API publicly available. ([d8ee980](https://github.com/aws/aws-sdk-js-v3/commit/d8ee980d224f362ea93a849cffce8fde59510da6))
+* **clients:** update client endpoints as of 2022-08-19 ([881b2c3](https://github.com/aws/aws-sdk-js-v3/commit/881b2c39bd44ad920ff0f1aec0c13ce03ebe5740))
+
+
+
+
+
 # [3.153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.152.0...v3.153.0) (2022-08-18)
 
 

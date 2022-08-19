@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
+
+
+### Features
+
+* **client-connect:** This release adds SearchSecurityProfiles API which can be used to search for Security Profile resources within a Connect Instance. ([9a021ff](https://github.com/aws/aws-sdk-js-v3/commit/9a021ff73ad092b31866bca5cafb840828547cf5))
+
+
+
+
+
 # [3.150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.149.0...v3.150.0) (2022-08-15)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

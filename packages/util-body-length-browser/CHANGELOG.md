@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
+
+
+### Bug Fixes
+
+* **util-body-length-browser:** handle trail surrogate character ([#3866](https://github.com/aws/aws-sdk-js-v3/issues/3866)) ([62657b1](https://github.com/aws/aws-sdk-js-v3/commit/62657b13af635928bf2c5ee8f449be711a379dd9))
+
+
+
+
+
 # [3.55.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.54.1...v3.55.0) (2022-03-21)
 
 **Note:** Version bump only for package @aws-sdk/util-body-length-browser

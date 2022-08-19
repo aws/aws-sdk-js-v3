@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
+
+
+### Features
+
+* **client-lookoutmetrics:** This release is to make GetDataQualityMetrics API publicly available. ([d8ee980](https://github.com/aws/aws-sdk-js-v3/commit/d8ee980d224f362ea93a849cffce8fde59510da6))
+
+
+
+
+
 # [3.150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.149.0...v3.150.0) (2022-08-15)
 
 **Note:** Version bump only for package @aws-sdk/client-lookoutmetrics
