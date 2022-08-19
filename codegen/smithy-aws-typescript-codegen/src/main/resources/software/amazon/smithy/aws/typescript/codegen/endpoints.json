@@ -11590,6 +11590,7 @@
             "ap-south-1": {},
             "ap-southeast-1": {},
             "ap-southeast-2": {},
+            "ap-southeast-3": {},
             "ca-central-1": {},
             "eu-central-1": {},
             "eu-north-1": {},
@@ -21019,6 +21020,12 @@
             }
           }
         },
+        "wellarchitected": {
+          "endpoints": {
+            "us-gov-east-1": {},
+            "us-gov-west-1": {}
+          }
+        },
         "workspaces": {
           "endpoints": {
             "fips-us-gov-west-1": {
@@ -21134,6 +21141,7 @@
         },
         "appconfigdata": {
           "endpoints": {
+            "us-iso-east-1": {},
             "us-iso-west-1": {}
           }
         },
@@ -21658,6 +21666,11 @@
           }
         },
         "appconfig": {
+          "endpoints": {
+            "us-isob-east-1": {}
+          }
+        },
+        "appconfigdata": {
           "endpoints": {
             "us-isob-east-1": {}
           }
