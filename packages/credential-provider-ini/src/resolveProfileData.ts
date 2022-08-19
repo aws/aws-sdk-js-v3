@@ -41,6 +41,8 @@ export const resolveProfileData = async (
     return resolveWebIdentityCredentials(data, options);
   }
 
+  // If no web identity is present, attempt to assume role with
+  // process if credential_process is available
   if (isProcessProfile(data)) {
     return resolveProcessCredentials(options, profileName);
   }
