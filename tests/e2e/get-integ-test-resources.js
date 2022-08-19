@@ -4,12 +4,14 @@ const { STSClient, GetCallerIdentityCommand } = require("../../clients/client-st
 const { CloudFormationClient, DescribeStackResourcesCommand } = require("../../clients/client-cloudformation");
 const { S3ControlClient, ListMultiRegionAccessPointsCommand } = require("../../clients/client-s3-control");
 const { ensureTestStack } = require("./ensure-test-stack");
+const { deleteStaleChangesets } = require("./delete-stale-changesets");
 
 exports.getIntegTestResources = async () => {
   const cloudformation = new CloudFormationClient({ logger: console });
   const region = await cloudformation.config.region();
   const stackName = "SdkReleaseV3IntegTestResourcesStack";
 
+  await deleteStaleChangesets(cloudformation, stackName);
   await ensureTestStack(
     cloudformation,
     stackName,
