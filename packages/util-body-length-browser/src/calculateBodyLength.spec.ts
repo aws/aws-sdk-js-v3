@@ -4,12 +4,12 @@ const arrayBuffer = new ArrayBuffer(1);
 const typedArray = new Uint8Array(1);
 
 describe(calculateBodyLength.name, () => {
-  it("should handle string inputs", () => {
-    expect(calculateBodyLength("foo")).toEqual(3);
-  });
-
-  it("should handle string inputs with multi-byte characters", () => {
-    expect(calculateBodyLength("2。")).toEqual(4);
+  it.each([
+    { desc: "basic", input: "foo", output: 3 },
+    { desc: "emoji", input: "foo 🥺", output: 8 },
+    { desc: "multi-byte characters", input: "2。", output: 4 },
+  ])("should handle string input: %s", ({ input, output }) => {
+    expect(calculateBodyLength(input)).toEqual(output);
   });
 
   it("should handle inputs with byteLengths", () => {

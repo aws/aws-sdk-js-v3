@@ -6,6 +6,7 @@ export const calculateBodyLength = (body: any): number | undefined => {
       const code = body.charCodeAt(i);
       if (code > 0x7f && code <= 0x7ff) len++;
       else if (code > 0x7ff && code <= 0xffff) len += 2;
+      if (code >= 0xdc00 && code <= 0xdfff) i--; //trail surrogate
     }
 
     return len;
