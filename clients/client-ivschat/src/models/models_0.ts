@@ -267,7 +267,10 @@ export interface CreateRoomRequest {
 
   /**
    * <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>. </p>
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *          limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
+   *          there.</p>
    */
   tags?: Record<string, string>;
 }
@@ -489,8 +492,8 @@ export interface GetRoomResponse {
   updateTime?: Date;
 
   /**
-   * <p>Maximum number of messages per second that can be sent to the room (by all clients). Default:
-   *          10.</p>
+   * <p>Maximum number of messages per second that can be sent to the room (by all clients).
+   *          Default: 10.</p>
    */
   maximumMessageRatePerSecond?: number;
 
@@ -574,7 +577,10 @@ export interface RoomSummary {
   updateTime?: Date;
 
   /**
-   * <p>Tags attached to the resource. </p>
+   * <p>Tags attached to the resource. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *       Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *       limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
+   *       there.</p>
    */
   tags?: Record<string, string>;
 }
@@ -620,8 +626,7 @@ export interface ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string
-   *             (key:value)</code>.</p>
+   * <p>Tags attached to the resource, from the request.</p>
    */
   tags: Record<string, string> | undefined;
 }
@@ -660,7 +665,10 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be added or updated.</p>
+   * <p>Array of tags to be added or updated. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *          Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *          limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
+   *          there.</p>
    */
   tags: Record<string, string> | undefined;
 }
@@ -674,7 +682,10 @@ export interface UntagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be removed.</p>
+   * <p>Array of tags to be removed. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *          Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *          limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
+   *          there.</p>
    */
   tagKeys: string[] | undefined;
 }
@@ -693,8 +704,8 @@ export interface UpdateRoomRequest {
   name?: string;
 
   /**
-   * <p>Maximum number of messages per second that can be sent to the room (by all clients).  Default:
-   *          10.</p>
+   * <p>Maximum number of messages per second that can be sent to the room (by all clients).
+   *          Default: 10.</p>
    */
   maximumMessageRatePerSecond?: number;
 
@@ -743,7 +754,8 @@ export interface UpdateRoomResponse {
   updateTime?: Date;
 
   /**
-   * <p>Maximum number of messages per second that can be sent to the room (by all clients), from the request.</p>
+   * <p>Maximum number of messages per second that can be sent to the room (by all clients),
+   *          from the request.</p>
    */
   maximumMessageRatePerSecond?: number;
 
