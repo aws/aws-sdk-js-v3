@@ -30,7 +30,7 @@ export interface UpdateContactFlowModuleMetadataCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates metadata about specified contact flow module.</p>
+ * <p>Updates metadata about specified flow module.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

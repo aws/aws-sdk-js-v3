@@ -14,45 +14,46 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import {
-  StartTaskContactRequest,
-  StartTaskContactRequestFilterSensitiveLog,
-  StartTaskContactResponse,
-  StartTaskContactResponseFilterSensitiveLog,
+  SearchSecurityProfilesRequest,
+  SearchSecurityProfilesRequestFilterSensitiveLog,
+  SearchSecurityProfilesResponse,
+  SearchSecurityProfilesResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1StartTaskContactCommand,
-  serializeAws_restJson1StartTaskContactCommand,
+  deserializeAws_restJson1SearchSecurityProfilesCommand,
+  serializeAws_restJson1SearchSecurityProfilesCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface StartTaskContactCommandInput extends StartTaskContactRequest {}
-export interface StartTaskContactCommandOutput extends StartTaskContactResponse, __MetadataBearer {}
+export interface SearchSecurityProfilesCommandInput extends SearchSecurityProfilesRequest {}
+export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates a flow to start a new task.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Searches security profiles in an Amazon Connect instance, with optional filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, StartTaskContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, StartTaskContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, SearchSecurityProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, SearchSecurityProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const command = new StartTaskContactCommand(input);
+ * const command = new SearchSecurityProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link StartTaskContactCommandInput} for command's `input` shape.
- * @see {@link StartTaskContactCommandOutput} for command's `response` shape.
+ * @see {@link SearchSecurityProfilesCommandInput} for command's `input` shape.
+ * @see {@link SearchSecurityProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
-export class StartTaskContactCommand extends $Command<
-  StartTaskContactCommandInput,
-  StartTaskContactCommandOutput,
+export class SearchSecurityProfilesCommand extends $Command<
+  SearchSecurityProfilesCommandInput,
+  SearchSecurityProfilesCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: StartTaskContactCommandInput) {
+  constructor(readonly input: SearchSecurityProfilesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -65,20 +66,20 @@ export class StartTaskContactCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartTaskContactCommandInput, StartTaskContactCommandOutput> {
+  ): Handler<SearchSecurityProfilesCommandInput, SearchSecurityProfilesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "StartTaskContactCommand";
+    const commandName = "SearchSecurityProfilesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTaskContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartTaskContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: SearchSecurityProfilesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchSecurityProfilesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +89,12 @@ export class StartTaskContactCommand extends $Command<
     );
   }
 
-  private serialize(input: StartTaskContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartTaskContactCommand(input, context);
+  private serialize(input: SearchSecurityProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1SearchSecurityProfilesCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTaskContactCommandOutput> {
-    return deserializeAws_restJson1StartTaskContactCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSecurityProfilesCommandOutput> {
+    return deserializeAws_restJson1SearchSecurityProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

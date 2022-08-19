@@ -173,7 +173,7 @@ export interface AgentStatus {
   State?: AgentStatusState | string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -698,7 +698,7 @@ export interface AssociatePhoneNumberContactFlowRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow.</p>
+   * <p>The identifier of the flow.</p>
    */
   ContactFlowId: string | undefined;
 }
@@ -815,7 +815,7 @@ export interface ClaimPhoneNumberRequest {
   PhoneNumberDescription?: string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 
@@ -886,7 +886,7 @@ export interface CreateAgentStatusRequest {
   DisplayOrder?: number;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -943,40 +943,40 @@ export interface CreateContactFlowRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The name of the contact flow.</p>
+   * <p>The name of the flow.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The type of the contact flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a Contact Flow Type</a> in the <i>Amazon Connect Administrator
+   * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator
    *    Guide</i>.</p>
    */
   Type: ContactFlowType | string | undefined;
 
   /**
-   * <p>The description of the contact flow. </p>
+   * <p>The description of the flow. </p>
    */
   Description?: string;
 
   /**
-   * <p>The content of the contact flow. </p>
+   * <p>The content of the flow. </p>
    */
   Content: string | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
 
 export interface CreateContactFlowResponse {
   /**
-   * <p>The identifier of the contact flow.</p>
+   * <p>The identifier of the flow.</p>
    */
   ContactFlowId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the contact flow.</p>
+   * <p>The Amazon Resource Name (ARN) of the flow.</p>
    */
   ContactFlowArn?: string;
 }
@@ -992,13 +992,13 @@ export interface ProblemDetail {
 }
 
 /**
- * <p>The contact flow is not valid.</p>
+ * <p>The flow is not valid.</p>
  */
 export class InvalidContactFlowException extends __BaseException {
   readonly name: "InvalidContactFlowException" = "InvalidContactFlowException";
   readonly $fault: "client" = "client";
   /**
-   * <p>The problems with the contact flow. Please fix before trying again.</p>
+   * <p>The problems with the flow. Please fix before trying again.</p>
    */
   problems?: ProblemDetail[];
   /**
@@ -1022,22 +1022,22 @@ export interface CreateContactFlowModuleRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The name of the contact flow module.</p>
+   * <p>The name of the flow module.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the contact flow module. </p>
+   * <p>The description of the flow module. </p>
    */
   Description?: string;
 
   /**
-   * <p>The content of the contact flow module.</p>
+   * <p>The content of the flow module.</p>
    */
   Content: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 
@@ -1050,12 +1050,12 @@ export interface CreateContactFlowModuleRequest {
 
 export interface CreateContactFlowModuleResponse {
   /**
-   * <p>The identifier of the contact flow module.</p>
+   * <p>The identifier of the flow module.</p>
    */
   Id?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the contact flow module.</p>
+   * <p>The Amazon Resource Name (ARN) of the flow module.</p>
    */
   Arn?: string;
 }
@@ -1153,7 +1153,7 @@ export interface CreateHoursOfOperationRequest {
   Config: HoursOfOperationConfig[] | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -1246,6 +1246,9 @@ export interface CreateIntegrationAssociationRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the integration.</p>
+   *          <note>
+   *             <p>When integrating with Amazon Pinpoint, the Amazon Connect and Amazon Pinpoint instances must be in the same account.</p>
+   *          </note>
    */
   IntegrationArn: string | undefined;
 
@@ -1265,7 +1268,7 @@ export interface CreateIntegrationAssociationRequest {
   SourceType?: SourceType | string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -1339,7 +1342,7 @@ export interface CreateQueueRequest {
   QuickConnectIds?: string[];
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -1367,7 +1370,7 @@ export interface PhoneNumberQuickConnectConfig {
 }
 
 /**
- * <p>Contains information about a queue for a quick connect. The contact flow must be of type
+ * <p>Contains information about a queue for a quick connect. The flow must be of type
  *    Transfer to Queue.</p>
  */
 export interface QueueQuickConnectConfig {
@@ -1377,7 +1380,7 @@ export interface QueueQuickConnectConfig {
   QueueId: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow.</p>
+   * <p>The identifier of the flow.</p>
    */
   ContactFlowId: string | undefined;
 }
@@ -1399,7 +1402,7 @@ export interface UserQuickConnectConfig {
   UserId: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow.</p>
+   * <p>The identifier of the flow.</p>
    */
   ContactFlowId: string | undefined;
 }
@@ -1452,7 +1455,7 @@ export interface CreateQuickConnectRequest {
   QuickConnectConfig: QuickConnectConfig | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -1522,7 +1525,7 @@ export interface CreateRoutingProfileRequest {
   MediaConcurrencies: MediaConcurrency[] | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -1561,7 +1564,7 @@ export interface CreateSecurityProfileRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -1800,7 +1803,7 @@ export interface PropertyValidationExceptionProperty {
 }
 
 /**
- * <p></p>
+ * <p>The property is not valid.</p>
  */
 export class PropertyValidationException extends __BaseException {
   readonly name: "PropertyValidationException" = "PropertyValidationException";
@@ -1845,7 +1848,7 @@ export interface CreateUseCaseRequest {
   UseCaseType: UseCaseType | string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -1971,7 +1974,7 @@ export interface CreateUserRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -2006,7 +2009,7 @@ export interface CreateUserHierarchyGroupRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -2058,7 +2061,7 @@ export interface CreateVocabularyRequest {
   Content: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -2094,7 +2097,7 @@ export interface DeleteContactFlowRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow.</p>
+   * <p>The identifier of the flow.</p>
    */
   ContactFlowId: string | undefined;
 }
@@ -2106,7 +2109,7 @@ export interface DeleteContactFlowModuleRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow module.</p>
+   * <p>The identifier of the flow module.</p>
    */
   ContactFlowModuleId: string | undefined;
 }
@@ -2428,7 +2431,7 @@ export interface DescribeContactResponse {
 }
 
 /**
- * <p>The contact flow has not been published.</p>
+ * <p>The flow has not been published.</p>
  */
 export class ContactFlowNotPublishedException extends __BaseException {
   readonly name: "ContactFlowNotPublishedException" = "ContactFlowNotPublishedException";
@@ -2455,7 +2458,7 @@ export interface DescribeContactFlowRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow.</p>
+   * <p>The identifier of the flow.</p>
    */
   ContactFlowId: string | undefined;
 }
@@ -2466,54 +2469,54 @@ export enum ContactFlowState {
 }
 
 /**
- * <p>Contains information about a contact flow.</p>
+ * <p>Contains information about a flow.</p>
  */
 export interface ContactFlow {
   /**
-   * <p>The Amazon Resource Name (ARN) of the contact flow.</p>
+   * <p>The Amazon Resource Name (ARN) of the flow.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The identifier of the contact flow.</p>
+   * <p>The identifier of the flow.</p>
    */
   Id?: string;
 
   /**
-   * <p>The name of the contact flow.</p>
+   * <p>The name of the flow.</p>
    */
   Name?: string;
 
   /**
-   * <p>The type of the contact flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a Contact Flow Type</a> in the <i>Amazon Connect Administrator
+   * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator
    *    Guide</i>.</p>
    */
   Type?: ContactFlowType | string;
 
   /**
-   * <p>The type of contact flow.</p>
+   * <p>The type of flow.</p>
    */
   State?: ContactFlowState | string;
 
   /**
-   * <p>The description of the contact flow.</p>
+   * <p>The description of the flow.</p>
    */
   Description?: string;
 
   /**
-   * <p>The content of the contact flow.</p>
+   * <p>The content of the flow.</p>
    */
   Content?: string;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
 
 export interface DescribeContactFlowResponse {
   /**
-   * <p>Information about the contact flow.</p>
+   * <p>Information about the flow.</p>
    */
   ContactFlow?: ContactFlow;
 }
@@ -2525,7 +2528,7 @@ export interface DescribeContactFlowModuleRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow module.</p>
+   * <p>The identifier of the flow module.</p>
    */
   ContactFlowModuleId: string | undefined;
 }
@@ -2541,7 +2544,7 @@ export enum ContactFlowModuleStatus {
 }
 
 /**
- * <p>Contains information about a contact flow module.</p>
+ * <p>Contains information about a flow module.</p>
  */
 export interface ContactFlowModule {
   /**
@@ -2550,44 +2553,44 @@ export interface ContactFlowModule {
   Arn?: string;
 
   /**
-   * <p>The identifier of the contact flow module.</p>
+   * <p>The identifier of the flow module.</p>
    */
   Id?: string;
 
   /**
-   * <p>The name of the contact flow module.</p>
+   * <p>The name of the flow module.</p>
    */
   Name?: string;
 
   /**
-   * <p>The content of the contact flow module.</p>
+   * <p>The content of the flow module.</p>
    */
   Content?: string;
 
   /**
-   * <p>The description of the contact flow module.</p>
+   * <p>The description of the flow module.</p>
    */
   Description?: string;
 
   /**
-   * <p>The type of contact flow module.</p>
+   * <p>The type of flow module.</p>
    */
   State?: ContactFlowModuleState | string;
 
   /**
-   * <p>The status of the contact flow module.</p>
+   * <p>The status of the flow module.</p>
    */
   Status?: ContactFlowModuleStatus | string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
 
 export interface DescribeContactFlowModuleResponse {
   /**
-   * <p>Information about the contact flow module.</p>
+   * <p>Information about the flow module.</p>
    */
   ContactFlowModule?: ContactFlowModule;
 }
@@ -2639,7 +2642,7 @@ export interface HoursOfOperation {
   Config?: HoursOfOperationConfig[];
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -3123,7 +3126,7 @@ export interface ClaimedPhoneNumberSummary {
   TargetArn?: string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 
@@ -3202,7 +3205,7 @@ export interface Queue {
   Status?: QueueStatus | string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -3256,7 +3259,7 @@ export interface QuickConnect {
   QuickConnectConfig?: QuickConnectConfig;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -3321,7 +3324,7 @@ export interface RoutingProfile {
   DefaultOutboundQueueId?: string;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -3375,7 +3378,7 @@ export interface SecurityProfile {
   Description?: string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -3554,7 +3557,7 @@ export interface HierarchyGroup {
   HierarchyPath?: HierarchyPath;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -3693,7 +3696,7 @@ export interface Vocabulary {
   Content?: string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -4772,7 +4775,7 @@ export interface GetTaskTemplateResponse {
   CreatedTime?: Date;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -4916,39 +4919,39 @@ export interface ListContactFlowModulesRequest {
   MaxResults?: number;
 
   /**
-   * <p>The state of the contact flow module.</p>
+   * <p>The state of the flow module.</p>
    */
   ContactFlowModuleState?: ContactFlowModuleState | string;
 }
 
 /**
- * <p>Contains summary information about a contact flow.</p>
+ * <p>Contains summary information about a flow.</p>
  */
 export interface ContactFlowModuleSummary {
   /**
-   * <p>The identifier of the contact flow module.</p>
+   * <p>The identifier of the flow module.</p>
    */
   Id?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the contact flow module.</p>
+   * <p>The Amazon Resource Name (ARN) of the flow module.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The name of the contact flow module.</p>
+   * <p>The name of the flow module.</p>
    */
   Name?: string;
 
   /**
-   * <p>The type of contact flow module.</p>
+   * <p>The type of flow module.</p>
    */
   State?: ContactFlowModuleState | string;
 }
 
 export interface ListContactFlowModulesResponse {
   /**
-   * <p>Information about the contact flow module.</p>
+   * <p>Information about the flow module.</p>
    */
   ContactFlowModulesSummaryList?: ContactFlowModuleSummary[];
 
@@ -4965,7 +4968,7 @@ export interface ListContactFlowsRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The type of contact flow.</p>
+   * <p>The type of flow.</p>
    */
   ContactFlowTypes?: (ContactFlowType | string)[];
 
@@ -4976,46 +4979,46 @@ export interface ListContactFlowsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    */
   MaxResults?: number;
 }
 
 /**
- * <p>Contains summary information about a contact flow.</p>
- *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+ * <p>Contains summary information about a flow.</p>
+ *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
  */
 export interface ContactFlowSummary {
   /**
-   * <p>The identifier of the contact flow.</p>
+   * <p>The identifier of the flow.</p>
    */
   Id?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the contact flow.</p>
+   * <p>The Amazon Resource Name (ARN) of the flow.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The name of the contact flow.</p>
+   * <p>The name of the flow.</p>
    */
   Name?: string;
 
   /**
-   * <p>The type of contact flow.</p>
+   * <p>The type of flow.</p>
    */
   ContactFlowType?: ContactFlowType | string;
 
   /**
-   * <p>The type of contact flow.</p>
+   * <p>The type of flow.</p>
    */
   ContactFlowState?: ContactFlowState | string;
 }
 
 export interface ListContactFlowsResponse {
   /**
-   * <p>Information about the contact flows.</p>
+   * <p>Information about the flows.</p>
    */
   ContactFlowSummaryList?: ContactFlowSummary[];
 
@@ -5297,7 +5300,7 @@ export namespace ReferenceSummary {
 
 export interface ListContactReferencesResponse {
   /**
-   * <p>Information about the contact flows.</p>
+   * <p>Information about the flows.</p>
    */
   ReferenceSummaryList?: ReferenceSummary[];
 
@@ -5387,7 +5390,7 @@ export interface ListHoursOfOperationsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    */
   MaxResults?: number;
 }
@@ -5728,7 +5731,7 @@ export interface ListPhoneNumbersRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    */
   MaxResults?: number;
 }
@@ -5869,7 +5872,7 @@ export interface ListPromptsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    */
   MaxResults?: number;
 }
@@ -5924,7 +5927,7 @@ export interface ListQueueQuickConnectsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    */
   MaxResults?: number;
 }

@@ -489,6 +489,11 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
+import {
+  SearchSecurityProfilesCommand,
+  SearchSecurityProfilesCommandInput,
+  SearchSecurityProfilesCommandOutput,
+} from "./commands/SearchSecurityProfilesCommand";
 import { SearchUsersCommand, SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
 import {
   SearchVocabulariesCommand,
@@ -726,7 +731,7 @@ import { ConnectClient } from "./ConnectClient";
  *          <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For
  *    a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
  *          <note>
- *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
+ *             <p>Working with flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
  *          </note>
  */
 export class Connect extends ConnectClient {
@@ -931,7 +936,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Associates a contact flow with a phone number claimed to your Amazon Connect instance.</p>
+   * <p>Associates a flow with a phone number claimed to your Amazon Connect instance.</p>
    */
   public associatePhoneNumberContactFlow(
     args: AssociatePhoneNumberContactFlowCommandInput,
@@ -1126,8 +1131,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Creates a contact flow for the specified Amazon Connect instance.</p>
-   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   * <p>Creates a flow for the specified Amazon Connect instance.</p>
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
    */
   public createContactFlow(
@@ -1160,7 +1165,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Creates a contact flow module for the specified Amazon Connect instance. </p>
+   * <p>Creates a flow module for the specified Amazon Connect instance. </p>
    */
   public createContactFlowModule(
     args: CreateContactFlowModuleCommandInput,
@@ -1577,7 +1582,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Deletes a contact flow for the specified Amazon Connect instance.</p>
+   * <p>Deletes a flow for the specified Amazon Connect instance.</p>
    */
   public deleteContactFlow(
     args: DeleteContactFlowCommandInput,
@@ -1609,7 +1614,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Deletes the specified contact flow module.</p>
+   * <p>Deletes the specified flow module.</p>
    */
   public deleteContactFlowModule(
     args: DeleteContactFlowModuleCommandInput,
@@ -2036,8 +2041,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Describes the specified contact flow.</p>
-   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   * <p>Describes the specified flow.</p>
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
    */
   public describeContactFlow(
@@ -2070,7 +2075,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Describes the specified contact flow module.</p>
+   * <p>Describes the specified flow module.</p>
    */
   public describeContactFlowModule(
     args: DescribeContactFlowModuleCommandInput,
@@ -2630,7 +2635,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Remove the Lambda function from the dropdown options available in the relevant contact flow
+   *          <p>Remove the Lambda function from the dropdown options available in the relevant flow
    *    blocks.</p>
    */
   public disassociateLambdaFunction(
@@ -2696,8 +2701,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Removes the contact flow association from a phone number claimed to your Amazon Connect instance, if
-   *    a contact flow association exists.</p>
+   * <p>Removes the flow association from a phone number claimed to your Amazon Connect instance, if
+   *    a flow association exists.</p>
    */
   public disassociatePhoneNumberContactFlow(
     args: DisassociatePhoneNumberContactFlowCommandInput,
@@ -3126,7 +3131,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides information about the contact flow modules for the specified Amazon Connect instance.</p>
+   * <p>Provides information about the flow modules for the specified Amazon Connect instance.</p>
    */
   public listContactFlowModules(
     args: ListContactFlowModulesCommandInput,
@@ -3158,10 +3163,10 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides information about the contact flows for the specified Amazon Connect instance.</p>
-   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   * <p>Provides information about the flows for the specified Amazon Connect instance.</p>
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
-   *          <p>For more information about contact flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Contact Flows</a> in the
+   *          <p>For more information about flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Flows</a> in the
    *     <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public listContactFlows(
@@ -3432,7 +3437,7 @@ export class Connect extends ConnectClient {
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Returns a paginated list of all Lambda functions that display in the dropdown options in the
-   *    relevant contact flow blocks.</p>
+   *    relevant flow blocks.</p>
    */
   public listLambdaFunctions(
     args: ListLambdaFunctionsCommandInput,
@@ -4141,6 +4146,39 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Searches security profiles in an Amazon Connect instance, with optional filtering.</p>
+   */
+  public searchSecurityProfiles(
+    args: SearchSecurityProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchSecurityProfilesCommandOutput>;
+  public searchSecurityProfiles(
+    args: SearchSecurityProfilesCommandInput,
+    cb: (err: any, data?: SearchSecurityProfilesCommandOutput) => void
+  ): void;
+  public searchSecurityProfiles(
+    args: SearchSecurityProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchSecurityProfilesCommandOutput) => void
+  ): void;
+  public searchSecurityProfiles(
+    args: SearchSecurityProfilesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchSecurityProfilesCommandOutput) => void),
+    cb?: (err: any, data?: SearchSecurityProfilesCommandOutput) => void
+  ): Promise<SearchSecurityProfilesCommandOutput> | void {
+    const command = new SearchSecurityProfilesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Searches users in an Amazon Connect instance, with optional filtering.</p>
    */
   public searchUsers(args: SearchUsersCommandInput, options?: __HttpHandlerOptions): Promise<SearchUsersCommandOutput>;
@@ -4200,7 +4238,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Initiates a contact flow to start a new chat for the customer. Response of this API provides
+   * <p>Initiates a flow to start a new chat for the customer. Response of this API provides
    *    a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
    *
    *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s
@@ -4340,11 +4378,11 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Places an outbound call to a contact, and then initiates the contact flow. It performs the
-   *    actions in the contact flow that's specified (in <code>ContactFlowId</code>).</p>
+   * <p>Places an outbound call to a contact, and then initiates the flow. It performs the
+   *    actions in the flow that's specified (in <code>ContactFlowId</code>).</p>
    *
    *          <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If
-   *    the contact flow places an outbound call to a contact, and then puts the contact in queue, the
+   *    the flow places an outbound call to a contact, and then puts the contact in queue, the
    *    call is then routed to the agent, like any other inbound case.</p>
    *
    *          <p>There is a 60-second dialing timeout for this operation. If the call is not connected after
@@ -4357,8 +4395,8 @@ export class Connect extends ConnectClient {
    *          <note>
    *             <p>Campaign calls are not allowed by default. Before you can make a call with
    *      <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase
-   *     request. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a>
-   *     in the <i>Amazon Connect Administrator Guide</i>. </p>
+   *     request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Amazon Connect campaigns</a>.
+   *     </p>
    *          </note>
    */
   public startOutboundVoiceContact(
@@ -4391,7 +4429,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Initiates a contact flow to start a new task.</p>
+   * <p>Initiates a flow to start a new task.</p>
    */
   public startTaskContact(
     args: StartTaskContactCommandInput,
@@ -4572,9 +4610,9 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Adds the specified tags to the specified resource.</p>
-   *          <p>The supported resource types are users, routing profiles, queues, quick connects, contact
-   *    flows, agent status, hours of operation, phone number, security profiles, and task
-   *    templates.</p>
+   *          <p>Some of the supported resource types are agents, routing profiles, queues, quick connects, contact
+   *    flows, agent statuses, hours of operation, phone numbers, security profiles, and task
+   *    templates. For a complete list, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html">Tagging resources in Amazon Connect</a>.</p>
    *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
    *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -4603,7 +4641,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Transfers contacts from one agent or queue to another agent or queue at any point after a
-   *    contact is created. You can transfer a contact to another queue by providing the contact flow
+   *    contact is created. You can transfer a contact to another queue by providing the flow
    *    which orchestrates the contact to the destination queue. This gives you more control over contact
    *    handling and helps you adhere to the service level agreement (SLA) guaranteed to your
    *    customers.</p>
@@ -4616,7 +4654,7 @@ export class Connect extends ConnectClient {
    *                <p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p>
    *             </li>
    *             <li>
-   *                <p>The following contact flow types are supported: Inbound contact flow, Transfer to agent
+   *                <p>The following flow types are supported: Inbound flow, Transfer to agent
    *      flow, and Transfer to queue flow.</p>
    *             </li>
    *             <li>
@@ -4770,16 +4808,8 @@ export class Connect extends ConnectClient {
    *    from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls
    *    for additional analysis, such as legal review or to identify abusive callers.</p>
    *          <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted. For
-   *    information about CTR retention and the maximum size of the CTR attributes section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
+   *    information about contact record retention and the maximum size of the contact record attributes section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
    *     specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
-   *
-   *          <p>
-   *             <b>Important:</b> You cannot use the operation to update
-   *    attributes for contacts that occurred prior to the release of the API, which was September 12,
-   *    2018. You can update attributes only for contacts that started after the release of the API. If
-   *    you attempt to update attributes for a contact that occurred prior to the release of the API, a
-   *    400 error is returned. This applies also to queued callbacks that were initiated prior to the
-   *    release of the API but are still active in your instance.</p>
    */
   public updateContactAttributes(
     args: UpdateContactAttributesCommandInput,
@@ -4811,8 +4841,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates the specified contact flow.</p>
-   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   * <p>Updates the specified flow.</p>
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
    */
   public updateContactFlowContent(
@@ -4845,7 +4875,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates metadata about specified contact flow.</p>
+   * <p>Updates metadata about specified flow.</p>
    */
   public updateContactFlowMetadata(
     args: UpdateContactFlowMetadataCommandInput,
@@ -4877,7 +4907,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates specified contact flow module for the specified Amazon Connect instance. </p>
+   * <p>Updates specified flow module for the specified Amazon Connect instance. </p>
    */
   public updateContactFlowModuleContent(
     args: UpdateContactFlowModuleContentCommandInput,
@@ -4909,7 +4939,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates metadata about specified contact flow module.</p>
+   * <p>Updates metadata about specified flow module.</p>
    */
   public updateContactFlowModuleMetadata(
     args: UpdateContactFlowModuleMetadataCommandInput,
@@ -4941,8 +4971,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>The name of the contact flow.</p>
-   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   * <p>The name of the flow.</p>
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
    */
   public updateContactFlowName(

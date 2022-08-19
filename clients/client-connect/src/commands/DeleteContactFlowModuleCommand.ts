@@ -28,7 +28,7 @@ export interface DeleteContactFlowModuleCommandInput extends DeleteContactFlowMo
 export interface DeleteContactFlowModuleCommandOutput extends DeleteContactFlowModuleResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified contact flow module.</p>
+ * <p>Deletes the specified flow module.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

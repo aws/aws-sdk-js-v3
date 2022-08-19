@@ -23,7 +23,7 @@ export interface DeleteContactFlowCommandInput extends DeleteContactFlowRequest 
 export interface DeleteContactFlowCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a contact flow for the specified Amazon Connect instance.</p>
+ * <p>Deletes a flow for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

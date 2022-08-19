@@ -303,6 +303,10 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "../commands/SearchAvailablePhoneNumbersCommand";
+import {
+  SearchSecurityProfilesCommandInput,
+  SearchSecurityProfilesCommandOutput,
+} from "../commands/SearchSecurityProfilesCommand";
 import { SearchUsersCommandInput, SearchUsersCommandOutput } from "../commands/SearchUsersCommand";
 import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "../commands/SearchVocabulariesCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "../commands/StartChatContactCommand";
@@ -584,6 +588,9 @@ import {
   RoutingProfileQueueConfigSummary,
   RoutingProfileSummary,
   SecurityKey,
+  SecurityProfileSearchCriteria,
+  SecurityProfileSearchSummary,
+  SecurityProfilesSearchFilter,
   SecurityProfileSummary,
   StringCondition,
   TagCondition,
@@ -3609,6 +3616,39 @@ export const serializeAws_restJson1SearchAvailablePhoneNumbersCommand = async (
     ...(input.PhoneNumberPrefix != null && { PhoneNumberPrefix: input.PhoneNumberPrefix }),
     ...(input.PhoneNumberType != null && { PhoneNumberType: input.PhoneNumberType }),
     ...(input.TargetArn != null && { TargetArn: input.TargetArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SearchSecurityProfilesCommand = async (
+  input: SearchSecurityProfilesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-security-profiles";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SearchCriteria != null && {
+      SearchCriteria: serializeAws_restJson1SecurityProfileSearchCriteria(input.SearchCriteria, context),
+    }),
+    ...(input.SearchFilter != null && {
+      SearchFilter: serializeAws_restJson1SecurityProfilesSearchFilter(input.SearchFilter, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -10899,6 +10939,68 @@ const deserializeAws_restJson1SearchAvailablePhoneNumbersCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1SearchSecurityProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchSecurityProfilesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchSecurityProfilesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ApproximateTotalCount != null) {
+    contents.ApproximateTotalCount = __expectLong(data.ApproximateTotalCount);
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.SecurityProfiles != null) {
+    contents.SecurityProfiles = deserializeAws_restJson1SecurityProfilesSearchSummaryList(
+      data.SecurityProfiles,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1SearchSecurityProfilesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchSecurityProfilesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1SearchUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14184,6 +14286,45 @@ const serializeAws_restJson1SecurityProfileIds = (input: string[], context: __Se
     });
 };
 
+const serializeAws_restJson1SecurityProfileSearchConditionList = (
+  input: SecurityProfileSearchCriteria[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SecurityProfileSearchCriteria(entry, context);
+    });
+};
+
+const serializeAws_restJson1SecurityProfileSearchCriteria = (
+  input: SecurityProfileSearchCriteria,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AndConditions != null && {
+      AndConditions: serializeAws_restJson1SecurityProfileSearchConditionList(input.AndConditions, context),
+    }),
+    ...(input.OrConditions != null && {
+      OrConditions: serializeAws_restJson1SecurityProfileSearchConditionList(input.OrConditions, context),
+    }),
+    ...(input.StringCondition != null && {
+      StringCondition: serializeAws_restJson1StringCondition(input.StringCondition, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SecurityProfilesSearchFilter = (
+  input: SecurityProfilesSearchFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TagFilter != null && {
+      TagFilter: serializeAws_restJson1ControlPlaneTagFilter(input.TagFilter, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1SingleSelectOptions = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -15803,6 +15944,35 @@ const deserializeAws_restJson1SecurityProfileIds = (output: any, context: __Serd
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SecurityProfileSearchSummary = (
+  output: any,
+  context: __SerdeContext
+): SecurityProfileSearchSummary => {
+  return {
+    Arn: __expectString(output.Arn),
+    Description: __expectString(output.Description),
+    Id: __expectString(output.Id),
+    OrganizationResourceId: __expectString(output.OrganizationResourceId),
+    SecurityProfileName: __expectString(output.SecurityProfileName),
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SecurityProfilesSearchSummaryList = (
+  output: any,
+  context: __SerdeContext
+): SecurityProfileSearchSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SecurityProfileSearchSummary(entry, context);
     });
   return retVal;
 };

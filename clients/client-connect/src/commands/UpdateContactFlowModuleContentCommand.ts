@@ -30,7 +30,7 @@ export interface UpdateContactFlowModuleContentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates specified contact flow module for the specified Amazon Connect instance. </p>
+ * <p>Updates specified flow module for the specified Amazon Connect instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

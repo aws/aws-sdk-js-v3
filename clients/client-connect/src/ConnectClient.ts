@@ -331,6 +331,10 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
+import {
+  SearchSecurityProfilesCommandInput,
+  SearchSecurityProfilesCommandOutput,
+} from "./commands/SearchSecurityProfilesCommand";
 import { SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
 import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "./commands/SearchVocabulariesCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "./commands/StartChatContactCommand";
@@ -584,6 +588,7 @@ export type ServiceInputTypes =
   | ReleasePhoneNumberCommandInput
   | ResumeContactRecordingCommandInput
   | SearchAvailablePhoneNumbersCommandInput
+  | SearchSecurityProfilesCommandInput
   | SearchUsersCommandInput
   | SearchVocabulariesCommandInput
   | StartChatContactCommandInput
@@ -737,6 +742,7 @@ export type ServiceOutputTypes =
   | ReleasePhoneNumberCommandOutput
   | ResumeContactRecordingCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
+  | SearchSecurityProfilesCommandOutput
   | SearchUsersCommandOutput
   | SearchVocabulariesCommandOutput
   | StartChatContactCommandOutput
@@ -950,7 +956,7 @@ export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfig
  *          <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For
  *    a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
  *          <note>
- *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
+ *             <p>Working with flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
  *          </note>
  */
 export class ConnectClient extends __Client<

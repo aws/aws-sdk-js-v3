@@ -26,7 +26,7 @@ export interface UpdateContactFlowMetadataCommandInput extends UpdateContactFlow
 export interface UpdateContactFlowMetadataCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates metadata about specified contact flow.</p>
+ * <p>Updates metadata about specified flow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

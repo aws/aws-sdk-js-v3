@@ -28,7 +28,7 @@ export interface CreateContactFlowModuleCommandInput extends CreateContactFlowMo
 export interface CreateContactFlowModuleCommandOutput extends CreateContactFlowModuleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a contact flow module for the specified Amazon Connect instance. </p>
+ * <p>Creates a flow module for the specified Amazon Connect instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

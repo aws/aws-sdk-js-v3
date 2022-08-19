@@ -103,6 +103,7 @@ export * from "./PutUserStatusCommand";
 export * from "./ReleasePhoneNumberCommand";
 export * from "./ResumeContactRecordingCommand";
 export * from "./SearchAvailablePhoneNumbersCommand";
+export * from "./SearchSecurityProfilesCommand";
 export * from "./SearchUsersCommand";
 export * from "./SearchVocabulariesCommand";
 export * from "./StartChatContactCommand";

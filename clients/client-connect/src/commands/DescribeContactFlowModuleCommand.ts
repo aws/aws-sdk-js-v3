@@ -28,7 +28,7 @@ export interface DescribeContactFlowModuleCommandInput extends DescribeContactFl
 export interface DescribeContactFlowModuleCommandOutput extends DescribeContactFlowModuleResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the specified contact flow module.</p>
+ * <p>Describes the specified flow module.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

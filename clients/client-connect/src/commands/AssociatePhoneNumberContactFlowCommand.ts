@@ -26,7 +26,7 @@ export interface AssociatePhoneNumberContactFlowCommandInput extends AssociatePh
 export interface AssociatePhoneNumberContactFlowCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates a contact flow with a phone number claimed to your Amazon Connect instance.</p>
+ * <p>Associates a flow with a phone number claimed to your Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

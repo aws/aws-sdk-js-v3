@@ -56,7 +56,7 @@ export interface ListQueuesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    */
   MaxResults?: number;
 }
@@ -111,7 +111,7 @@ export interface ListQuickConnectsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    */
   MaxResults?: number;
 
@@ -152,7 +152,7 @@ export interface ListRoutingProfileQueuesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    */
   MaxResults?: number;
 }
@@ -221,7 +221,7 @@ export interface ListRoutingProfilesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    */
   MaxResults?: number;
 }
@@ -356,7 +356,7 @@ export interface ListSecurityProfilesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    */
   MaxResults?: number;
 }
@@ -576,7 +576,7 @@ export interface ListUserHierarchyGroupsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    */
   MaxResults?: number;
 }
@@ -606,7 +606,7 @@ export interface ListUsersRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    */
   MaxResults?: number;
 }
@@ -760,26 +760,6 @@ export interface SearchAvailablePhoneNumbersResponse {
   AvailableNumbersList?: AvailableNumberSummary[];
 }
 
-export enum HierarchyGroupMatchType {
-  EXACT = "EXACT",
-  WITH_CHILD_GROUPS = "WITH_CHILD_GROUPS",
-}
-
-/**
- * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
- */
-export interface HierarchyGroupCondition {
-  /**
-   * <p>The value in the hierarchy group condition.</p>
-   */
-  Value?: string;
-
-  /**
-   * <p>The type of hierarchy group match.</p>
-   */
-  HierarchyGroupMatchType?: HierarchyGroupMatchType | string;
-}
-
 export enum StringComparisonType {
   CONTAINS = "CONTAINS",
   EXACT = "EXACT",
@@ -854,6 +834,99 @@ export interface ControlPlaneTagFilter {
    * <p>A leaf node condition which can be used to specify a tag condition. </p>
    */
   TagCondition?: TagCondition;
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ */
+export interface SecurityProfilesSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+/**
+ * <p>Information about the returned security profiles.</p>
+ */
+export interface SecurityProfileSearchSummary {
+  /**
+   * <p>The identifier of the security profile.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The organization resource identifier.</p>
+   */
+  OrganizationResourceId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the security profile.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the security profile.</p>
+   */
+  SecurityProfileName?: string;
+
+  /**
+   * <p>The description of the security profile.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export interface SearchSecurityProfilesResponse {
+  /**
+   * <p>Information about the security profiles.</p>
+   */
+  SecurityProfiles?: SecurityProfileSearchSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The total number of security profiles which matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+export enum HierarchyGroupMatchType {
+  EXACT = "EXACT",
+  WITH_CHILD_GROUPS = "WITH_CHILD_GROUPS",
+}
+
+/**
+ * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
+ */
+export interface HierarchyGroupCondition {
+  /**
+   * <p>The value in the hierarchy group condition.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>The type of hierarchy group match.</p>
+   */
+  HierarchyGroupMatchType?: HierarchyGroupMatchType | string;
 }
 
 /**
@@ -937,7 +1010,7 @@ export interface UserSearchSummary {
   SecurityProfileIds?: string[];
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 
@@ -1085,10 +1158,10 @@ export interface StartChatContactRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow for initiating the chat.
+   * <p>The identifier of the flow for initiating the chat.
    *    To
    *    see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the
-   *    contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of
+   *    flow. On the flow page, under the name of the flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of
    *    the ARN, shown here in bold: </p>
    *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
    *          </p>
@@ -1097,7 +1170,7 @@ export interface StartChatContactRequest {
 
   /**
    * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
-   *    attributes. They can be accessed in contact flows just like any other contact attributes. </p>
+   *    attributes. They can be accessed in flows just like any other contact attributes. </p>
    *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
    *    can include only alphanumeric, dash, and underscore characters.</p>
    */
@@ -1313,10 +1386,10 @@ export interface StartOutboundVoiceContactRequest {
 
   /**
    * <p>The
-   *    identifier of the contact flow for the outbound call. To see the ContactFlowId in the Amazon Connect
+   *    identifier of the flow for the outbound call. To see the ContactFlowId in the Amazon Connect
    *    console user interface, on the navigation menu go to <b>Routing</b>,
-   *     <b>Contact Flows</b>. Choose the contact flow. On the contact flow
-   *    page, under the name of the contact flow, choose <b>Show additional flow
+   *     <b>Contact Flows</b>. Choose the flow. On the flow
+   *    page, under the name of the flow, choose <b>Show additional flow
    *     information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p>
    *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
    *          </p>
@@ -1345,14 +1418,14 @@ export interface StartOutboundVoiceContactRequest {
   /**
    * <p>The queue for the call. If you specify a queue, the phone displayed for caller ID is the
    *    phone number specified in the queue. If you do not specify a queue, the queue defined in the
-   *    contact flow is used. If you do not specify a queue, you must specify a source phone
+   *    flow is used. If you do not specify a queue, you must specify a source phone
    *    number.</p>
    */
   QueueId?: string;
 
   /**
    * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
-   *    attributes, and can be accessed in contact flows just like any other contact attributes.</p>
+   *    attributes, and can be accessed in flows just like any other contact attributes.</p>
    *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
    *    can include only alphanumeric, dash, and underscore characters.</p>
    */
@@ -1413,9 +1486,9 @@ export interface StartTaskContactRequest {
   PreviousContactId?: string;
 
   /**
-   * <p>The identifier of the contact flow for initiating the tasks. To see the ContactFlowId in the
-   *    Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On
-   *    the contact flow page, under the name of the contact flow, choose <b>Show
+   * <p>The identifier of the flow for initiating the tasks. To see the ContactFlowId in the
+   *    Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the flow. On
+   *    the flow page, under the name of the flow, choose <b>Show
    *     additional flow information</b>. The ContactFlowId is the last part of the ARN, shown
    *    here in bold: </p>
    *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
@@ -1425,7 +1498,7 @@ export interface StartTaskContactRequest {
 
   /**
    * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
-   *    attributes, and can be accessed in contact flows just like any other contact attributes.</p>
+   *    attributes, and can be accessed in flows just like any other contact attributes.</p>
    *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
    *    can include only alphanumeric, dash, and underscore characters.</p>
    */
@@ -1454,7 +1527,7 @@ export interface StartTaskContactRequest {
   ClientToken?: string;
 
   /**
-   * <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound contact flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
+   * <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
    */
   ScheduledTime?: Date;
 
@@ -1581,7 +1654,7 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>One or more tags. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   tags: Record<string, string> | undefined;
 }
@@ -1608,7 +1681,7 @@ export interface TransferContactRequest {
   UserId?: string;
 
   /**
-   * <p>The identifier of the contact flow.</p>
+   * <p>The identifier of the flow.</p>
    */
   ContactFlowId: string | undefined;
 
@@ -1723,7 +1796,7 @@ export interface UpdateContactAttributesRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The Amazon Connect attributes. These attributes can be accessed in contact flows just like any other
+   * <p>The Amazon Connect attributes. These attributes can be accessed in flows just like any other
    *    contact attributes.</p>
    *          <p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys
    *    can include only alphanumeric, dash, and underscore characters.</p>
@@ -1740,12 +1813,12 @@ export interface UpdateContactFlowContentRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow.</p>
+   * <p>The identifier of the flow.</p>
    */
   ContactFlowId: string | undefined;
 
   /**
-   * <p>The JSON string that represents contact flow’s content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html">Example contact
+   * <p>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html">Example contact
    *     flow in Amazon Connect Flow language</a> in the <i>Amazon Connect Administrator Guide</i>.
    *   </p>
    */
@@ -1759,22 +1832,22 @@ export interface UpdateContactFlowMetadataRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow.</p>
+   * <p>The identifier of the flow.</p>
    */
   ContactFlowId: string | undefined;
 
   /**
-   * <p>TThe name of the contact flow.</p>
+   * <p>TThe name of the flow.</p>
    */
   Name?: string;
 
   /**
-   * <p>The description of the contact flow.</p>
+   * <p>The description of the flow.</p>
    */
   Description?: string;
 
   /**
-   * <p>The state of contact flow.</p>
+   * <p>The state of flow.</p>
    */
   ContactFlowState?: ContactFlowState | string;
 }
@@ -1786,12 +1859,12 @@ export interface UpdateContactFlowModuleContentRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow module.</p>
+   * <p>The identifier of the flow module.</p>
    */
   ContactFlowModuleId: string | undefined;
 
   /**
-   * <p>The content of the contact flow module.</p>
+   * <p>The content of the flow module.</p>
    */
   Content: string | undefined;
 }
@@ -1805,22 +1878,22 @@ export interface UpdateContactFlowModuleMetadataRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow module.</p>
+   * <p>The identifier of the flow module.</p>
    */
   ContactFlowModuleId: string | undefined;
 
   /**
-   * <p>The name of the contact flow module.</p>
+   * <p>The name of the flow module.</p>
    */
   Name?: string;
 
   /**
-   * <p>The description of the contact flow module.</p>
+   * <p>The description of the flow module.</p>
    */
   Description?: string;
 
   /**
-   * <p>The state of contact flow module.</p>
+   * <p>The state of flow module.</p>
    */
   State?: ContactFlowModuleState | string;
 }
@@ -1834,17 +1907,17 @@ export interface UpdateContactFlowNameRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow.</p>
+   * <p>The identifier of the flow.</p>
    */
   ContactFlowId: string | undefined;
 
   /**
-   * <p>The name of the contact flow.</p>
+   * <p>The name of the flow.</p>
    */
   Name?: string;
 
   /**
-   * <p>The description of the contact flow.</p>
+   * <p>The description of the flow.</p>
    */
   Description?: string;
 }
@@ -1861,7 +1934,7 @@ export interface UpdateContactScheduleRequest {
   ContactId: string | undefined;
 
   /**
-   * <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound contact flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
+   * <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
    */
   ScheduledTime: Date | undefined;
 }
@@ -2469,6 +2542,27 @@ export interface UpdateUserSecurityProfilesRequest {
 }
 
 /**
+ * <p>The search criteria to be used to return security profiles.</p>
+ */
+export interface SecurityProfileSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   */
+  OrConditions?: SecurityProfileSearchCriteria[];
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   */
+  AndConditions?: SecurityProfileSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition, for example,
+   *     <code>username = 'abc'</code>. </p>
+   */
+  StringCondition?: StringCondition;
+}
+
+/**
  * <p>The search criteria to be used to return users.</p>
  */
 export interface UserSearchCriteria {
@@ -2493,6 +2587,34 @@ export interface UserSearchCriteria {
    * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
    */
   HierarchyGroupCondition?: HierarchyGroupCondition;
+}
+
+export interface SearchSecurityProfilesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The search criteria to be used to return security profiles.</p>
+   */
+  SearchCriteria?: SecurityProfileSearchCriteria;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   */
+  SearchFilter?: SecurityProfilesSearchFilter;
 }
 
 export interface SearchUsersRequest {
@@ -2812,13 +2934,6 @@ export const SearchAvailablePhoneNumbersResponseFilterSensitiveLog = (
 /**
  * @internal
  */
-export const HierarchyGroupConditionFilterSensitiveLog = (obj: HierarchyGroupCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StringConditionFilterSensitiveLog = (obj: StringCondition): any => ({
   ...obj,
 });
@@ -2834,6 +2949,34 @@ export const TagConditionFilterSensitiveLog = (obj: TagCondition): any => ({
  * @internal
  */
 export const ControlPlaneTagFilterFilterSensitiveLog = (obj: ControlPlaneTagFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecurityProfilesSearchFilterFilterSensitiveLog = (obj: SecurityProfilesSearchFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecurityProfileSearchSummaryFilterSensitiveLog = (obj: SecurityProfileSearchSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchSecurityProfilesResponseFilterSensitiveLog = (obj: SearchSecurityProfilesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HierarchyGroupConditionFilterSensitiveLog = (obj: HierarchyGroupCondition): any => ({
   ...obj,
 });
 
@@ -3397,7 +3540,21 @@ export const UpdateUserSecurityProfilesRequestFilterSensitiveLog = (obj: UpdateU
 /**
  * @internal
  */
+export const SecurityProfileSearchCriteriaFilterSensitiveLog = (obj: SecurityProfileSearchCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const UserSearchCriteriaFilterSensitiveLog = (obj: UserSearchCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchSecurityProfilesRequestFilterSensitiveLog = (obj: SearchSecurityProfilesRequest): any => ({
   ...obj,
 });
 

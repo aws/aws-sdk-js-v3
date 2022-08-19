@@ -23,8 +23,8 @@ export interface UpdateContactFlowContentCommandInput extends UpdateContactFlowC
 export interface UpdateContactFlowContentCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the specified contact flow.</p>
- *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+ * <p>Updates the specified flow.</p>
+ *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

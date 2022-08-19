@@ -28,7 +28,7 @@ export interface StartChatContactCommandInput extends StartChatContactRequest {}
 export interface StartChatContactCommandOutput extends StartChatContactResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates a contact flow to start a new chat for the customer. Response of this API provides
+ * <p>Initiates a flow to start a new chat for the customer. Response of this API provides
  *    a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
  *
  *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s
