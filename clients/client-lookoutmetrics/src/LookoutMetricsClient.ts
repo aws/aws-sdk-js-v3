@@ -91,6 +91,10 @@ import {
   DetectMetricSetConfigCommandOutput,
 } from "./commands/DetectMetricSetConfigCommand";
 import { GetAnomalyGroupCommandInput, GetAnomalyGroupCommandOutput } from "./commands/GetAnomalyGroupCommand";
+import {
+  GetDataQualityMetricsCommandInput,
+  GetDataQualityMetricsCommandOutput,
+} from "./commands/GetDataQualityMetricsCommand";
 import { GetFeedbackCommandInput, GetFeedbackCommandOutput } from "./commands/GetFeedbackCommand";
 import { GetSampleDataCommandInput, GetSampleDataCommandOutput } from "./commands/GetSampleDataCommand";
 import { ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
@@ -141,6 +145,7 @@ export type ServiceInputTypes =
   | DescribeMetricSetCommandInput
   | DetectMetricSetConfigCommandInput
   | GetAnomalyGroupCommandInput
+  | GetDataQualityMetricsCommandInput
   | GetFeedbackCommandInput
   | GetSampleDataCommandInput
   | ListAlertsCommandInput
@@ -172,6 +177,7 @@ export type ServiceOutputTypes =
   | DescribeMetricSetCommandOutput
   | DetectMetricSetConfigCommandOutput
   | GetAnomalyGroupCommandOutput
+  | GetDataQualityMetricsCommandOutput
   | GetFeedbackCommandOutput
   | GetSampleDataCommandOutput
   | ListAlertsCommandOutput

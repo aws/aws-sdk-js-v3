@@ -63,6 +63,11 @@ import {
   GetAnomalyGroupCommandInput,
   GetAnomalyGroupCommandOutput,
 } from "./commands/GetAnomalyGroupCommand";
+import {
+  GetDataQualityMetricsCommand,
+  GetDataQualityMetricsCommandInput,
+  GetDataQualityMetricsCommandOutput,
+} from "./commands/GetDataQualityMetricsCommand";
 import { GetFeedbackCommand, GetFeedbackCommandInput, GetFeedbackCommandOutput } from "./commands/GetFeedbackCommand";
 import {
   GetSampleDataCommand,
@@ -559,6 +564,38 @@ export class LookoutMetrics extends LookoutMetricsClient {
     cb?: (err: any, data?: GetAnomalyGroupCommandOutput) => void
   ): Promise<GetAnomalyGroupCommandOutput> | void {
     const command = new GetAnomalyGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns details about the requested data quality metrics.</p>
+   */
+  public getDataQualityMetrics(
+    args: GetDataQualityMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataQualityMetricsCommandOutput>;
+  public getDataQualityMetrics(
+    args: GetDataQualityMetricsCommandInput,
+    cb: (err: any, data?: GetDataQualityMetricsCommandOutput) => void
+  ): void;
+  public getDataQualityMetrics(
+    args: GetDataQualityMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataQualityMetricsCommandOutput) => void
+  ): void;
+  public getDataQualityMetrics(
+    args: GetDataQualityMetricsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataQualityMetricsCommandOutput) => void),
+    cb?: (err: any, data?: GetDataQualityMetricsCommandOutput) => void
+  ): Promise<GetDataQualityMetricsCommandOutput> | void {
+    const command = new GetDataQualityMetricsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

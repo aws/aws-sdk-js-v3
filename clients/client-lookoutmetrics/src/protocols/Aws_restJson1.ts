@@ -59,6 +59,10 @@ import {
   DetectMetricSetConfigCommandOutput,
 } from "../commands/DetectMetricSetConfigCommand";
 import { GetAnomalyGroupCommandInput, GetAnomalyGroupCommandOutput } from "../commands/GetAnomalyGroupCommand";
+import {
+  GetDataQualityMetricsCommandInput,
+  GetDataQualityMetricsCommandOutput,
+} from "../commands/GetDataQualityMetricsCommand";
 import { GetFeedbackCommandInput, GetFeedbackCommandOutput } from "../commands/GetFeedbackCommand";
 import { GetSampleDataCommandInput, GetSampleDataCommandOutput } from "../commands/GetSampleDataCommand";
 import { ListAlertsCommandInput, ListAlertsCommandOutput } from "../commands/ListAlertsCommand";
@@ -101,6 +105,7 @@ import {
   AlertSummary,
   AnomalyDetectorConfig,
   AnomalyDetectorConfigSummary,
+  AnomalyDetectorDataQualityMetric,
   AnomalyDetectorSummary,
   AnomalyGroup,
   AnomalyGroupStatistics,
@@ -117,6 +122,7 @@ import {
   ConflictException,
   ContributionMatrix,
   CsvFormatDescriptor,
+  DataQualityMetric,
   DetectedCsvFormatDescriptor,
   DetectedField,
   DetectedFileFormatDescriptor,
@@ -137,6 +143,7 @@ import {
   LambdaConfiguration,
   Metric,
   MetricLevelImpact,
+  MetricSetDataQualityMetric,
   MetricSetSummary,
   MetricSource,
   RDSSourceConfig,
@@ -524,6 +531,31 @@ export const serializeAws_restJson1GetAnomalyGroupCommand = async (
   body = JSON.stringify({
     ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
     ...(input.AnomalyGroupId != null && { AnomalyGroupId: input.AnomalyGroupId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetDataQualityMetricsCommand = async (
+  input: GetDataQualityMetricsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDataQualityMetrics";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
+    ...(input.MetricSetArn != null && { MetricSetArn: input.MetricSetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -1743,6 +1775,62 @@ const deserializeAws_restJson1GetAnomalyGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAnomalyGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutmetrics#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutmetrics#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutmetrics#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.lookoutmetrics#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutmetrics#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetDataQualityMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataQualityMetricsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetDataQualityMetricsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AnomalyDetectorDataQualityMetricList != null) {
+    contents.AnomalyDetectorDataQualityMetricList = deserializeAws_restJson1AnomalyDetectorDataQualityMetricList(
+      data.AnomalyDetectorDataQualityMetricList,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetDataQualityMetricsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataQualityMetricsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3187,6 +3275,37 @@ const deserializeAws_restJson1AnomalyDetectorConfigSummary = (
   } as any;
 };
 
+const deserializeAws_restJson1AnomalyDetectorDataQualityMetric = (
+  output: any,
+  context: __SerdeContext
+): AnomalyDetectorDataQualityMetric => {
+  return {
+    MetricSetDataQualityMetricList:
+      output.MetricSetDataQualityMetricList != null
+        ? deserializeAws_restJson1MetricSetDataQualityMetricList(output.MetricSetDataQualityMetricList, context)
+        : undefined,
+    StartTimestamp:
+      output.StartTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTimestamp)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AnomalyDetectorDataQualityMetricList = (
+  output: any,
+  context: __SerdeContext
+): AnomalyDetectorDataQualityMetric[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AnomalyDetectorDataQualityMetric(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1AnomalyDetectorSummary = (
   output: any,
   context: __SerdeContext
@@ -3355,6 +3474,27 @@ const deserializeAws_restJson1CsvFormatDescriptor = (output: any, context: __Ser
     HeaderList: output.HeaderList != null ? deserializeAws_restJson1HeaderList(output.HeaderList, context) : undefined,
     QuoteSymbol: __expectString(output.QuoteSymbol),
   } as any;
+};
+
+const deserializeAws_restJson1DataQualityMetric = (output: any, context: __SerdeContext): DataQualityMetric => {
+  return {
+    MetricDescription: __expectString(output.MetricDescription),
+    MetricType: __expectString(output.MetricType),
+    MetricValue: __limitedParseDouble(output.MetricValue),
+    RelatedColumnName: __expectString(output.RelatedColumnName),
+  } as any;
+};
+
+const deserializeAws_restJson1DataQualityMetricList = (output: any, context: __SerdeContext): DataQualityMetric[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DataQualityMetric(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1DetectedCsvFormatDescriptor = (
@@ -3750,6 +3890,34 @@ const deserializeAws_restJson1MetricNameList = (output: any, context: __SerdeCon
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MetricSetDataQualityMetric = (
+  output: any,
+  context: __SerdeContext
+): MetricSetDataQualityMetric => {
+  return {
+    DataQualityMetricList:
+      output.DataQualityMetricList != null
+        ? deserializeAws_restJson1DataQualityMetricList(output.DataQualityMetricList, context)
+        : undefined,
+    MetricSetArn: __expectString(output.MetricSetArn),
+  } as any;
+};
+
+const deserializeAws_restJson1MetricSetDataQualityMetricList = (
+  output: any,
+  context: __SerdeContext
+): MetricSetDataQualityMetric[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MetricSetDataQualityMetric(entry, context);
     });
   return retVal;
 };

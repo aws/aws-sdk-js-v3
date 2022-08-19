@@ -13,6 +13,7 @@ export * from "./DescribeAnomalyDetectorCommand";
 export * from "./DescribeMetricSetCommand";
 export * from "./DetectMetricSetConfigCommand";
 export * from "./GetAnomalyGroupCommand";
+export * from "./GetDataQualityMetricsCommand";
 export * from "./GetFeedbackCommand";
 export * from "./GetSampleDataCommand";
 export * from "./ListAlertsCommand";
