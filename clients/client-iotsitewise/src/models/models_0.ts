@@ -1299,6 +1299,37 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * <p>The resource already exists.</p>
+ */
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The ID of the resource that already exists.</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The ARN of the resource that already exists.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceArn = opts.resourceArn;
+  }
+}
+
+/**
  * <p>The requested resource can't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -2247,37 +2278,6 @@ export interface CreateAssetResponse {
    *       calling this operation) and any error message.</p>
    */
   assetStatus: AssetStatus | undefined;
-}
-
-/**
- * <p>The resource already exists.</p>
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that already exists.</p>
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The ARN of the resource that already exists.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceArn = opts.resourceArn;
-  }
 }
 
 export interface CreateAssetModelRequest {
