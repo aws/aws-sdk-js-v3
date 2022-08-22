@@ -227,11 +227,6 @@ import {
   MalformedRequestBodyCommandOutput,
 } from "./commands/MalformedRequestBodyCommand";
 import {
-  MalformedSetCommand,
-  MalformedSetCommandInput,
-  MalformedSetCommandOutput,
-} from "./commands/MalformedSetCommand";
-import {
   MalformedShortCommand,
   MalformedShortCommandInput,
   MalformedShortCommandOutput,
@@ -341,6 +336,11 @@ import {
   PostPlayerActionCommandInput,
   PostPlayerActionCommandOutput,
 } from "./commands/PostPlayerActionCommand";
+import {
+  PostUnionWithJsonNameCommand,
+  PostUnionWithJsonNameCommandInput,
+  PostUnionWithJsonNameCommandOutput,
+} from "./commands/PostUnionWithJsonNameCommand";
 import {
   QueryIdempotencyTokenAutoFillCommand,
   QueryIdempotencyTokenAutoFillCommandInput,
@@ -1912,32 +1912,6 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
-  public malformedSet(
-    args: MalformedSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<MalformedSetCommandOutput>;
-  public malformedSet(args: MalformedSetCommandInput, cb: (err: any, data?: MalformedSetCommandOutput) => void): void;
-  public malformedSet(
-    args: MalformedSetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: MalformedSetCommandOutput) => void
-  ): void;
-  public malformedSet(
-    args: MalformedSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedSetCommandOutput) => void),
-    cb?: (err: any, data?: MalformedSetCommandOutput) => void
-  ): Promise<MalformedSetCommandOutput> | void {
-    const command = new MalformedSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
   public malformedShort(
     args: MalformedShortCommandInput,
     options?: __HttpHandlerOptions
@@ -2592,6 +2566,38 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: PostPlayerActionCommandOutput) => void
   ): Promise<PostPlayerActionCommandOutput> | void {
     const command = new PostPlayerActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This operation defines a union that uses jsonName on some members.
+   */
+  public postUnionWithJsonName(
+    args: PostUnionWithJsonNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PostUnionWithJsonNameCommandOutput>;
+  public postUnionWithJsonName(
+    args: PostUnionWithJsonNameCommandInput,
+    cb: (err: any, data?: PostUnionWithJsonNameCommandOutput) => void
+  ): void;
+  public postUnionWithJsonName(
+    args: PostUnionWithJsonNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PostUnionWithJsonNameCommandOutput) => void
+  ): void;
+  public postUnionWithJsonName(
+    args: PostUnionWithJsonNameCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostUnionWithJsonNameCommandOutput) => void),
+    cb?: (err: any, data?: PostUnionWithJsonNameCommandOutput) => void
+  ): Promise<PostUnionWithJsonNameCommandOutput> | void {
+    const command = new PostUnionWithJsonNameCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -175,7 +175,6 @@ import {
   MalformedRequestBodyCommandInput,
   MalformedRequestBodyCommandOutput,
 } from "./commands/MalformedRequestBodyCommand";
-import { MalformedSetCommandInput, MalformedSetCommandOutput } from "./commands/MalformedSetCommand";
 import { MalformedShortCommandInput, MalformedShortCommandOutput } from "./commands/MalformedShortCommand";
 import { MalformedStringCommandInput, MalformedStringCommandOutput } from "./commands/MalformedStringCommand";
 import {
@@ -243,6 +242,10 @@ import {
   OmitsNullSerializesEmptyStringCommandOutput,
 } from "./commands/OmitsNullSerializesEmptyStringCommand";
 import { PostPlayerActionCommandInput, PostPlayerActionCommandOutput } from "./commands/PostPlayerActionCommand";
+import {
+  PostUnionWithJsonNameCommandInput,
+  PostUnionWithJsonNameCommandOutput,
+} from "./commands/PostUnionWithJsonNameCommand";
 import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
@@ -330,7 +333,6 @@ export type ServiceInputTypes =
   | MalformedLongCommandInput
   | MalformedMapCommandInput
   | MalformedRequestBodyCommandInput
-  | MalformedSetCommandInput
   | MalformedShortCommandInput
   | MalformedStringCommandInput
   | MalformedTimestampBodyDateTimeCommandInput
@@ -353,6 +355,7 @@ export type ServiceInputTypes =
   | NullAndEmptyHeadersServerCommandInput
   | OmitsNullSerializesEmptyStringCommandInput
   | PostPlayerActionCommandInput
+  | PostUnionWithJsonNameCommandInput
   | QueryIdempotencyTokenAutoFillCommandInput
   | QueryParamsAsStringListMapCommandInput
   | QueryPrecedenceCommandInput
@@ -418,7 +421,6 @@ export type ServiceOutputTypes =
   | MalformedLongCommandOutput
   | MalformedMapCommandOutput
   | MalformedRequestBodyCommandOutput
-  | MalformedSetCommandOutput
   | MalformedShortCommandOutput
   | MalformedStringCommandOutput
   | MalformedTimestampBodyDateTimeCommandOutput
@@ -441,6 +443,7 @@ export type ServiceOutputTypes =
   | NullAndEmptyHeadersServerCommandOutput
   | OmitsNullSerializesEmptyStringCommandOutput
   | PostPlayerActionCommandOutput
+  | PostUnionWithJsonNameCommandOutput
   | QueryIdempotencyTokenAutoFillCommandOutput
   | QueryParamsAsStringListMapCommandOutput
   | QueryPrecedenceCommandOutput

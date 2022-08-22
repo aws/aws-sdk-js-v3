@@ -43,6 +43,7 @@ import { NoInputAndOutputCommand } from "../../src/commands/NoInputAndOutputComm
 import { NullAndEmptyHeadersClientCommand } from "../../src/commands/NullAndEmptyHeadersClientCommand";
 import { OmitsNullSerializesEmptyStringCommand } from "../../src/commands/OmitsNullSerializesEmptyStringCommand";
 import { PostPlayerActionCommand } from "../../src/commands/PostPlayerActionCommand";
+import { PostUnionWithJsonNameCommand } from "../../src/commands/PostUnionWithJsonNameCommand";
 import { QueryIdempotencyTokenAutoFillCommand } from "../../src/commands/QueryIdempotencyTokenAutoFillCommand";
 import { QueryParamsAsStringListMapCommand } from "../../src/commands/QueryParamsAsStringListMapCommand";
 import { QueryPrecedenceCommand } from "../../src/commands/QueryPrecedenceCommand";
@@ -6529,6 +6530,264 @@ it("RestJsonOutputUnionWithUnitMember:Response", async () => {
     {
       action: {
         quit: {},
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Tests that jsonName works with union members.
+ */
+it("PostUnionWithJsonNameRequest1:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new PostUnionWithJsonNameCommand({
+    value: {
+      foo: "hi",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/PostUnionWithJsonName");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"value\": {
+            \"FOO\": \"hi\"
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Tests that jsonName works with union members.
+ */
+it("PostUnionWithJsonNameRequest2:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new PostUnionWithJsonNameCommand({
+    value: {
+      baz: "hi",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/PostUnionWithJsonName");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"value\": {
+            \"_baz\": \"hi\"
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Tests that jsonName works with union members.
+ */
+it("PostUnionWithJsonNameRequest3:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new PostUnionWithJsonNameCommand({
+    value: {
+      bar: "hi",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/PostUnionWithJsonName");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"value\": {
+            \"bar\": \"hi\"
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Tests that jsonName works with union members.
+ */
+it("PostUnionWithJsonNameResponse1:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "value": {
+              "FOO": "hi"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new PostUnionWithJsonNameCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      value: {
+        foo: "hi",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Tests that jsonName works with union members.
+ */
+it("PostUnionWithJsonNameResponse2:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "value": {
+              "_baz": "hi"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new PostUnionWithJsonNameCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      value: {
+        baz: "hi",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Tests that jsonName works with union members.
+ */
+it("PostUnionWithJsonNameResponse3:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "value": {
+              "bar": "hi"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new PostUnionWithJsonNameCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      value: {
+        bar: "hi",
       },
     },
   ][0];

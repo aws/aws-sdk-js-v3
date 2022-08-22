@@ -214,7 +214,7 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
     ],
     StringSet: [
       () => input.queryStringSet !== void 0,
-      () => (Array.from(input.queryStringSet!.values()) || []).map((_entry) => _entry as any),
+      () => (input.queryStringSet! || []).map((_entry) => _entry as any),
     ],
     Byte: [() => input.queryByte !== void 0, () => input.queryByte!.toString()],
     Short: [() => input.queryShort !== void 0, () => input.queryShort!.toString()],
@@ -225,7 +225,7 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
     ],
     IntegerSet: [
       () => input.queryIntegerSet !== void 0,
-      () => (Array.from(input.queryIntegerSet!.values()) || []).map((_entry) => _entry.toString() as any),
+      () => (input.queryIntegerSet! || []).map((_entry) => _entry.toString() as any),
     ],
     Long: [() => input.queryLong !== void 0, () => input.queryLong!.toString()],
     Float: [
@@ -1090,7 +1090,7 @@ export const serializeAws_restXmlInputAndOutputWithHeadersCommand = async (
     ],
     "x-stringset": [
       () => isSerializableHeaderValue(input.headerStringSet),
-      () => (Array.from(input.headerStringSet!.values()) || []).map((_entry) => _entry as any).join(", "),
+      () => (input.headerStringSet! || []).map((_entry) => _entry as any).join(", "),
     ],
     "x-integerlist": [
       () => isSerializableHeaderValue(input.headerIntegerList),
@@ -4717,7 +4717,7 @@ const serializeAws_restXmlBooleanList = (input: boolean[], context: __SerdeConte
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("PrimitiveBoolean", String(entry));
+      const node = __XmlNode.of("Boolean", String(entry));
       return node.withName("member");
     });
 };
