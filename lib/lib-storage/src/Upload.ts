@@ -77,7 +77,7 @@ export class Upload extends EventEmitter {
     // set progress defaults
     this.totalBytes = byteLength(this.params.Body);
     this.bytesUploadedSoFar = 0;
-    this.abortController = new AbortController();
+    this.abortController = options.abortController ?? new AbortController();
   }
 
   async abort(): Promise<void> {
