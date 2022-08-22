@@ -153,6 +153,10 @@ import {
   StartBotRecommendationCommandOutput,
 } from "./commands/StartBotRecommendationCommand";
 import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
+import {
+  StopBotRecommendationCommandInput,
+  StopBotRecommendationCommandOutput,
+} from "./commands/StopBotRecommendationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateBotAliasCommandInput, UpdateBotAliasCommandOutput } from "./commands/UpdateBotAliasCommand";
@@ -228,6 +232,7 @@ export type ServiceInputTypes =
   | SearchAssociatedTranscriptsCommandInput
   | StartBotRecommendationCommandInput
   | StartImportCommandInput
+  | StopBotRecommendationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBotAliasCommandInput
@@ -296,6 +301,7 @@ export type ServiceOutputTypes =
   | SearchAssociatedTranscriptsCommandOutput
   | StartBotRecommendationCommandOutput
   | StartImportCommandOutput
+  | StopBotRecommendationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBotAliasCommandOutput

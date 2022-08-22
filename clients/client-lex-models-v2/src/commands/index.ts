@@ -54,6 +54,7 @@ export * from "./ListTagsForResourceCommand";
 export * from "./SearchAssociatedTranscriptsCommand";
 export * from "./StartBotRecommendationCommand";
 export * from "./StartImportCommand";
+export * from "./StopBotRecommendationCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateBotAliasCommand";

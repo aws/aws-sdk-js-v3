@@ -232,6 +232,11 @@ import {
   StartBotRecommendationCommandOutput,
 } from "./commands/StartBotRecommendationCommand";
 import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
+import {
+  StopBotRecommendationCommand,
+  StopBotRecommendationCommandInput,
+  StopBotRecommendationCommandOutput,
+} from "./commands/StopBotRecommendationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -2107,6 +2112,38 @@ export class LexModelsV2 extends LexModelsV2Client {
     cb?: (err: any, data?: StartImportCommandOutput) => void
   ): Promise<StartImportCommandOutput> | void {
     const command = new StartImportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stop an already running Bot Recommendation request.</p>
+   */
+  public stopBotRecommendation(
+    args: StopBotRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopBotRecommendationCommandOutput>;
+  public stopBotRecommendation(
+    args: StopBotRecommendationCommandInput,
+    cb: (err: any, data?: StopBotRecommendationCommandOutput) => void
+  ): void;
+  public stopBotRecommendation(
+    args: StopBotRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopBotRecommendationCommandOutput) => void
+  ): void;
+  public stopBotRecommendation(
+    args: StopBotRecommendationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopBotRecommendationCommandOutput) => void),
+    cb?: (err: any, data?: StopBotRecommendationCommandOutput) => void
+  ): Promise<StopBotRecommendationCommandOutput> | void {
+    const command = new StopBotRecommendationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -780,6 +780,8 @@ export enum BotRecommendationStatus {
   Downloading = "Downloading",
   Failed = "Failed",
   Processing = "Processing",
+  Stopped = "Stopped",
+  Stopping = "Stopping",
   Updating = "Updating",
 }
 
@@ -6182,6 +6184,67 @@ export interface StartImportResponse {
   creationDateTime?: Date;
 }
 
+export interface StopBotRecommendationRequest {
+  /**
+   * <p>The unique identifier of the bot containing the bot
+   *          recommendation to be stopped.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot containing the bot recommendation.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale of the bot recommendation
+   *          to stop. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>
+   *          </p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the bot recommendation to be
+   *          stopped.</p>
+   */
+  botRecommendationId: string | undefined;
+}
+
+export interface StopBotRecommendationResponse {
+  /**
+   * <p>The unique identifier of the bot containing the bot recommendation that
+   *          is being stopped.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot containing the recommendation that is being
+   *          stopped.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The identifier of the language and locale of the bot response
+   *          to stop. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>
+   *          </p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The status of the bot recommendation. If the status is Failed,
+   *          then the reasons for the failure are listed in the failureReasons field.</p>
+   */
+  botRecommendationStatus?: BotRecommendationStatus | string;
+
+  /**
+   * <p>The unique identifier of the bot recommendation that is being
+   *          stopped.</p>
+   */
+  botRecommendationId?: string;
+}
+
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot, bot alias, or bot channel
@@ -7200,92 +7263,6 @@ export interface FulfillmentCodeHookSettings {
    *             <code>active</code> is false, the code hook doesn't run.</p>
    */
   active?: boolean;
-}
-
-/**
- * <p>Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.</p>
- */
-export interface InitialResponseSetting {
-  /**
-   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
-   *          user input.</p>
-   */
-  initialResponse?: ResponseSpecification;
-
-  /**
-   * <p>The next step in the conversation.</p>
-   */
-  nextStep?: DialogState;
-
-  /**
-   * <p>Provides a list of conditional branches. Branches are evaluated in
-   *          the order that they are entered in the list. The first branch with a
-   *          condition that evaluates to true is executed. The last branch in the
-   *          list is the default branch. The default branch should not have any condition
-   *          expression. The default branch is executed if no other branch has a
-   *          matching condition.</p>
-   */
-  conditional?: ConditionalSpecification;
-
-  /**
-   * <p> Settings that specify the dialog code hook that is
-   *          called by Amazon Lex at a step of the conversation. </p>
-   */
-  codeHook?: DialogCodeHookInvocationSetting;
-}
-
-/**
- * <p>Settings used when Amazon Lex successfully captures a slot
- *          value from a user.</p>
- */
-export interface SlotCaptureSetting {
-  /**
-   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
-   *          user input.</p>
-   */
-  captureResponse?: ResponseSpecification;
-
-  /**
-   * <p>Specifies the next step that the bot runs when the slot value is
-   *          captured before the code hook times out.</p>
-   */
-  captureNextStep?: DialogState;
-
-  /**
-   * <p>A list of conditional branches to evaluate after the slot value is
-   *          captured.</p>
-   */
-  captureConditional?: ConditionalSpecification;
-
-  /**
-   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
-   *          user input.</p>
-   */
-  failureResponse?: ResponseSpecification;
-
-  /**
-   * <p>Specifies the next step that the bot runs when the slot value code
-   *          is not recognized.</p>
-   */
-  failureNextStep?: DialogState;
-
-  /**
-   * <p>A list of conditional branches to evaluate when the slot value isn't
-   *          captured.</p>
-   */
-  failureConditional?: ConditionalSpecification;
-
-  /**
-   * <p>Code hook called after Amazon Lex successfully captures a
-   *          slot value.</p>
-   */
-  codeHook?: DialogCodeHookInvocationSetting;
-
-  /**
-   * <p>Code hook called when Amazon Lex doesn't capture a slot
-   *          value.</p>
-   */
-  elicitationCodeHook?: ElicitationCodeHookInvocationSetting;
 }
 
 /**
@@ -8792,6 +8769,20 @@ export const StartImportResponseFilterSensitiveLog = (obj: StartImportResponse):
 /**
  * @internal
  */
+export const StopBotRecommendationRequestFilterSensitiveLog = (obj: StopBotRecommendationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopBotRecommendationResponseFilterSensitiveLog = (obj: StopBotRecommendationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
   ...obj,
 });
@@ -8994,19 +8985,5 @@ export const DialogCodeHookInvocationSettingFilterSensitiveLog = (obj: DialogCod
  * @internal
  */
 export const FulfillmentCodeHookSettingsFilterSensitiveLog = (obj: FulfillmentCodeHookSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InitialResponseSettingFilterSensitiveLog = (obj: InitialResponseSetting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SlotCaptureSettingFilterSensitiveLog = (obj: SlotCaptureSetting): any => ({
   ...obj,
 });

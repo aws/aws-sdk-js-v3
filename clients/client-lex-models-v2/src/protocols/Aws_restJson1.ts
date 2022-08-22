@@ -123,6 +123,10 @@ import {
   StartBotRecommendationCommandOutput,
 } from "../commands/StartBotRecommendationCommand";
 import { StartImportCommandInput, StartImportCommandOutput } from "../commands/StartImportCommand";
+import {
+  StopBotRecommendationCommandInput,
+  StopBotRecommendationCommandOutput,
+} from "../commands/StopBotRecommendationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateBotAliasCommandInput, UpdateBotAliasCommandOutput } from "../commands/UpdateBotAliasCommand";
@@ -210,7 +214,6 @@ import {
   ImportResourceSpecification,
   ImportSortBy,
   ImportSummary,
-  InitialResponseSetting,
   InputContext,
   IntentClosingSetting,
   IntentFilter,
@@ -244,7 +247,6 @@ import {
   SampleValue,
   SentimentAnalysisSettings,
   ServiceQuotaExceededException,
-  SlotCaptureSetting,
   SlotDefaultValue,
   SlotDefaultValueSpecification,
   SlotFilter,
@@ -272,7 +274,12 @@ import {
   VoiceSettings,
   WaitAndContinueSpecification,
 } from "../models/models_0";
-import { IntentConfirmationSetting, SlotValueElicitationSetting } from "../models/models_1";
+import {
+  InitialResponseSetting,
+  IntentConfirmationSetting,
+  SlotCaptureSetting,
+  SlotValueElicitationSetting,
+} from "../models/models_1";
 
 export const serializeAws_restJson1BuildBotLocaleCommand = async (
   input: BuildBotLocaleCommandInput,
@@ -1847,6 +1854,38 @@ export const serializeAws_restJson1StartImportCommand = async (
       resourceSpecification: serializeAws_restJson1ImportResourceSpecification(input.resourceSpecification, context),
     }),
   });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StopBotRecommendationCommand = async (
+  input: StopBotRecommendationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/stopbotrecommendation";
+  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "botRecommendationId",
+    () => input.botRecommendationId!,
+    "{botRecommendationId}",
+    false
+  );
+  let body: any;
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6073,6 +6112,77 @@ const deserializeAws_restJson1StartImportCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1StopBotRecommendationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopBotRecommendationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StopBotRecommendationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.botId != null) {
+    contents.botId = __expectString(data.botId);
+  }
+  if (data.botRecommendationId != null) {
+    contents.botRecommendationId = __expectString(data.botRecommendationId);
+  }
+  if (data.botRecommendationStatus != null) {
+    contents.botRecommendationStatus = __expectString(data.botRecommendationStatus);
+  }
+  if (data.botVersion != null) {
+    contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.localeId != null) {
+    contents.localeId = __expectString(data.localeId);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1StopBotRecommendationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopBotRecommendationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.lexmodelsv2#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "PreconditionFailedException":
+    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
+      throw await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);

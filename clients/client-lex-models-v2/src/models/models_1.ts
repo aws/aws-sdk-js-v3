@@ -6,7 +6,6 @@ import {
   DialogState,
   ElicitationCodeHookInvocationSetting,
   FulfillmentCodeHookSettings,
-  InitialResponseSetting,
   InputContext,
   IntentClosingSetting,
   KendraConfiguration,
@@ -16,12 +15,97 @@ import {
   PromptSpecification,
   ResponseSpecification,
   SampleUtterance,
-  SlotCaptureSetting,
   SlotConstraint,
   SlotDefaultValueSpecification,
   SlotPriority,
   WaitAndContinueSpecification,
 } from "./models_0";
+
+/**
+ * <p>Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.</p>
+ */
+export interface InitialResponseSetting {
+  /**
+   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+   *          user input.</p>
+   */
+  initialResponse?: ResponseSpecification;
+
+  /**
+   * <p>The next step in the conversation.</p>
+   */
+  nextStep?: DialogState;
+
+  /**
+   * <p>Provides a list of conditional branches. Branches are evaluated in
+   *          the order that they are entered in the list. The first branch with a
+   *          condition that evaluates to true is executed. The last branch in the
+   *          list is the default branch. The default branch should not have any condition
+   *          expression. The default branch is executed if no other branch has a
+   *          matching condition.</p>
+   */
+  conditional?: ConditionalSpecification;
+
+  /**
+   * <p> Settings that specify the dialog code hook that is
+   *          called by Amazon Lex at a step of the conversation. </p>
+   */
+  codeHook?: DialogCodeHookInvocationSetting;
+}
+
+/**
+ * <p>Settings used when Amazon Lex successfully captures a slot
+ *          value from a user.</p>
+ */
+export interface SlotCaptureSetting {
+  /**
+   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+   *          user input.</p>
+   */
+  captureResponse?: ResponseSpecification;
+
+  /**
+   * <p>Specifies the next step that the bot runs when the slot value is
+   *          captured before the code hook times out.</p>
+   */
+  captureNextStep?: DialogState;
+
+  /**
+   * <p>A list of conditional branches to evaluate after the slot value is
+   *          captured.</p>
+   */
+  captureConditional?: ConditionalSpecification;
+
+  /**
+   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+   *          user input.</p>
+   */
+  failureResponse?: ResponseSpecification;
+
+  /**
+   * <p>Specifies the next step that the bot runs when the slot value code
+   *          is not recognized.</p>
+   */
+  failureNextStep?: DialogState;
+
+  /**
+   * <p>A list of conditional branches to evaluate when the slot value isn't
+   *          captured.</p>
+   */
+  failureConditional?: ConditionalSpecification;
+
+  /**
+   * <p>Code hook called after Amazon Lex successfully captures a
+   *          slot value.</p>
+   */
+  codeHook?: DialogCodeHookInvocationSetting;
+
+  /**
+   * <p>Code hook called when Amazon Lex doesn't capture a slot
+   *          value.</p>
+   */
+  elicitationCodeHook?: ElicitationCodeHookInvocationSetting;
+}
 
 /**
  * <p>Settings that you can use for eliciting a slot value.</p>
@@ -1050,6 +1134,20 @@ export interface UpdateIntentResponse {
    */
   initialResponseSetting?: InitialResponseSetting;
 }
+
+/**
+ * @internal
+ */
+export const InitialResponseSettingFilterSensitiveLog = (obj: InitialResponseSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotCaptureSettingFilterSensitiveLog = (obj: SlotCaptureSetting): any => ({
+  ...obj,
+});
 
 /**
  * @internal
