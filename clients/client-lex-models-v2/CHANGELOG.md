@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.154.0...v3.155.0) (2022-08-22)
+
+
+### Features
+
+* **client-lex-models-v2:** This release introduces a new feature to stop a running BotRecommendation Job for Automated Chatbot Designer. ([48b347b](https://github.com/aws/aws-sdk-js-v3/commit/48b347b667b6b24c1e08d9e17d1b9ccdf378c353))
+
+
+
+
+
 # [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
 
 **Note:** Version bump only for package @aws-sdk/client-lex-models-v2

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.154.0...v3.155.0) (2022-08-22)
+
+
+### Features
+
+* **client-iotsitewise:** Enable non-unique asset names under different hierarchies ([5162c75](https://github.com/aws/aws-sdk-js-v3/commit/5162c75aeb7316ee3813aa7ae885076e4638bc02))
+
+
+
+
+
 # [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
 
 **Note:** Version bump only for package @aws-sdk/client-iotsitewise

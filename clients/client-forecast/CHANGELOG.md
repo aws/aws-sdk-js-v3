@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.154.0...v3.155.0) (2022-08-22)
+
+
+### Features
+
+* **client-forecast:** releasing What-If Analysis APIs and update ARN regex pattern to be more strict in accordance with security recommendation ([2ed50b9](https://github.com/aws/aws-sdk-js-v3/commit/2ed50b9c29206730696ce1febf6ac06c620cf90f))
+
+
+
+
+
 # [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
 
 **Note:** Version bump only for package @aws-sdk/client-forecast

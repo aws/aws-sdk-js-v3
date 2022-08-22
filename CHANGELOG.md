@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.154.0...v3.155.0) (2022-08-22)
+
+
+### Bug Fixes
+
+* **e2e:** clean up stale changesets ([#3869](https://github.com/aws/aws-sdk-js-v3/issues/3869)) ([22ede5a](https://github.com/aws/aws-sdk-js-v3/commit/22ede5ab4ca856cbf8ab17a8e48c5f417b6dd291))
+
+
+### Features
+
+* **client-ec2:** R6a instances are powered by 3rd generation AMD EPYC (Milan) processors delivering all-core turbo frequency of 3.6 GHz. C6id, M6id, and R6id instances are powered by 3rd generation Intel Xeon Scalable processor (Ice Lake) delivering all-core turbo frequency of 3.5 GHz. ([5265b7b](https://github.com/aws/aws-sdk-js-v3/commit/5265b7b39b10d2e864e3e4ab0e5646d148c70954))
+* **client-forecastquery:** releasing What-If Analysis APIs ([f9cb16a](https://github.com/aws/aws-sdk-js-v3/commit/f9cb16a3a5278a2e8738dd41ca6e42befca3ac97))
+* **client-forecast:** releasing What-If Analysis APIs and update ARN regex pattern to be more strict in accordance with security recommendation ([2ed50b9](https://github.com/aws/aws-sdk-js-v3/commit/2ed50b9c29206730696ce1febf6ac06c620cf90f))
+* **client-iotsitewise:** Enable non-unique asset names under different hierarchies ([5162c75](https://github.com/aws/aws-sdk-js-v3/commit/5162c75aeb7316ee3813aa7ae885076e4638bc02))
+* **client-lex-models-v2:** This release introduces a new feature to stop a running BotRecommendation Job for Automated Chatbot Designer. ([48b347b](https://github.com/aws/aws-sdk-js-v3/commit/48b347b667b6b24c1e08d9e17d1b9ccdf378c353))
+* **client-securityhub:** Added new resource details objects to ASFF, including resources for AwsBackupBackupVault, AwsBackupBackupPlan and AwsBackupRecoveryPoint. Added FixAvailable, FixedInVersion and Remediation  to Vulnerability. ([b301124](https://github.com/aws/aws-sdk-js-v3/commit/b301124e27395a468d04030efeccfeb29c61888f))
+* **client-support-app:** This is the initial SDK release for the AWS Support App in Slack. ([fbbc168](https://github.com/aws/aws-sdk-js-v3/commit/fbbc1689c0a81b6517a0b5c43da60517d9e61374))
+* **clients:** update client endpoints as of 2022-08-22 ([a5271d3](https://github.com/aws/aws-sdk-js-v3/commit/a5271d33ff6c360e2dbee5e148a890cb4ec9f311))
+
+
+
+
+
 # [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
 
 
