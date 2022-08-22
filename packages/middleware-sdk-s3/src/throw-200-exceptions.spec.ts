@@ -15,6 +15,54 @@ describe("throw200ExceptionsMiddlewareOptions", () => {
     jest.clearAllMocks();
   });
 
+  describe("exceptions for code < 200 and >= 300", () => {
+    mockStreamCollector.mockResolvedValue(Buffer.from(""));
+    mockUtf8Encoder.mockReturnValue("");
+    it("throws an exception if code is less than 200", async () => {
+      mockNextHandler.mockReturnValue({
+        response: new HttpResponse({
+          statusCode: 199,
+          headers: {},
+          body: "",
+        }),
+      });
+      const handler = throw200ExceptionsMiddleware(mockConfig)(mockNextHandler, {} as any);
+      try {
+        await handler({
+          input: {},
+          request: new HttpRequest({
+            hostname: "s3.us-east-1.amazonaws.com",
+          }),
+        });
+      } catch (e) {
+        expect(e).toBeDefined();
+        expect(e.name).toEqual("InternalError");
+        expect(e.message).toEqual("S3 aborted request");
+      }
+    });
+    it("throws an exception if code is greater than or equal to 300", async () => {
+      mockNextHandler.mockReturnValue({
+        response: new HttpResponse({
+          statusCode: 300,
+          headers: {},
+          body: "",
+        }),
+      });
+      const handler = throw200ExceptionsMiddleware(mockConfig)(mockNextHandler, {} as any);
+      try {
+        await handler({
+          input: {},
+          request: new HttpRequest({
+            hostname: "s3.us-east-1.amazonaws.com",
+          }),
+        });
+      } catch (e) {
+        expect(e).toBeDefined();
+        expect(e.name).toEqual("InternalError");
+        expect(e.message).toEqual("S3 aborted request");
+      }
+    });
+  });
   it("should throw if response body is empty", async () => {
     expect.assertions(3);
     mockStreamCollector.mockResolvedValue(Buffer.from(""));
