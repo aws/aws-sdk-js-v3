@@ -3,6 +3,51 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ForecastServiceException as __BaseException } from "./ForecastServiceException";
 
+export enum Operation {
+  ADD = "ADD",
+  DIVIDE = "DIVIDE",
+  MULTIPLY = "MULTIPLY",
+  SUBTRACT = "SUBTRACT",
+}
+
+/**
+ * <p>Defines the modifications that you are making to an attribute for a what-if forecast. For example, you can use this operation to create a what-if forecast that investigates a 10% off sale on all shoes. To do this, you specify <code>"AttributeName": "shoes"</code>, <code>"Operation": "MULTIPLY"</code>, and <code>"Value": "0.90"</code>. Pair this operation with the <a>TimeSeriesCondition</a> operation within the <a>CreateWhatIfForecastRequest$TimeSeriesTransformations</a> operation to define a subset of attribute items that are modified.</p>
+ */
+export interface Action {
+  /**
+   * <p>The related time series that you are modifying. This value is case insensitive.</p>
+   */
+  AttributeName: string | undefined;
+
+  /**
+   * <p>The operation that is applied to the provided attribute. Operations include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ADD</code> - adds <code>Value</code> to all rows of <code>AttributeName</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUBTRACT</code> - subtracts <code>Value</code> from all rows of <code>AttributeName</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MULTIPLY</code> - multiplies all rows of <code>AttributeName</code> by <code>Value</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIVIDE</code> - divides all rows of <code>AttributeName</code> by <code>Value</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Operation: Operation | string | undefined;
+
+  /**
+   * <p>The value that is applied for the chosen <code>Operation</code>.</p>
+   */
+  Value: number | undefined;
+}
+
 /**
  * <p>Describes an additional dataset. This object is part of the <a>DataConfig</a> object. Forecast supports the Weather Index and Holidays additional datasets.</p>
  *         <p>
@@ -2525,6 +2570,202 @@ export interface CreatePredictorBacktestExportJobResponse {
   PredictorBacktestExportJobArn?: string;
 }
 
+export interface CreateWhatIfAnalysisRequest {
+  /**
+   * <p>The name of the what-if analysis. Each name must be unique.</p>
+   */
+  WhatIfAnalysisName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the baseline forecast.</p>
+   */
+  ForecastArn: string | undefined;
+
+  /**
+   * <p>Defines the set of time series that are used in the what-if analysis with a <code>TimeSeriesIdentifiers</code>
+   *       object. What-if analyses are performed only for the time series in this object.</p>
+   *          <p>The <code>TimeSeriesIdentifiers</code> object needs the following information:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DataSource</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Format</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Schema</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  TimeSeriesSelector?: TimeSeriesSelector;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html">tags</a> to apply to the what if forecast.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateWhatIfAnalysisResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if analysis.</p>
+   */
+  WhatIfAnalysisArn?: string;
+}
+
+/**
+ * <p>A replacement dataset is a modified version of the baseline related time series that contains only the values that you want to include in a what-if forecast. The replacement dataset must contain the forecast dimensions and item identifiers in the baseline related time series as well as at least 1 changed time series. This dataset is merged with the baseline related time series to create a transformed dataset that is used for the what-if forecast.</p>
+ */
+export interface TimeSeriesReplacementsDataSource {
+  /**
+   * <p>The path to the file(s) in an Amazon Simple Storage Service (Amazon S3) bucket, and an AWS Identity and Access Management (IAM) role that
+   *       Amazon Forecast can assume to access the file(s). Optionally, includes an AWS Key Management Service (KMS) key. This
+   *       object is part of the <a>DataSource</a> object that is submitted in the <a>CreateDatasetImportJob</a> request, and part of the <a>DataDestination</a> object.</p>
+   */
+  S3Config: S3Config | undefined;
+
+  /**
+   * <p>Defines the fields of a dataset.</p>
+   */
+  Schema: Schema | undefined;
+
+  /**
+   * <p>The format of the replacement data, CSV or PARQUET.</p>
+   */
+  Format?: string;
+
+  /**
+   * <p>The timestamp format of the replacement data.</p>
+   */
+  TimestampFormat?: string;
+}
+
+export enum Condition {
+  EQUALS = "EQUALS",
+  GREATER_THAN = "GREATER_THAN",
+  LESS_THAN = "LESS_THAN",
+  NOT_EQUALS = "NOT_EQUALS",
+}
+
+/**
+ * <p>Creates a subset of items within an attribute that are modified. For example, you can use this operation to create a subset of items that cost $5 or less. To do this, you specify <code>"AttributeName": "price"</code>, <code>"AttributeValue": "5"</code>, and <code>"Condition": "LESS_THAN"</code>. Pair this operation with the <a>Action</a> operation within the <a>CreateWhatIfForecastRequest$TimeSeriesTransformations</a> operation to define how the attribute is modified.</p>
+ */
+export interface TimeSeriesCondition {
+  /**
+   * <p>The item_id, dimension name, IM name, or timestamp that you are modifying.</p>
+   */
+  AttributeName: string | undefined;
+
+  /**
+   * <p>The value that is applied for the chosen <code>Condition</code>.</p>
+   */
+  AttributeValue: string | undefined;
+
+  /**
+   * <p>The condition to apply. Valid values are <code>EQUALS</code>, <code>NOT_EQUALS</code>, <code>LESS_THAN</code> and
+   *       <code>GREATER_THAN</code>.</p>
+   */
+  Condition: Condition | string | undefined;
+}
+
+/**
+ * <p>A transformation function is a pair of operations that select and modify the rows in a related time series. You select the rows that you want with a condition operation and you modify the rows with a transformation operation. All conditions are joined with an AND operation, meaning that all conditions must be true for the transformation to be applied. Transformations are applied in the order that they are listed.</p>
+ */
+export interface TimeSeriesTransformation {
+  /**
+   * <p>An array of actions that define a time series and how it is transformed. These transformations create a new
+   *       time series that is used for the what-if analysis.</p>
+   */
+  Action?: Action;
+
+  /**
+   * <p>An array of conditions that define which members of the related time series are transformed.</p>
+   */
+  TimeSeriesConditions?: TimeSeriesCondition[];
+}
+
+export interface CreateWhatIfForecastRequest {
+  /**
+   * <p>The name of the what-if forecast. Names must be unique within each what-if analysis.</p>
+   */
+  WhatIfForecastName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if analysis.</p>
+   */
+  WhatIfAnalysisArn: string | undefined;
+
+  /**
+   * <p>The transformations that are applied to the baseline time series. Each transformation contains an action and a set of conditions. An action is applied only when all conditions are met. If no conditions are provided, the action is applied to all items.</p>
+   */
+  TimeSeriesTransformations?: TimeSeriesTransformation[];
+
+  /**
+   * <p>The replacement time series dataset, which contains the rows that you want to change in the related time series dataset. A replacement time
+   *       series does not need to contain all rows that are in the baseline related time series. Include only the rows
+   *       (measure-dimension combinations) that you want to include in the what-if forecast. This dataset is merged with the
+   *       original time series to create a transformed dataset that is used for the what-if analysis.</p>
+   *          <p>This dataset should contain the items to modify (such as item_id or workforce_type), any relevant dimensions, the timestamp column, and at least one of the related time series columns. This file should not contain duplicate timestamps for the same time series.</p>
+   *          <p>Timestamps and item_ids not included in this dataset are not included in the what-if analysis. </p>
+   */
+  TimeSeriesReplacementsDataSource?: TimeSeriesReplacementsDataSource;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html">tags</a> to apply to the what if forecast.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateWhatIfForecastResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if forecast.</p>
+   */
+  WhatIfForecastArn?: string;
+}
+
+export interface CreateWhatIfForecastExportRequest {
+  /**
+   * <p>The name of the what-if forecast to export.</p>
+   */
+  WhatIfForecastExportName: string | undefined;
+
+  /**
+   * <p>The list of what-if forecast Amazon Resource Names (ARNs) to export.</p>
+   */
+  WhatIfForecastArns: string[] | undefined;
+
+  /**
+   * <p>The location where you want to save the forecast and an AWS Identity and Access Management (IAM) role that
+   *       Amazon Forecast can assume to access the location. The forecast must be exported to an Amazon S3
+   *       bucket.</p>
+   *          <p>If encryption is used, <code>Destination</code> must include an AWS Key Management Service (KMS) key. The
+   *       IAM role must allow Amazon Forecast permission to access the key.</p>
+   */
+  Destination: DataDestination | undefined;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html">tags</a> to apply to the what if forecast.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The format of the exported data, CSV or PARQUET.</p>
+   */
+  Format?: string;
+}
+
+export interface CreateWhatIfForecastExportResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if forecast.</p>
+   */
+  WhatIfForecastExportArn?: string;
+}
+
 export interface DeleteDatasetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset to delete.</p>
@@ -2601,6 +2842,27 @@ export interface DeleteResourceTreeRequest {
    *             of the parent resource will also be deleted.</p>
    */
   ResourceArn: string | undefined;
+}
+
+export interface DeleteWhatIfAnalysisRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if analysis that you want to delete.</p>
+   */
+  WhatIfAnalysisArn: string | undefined;
+}
+
+export interface DeleteWhatIfForecastRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if forecast that you want to delete.</p>
+   */
+  WhatIfForecastArn: string | undefined;
+}
+
+export interface DeleteWhatIfForecastExportRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if forecast export that you want to delete.</p>
+   */
+  WhatIfForecastExportArn: string | undefined;
 }
 
 export interface DescribeAutoPredictorRequest {
@@ -4198,6 +4460,356 @@ export interface DescribePredictorBacktestExportJobResponse {
    *                 <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>The format of the exported data, CSV or PARQUET.</p>
+   */
+  Format?: string;
+}
+
+export interface DescribeWhatIfAnalysisRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if analysis that you are interested in.</p>
+   */
+  WhatIfAnalysisArn: string | undefined;
+}
+
+export interface DescribeWhatIfAnalysisResponse {
+  /**
+   * <p>The name of the what-if analysis.</p>
+   */
+  WhatIfAnalysisName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if analysis.</p>
+   */
+  WhatIfAnalysisArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if forecast.</p>
+   */
+  ForecastArn?: string;
+
+  /**
+   * <p>The approximate time remaining to complete the what-if analysis, in minutes.</p>
+   */
+  EstimatedTimeRemainingInMinutes?: number;
+
+  /**
+   * <p>The status of the what-if analysis. States include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
+   *           <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
+   *           <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The <code>Status</code> of the what-if analysis must be <code>ACTIVE</code> before you can access the
+   *         analysis.</p>
+   *          </note>
+   */
+  Status?: string;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>When the what-if analysis was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *           failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>Defines the set of time series that are used to create the forecasts in a <code>TimeSeriesIdentifiers</code> object.</p>
+   *          <p>The <code>TimeSeriesIdentifiers</code> object needs the following information:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DataSource</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Format</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Schema</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  TimeSeriesSelector?: TimeSeriesSelector;
+}
+
+export interface DescribeWhatIfForecastRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if forecast that you are interested in.</p>
+   */
+  WhatIfForecastArn: string | undefined;
+}
+
+export interface DescribeWhatIfForecastResponse {
+  /**
+   * <p>The name of the what-if forecast.</p>
+   */
+  WhatIfForecastName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if forecast.</p>
+   */
+  WhatIfForecastArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if analysis that contains this forecast.</p>
+   */
+  WhatIfAnalysisArn?: string;
+
+  /**
+   * <p>The approximate time remaining to complete the what-if forecast, in minutes.</p>
+   */
+  EstimatedTimeRemainingInMinutes?: number;
+
+  /**
+   * <p>The status of the what-if forecast. States include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
+   *           <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
+   *           <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The <code>Status</code> of the what-if forecast must be <code>ACTIVE</code> before you can access the
+   *         forecast.</p>
+   *          </note>
+   */
+  Status?: string;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>When the what-if forecast was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *           failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>An array of <code>Action</code> and <code>TimeSeriesConditions</code> elements that describe what transformations were applied to which time series.</p>
+   */
+  TimeSeriesTransformations?: TimeSeriesTransformation[];
+
+  /**
+   * <p>An array of <code>S3Config</code>, <code>Schema</code>, and <code>Format</code> elements that describe the replacement time series.</p>
+   */
+  TimeSeriesReplacementsDataSource?: TimeSeriesReplacementsDataSource;
+
+  /**
+   * <p>The quantiles at which probabilistic forecasts are generated. You can specify up to 5 quantiles per what-if forecast in the <a>CreateWhatIfForecast</a> operation. If you didn't specify quantiles, the default values are <code>["0.1", "0.5", "0.9"]</code>. </p>
+   */
+  ForecastTypes?: string[];
+}
+
+export interface DescribeWhatIfForecastExportRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if forecast export that you are interested in.</p>
+   */
+  WhatIfForecastExportArn: string | undefined;
+}
+
+export interface DescribeWhatIfForecastExportResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if forecast export.</p>
+   */
+  WhatIfForecastExportArn?: string;
+
+  /**
+   * <p>The name of the what-if forecast export.</p>
+   */
+  WhatIfForecastExportName?: string;
+
+  /**
+   * <p>An array of Amazon Resource Names (ARNs) that represent all of the what-if forecasts exported in this
+   *       resource.</p>
+   */
+  WhatIfForecastArns?: string[];
+
+  /**
+   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   */
+  Destination?: DataDestination;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The status of the what-if forecast. States include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
+   *           <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
+   *           <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The <code>Status</code> of the what-if forecast export must be <code>ACTIVE</code> before you can access the
+   *         forecast export.</p>
+   *          </note>
+   */
+  Status?: string;
+
+  /**
+   * <p>When the what-if forecast export was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The approximate time remaining to complete the what-if forecast export, in minutes.</p>
+   */
+  EstimatedTimeRemainingInMinutes?: number;
+
+  /**
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *           failed.</p>
    *             </li>
    *          </ul>
    */
@@ -5982,6 +6594,461 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+export interface ListWhatIfAnalysesRequest {
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a
+   *       <code>NextToken</code>. To retrieve the next set of results, use the token in the next
+   *       request. Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either
+   *         <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the what-if analysis jobs
+   *       that match the statement from the list, respectively. The match statement consists of a key and a value.</p>
+   *          <p>
+   *             <b>Filter properties</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and
+   *             <code>IS_NOT</code>. To include the what-if analysis jobs that match the statement, specify <code>IS</code>.
+   *           To exclude matching what-if analysis jobs, specify <code>IS_NOT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
+   *             <code>WhatIfAnalysisArn</code> and <code>Status</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Value</code> - The value to match.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For example, to list all jobs that export a forecast named
+   *         <i>electricityWhatIf</i>, specify the following filter:</p>
+   *          <p>
+   *             <code>"Filters": [ { "Condition": "IS", "Key": "WhatIfAnalysisArn", "Value":
+   *         "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWhatIf" } ]</code>
+   *          </p>
+   */
+  Filters?: Filter[];
+}
+
+/**
+ * <p>Provides a summary of the what-if analysis properties used in the <a>ListWhatIfAnalyses</a> operation. To get the complete set of properties, call the <a>DescribeWhatIfAnalysis</a> operation, and provide the <code>WhatIfAnalysisArn</code> that is listed in the summary.</p>
+ */
+export interface WhatIfAnalysisSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if analysis.</p>
+   */
+  WhatIfAnalysisArn?: string;
+
+  /**
+   * <p>The name of the what-if analysis.</p>
+   */
+  WhatIfAnalysisName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the baseline forecast that is being used in this what-if analysis.</p>
+   */
+  ForecastArn?: string;
+
+  /**
+   * <p>The status of the what-if analysis. States include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
+   *           <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
+   *           <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The <code>Status</code> of the what-if analysis must be <code>ACTIVE</code> before you can access the
+   *         analysis.</p>
+   *          </note>
+   */
+  Status?: string;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>When the what-if analysis was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *             failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  LastModificationTime?: Date;
+}
+
+export interface ListWhatIfAnalysesResponse {
+  /**
+   * <p>An array of <code>WhatIfAnalysisSummary</code> objects that describe the matched analyses.</p>
+   */
+  WhatIfAnalyses?: WhatIfAnalysisSummary[];
+
+  /**
+   * <p>If the response is truncated, Forecast returns this token. To retrieve the next set of results, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListWhatIfForecastExportsRequest {
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next  request. Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either
+   *         <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the what-if forecast
+   *       export jobs that match the statement from the list, respectively. The match statement consists of a key and a
+   *       value.</p>
+   *          <p>
+   *             <b>Filter properties</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and
+   *           <code>IS_NOT</code>. To include the forecast export jobs that match the statement,
+   *           specify <code>IS</code>. To exclude matching forecast export jobs, specify
+   *           <code>IS_NOT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
+   *           <code>WhatIfForecastExportArn</code> and <code>Status</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Value</code> - The value to match.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For example, to list all jobs that export a forecast named
+   *       <i>electricityWIFExport</i>, specify the following filter:</p>
+   *          <p>
+   *             <code>"Filters": [ { "Condition": "IS", "Key": "WhatIfForecastExportArn", "Value":
+   *       "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWIFExport" } ]</code>
+   *          </p>
+   */
+  Filters?: Filter[];
+}
+
+/**
+ * <p>Provides a summary of the what-if forecast export properties used in the <a>ListWhatIfForecastExports</a> operation. To get the complete set of properties, call the <a>DescribeWhatIfForecastExport</a> operation, and provide the <code>WhatIfForecastExportArn</code> that is listed in the summary.</p>
+ */
+export interface WhatIfForecastExportSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if forecast export.</p>
+   */
+  WhatIfForecastExportArn?: string;
+
+  /**
+   * <p>An array of Amazon Resource Names (ARNs) that define the what-if forecasts included in the export.</p>
+   */
+  WhatIfForecastArns?: string[];
+
+  /**
+   * <p>The what-if forecast export name.</p>
+   */
+  WhatIfForecastExportName?: string;
+
+  /**
+   * <p>The path to the Amazon Simple Storage Service (Amazon S3) bucket where the forecast is exported.</p>
+   */
+  Destination?: DataDestination;
+
+  /**
+   * <p>The status of the what-if forecast export. States include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
+   *           <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
+   *           <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The <code>Status</code> of the what-if analysis must be <code>ACTIVE</code> before you can access the
+   *         analysis.</p>
+   *          </note>
+   */
+  Status?: string;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>When the what-if forecast export was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *           failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  LastModificationTime?: Date;
+}
+
+export interface ListWhatIfForecastExportsResponse {
+  /**
+   * <p>An array of <code>WhatIfForecastExports</code> objects that describe the matched forecast exports.</p>
+   */
+  WhatIfForecastExports?: WhatIfForecastExportSummary[];
+
+  /**
+   * <p>If the response is truncated, Forecast returns this token. To retrieve the next set of results, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListWhatIfForecastsRequest {
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next  request. Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either
+   *         <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the what-if forecast
+   *       export jobs that match the statement from the list, respectively. The match statement consists of a key and a
+   *       value.</p>
+   *          <p>
+   *             <b>Filter properties</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and
+   *           <code>IS_NOT</code>. To include the forecast export jobs that match the statement,
+   *           specify <code>IS</code>. To exclude matching forecast export jobs, specify
+   *           <code>IS_NOT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
+   *           <code>WhatIfForecastArn</code> and <code>Status</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Value</code> - The value to match.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For example, to list all jobs that export a forecast named
+   *       <i>electricityWhatIfForecast</i>, specify the following filter:</p>
+   *          <p>
+   *             <code>"Filters": [ { "Condition": "IS", "Key": "WhatIfForecastArn", "Value":
+   *       "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWhatIfForecast" } ]</code>
+   *          </p>
+   */
+  Filters?: Filter[];
+}
+
+/**
+ * <p>Provides a summary of the what-if forecast properties used in the <a>ListWhatIfForecasts</a> operation. To get the complete set of properties, call the <a>DescribeWhatIfForecast</a> operation, and provide the <code>WhatIfForecastArn</code> that is listed in the summary.</p>
+ */
+export interface WhatIfForecastSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if forecast.</p>
+   */
+  WhatIfForecastArn?: string;
+
+  /**
+   * <p>The name of the what-if forecast.</p>
+   */
+  WhatIfForecastName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the what-if analysis that contains this what-if forecast.</p>
+   */
+  WhatIfAnalysisArn?: string;
+
+  /**
+   * <p>The status of the what-if forecast. States include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
+   *           <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
+   *           <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The <code>Status</code> of the what-if analysis must be <code>ACTIVE</code> before you can access the
+   *         analysis.</p>
+   *          </note>
+   */
+  Status?: string;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>When the what-if forecast was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *           failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  LastModificationTime?: Date;
+}
+
+export interface ListWhatIfForecastsResponse {
+  /**
+   * <p>An array of <code>WhatIfForecasts</code> objects that describe the matched forecasts.</p>
+   */
+  WhatIfForecasts?: WhatIfForecastSummary[];
+
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next  request. Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
+}
+
 export interface ResumeResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource to resume.</p>
@@ -6077,6 +7144,13 @@ export interface UpdateDatasetGroupRequest {
 }
 
 export interface UpdateDatasetGroupResponse {}
+
+/**
+ * @internal
+ */
+export const ActionFilterSensitiveLog = (obj: Action): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -6434,6 +7508,72 @@ export const CreatePredictorBacktestExportJobResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const CreateWhatIfAnalysisRequestFilterSensitiveLog = (obj: CreateWhatIfAnalysisRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateWhatIfAnalysisResponseFilterSensitiveLog = (obj: CreateWhatIfAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeSeriesReplacementsDataSourceFilterSensitiveLog = (obj: TimeSeriesReplacementsDataSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeSeriesConditionFilterSensitiveLog = (obj: TimeSeriesCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeSeriesTransformationFilterSensitiveLog = (obj: TimeSeriesTransformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWhatIfForecastRequestFilterSensitiveLog = (obj: CreateWhatIfForecastRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateWhatIfForecastResponseFilterSensitiveLog = (obj: CreateWhatIfForecastResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWhatIfForecastExportRequestFilterSensitiveLog = (obj: CreateWhatIfForecastExportRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateWhatIfForecastExportResponseFilterSensitiveLog = (obj: CreateWhatIfForecastExportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
   ...obj,
 });
@@ -6507,6 +7647,27 @@ export const DeletePredictorBacktestExportJobRequestFilterSensitiveLog = (
  * @internal
  */
 export const DeleteResourceTreeRequestFilterSensitiveLog = (obj: DeleteResourceTreeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWhatIfAnalysisRequestFilterSensitiveLog = (obj: DeleteWhatIfAnalysisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWhatIfForecastRequestFilterSensitiveLog = (obj: DeleteWhatIfForecastRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWhatIfForecastExportRequestFilterSensitiveLog = (obj: DeleteWhatIfForecastExportRequest): any => ({
   ...obj,
 });
 
@@ -6738,6 +7899,52 @@ export const DescribePredictorBacktestExportJobRequestFilterSensitiveLog = (
  */
 export const DescribePredictorBacktestExportJobResponseFilterSensitiveLog = (
   obj: DescribePredictorBacktestExportJobResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWhatIfAnalysisRequestFilterSensitiveLog = (obj: DescribeWhatIfAnalysisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWhatIfAnalysisResponseFilterSensitiveLog = (obj: DescribeWhatIfAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWhatIfForecastRequestFilterSensitiveLog = (obj: DescribeWhatIfForecastRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWhatIfForecastResponseFilterSensitiveLog = (obj: DescribeWhatIfForecastResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWhatIfForecastExportRequestFilterSensitiveLog = (
+  obj: DescribeWhatIfForecastExportRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWhatIfForecastExportResponseFilterSensitiveLog = (
+  obj: DescribeWhatIfForecastExportResponse
 ): any => ({
   ...obj,
 });
@@ -7067,6 +8274,69 @@ export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForRes
 export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
   ...obj,
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListWhatIfAnalysesRequestFilterSensitiveLog = (obj: ListWhatIfAnalysesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WhatIfAnalysisSummaryFilterSensitiveLog = (obj: WhatIfAnalysisSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWhatIfAnalysesResponseFilterSensitiveLog = (obj: ListWhatIfAnalysesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWhatIfForecastExportsRequestFilterSensitiveLog = (obj: ListWhatIfForecastExportsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WhatIfForecastExportSummaryFilterSensitiveLog = (obj: WhatIfForecastExportSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWhatIfForecastExportsResponseFilterSensitiveLog = (obj: ListWhatIfForecastExportsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWhatIfForecastsRequestFilterSensitiveLog = (obj: ListWhatIfForecastsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WhatIfForecastSummaryFilterSensitiveLog = (obj: WhatIfForecastSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWhatIfForecastsResponseFilterSensitiveLog = (obj: ListWhatIfForecastsResponse): any => ({
+  ...obj,
 });
 
 /**

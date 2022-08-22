@@ -82,6 +82,18 @@ import {
   CreatePredictorBacktestExportJobCommandOutput,
 } from "./commands/CreatePredictorBacktestExportJobCommand";
 import { CreatePredictorCommandInput, CreatePredictorCommandOutput } from "./commands/CreatePredictorCommand";
+import {
+  CreateWhatIfAnalysisCommandInput,
+  CreateWhatIfAnalysisCommandOutput,
+} from "./commands/CreateWhatIfAnalysisCommand";
+import {
+  CreateWhatIfForecastCommandInput,
+  CreateWhatIfForecastCommandOutput,
+} from "./commands/CreateWhatIfForecastCommand";
+import {
+  CreateWhatIfForecastExportCommandInput,
+  CreateWhatIfForecastExportCommandOutput,
+} from "./commands/CreateWhatIfForecastExportCommand";
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import { DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput } from "./commands/DeleteDatasetGroupCommand";
 import {
@@ -108,6 +120,18 @@ import {
 } from "./commands/DeletePredictorBacktestExportJobCommand";
 import { DeletePredictorCommandInput, DeletePredictorCommandOutput } from "./commands/DeletePredictorCommand";
 import { DeleteResourceTreeCommandInput, DeleteResourceTreeCommandOutput } from "./commands/DeleteResourceTreeCommand";
+import {
+  DeleteWhatIfAnalysisCommandInput,
+  DeleteWhatIfAnalysisCommandOutput,
+} from "./commands/DeleteWhatIfAnalysisCommand";
+import {
+  DeleteWhatIfForecastCommandInput,
+  DeleteWhatIfForecastCommandOutput,
+} from "./commands/DeleteWhatIfForecastCommand";
+import {
+  DeleteWhatIfForecastExportCommandInput,
+  DeleteWhatIfForecastExportCommandOutput,
+} from "./commands/DeleteWhatIfForecastExportCommand";
 import {
   DescribeAutoPredictorCommandInput,
   DescribeAutoPredictorCommandOutput,
@@ -140,6 +164,18 @@ import {
   DescribePredictorBacktestExportJobCommandOutput,
 } from "./commands/DescribePredictorBacktestExportJobCommand";
 import { DescribePredictorCommandInput, DescribePredictorCommandOutput } from "./commands/DescribePredictorCommand";
+import {
+  DescribeWhatIfAnalysisCommandInput,
+  DescribeWhatIfAnalysisCommandOutput,
+} from "./commands/DescribeWhatIfAnalysisCommand";
+import {
+  DescribeWhatIfForecastCommandInput,
+  DescribeWhatIfForecastCommandOutput,
+} from "./commands/DescribeWhatIfForecastCommand";
+import {
+  DescribeWhatIfForecastExportCommandInput,
+  DescribeWhatIfForecastExportCommandOutput,
+} from "./commands/DescribeWhatIfForecastExportCommand";
 import { GetAccuracyMetricsCommandInput, GetAccuracyMetricsCommandOutput } from "./commands/GetAccuracyMetricsCommand";
 import { ListDatasetGroupsCommandInput, ListDatasetGroupsCommandOutput } from "./commands/ListDatasetGroupsCommand";
 import {
@@ -174,6 +210,15 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListWhatIfAnalysesCommandInput, ListWhatIfAnalysesCommandOutput } from "./commands/ListWhatIfAnalysesCommand";
+import {
+  ListWhatIfForecastExportsCommandInput,
+  ListWhatIfForecastExportsCommandOutput,
+} from "./commands/ListWhatIfForecastExportsCommand";
+import {
+  ListWhatIfForecastsCommandInput,
+  ListWhatIfForecastsCommandOutput,
+} from "./commands/ListWhatIfForecastsCommand";
 import { ResumeResourceCommandInput, ResumeResourceCommandOutput } from "./commands/ResumeResourceCommand";
 import { StopResourceCommandInput, StopResourceCommandOutput } from "./commands/StopResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -193,6 +238,9 @@ export type ServiceInputTypes =
   | CreateMonitorCommandInput
   | CreatePredictorBacktestExportJobCommandInput
   | CreatePredictorCommandInput
+  | CreateWhatIfAnalysisCommandInput
+  | CreateWhatIfForecastCommandInput
+  | CreateWhatIfForecastExportCommandInput
   | DeleteDatasetCommandInput
   | DeleteDatasetGroupCommandInput
   | DeleteDatasetImportJobCommandInput
@@ -204,6 +252,9 @@ export type ServiceInputTypes =
   | DeletePredictorBacktestExportJobCommandInput
   | DeletePredictorCommandInput
   | DeleteResourceTreeCommandInput
+  | DeleteWhatIfAnalysisCommandInput
+  | DeleteWhatIfForecastCommandInput
+  | DeleteWhatIfForecastExportCommandInput
   | DescribeAutoPredictorCommandInput
   | DescribeDatasetCommandInput
   | DescribeDatasetGroupCommandInput
@@ -215,6 +266,9 @@ export type ServiceInputTypes =
   | DescribeMonitorCommandInput
   | DescribePredictorBacktestExportJobCommandInput
   | DescribePredictorCommandInput
+  | DescribeWhatIfAnalysisCommandInput
+  | DescribeWhatIfForecastCommandInput
+  | DescribeWhatIfForecastExportCommandInput
   | GetAccuracyMetricsCommandInput
   | ListDatasetGroupsCommandInput
   | ListDatasetImportJobsCommandInput
@@ -228,6 +282,9 @@ export type ServiceInputTypes =
   | ListPredictorBacktestExportJobsCommandInput
   | ListPredictorsCommandInput
   | ListTagsForResourceCommandInput
+  | ListWhatIfAnalysesCommandInput
+  | ListWhatIfForecastExportsCommandInput
+  | ListWhatIfForecastsCommandInput
   | ResumeResourceCommandInput
   | StopResourceCommandInput
   | TagResourceCommandInput
@@ -246,6 +303,9 @@ export type ServiceOutputTypes =
   | CreateMonitorCommandOutput
   | CreatePredictorBacktestExportJobCommandOutput
   | CreatePredictorCommandOutput
+  | CreateWhatIfAnalysisCommandOutput
+  | CreateWhatIfForecastCommandOutput
+  | CreateWhatIfForecastExportCommandOutput
   | DeleteDatasetCommandOutput
   | DeleteDatasetGroupCommandOutput
   | DeleteDatasetImportJobCommandOutput
@@ -257,6 +317,9 @@ export type ServiceOutputTypes =
   | DeletePredictorBacktestExportJobCommandOutput
   | DeletePredictorCommandOutput
   | DeleteResourceTreeCommandOutput
+  | DeleteWhatIfAnalysisCommandOutput
+  | DeleteWhatIfForecastCommandOutput
+  | DeleteWhatIfForecastExportCommandOutput
   | DescribeAutoPredictorCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeDatasetGroupCommandOutput
@@ -268,6 +331,9 @@ export type ServiceOutputTypes =
   | DescribeMonitorCommandOutput
   | DescribePredictorBacktestExportJobCommandOutput
   | DescribePredictorCommandOutput
+  | DescribeWhatIfAnalysisCommandOutput
+  | DescribeWhatIfForecastCommandOutput
+  | DescribeWhatIfForecastExportCommandOutput
   | GetAccuracyMetricsCommandOutput
   | ListDatasetGroupsCommandOutput
   | ListDatasetImportJobsCommandOutput
@@ -281,6 +347,9 @@ export type ServiceOutputTypes =
   | ListPredictorBacktestExportJobsCommandOutput
   | ListPredictorsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListWhatIfAnalysesCommandOutput
+  | ListWhatIfForecastExportsCommandOutput
+  | ListWhatIfForecastsCommandOutput
   | ResumeResourceCommandOutput
   | StopResourceCommandOutput
   | TagResourceCommandOutput
