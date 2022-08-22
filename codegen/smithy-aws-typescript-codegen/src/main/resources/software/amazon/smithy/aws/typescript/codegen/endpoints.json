@@ -1040,6 +1040,7 @@
             "ap-south-1": {},
             "ap-southeast-1": {},
             "ap-southeast-2": {},
+            "ap-southeast-3": {},
             "ca-central-1": {},
             "eu-central-1": {},
             "eu-north-1": {},
@@ -8258,6 +8259,13 @@
               "deprecated": true,
               "hostname": "kms-fips.eu-west-3.amazonaws.com"
             },
+            "me-central-1-fips": {
+              "credentialScope": {
+                "region": "me-central-1"
+              },
+              "deprecated": true,
+              "hostname": "kms-fips.me-central-1.amazonaws.com"
+            },
             "me-south-1": {
               "variants": [
                 {
@@ -14030,6 +14038,13 @@
             }
           },
           "partitionEndpoint": "aws-global"
+        },
+        "supportapp": {
+          "endpoints": {
+            "eu-west-1": {},
+            "us-east-1": {},
+            "us-west-2": {}
+          }
         },
         "swf": {
           "endpoints": {
@@ -21911,6 +21926,16 @@
           }
         },
         "logs": {
+          "endpoints": {
+            "us-isob-east-1": {}
+          }
+        },
+        "metering.marketplace": {
+          "defaults": {
+            "credentialScope": {
+              "service": "aws-marketplace"
+            }
+          },
           "endpoints": {
             "us-isob-east-1": {}
           }
