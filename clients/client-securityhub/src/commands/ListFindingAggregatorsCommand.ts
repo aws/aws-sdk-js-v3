@@ -17,7 +17,7 @@ import {
   ListFindingAggregatorsRequestFilterSensitiveLog,
   ListFindingAggregatorsResponse,
   ListFindingAggregatorsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1ListFindingAggregatorsCommand,
   serializeAws_restJson1ListFindingAggregatorsCommand,

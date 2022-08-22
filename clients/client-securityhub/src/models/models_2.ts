@@ -1,6 +1,184 @@
 // smithy-typescript generated code
-import { AutoEnableStandards } from "./models_0";
-import { AwsSecurityFindingFilters, ControlStatus, NoteUpdate, RecordState } from "./models_1";
+import { AdminAccount, AutoEnableStandards } from "./models_0";
+import {
+  AwsSecurityFindingFilters,
+  ControlStatus,
+  FindingAggregator,
+  Invitation,
+  Member,
+  NoteUpdate,
+  RecordState,
+  Result,
+} from "./models_1";
+
+export interface InviteMembersResponse {
+  /**
+   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
+   *          includes the account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+export interface ListEnabledProductsForImportRequest {
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListEnabledProductsForImportResponse {
+  /**
+   * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
+   */
+  ProductSubscriptions?: string[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListFindingAggregatorsRequest {
+  /**
+   * <p>The token returned with the previous set of results. Identifies the next set of results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return. This operation currently only returns a single result.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListFindingAggregatorsResponse {
+  /**
+   * <p>The list of finding aggregators. This operation currently only returns a single result.</p>
+   */
+  FindingAggregators?: FindingAggregator[];
+
+  /**
+   * <p>If there are more results, this is the token to provide in the next call to <code>ListFindingAggregators</code>.</p>
+   *          <p>This operation currently only returns a single result.
+   *       </p>
+   */
+  NextToken?: string;
+}
+
+export interface ListInvitationsRequest {
+  /**
+   * <p>The maximum number of items to return in the response. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListInvitations</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListInvitationsResponse {
+  /**
+   * <p>The details of the invitations returned by the operation.</p>
+   */
+  Invitations?: Invitation[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListMembersRequest {
+  /**
+   * <p>Specifies which member accounts to include in the response based on their relationship
+   *          status with the administrator account. The default value is <code>TRUE</code>.</p>
+   *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
+   *          accounts whose relationship status with the administrator account is set to <code>ENABLED</code>.</p>
+   *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
+   *          existing member accounts. </p>
+   */
+  OnlyAssociated?: boolean;
+
+  /**
+   * <p>The maximum number of items to return in the response. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListMembers</code> operation, set the value of this parameter to
+   *          <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListMembersResponse {
+  /**
+   * <p>Member details returned by the operation.</p>
+   */
+  Members?: Member[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListOrganizationAdminAccountsRequest {
+  /**
+   * <p>The maximum number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListOrganizationAdminAccounts</code> operation, set the value of this parameter to
+   *             <code>NULL</code>. For subsequent calls to the operation, to continue listing data, set
+   *          the value of this parameter to the value returned from the previous response. </p>
+   */
+  NextToken?: string;
+}
+
+export interface ListOrganizationAdminAccountsResponse {
+  /**
+   * <p>The list of Security Hub administrator accounts.</p>
+   */
+  AdminAccounts?: AdminAccount[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource to retrieve tags for.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags associated with a resource.</p>
+   */
+  Tags?: Record<string, string>;
+}
 
 export interface TagResourceRequest {
   /**
@@ -203,6 +381,105 @@ export interface UpdateStandardsControlRequest {
 }
 
 export interface UpdateStandardsControlResponse {}
+
+/**
+ * @internal
+ */
+export const InviteMembersResponseFilterSensitiveLog = (obj: InviteMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnabledProductsForImportRequestFilterSensitiveLog = (
+  obj: ListEnabledProductsForImportRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnabledProductsForImportResponseFilterSensitiveLog = (
+  obj: ListEnabledProductsForImportResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFindingAggregatorsRequestFilterSensitiveLog = (obj: ListFindingAggregatorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFindingAggregatorsResponseFilterSensitiveLog = (obj: ListFindingAggregatorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInvitationsRequestFilterSensitiveLog = (obj: ListInvitationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInvitationsResponseFilterSensitiveLog = (obj: ListInvitationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMembersRequestFilterSensitiveLog = (obj: ListMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMembersResponseFilterSensitiveLog = (obj: ListMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrganizationAdminAccountsRequestFilterSensitiveLog = (
+  obj: ListOrganizationAdminAccountsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrganizationAdminAccountsResponseFilterSensitiveLog = (
+  obj: ListOrganizationAdminAccountsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

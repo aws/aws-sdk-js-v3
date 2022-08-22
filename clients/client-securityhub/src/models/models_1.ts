@@ -6,7 +6,6 @@ import {
   Action,
   ActionTarget,
   Adjustment,
-  AdminAccount,
   AutoEnableStandards,
   AwsApiGatewayRestApiDetails,
   AwsApiGatewayStageDetails,
@@ -14,6 +13,9 @@ import {
   AwsApiGatewayV2StageDetails,
   AwsAutoScalingAutoScalingGroupDetails,
   AwsAutoScalingLaunchConfigurationDetails,
+  AwsBackupBackupPlanDetails,
+  AwsBackupBackupVaultDetails,
+  AwsBackupRecoveryPointDetails,
   AwsCertificateManagerCertificateDetails,
   AwsCloudFormationStackDetails,
   AwsCloudFrontDistributionDetails,
@@ -57,10 +59,206 @@ import {
   AwsLambdaLayerVersionDetails,
   AwsNetworkFirewallFirewallDetails,
   AwsNetworkFirewallFirewallPolicyDetails,
-  RuleGroupSource,
-  RuleGroupVariablesIpSetsDetails,
+  RuleGroupSourceListDetails,
+  RuleGroupSourceStatefulRulesDetails,
+  StatelessCustomActionDefinition,
 } from "./models_0";
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * <p>A custom action definition. A custom action is an optional, non-standard action to use for stateless packet handling.</p>
+ */
+export interface RuleGroupSourceCustomActionsDetails {
+  /**
+   * <p>The definition of a custom action.</p>
+   */
+  ActionDefinition?: StatelessCustomActionDefinition;
+
+  /**
+   * <p>A descriptive name of the custom action.</p>
+   */
+  ActionName?: string;
+}
+
+/**
+ * <p>A port range to specify the destination ports to inspect for.</p>
+ */
+export interface RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts {
+  /**
+   * <p>The starting port value for the port range.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The ending port value for the port range.</p>
+   */
+  ToPort?: number;
+}
+
+/**
+ * <p>A destination IP address or range.</p>
+ */
+export interface RuleGroupSourceStatelessRuleMatchAttributesDestinations {
+  /**
+   * <p>An IP address or a block of IP addresses.</p>
+   */
+  AddressDefinition?: string;
+}
+
+/**
+ * <p>A port range to specify the source ports to inspect for.</p>
+ */
+export interface RuleGroupSourceStatelessRuleMatchAttributesSourcePorts {
+  /**
+   * <p>The starting port value for the port range.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The ending port value for the port range.</p>
+   */
+  ToPort?: number;
+}
+
+/**
+ * <p>A source IP addresses and address range to inspect for.</p>
+ */
+export interface RuleGroupSourceStatelessRuleMatchAttributesSources {
+  /**
+   * <p>An IP address or a block of IP addresses.</p>
+   */
+  AddressDefinition?: string;
+}
+
+/**
+ * <p>A set of TCP flags and masks to inspect for.</p>
+ */
+export interface RuleGroupSourceStatelessRuleMatchAttributesTcpFlags {
+  /**
+   * <p>Defines the flags from the <code>Masks</code> setting that must be set in order for the packet to match. Flags that are listed must be set. Flags that are not listed must not be set.</p>
+   */
+  Flags?: string[];
+
+  /**
+   * <p>The set of flags to consider in the inspection. If not specified, then all flags are inspected.</p>
+   */
+  Masks?: string[];
+}
+
+/**
+ * <p>Criteria for the stateless rule.</p>
+ */
+export interface RuleGroupSourceStatelessRuleMatchAttributes {
+  /**
+   * <p>A list of port ranges to specify the destination ports to inspect for.</p>
+   */
+  DestinationPorts?: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts[];
+
+  /**
+   * <p>The destination IP addresses and address ranges to inspect for, in CIDR notation.</p>
+   */
+  Destinations?: RuleGroupSourceStatelessRuleMatchAttributesDestinations[];
+
+  /**
+   * <p>The protocols to inspect for.</p>
+   */
+  Protocols?: number[];
+
+  /**
+   * <p>A list of port ranges to specify the source ports to inspect for.</p>
+   */
+  SourcePorts?: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts[];
+
+  /**
+   * <p>The source IP addresses and address ranges to inspect for, in CIDR notation.</p>
+   */
+  Sources?: RuleGroupSourceStatelessRuleMatchAttributesSources[];
+
+  /**
+   * <p>The TCP flags and masks to inspect for.</p>
+   */
+  TcpFlags?: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags[];
+}
+
+/**
+ * <p>The definition of the stateless rule.</p>
+ */
+export interface RuleGroupSourceStatelessRuleDefinition {
+  /**
+   * <p>The actions to take on a packet that matches one of the stateless rule definition's match attributes. You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, or <code>aws:forward_to_sfe</code>). You can then add custom actions.</p>
+   */
+  Actions?: string[];
+
+  /**
+   * <p>The criteria for Network Firewall to use to inspect an individual packet in a stateless rule inspection.</p>
+   */
+  MatchAttributes?: RuleGroupSourceStatelessRuleMatchAttributes;
+}
+
+/**
+ * <p>A stateless rule in the rule group.</p>
+ */
+export interface RuleGroupSourceStatelessRulesDetails {
+  /**
+   * <p>Indicates the order in which to run this rule relative to all of the rules in the stateless rule group.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>Provides the definition of the stateless rule.</p>
+   */
+  RuleDefinition?: RuleGroupSourceStatelessRuleDefinition;
+}
+
+/**
+ * <p>Stateless rules and custom actions for a stateless rule group.</p>
+ */
+export interface RuleGroupSourceStatelessRulesAndCustomActionsDetails {
+  /**
+   * <p>Custom actions for the rule group.</p>
+   */
+  CustomActions?: RuleGroupSourceCustomActionsDetails[];
+
+  /**
+   * <p>Stateless rules for the rule group.</p>
+   */
+  StatelessRules?: RuleGroupSourceStatelessRulesDetails[];
+}
+
+/**
+ * <p>The rules and actions for the rule group.</p>
+ */
+export interface RuleGroupSource {
+  /**
+   * <p>Stateful inspection criteria for a domain list rule group. A domain list rule group determines access by specific protocols to specific domains.</p>
+   */
+  RulesSourceList?: RuleGroupSourceListDetails;
+
+  /**
+   * <p>Stateful inspection criteria, provided in Suricata compatible intrusion prevention system (IPS) rules.</p>
+   */
+  RulesString?: string;
+
+  /**
+   * <p>Suricata rule specifications.</p>
+   */
+  StatefulRules?: RuleGroupSourceStatefulRulesDetails[];
+
+  /**
+   * <p>The stateless rules and custom actions used by a stateless rule group.</p>
+   */
+  StatelessRulesAndCustomActions?: RuleGroupSourceStatelessRulesAndCustomActionsDetails;
+}
+
+/**
+ * <p>A list of IP addresses and address ranges, in CIDR notation.</p>
+ */
+export interface RuleGroupVariablesIpSetsDetails {
+  /**
+   * <p>The list of IP addresses and ranges.</p>
+   */
+  Definition?: string[];
+}
 
 /**
  * <p>A list of port ranges.</p>
@@ -199,7 +397,7 @@ export interface AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails {
  */
 export interface AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails {
   /**
-   * <p>The number of Availability Zones that the domain uses. Valid values are 2 and 3. The default is 2.</p>
+   * <p>The number of Availability Zones that the domain uses. Valid values are <code>2</code> or <code>3</code>. The default is <code>2</code>.</p>
    */
   AvailabilityZoneCount?: number;
 }
@@ -239,7 +437,8 @@ export interface AwsOpenSearchServiceDomainClusterConfigDetails {
   DedicatedMasterCount?: number;
 
   /**
-   * <p>The instance type for your data nodes. </p>
+   * <p>The instance type for your data nodes.</p>
+   *    	     <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
    */
   InstanceType?: string;
 
@@ -386,7 +585,34 @@ export interface AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
   UpdateAvailable?: boolean;
 
   /**
-   * <p>The status of the service software update.</p>
+   * <p>The status of the service software update. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ELIGIBLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_ELIGIBLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_UPDATE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   UpdateStatus?: string;
 
@@ -503,7 +729,24 @@ export interface AwsRdsDbClusterAssociatedRole {
   RoleArn?: string;
 
   /**
-   * <p>The status of the association between the IAM role and the DB cluster.</p>
+   * <p>The status of the association between the IAM role and the DB cluster. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Status?: string;
 }
@@ -642,7 +885,24 @@ export interface AwsRdsDbClusterDetails {
   MultiAz?: boolean;
 
   /**
-   * <p>The name of the database engine to use for this DB cluster.</p>
+   * <p>The name of the database engine to use for this DB cluster. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aurora</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Engine?: string;
 
@@ -731,7 +991,34 @@ export interface AwsRdsDbClusterDetails {
   EnabledCloudWatchLogsExports?: string[];
 
   /**
-   * <p>The database engine mode of the DB cluster.</p>
+   * <p>The database engine mode of the DB cluster.Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>global</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>multimaster</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>parallelquery</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>provisioned</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>serverless</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   EngineMode?: string;
 
@@ -746,7 +1033,29 @@ export interface AwsRdsDbClusterDetails {
   HttpEndpointEnabled?: boolean;
 
   /**
-   * <p>The status of the database activity stream.</p>
+   * <p>The status of the database activity stream. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>started</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>starting</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>stopped</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>stopping</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   ActivityStreamStatus?: string;
 
@@ -1077,7 +1386,7 @@ export interface AwsRdsPendingCloudWatchLogsExports {
  */
 export interface AwsRdsDbProcessorFeature {
   /**
-   * <p>The name of the processor feature.</p>
+   * <p>The name of the processor feature. Valid values are <code>coreCount</code> or <code>threadsPerCore</code>.</p>
    */
   Name?: string;
 
@@ -1644,7 +1953,79 @@ export interface AwsRdsDbSnapshotDetails {
   SnapshotCreateTime?: string;
 
   /**
-   * <p>The name of the database engine to use for this DB instance.</p>
+   * <p>The name of the database engine to use for this DB instance. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aurora</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>c</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Engine?: string;
 
@@ -1724,7 +2105,24 @@ export interface AwsRdsDbSnapshotDetails {
   SourceDbSnapshotIdentifier?: string;
 
   /**
-   * <p>The storage type associated with the DB snapshot.</p>
+   * <p>The storage type associated with the DB snapshot. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>gp2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   StorageType?: string;
 
@@ -2587,7 +2985,8 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOper
   Tag?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails;
 
   /**
-   * <p>The type of filter value.</p>
+   * <p>The type of filter value.
+   * Valid values are <code>LifecyclePrefixPredicate</code> or <code>LifecycleTagPredicate</code>.</p>
    */
   Type?: string;
 }
@@ -2627,7 +3026,8 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDeta
   Tag?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails;
 
   /**
-   * <p>Whether to use <code>AND</code> or <code>OR</code> to join the operands.</p>
+   * <p>Whether to use <code>AND</code> or <code>OR</code> to join the operands.
+   * Valid values are <code>LifecycleAndOperator</code> or <code>LifecycleOrOperator</code>.</p>
    */
   Type?: string;
 }
@@ -2675,7 +3075,34 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails 
   Days?: number;
 
   /**
-   * <p>The storage class to transition the object to.</p>
+   * <p>The storage class to transition the object to. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DEEP_ARCHIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GLACIER</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INTELLIGENT_TIERING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ONEZONE_IA</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STANDARD_IA</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   StorageClass?: string;
 }
@@ -2768,7 +3195,7 @@ export interface AwsS3BucketBucketVersioningConfiguration {
   IsMfaDeleteEnabled?: boolean;
 
   /**
-   * <p>The versioning status of the S3 bucket.</p>
+   * <p>The versioning status of the S3 bucket. Valid values are <code>Enabled</code> or <code>Suspended</code>.</p>
    */
   Status?: string;
 }
@@ -2852,7 +3279,24 @@ export interface AwsS3BucketNotificationConfigurationDetail {
 
   /**
    * <p>Indicates the type of notification. Notifications can be generated using Lambda functions,
-   *          Amazon SQS queues or Amazon SNS topics.</p>
+   *          Amazon SQS queues, or Amazon SNS topics, with corresponding valid values as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LambdaConfiguration</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QueueConfiguration</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TopicConfiguration</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Type?: string;
 }
@@ -2879,8 +3323,8 @@ export interface AwsS3BucketWebsiteConfigurationRedirectTo {
   Hostname?: string;
 
   /**
-   * <p>The protocol to use when redirecting requests. By default, uses the same protocol as the
-   *          original request.</p>
+   * <p>The protocol to use when redirecting requests. By default, this field uses the same protocol as the
+   *          original request. Valid values are <code>http</code> or <code>https</code>.</p>
    */
   Protocol?: string;
 }
@@ -2983,7 +3427,8 @@ export interface AwsS3BucketWebsiteConfiguration {
  */
 export interface AwsS3BucketServerSideEncryptionByDefault {
   /**
-   * <p>Server-side encryption algorithm to use for the default encryption.</p>
+   * <p>Server-side encryption algorithm to use for the default encryption. Valid values are
+   * <code>aws: kms</code> or <code>AES256</code>.</p>
    */
   SSEAlgorithm?: string;
 
@@ -4067,8 +4512,7 @@ export interface AwsSqsQueueDetails {
  */
 export interface AwsSsmComplianceSummary {
   /**
-   * <p>The current patch compliance status.</p>
-   *          <p>The possible status values are:</p>
+   * <p>The current patch compliance status. Valid values are as follows:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -4167,7 +4611,39 @@ export interface AwsSsmComplianceSummary {
   PatchBaselineId?: string;
 
   /**
-   * <p>The highest severity for the patches.</p>
+   * <p>The highest severity for the patches. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CRITICAL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INFORMATIONAL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNSPECIFIED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   OverallSeverity?: string;
 
@@ -4228,7 +4704,44 @@ export interface AwsWafRateBasedRuleMatchPredicate {
   Negated?: boolean;
 
   /**
-   * <p>The type of predicate.</p>
+   * <p>The type of predicate. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ByteMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GeoMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RegexMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SizeConstraint</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SqlInjectionMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XssMatch</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Type?: string;
 }
@@ -4284,7 +4797,44 @@ export interface AwsWafRegionalRateBasedRuleMatchPredicate {
   Negated?: boolean;
 
   /**
-   * <p>The type of predicate.</p>
+   * <p>The type of predicate. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ByteMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GeoMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RegexMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SizeConstraint</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SqlInjectionMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XssMatch</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Type?: string;
 }
@@ -4833,12 +5383,13 @@ export interface AwsXrayEncryptionConfigDetails {
   KeyId?: string;
 
   /**
-   * <p>The current status of the encryption configuration. When <code>Status</code> is <code>UPDATING</code>, X-Ray might use both the old and new encryption.</p>
+   * <p>The current status of the encryption configuration. Valid values are <code>ACTIVE</code> or <code>UPDATING</code>.</p>
+   *          <p>When <code>Status</code> is equal to <code>UPDATING</code>, X-Ray might use both the old and new encryption.</p>
    */
   Status?: string;
 
   /**
-   * <p>The type of encryption. <code>KMS</code> indicates that the encryption uses KMS keys. <code>NONE</code> indicates to use the default encryption.</p>
+   * <p>The type of encryption. <code>KMS</code> indicates that the encryption uses KMS keys. <code>NONE</code> indicates the default encryption.</p>
    */
   Type?: string;
 }
@@ -5321,6 +5872,24 @@ export interface ResourceDetails {
    * <p>Details about a task in a cluster. </p>
    */
   AwsEcsTask?: AwsEcsTaskDetails;
+
+  /**
+   * <p>Provides details about an Backup backup vault.
+   *       </p>
+   */
+  AwsBackupBackupVault?: AwsBackupBackupVaultDetails;
+
+  /**
+   * <p>Provides details about an Backup backup plan.
+   *       </p>
+   */
+  AwsBackupBackupPlan?: AwsBackupBackupPlanDetails;
+
+  /**
+   * <p>Provides details about an Backup backup, or recovery point.
+   *       </p>
+   */
+  AwsBackupRecoveryPoint?: AwsBackupRecoveryPointDetails;
 }
 
 export enum Partition {
@@ -5646,6 +6215,12 @@ export interface Cvss {
   Adjustments?: Adjustment[];
 }
 
+export enum VulnerabilityFixAvailable {
+  NO = "NO",
+  PARTIAL = "PARTIAL",
+  YES = "YES",
+}
+
 /**
  * <p>A vendor that generates a vulnerability report.</p>
  */
@@ -5720,6 +6295,18 @@ export interface SoftwarePackage {
    * <p>The file system path to the package manager inventory file.</p>
    */
   FilePath?: string;
+
+  /**
+   * <p>The version of the software package in which the vulnerability has been resolved.
+   *       </p>
+   */
+  FixedInVersion?: string;
+
+  /**
+   * <p>Describes the actions a customer can take to resolve the vulnerability in the software package.
+   *       </p>
+   */
+  Remediation?: string;
 }
 
 /**
@@ -5755,6 +6342,30 @@ export interface Vulnerability {
    * <p>A list of URLs that provide additional information about the vulnerability.</p>
    */
   ReferenceUrls?: string[];
+
+  /**
+   * <p>Specifies if all vulnerable packages in a finding have a value for <code>FixedInVersion</code>
+   * and <code>Remediation</code>.
+   * This field is evaluated for each vulnerability <code>Id</code> based on the number of vulnerable packages that have a value for both
+   * <code>FixedInVersion</code> and <code>Remediation</code>. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YES</code> if all vulnerable packages have a value for both <code>FixedInVersion</code> and <code>Remediation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO</code> if no vulnerable packages have a value for <code>FixedInVersion</code> and <code>Remediation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARTIAL</code> otherwise</p>
+   *             </li>
+   *          </ul>
+   */
+  FixAvailable?: VulnerabilityFixAvailable | string;
 }
 
 export enum WorkflowStatus {
@@ -5820,9 +6431,9 @@ export enum WorkflowState {
 }
 
 /**
- * <p>Provides consistent format for the contents of the Security Hub-aggregated findings.
- *          <code>AwsSecurityFinding</code> format enables you to share findings between Amazon Web Services
- *          security services and third-party solutions, and security standards checks.</p>
+ * <p>Provides a consistent format for Security Hub findings.
+ *          <code>AwsSecurityFinding</code> format allows you to share findings between Amazon Web Services
+ *          security services and third-party solutions.</p>
  *          <note>
  *             <p>A finding is a potential security issue generated either by Amazon Web Services services or by the integrated third-party
  *             solutions and standards checks.</p>
@@ -7353,28 +7964,33 @@ export interface BatchUpdateFindingsUnprocessedFinding {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ConcurrentUpdateError</code> - Another process or request attempted to update the finding while this request was being processed</p>
+   *                   <code>ConcurrentUpdateError</code> - Another request attempted to update the finding while this request was being processed.
+   * This error may also occur if you call <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html">
+   *                      <code>BatchUpdateFindings</code>
+   *                   </a>
+   * and <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html">
+   *                      <code>BatchImportFindings</code>
+   *                   </a> at the same time.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DuplicatedFindingIdentifier</code> - The request included two or more findings with the same <code>FindingIdentifier</code>
-   *                </p>
+   *                   <code>DuplicatedFindingIdentifier</code> - The request included two or more findings with the same <code>FindingIdentifier</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FindingNotFound</code> - The <code>FindingIdentifier</code> included in the request did not match an existing finding</p>
+   *                   <code>FindingNotFound</code> - The <code>FindingIdentifier</code> included in the request did not match an existing finding.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FindingSizeExceeded</code> - The finding size was greater than the permissible value of 240 KB</p>
+   *                   <code>FindingSizeExceeded</code> - The finding size was greater than the permissible value of 240 KB.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>InternalFailure</code> - An internal service failure occurred when updating the finding</p>
+   *                   <code>InternalFailure</code> - An internal service failure occurred when updating the finding.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>InvalidInput</code> - The finding update contained an invalid value that did not satisfy the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">Amazon Web Services Security Finding Format</a> syntax</p>
+   *                   <code>InvalidInput</code> - The finding update contained an invalid value that did not satisfy the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">Amazon Web Services Security Finding Format</a> syntax.</p>
    *             </li>
    *          </ul>
    */
@@ -8533,174 +9149,109 @@ export interface InviteMembersRequest {
   AccountIds: string[] | undefined;
 }
 
-export interface InviteMembersResponse {
-  /**
-   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
-   *          includes the account ID and the email address.</p>
-   */
-  UnprocessedAccounts?: Result[];
-}
+/**
+ * @internal
+ */
+export const RuleGroupSourceCustomActionsDetailsFilterSensitiveLog = (
+  obj: RuleGroupSourceCustomActionsDetails
+): any => ({
+  ...obj,
+});
 
-export interface ListEnabledProductsForImportRequest {
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   */
-  NextToken?: string;
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The maximum number of items to return in the response.</p>
-   */
-  MaxResults?: number;
-}
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRuleMatchAttributesDestinationsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRuleMatchAttributesDestinations
+): any => ({
+  ...obj,
+});
 
-export interface ListEnabledProductsForImportResponse {
-  /**
-   * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
-   */
-  ProductSubscriptions?: string[];
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRuleMatchAttributesSourcePortsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRuleMatchAttributesSourcesFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRuleMatchAttributesSources
+): any => ({
+  ...obj,
+});
 
-export interface ListFindingAggregatorsRequest {
-  /**
-   * <p>The token returned with the previous set of results. Identifies the next set of results to return.</p>
-   */
-  NextToken?: string;
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The maximum number of results to return. This operation currently only returns a single result.</p>
-   */
-  MaxResults?: number;
-}
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRuleMatchAttributesFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRuleMatchAttributes
+): any => ({
+  ...obj,
+});
 
-export interface ListFindingAggregatorsResponse {
-  /**
-   * <p>The list of finding aggregators. This operation currently only returns a single result.</p>
-   */
-  FindingAggregators?: FindingAggregator[];
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRuleDefinitionFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRuleDefinition
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>If there are more results, this is the token to provide in the next call to <code>ListFindingAggregators</code>.</p>
-   *          <p>This operation currently only returns a single result.
-   *       </p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRulesDetailsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRulesDetails
+): any => ({
+  ...obj,
+});
 
-export interface ListInvitationsRequest {
-  /**
-   * <p>The maximum number of items to return in the response. </p>
-   */
-  MaxResults?: number;
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRulesAndCustomActionsDetailsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRulesAndCustomActionsDetails
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListInvitations</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const RuleGroupSourceFilterSensitiveLog = (obj: RuleGroupSource): any => ({
+  ...obj,
+});
 
-export interface ListInvitationsResponse {
-  /**
-   * <p>The details of the invitations returned by the operation.</p>
-   */
-  Invitations?: Invitation[];
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListMembersRequest {
-  /**
-   * <p>Specifies which member accounts to include in the response based on their relationship
-   *          status with the administrator account. The default value is <code>TRUE</code>.</p>
-   *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
-   *          accounts whose relationship status with the administrator account is set to <code>ENABLED</code>.</p>
-   *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
-   *          existing member accounts. </p>
-   */
-  OnlyAssociated?: boolean;
-
-  /**
-   * <p>The maximum number of items to return in the response. </p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListMembers</code> operation, set the value of this parameter to
-   *          <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListMembersResponse {
-  /**
-   * <p>Member details returned by the operation.</p>
-   */
-  Members?: Member[];
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListOrganizationAdminAccountsRequest {
-  /**
-   * <p>The maximum number of items to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListOrganizationAdminAccounts</code> operation, set the value of this parameter to
-   *             <code>NULL</code>. For subsequent calls to the operation, to continue listing data, set
-   *          the value of this parameter to the value returned from the previous response. </p>
-   */
-  NextToken?: string;
-}
-
-export interface ListOrganizationAdminAccountsResponse {
-  /**
-   * <p>The list of Security Hub administrator accounts.</p>
-   */
-  AdminAccounts?: AdminAccount[];
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The ARN of the resource to retrieve tags for.</p>
-   */
-  ResourceArn: string | undefined;
-}
-
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The tags associated with a resource.</p>
-   */
-  Tags?: Record<string, string>;
-}
+/**
+ * @internal
+ */
+export const RuleGroupVariablesIpSetsDetailsFilterSensitiveLog = (obj: RuleGroupVariablesIpSetsDetails): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10681,104 +11232,5 @@ export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): a
  * @internal
  */
 export const InviteMembersRequestFilterSensitiveLog = (obj: InviteMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InviteMembersResponseFilterSensitiveLog = (obj: InviteMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEnabledProductsForImportRequestFilterSensitiveLog = (
-  obj: ListEnabledProductsForImportRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEnabledProductsForImportResponseFilterSensitiveLog = (
-  obj: ListEnabledProductsForImportResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFindingAggregatorsRequestFilterSensitiveLog = (obj: ListFindingAggregatorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFindingAggregatorsResponseFilterSensitiveLog = (obj: ListFindingAggregatorsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInvitationsRequestFilterSensitiveLog = (obj: ListInvitationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInvitationsResponseFilterSensitiveLog = (obj: ListInvitationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembersRequestFilterSensitiveLog = (obj: ListMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembersResponseFilterSensitiveLog = (obj: ListMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrganizationAdminAccountsRequestFilterSensitiveLog = (
-  obj: ListOrganizationAdminAccountsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrganizationAdminAccountsResponseFilterSensitiveLog = (
-  obj: ListOrganizationAdminAccountsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
   ...obj,
 });

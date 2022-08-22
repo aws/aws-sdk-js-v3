@@ -201,6 +201,18 @@ import {
   AwsAutoScalingLaunchConfigurationDetails,
   AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails,
   AwsAutoScalingLaunchConfigurationMetadataOptions,
+  AwsBackupBackupPlanAdvancedBackupSettingsDetails,
+  AwsBackupBackupPlanBackupPlanDetails,
+  AwsBackupBackupPlanDetails,
+  AwsBackupBackupPlanLifecycleDetails,
+  AwsBackupBackupPlanRuleCopyActionsDetails,
+  AwsBackupBackupPlanRuleDetails,
+  AwsBackupBackupVaultDetails,
+  AwsBackupBackupVaultNotificationsDetails,
+  AwsBackupRecoveryPointCalculatedLifecycleDetails,
+  AwsBackupRecoveryPointCreatedByDetails,
+  AwsBackupRecoveryPointDetails,
+  AwsBackupRecoveryPointLifecycleDetails,
   AwsCertificateManagerCertificateDetails,
   AwsCertificateManagerCertificateDomainValidationOption,
   AwsCertificateManagerCertificateExtendedKeyUsage,
@@ -437,22 +449,10 @@ import {
   PortProbeDetail,
   PortRangeFromTo,
   ResourceNotFoundException,
-  RuleGroupSource,
-  RuleGroupSourceCustomActionsDetails,
   RuleGroupSourceListDetails,
   RuleGroupSourceStatefulRulesDetails,
   RuleGroupSourceStatefulRulesHeaderDetails,
   RuleGroupSourceStatefulRulesOptionsDetails,
-  RuleGroupSourceStatelessRuleDefinition,
-  RuleGroupSourceStatelessRuleMatchAttributes,
-  RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts,
-  RuleGroupSourceStatelessRuleMatchAttributesDestinations,
-  RuleGroupSourceStatelessRuleMatchAttributesSourcePorts,
-  RuleGroupSourceStatelessRuleMatchAttributesSources,
-  RuleGroupSourceStatelessRuleMatchAttributesTcpFlags,
-  RuleGroupSourceStatelessRulesAndCustomActionsDetails,
-  RuleGroupSourceStatelessRulesDetails,
-  RuleGroupVariablesIpSetsDetails,
   StatelessCustomActionDefinition,
   StatelessCustomPublishMetricAction,
   StatelessCustomPublishMetricActionDimension,
@@ -625,7 +625,19 @@ import {
   ResourceDetails,
   Result,
   RuleGroupDetails,
+  RuleGroupSource,
+  RuleGroupSourceCustomActionsDetails,
+  RuleGroupSourceStatelessRuleDefinition,
+  RuleGroupSourceStatelessRuleMatchAttributes,
+  RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts,
+  RuleGroupSourceStatelessRuleMatchAttributesDestinations,
+  RuleGroupSourceStatelessRuleMatchAttributesSourcePorts,
+  RuleGroupSourceStatelessRuleMatchAttributesSources,
+  RuleGroupSourceStatelessRuleMatchAttributesTcpFlags,
+  RuleGroupSourceStatelessRulesAndCustomActionsDetails,
+  RuleGroupSourceStatelessRulesDetails,
   RuleGroupVariables,
+  RuleGroupVariablesIpSetsDetails,
   RuleGroupVariablesPortSetsDetails,
   SensitiveDataDetections,
   SensitiveDataResult,
@@ -5749,6 +5761,219 @@ const serializeAws_restJson1AwsAutoScalingLaunchConfigurationMetadataOptions = (
     ...(input.HttpEndpoint != null && { HttpEndpoint: input.HttpEndpoint }),
     ...(input.HttpPutResponseHopLimit != null && { HttpPutResponseHopLimit: input.HttpPutResponseHopLimit }),
     ...(input.HttpTokens != null && { HttpTokens: input.HttpTokens }),
+  };
+};
+
+const serializeAws_restJson1AwsBackupBackupPlanAdvancedBackupSettingsDetails = (
+  input: AwsBackupBackupPlanAdvancedBackupSettingsDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BackupOptions != null && { BackupOptions: serializeAws_restJson1FieldMap(input.BackupOptions, context) }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
+  };
+};
+
+const serializeAws_restJson1AwsBackupBackupPlanAdvancedBackupSettingsList = (
+  input: AwsBackupBackupPlanAdvancedBackupSettingsDetails[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1AwsBackupBackupPlanAdvancedBackupSettingsDetails(entry, context);
+    });
+};
+
+const serializeAws_restJson1AwsBackupBackupPlanBackupPlanDetails = (
+  input: AwsBackupBackupPlanBackupPlanDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AdvancedBackupSettings != null && {
+      AdvancedBackupSettings: serializeAws_restJson1AwsBackupBackupPlanAdvancedBackupSettingsList(
+        input.AdvancedBackupSettings,
+        context
+      ),
+    }),
+    ...(input.BackupPlanName != null && { BackupPlanName: input.BackupPlanName }),
+    ...(input.BackupPlanRule != null && {
+      BackupPlanRule: serializeAws_restJson1AwsBackupBackupPlanRuleList(input.BackupPlanRule, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsBackupBackupPlanDetails = (
+  input: AwsBackupBackupPlanDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BackupPlan != null && {
+      BackupPlan: serializeAws_restJson1AwsBackupBackupPlanBackupPlanDetails(input.BackupPlan, context),
+    }),
+    ...(input.BackupPlanArn != null && { BackupPlanArn: input.BackupPlanArn }),
+    ...(input.BackupPlanId != null && { BackupPlanId: input.BackupPlanId }),
+    ...(input.VersionId != null && { VersionId: input.VersionId }),
+  };
+};
+
+const serializeAws_restJson1AwsBackupBackupPlanLifecycleDetails = (
+  input: AwsBackupBackupPlanLifecycleDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeleteAfterDays != null && { DeleteAfterDays: input.DeleteAfterDays }),
+    ...(input.MoveToColdStorageAfterDays != null && { MoveToColdStorageAfterDays: input.MoveToColdStorageAfterDays }),
+  };
+};
+
+const serializeAws_restJson1AwsBackupBackupPlanRuleCopyActionsDetails = (
+  input: AwsBackupBackupPlanRuleCopyActionsDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationBackupVaultArn != null && { DestinationBackupVaultArn: input.DestinationBackupVaultArn }),
+    ...(input.Lifecycle != null && {
+      Lifecycle: serializeAws_restJson1AwsBackupBackupPlanLifecycleDetails(input.Lifecycle, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsBackupBackupPlanRuleCopyActionsList = (
+  input: AwsBackupBackupPlanRuleCopyActionsDetails[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1AwsBackupBackupPlanRuleCopyActionsDetails(entry, context);
+    });
+};
+
+const serializeAws_restJson1AwsBackupBackupPlanRuleDetails = (
+  input: AwsBackupBackupPlanRuleDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CompletionWindowMinutes != null && { CompletionWindowMinutes: input.CompletionWindowMinutes }),
+    ...(input.CopyActions != null && {
+      CopyActions: serializeAws_restJson1AwsBackupBackupPlanRuleCopyActionsList(input.CopyActions, context),
+    }),
+    ...(input.EnableContinuousBackup != null && { EnableContinuousBackup: input.EnableContinuousBackup }),
+    ...(input.Lifecycle != null && {
+      Lifecycle: serializeAws_restJson1AwsBackupBackupPlanLifecycleDetails(input.Lifecycle, context),
+    }),
+    ...(input.RuleId != null && { RuleId: input.RuleId }),
+    ...(input.RuleName != null && { RuleName: input.RuleName }),
+    ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.StartWindowMinutes != null && { StartWindowMinutes: input.StartWindowMinutes }),
+    ...(input.TargetBackupVault != null && { TargetBackupVault: input.TargetBackupVault }),
+  };
+};
+
+const serializeAws_restJson1AwsBackupBackupPlanRuleList = (
+  input: AwsBackupBackupPlanRuleDetails[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1AwsBackupBackupPlanRuleDetails(entry, context);
+    });
+};
+
+const serializeAws_restJson1AwsBackupBackupVaultDetails = (
+  input: AwsBackupBackupVaultDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccessPolicy != null && { AccessPolicy: input.AccessPolicy }),
+    ...(input.BackupVaultArn != null && { BackupVaultArn: input.BackupVaultArn }),
+    ...(input.BackupVaultName != null && { BackupVaultName: input.BackupVaultName }),
+    ...(input.EncryptionKeyArn != null && { EncryptionKeyArn: input.EncryptionKeyArn }),
+    ...(input.Notifications != null && {
+      Notifications: serializeAws_restJson1AwsBackupBackupVaultNotificationsDetails(input.Notifications, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsBackupBackupVaultNotificationsDetails = (
+  input: AwsBackupBackupVaultNotificationsDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BackupVaultEvents != null && {
+      BackupVaultEvents: serializeAws_restJson1NonEmptyStringList(input.BackupVaultEvents, context),
+    }),
+    ...(input.SnsTopicArn != null && { SnsTopicArn: input.SnsTopicArn }),
+  };
+};
+
+const serializeAws_restJson1AwsBackupRecoveryPointCalculatedLifecycleDetails = (
+  input: AwsBackupRecoveryPointCalculatedLifecycleDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeleteAt != null && { DeleteAt: input.DeleteAt }),
+    ...(input.MoveToColdStorageAt != null && { MoveToColdStorageAt: input.MoveToColdStorageAt }),
+  };
+};
+
+const serializeAws_restJson1AwsBackupRecoveryPointCreatedByDetails = (
+  input: AwsBackupRecoveryPointCreatedByDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BackupPlanArn != null && { BackupPlanArn: input.BackupPlanArn }),
+    ...(input.BackupPlanId != null && { BackupPlanId: input.BackupPlanId }),
+    ...(input.BackupPlanVersion != null && { BackupPlanVersion: input.BackupPlanVersion }),
+    ...(input.BackupRuleId != null && { BackupRuleId: input.BackupRuleId }),
+  };
+};
+
+const serializeAws_restJson1AwsBackupRecoveryPointDetails = (
+  input: AwsBackupRecoveryPointDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BackupSizeInBytes != null && { BackupSizeInBytes: input.BackupSizeInBytes }),
+    ...(input.BackupVaultArn != null && { BackupVaultArn: input.BackupVaultArn }),
+    ...(input.BackupVaultName != null && { BackupVaultName: input.BackupVaultName }),
+    ...(input.CalculatedLifecycle != null && {
+      CalculatedLifecycle: serializeAws_restJson1AwsBackupRecoveryPointCalculatedLifecycleDetails(
+        input.CalculatedLifecycle,
+        context
+      ),
+    }),
+    ...(input.CompletionDate != null && { CompletionDate: input.CompletionDate }),
+    ...(input.CreatedBy != null && {
+      CreatedBy: serializeAws_restJson1AwsBackupRecoveryPointCreatedByDetails(input.CreatedBy, context),
+    }),
+    ...(input.CreationDate != null && { CreationDate: input.CreationDate }),
+    ...(input.EncryptionKeyArn != null && { EncryptionKeyArn: input.EncryptionKeyArn }),
+    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
+    ...(input.IsEncrypted != null && { IsEncrypted: input.IsEncrypted }),
+    ...(input.LastRestoreTime != null && { LastRestoreTime: input.LastRestoreTime }),
+    ...(input.Lifecycle != null && {
+      Lifecycle: serializeAws_restJson1AwsBackupRecoveryPointLifecycleDetails(input.Lifecycle, context),
+    }),
+    ...(input.RecoveryPointArn != null && { RecoveryPointArn: input.RecoveryPointArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
+    ...(input.SourceBackupVaultArn != null && { SourceBackupVaultArn: input.SourceBackupVaultArn }),
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.StatusMessage != null && { StatusMessage: input.StatusMessage }),
+    ...(input.StorageClass != null && { StorageClass: input.StorageClass }),
+  };
+};
+
+const serializeAws_restJson1AwsBackupRecoveryPointLifecycleDetails = (
+  input: AwsBackupRecoveryPointLifecycleDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeleteAfterDays != null && { DeleteAfterDays: input.DeleteAfterDays }),
+    ...(input.MoveToColdStorageAfterDays != null && { MoveToColdStorageAfterDays: input.MoveToColdStorageAfterDays }),
   };
 };
 
@@ -13495,6 +13720,18 @@ const serializeAws_restJson1ResourceDetails = (input: ResourceDetails, context: 
         context
       ),
     }),
+    ...(input.AwsBackupBackupPlan != null && {
+      AwsBackupBackupPlan: serializeAws_restJson1AwsBackupBackupPlanDetails(input.AwsBackupBackupPlan, context),
+    }),
+    ...(input.AwsBackupBackupVault != null && {
+      AwsBackupBackupVault: serializeAws_restJson1AwsBackupBackupVaultDetails(input.AwsBackupBackupVault, context),
+    }),
+    ...(input.AwsBackupRecoveryPoint != null && {
+      AwsBackupRecoveryPoint: serializeAws_restJson1AwsBackupRecoveryPointDetails(
+        input.AwsBackupRecoveryPoint,
+        context
+      ),
+    }),
     ...(input.AwsCertificateManagerCertificate != null && {
       AwsCertificateManagerCertificate: serializeAws_restJson1AwsCertificateManagerCertificateDetails(
         input.AwsCertificateManagerCertificate,
@@ -14201,9 +14438,11 @@ const serializeAws_restJson1SoftwarePackage = (input: SoftwarePackage, context: 
     ...(input.Architecture != null && { Architecture: input.Architecture }),
     ...(input.Epoch != null && { Epoch: input.Epoch }),
     ...(input.FilePath != null && { FilePath: input.FilePath }),
+    ...(input.FixedInVersion != null && { FixedInVersion: input.FixedInVersion }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.PackageManager != null && { PackageManager: input.PackageManager }),
     ...(input.Release != null && { Release: input.Release }),
+    ...(input.Remediation != null && { Remediation: input.Remediation }),
     ...(input.Version != null && { Version: input.Version }),
   };
 };
@@ -14491,6 +14730,7 @@ const serializeAws_restJson1VpcInfoPeeringOptionsDetails = (
 const serializeAws_restJson1Vulnerability = (input: Vulnerability, context: __SerdeContext): any => {
   return {
     ...(input.Cvss != null && { Cvss: serializeAws_restJson1CvssList(input.Cvss, context) }),
+    ...(input.FixAvailable != null && { FixAvailable: input.FixAvailable }),
     ...(input.Id != null && { Id: input.Id }),
     ...(input.ReferenceUrls != null && {
       ReferenceUrls: serializeAws_restJson1StringList(input.ReferenceUrls, context),
@@ -15198,6 +15438,237 @@ const deserializeAws_restJson1AwsAutoScalingLaunchConfigurationMetadataOptions =
     HttpEndpoint: __expectString(output.HttpEndpoint),
     HttpPutResponseHopLimit: __expectInt32(output.HttpPutResponseHopLimit),
     HttpTokens: __expectString(output.HttpTokens),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsBackupBackupPlanAdvancedBackupSettingsDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupBackupPlanAdvancedBackupSettingsDetails => {
+  return {
+    BackupOptions:
+      output.BackupOptions != null ? deserializeAws_restJson1FieldMap(output.BackupOptions, context) : undefined,
+    ResourceType: __expectString(output.ResourceType),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsBackupBackupPlanAdvancedBackupSettingsList = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupBackupPlanAdvancedBackupSettingsDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AwsBackupBackupPlanAdvancedBackupSettingsDetails(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1AwsBackupBackupPlanBackupPlanDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupBackupPlanBackupPlanDetails => {
+  return {
+    AdvancedBackupSettings:
+      output.AdvancedBackupSettings != null
+        ? deserializeAws_restJson1AwsBackupBackupPlanAdvancedBackupSettingsList(output.AdvancedBackupSettings, context)
+        : undefined,
+    BackupPlanName: __expectString(output.BackupPlanName),
+    BackupPlanRule:
+      output.BackupPlanRule != null
+        ? deserializeAws_restJson1AwsBackupBackupPlanRuleList(output.BackupPlanRule, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsBackupBackupPlanDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupBackupPlanDetails => {
+  return {
+    BackupPlan:
+      output.BackupPlan != null
+        ? deserializeAws_restJson1AwsBackupBackupPlanBackupPlanDetails(output.BackupPlan, context)
+        : undefined,
+    BackupPlanArn: __expectString(output.BackupPlanArn),
+    BackupPlanId: __expectString(output.BackupPlanId),
+    VersionId: __expectString(output.VersionId),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsBackupBackupPlanLifecycleDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupBackupPlanLifecycleDetails => {
+  return {
+    DeleteAfterDays: __expectLong(output.DeleteAfterDays),
+    MoveToColdStorageAfterDays: __expectLong(output.MoveToColdStorageAfterDays),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsBackupBackupPlanRuleCopyActionsDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupBackupPlanRuleCopyActionsDetails => {
+  return {
+    DestinationBackupVaultArn: __expectString(output.DestinationBackupVaultArn),
+    Lifecycle:
+      output.Lifecycle != null
+        ? deserializeAws_restJson1AwsBackupBackupPlanLifecycleDetails(output.Lifecycle, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsBackupBackupPlanRuleCopyActionsList = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupBackupPlanRuleCopyActionsDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AwsBackupBackupPlanRuleCopyActionsDetails(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1AwsBackupBackupPlanRuleDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupBackupPlanRuleDetails => {
+  return {
+    CompletionWindowMinutes: __expectLong(output.CompletionWindowMinutes),
+    CopyActions:
+      output.CopyActions != null
+        ? deserializeAws_restJson1AwsBackupBackupPlanRuleCopyActionsList(output.CopyActions, context)
+        : undefined,
+    EnableContinuousBackup: __expectBoolean(output.EnableContinuousBackup),
+    Lifecycle:
+      output.Lifecycle != null
+        ? deserializeAws_restJson1AwsBackupBackupPlanLifecycleDetails(output.Lifecycle, context)
+        : undefined,
+    RuleId: __expectString(output.RuleId),
+    RuleName: __expectString(output.RuleName),
+    ScheduleExpression: __expectString(output.ScheduleExpression),
+    StartWindowMinutes: __expectLong(output.StartWindowMinutes),
+    TargetBackupVault: __expectString(output.TargetBackupVault),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsBackupBackupPlanRuleList = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupBackupPlanRuleDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AwsBackupBackupPlanRuleDetails(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1AwsBackupBackupVaultDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupBackupVaultDetails => {
+  return {
+    AccessPolicy: __expectString(output.AccessPolicy),
+    BackupVaultArn: __expectString(output.BackupVaultArn),
+    BackupVaultName: __expectString(output.BackupVaultName),
+    EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
+    Notifications:
+      output.Notifications != null
+        ? deserializeAws_restJson1AwsBackupBackupVaultNotificationsDetails(output.Notifications, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsBackupBackupVaultNotificationsDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupBackupVaultNotificationsDetails => {
+  return {
+    BackupVaultEvents:
+      output.BackupVaultEvents != null
+        ? deserializeAws_restJson1NonEmptyStringList(output.BackupVaultEvents, context)
+        : undefined,
+    SnsTopicArn: __expectString(output.SnsTopicArn),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsBackupRecoveryPointCalculatedLifecycleDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupRecoveryPointCalculatedLifecycleDetails => {
+  return {
+    DeleteAt: __expectString(output.DeleteAt),
+    MoveToColdStorageAt: __expectString(output.MoveToColdStorageAt),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsBackupRecoveryPointCreatedByDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupRecoveryPointCreatedByDetails => {
+  return {
+    BackupPlanArn: __expectString(output.BackupPlanArn),
+    BackupPlanId: __expectString(output.BackupPlanId),
+    BackupPlanVersion: __expectString(output.BackupPlanVersion),
+    BackupRuleId: __expectString(output.BackupRuleId),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsBackupRecoveryPointDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupRecoveryPointDetails => {
+  return {
+    BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
+    BackupVaultArn: __expectString(output.BackupVaultArn),
+    BackupVaultName: __expectString(output.BackupVaultName),
+    CalculatedLifecycle:
+      output.CalculatedLifecycle != null
+        ? deserializeAws_restJson1AwsBackupRecoveryPointCalculatedLifecycleDetails(output.CalculatedLifecycle, context)
+        : undefined,
+    CompletionDate: __expectString(output.CompletionDate),
+    CreatedBy:
+      output.CreatedBy != null
+        ? deserializeAws_restJson1AwsBackupRecoveryPointCreatedByDetails(output.CreatedBy, context)
+        : undefined,
+    CreationDate: __expectString(output.CreationDate),
+    EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
+    IamRoleArn: __expectString(output.IamRoleArn),
+    IsEncrypted: __expectBoolean(output.IsEncrypted),
+    LastRestoreTime: __expectString(output.LastRestoreTime),
+    Lifecycle:
+      output.Lifecycle != null
+        ? deserializeAws_restJson1AwsBackupRecoveryPointLifecycleDetails(output.Lifecycle, context)
+        : undefined,
+    RecoveryPointArn: __expectString(output.RecoveryPointArn),
+    ResourceArn: __expectString(output.ResourceArn),
+    ResourceType: __expectString(output.ResourceType),
+    SourceBackupVaultArn: __expectString(output.SourceBackupVaultArn),
+    Status: __expectString(output.Status),
+    StatusMessage: __expectString(output.StatusMessage),
+    StorageClass: __expectString(output.StorageClass),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsBackupRecoveryPointLifecycleDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsBackupRecoveryPointLifecycleDetails => {
+  return {
+    DeleteAfterDays: __expectLong(output.DeleteAfterDays),
+    MoveToColdStorageAfterDays: __expectLong(output.MoveToColdStorageAfterDays),
   } as any;
 };
 
@@ -23794,6 +24265,18 @@ const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeCo
             context
           )
         : undefined,
+    AwsBackupBackupPlan:
+      output.AwsBackupBackupPlan != null
+        ? deserializeAws_restJson1AwsBackupBackupPlanDetails(output.AwsBackupBackupPlan, context)
+        : undefined,
+    AwsBackupBackupVault:
+      output.AwsBackupBackupVault != null
+        ? deserializeAws_restJson1AwsBackupBackupVaultDetails(output.AwsBackupBackupVault, context)
+        : undefined,
+    AwsBackupRecoveryPoint:
+      output.AwsBackupRecoveryPoint != null
+        ? deserializeAws_restJson1AwsBackupRecoveryPointDetails(output.AwsBackupRecoveryPoint, context)
+        : undefined,
     AwsCertificateManagerCertificate:
       output.AwsCertificateManagerCertificate != null
         ? deserializeAws_restJson1AwsCertificateManagerCertificateDetails(
@@ -24594,9 +25077,11 @@ const deserializeAws_restJson1SoftwarePackage = (output: any, context: __SerdeCo
     Architecture: __expectString(output.Architecture),
     Epoch: __expectString(output.Epoch),
     FilePath: __expectString(output.FilePath),
+    FixedInVersion: __expectString(output.FixedInVersion),
     Name: __expectString(output.Name),
     PackageManager: __expectString(output.PackageManager),
     Release: __expectString(output.Release),
+    Remediation: __expectString(output.Remediation),
     Version: __expectString(output.Version),
   } as any;
 };
@@ -24969,6 +25454,7 @@ const deserializeAws_restJson1VpcInfoPeeringOptionsDetails = (
 const deserializeAws_restJson1Vulnerability = (output: any, context: __SerdeContext): Vulnerability => {
   return {
     Cvss: output.Cvss != null ? deserializeAws_restJson1CvssList(output.Cvss, context) : undefined,
+    FixAvailable: __expectString(output.FixAvailable),
     Id: __expectString(output.Id),
     ReferenceUrls:
       output.ReferenceUrls != null ? deserializeAws_restJson1StringList(output.ReferenceUrls, context) : undefined,

@@ -17,7 +17,7 @@ import {
   ListEnabledProductsForImportRequestFilterSensitiveLog,
   ListEnabledProductsForImportResponse,
   ListEnabledProductsForImportResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1ListEnabledProductsForImportCommand,
   serializeAws_restJson1ListEnabledProductsForImportCommand,

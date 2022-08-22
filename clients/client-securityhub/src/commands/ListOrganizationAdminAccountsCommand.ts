@@ -17,7 +17,7 @@ import {
   ListOrganizationAdminAccountsRequestFilterSensitiveLog,
   ListOrganizationAdminAccountsResponse,
   ListOrganizationAdminAccountsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1ListOrganizationAdminAccountsCommand,
   serializeAws_restJson1ListOrganizationAdminAccountsCommand,

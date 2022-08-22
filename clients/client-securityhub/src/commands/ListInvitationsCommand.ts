@@ -17,7 +17,7 @@ import {
   ListInvitationsRequestFilterSensitiveLog,
   ListInvitationsResponse,
   ListInvitationsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1ListInvitationsCommand,
   serializeAws_restJson1ListInvitationsCommand,

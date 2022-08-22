@@ -12,12 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  InviteMembersRequest,
-  InviteMembersRequestFilterSensitiveLog,
-  InviteMembersResponse,
-  InviteMembersResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { InviteMembersRequest, InviteMembersRequestFilterSensitiveLog } from "../models/models_1";
+import { InviteMembersResponse, InviteMembersResponseFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_restJson1InviteMembersCommand,
   serializeAws_restJson1InviteMembersCommand,

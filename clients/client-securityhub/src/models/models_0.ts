@@ -1210,7 +1210,7 @@ export interface AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpeci
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails {
   /**
-   * <p>How to allocate instance types to fulfill On-Demand capacity.</p>
+   * <p>How to allocate instance types to fulfill On-Demand capacity. The valid value is <code>prioritized</code>.</p>
    */
   OnDemandAllocationStrategy?: string;
 
@@ -1225,7 +1225,24 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDist
   OnDemandPercentageAboveBaseCapacity?: number;
 
   /**
-   * <p>How to allocate instances across Spot Instance pools.</p>
+   * <p>How to allocate instances across Spot Instance pools. Valid values are as follows:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>
+   *                   <code>lowest-price</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>capacity-optimized</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>capacity-optimized-prioritized</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   SpotAllocationStrategy?: string;
 
@@ -1320,7 +1337,7 @@ export interface AwsAutoScalingAutoScalingGroupDetails {
   LoadBalancerNames?: string[];
 
   /**
-   * <p>The service to use for the health checks.</p>
+   * <p>The service to use for the health checks. Valid values are <code>EC2</code> or <code>ELB</code>.</p>
    */
   HealthCheckType?: string;
 
@@ -1407,7 +1424,39 @@ export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails 
   VolumeSize?: number;
 
   /**
-   * <p>The volume type.</p>
+   * <p>The volume type. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>gp2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gp3</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sc1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>st1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   VolumeType?: string;
 }
@@ -1581,6 +1630,502 @@ export interface AwsAutoScalingLaunchConfigurationDetails {
 }
 
 /**
+ * <p>Provides a list of backup options for each resource type.
+ *       </p>
+ */
+export interface AwsBackupBackupPlanAdvancedBackupSettingsDetails {
+  /**
+   * <p>Specifies the backup option for a selected resource. This option is only available for Windows
+   * Volume Shadow Copy Service (VSS) backup jobs. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Set to <code>WindowsVSS: enabled</code> to enable the WindowsVSS backup option and create a Windows VSS backup.</p>
+   *             </li>
+   *             <li>
+   *                <p>Set to <code>WindowsVSS: disabled</code> to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</p>
+   *             </li>
+   *          </ul>
+   */
+  BackupOptions?: Record<string, string>;
+
+  /**
+   * <p>The name of a resource type. The only supported resource type is Amazon EC2 instances with Windows VSS.</p>
+   *          <p>The only valid value is <code>EC2</code>.</p>
+   */
+  ResourceType?: string;
+}
+
+/**
+ * <p>Provides lifecycle details for the backup plan. A lifecycle defines when a backup is transitioned to cold storage and when it expires.
+ *       </p>
+ */
+export interface AwsBackupBackupPlanLifecycleDetails {
+  /**
+   * <p>Specifies the number of days after creation that a recovery point is deleted. Must be greater than 90 days plus <code>MoveToColdStorageAfterDays</code>.
+   *       </p>
+   */
+  DeleteAfterDays?: number;
+
+  /**
+   * <p>Specifies the number of days after creation that a recovery point is moved to cold storage.
+   *       </p>
+   */
+  MoveToColdStorageAfterDays?: number;
+}
+
+/**
+ * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy operation.
+ *       </p>
+ */
+export interface AwsBackupBackupPlanRuleCopyActionsDetails {
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+   *       </p>
+   */
+  DestinationBackupVaultArn?: string;
+
+  /**
+   * <p>Defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, Backup applies the lifecycle policy of the source backup to the destination backup.</p>
+   *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.</p>
+   */
+  Lifecycle?: AwsBackupBackupPlanLifecycleDetails;
+}
+
+/**
+ * <p>Provides details about an array of <code>BackupRule</code> objects, each of which specifies a scheduled task that is used to back up a selection of resources.
+ *       </p>
+ */
+export interface AwsBackupBackupPlanRuleDetails {
+  /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the Amazon Web Services account used to create them and the Amazon Web Services Region where they are created. They consist of letters, numbers, and hyphens.
+   *       </p>
+   */
+  TargetBackupVault?: string;
+
+  /**
+   * <p>A value in minutes after a backup is scheduled before a job will be canceled if it doesn't start successfully.
+   *       </p>
+   */
+  StartWindowMinutes?: number;
+
+  /**
+   * <p>A cron expression in UTC specifying when Backup initiates a backup job.
+   *       </p>
+   */
+  ScheduleExpression?: string;
+
+  /**
+   * <p>A display name for a backup rule. Must contain 1 to 50 alphanumeric or '-_.' characters.
+   *       </p>
+   */
+  RuleName?: string;
+
+  /**
+   * <p>Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+   *       </p>
+   */
+  RuleId?: string;
+
+  /**
+   * <p>Specifies whether Backup creates continuous backups capable of point-in-time restore (PITR).
+   *       </p>
+   */
+  EnableContinuousBackup?: boolean;
+
+  /**
+   * <p>A value in minutes after a backup job is successfully started before it must be completed, or it is canceled by Backup.
+   *       </p>
+   */
+  CompletionWindowMinutes?: number;
+
+  /**
+   * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy operation.
+   *       </p>
+   */
+  CopyActions?: AwsBackupBackupPlanRuleCopyActionsDetails[];
+
+  /**
+   * <p>Defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, Backup applies the lifecycle policy of the source backup to the destination backup.</p>
+   *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.</p>
+   */
+  Lifecycle?: AwsBackupBackupPlanLifecycleDetails;
+}
+
+/**
+ * <p>Provides details about an Backup backup plan and an array of <code>BackupRule</code> objects, each of which specifies a backup rule.
+ *       </p>
+ */
+export interface AwsBackupBackupPlanBackupPlanDetails {
+  /**
+   * <p>The display name of a backup plan.
+   *       </p>
+   */
+  BackupPlanName?: string;
+
+  /**
+   * <p>A list of backup options for each resource type.
+   *       </p>
+   */
+  AdvancedBackupSettings?: AwsBackupBackupPlanAdvancedBackupSettingsDetails[];
+
+  /**
+   * <p>An array of <code>BackupRule</code> objects, each of which specifies a scheduled task that is used to back up a selection of resources.
+   *       </p>
+   */
+  BackupPlanRule?: AwsBackupBackupPlanRuleDetails[];
+}
+
+/**
+ * <p>Provides details about an Backup backup plan and an array of <code>BackupRule</code> objects, each of which specifies a backup rule.
+ *       </p>
+ */
+export interface AwsBackupBackupPlanDetails {
+  /**
+   * <p>Uniquely identifies the backup plan to be associated with the selection of resources.
+   *       </p>
+   */
+  BackupPlan?: AwsBackupBackupPlanBackupPlanDetails;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies the backup plan.
+   *       </p>
+   */
+  BackupPlanArn?: string;
+
+  /**
+   * <p>A unique ID for the backup plan.
+   *       </p>
+   */
+  BackupPlanId?: string;
+
+  /**
+   * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings. Version IDs cannot be edited.
+   *       </p>
+   */
+  VersionId?: string;
+}
+
+/**
+ * <p>Provides details about the Amazon SNS event notifications for the specified backup vault.
+ *       </p>
+ */
+export interface AwsBackupBackupVaultNotificationsDetails {
+  /**
+   * <p>An array of events that indicate the status of jobs to back up resources to the backup vault.
+   * The following events are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BACKUP_JOB_STARTED | BACKUP_JOB_COMPLETED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COPY_JOB_STARTED | COPY_JOB_SUCCESSFUL | COPY_JOB_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESTORE_JOB_STARTED | RESTORE_JOB_COMPLETED | RECOVERY_POINT_MODIFIED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3_BACKUP_OBJECT_FAILED | S3_RESTORE_OBJECT_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  BackupVaultEvents?: string[];
+
+  /**
+   * <p>An ARN that uniquely identifies the Amazon SNS topic for a backup vault’s events.
+   *       </p>
+   */
+  SnsTopicArn?: string;
+}
+
+/**
+ * <p>Provides details about an Backup backup vault. In Backup, a backup vault is
+ * a container that stores and organizes your backups.
+ *       </p>
+ */
+export interface AwsBackupBackupVaultDetails {
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault.
+   *       </p>
+   */
+  BackupVaultArn?: string;
+
+  /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the
+   * Amazon Web Services account used to create them and the Amazon Web Services Region where they are created.
+   * They consist of lowercase letters, numbers, and hyphens.
+   *       </p>
+   */
+  BackupVaultName?: string;
+
+  /**
+   * <p>The unique ARN associated with the server-side encryption key. You can specify a key to encrypt your backups from services that support
+   * full Backup management. If you do not specify a key, Backup creates an KMS key for you by default.
+   *       </p>
+   */
+  EncryptionKeyArn?: string;
+
+  /**
+   * <p>The Amazon SNS event notifications for the specified backup vault.
+   *       </p>
+   */
+  Notifications?: AwsBackupBackupVaultNotificationsDetails;
+
+  /**
+   * <p>A resource-based policy that is used to manage access permissions on the target backup vault.
+   *       </p>
+   */
+  AccessPolicy?: string;
+}
+
+/**
+ * <p>Specifies how long in days before a recovery point transitions to cold storage or is deleted.
+ *       </p>
+ */
+export interface AwsBackupRecoveryPointCalculatedLifecycleDetails {
+  /**
+   * <p>Specifies the number of days after creation that a recovery point is deleted. Must be greater
+   * than 90 days plus <code>MoveToColdStorageAfterDays</code>.
+   *       </p>
+   */
+  DeleteAt?: string;
+
+  /**
+   * <p>Specifies the number of days after creation that a recovery point is moved to cold storage.
+   *       </p>
+   */
+  MoveToColdStorageAt?: string;
+}
+
+/**
+ * <p>Contains information about the backup plan and rule that Backup used to initiate the recovery point backup.
+ *       </p>
+ */
+export interface AwsBackupRecoveryPointCreatedByDetails {
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan.
+   *       </p>
+   */
+  BackupPlanArn?: string;
+
+  /**
+   * <p>Uniquely identifies a backup plan.
+   *       </p>
+   */
+  BackupPlanId?: string;
+
+  /**
+   * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most
+   * 1,024 bytes long. Version IDs cannot be edited.
+   *       </p>
+   */
+  BackupPlanVersion?: string;
+
+  /**
+   * <p>Uniquely identifies a rule used to schedule the backup of a selection of resources.
+   *       </p>
+   */
+  BackupRuleId?: string;
+}
+
+/**
+ * <p>Contains an array of Transition objects specifying how long in days before a recovery point transitions to cold storage or is deleted.
+ *       </p>
+ */
+export interface AwsBackupRecoveryPointLifecycleDetails {
+  /**
+   * <p>Specifies the number of days after creation that a recovery point is deleted. Must be greater
+   * than 90 days plus <code>MoveToColdStorageAfterDays</code>.
+   *       </p>
+   */
+  DeleteAfterDays?: number;
+
+  /**
+   * <p>Specifies the number of days after creation that a recovery point is moved to cold storage.
+   *       </p>
+   */
+  MoveToColdStorageAfterDays?: number;
+}
+
+/**
+ * <p>Contains detailed information about the recovery points stored in an Backup backup vault.
+ * A backup, or recovery point, represents the content of a resource at a specified time.
+ *       </p>
+ */
+export interface AwsBackupRecoveryPointDetails {
+  /**
+   * <p>The size, in bytes, of a backup.
+   *       </p>
+   */
+  BackupSizeInBytes?: number;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault.
+   *       </p>
+   */
+  BackupVaultArn?: string;
+
+  /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified by names
+   * that are unique to the Amazon Web Services account used to create them and the Amazon Web Services Region
+   * where they are created. They consist of lowercase letters, numbers, and hyphens.
+   *       </p>
+   */
+  BackupVaultName?: string;
+
+  /**
+   * <p>A <code>CalculatedLifecycle</code> object containing <code>DeleteAt</code> and <code>MoveToColdStorageAt</code> timestamps.
+   *       </p>
+   */
+  CalculatedLifecycle?: AwsBackupRecoveryPointCalculatedLifecycleDetails;
+
+  /**
+   * <p>The date and time that a job to create a recovery point is completed, in Unix format and UTC.
+   * The value of <code>CompletionDate</code> is accurate to milliseconds. For example, the value 1516925490.087
+   * represents Friday, January 26, 2018 12:11:30.087 AM.
+   *       </p>
+   */
+  CompletionDate?: string;
+
+  /**
+   * <p>Contains identifying information about the creation of a recovery point, including the
+   * <code>BackupPlanArn</code>, <code>BackupPlanId</code>, <code>BackupPlanVersion</code>, and <code>BackupRuleId</code>
+   * of the backup plan that is used to create it.
+   *       </p>
+   */
+  CreatedBy?: AwsBackupRecoveryPointCreatedByDetails;
+
+  /**
+   * <p>The date and time a recovery point is created, in Unix format and UTC. The value of <code>CreationDate</code>
+   * is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
+   *       </p>
+   */
+  CreationDate?: string;
+
+  /**
+   * <p>The ARN for the server-side encryption key that is used to protect your backups.
+   *       </p>
+   */
+  EncryptionKeyArn?: string;
+
+  /**
+   * <p>Specifies the IAM role ARN used to create the target recovery point
+   *       </p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * <p>A Boolean value that is returned as <code>TRUE</code> if the specified recovery point is
+   * encrypted, or <code>FALSE</code> if the recovery point is not encrypted.
+   *       </p>
+   */
+  IsEncrypted?: boolean;
+
+  /**
+   * <p>The date and time that a recovery point was last restored, in Unix format and UTC. The value of
+   * <code>LastRestoreTime</code> is accurate to milliseconds. For example, the value 1516925490.087 represents
+   * Friday, January 26, 2018 12:11:30.087 AM.
+   *       </p>
+   */
+  LastRestoreTime?: string;
+
+  /**
+   * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when it
+   * expires. Backup transitions and expires backups automatically according to the lifecycle that
+   * you define
+   *       </p>
+   */
+  Lifecycle?: AwsBackupRecoveryPointLifecycleDetails;
+
+  /**
+   * <p>An ARN that uniquely identifies a recovery point.
+   *       </p>
+   */
+  RecoveryPointArn?: string;
+
+  /**
+   * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the resource type.
+   *       </p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The type of Amazon Web Services resource saved as a recovery point, such as an Amazon EBS volume or an Amazon RDS database.
+   *       </p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The ARN for the backup vault where the recovery point was originally copied from. If the recovery
+   * point is restored to the same account, this value will be null.
+   *       </p>
+   */
+  SourceBackupVaultArn?: string;
+
+  /**
+   * <p>A status code specifying the state of the recovery point. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXPIRED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARTIAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+
+  /**
+   * <p>A message explaining the reason of the recovery point deletion failure.
+   *       </p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>Specifies the storage class of the recovery point. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COLD</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WARM</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  StorageClass?: string;
+}
+
+/**
  * <p>Provides details about the CNAME record that is added to the DNS database for domain
  *          validation.</p>
  */
@@ -1707,7 +2252,7 @@ export interface AwsCertificateManagerCertificateRenewalSummary {
   RenewalStatus?: string;
 
   /**
-   * <p>The reason that a renewal request was unsuccessful.</p>
+   * <p>The reason that a renewal request was unsuccessful. This attribute is used only when <code>RenewalStatus</code> is <code>FAILED</code>.</p>
    *          <p>Valid values: <code>NO_AVAILABLE_CONTACTS</code> |
    *             <code>ADDITIONAL_VERIFICATION_REQUIRED</code> | <code>DOMAIN_NOT_ALLOWED</code> |
    *             <code>INVALID_PUBLIC_DOMAIN</code> | <code>DOMAIN_VALIDATION_DENIED</code> |
@@ -3081,7 +3626,7 @@ export interface AwsDynamoDbTableKeySchema {
   AttributeName?: string;
 
   /**
-   * <p>The type of key used for the key schema attribute.</p>
+   * <p>The type of key used for the key schema attribute. Valid values are <code>HASH</code> or <code>RANGE</code>.</p>
    */
   KeyType?: string;
 }
@@ -3098,7 +3643,24 @@ export interface AwsDynamoDbTableProjection {
   NonKeyAttributes?: string[];
 
   /**
-   * <p>The types of attributes that are projected into the index.</p>
+   * <p>The types of attributes that are projected into the index. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INCLUDE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KEYS_ONLY</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   ProjectionType?: string;
 }
@@ -3169,6 +3731,28 @@ export interface AwsDynamoDbTableGlobalSecondaryIndex {
 
   /**
    * <p>The current status of the index.</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   IndexStatus?: string;
 
@@ -3270,7 +3854,34 @@ export interface AwsDynamoDbTableReplica {
   RegionName?: string;
 
   /**
-   * <p>The current status of the replica.</p>
+   * <p>The current status of the replica. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   ReplicaStatus?: string;
 
@@ -3451,7 +4062,44 @@ export interface AwsDynamoDbTableDetails {
   TableSizeBytes?: number;
 
   /**
-   * <p>The current status of the table.</p>
+   * <p>The current status of the table. Valid values are as follows:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ARCHIVED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ARCHIVING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   TableStatus?: string;
 }
@@ -4078,7 +4726,39 @@ export interface Ipv6CidrBlockAssociation {
   Ipv6CidrBlock?: string;
 
   /**
-   * <p>Information about the state of the CIDR block.</p>
+   * <p>Information about the state of the CIDR block. Valid values are as follows:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>associating</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>associated</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociating</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociated</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failing</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   CidrBlockState?: string;
 }
@@ -4128,7 +4808,7 @@ export interface AwsEc2SubnetDetails {
   OwnerId?: string;
 
   /**
-   * <p>The current state of the subnet.</p>
+   * <p>The current state of the subnet. Valid values are <code>available</code> or <code>pending</code>.</p>
    */
   State?: string;
 
@@ -4252,7 +4932,34 @@ export interface AwsEc2VolumeAttachment {
   InstanceId?: string;
 
   /**
-   * <p>The attachment state of the volume.</p>
+   * <p>The attachment state of the volume. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>attaching</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attached</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>busy</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>detaching</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>detached</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Status?: string;
 }
@@ -4291,7 +4998,39 @@ export interface AwsEc2VolumeDetails {
   SnapshotId?: string;
 
   /**
-   * <p>The volume state.</p>
+   * <p>The volume state. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>available</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>creating</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deleted</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deleting</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>error</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>in-use</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Status?: string;
 
@@ -4367,7 +5106,7 @@ export interface AwsEc2VpcDetails {
   DhcpOptionsId?: string;
 
   /**
-   * <p>The current state of the VPC.</p>
+   * <p>The current state of the VPC. Valid values are <code>available</code> or <code>pending</code>.</p>
    */
   State?: string;
 }
@@ -4432,7 +5171,34 @@ export interface AwsEc2VpcEndpointServiceDetails {
   ServiceName?: string;
 
   /**
-   * <p>The current state of the service.</p>
+   * <p>The current state of the service. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Available</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Deleted</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Deleting</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Pending</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   ServiceState?: string;
 
@@ -4747,7 +5513,7 @@ export interface AwsEc2VpnConnectionVgwTelemetryDetails {
   OutsideIpAddress?: string;
 
   /**
-   * <p>The status of the VPN tunnel.</p>
+   * <p>The status of the VPN tunnel. Valid values are <code>DOWN</code> or <code>UP</code>.</p>
    */
   Status?: string;
 
@@ -4768,7 +5534,29 @@ export interface AwsEc2VpnConnectionDetails {
   VpnConnectionId?: string;
 
   /**
-   * <p>The current state of the VPN connection.</p>
+   * <p>The current state of the VPN connection. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>available</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deleted</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deleting</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   State?: string;
 
@@ -4837,7 +5625,24 @@ export interface AwsEcrContainerImageDetails {
   RepositoryName?: string;
 
   /**
-   * <p>The architecture of the image.</p>
+   * <p>The architecture of the image. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arm64</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>i386</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>x86_64</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Architecture?: string;
 
@@ -4900,7 +5705,7 @@ export interface AwsEcrRepositoryDetails {
   ImageScanningConfiguration?: AwsEcrRepositoryImageScanningConfigurationDetails;
 
   /**
-   * <p>The tag mutability setting for the repository.</p>
+   * <p>The tag mutability setting for the repository. Valid values are <code>IMMUTABLE</code> or <code>MUTABLE</code>.</p>
    */
   ImageTagMutability?: string;
 
@@ -4925,12 +5730,12 @@ export interface AwsEcrRepositoryDetails {
  */
 export interface AwsEcsClusterClusterSettingsDetails {
   /**
-   * <p>The name of the setting.</p>
+   * <p>The name of the setting. The valid value is <code>containerInsights</code>.</p>
    */
   Name?: string;
 
   /**
-   * <p>The value of the setting.</p>
+   * <p>The value of the setting. Valid values are <code>disabled</code> or <code>enabled</code>.</p>
    */
   Value?: string;
 }
@@ -5463,7 +6268,29 @@ export interface AwsEcsServiceDetails {
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails {
   /**
-   * <p>The dependency condition of the dependent container. Indicates the required status of the dependent container before the current container can start.</p>
+   * <p>The dependency condition of the dependent container. Indicates the required status of the dependent container before the current container can start. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HEALTHY</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>START</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Condition?: string;
 
@@ -5493,7 +6320,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails {
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails {
   /**
-   * <p>The type of environment file.</p>
+   * <p>The type of environment file. The valid value is <code>s3</code>.</p>
    */
   Type?: string;
 
@@ -5545,7 +6372,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDe
   Options?: Record<string, string>;
 
   /**
-   * <p>The log router to use. </p>
+   * <p>The log router to use. Valid values are <code>fluentbit</code> or <code>fluentd</code>.</p>
    */
   Type?: string;
 }
@@ -5585,12 +6412,40 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails {
   /**
-   * <p>The Linux capabilities for the container that are added to the default configuration provided by Docker.</p>
+   * <p>The Linux capabilities for the container that are added to the default configuration provided by Docker. Valid values are as follows:</p>
+   *    	     <p>Valid values: <code>"ALL"</code> | <code>"AUDIT_CONTROL"</code> |<code> "AUDIT_WRITE"</code> |
+   *    		<code>"BLOCK_SUSPEND"</code> | <code>"CHOWN"</code> | <code>"DAC_OVERRIDE"</code> |
+   *    		<code>"DAC_READ_SEARCH"</code> | <code>"FOWNER"</code> | <code>"FSETID"</code> |
+   *    		<code>"IPC_LOCK"</code> | <code>"IPC_OWNER"</code> | <code>"KILL"</code> |
+   *    		<code>"LEASE"</code> | <code>"LINUX_IMMUTABLE"</code> | <code>"MAC_ADMIN"</code> |<code>
+   *    			"MAC_OVERRIDE"</code> | <code>"MKNOD"</code> | <code>"NET_ADMIN"</code> |
+   *    		<code>"NET_BIND_SERVICE"</code> | <code>"NET_BROADCAST"</code> | <code>"NET_RAW"</code> |
+   *    		<code>"SETFCAP"</code> | <code>"SETGID"</code> | <code>"SETPCAP"</code> |
+   *    		<code>"SETUID"</code> | <code>"SYS_ADMIN"</code> | <code>"SYS_BOOT"</code> |
+   *    		<code>"SYS_CHROOT"</code> | <code>"SYS_MODULE"</code> | <code>"SYS_NICE"</code> |
+   *    		<code>"SYS_PACCT"</code> | <code>"SYS_PTRACE"</code> | <code>"SYS_RAWIO"</code> |
+   *    		<code>"SYS_RESOURCE"</code> | <code>"SYS_TIME"</code> | <code>"SYS_TTY_CONFIG"</code> |
+   *    		<code>"SYSLOG"</code> | <code>"WAKE_ALARM"</code>
+   *          </p>
    */
   Add?: string[];
 
   /**
    * <p>The Linux capabilities for the container that are dropped from the default configuration provided by Docker.</p>
+   *    	     <p>Valid values: <code>"ALL"</code> | <code>"AUDIT_CONTROL"</code> |<code> "AUDIT_WRITE"</code> |
+   *    		<code>"BLOCK_SUSPEND"</code> | <code>"CHOWN"</code> | <code>"DAC_OVERRIDE"</code> |
+   *    		<code>"DAC_READ_SEARCH"</code> | <code>"FOWNER"</code> | <code>"FSETID"</code> |
+   *    		<code>"IPC_LOCK"</code> | <code>"IPC_OWNER"</code> | <code>"KILL"</code> |
+   *    		<code>"LEASE"</code> | <code>"LINUX_IMMUTABLE"</code> | <code>"MAC_ADMIN"</code> |<code>
+   *    			"MAC_OVERRIDE"</code> | <code>"MKNOD"</code> | <code>"NET_ADMIN"</code> |
+   *    		<code>"NET_BIND_SERVICE"</code> | <code>"NET_BROADCAST"</code> | <code>"NET_RAW"</code> |
+   *    		<code>"SETFCAP"</code> | <code>"SETGID"</code> | <code>"SETPCAP"</code> |
+   *    		<code>"SETUID"</code> | <code>"SYS_ADMIN"</code> | <code>"SYS_BOOT"</code> |
+   *    		<code>"SYS_CHROOT"</code> | <code>"SYS_MODULE"</code> | <code>"SYS_NICE"</code> |
+   *    		<code>"SYS_PACCT"</code> | <code>"SYS_PTRACE"</code> | <code>"SYS_RAWIO"</code> |
+   *    		<code>"SYS_RESOURCE"</code> | <code>"SYS_TIME"</code> | <code>"SYS_TTY_CONFIG"</code> |
+   *    		<code>"SYSLOG"</code> | <code>"WAKE_ALARM"</code>
+   *          </p>
    */
   Drop?: string[];
 }
@@ -5626,6 +6481,19 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDet
 
   /**
    * <p>The list of tmpfs volume mount options.</p>
+   *    	     <p>Valid values: <code>"defaults"</code> | <code>"ro"</code> | <code>"rw"</code> | <code>"suid"</code> |
+   *    		<code>"nosuid"</code> | <code>"dev"</code> | <code>"nodev"</code> |<code> "exec"</code> |
+   *    		<code>"noexec"</code> | <code>"sync"</code> | <code>"async"</code> | <code>"dirsync"</code>
+   *    		| <code>"remount"</code> | <code>"mand"</code> | <code>"nomand"</code> | <code>"atime"</code>
+   *    		| <code>"noatime"</code> | <code>"diratime"</code> | <code>"nodiratime"</code> |
+   *    		<code>"bind"</code> | <code>"rbind"</code> | <code>"unbindable"</code> |
+   *    		<code>"runbindable"</code> | <code>"private"</code> | <code>"rprivate"</code> |
+   *    		<code>"shared"</code> | <code>"rshared"</code> | <code>"slave"</code> |
+   *    		<code>"rslave"</code> | <code>"relatime"</code> | <code>"norelatime"</code> |
+   *    		<code>"strictatime"</code> | <code>"nostrictatime"</code> |<code> "mode"</code> |
+   *    		<code>"uid"</code> | <code>"gid"</code> | <code>"nr_inodes"</code> |<code>
+   *    			"nr_blocks"</code> | <code>"mpol"</code>
+   *          </p>
    */
   MountOptions?: string[];
 
@@ -5698,6 +6566,72 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretO
 export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
   /**
    * <p>The log driver to use for the container.</p>
+   *    	     <p>Valid values on Fargate are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>awsfirelens</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>awslogs</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>splunk</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *    	     <p>Valid values on Amazon EC2 are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>awsfirelens</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>awslogs</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fluentd</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gelf</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>journald</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>json-file</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>logentries</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>splunk</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>syslog</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   LogDriver?: string;
 
@@ -5767,7 +6701,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDe
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails {
   /**
-   * <p>The type of resource to assign to a container.</p>
+   * <p>The type of resource to assign to a container. Valid values are <code>GPU</code> or <code>InferenceAccelerator</code>.</p>
    */
   Type?: string;
 
@@ -5822,7 +6756,84 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
   HardLimit?: number;
 
   /**
-   * <p>The type of the ulimit.</p>
+   * <p>The type of the ulimit. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>core</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cpu</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>data</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fsize</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>locks</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>memlock</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>msgqueue</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nice</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nofile</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nproc</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rss</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rtprio</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rttime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sigpending</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>stack</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Name?: string;
 
@@ -6194,7 +7205,8 @@ export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
   Labels?: Record<string, string>;
 
   /**
-   * <p>The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a task are provisioned automatically when the task starts and destroyed when the task stops. Docker volumes that are shared persist after the task stops.</p>
+   * <p>The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a task are provisioned
+   * automatically when the task starts and destroyed when the task stops. Docker volumes that are shared persist after the task stops. Valid values are <code>shared</code> or <code>task</code>.</p>
    */
   Scope?: string;
 }
@@ -6290,7 +7302,34 @@ export interface AwsEcsTaskDefinitionDetails {
   ContainerDefinitions?: AwsEcsTaskDefinitionContainerDefinitionsDetails[];
 
   /**
-   * <p>The number of CPU units used by the task.</p>
+   * <p>The number of CPU units used by the task.Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>256 (.25 vCPU)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>512 (.5 vCPU)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>1024 (1 vCPU)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>2048 (2 vCPU)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>4096 (4 vCPU)</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Cpu?: string;
 
@@ -6310,22 +7349,65 @@ export interface AwsEcsTaskDefinitionDetails {
   InferenceAccelerators?: AwsEcsTaskDefinitionInferenceAcceleratorsDetails[];
 
   /**
-   * <p>The IPC resource namespace to use for the containers in the task.</p>
+   * <p>The inter-process communication (IPC) resource namespace to use for the containers in the task. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>host</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>task</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   IpcMode?: string;
 
   /**
-   * <p>The amount (in MiB) of memory used by the task.</p>
+   * <p>The amount (in MiB) of memory used by the task. </p>
+   *          <p>For tasks that are hosted on Amazon EC2, you can provide a task-level memory value or a container-level memory value.
+   *       For tasks that are hosted on Fargate, you must use one of the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size">specified values</a> in the <i>
+   *                <i>Amazon Elastic Container Service Developer Guide</i>
+   *             </i>, which determines your range of supported values for the <code>Cpu</code> and <code>Memory</code> parameters.</p>
    */
   Memory?: string;
 
   /**
-   * <p>The Docker networking mode to use for the containers in the task.</p>
+   * <p>The Docker networking mode to use for the containers in the task. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>awsvpc</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bridge</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>host</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   NetworkMode?: string;
 
   /**
-   * <p>The process namespace to use for the containers in the task.</p>
+   * <p>The process namespace to use for the containers in the task. Valid values are <code>host</code> or <code>task</code>.</p>
    */
   PidMode?: string;
 
@@ -6575,7 +7657,34 @@ export interface AwsEksClusterLoggingClusterLoggingDetails {
   Enabled?: boolean;
 
   /**
-   * <p>A list of logging types.</p>
+   * <p>A list of logging types. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>api</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>audit</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>authenticator</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>controllerManager</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scheduler</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Types?: string[];
 }
@@ -6620,7 +7729,39 @@ export interface AwsEksClusterDetails {
   CertificateAuthorityData?: string;
 
   /**
-   * <p>The status of the cluster.</p>
+   * <p>The status of the cluster. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   ClusterStatus?: string;
 
@@ -6700,12 +7841,12 @@ export interface AwsElasticBeanstalkEnvironmentOptionSetting {
  */
 export interface AwsElasticBeanstalkEnvironmentTier {
   /**
-   * <p>The name of the environment tier.</p>
+   * <p>The name of the environment tier. Valid values are <code>WebServer</code> or <code>Worker</code>.</p>
    */
   Name?: string;
 
   /**
-   * <p>The type of environment tier.</p>
+   * <p>The type of environment tier. Valid values are <code>Standard</code> or <code>SQS/HTTP</code>.</p>
    */
   Type?: string;
 
@@ -6785,7 +7926,49 @@ export interface AwsElasticBeanstalkEnvironmentDetails {
   SolutionStackName?: string;
 
   /**
-   * <p>The current operational status of the environment.</p>
+   * <p>The current operational status of the environment. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Aborting</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Launching</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LinkingFrom</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LinkingTo</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Ready</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Terminated</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Terminating</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Updating</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Status?: string;
 
@@ -6853,7 +8036,8 @@ export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
   DedicatedMasterEnabled?: boolean;
 
   /**
-   * <p>The hardware configuration of the computer that hosts the dedicated master node. For example, <code>m3.medium.elasticsearch</code>. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
+   * <p>The hardware configuration of the computer that hosts the dedicated master node. A sample value is <code>m3.medium.elasticsearch</code>. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
+   *    	     <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
    */
   DedicatedMasterType?: string;
 
@@ -6864,6 +8048,7 @@ export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
 
   /**
    * <p>The instance type for your data nodes. For example, <code>m3.medium.elasticsearch</code>.</p>
+   *    	     <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
    */
   InstanceType?: string;
 
@@ -6977,7 +8162,34 @@ export interface AwsElasticsearchDomainServiceSoftwareOptions {
   UpdateAvailable?: boolean;
 
   /**
-   * <p>The status of the service software update.</p>
+   * <p>The status of the service software update. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ELIGIBLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_ELIGIBLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_UPDATE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   UpdateStatus?: string;
 }
@@ -8186,7 +9398,34 @@ export interface AwsKmsKeyDetails {
   KeyManager?: string;
 
   /**
-   * <p>The state of the KMS key.</p>
+   * <p>The state of the KMS key. Valid values are as follows:</p>
+   *    	     <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Disabled</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Enabled</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PendingDeletion</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PendingImport</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Unavailable</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   KeyState?: string;
 
@@ -8737,201 +9976,6 @@ export interface RuleGroupSourceStatefulRulesDetails {
 }
 
 /**
- * <p>A custom action definition. A custom action is an optional, non-standard action to use for stateless packet handling.</p>
- */
-export interface RuleGroupSourceCustomActionsDetails {
-  /**
-   * <p>The definition of a custom action.</p>
-   */
-  ActionDefinition?: StatelessCustomActionDefinition;
-
-  /**
-   * <p>A descriptive name of the custom action.</p>
-   */
-  ActionName?: string;
-}
-
-/**
- * <p>A port range to specify the destination ports to inspect for.</p>
- */
-export interface RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts {
-  /**
-   * <p>The starting port value for the port range.</p>
-   */
-  FromPort?: number;
-
-  /**
-   * <p>The ending port value for the port range.</p>
-   */
-  ToPort?: number;
-}
-
-/**
- * <p>A destination IP address or range.</p>
- */
-export interface RuleGroupSourceStatelessRuleMatchAttributesDestinations {
-  /**
-   * <p>An IP address or a block of IP addresses.</p>
-   */
-  AddressDefinition?: string;
-}
-
-/**
- * <p>A port range to specify the source ports to inspect for.</p>
- */
-export interface RuleGroupSourceStatelessRuleMatchAttributesSourcePorts {
-  /**
-   * <p>The starting port value for the port range.</p>
-   */
-  FromPort?: number;
-
-  /**
-   * <p>The ending port value for the port range.</p>
-   */
-  ToPort?: number;
-}
-
-/**
- * <p>A source IP addresses and address range to inspect for.</p>
- */
-export interface RuleGroupSourceStatelessRuleMatchAttributesSources {
-  /**
-   * <p>An IP address or a block of IP addresses.</p>
-   */
-  AddressDefinition?: string;
-}
-
-/**
- * <p>A set of TCP flags and masks to inspect for.</p>
- */
-export interface RuleGroupSourceStatelessRuleMatchAttributesTcpFlags {
-  /**
-   * <p>Defines the flags from the <code>Masks</code> setting that must be set in order for the packet to match. Flags that are listed must be set. Flags that are not listed must not be set.</p>
-   */
-  Flags?: string[];
-
-  /**
-   * <p>The set of flags to consider in the inspection. If not specified, then all flags are inspected.</p>
-   */
-  Masks?: string[];
-}
-
-/**
- * <p>Criteria for the stateless rule.</p>
- */
-export interface RuleGroupSourceStatelessRuleMatchAttributes {
-  /**
-   * <p>A list of port ranges to specify the destination ports to inspect for.</p>
-   */
-  DestinationPorts?: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts[];
-
-  /**
-   * <p>The destination IP addresses and address ranges to inspect for, in CIDR notation.</p>
-   */
-  Destinations?: RuleGroupSourceStatelessRuleMatchAttributesDestinations[];
-
-  /**
-   * <p>The protocols to inspect for.</p>
-   */
-  Protocols?: number[];
-
-  /**
-   * <p>A list of port ranges to specify the source ports to inspect for.</p>
-   */
-  SourcePorts?: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts[];
-
-  /**
-   * <p>The source IP addresses and address ranges to inspect for, in CIDR notation.</p>
-   */
-  Sources?: RuleGroupSourceStatelessRuleMatchAttributesSources[];
-
-  /**
-   * <p>The TCP flags and masks to inspect for.</p>
-   */
-  TcpFlags?: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags[];
-}
-
-/**
- * <p>The definition of the stateless rule.</p>
- */
-export interface RuleGroupSourceStatelessRuleDefinition {
-  /**
-   * <p>The actions to take on a packet that matches one of the stateless rule definition's match attributes. You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, or <code>aws:forward_to_sfe</code>). You can then add custom actions.</p>
-   */
-  Actions?: string[];
-
-  /**
-   * <p>The criteria for Network Firewall to use to inspect an individual packet in a stateless rule inspection.</p>
-   */
-  MatchAttributes?: RuleGroupSourceStatelessRuleMatchAttributes;
-}
-
-/**
- * <p>A stateless rule in the rule group.</p>
- */
-export interface RuleGroupSourceStatelessRulesDetails {
-  /**
-   * <p>Indicates the order in which to run this rule relative to all of the rules in the stateless rule group.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>Provides the definition of the stateless rule.</p>
-   */
-  RuleDefinition?: RuleGroupSourceStatelessRuleDefinition;
-}
-
-/**
- * <p>Stateless rules and custom actions for a stateless rule group.</p>
- */
-export interface RuleGroupSourceStatelessRulesAndCustomActionsDetails {
-  /**
-   * <p>Custom actions for the rule group.</p>
-   */
-  CustomActions?: RuleGroupSourceCustomActionsDetails[];
-
-  /**
-   * <p>Stateless rules for the rule group.</p>
-   */
-  StatelessRules?: RuleGroupSourceStatelessRulesDetails[];
-}
-
-/**
- * <p>The rules and actions for the rule group.</p>
- */
-export interface RuleGroupSource {
-  /**
-   * <p>Stateful inspection criteria for a domain list rule group. A domain list rule group determines access by specific protocols to specific domains.</p>
-   */
-  RulesSourceList?: RuleGroupSourceListDetails;
-
-  /**
-   * <p>Stateful inspection criteria, provided in Suricata compatible intrusion prevention system (IPS) rules.</p>
-   */
-  RulesString?: string;
-
-  /**
-   * <p>Suricata rule specifications.</p>
-   */
-  StatefulRules?: RuleGroupSourceStatefulRulesDetails[];
-
-  /**
-   * <p>The stateless rules and custom actions used by a stateless rule group.</p>
-   */
-  StatelessRulesAndCustomActions?: RuleGroupSourceStatelessRulesAndCustomActionsDetails;
-}
-
-/**
- * <p>A list of IP addresses and address ranges, in CIDR notation.</p>
- */
-export interface RuleGroupVariablesIpSetsDetails {
-  /**
-   * <p>The list of IP addresses and ranges.</p>
-   */
-  Definition?: string[];
-}
-
-/**
  * @internal
  */
 export const AcceptAdministratorInvitationRequestFilterSensitiveLog = (
@@ -9286,6 +10330,106 @@ export const AwsAutoScalingLaunchConfigurationMetadataOptionsFilterSensitiveLog 
 export const AwsAutoScalingLaunchConfigurationDetailsFilterSensitiveLog = (
   obj: AwsAutoScalingLaunchConfigurationDetails
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsBackupBackupPlanAdvancedBackupSettingsDetailsFilterSensitiveLog = (
+  obj: AwsBackupBackupPlanAdvancedBackupSettingsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsBackupBackupPlanLifecycleDetailsFilterSensitiveLog = (
+  obj: AwsBackupBackupPlanLifecycleDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsBackupBackupPlanRuleCopyActionsDetailsFilterSensitiveLog = (
+  obj: AwsBackupBackupPlanRuleCopyActionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsBackupBackupPlanRuleDetailsFilterSensitiveLog = (obj: AwsBackupBackupPlanRuleDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsBackupBackupPlanBackupPlanDetailsFilterSensitiveLog = (
+  obj: AwsBackupBackupPlanBackupPlanDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsBackupBackupPlanDetailsFilterSensitiveLog = (obj: AwsBackupBackupPlanDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsBackupBackupVaultNotificationsDetailsFilterSensitiveLog = (
+  obj: AwsBackupBackupVaultNotificationsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsBackupBackupVaultDetailsFilterSensitiveLog = (obj: AwsBackupBackupVaultDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsBackupRecoveryPointCalculatedLifecycleDetailsFilterSensitiveLog = (
+  obj: AwsBackupRecoveryPointCalculatedLifecycleDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsBackupRecoveryPointCreatedByDetailsFilterSensitiveLog = (
+  obj: AwsBackupRecoveryPointCreatedByDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsBackupRecoveryPointLifecycleDetailsFilterSensitiveLog = (
+  obj: AwsBackupRecoveryPointLifecycleDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsBackupRecoveryPointDetailsFilterSensitiveLog = (obj: AwsBackupRecoveryPointDetails): any => ({
   ...obj,
 });
 
@@ -11154,109 +12298,5 @@ export const RuleGroupSourceStatefulRulesOptionsDetailsFilterSensitiveLog = (
 export const RuleGroupSourceStatefulRulesDetailsFilterSensitiveLog = (
   obj: RuleGroupSourceStatefulRulesDetails
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceCustomActionsDetailsFilterSensitiveLog = (
-  obj: RuleGroupSourceCustomActionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRuleMatchAttributesDestinationsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRuleMatchAttributesDestinations
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRuleMatchAttributesSourcePortsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRuleMatchAttributesSourcesFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRuleMatchAttributesSources
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRuleMatchAttributesFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRuleMatchAttributes
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRuleDefinitionFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRuleDefinition
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRulesDetailsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRulesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatelessRulesAndCustomActionsDetailsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatelessRulesAndCustomActionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceFilterSensitiveLog = (obj: RuleGroupSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupVariablesIpSetsDetailsFilterSensitiveLog = (obj: RuleGroupVariablesIpSetsDetails): any => ({
   ...obj,
 });
