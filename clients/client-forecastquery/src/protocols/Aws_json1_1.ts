@@ -14,6 +14,10 @@ import {
 } from "@aws-sdk/types";
 
 import { QueryForecastCommandInput, QueryForecastCommandOutput } from "../commands/QueryForecastCommand";
+import {
+  QueryWhatIfForecastCommandInput,
+  QueryWhatIfForecastCommandOutput,
+} from "../commands/QueryWhatIfForecastCommand";
 import { ForecastqueryServiceException as __BaseException } from "../models/ForecastqueryServiceException";
 import {
   DataPoint,
@@ -23,6 +27,8 @@ import {
   LimitExceededException,
   QueryForecastRequest,
   QueryForecastResponse,
+  QueryWhatIfForecastRequest,
+  QueryWhatIfForecastResponse,
   ResourceInUseException,
   ResourceNotFoundException,
 } from "../models/models_0";
@@ -37,6 +43,19 @@ export const serializeAws_json1_1QueryForecastCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1QueryForecastRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1QueryWhatIfForecastCommand = async (
+  input: QueryWhatIfForecastCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonForecastRuntime.QueryWhatIfForecast",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1QueryWhatIfForecastRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -61,6 +80,59 @@ const deserializeAws_json1_1QueryForecastCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryForecastCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecastquery#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.forecastquery#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.forecastquery#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecastquery#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecastquery#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1QueryWhatIfForecastCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryWhatIfForecastCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1QueryWhatIfForecastCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1QueryWhatIfForecastResponse(data, context);
+  const response: QueryWhatIfForecastCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1QueryWhatIfForecastCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryWhatIfForecastCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -180,6 +252,19 @@ const serializeAws_json1_1QueryForecastRequest = (input: QueryForecastRequest, c
   };
 };
 
+const serializeAws_json1_1QueryWhatIfForecastRequest = (
+  input: QueryWhatIfForecastRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EndDate != null && { EndDate: input.EndDate }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.StartDate != null && { StartDate: input.StartDate }),
+    ...(input.WhatIfForecastArn != null && { WhatIfForecastArn: input.WhatIfForecastArn }),
+  };
+};
+
 const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): DataPoint => {
   return {
     Timestamp: __expectString(output.Timestamp),
@@ -228,6 +313,15 @@ const deserializeAws_json1_1Predictions = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1QueryForecastResponse = (output: any, context: __SerdeContext): QueryForecastResponse => {
+  return {
+    Forecast: output.Forecast != null ? deserializeAws_json1_1Forecast(output.Forecast, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1QueryWhatIfForecastResponse = (
+  output: any,
+  context: __SerdeContext
+): QueryWhatIfForecastResponse => {
   return {
     Forecast: output.Forecast != null ? deserializeAws_json1_1Forecast(output.Forecast, context) : undefined,
   } as any;

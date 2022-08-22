@@ -54,11 +54,15 @@ import {
 } from "@aws-sdk/types";
 
 import { QueryForecastCommandInput, QueryForecastCommandOutput } from "./commands/QueryForecastCommand";
+import {
+  QueryWhatIfForecastCommandInput,
+  QueryWhatIfForecastCommandOutput,
+} from "./commands/QueryWhatIfForecastCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
-export type ServiceInputTypes = QueryForecastCommandInput;
+export type ServiceInputTypes = QueryForecastCommandInput | QueryWhatIfForecastCommandInput;
 
-export type ServiceOutputTypes = QueryForecastCommandOutput;
+export type ServiceOutputTypes = QueryForecastCommandOutput | QueryWhatIfForecastCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
