@@ -48414,6 +48414,174 @@
           {
             "value": "mac2.metal",
             "name": "mac2_metal"
+          },
+          {
+            "value": "c6id.large",
+            "name": "c6id_large"
+          },
+          {
+            "value": "c6id.xlarge",
+            "name": "c6id_xlarge"
+          },
+          {
+            "value": "c6id.2xlarge",
+            "name": "c6id_2xlarge"
+          },
+          {
+            "value": "c6id.4xlarge",
+            "name": "c6id_4xlarge"
+          },
+          {
+            "value": "c6id.8xlarge",
+            "name": "c6id_8xlarge"
+          },
+          {
+            "value": "c6id.12xlarge",
+            "name": "c6id_12xlarge"
+          },
+          {
+            "value": "c6id.16xlarge",
+            "name": "c6id_16xlarge"
+          },
+          {
+            "value": "c6id.24xlarge",
+            "name": "c6id_24xlarge"
+          },
+          {
+            "value": "c6id.32xlarge",
+            "name": "c6id_32xlarge"
+          },
+          {
+            "value": "c6id.metal",
+            "name": "c6id_metal"
+          },
+          {
+            "value": "m6id.large",
+            "name": "m6id_large"
+          },
+          {
+            "value": "m6id.xlarge",
+            "name": "m6id_xlarge"
+          },
+          {
+            "value": "m6id.2xlarge",
+            "name": "m6id_2xlarge"
+          },
+          {
+            "value": "m6id.4xlarge",
+            "name": "m6id_4xlarge"
+          },
+          {
+            "value": "m6id.8xlarge",
+            "name": "m6id_8xlarge"
+          },
+          {
+            "value": "m6id.12xlarge",
+            "name": "m6id_12xlarge"
+          },
+          {
+            "value": "m6id.16xlarge",
+            "name": "m6id_16xlarge"
+          },
+          {
+            "value": "m6id.24xlarge",
+            "name": "m6id_24xlarge"
+          },
+          {
+            "value": "m6id.32xlarge",
+            "name": "m6id_32xlarge"
+          },
+          {
+            "value": "m6id.metal",
+            "name": "m6id_metal"
+          },
+          {
+            "value": "r6id.large",
+            "name": "r6id_large"
+          },
+          {
+            "value": "r6id.xlarge",
+            "name": "r6id_xlarge"
+          },
+          {
+            "value": "r6id.2xlarge",
+            "name": "r6id_2xlarge"
+          },
+          {
+            "value": "r6id.4xlarge",
+            "name": "r6id_4xlarge"
+          },
+          {
+            "value": "r6id.8xlarge",
+            "name": "r6id_8xlarge"
+          },
+          {
+            "value": "r6id.12xlarge",
+            "name": "r6id_12xlarge"
+          },
+          {
+            "value": "r6id.16xlarge",
+            "name": "r6id_16xlarge"
+          },
+          {
+            "value": "r6id.24xlarge",
+            "name": "r6id_24xlarge"
+          },
+          {
+            "value": "r6id.32xlarge",
+            "name": "r6id_32xlarge"
+          },
+          {
+            "value": "r6id.metal",
+            "name": "r6id_metal"
+          },
+          {
+            "value": "r6a.large",
+            "name": "r6a_large"
+          },
+          {
+            "value": "r6a.xlarge",
+            "name": "r6a_xlarge"
+          },
+          {
+            "value": "r6a.2xlarge",
+            "name": "r6a_2xlarge"
+          },
+          {
+            "value": "r6a.4xlarge",
+            "name": "r6a_4xlarge"
+          },
+          {
+            "value": "r6a.8xlarge",
+            "name": "r6a_8xlarge"
+          },
+          {
+            "value": "r6a.12xlarge",
+            "name": "r6a_12xlarge"
+          },
+          {
+            "value": "r6a.16xlarge",
+            "name": "r6a_16xlarge"
+          },
+          {
+            "value": "r6a.24xlarge",
+            "name": "r6a_24xlarge"
+          },
+          {
+            "value": "r6a.32xlarge",
+            "name": "r6a_32xlarge"
+          },
+          {
+            "value": "r6a.48xlarge",
+            "name": "r6a_48xlarge"
+          },
+          {
+            "value": "r6a.metal",
+            "name": "r6a_metal"
+          },
+          {
+            "value": "p4de.24xlarge",
+            "name": "p4de_24xlarge"
           }
         ]
       }
@@ -65275,7 +65443,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The information to include in the launch template.</p>\n        <note>\n            <p>You must specify at least one parameter for the launch template data.</p>\n        </note>"
+        "smithy.api#documentation": "<p>The information to include in the launch template.</p>\n        <note>\n            <p>You must specify at least one parameter for the launch template data.</p>\n        </note>",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.ec2#RequestSpotFleet": {

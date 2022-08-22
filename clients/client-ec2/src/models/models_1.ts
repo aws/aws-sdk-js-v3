@@ -9044,6 +9044,7 @@ export const RequestLaunchTemplateDataFilterSensitiveLog = (obj: RequestLaunchTe
  */
 export const CreateLaunchTemplateRequestFilterSensitiveLog = (obj: CreateLaunchTemplateRequest): any => ({
   ...obj,
+  ...(obj.LaunchTemplateData && { LaunchTemplateData: SENSITIVE_STRING }),
 });
 
 /**
@@ -9079,6 +9080,7 @@ export const CreateLaunchTemplateResultFilterSensitiveLog = (obj: CreateLaunchTe
  */
 export const CreateLaunchTemplateVersionRequestFilterSensitiveLog = (obj: CreateLaunchTemplateVersionRequest): any => ({
   ...obj,
+  ...(obj.LaunchTemplateData && { LaunchTemplateData: SENSITIVE_STRING }),
 });
 
 /**
