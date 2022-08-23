@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.155.0...v3.156.0) (2022-08-23)
+
+
+### Features
+
+* **client-rds:** RDS for Oracle supports Oracle Data Guard switchover and read replica backups. ([75335b5](https://github.com/aws/aws-sdk-js-v3/commit/75335b50c0a63961c7f8dceaed0905e20cbbdba3))
+
+
+
+
+
 # [3.155.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.154.0...v3.155.0) (2022-08-22)
 
 
