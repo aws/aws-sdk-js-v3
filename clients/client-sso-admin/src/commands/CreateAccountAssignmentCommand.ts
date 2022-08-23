@@ -43,6 +43,11 @@ export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssig
  *                   <a>ProvisionPermissionSet</a>
  *                </code> to make these updates.</p>
  *          </note>
+ *          <note>
+ *             <p>
+ *         After a successful response, call <code>DescribeAccountAssignmentCreationStatus</code> to describe the status of an assignment creation request.
+ *       </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
