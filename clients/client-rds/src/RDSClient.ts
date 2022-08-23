@@ -489,6 +489,10 @@ import {
   StopDBInstanceAutomatedBackupsReplicationCommandOutput,
 } from "./commands/StopDBInstanceAutomatedBackupsReplicationCommand";
 import { StopDBInstanceCommandInput, StopDBInstanceCommandOutput } from "./commands/StopDBInstanceCommand";
+import {
+  SwitchoverReadReplicaCommandInput,
+  SwitchoverReadReplicaCommandOutput,
+} from "./commands/SwitchoverReadReplicaCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -627,7 +631,8 @@ export type ServiceInputTypes =
   | StopActivityStreamCommandInput
   | StopDBClusterCommandInput
   | StopDBInstanceAutomatedBackupsReplicationCommandInput
-  | StopDBInstanceCommandInput;
+  | StopDBInstanceCommandInput
+  | SwitchoverReadReplicaCommandInput;
 
 export type ServiceOutputTypes =
   | AddRoleToDBClusterCommandOutput
@@ -765,7 +770,8 @@ export type ServiceOutputTypes =
   | StopActivityStreamCommandOutput
   | StopDBClusterCommandOutput
   | StopDBInstanceAutomatedBackupsReplicationCommandOutput
-  | StopDBInstanceCommandOutput;
+  | StopDBInstanceCommandOutput
+  | SwitchoverReadReplicaCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

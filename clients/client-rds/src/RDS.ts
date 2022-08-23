@@ -681,6 +681,11 @@ import {
   StopDBInstanceCommandInput,
   StopDBInstanceCommandOutput,
 } from "./commands/StopDBInstanceCommand";
+import {
+  SwitchoverReadReplicaCommand,
+  SwitchoverReadReplicaCommandInput,
+  SwitchoverReadReplicaCommandOutput,
+} from "./commands/SwitchoverReadReplicaCommand";
 import { RDSClient } from "./RDSClient";
 
 /**
@@ -5921,6 +5926,39 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: StopDBInstanceAutomatedBackupsReplicationCommandOutput) => void
   ): Promise<StopDBInstanceAutomatedBackupsReplicationCommandOutput> | void {
     const command = new StopDBInstanceAutomatedBackupsReplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Switches over an Oracle standby database in an Oracle Data Guard environment, making it the new
+   *             primary database. Issue this command in the AWS Region that hosts the current standby database.</p>
+   */
+  public switchoverReadReplica(
+    args: SwitchoverReadReplicaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SwitchoverReadReplicaCommandOutput>;
+  public switchoverReadReplica(
+    args: SwitchoverReadReplicaCommandInput,
+    cb: (err: any, data?: SwitchoverReadReplicaCommandOutput) => void
+  ): void;
+  public switchoverReadReplica(
+    args: SwitchoverReadReplicaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SwitchoverReadReplicaCommandOutput) => void
+  ): void;
+  public switchoverReadReplica(
+    args: SwitchoverReadReplicaCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SwitchoverReadReplicaCommandOutput) => void),
+    cb?: (err: any, data?: SwitchoverReadReplicaCommandOutput) => void
+  ): Promise<SwitchoverReadReplicaCommandOutput> | void {
+    const command = new SwitchoverReadReplicaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

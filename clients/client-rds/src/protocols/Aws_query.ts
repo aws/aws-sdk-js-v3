@@ -461,6 +461,10 @@ import {
 } from "../commands/StopDBInstanceAutomatedBackupsReplicationCommand";
 import { StopDBInstanceCommandInput, StopDBInstanceCommandOutput } from "../commands/StopDBInstanceCommand";
 import {
+  SwitchoverReadReplicaCommandInput,
+  SwitchoverReadReplicaCommandOutput,
+} from "../commands/SwitchoverReadReplicaCommand";
+import {
   AccountAttributesMessage,
   AccountQuota,
   AddRoleToDBClusterMessage,
@@ -917,6 +921,8 @@ import {
   StopDBInstanceMessage,
   StopDBInstanceResult,
   SubnetAlreadyInUse,
+  SwitchoverReadReplicaMessage,
+  SwitchoverReadReplicaResult,
   TagListMessage,
   ValidDBInstanceModificationsMessage,
   ValidStorageOptions,
@@ -3094,6 +3100,22 @@ export const serializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand 
   body = buildFormUrlencodedString({
     ...serializeAws_queryStopDBInstanceAutomatedBackupsReplicationMessage(input, context),
     Action: "StopDBInstanceAutomatedBackupsReplication",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_querySwitchoverReadReplicaCommand = async (
+  input: SwitchoverReadReplicaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_querySwitchoverReadReplicaMessage(input, context),
+    Action: "SwitchoverReadReplica",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9881,6 +9903,50 @@ const deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommandError 
   }
 };
 
+export const deserializeAws_querySwitchoverReadReplicaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverReadReplicaCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_querySwitchoverReadReplicaCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_querySwitchoverReadReplicaResult(data.SwitchoverReadReplicaResult, context);
+  const response: SwitchoverReadReplicaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_querySwitchoverReadReplicaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverReadReplicaCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBInstanceNotFoundFault":
+    case "com.amazonaws.rds#DBInstanceNotFoundFault":
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
+    case "InvalidDBInstanceStateFault":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 const deserializeAws_queryAuthorizationAlreadyExistsFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -16125,6 +16191,17 @@ const serializeAws_querySubnetIdentifierList = (input: string[], context: __Serd
   return entries;
 };
 
+const serializeAws_querySwitchoverReadReplicaMessage = (
+  input: SwitchoverReadReplicaMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DBInstanceIdentifier != null) {
+    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  }
+  return entries;
+};
+
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Key != null) {
@@ -19599,6 +19676,7 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     DbiResourceId: undefined,
     TagList: undefined,
     OriginalSnapshotCreateTime: undefined,
+    SnapshotDatabaseTime: undefined,
     SnapshotTarget: undefined,
   };
   if (output["DBSnapshotIdentifier"] !== undefined) {
@@ -19700,6 +19778,9 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
   }
   if (output["OriginalSnapshotCreateTime"] !== undefined) {
     contents.OriginalSnapshotCreateTime = __expectNonNull(__parseRfc3339DateTime(output["OriginalSnapshotCreateTime"]));
+  }
+  if (output["SnapshotDatabaseTime"] !== undefined) {
+    contents.SnapshotDatabaseTime = __expectNonNull(__parseRfc3339DateTime(output["SnapshotDatabaseTime"]));
   }
   if (output["SnapshotTarget"] !== undefined) {
     contents.SnapshotTarget = __expectString(output["SnapshotTarget"]);
@@ -23684,6 +23765,19 @@ const deserializeAws_querySupportedTimezonesList = (output: any, context: __Serd
     .map((entry: any) => {
       return deserializeAws_queryTimezone(entry, context);
     });
+};
+
+const deserializeAws_querySwitchoverReadReplicaResult = (
+  output: any,
+  context: __SerdeContext
+): SwitchoverReadReplicaResult => {
+  const contents: any = {
+    DBInstance: undefined,
+  };
+  if (output["DBInstance"] !== undefined) {
+    contents.DBInstance = deserializeAws_queryDBInstance(output["DBInstance"], context);
+  }
+  return contents;
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {

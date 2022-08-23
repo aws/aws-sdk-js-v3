@@ -2219,6 +2219,16 @@ export interface DBSnapshot {
   OriginalSnapshotCreateTime?: Date;
 
   /**
+   * <p>The timestamp of the most recent transaction applied to the database that you're backing up.
+   *             Thus, if you restore a snapshot, SnapshotDatabaseTime is the most recent transaction in the restored DB instance.
+   *             In contrast, originalSnapshotCreateTime specifies the system time that the snapshot completed.</p>
+   *         <p>If you back up a read replica, you can determine the replica lag by comparing SnapshotDatabaseTime
+   *             with originalSnapshotCreateTime. For example, if originalSnapshotCreateTime is two hours later than
+   *             SnapshotDatabaseTime, then the replica lag is two hours. *** REVIEWERS 7/27: Switchover</p>
+   */
+  SnapshotDatabaseTime?: Date;
+
+  /**
    * <p>Specifies where manual snapshots are stored: Amazon Web Services Outposts or the Amazon Web Services Region.</p>
    */
   SnapshotTarget?: string;

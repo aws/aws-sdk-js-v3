@@ -135,3 +135,4 @@ export * from "./StopActivityStreamCommand";
 export * from "./StopDBClusterCommand";
 export * from "./StopDBInstanceAutomatedBackupsReplicationCommand";
 export * from "./StopDBInstanceCommand";
+export * from "./SwitchoverReadReplicaCommand";

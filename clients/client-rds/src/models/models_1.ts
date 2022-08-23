@@ -8434,6 +8434,31 @@ export interface StopDBInstanceAutomatedBackupsReplicationResult {
   DBInstanceAutomatedBackup?: DBInstanceAutomatedBackup;
 }
 
+export interface SwitchoverReadReplicaMessage {
+  /**
+   * <p>The DB instance identifier of the current standby database. This value is stored as a lowercase string.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Must match the identiﬁer of an existing Oracle read replica DB instance.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBInstanceIdentifier: string | undefined;
+}
+
+export interface SwitchoverReadReplicaResult {
+  /**
+   * <p>Contains the details of an Amazon RDS DB instance.</p>
+   *         <p>This data type is used as a response element in the operations <code>CreateDBInstance</code>,
+   *           <code>CreateDBInstanceReadReplica</code>, <code>DeleteDBInstance</code>, <code>DescribeDBInstances</code>,
+   *           <code>ModifyDBInstance</code>, <code>PromoteReadReplica</code>, <code>RebootDBInstance</code>,
+   *           <code>RestoreDBInstanceFromDBSnapshot</code>, <code>RestoreDBInstanceFromS3</code>, <code>RestoreDBInstanceToPointInTime</code>,
+   *           <code>StartDBInstance</code>, and <code>StopDBInstance</code>.</p>
+   */
+  DBInstance?: DBInstance;
+}
+
 /**
  * @internal
  */
@@ -9566,5 +9591,19 @@ export const StopDBInstanceAutomatedBackupsReplicationMessageFilterSensitiveLog 
 export const StopDBInstanceAutomatedBackupsReplicationResultFilterSensitiveLog = (
   obj: StopDBInstanceAutomatedBackupsReplicationResult
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SwitchoverReadReplicaMessageFilterSensitiveLog = (obj: SwitchoverReadReplicaMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SwitchoverReadReplicaResultFilterSensitiveLog = (obj: SwitchoverReadReplicaResult): any => ({
   ...obj,
 });
