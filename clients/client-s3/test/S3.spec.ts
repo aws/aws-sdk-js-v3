@@ -148,6 +148,7 @@ describe("Throw 200 response", () => {
     headers: {},
     body: new PassThrough(),
   };
+
   const client = new S3({
     region: "us-west-2",
     requestHandler: {
@@ -156,61 +157,67 @@ describe("Throw 200 response", () => {
       }),
     },
   });
-  const errorBody = `<?xml version="1.0" encoding="UTF-8"?>
-    <Error>
-      <Code>InternalError</Code>
-      <Message>We encountered an internal error. Please try again.</Message>
-      <RequestId>656c76696e6727732072657175657374</RequestId>
-      <HostId>Uuag1LuByRx9e6j5Onimru9pO4ZVKnJ2Qz7/C1NPcfTWAtRPfTaOFg==</HostId>
-    </Error>`;
+
   const params = {
     Bucket: "bucket",
     Key: "key",
     CopySource: "source",
   };
 
-  beforeEach(() => {
-    response.body = new PassThrough();
+  describe("when response body is empty", () => {
+    const errorMsg = "S3 aborted request";
+
+    beforeEach(() => {
+      response.body = new PassThrough();
+      response.body.end("");
+    });
+
+    it("should throw if CopyObject() return with 200 and empty payload", async () => {
+      return expect(client.copyObject(params)).to.eventually.be.rejectedWith(errorMsg);
+    });
+
+    it("should throw if UploadPartCopy() return with 200 and empty payload", async () => {
+      return expect(client.uploadPartCopy({ ...params, UploadId: "id", PartNumber: 1 })).to.eventually.be.rejectedWith(
+        errorMsg
+      );
+    });
+
+    it("should throw if CompleteMultipartUpload() return with 200 and empty payload", async () => {
+      return expect(client.completeMultipartUpload({ ...params, UploadId: "id" })).to.eventually.be.rejectedWith(
+        errorMsg
+      );
+    });
   });
 
-  it("should throw if CopyObject() return with 200 and empty payload", async () => {
-    response.body.end("");
-    return expect(client.copyObject(params)).to.eventually.be.rejectedWith("S3 aborted request");
-  });
+  describe("when response body is an error", () => {
+    const errorMsg = "We encountered an internal error. Please try again.";
 
-  it("should throw if CopyObject() return with 200 and error preamble", async () => {
-    response.body.end(errorBody);
-    return expect(client.copyObject(params)).to.eventually.be.rejectedWith(
-      "We encountered an internal error. Please try again."
-    );
-  });
+    beforeEach(() => {
+      response.body = new PassThrough();
+      response.body.end(`<?xml version="1.0" encoding="UTF-8"?>
+      <Error>
+        <Code>InternalError</Code>
+        <Message>We encountered an internal error. Please try again.</Message>
+        <RequestId>656c76696e6727732072657175657374</RequestId>
+        <HostId>Uuag1LuByRx9e6j5Onimru9pO4ZVKnJ2Qz7/C1NPcfTWAtRPfTaOFg==</HostId>
+      </Error>`);
+    });
 
-  it("should throw if UploadPartCopy() return with 200 and empty payload", async () => {
-    response.body.end("");
-    return expect(client.uploadPartCopy({ ...params, UploadId: "id", PartNumber: 1 })).to.eventually.be.rejectedWith(
-      "S3 aborted request"
-    );
-  });
+    it("should throw if CopyObject() return with 200 and error preamble", async () => {
+      return expect(client.copyObject(params)).to.eventually.be.rejectedWith(errorMsg);
+    });
 
-  it("should throw if UploadPartCopy() return with 200 and error preamble", async () => {
-    response.body.end(errorBody);
-    return expect(client.uploadPartCopy({ ...params, UploadId: "id", PartNumber: 1 })).to.eventually.be.rejectedWith(
-      "We encountered an internal error. Please try again."
-    );
-  });
+    it("should throw if UploadPartCopy() return with 200 and error preamble", async () => {
+      return expect(client.uploadPartCopy({ ...params, UploadId: "id", PartNumber: 1 })).to.eventually.be.rejectedWith(
+        errorMsg
+      );
+    });
 
-  it("should throw if CompleteMultipartUpload() return with 200 and empty payload", async () => {
-    response.body.end("");
-    return expect(client.completeMultipartUpload({ ...params, UploadId: "id" })).to.eventually.be.rejectedWith(
-      "S3 aborted request"
-    );
-  });
-
-  it("should throw if CompleteMultipartUpload() return with 200 and error preamble", async () => {
-    response.body.end(errorBody);
-    return expect(client.completeMultipartUpload({ ...params, UploadId: "id" })).to.eventually.be.rejectedWith(
-      "We encountered an internal error. Please try again."
-    );
+    it("should throw if CompleteMultipartUpload() return with 200 and error preamble", async () => {
+      return expect(client.completeMultipartUpload({ ...params, UploadId: "id" })).to.eventually.be.rejectedWith(
+        errorMsg
+      );
+    });
   });
 });
 
