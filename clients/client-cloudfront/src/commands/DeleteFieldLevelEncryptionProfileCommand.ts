@@ -16,7 +16,7 @@ import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   DeleteFieldLevelEncryptionProfileRequest,
   DeleteFieldLevelEncryptionProfileRequestFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand,
   serializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand,

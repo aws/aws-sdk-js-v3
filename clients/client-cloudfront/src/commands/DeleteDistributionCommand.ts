@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteDistributionRequest, DeleteDistributionRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteDistributionRequest, DeleteDistributionRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteDistributionCommand,
   serializeAws_restXmlDeleteDistributionCommand,

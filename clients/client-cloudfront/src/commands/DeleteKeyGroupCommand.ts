@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteKeyGroupRequest, DeleteKeyGroupRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteKeyGroupRequest, DeleteKeyGroupRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteKeyGroupCommand,
   serializeAws_restXmlDeleteKeyGroupCommand,

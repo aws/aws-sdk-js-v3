@@ -58,6 +58,11 @@ import {
   CreateMonitoringSubscriptionCommandOutput,
 } from "./commands/CreateMonitoringSubscriptionCommand";
 import {
+  CreateOriginAccessControlCommand,
+  CreateOriginAccessControlCommandInput,
+  CreateOriginAccessControlCommandOutput,
+} from "./commands/CreateOriginAccessControlCommand";
+import {
   CreateOriginRequestPolicyCommand,
   CreateOriginRequestPolicyCommandInput,
   CreateOriginRequestPolicyCommandOutput,
@@ -127,6 +132,11 @@ import {
   DeleteMonitoringSubscriptionCommandInput,
   DeleteMonitoringSubscriptionCommandOutput,
 } from "./commands/DeleteMonitoringSubscriptionCommand";
+import {
+  DeleteOriginAccessControlCommand,
+  DeleteOriginAccessControlCommandInput,
+  DeleteOriginAccessControlCommandOutput,
+} from "./commands/DeleteOriginAccessControlCommand";
 import {
   DeleteOriginRequestPolicyCommand,
   DeleteOriginRequestPolicyCommandInput,
@@ -224,6 +234,16 @@ import {
   GetMonitoringSubscriptionCommandInput,
   GetMonitoringSubscriptionCommandOutput,
 } from "./commands/GetMonitoringSubscriptionCommand";
+import {
+  GetOriginAccessControlCommand,
+  GetOriginAccessControlCommandInput,
+  GetOriginAccessControlCommandOutput,
+} from "./commands/GetOriginAccessControlCommand";
+import {
+  GetOriginAccessControlConfigCommand,
+  GetOriginAccessControlConfigCommandInput,
+  GetOriginAccessControlConfigCommandOutput,
+} from "./commands/GetOriginAccessControlConfigCommand";
 import {
   GetOriginRequestPolicyCommand,
   GetOriginRequestPolicyCommandInput,
@@ -345,6 +365,11 @@ import {
   ListKeyGroupsCommandOutput,
 } from "./commands/ListKeyGroupsCommand";
 import {
+  ListOriginAccessControlsCommand,
+  ListOriginAccessControlsCommandInput,
+  ListOriginAccessControlsCommandOutput,
+} from "./commands/ListOriginAccessControlsCommand";
+import {
   ListOriginRequestPoliciesCommand,
   ListOriginRequestPoliciesCommandInput,
   ListOriginRequestPoliciesCommandOutput,
@@ -425,6 +450,11 @@ import {
   UpdateKeyGroupCommandInput,
   UpdateKeyGroupCommandOutput,
 } from "./commands/UpdateKeyGroupCommand";
+import {
+  UpdateOriginAccessControlCommand,
+  UpdateOriginAccessControlCommandInput,
+  UpdateOriginAccessControlCommandOutput,
+} from "./commands/UpdateOriginAccessControlCommand";
 import {
   UpdateOriginRequestPolicyCommand,
   UpdateOriginRequestPolicyCommandInput,
@@ -865,6 +895,44 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: CreateMonitoringSubscriptionCommandOutput) => void
   ): Promise<CreateMonitoringSubscriptionCommandOutput> | void {
     const command = new CreateMonitoringSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new origin access control in CloudFront. After you create an origin access control, you
+   * 			can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed)
+   * 			requests to the origin.</p>
+   * 		       <p>For an Amazon S3 origin, this makes it possible to block public access to the Amazon S3 bucket
+   * 			so that viewers (users) can access the content in the bucket only through CloudFront.</p>
+   * 		       <p>For more information about using a CloudFront origin access control, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">Restricting access to an Amazon S3 origin</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  public createOriginAccessControl(
+    args: CreateOriginAccessControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOriginAccessControlCommandOutput>;
+  public createOriginAccessControl(
+    args: CreateOriginAccessControlCommandInput,
+    cb: (err: any, data?: CreateOriginAccessControlCommandOutput) => void
+  ): void;
+  public createOriginAccessControl(
+    args: CreateOriginAccessControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateOriginAccessControlCommandOutput) => void
+  ): void;
+  public createOriginAccessControl(
+    args: CreateOriginAccessControlCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOriginAccessControlCommandOutput) => void),
+    cb?: (err: any, data?: CreateOriginAccessControlCommandOutput) => void
+  ): Promise<CreateOriginAccessControlCommandOutput> | void {
+    const command = new CreateOriginAccessControlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1369,6 +1437,41 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: DeleteMonitoringSubscriptionCommandOutput) => void
   ): Promise<DeleteMonitoringSubscriptionCommandOutput> | void {
     const command = new DeleteMonitoringSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a CloudFront origin access control.</p>
+   * 		       <p>You cannot delete an origin access control if it's in use. First, update all distributions
+   * 			to remove the origin access control from all origins, then delete the origin access
+   * 			control.</p>
+   */
+  public deleteOriginAccessControl(
+    args: DeleteOriginAccessControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOriginAccessControlCommandOutput>;
+  public deleteOriginAccessControl(
+    args: DeleteOriginAccessControlCommandInput,
+    cb: (err: any, data?: DeleteOriginAccessControlCommandOutput) => void
+  ): void;
+  public deleteOriginAccessControl(
+    args: DeleteOriginAccessControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteOriginAccessControlCommandOutput) => void
+  ): void;
+  public deleteOriginAccessControl(
+    args: DeleteOriginAccessControlCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOriginAccessControlCommandOutput) => void),
+    cb?: (err: any, data?: DeleteOriginAccessControlCommandOutput) => void
+  ): Promise<DeleteOriginAccessControlCommandOutput> | void {
+    const command = new DeleteOriginAccessControlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2132,6 +2235,70 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: GetMonitoringSubscriptionCommandOutput) => void
   ): Promise<GetMonitoringSubscriptionCommandOutput> | void {
     const command = new GetMonitoringSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a CloudFront origin access control.</p>
+   */
+  public getOriginAccessControl(
+    args: GetOriginAccessControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOriginAccessControlCommandOutput>;
+  public getOriginAccessControl(
+    args: GetOriginAccessControlCommandInput,
+    cb: (err: any, data?: GetOriginAccessControlCommandOutput) => void
+  ): void;
+  public getOriginAccessControl(
+    args: GetOriginAccessControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOriginAccessControlCommandOutput) => void
+  ): void;
+  public getOriginAccessControl(
+    args: GetOriginAccessControlCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOriginAccessControlCommandOutput) => void),
+    cb?: (err: any, data?: GetOriginAccessControlCommandOutput) => void
+  ): Promise<GetOriginAccessControlCommandOutput> | void {
+    const command = new GetOriginAccessControlCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a CloudFront origin access control.</p>
+   */
+  public getOriginAccessControlConfig(
+    args: GetOriginAccessControlConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOriginAccessControlConfigCommandOutput>;
+  public getOriginAccessControlConfig(
+    args: GetOriginAccessControlConfigCommandInput,
+    cb: (err: any, data?: GetOriginAccessControlConfigCommandOutput) => void
+  ): void;
+  public getOriginAccessControlConfig(
+    args: GetOriginAccessControlConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOriginAccessControlConfigCommandOutput) => void
+  ): void;
+  public getOriginAccessControlConfig(
+    args: GetOriginAccessControlConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOriginAccessControlConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetOriginAccessControlConfigCommandOutput) => void
+  ): Promise<GetOriginAccessControlConfigCommandOutput> | void {
+    const command = new GetOriginAccessControlConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3021,6 +3188,43 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Gets the list of CloudFront origin access controls in this Amazon Web Services account.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If the
+   * 			total number of items in the list exceeds the maximum that you specify, or the default
+   * 			maximum, the response is paginated. To get the next page of items, send another request
+   * 			that specifies the <code>NextMarker</code> value from the current response as the
+   * 			<code>Marker</code> value in the next request.</p>
+   */
+  public listOriginAccessControls(
+    args: ListOriginAccessControlsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOriginAccessControlsCommandOutput>;
+  public listOriginAccessControls(
+    args: ListOriginAccessControlsCommandInput,
+    cb: (err: any, data?: ListOriginAccessControlsCommandOutput) => void
+  ): void;
+  public listOriginAccessControls(
+    args: ListOriginAccessControlsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOriginAccessControlsCommandOutput) => void
+  ): void;
+  public listOriginAccessControls(
+    args: ListOriginAccessControlsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOriginAccessControlsCommandOutput) => void),
+    cb?: (err: any, data?: ListOriginAccessControlsCommandOutput) => void
+  ): Promise<ListOriginAccessControlsCommandOutput> | void {
+    const command = new ListOriginAccessControlsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of origin request policies.</p>
    * 		       <p>You can optionally apply a filter to return only the managed policies created by Amazon Web Services, or
    * 			only the custom policies created in your Amazon Web Services account.</p>
@@ -3698,6 +3902,38 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: UpdateKeyGroupCommandOutput) => void
   ): Promise<UpdateKeyGroupCommandOutput> | void {
     const command = new UpdateKeyGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a CloudFront origin access control.</p>
+   */
+  public updateOriginAccessControl(
+    args: UpdateOriginAccessControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOriginAccessControlCommandOutput>;
+  public updateOriginAccessControl(
+    args: UpdateOriginAccessControlCommandInput,
+    cb: (err: any, data?: UpdateOriginAccessControlCommandOutput) => void
+  ): void;
+  public updateOriginAccessControl(
+    args: UpdateOriginAccessControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateOriginAccessControlCommandOutput) => void
+  ): void;
+  public updateOriginAccessControl(
+    args: UpdateOriginAccessControlCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateOriginAccessControlCommandOutput) => void),
+    cb?: (err: any, data?: UpdateOriginAccessControlCommandOutput) => void
+  ): Promise<UpdateOriginAccessControlCommandOutput> | void {
+    const command = new UpdateOriginAccessControlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

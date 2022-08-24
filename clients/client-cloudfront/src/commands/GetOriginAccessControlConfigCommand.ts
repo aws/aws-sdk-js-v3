@@ -14,43 +14,47 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
-  DeleteFieldLevelEncryptionConfigRequest,
-  DeleteFieldLevelEncryptionConfigRequestFilterSensitiveLog,
+  GetOriginAccessControlConfigRequest,
+  GetOriginAccessControlConfigRequestFilterSensitiveLog,
+  GetOriginAccessControlConfigResult,
+  GetOriginAccessControlConfigResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand,
-  serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand,
+  deserializeAws_restXmlGetOriginAccessControlConfigCommand,
+  serializeAws_restXmlGetOriginAccessControlConfigCommand,
 } from "../protocols/Aws_restXml";
 
-export interface DeleteFieldLevelEncryptionConfigCommandInput extends DeleteFieldLevelEncryptionConfigRequest {}
-export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __MetadataBearer {}
+export interface GetOriginAccessControlConfigCommandInput extends GetOriginAccessControlConfigRequest {}
+export interface GetOriginAccessControlConfigCommandOutput
+  extends GetOriginAccessControlConfigResult,
+    __MetadataBearer {}
 
 /**
- * <p>Remove a field-level encryption configuration.</p>
+ * <p>Gets a CloudFront origin access control.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, DeleteFieldLevelEncryptionConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, DeleteFieldLevelEncryptionConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetOriginAccessControlConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, GetOriginAccessControlConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const command = new DeleteFieldLevelEncryptionConfigCommand(input);
+ * const command = new GetOriginAccessControlConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DeleteFieldLevelEncryptionConfigCommandInput} for command's `input` shape.
- * @see {@link DeleteFieldLevelEncryptionConfigCommandOutput} for command's `response` shape.
+ * @see {@link GetOriginAccessControlConfigCommandInput} for command's `input` shape.
+ * @see {@link GetOriginAccessControlConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
-export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
-  DeleteFieldLevelEncryptionConfigCommandInput,
-  DeleteFieldLevelEncryptionConfigCommandOutput,
+export class GetOriginAccessControlConfigCommand extends $Command<
+  GetOriginAccessControlConfigCommandInput,
+  GetOriginAccessControlConfigCommandOutput,
   CloudFrontClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DeleteFieldLevelEncryptionConfigCommandInput) {
+  constructor(readonly input: GetOriginAccessControlConfigCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -63,20 +67,20 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteFieldLevelEncryptionConfigCommandInput, DeleteFieldLevelEncryptionConfigCommandOutput> {
+  ): Handler<GetOriginAccessControlConfigCommandInput, GetOriginAccessControlConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CloudFrontClient";
-    const commandName = "DeleteFieldLevelEncryptionConfigCommand";
+    const commandName = "GetOriginAccessControlConfigCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFieldLevelEncryptionConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: GetOriginAccessControlConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetOriginAccessControlConfigResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,18 +90,15 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteFieldLevelEncryptionConfigCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand(input, context);
+  private serialize(input: GetOriginAccessControlConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlGetOriginAccessControlConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> {
-    return deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand(output, context);
+  ): Promise<GetOriginAccessControlConfigCommandOutput> {
+    return deserializeAws_restXmlGetOriginAccessControlConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -80,6 +80,10 @@ import {
   CreateMonitoringSubscriptionCommandOutput,
 } from "./commands/CreateMonitoringSubscriptionCommand";
 import {
+  CreateOriginAccessControlCommandInput,
+  CreateOriginAccessControlCommandOutput,
+} from "./commands/CreateOriginAccessControlCommand";
+import {
   CreateOriginRequestPolicyCommandInput,
   CreateOriginRequestPolicyCommandOutput,
 } from "./commands/CreateOriginRequestPolicyCommand";
@@ -120,6 +124,10 @@ import {
   DeleteMonitoringSubscriptionCommandInput,
   DeleteMonitoringSubscriptionCommandOutput,
 } from "./commands/DeleteMonitoringSubscriptionCommand";
+import {
+  DeleteOriginAccessControlCommandInput,
+  DeleteOriginAccessControlCommandOutput,
+} from "./commands/DeleteOriginAccessControlCommand";
 import {
   DeleteOriginRequestPolicyCommandInput,
   DeleteOriginRequestPolicyCommandOutput,
@@ -180,6 +188,14 @@ import {
   GetMonitoringSubscriptionCommandInput,
   GetMonitoringSubscriptionCommandOutput,
 } from "./commands/GetMonitoringSubscriptionCommand";
+import {
+  GetOriginAccessControlCommandInput,
+  GetOriginAccessControlCommandOutput,
+} from "./commands/GetOriginAccessControlCommand";
+import {
+  GetOriginAccessControlConfigCommandInput,
+  GetOriginAccessControlConfigCommandOutput,
+} from "./commands/GetOriginAccessControlConfigCommand";
 import {
   GetOriginRequestPolicyCommandInput,
   GetOriginRequestPolicyCommandOutput,
@@ -256,6 +272,10 @@ import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./command
 import { ListInvalidationsCommandInput, ListInvalidationsCommandOutput } from "./commands/ListInvalidationsCommand";
 import { ListKeyGroupsCommandInput, ListKeyGroupsCommandOutput } from "./commands/ListKeyGroupsCommand";
 import {
+  ListOriginAccessControlsCommandInput,
+  ListOriginAccessControlsCommandOutput,
+} from "./commands/ListOriginAccessControlsCommand";
+import {
   ListOriginRequestPoliciesCommandInput,
   ListOriginRequestPoliciesCommandOutput,
 } from "./commands/ListOriginRequestPoliciesCommand";
@@ -297,6 +317,10 @@ import {
 import { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "./commands/UpdateFunctionCommand";
 import { UpdateKeyGroupCommandInput, UpdateKeyGroupCommandOutput } from "./commands/UpdateKeyGroupCommand";
 import {
+  UpdateOriginAccessControlCommandInput,
+  UpdateOriginAccessControlCommandOutput,
+} from "./commands/UpdateOriginAccessControlCommand";
+import {
   UpdateOriginRequestPolicyCommandInput,
   UpdateOriginRequestPolicyCommandOutput,
 } from "./commands/UpdateOriginRequestPolicyCommand";
@@ -327,6 +351,7 @@ export type ServiceInputTypes =
   | CreateInvalidationCommandInput
   | CreateKeyGroupCommandInput
   | CreateMonitoringSubscriptionCommandInput
+  | CreateOriginAccessControlCommandInput
   | CreateOriginRequestPolicyCommandInput
   | CreatePublicKeyCommandInput
   | CreateRealtimeLogConfigCommandInput
@@ -341,6 +366,7 @@ export type ServiceInputTypes =
   | DeleteFunctionCommandInput
   | DeleteKeyGroupCommandInput
   | DeleteMonitoringSubscriptionCommandInput
+  | DeleteOriginAccessControlCommandInput
   | DeleteOriginRequestPolicyCommandInput
   | DeletePublicKeyCommandInput
   | DeleteRealtimeLogConfigCommandInput
@@ -362,6 +388,8 @@ export type ServiceInputTypes =
   | GetKeyGroupCommandInput
   | GetKeyGroupConfigCommandInput
   | GetMonitoringSubscriptionCommandInput
+  | GetOriginAccessControlCommandInput
+  | GetOriginAccessControlConfigCommandInput
   | GetOriginRequestPolicyCommandInput
   | GetOriginRequestPolicyConfigCommandInput
   | GetPublicKeyCommandInput
@@ -386,6 +414,7 @@ export type ServiceInputTypes =
   | ListFunctionsCommandInput
   | ListInvalidationsCommandInput
   | ListKeyGroupsCommandInput
+  | ListOriginAccessControlsCommandInput
   | ListOriginRequestPoliciesCommandInput
   | ListPublicKeysCommandInput
   | ListRealtimeLogConfigsCommandInput
@@ -403,6 +432,7 @@ export type ServiceInputTypes =
   | UpdateFieldLevelEncryptionProfileCommandInput
   | UpdateFunctionCommandInput
   | UpdateKeyGroupCommandInput
+  | UpdateOriginAccessControlCommandInput
   | UpdateOriginRequestPolicyCommandInput
   | UpdatePublicKeyCommandInput
   | UpdateRealtimeLogConfigCommandInput
@@ -421,6 +451,7 @@ export type ServiceOutputTypes =
   | CreateInvalidationCommandOutput
   | CreateKeyGroupCommandOutput
   | CreateMonitoringSubscriptionCommandOutput
+  | CreateOriginAccessControlCommandOutput
   | CreateOriginRequestPolicyCommandOutput
   | CreatePublicKeyCommandOutput
   | CreateRealtimeLogConfigCommandOutput
@@ -435,6 +466,7 @@ export type ServiceOutputTypes =
   | DeleteFunctionCommandOutput
   | DeleteKeyGroupCommandOutput
   | DeleteMonitoringSubscriptionCommandOutput
+  | DeleteOriginAccessControlCommandOutput
   | DeleteOriginRequestPolicyCommandOutput
   | DeletePublicKeyCommandOutput
   | DeleteRealtimeLogConfigCommandOutput
@@ -456,6 +488,8 @@ export type ServiceOutputTypes =
   | GetKeyGroupCommandOutput
   | GetKeyGroupConfigCommandOutput
   | GetMonitoringSubscriptionCommandOutput
+  | GetOriginAccessControlCommandOutput
+  | GetOriginAccessControlConfigCommandOutput
   | GetOriginRequestPolicyCommandOutput
   | GetOriginRequestPolicyConfigCommandOutput
   | GetPublicKeyCommandOutput
@@ -480,6 +514,7 @@ export type ServiceOutputTypes =
   | ListFunctionsCommandOutput
   | ListInvalidationsCommandOutput
   | ListKeyGroupsCommandOutput
+  | ListOriginAccessControlsCommandOutput
   | ListOriginRequestPoliciesCommandOutput
   | ListPublicKeysCommandOutput
   | ListRealtimeLogConfigsCommandOutput
@@ -497,6 +532,7 @@ export type ServiceOutputTypes =
   | UpdateFieldLevelEncryptionProfileCommandOutput
   | UpdateFunctionCommandOutput
   | UpdateKeyGroupCommandOutput
+  | UpdateOriginAccessControlCommandOutput
   | UpdateOriginRequestPolicyCommandOutput
   | UpdatePublicKeyCommandOutput
   | UpdateRealtimeLogConfigCommandOutput

@@ -16,7 +16,7 @@ import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   DeleteCloudFrontOriginAccessIdentityRequest,
   DeleteCloudFrontOriginAccessIdentityRequestFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand,
   serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand,

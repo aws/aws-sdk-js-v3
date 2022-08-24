@@ -33,6 +33,11 @@ import {
   KeyGroup,
   KeyGroupConfig,
   MonitoringSubscription,
+  OriginAccessControl,
+  OriginAccessControlConfig,
+  OriginAccessControlOriginTypes,
+  OriginAccessControlSigningBehaviors,
+  OriginAccessControlSigningProtocols,
   OriginGroups,
   OriginRequestPolicy,
   OriginRequestPolicyConfig,
@@ -52,6 +57,308 @@ import {
   TrustedSigners,
   ViewerCertificate,
 } from "./models_0";
+
+/**
+ * <p>The Origin Access Identity specified is already in use.</p>
+ */
+export class CloudFrontOriginAccessIdentityInUse extends __BaseException {
+  readonly name: "CloudFrontOriginAccessIdentityInUse" = "CloudFrontOriginAccessIdentityInUse";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudFrontOriginAccessIdentityInUse, __BaseException>) {
+    super({
+      name: "CloudFrontOriginAccessIdentityInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudFrontOriginAccessIdentityInUse.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Deletes a origin access identity.</p>
+ */
+export interface DeleteCloudFrontOriginAccessIdentityRequest {
+  /**
+   * <p>The origin access identity's ID.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The value of the <code>ETag</code> header you received from a previous <code>GET</code>
+   * 			or <code>PUT</code> request. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  IfMatch?: string;
+}
+
+/**
+ * <p>The specified origin access identity does not exist.</p>
+ */
+export class NoSuchCloudFrontOriginAccessIdentity extends __BaseException {
+  readonly name: "NoSuchCloudFrontOriginAccessIdentity" = "NoSuchCloudFrontOriginAccessIdentity";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchCloudFrontOriginAccessIdentity, __BaseException>) {
+    super({
+      name: "NoSuchCloudFrontOriginAccessIdentity",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchCloudFrontOriginAccessIdentity.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>This action deletes a web distribution. To delete a web distribution using the CloudFront
+ * 			API, perform the following steps.</p>
+ * 		       <p>
+ * 			         <b>To delete a web distribution using the CloudFront API:</b>
+ * 		       </p>
+ * 		       <ol>
+ *             <li>
+ * 				           <p>Disable the web distribution </p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Submit a <code>GET Distribution Config</code> request to get the current
+ * 					configuration and the <code>Etag</code> header for the distribution.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Update the XML document that was returned in the response to your <code>GET
+ * 						Distribution Config</code> request to change the value of <code>Enabled</code> to
+ * 						<code>false</code>.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Submit a <code>PUT Distribution Config</code> request to update the configuration
+ * 					for your distribution. In the request body, include the XML document that you updated in
+ * 					Step 3. Set the value of the HTTP <code>If-Match</code> header to the value of the
+ * 						<code>ETag</code> header that CloudFront returned when you submitted the <code>GET
+ * 						Distribution Config</code> request in Step 2.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Review the response to the <code>PUT Distribution Config</code> request to confirm
+ * 					that the distribution was successfully disabled.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Submit a <code>GET Distribution</code> request to confirm that your changes have
+ * 					propagated. When propagation is complete, the value of <code>Status</code> is
+ * 						<code>Deployed</code>.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Submit a <code>DELETE Distribution</code> request. Set the value of the HTTP
+ * 						<code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront
+ * 					returned when you submitted the <code>GET Distribution Config</code> request in Step
+ * 					6.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Review the response to your <code>DELETE Distribution</code> request to confirm
+ * 					that the distribution was successfully deleted.</p>
+ * 			         </li>
+ *          </ol>
+ * 		       <p>For information about deleting a distribution using the CloudFront console, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html">Deleting a Distribution</a> in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export interface DeleteDistributionRequest {
+  /**
+   * <p>The distribution ID. </p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The value of the <code>ETag</code> header that you received when you disabled the
+   * 			distribution. For example: <code>E2QWRUHAPOMQZL</code>. </p>
+   */
+  IfMatch?: string;
+}
+
+/**
+ * <p>The specified CloudFront distribution is not disabled. You must disable
+ * 			the distribution before you can delete it.</p>
+ */
+export class DistributionNotDisabled extends __BaseException {
+  readonly name: "DistributionNotDisabled" = "DistributionNotDisabled";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DistributionNotDisabled, __BaseException>) {
+    super({
+      name: "DistributionNotDisabled",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DistributionNotDisabled.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface DeleteFieldLevelEncryptionConfigRequest {
+  /**
+   * <p>The ID of the configuration you want to delete from CloudFront.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the
+   * 			configuration identity to delete. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  IfMatch?: string;
+}
+
+/**
+ * <p>The specified configuration for field-level encryption is in use.</p>
+ */
+export class FieldLevelEncryptionConfigInUse extends __BaseException {
+  readonly name: "FieldLevelEncryptionConfigInUse" = "FieldLevelEncryptionConfigInUse";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FieldLevelEncryptionConfigInUse, __BaseException>) {
+    super({
+      name: "FieldLevelEncryptionConfigInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FieldLevelEncryptionConfigInUse.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface DeleteFieldLevelEncryptionProfileRequest {
+  /**
+   * <p>Request the ID of the profile you want to delete from CloudFront.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the
+   * 			profile to delete. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  IfMatch?: string;
+}
+
+/**
+ * <p>The specified profile for field-level encryption is in use.</p>
+ */
+export class FieldLevelEncryptionProfileInUse extends __BaseException {
+  readonly name: "FieldLevelEncryptionProfileInUse" = "FieldLevelEncryptionProfileInUse";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FieldLevelEncryptionProfileInUse, __BaseException>) {
+    super({
+      name: "FieldLevelEncryptionProfileInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FieldLevelEncryptionProfileInUse.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface DeleteFunctionRequest {
+  /**
+   * <p>The name of the function that you are deleting.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the function that you are deleting, which
+   * 			you can get using <code>DescribeFunction</code>.</p>
+   */
+  IfMatch: string | undefined;
+}
+
+/**
+ * <p>Cannot delete the function because it’s attached to one or more cache
+ * 			behaviors.</p>
+ */
+export class FunctionInUse extends __BaseException {
+  readonly name: "FunctionInUse" = "FunctionInUse";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FunctionInUse, __BaseException>) {
+    super({
+      name: "FunctionInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FunctionInUse.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The function does not exist.</p>
+ */
+export class NoSuchFunctionExists extends __BaseException {
+  readonly name: "NoSuchFunctionExists" = "NoSuchFunctionExists";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchFunctionExists, __BaseException>) {
+    super({
+      name: "NoSuchFunctionExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchFunctionExists.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface DeleteKeyGroupRequest {
+  /**
+   * <p>The identifier of the key group that you are deleting. To get the identifier, use
+   * 			<code>ListKeyGroups</code>.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The version of the key group that you are deleting. The version is the key group’s
+   * 			<code>ETag</code> value. To get the <code>ETag</code>, use <code>GetKeyGroup</code> or
+   * 			<code>GetKeyGroupConfig</code>.</p>
+   */
+  IfMatch?: string;
+}
+
+/**
+ * <p>A resource that was specified is not valid.</p>
+ */
+export class NoSuchResource extends __BaseException {
+  readonly name: "NoSuchResource" = "NoSuchResource";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchResource, __BaseException>) {
+    super({
+      name: "NoSuchResource",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchResource.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * <p>Cannot delete this resource because it is in use.</p>
@@ -82,6 +389,83 @@ export interface DeleteMonitoringSubscriptionRequest {
 }
 
 export interface DeleteMonitoringSubscriptionResult {}
+
+/**
+ * <p>A monitoring subscription does not exist for the specified distribution.</p>
+ */
+export class NoSuchMonitoringSubscription extends __BaseException {
+  readonly name: "NoSuchMonitoringSubscription" = "NoSuchMonitoringSubscription";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchMonitoringSubscription, __BaseException>) {
+    super({
+      name: "NoSuchMonitoringSubscription",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchMonitoringSubscription.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface DeleteOriginAccessControlRequest {
+  /**
+   * <p>The unique identifier of the origin access control that you are deleting.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the origin access control that you are
+   * 			deleting.</p>
+   */
+  IfMatch?: string;
+}
+
+/**
+ * <p>The origin access control does not exist.</p>
+ */
+export class NoSuchOriginAccessControl extends __BaseException {
+  readonly name: "NoSuchOriginAccessControl" = "NoSuchOriginAccessControl";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchOriginAccessControl, __BaseException>) {
+    super({
+      name: "NoSuchOriginAccessControl",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchOriginAccessControl.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Cannot delete the origin access control because it's in use by one or more
+ * 			distributions.</p>
+ */
+export class OriginAccessControlInUse extends __BaseException {
+  readonly name: "OriginAccessControlInUse" = "OriginAccessControlInUse";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OriginAccessControlInUse, __BaseException>) {
+    super({
+      name: "OriginAccessControlInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OriginAccessControlInUse.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 export interface DeleteOriginRequestPolicyRequest {
   /**
@@ -667,6 +1051,44 @@ export interface GetMonitoringSubscriptionResult {
    * 			CloudWatch metrics are enabled for a given CloudFront distribution.</p>
    */
   MonitoringSubscription?: MonitoringSubscription;
+}
+
+export interface GetOriginAccessControlRequest {
+  /**
+   * <p>The unique identifier of the origin access control.</p>
+   */
+  Id: string | undefined;
+}
+
+export interface GetOriginAccessControlResult {
+  /**
+   * <p>Contains an origin access control.</p>
+   */
+  OriginAccessControl?: OriginAccessControl;
+
+  /**
+   * <p>The version identifier for the current version of the origin access control.</p>
+   */
+  ETag?: string;
+}
+
+export interface GetOriginAccessControlConfigRequest {
+  /**
+   * <p>The unique identifier of the origin access control.</p>
+   */
+  Id: string | undefined;
+}
+
+export interface GetOriginAccessControlConfigResult {
+  /**
+   * <p>Contains an origin access control.</p>
+   */
+  OriginAccessControlConfig?: OriginAccessControlConfig;
+
+  /**
+   * <p>The version identifier for the current version of the origin access control.</p>
+   */
+  ETag?: string;
 }
 
 export interface GetOriginRequestPolicyRequest {
@@ -1894,6 +2316,123 @@ export interface ListKeyGroupsResult {
   KeyGroupList?: KeyGroupList;
 }
 
+export interface ListOriginAccessControlsRequest {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of origin
+   * 			access controls. The response includes the items in the list that occur after the
+   * 			marker. To get the next page of the list, set this field's value to the value of
+   * 			<code>NextMarker</code> from the current page's response.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of origin access controls that you want in the response.</p>
+   */
+  MaxItems?: number;
+}
+
+/**
+ * <p>A CloudFront origin access control.</p>
+ */
+export interface OriginAccessControlSummary {
+  /**
+   * <p>The unique identifier of the origin access control.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A description of the origin access control.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>A unique name that identifies the origin access control.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The signing protocol of the origin access control. The signing protocol determines how
+   * 			CloudFront signs (authenticates) requests. The only valid value is <code>sigv4</code>.</p>
+   */
+  SigningProtocol: OriginAccessControlSigningProtocols | string | undefined;
+
+  /**
+   * <p>A value that specifies which requests CloudFront signs (adds authentication information to).
+   * 			This field can have one of the following values:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>never</code> – CloudFront doesn't sign any origin requests.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>always</code> – CloudFront signs all origin requests, overwriting the
+   * 					<code>Authorization</code> header from the viewer request if necessary.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>no-override</code> – If the viewer request doesn't contain the
+   * 					<code>Authorization</code> header, CloudFront signs the origin request. If the viewer
+   * 					request contains the <code>Authorization</code> header, CloudFront doesn't sign the
+   * 					origin request, but instead passes along the <code>Authorization</code> header
+   * 					that it received in the viewer request.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  SigningBehavior: OriginAccessControlSigningBehaviors | string | undefined;
+
+  /**
+   * <p>The type of origin that this origin access control is for. The only valid value is
+   * 			<code>s3</code>.</p>
+   */
+  OriginAccessControlOriginType: OriginAccessControlOriginTypes | string | undefined;
+}
+
+/**
+ * <p>A list of CloudFront origin access controls.</p>
+ */
+export interface OriginAccessControlList {
+  /**
+   * <p>The value of the <code>Marker</code> field that was provided in the request.</p>
+   */
+  Marker: string | undefined;
+
+  /**
+   * <p>If there are more items in the list than are in this response, this element is present. It
+   * 			contains the value to use in the <code>Marker</code> field of another request to
+   * 			continue listing origin access controls.</p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>The maximum number of origin access controls requested.</p>
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * <p>If there are more items in the list than are in this response, this value is
+   * 			<code>true</code>.</p>
+   */
+  IsTruncated: boolean | undefined;
+
+  /**
+   * <p>The number of origin access controls returned in the response.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>Contains the origin access controls in the list.</p>
+   */
+  Items?: OriginAccessControlSummary[];
+}
+
+export interface ListOriginAccessControlsResult {
+  /**
+   * <p>A list of origin access controls.</p>
+   */
+  OriginAccessControlList?: OriginAccessControlList;
+}
+
 export type OriginRequestPolicyType = "custom" | "managed";
 
 export interface ListOriginRequestPoliciesRequest {
@@ -2749,6 +3288,36 @@ export interface UpdateKeyGroupResult {
   ETag?: string;
 }
 
+export interface UpdateOriginAccessControlRequest {
+  /**
+   * <p>An origin access control.</p>
+   */
+  OriginAccessControlConfig: OriginAccessControlConfig | undefined;
+
+  /**
+   * <p>The unique identifier of the origin access control that you are updating.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the origin access control that you are
+   * 			updating.</p>
+   */
+  IfMatch?: string;
+}
+
+export interface UpdateOriginAccessControlResult {
+  /**
+   * <p>The origin access control after it has been updated.</p>
+   */
+  OriginAccessControl?: OriginAccessControl;
+
+  /**
+   * <p>The new version of the origin access control after it has been updated.</p>
+   */
+  ETag?: string;
+}
+
 export interface UpdateOriginRequestPolicyRequest {
   /**
    * <p>An origin request policy configuration.</p>
@@ -2922,6 +3491,54 @@ export interface UpdateStreamingDistributionResult {
 /**
  * @internal
  */
+export const DeleteCloudFrontOriginAccessIdentityRequestFilterSensitiveLog = (
+  obj: DeleteCloudFrontOriginAccessIdentityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDistributionRequestFilterSensitiveLog = (obj: DeleteDistributionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFieldLevelEncryptionConfigRequestFilterSensitiveLog = (
+  obj: DeleteFieldLevelEncryptionConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFieldLevelEncryptionProfileRequestFilterSensitiveLog = (
+  obj: DeleteFieldLevelEncryptionProfileRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFunctionRequestFilterSensitiveLog = (obj: DeleteFunctionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKeyGroupRequestFilterSensitiveLog = (obj: DeleteKeyGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteMonitoringSubscriptionRequestFilterSensitiveLog = (
   obj: DeleteMonitoringSubscriptionRequest
 ): any => ({
@@ -2932,6 +3549,13 @@ export const DeleteMonitoringSubscriptionRequestFilterSensitiveLog = (
  * @internal
  */
 export const DeleteMonitoringSubscriptionResultFilterSensitiveLog = (obj: DeleteMonitoringSubscriptionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOriginAccessControlRequestFilterSensitiveLog = (obj: DeleteOriginAccessControlRequest): any => ({
   ...obj,
 });
 
@@ -3214,6 +3838,36 @@ export const GetMonitoringSubscriptionRequestFilterSensitiveLog = (obj: GetMonit
  * @internal
  */
 export const GetMonitoringSubscriptionResultFilterSensitiveLog = (obj: GetMonitoringSubscriptionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOriginAccessControlRequestFilterSensitiveLog = (obj: GetOriginAccessControlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOriginAccessControlResultFilterSensitiveLog = (obj: GetOriginAccessControlResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOriginAccessControlConfigRequestFilterSensitiveLog = (
+  obj: GetOriginAccessControlConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOriginAccessControlConfigResultFilterSensitiveLog = (obj: GetOriginAccessControlConfigResult): any => ({
   ...obj,
 });
 
@@ -3708,6 +4362,34 @@ export const ListKeyGroupsResultFilterSensitiveLog = (obj: ListKeyGroupsResult):
 /**
  * @internal
  */
+export const ListOriginAccessControlsRequestFilterSensitiveLog = (obj: ListOriginAccessControlsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginAccessControlSummaryFilterSensitiveLog = (obj: OriginAccessControlSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginAccessControlListFilterSensitiveLog = (obj: OriginAccessControlList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOriginAccessControlsResultFilterSensitiveLog = (obj: ListOriginAccessControlsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListOriginRequestPoliciesRequestFilterSensitiveLog = (obj: ListOriginRequestPoliciesRequest): any => ({
   ...obj,
 });
@@ -4023,6 +4705,20 @@ export const UpdateKeyGroupRequestFilterSensitiveLog = (obj: UpdateKeyGroupReque
  * @internal
  */
 export const UpdateKeyGroupResultFilterSensitiveLog = (obj: UpdateKeyGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOriginAccessControlRequestFilterSensitiveLog = (obj: UpdateOriginAccessControlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOriginAccessControlResultFilterSensitiveLog = (obj: UpdateOriginAccessControlResult): any => ({
   ...obj,
 });
 
