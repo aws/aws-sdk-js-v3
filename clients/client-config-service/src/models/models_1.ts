@@ -19,7 +19,57 @@ import {
   RetentionConfiguration,
   StoredQuery,
   Tag,
+  TemplateSSMDocumentDetails,
 } from "./models_0";
+
+export interface PutConformancePackRequest {
+  /**
+   * <p>The unique name of the conformance pack you want to deploy.</p>
+   */
+  ConformancePackName: string | undefined;
+
+  /**
+   * <p>The location of the file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to a conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same region as the conformance pack. </p>
+   * 		       <note>
+   *             <p>You must have access to read Amazon S3 bucket.</p>
+   *          </note>
+   */
+  TemplateS3Uri?: string;
+
+  /**
+   * <p>A string containing the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
+   * 		       <note>
+   *             <p>You can only use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>) and remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
+   *          </note>
+   */
+  TemplateBody?: string;
+
+  /**
+   * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
+   * 		       <note>
+   *             <p>This field is optional.</p>
+   *          </note>
+   */
+  DeliveryS3Bucket?: string;
+
+  /**
+   * <p>The prefix for the Amazon S3 bucket. </p>
+   * 		       <note>
+   *             <p>This field is optional.</p>
+   *          </note>
+   */
+  DeliveryS3KeyPrefix?: string;
+
+  /**
+   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   */
+  ConformancePackInputParameters?: ConformancePackInputParameter[];
+
+  /**
+   * <p>An object of type <code>TemplateSSMDocumentDetails</code>, which contains the name or the Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
+   */
+  TemplateSSMDocumentDetails?: TemplateSSMDocumentDetails;
+}
 
 export interface PutConformancePackResponse {
   /**
@@ -535,6 +585,13 @@ export interface UntagResourceRequest {
    */
   TagKeys: string[] | undefined;
 }
+
+/**
+ * @internal
+ */
+export const PutConformancePackRequestFilterSensitiveLog = (obj: PutConformancePackRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

@@ -13,8 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutConformancePackRequest, PutConformancePackRequestFilterSensitiveLog } from "../models/models_0";
-import { PutConformancePackResponse, PutConformancePackResponseFilterSensitiveLog } from "../models/models_1";
+import {
+  PutConformancePackRequest,
+  PutConformancePackRequestFilterSensitiveLog,
+  PutConformancePackResponse,
+  PutConformancePackResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1PutConformancePackCommand,
   serializeAws_json1_1PutConformancePackCommand,
@@ -32,8 +36,7 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  * 		       <p>This API creates a service-linked role <code>AWSServiceRoleForConfigConforms</code> in your account.
  * 		The service-linked role is created only when the role does not exist in your account. </p>
  * 		       <note>
- *             <p>You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code> parameter, but not both.
- * 			If you provide both Config uses the <code>TemplateS3Uri</code> parameter and ignores the <code>TemplateBody</code> parameter.</p>
+ *             <p>You must specify one and only one of the<code>TemplateS3Uri</code>, <code>TemplateBody</code> or <code>TemplateSSMDocumentDetails</code> parameters.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

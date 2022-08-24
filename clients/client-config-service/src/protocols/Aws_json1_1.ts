@@ -584,7 +584,6 @@ import {
   PutConfigurationAggregatorRequest,
   PutConfigurationAggregatorResponse,
   PutConfigurationRecorderRequest,
-  PutConformancePackRequest,
   RecordingGroup,
   Relationship,
   RemediationConfiguration,
@@ -614,9 +613,11 @@ import {
   StoredQuery,
   StoredQueryMetadata,
   Tag,
+  TemplateSSMDocumentDetails,
   ValidationException,
 } from "../models/models_0";
 import {
+  PutConformancePackRequest,
   PutConformancePackResponse,
   PutDeliveryChannelRequest,
   PutEvaluationsRequest,
@@ -8008,6 +8009,12 @@ const serializeAws_json1_1PutConformancePackRequest = (
     ...(input.DeliveryS3KeyPrefix != null && { DeliveryS3KeyPrefix: input.DeliveryS3KeyPrefix }),
     ...(input.TemplateBody != null && { TemplateBody: input.TemplateBody }),
     ...(input.TemplateS3Uri != null && { TemplateS3Uri: input.TemplateS3Uri }),
+    ...(input.TemplateSSMDocumentDetails != null && {
+      TemplateSSMDocumentDetails: serializeAws_json1_1TemplateSSMDocumentDetails(
+        input.TemplateSSMDocumentDetails,
+        context
+      ),
+    }),
   };
 };
 
@@ -8537,6 +8544,16 @@ const serializeAws_json1_1TagsList = (input: Tag[], context: __SerdeContext): an
     .map((entry) => {
       return serializeAws_json1_1Tag(entry, context);
     });
+};
+
+const serializeAws_json1_1TemplateSSMDocumentDetails = (
+  input: TemplateSSMDocumentDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DocumentName != null && { DocumentName: input.DocumentName }),
+    ...(input.DocumentVersion != null && { DocumentVersion: input.DocumentVersion }),
+  };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
@@ -9395,6 +9412,10 @@ const deserializeAws_json1_1ConformancePackDetail = (output: any, context: __Ser
     LastUpdateRequestedTime:
       output.LastUpdateRequestedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateRequestedTime)))
+        : undefined,
+    TemplateSSMDocumentDetails:
+      output.TemplateSSMDocumentDetails != null
+        ? deserializeAws_json1_1TemplateSSMDocumentDetails(output.TemplateSSMDocumentDetails, context)
         : undefined,
   } as any;
 };
@@ -11975,6 +11996,16 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Recor
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_json1_1TemplateSSMDocumentDetails = (
+  output: any,
+  context: __SerdeContext
+): TemplateSSMDocumentDetails => {
+  return {
+    DocumentName: __expectString(output.DocumentName),
+    DocumentVersion: __expectString(output.DocumentVersion),
+  } as any;
 };
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {

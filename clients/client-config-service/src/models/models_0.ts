@@ -2095,6 +2095,28 @@ export interface ConformancePackInputParameter {
 }
 
 /**
+ * <p>This API allows you to create a conformance pack template with an Amazon Web Services Systems Manager document (SSM document).
+ * 			To deploy a conformance pack using an SSM document, you first create an SSM document with conformance pack content, and then provide the <code>DocumentName</code> (and optionally <code>DocumentVersion</code>) in the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html">PutConformancePack API</a>.</p>
+ *
+ * 		       <p>The <code>TemplateSSMDocumentDetails</code> object contains the name of the SSM document and the version of the SSM document.</p>
+ */
+export interface TemplateSSMDocumentDetails {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack.
+   * 			If you use the Document Name, Config checks only your account and region for the SSM document. If you want to use an SSM document from another region or account, you must provide the ARN.</p>
+   */
+  DocumentName: string | undefined;
+
+  /**
+   * <p>The version of the SSM document to use to create a conformance pack. By default, Config uses the latest version.</p>
+   * 		       <note>
+   *             <p>This field is optional.</p>
+   *          </note>
+   */
+  DocumentVersion?: string;
+}
+
+/**
  * <p>Returns details of a conformance pack. A conformance pack is a collection of Config rules and remediation actions that can be easily deployed in an account and a region.</p>
  */
 export interface ConformancePackDetail {
@@ -2135,14 +2157,19 @@ export interface ConformancePackDetail {
   ConformancePackInputParameters?: ConformancePackInputParameter[];
 
   /**
-   * <p>Last time when conformation pack update was requested. </p>
+   * <p>The last time a conformation pack update was requested. </p>
    */
   LastUpdateRequestedTime?: Date;
 
   /**
-   * <p>Amazon Web Services service that created the conformance pack.</p>
+   * <p>The Amazon Web Services service that created the conformance pack.</p>
    */
   CreatedBy?: string;
+
+  /**
+   * <p>An object that contains the name or Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
+   */
+  TemplateSSMDocumentDetails?: TemplateSSMDocumentDetails;
 }
 
 /**
@@ -2692,7 +2719,7 @@ export interface DeleteRemediationConfigurationResponse {}
  *                      <p>To call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *                   </li>
  *                   <li>
- *                      <p>To read Amazon S3 bucket.</p>
+ *                      <p>To read Amazon S3 bucket or call SSM:GetDocument.</p>
  *                   </li>
  *                </ul>
  * 			         </li>
@@ -6904,50 +6931,6 @@ export interface PutConfigurationRecorderRequest {
   ConfigurationRecorder: ConfigurationRecorder | undefined;
 }
 
-export interface PutConformancePackRequest {
-  /**
-   * <p>Name of the conformance pack you want to create.</p>
-   */
-  ConformancePackName: string | undefined;
-
-  /**
-   * <p>Location of file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to the conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same region as the conformance pack. </p>
-   * 		       <note>
-   *             <p>You must have access to read Amazon S3 bucket.</p>
-   *          </note>
-   */
-  TemplateS3Uri?: string;
-
-  /**
-   * <p>A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
-   * 		       <note>
-   *             <p>You can only use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>) and a remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
-   *          </note>
-   */
-  TemplateBody?: string;
-
-  /**
-   * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
-   * 		       <note>
-   *             <p>This field is optional.</p>
-   *          </note>
-   */
-  DeliveryS3Bucket?: string;
-
-  /**
-   * <p>The prefix for the Amazon S3 bucket. </p>
-   * 		       <note>
-   *             <p>This field is optional.</p>
-   *          </note>
-   */
-  DeliveryS3KeyPrefix?: string;
-
-  /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-   */
-  ConformancePackInputParameters?: ConformancePackInputParameter[];
-}
-
 /**
  * @internal
  */
@@ -7311,6 +7294,13 @@ export const ConformancePackComplianceSummaryFilterSensitiveLog = (obj: Conforma
  * @internal
  */
 export const ConformancePackInputParameterFilterSensitiveLog = (obj: ConformancePackInputParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateSSMDocumentDetailsFilterSensitiveLog = (obj: TemplateSSMDocumentDetails): any => ({
   ...obj,
 });
 
@@ -8665,12 +8655,5 @@ export const PutConfigurationAggregatorResponseFilterSensitiveLog = (obj: PutCon
  * @internal
  */
 export const PutConfigurationRecorderRequestFilterSensitiveLog = (obj: PutConfigurationRecorderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConformancePackRequestFilterSensitiveLog = (obj: PutConformancePackRequest): any => ({
   ...obj,
 });
