@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.157.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.156.0...v3.157.0) (2022-08-24)
+
+
+### Features
+
+* **client-cloudfront:** Adds support for CloudFront origin access control (OAC), making it possible to restrict public access to S3 bucket origins in all AWS Regions, those with SSE-KMS, and more. ([b36c500](https://github.com/aws/aws-sdk-js-v3/commit/b36c500e445cf51505e1269fbf1e1ba8300ebd92))
+* **client-config-service:** AWS Config now supports ConformancePackTemplate documents in SSM Docs for the deployment and update of conformance packs. ([ccd5d97](https://github.com/aws/aws-sdk-js-v3/commit/ccd5d97587f7717afba8f9a8ad2299bddb62a62d))
+* **client-quicksight:** Added a new optional property DashboardVisual under ExperienceConfiguration parameter of GenerateEmbedUrlForAnonymousUser and GenerateEmbedUrlForRegisteredUser API operations. This supports embedding of specific visuals in QuickSight dashboards. ([dcfda0d](https://github.com/aws/aws-sdk-js-v3/commit/dcfda0da9473cb414fa1b3cb12a3e21c7996e0bd))
+
+
+
+
+
 # [3.156.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.155.0...v3.156.0) (2022-08-23)
 
 

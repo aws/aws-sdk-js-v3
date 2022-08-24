@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.157.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.156.0...v3.157.0) (2022-08-24)
+
+
+### Features
+
+* **client-config-service:** AWS Config now supports ConformancePackTemplate documents in SSM Docs for the deployment and update of conformance packs. ([ccd5d97](https://github.com/aws/aws-sdk-js-v3/commit/ccd5d97587f7717afba8f9a8ad2299bddb62a62d))
+
+
+
+
+
 # [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
 
 **Note:** Version bump only for package @aws-sdk/client-config-service
