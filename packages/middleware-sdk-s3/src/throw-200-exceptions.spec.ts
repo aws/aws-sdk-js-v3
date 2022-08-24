@@ -27,15 +27,16 @@ describe("throw200ExceptionsMiddlewareOptions", () => {
         // headers: {},
         // body: "",
       });
+
+      const handler = throw200ExceptionsMiddleware(mockConfig)(mockNextHandler, {} as any);
+      const result = await handler({
+        input: {},
+        request: new HttpRequest({
+          hostname: "s3.us-east-1.amazonaws.com",
+        }),
+      });
+      expect(result.response).toBe(mockResponse);
     });
-    const handler = throw200ExceptionsMiddleware(mockConfig)(mockNextHandler, {} as any);
-    const result = await handler({
-      input: {},
-      request: new HttpRequest({
-        hostname: "s3.us-east-1.amazonaws.com",
-      }),
-    });
-    expect(result.response).toBe(mockResponse);
 
     it("should throw if response body is empty", async () => {
       expect.assertions(3);
