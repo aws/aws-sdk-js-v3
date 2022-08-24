@@ -68,17 +68,17 @@ export enum SigningAlg {
  */
 export interface As2ConnectorConfig {
   /**
-   * <p>A unique identifier for the AS2 process.</p>
+   * <p>A unique identifier for the AS2 local profile.</p>
    */
   LocalProfileId?: string;
 
   /**
-   * <p>A unique identifier for the partner for the connector.</p>
+   * <p>A unique identifier for the partner profile for the connector.</p>
    */
   PartnerProfileId?: string;
 
   /**
-   * <p>A short description to help identify the connector.</p>
+   * <p>Used as the <code>Subject</code> HTTP header attribute in AS2 messages that are being sent with the connector.</p>
    */
   MessageSubject?: string;
 
@@ -93,12 +93,15 @@ export interface As2ConnectorConfig {
   EncryptionAlgorithm?: EncryptionAlg | string;
 
   /**
-   * <p>The algorithm that is used to sign the AS2 transfers for this partner profile.</p>
+   * <p>The algorithm that is used to sign the AS2 messages sent with the connector.</p>
    */
   SigningAlgorithm?: SigningAlg | string;
 
   /**
    * <p>The signing algorithm for the MDN response.</p>
+   *          <note>
+   *             <p>If set to DEFAULT (or not set at all), the value for <code>SigningAlogorithm</code> is used.</p>
+   *          </note>
    */
   MdnSigningAlgorithm?: MdnSigningAlg | string;
 
@@ -587,8 +590,16 @@ export interface CreateAgreementRequest {
   BaseDirectory: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that grants access to at least the
-   *       <code>HomeDirectory</code> of your users' Amazon S3 buckets.</p>
+   * <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
+   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
+   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
+   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
+   *       store the MDN when we receive them from the partner, and write a final JSON file containing
+   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
+   *       and write access to the parent directory of the file location used in the
+   *         <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
+   *       access to the parent directory of the files that you intend to send with
+   *         <code>StartFileTransfer</code>.</p>
    */
   AccessRole: string | undefined;
 
@@ -665,8 +676,8 @@ export enum ProfileType {
 
 export interface CreateProfileRequest {
   /**
-   * <p>The <code>As2Id</code> is the <i>AS2-name</i>, as defined in the  defined in
-   *       the <a href="https://datatracker.ietf.org/doc/html/rfc4130">RFC 4130</a>. For inbound transfers, this is the <code>AS2-From</code> header for the AS2 messages
+   * <p>The <code>As2Id</code> is the <i>AS2-name</i>, as defined in the
+   *     <a href="https://datatracker.ietf.org/doc/html/rfc4130">RFC 4130</a>. For inbound transfers, this is the <code>AS2-From</code> header for the AS2 messages
    *       sent from the partner. For outbound connectors, this is the <code>AS2-To</code> header for the
    *       AS2 messages sent to the partner using the <code>StartFileTransfer</code> API operation. This ID cannot include spaces.</p>
    */
@@ -1124,7 +1135,6 @@ export interface CreateServerRequest {
   /**
    * <p>Specifies the file transfer protocol or protocols over which your file transfer protocol
    *       client can connect to your server's endpoint. The available protocols are:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1885,12 +1895,12 @@ export interface DescribedAgreement {
   ServerId?: string;
 
   /**
-   * <p>A unique identifier for the AS2 process.</p>
+   * <p>A unique identifier for the AS2 local profile.</p>
    */
   LocalProfileId?: string;
 
   /**
-   * <p>A unique identifier for the partner in the agreement.</p>
+   * <p>A unique identifier for the partner profile used in the agreement.</p>
    */
   PartnerProfileId?: string;
 
@@ -1901,8 +1911,16 @@ export interface DescribedAgreement {
   BaseDirectory?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that grants access to at least the
-   *       <code>HomeDirectory</code> of your users' Amazon S3 buckets.</p>
+   * <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
+   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
+   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
+   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
+   *       store the MDN when we receive them from the partner, and write a final JSON file containing
+   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
+   *       and write access to the parent directory of the file location used in the
+   *         <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
+   *       access to the parent directory of the files that you intend to send with
+   *         <code>StartFileTransfer</code>.</p>
    */
   AccessRole?: string;
 
@@ -2370,7 +2388,10 @@ export interface DescribedProfile {
   ProfileType?: ProfileType | string;
 
   /**
-   * <p>The unique identifier for the AS2 process.</p>
+   * <p>The <code>As2Id</code> is the <i>AS2-name</i>, as defined in the
+   *     <a href="https://datatracker.ietf.org/doc/html/rfc4130">RFC 4130</a>. For inbound transfers, this is the <code>AS2-From</code> header for the AS2 messages
+   *       sent from the partner. For outbound connectors, this is the <code>AS2-To</code> header for the
+   *       AS2 messages sent to the partner using the <code>StartFileTransfer</code> API operation. This ID cannot include spaces.</p>
    */
   As2Id?: string;
 
@@ -2453,13 +2474,31 @@ export interface DescribedServer {
   Certificate?: string;
 
   /**
-   * <p>
-   *       The protocol settings that are configured for your server.
-   *     </p>
-   *          <p>
-   *       Use the <code>PassiveIp</code> parameter to indicate passive mode.
-   *       Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
-   *     </p>
+   * <p>The protocol settings that are configured for your server.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter.
+   *           Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are
+   *         uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the
+   *         <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to
+   *         <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family
+   *         generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code>
+   *         call.</p>
+   *             </li>
+   *             <li>
+   *                <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the
+   *         <code>TlsSessionResumptionMode</code> parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p>
+   *             </li>
+   *          </ul>
    */
   ProtocolDetails?: ProtocolDetails;
 
@@ -2544,7 +2583,6 @@ export interface DescribedServer {
   /**
    * <p>Specifies the file transfer protocol or protocols over which your file transfer protocol
    *       client can connect to your server's endpoint. The available protocols are:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2560,7 +2598,39 @@ export interface DescribedServer {
    *                <p>
    *                   <code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AS2</code> (Applicability Statement 2): used for transporting structured business-to-business data</p>
+   *             </li>
    *          </ul>
+   *
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>If you select <code>FTPS</code>, you must choose a certificate stored in Certificate Manager (ACM)
+   *             which is used to identify your server when clients connect to it over
+   *             FTPS.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the
+   *             <code>EndpointType</code> must be <code>VPC</code> and the
+   *             <code>IdentityProviderType</code> must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If <code>Protocol</code> includes <code>FTP</code>, then
+   *           <code>AddressAllocationIds</code> cannot be associated.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
+   *             can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set to
+   *             <code>SERVICE_MANAGED</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If <code>Protocol</code> includes <code>AS2</code>, then the
+   *               <code>EndpointType</code> must be <code>VPC</code>, and domain must be Amazon S3.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    */
   Protocols?: (Protocol | string)[];
 
@@ -3107,12 +3177,12 @@ export interface ListedAgreement {
   ServerId?: string;
 
   /**
-   * <p>A unique identifier for the AS2 process.</p>
+   * <p>A unique identifier for the AS2 local profile.</p>
    */
   LocalProfileId?: string;
 
   /**
-   * <p>A unique identifier for the partner process.</p>
+   * <p>A unique identifier for the partner profile.</p>
    */
   PartnerProfileId?: string;
 }
@@ -3297,7 +3367,10 @@ export interface ListedProfile {
   ProfileId?: string;
 
   /**
-   * <p>The unique identifier for the AS2 process.</p>
+   * <p>The <code>As2Id</code> is the <i>AS2-name</i>, as defined in the
+   *     <a href="https://datatracker.ietf.org/doc/html/rfc4130">RFC 4130</a>. For inbound transfers, this is the <code>AS2-From</code> header for the AS2 messages
+   *       sent from the partner. For outbound connectors, this is the <code>AS2-To</code> header for the
+   *       AS2 messages sent to the partner using the <code>StartFileTransfer</code> API operation. This ID cannot include spaces.</p>
    */
   As2Id?: string;
 
@@ -4024,13 +4097,15 @@ export interface UpdateAgreementRequest {
   Status?: AgreementStatusType | string;
 
   /**
-   * <p>To change the local profile identifier, provide a new value
+   * <p>A unique identifier for the AS2 local profile.</p>
+   *          <p>To change the local profile identifier, provide a new value
    *       here.</p>
    */
   LocalProfileId?: string;
 
   /**
-   * <p>To change the partner profile identifier, provide a new value here.</p>
+   * <p>A unique identifier for the partner profile.
+   *       To change the partner profile identifier, provide a new value here.</p>
    */
   PartnerProfileId?: string;
 
@@ -4043,8 +4118,16 @@ export interface UpdateAgreementRequest {
   BaseDirectory?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that grants access to at least the
-   *       <code>HomeDirectory</code> of your users' Amazon S3 buckets.</p>
+   * <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
+   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
+   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
+   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
+   *       store the MDN when we receive them from the partner, and write a final JSON file containing
+   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
+   *       and write access to the parent directory of the file location used in the
+   *         <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
+   *       access to the parent directory of the files that you intend to send with
+   *         <code>StartFileTransfer</code>.</p>
    */
   AccessRole?: string;
 }
@@ -4320,35 +4403,53 @@ export interface UpdateServerRequest {
   /**
    * <p>Specifies the file transfer protocol or protocols over which your file transfer protocol
    *       client can connect to your server's endpoint. The available protocols are:</p>
-   *
    *          <ul>
    *             <li>
-   *                <p>Secure Shell (SSH) File Transfer Protocol (SFTP): File transfer over SSH</p>
+   *                <p>
+   *                   <code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over
+   *           SSH</p>
    *             </li>
    *             <li>
-   *                <p>File Transfer Protocol Secure (FTPS): File transfer with TLS encryption</p>
+   *                <p>
+   *                   <code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS
+   *           encryption</p>
    *             </li>
    *             <li>
-   *                <p>File Transfer Protocol (FTP): Unencrypted file transfer</p>
+   *                <p>
+   *                   <code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AS2</code> (Applicability Statement 2): used for transporting structured business-to-business data</p>
    *             </li>
    *          </ul>
    *
    *          <note>
-   *             <p>If you select <code>FTPS</code>, you must choose a certificate stored in Amazon Web ServicesCertificate
-   *         Manager (ACM) which will be used to identify your server when clients connect to it over
-   *         FTPS.</p>
-   *
-   *
-   *             <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the
-   *         <code>EndpointType</code> must be <code>VPC</code> and the
-   *         <code>IdentityProviderType</code> must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</p>
-   *
-   *             <p>If <code>Protocol</code> includes <code>FTP</code>, then
+   *             <ul>
+   *                <li>
+   *                   <p>If you select <code>FTPS</code>, you must choose a certificate stored in Certificate Manager (ACM)
+   *             which is used to identify your server when clients connect to it over
+   *             FTPS.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the
+   *             <code>EndpointType</code> must be <code>VPC</code> and the
+   *             <code>IdentityProviderType</code> must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If <code>Protocol</code> includes <code>FTP</code>, then
    *           <code>AddressAllocationIds</code> cannot be associated.</p>
-   *
-   *             <p>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
-   *         can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set to
-   *           <code>SERVICE_MANAGED</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
+   *             can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set to
+   *             <code>SERVICE_MANAGED</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If <code>Protocol</code> includes <code>AS2</code>, then the
+   *               <code>EndpointType</code> must be <code>VPC</code>, and domain must be Amazon S3.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    */
   Protocols?: (Protocol | string)[];
