@@ -313,6 +313,7 @@ import {
   AnalysisSourceTemplate,
   AnalysisSummary,
   AnonymousUserDashboardEmbeddingConfiguration,
+  AnonymousUserDashboardVisualEmbeddingConfiguration,
   AnonymousUserEmbeddingExperienceConfiguration,
   AthenaParameters,
   AuroraParameters,
@@ -343,6 +344,7 @@ import {
   DashboardSummary,
   DashboardVersion,
   DashboardVersionSummary,
+  DashboardVisualId,
   DataColorPalette,
   DataSet,
   DataSetConfiguration,
@@ -431,7 +433,6 @@ import {
   TeradataParameters,
   ThemeAlias,
   ThemeConfiguration,
-  ThemeError,
   ThrottlingException,
   TileLayoutStyle,
   TileStyle,
@@ -453,6 +454,7 @@ import {
   MemberIdArnPair,
   QuickSightUserNotFoundException,
   RegisteredUserDashboardEmbeddingConfiguration,
+  RegisteredUserDashboardVisualEmbeddingConfiguration,
   RegisteredUserEmbeddingExperienceConfiguration,
   RegisteredUserQSearchBarEmbeddingConfiguration,
   RegisteredUserQuickSightConsoleEmbeddingConfiguration,
@@ -461,6 +463,7 @@ import {
   TemplateSummary,
   TemplateVersionSummary,
   Theme,
+  ThemeError,
   ThemeSummary,
   ThemeVersion,
   ThemeVersionSummary,
@@ -13319,6 +13322,17 @@ const serializeAws_restJson1AnonymousUserDashboardEmbeddingConfiguration = (
   };
 };
 
+const serializeAws_restJson1AnonymousUserDashboardVisualEmbeddingConfiguration = (
+  input: AnonymousUserDashboardVisualEmbeddingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InitialDashboardVisualId != null && {
+      InitialDashboardVisualId: serializeAws_restJson1DashboardVisualId(input.InitialDashboardVisualId, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1AnonymousUserEmbeddingExperienceConfiguration = (
   input: AnonymousUserEmbeddingExperienceConfiguration,
   context: __SerdeContext
@@ -13326,6 +13340,12 @@ const serializeAws_restJson1AnonymousUserEmbeddingExperienceConfiguration = (
   return {
     ...(input.Dashboard != null && {
       Dashboard: serializeAws_restJson1AnonymousUserDashboardEmbeddingConfiguration(input.Dashboard, context),
+    }),
+    ...(input.DashboardVisual != null && {
+      DashboardVisual: serializeAws_restJson1AnonymousUserDashboardVisualEmbeddingConfiguration(
+        input.DashboardVisual,
+        context
+      ),
     }),
   };
 };
@@ -13578,6 +13598,14 @@ const serializeAws_restJson1DashboardSourceTemplate = (
     ...(input.DataSetReferences != null && {
       DataSetReferences: serializeAws_restJson1DataSetReferenceList(input.DataSetReferences, context),
     }),
+  };
+};
+
+const serializeAws_restJson1DashboardVisualId = (input: DashboardVisualId, context: __SerdeContext): any => {
+  return {
+    ...(input.DashboardId != null && { DashboardId: input.DashboardId }),
+    ...(input.SheetId != null && { SheetId: input.SheetId }),
+    ...(input.VisualId != null && { VisualId: input.VisualId }),
   };
 };
 
@@ -14089,6 +14117,17 @@ const serializeAws_restJson1RegisteredUserDashboardEmbeddingConfiguration = (
   };
 };
 
+const serializeAws_restJson1RegisteredUserDashboardVisualEmbeddingConfiguration = (
+  input: RegisteredUserDashboardVisualEmbeddingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InitialDashboardVisualId != null && {
+      InitialDashboardVisualId: serializeAws_restJson1DashboardVisualId(input.InitialDashboardVisualId, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1RegisteredUserEmbeddingExperienceConfiguration = (
   input: RegisteredUserEmbeddingExperienceConfiguration,
   context: __SerdeContext
@@ -14096,6 +14135,12 @@ const serializeAws_restJson1RegisteredUserEmbeddingExperienceConfiguration = (
   return {
     ...(input.Dashboard != null && {
       Dashboard: serializeAws_restJson1RegisteredUserDashboardEmbeddingConfiguration(input.Dashboard, context),
+    }),
+    ...(input.DashboardVisual != null && {
+      DashboardVisual: serializeAws_restJson1RegisteredUserDashboardVisualEmbeddingConfiguration(
+        input.DashboardVisual,
+        context
+      ),
     }),
     ...(input.QSearchBar != null && {
       QSearchBar: serializeAws_restJson1RegisteredUserQSearchBarEmbeddingConfiguration(input.QSearchBar, context),

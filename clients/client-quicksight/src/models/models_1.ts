@@ -17,6 +17,7 @@ import {
   DashboardSourceEntity,
   DashboardSummary,
   DashboardVersionSummary,
+  DashboardVisualId,
   DataSetImportMode,
   DataSetSummary,
   DataSetUsageConfiguration,
@@ -48,11 +49,29 @@ import {
   TemplateSourceEntity,
   ThemeAlias,
   ThemeConfiguration,
-  ThemeError,
   ThemeType,
   VpcConnectionProperties,
 } from "./models_0";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+export enum ThemeErrorType {
+  INTERNAL_FAILURE = "INTERNAL_FAILURE",
+}
+
+/**
+ * <p>Theme error.</p>
+ */
+export interface ThemeError {
+  /**
+   * <p>The type of error.</p>
+   */
+  Type?: ThemeErrorType | string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  Message?: string;
+}
 
 /**
  * <p>A version of a theme.</p>
@@ -643,6 +662,17 @@ export interface RegisteredUserDashboardEmbeddingConfiguration {
 }
 
 /**
+ * <p>The experience that you are embedding. You can use this object to generate a url that embeds a visual into your application.</p>
+ */
+export interface RegisteredUserDashboardVisualEmbeddingConfiguration {
+  /**
+   * <p>The visual ID for the visual that you want the user to embed. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders this visual.</p>
+   *          <p>The Amazon Resource Name (ARN) of the dashboard that the visual belongs to must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
+   */
+  InitialDashboardVisualId: DashboardVisualId | undefined;
+}
+
+/**
  * <p>Information about the Q search bar embedding experience.</p>
  */
 export interface RegisteredUserQSearchBarEmbeddingConfiguration {
@@ -752,6 +782,11 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    *             the <i>Amazon QuickSight User Guide</i>.</p>
    */
   QSearchBar?: RegisteredUserQSearchBarEmbeddingConfiguration;
+
+  /**
+   * <p>The type of embedding experience. In this case, Amazon QuickSight visuals.</p>
+   */
+  DashboardVisual?: RegisteredUserDashboardVisualEmbeddingConfiguration;
 }
 
 export interface GenerateEmbedUrlForRegisteredUserRequest {
@@ -771,7 +806,7 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
   UserArn: string | undefined;
 
   /**
-   * <p>The experience you are embedding. For registered users, you can embed Amazon QuickSight dashboards or the entire Amazon QuickSight console.</p>
+   * <p>The experience you are embedding. For registered users, you can embed Amazon QuickSight dashboards, Amazon QuickSight visuals, the Amazon QuickSight Q search bar, or the entire Amazon QuickSight console.</p>
    */
   ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration | undefined;
 
@@ -790,7 +825,7 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
 
 export interface GenerateEmbedUrlForRegisteredUserResponse {
   /**
-   * <p>The embed URL for the Amazon QuickSight dashboard or console.</p>
+   * <p>The embed URL for the Amazon QuickSight dashboard, visual, Q search bar, or console.</p>
    */
   EmbedUrl: string | undefined;
 
@@ -4058,6 +4093,13 @@ export interface UpdateUserResponse {
 /**
  * @internal
  */
+export const ThemeErrorFilterSensitiveLog = (obj: ThemeError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ThemeVersionFilterSensitiveLog = (obj: ThemeVersion): any => ({
   ...obj,
 });
@@ -4179,6 +4221,15 @@ export const GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog = (
  */
 export const RegisteredUserDashboardEmbeddingConfigurationFilterSensitiveLog = (
   obj: RegisteredUserDashboardEmbeddingConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisteredUserDashboardVisualEmbeddingConfigurationFilterSensitiveLog = (
+  obj: RegisteredUserDashboardVisualEmbeddingConfiguration
 ): any => ({
   ...obj,
 });

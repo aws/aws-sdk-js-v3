@@ -420,6 +420,49 @@ export interface AnonymousUserDashboardEmbeddingConfiguration {
 }
 
 /**
+ * <p>A structure that contains the following elements:</p>
+ *         <ul>
+ *             <li>
+ *                <p>The <code>DashboardId</code> of the dashboard that has the visual that you want to embed.</p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>SheetId</code> of the sheet that has the visual that you want to embed.</p>
+ *             </li>
+ *             <li>
+ *               <p>The <code>VisualId</code> of the visual that you want to embed.</p>
+ *             </li>
+ *          </ul>
+ *          <p>The <code>DashboardId</code>, <code>SheetId</code>, and <code>VisualId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console. You can also get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
+ */
+export interface DashboardVisualId {
+  /**
+   * <p>The ID of the dashboard that has the visual that you want to embed. The <code>DashboardId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console. You can also get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The ID of the sheet that the has visual that you want to embed. The <code>SheetId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console.</p>
+   */
+  SheetId: string | undefined;
+
+  /**
+   * <p>The ID of the visual that you want to embed. The <code>VisualID</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console.</p>
+   */
+  VisualId: string | undefined;
+}
+
+/**
+ * <p>The experience that you are embedding. You can use this object to generate a url that embeds a visual into your application.</p>
+ */
+export interface AnonymousUserDashboardVisualEmbeddingConfiguration {
+  /**
+   * <p>The visual ID for the visual that you want the user to see. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders this visual.</p>
+   *         <p>The Amazon Resource Name (ARN) of the dashboard that the visual belongs to must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
+   */
+  InitialDashboardVisualId: DashboardVisualId | undefined;
+}
+
+/**
  * <p>The type of experience you want to embed. For anonymous users, you can embed Amazon QuickSight dashboards.</p>
  */
 export interface AnonymousUserEmbeddingExperienceConfiguration {
@@ -427,6 +470,11 @@ export interface AnonymousUserEmbeddingExperienceConfiguration {
    * <p>The type of embedding experience. In this case, Amazon QuickSight dashboards.</p>
    */
   Dashboard?: AnonymousUserDashboardEmbeddingConfiguration;
+
+  /**
+   * <p>The type of embedding experience. In this case, Amazon QuickSight visuals.</p>
+   */
+  DashboardVisual?: AnonymousUserDashboardVisualEmbeddingConfiguration;
 }
 
 export enum AssignmentStatus {
@@ -7234,25 +7282,6 @@ export enum ThemeType {
   QUICKSIGHT = "QUICKSIGHT",
 }
 
-export enum ThemeErrorType {
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-}
-
-/**
- * <p>Theme error.</p>
- */
-export interface ThemeError {
-  /**
-   * <p>The type of error.</p>
-   */
-  Type?: ThemeErrorType | string;
-
-  /**
-   * <p>The error message.</p>
-   */
-  Message?: string;
-}
-
 /**
  * @internal
  */
@@ -7363,6 +7392,22 @@ export const AnalysisSummaryFilterSensitiveLog = (obj: AnalysisSummary): any => 
  */
 export const AnonymousUserDashboardEmbeddingConfigurationFilterSensitiveLog = (
   obj: AnonymousUserDashboardEmbeddingConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashboardVisualIdFilterSensitiveLog = (obj: DashboardVisualId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnonymousUserDashboardVisualEmbeddingConfigurationFilterSensitiveLog = (
+  obj: AnonymousUserDashboardVisualEmbeddingConfiguration
 ): any => ({
   ...obj,
 });
@@ -9139,12 +9184,5 @@ export const DescribeTemplatePermissionsResponseFilterSensitiveLog = (
  * @internal
  */
 export const DescribeThemeRequestFilterSensitiveLog = (obj: DescribeThemeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThemeErrorFilterSensitiveLog = (obj: ThemeError): any => ({
   ...obj,
 });
