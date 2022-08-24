@@ -453,6 +453,13 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *             </li>
  *          </ul>
  *          <p>
+ *             <b>Amazon Resource Names (ARNs)</b>
+ *          </p>
+ *          <p>ARNs uniquely identify AWS resources. An ARN is required when you need to specify a
+ *       resource unambiguously across all of AWS, such as in IAM policies and API calls. For more
+ *       information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names</a> in the <i>AWS General
+ *       Reference</i>.</p>
+ *          <p>
  *             <b>Channel Endpoints</b>
  *          </p>
  *          <ul>
@@ -464,7 +471,7 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *             <li>
  *                <p>
  *                   <a>GetChannel</a> — Gets the channel configuration for the specified
- *           channel ARN (Amazon Resource Name).</p>
+ *           channel ARN.</p>
  *             </li>
  *             <li>
  *                <p>
