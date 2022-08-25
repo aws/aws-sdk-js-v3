@@ -2896,20 +2896,34 @@ export interface TargetGroupAttribute {
    *             </li>
    *          </ul>
    *
-   *          <p>The following attributes are supported by both Application Load Balancers and Network Load
-   *       Balancers:</p>
+   *          <p>The following attributes are supported by Application Load Balancers, Network Load
+   *       Balancers, and Gateway Load Balancers:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>stickiness.enabled</code> - Indicates whether sticky sessions are enabled. The
+   *                   <code>stickiness.enabled</code> - Indicates whether target stickiness is enabled. The
    *           value is <code>true</code> or <code>false</code>. The default is
    *           <code>false</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>stickiness.type</code> - The type of sticky sessions. The possible values are
-   *             <code>lb_cookie</code> and <code>app_cookie</code> for Application Load Balancers or
-   *             <code>source_ip</code> for Network Load Balancers.</p>
+   *                   <code>stickiness.type</code> - Indicates the type of stickiness. The possible values
+   *           are: </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>lb_cookie</code> and <code>app_cookie</code> for Application Load Balancers</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>source_ip</code> for Network Load Balancers</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>source_ip_dest_ip</code> and <code>source_ip_dest_ip_proto</code> for Gateway Load
+   *               Balancers</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *          </ul>
    *
