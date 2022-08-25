@@ -1,6 +1,7 @@
 export * from "./booleanEquals";
 export * from "./getAttr";
 export * from "./isSet";
+export * from "./isValidHostLabel";
 export * from "./not";
 export * from "./parseURL";
 export * from "./stringEquals";
