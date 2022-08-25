@@ -130,6 +130,13 @@ import { IvschatClient } from "./IvschatClient";
  *             </li>
  *          </ul>
  *          <p>
+ *             <b>Amazon Resource Names (ARNs)</b>
+ *          </p>
+ *          <p>ARNs uniquely identify AWS resources. An ARN is required when you need to specify a
+ *       resource unambiguously across all of AWS, such as in IAM policies and API calls. For more
+ *       information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names</a> in the <i>AWS General
+ *           Reference</i>.</p>
+ *          <p>
  *             <b>Messaging Endpoints</b>
  *          </p>
  *          <ul>
