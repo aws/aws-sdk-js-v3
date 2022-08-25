@@ -6,10 +6,13 @@ import { normalizeTokenProvider } from "./normalizeTokenProvider";
 jest.mock("@aws-sdk/property-provider");
 jest.mock("@aws-sdk/util-middleware");
 
+const ONE_SECOND_IN_MS = 1000;
+const ONE_HOUR_IN_MS = 3600 * ONE_SECOND_IN_MS;
+
 describe(normalizeTokenProvider.name, () => {
   const mockToken = {
     token: "mockAccessToken",
-    expiration: new Date(Date.now() + 3600 * 1000),
+    expiration: new Date(Date.now() + ONE_HOUR_IN_MS),
   };
 
   afterEach(() => {
@@ -41,19 +44,19 @@ describe(normalizeTokenProvider.name, () => {
 
       it("returns true if expiration is defined, and token has expired", () => {
         const memoizeExpiredFn = (memoize as jest.Mock).mock.calls[0][1];
-        const expiration = new Date(mockDateNow - 24 * 60 * 60 * 1000);
+        const expiration = new Date(mockDateNow - 24 * ONE_HOUR_IN_MS);
         expect(memoizeExpiredFn({ expiration })).toEqual(true);
       });
 
       it("returns true if expiration is defined, and token expires in <5 mins", () => {
         const memoizeExpiredFn = (memoize as jest.Mock).mock.calls[0][1];
-        const expiration = new Date(mockDateNow + 299 * 1000);
+        const expiration = new Date(mockDateNow + 299 * ONE_SECOND_IN_MS);
         expect(memoizeExpiredFn({ expiration })).toEqual(true);
       });
 
       it("returns false if expiration is defined, but token expires in >5 mins", () => {
         const memoizeExpiredFn = (memoize as jest.Mock).mock.calls[0][1];
-        const expiration = new Date(mockDateNow + 301 * 1000);
+        const expiration = new Date(mockDateNow + 301 * ONE_SECOND_IN_MS);
         expect(memoizeExpiredFn({ expiration })).toEqual(false);
       });
 

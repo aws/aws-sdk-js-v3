@@ -4,10 +4,12 @@ import { tokenMiddleware } from "./tokenMiddleware";
 
 jest.mock("@aws-sdk/protocol-http");
 
+const ONE_HOUR_IN_MS = 3600 * 1000;
+
 describe(tokenMiddleware.name, () => {
   const mockToken = {
     token: "mockAccessToken",
-    expiration: new Date(Date.now() + 3600 * 1000),
+    expiration: new Date(Date.now() + ONE_HOUR_IN_MS),
   };
   const mockTokenProvider = jest.fn().mockReturnValue(Promise.resolve(mockToken));
 

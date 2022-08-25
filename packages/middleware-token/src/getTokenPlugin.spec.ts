@@ -3,12 +3,14 @@ import { tokenMiddleware, TokenMiddlewareOptions } from "./tokenMiddleware";
 
 jest.mock("./tokenMiddleware");
 
+const ONE_HOUR_IN_MS = 3600 * 1000;
+
 describe(getTokenPlugin.name, () => {
   const pluginConfig = {
     token: () =>
       Promise.resolve({
         token: "mockOutputAccessToken",
-        expiration: new Date(Date.now() + 7200 * 1000),
+        expiration: new Date(Date.now() + 2 * ONE_HOUR_IN_MS),
       }),
   };
 

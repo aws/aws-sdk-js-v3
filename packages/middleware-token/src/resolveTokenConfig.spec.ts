@@ -3,6 +3,8 @@ import { resolveTokenConfig } from "./resolveTokenConfig";
 
 jest.mock("./normalizeTokenProvider");
 
+const ONE_HOUR_IN_MS = 3600 * 1000;
+
 describe(resolveTokenConfig.name, () => {
   const mockInput = {
     tokenDefaultProvider: jest.fn(),
@@ -10,7 +12,7 @@ describe(resolveTokenConfig.name, () => {
   const mockOutputToken = () =>
     Promise.resolve({
       token: "mockOutputAccessToken",
-      expiration: new Date(Date.now() + 7200 * 1000),
+      expiration: new Date(Date.now() + 2 * ONE_HOUR_IN_MS),
     });
 
   afterEach(() => {
@@ -38,7 +40,7 @@ describe(resolveTokenConfig.name, () => {
     it("when token is an object", () => {
       testTokenProviderWithToken({
         token: "mockAccessToken",
-        expiration: new Date(Date.now() + 3600 * 1000),
+        expiration: new Date(Date.now() + ONE_HOUR_IN_MS),
       });
     });
   });
