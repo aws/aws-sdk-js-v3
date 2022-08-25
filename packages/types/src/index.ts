@@ -3,6 +3,7 @@ export * from "./client";
 export * from "./command";
 export * from "./credentials";
 export * from "./crypto";
+export * from "./endpoint";
 export * from "./eventStream";
 export * from "./http";
 export * from "./logger";
