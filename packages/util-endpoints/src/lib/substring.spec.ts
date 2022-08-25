@@ -3,12 +3,12 @@ import { substring } from "./substring";
 describe(substring.name, () => {
   describe("returns undefined", () => {
     it("when start >= stop", () => {
-      expect(substring("", 0, 0, false)).toBeUndefined();
-      expect(substring("", 1, 0, false)).toBeUndefined();
+      expect(substring("", 0, 0, false)).toBeNull();
+      expect(substring("", 1, 0, false)).toBeNull();
     });
 
     it("when input.length < stop", () => {
-      expect(substring("", 0, 1, false)).toBeUndefined();
+      expect(substring("", 0, 1, false)).toBeNull();
     });
   });
 
