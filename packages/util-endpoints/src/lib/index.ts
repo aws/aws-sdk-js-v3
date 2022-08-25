@@ -1,3 +1,4 @@
+export * from "./aws";
 export * from "./booleanEquals";
 export * from "./getAttr";
 export * from "./isSet";
