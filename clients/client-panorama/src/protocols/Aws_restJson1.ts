@@ -126,6 +126,7 @@ import {
   InternalServerException,
   Job,
   JobResourceTags,
+  LatestDeviceJob,
   ManifestOverridesPayload,
   ManifestPayload,
   NetworkPayload,
@@ -726,6 +727,10 @@ export const serializeAws_restJson1ListDevicesCommand = async (
   const query: any = map({
     NextToken: [, input.NextToken!],
     MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    SortBy: [, input.SortBy!],
+    SortOrder: [, input.SortOrder!],
+    NameFilter: [, input.NameFilter!],
+    DeviceAggregatedStatusFilter: [, input.DeviceAggregatedStatusFilter!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1675,6 +1680,9 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
   if (data.Description != null) {
     contents.Description = __expectString(data.Description);
   }
+  if (data.DeviceAggregatedStatus != null) {
+    contents.DeviceAggregatedStatus = __expectString(data.DeviceAggregatedStatus);
+  }
   if (data.DeviceConnectionStatus != null) {
     contents.DeviceConnectionStatus = __expectString(data.DeviceConnectionStatus);
   }
@@ -1683,6 +1691,9 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
   }
   if (data.LatestAlternateSoftware != null) {
     contents.LatestAlternateSoftware = __expectString(data.LatestAlternateSoftware);
+  }
+  if (data.LatestDeviceJob != null) {
+    contents.LatestDeviceJob = deserializeAws_restJson1LatestDeviceJob(data.LatestDeviceJob, context);
   }
   if (data.LatestSoftware != null) {
     contents.LatestSoftware = __expectString(data.LatestSoftware);
@@ -3458,10 +3469,17 @@ const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): D
       output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
+    CurrentSoftware: __expectString(output.CurrentSoftware),
+    Description: __expectString(output.Description),
+    DeviceAggregatedStatus: __expectString(output.DeviceAggregatedStatus),
     DeviceId: __expectString(output.DeviceId),
     LastUpdatedTime:
       output.LastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
+        : undefined,
+    LatestDeviceJob:
+      output.LatestDeviceJob != null
+        ? deserializeAws_restJson1LatestDeviceJob(output.LatestDeviceJob, context)
         : undefined,
     LeaseExpirationTime:
       output.LeaseExpirationTime != null
@@ -3469,6 +3487,8 @@ const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): D
         : undefined,
     Name: __expectString(output.Name),
     ProvisioningStatus: __expectString(output.ProvisioningStatus),
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -3586,6 +3606,13 @@ const deserializeAws_restJson1JobTagsList = (output: any, context: __SerdeContex
       return deserializeAws_restJson1JobResourceTags(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1LatestDeviceJob = (output: any, context: __SerdeContext): LatestDeviceJob => {
+  return {
+    ImageVersion: __expectString(output.ImageVersion),
+    Status: __expectString(output.Status),
+  } as any;
 };
 
 const deserializeAws_restJson1ManifestOverridesPayload = (

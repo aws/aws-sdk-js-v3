@@ -1042,12 +1042,49 @@ export interface NetworkStatus {
   LastUpdatedTime?: Date;
 }
 
+export enum DeviceAggregatedStatus {
+  AWAITING_PROVISIONING = "AWAITING_PROVISIONING",
+  DELETING = "DELETING",
+  ERROR = "ERROR",
+  FAILED = "FAILED",
+  LEASE_EXPIRED = "LEASE_EXPIRED",
+  OFFLINE = "OFFLINE",
+  ONLINE = "ONLINE",
+  PENDING = "PENDING",
+  UPDATE_NEEDED = "UPDATE_NEEDED",
+}
+
 export enum DeviceConnectionStatus {
   AWAITING_CREDENTIALS = "AWAITING_CREDENTIALS",
   ERROR = "ERROR",
   NOT_AVAILABLE = "NOT_AVAILABLE",
   OFFLINE = "OFFLINE",
   ONLINE = "ONLINE",
+}
+
+export enum UpdateProgress {
+  COMPLETED = "COMPLETED",
+  DOWNLOADING = "DOWNLOADING",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  PENDING = "PENDING",
+  REBOOTING = "REBOOTING",
+  VERIFYING = "VERIFYING",
+}
+
+/**
+ * <p>Returns information about the latest device job.</p>
+ */
+export interface LatestDeviceJob {
+  /**
+   * <p>The target version of the device software.</p>
+   */
+  ImageVersion?: string;
+
+  /**
+   * <p>Status of the latest device job.</p>
+   */
+  Status?: UpdateProgress | string;
 }
 
 /**
@@ -1225,6 +1262,16 @@ export interface DescribeDeviceResponse {
    * <p>The device's maker.</p>
    */
   Brand?: DeviceBrand | string;
+
+  /**
+   * <p>A device's latest job. Includes the target image version, and the job status.</p>
+   */
+  LatestDeviceJob?: LatestDeviceJob;
+
+  /**
+   * <p>A device's aggregated status. Including the device's connection status, provisioning status, and lease status.</p>
+   */
+  DeviceAggregatedStatus?: DeviceAggregatedStatus | string;
 }
 
 export interface DescribeDeviceJobRequest {
@@ -1232,16 +1279,6 @@ export interface DescribeDeviceJobRequest {
    * <p>The job's ID.</p>
    */
   JobId: string | undefined;
-}
-
-export enum UpdateProgress {
-  COMPLETED = "COMPLETED",
-  DOWNLOADING = "DOWNLOADING",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  REBOOTING = "REBOOTING",
-  VERIFYING = "VERIFYING",
 }
 
 export interface DescribeDeviceJobResponse {
@@ -1803,6 +1840,36 @@ export interface Device {
    * <p>The device's maker.</p>
    */
   Brand?: DeviceBrand | string;
+
+  /**
+   * <p>A device's current software.</p>
+   */
+  CurrentSoftware?: string;
+
+  /**
+   * <p>A description for the device.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The device's tags.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * <p>The device's type.</p>
+   */
+  Type?: DeviceType | string;
+
+  /**
+   * <p>A device's latest job. Includes the target image version, and the update job status.</p>
+   */
+  LatestDeviceJob?: LatestDeviceJob;
+
+  /**
+   * <p>A device's aggregated status. Including the device's connection status, provisioning status, and lease status.</p>
+   */
+  DeviceAggregatedStatus?: DeviceAggregatedStatus | string;
 }
 
 /**
@@ -1998,6 +2065,18 @@ export interface ListApplicationInstancesResponse {
   NextToken?: string;
 }
 
+export enum ListDevicesSortBy {
+  CREATED_TIME = "CREATED_TIME",
+  DEVICE_AGGREGATED_STATUS = "DEVICE_AGGREGATED_STATUS",
+  DEVICE_ID = "DEVICE_ID",
+  NAME = "NAME",
+}
+
+export enum SortOrder {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING",
+}
+
 export interface ListDevicesRequest {
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
@@ -2008,6 +2087,26 @@ export interface ListDevicesRequest {
    * <p>The maximum number of devices to return in one page of results.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The target column to be sorted on. Default column sort is CREATED_TIME.</p>
+   */
+  SortBy?: ListDevicesSortBy | string;
+
+  /**
+   * <p>The sorting order for the returned list. SortOrder is DESCENDING by default based on CREATED_TIME. Otherwise, SortOrder is ASCENDING.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>Filter based on device's name. Prefixes supported.</p>
+   */
+  NameFilter?: string;
+
+  /**
+   * <p>Filter based on a device's status.</p>
+   */
+  DeviceAggregatedStatusFilter?: DeviceAggregatedStatus | string;
 }
 
 export interface ListDevicesResponse {
@@ -2781,6 +2880,13 @@ export const NtpStatusFilterSensitiveLog = (obj: NtpStatus): any => ({
  * @internal
  */
 export const NetworkStatusFilterSensitiveLog = (obj: NetworkStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LatestDeviceJobFilterSensitiveLog = (obj: LatestDeviceJob): any => ({
   ...obj,
 });
 
