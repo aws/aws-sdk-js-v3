@@ -22,11 +22,11 @@ export const tokenMiddleware =
     options: TokenResolvedConfig
   ): FinalizeRequestMiddleware<Input, Output> =>
   (next: FinalizeHandler<Input, Output>): FinalizeHandler<Input, Output> =>
-    async function (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>> {
-      if (!HttpRequest.isInstance(args.request)) return next(args);
+  async (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>> => {
+    if (!HttpRequest.isInstance(args.request)) return next(args);
 
-      const token = await options.token();
-      args.request.headers["Authorization"] = `Bearer ${token.token}`;
+    const token = await options.token();
+    args.request.headers["Authorization"] = `Bearer ${token.token}`;
 
-      return next(args);
-    };
+    return next(args);
+  };
