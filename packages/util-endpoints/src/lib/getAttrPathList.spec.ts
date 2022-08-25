@@ -1,4 +1,4 @@
-import { EndpointError } from "..";
+import { EndpointError } from "../types";
 import { getAttrPathList } from "./getAttrPathList";
 
 describe(getAttrPathList.name, () => {
