@@ -1,3 +1,11 @@
+export interface Partition {
+  name: string;
+  dnsSuffix: string;
+  dnsDualStackSuffix: string;
+  supportFIPS: boolean;
+  supportDualStack: boolean;
+}
+
 export enum EndpointURLScheme {
   HTTP = "http",
   HTTPS = "https",
