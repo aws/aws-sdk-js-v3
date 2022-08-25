@@ -5,8 +5,9 @@ const DEFAULT_PORTS: Record<EndpointURLScheme, number> = {
   [EndpointURLScheme.HTTPS]: 443,
 };
 
-const v4 = "(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}";
-const v4Regex = new RegExp(`^${v4}$`);
+const IP_V4_REGEX = new RegExp(
+  `^(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}$`
+);
 
 /**
  * Parses a string into it’s Endpoint URL components.
@@ -35,7 +36,7 @@ export const parseURL = (value: string): EndpointURL | null => {
     return null;
   }
 
-  const isIp = v4Regex.test(hostname) || (hostname.startsWith("[") && hostname.endsWith("]"));
+  const isIp = IP_V4_REGEX.test(hostname) || (hostname.startsWith("[") && hostname.endsWith("]"));
   const authority = `${host}${value.includes(`${host}:${DEFAULT_PORTS[scheme]}`) ? `:${DEFAULT_PORTS[scheme]}` : ``}`;
 
   return {
