@@ -29,7 +29,7 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
 
 /**
  * <p>Creates and returns an access token for the authorized client. The access token issued
- *       will be used to fetch short-term credentials for the assigned roles in the Amazon Web Services
+ *       will be used to fetch short-term credentials for the assigned roles in the AWS
  *       account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

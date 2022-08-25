@@ -27,8 +27,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a request to authorize a client with an access user session token is
- *       pending.</p>
+ * <p>Indicates that a request to authorize a client with an access user session token is pending.</p>
  */
 export class AuthorizationPendingException extends __BaseException {
   readonly name: "AuthorizationPendingException" = "AuthorizationPendingException";
@@ -52,27 +51,17 @@ export class AuthorizationPendingException extends __BaseException {
 
 export interface CreateTokenRequest {
   /**
-   * <p>The unique identifier string for each client. This value should come from the persisted
-   *       result of the <a>RegisterClient</a> API.</p>
+   * <p>The unique identifier string for each client. This value should come from the persisted result of the <a>RegisterClient</a> API.</p>
    */
   clientId: string | undefined;
 
   /**
-   * <p>A secret string generated for the client. This value should come from the persisted result
-   *       of the <a>RegisterClient</a> API.</p>
+   * <p>A secret string generated for the client. This value should come from the persisted result of the <a>RegisterClient</a> API.</p>
    */
   clientSecret: string | undefined;
 
   /**
-   * <p>Supports grant types for the authorization code, refresh token, and device code request.
-   *       For device code requests, specify the following value:</p>
-   *
-   *          <p>
-   *             <code>urn:ietf:params:oauth:grant-type:<i>device_code</i>
-   *             </code>
-   *          </p>
-   *
-   *          <p>For information about how to obtain the device code, see the <a>StartDeviceAuthorization</a> topic.</p>
+   * <p>Supports grant types for authorization code, refresh token, and device code request.</p>
    */
   grantType: string | undefined;
 
@@ -81,21 +70,15 @@ export interface CreateTokenRequest {
    *       used to identify this authentication attempt. This should come from an in-memory reference to
    *       the result of the <a>StartDeviceAuthorization</a> API.</p>
    */
-  deviceCode: string | undefined;
+  deviceCode?: string;
 
   /**
-   * <p>The authorization code received from the authorization service. This parameter is required
-   *       to perform an authorization grant request to get access to a token.</p>
+   * <p>The authorization code received from the authorization service. This parameter is required to perform an authorization grant request to get access to a token.</p>
    */
   code?: string;
 
   /**
-   * <p>Currently, <code>refreshToken</code> is not yet implemented and is not supported. For more
-   *       information about the features and limitations of the current Amazon Web Services SSO OIDC implementation,
-   *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">Amazon Web Services SSO
-   *         OIDC API Reference</a>.</p>
-   *          <p>The token used to obtain an access token in the event that the access token is invalid or
-   *       expired.</p>
+   * <p>The token used to obtain an access token in the event that the access token is invalid or expired. This token is not issued by the service.</p>
    */
   refreshToken?: string;
 
@@ -114,7 +97,7 @@ export interface CreateTokenRequest {
 
 export interface CreateTokenResponse {
   /**
-   * <p>An opaque token to access Amazon Web Services SSO resources assigned to a user.</p>
+   * <p>An opaque token to access AWS SSO resources assigned to a user.</p>
    */
   accessToken?: string;
 
@@ -130,21 +113,13 @@ export interface CreateTokenResponse {
   expiresIn?: number;
 
   /**
-   * <p>Currently, <code>refreshToken</code> is not yet implemented and is not supported. For more
-   *       information about the features and limitations of the current Amazon Web Services SSO OIDC implementation,
-   *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">Amazon Web Services SSO
-   *         OIDC API Reference</a>.</p>
-   *          <p>A token that, if present, can be used to refresh a previously issued access token that
+   * <p>A token that, if present, can be used to refresh a previously issued access token that
    *       might have expired.</p>
    */
   refreshToken?: string;
 
   /**
-   * <p>Currently, <code>idToken</code> is not yet implemented and is not supported. For more
-   *       information about the features and limitations of the current Amazon Web Services SSO OIDC implementation,
-   *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">Amazon Web Services SSO
-   *         OIDC API Reference</a>.</p>
-   *          <p>The identifier of the user that associated with the access token, if present.</p>
+   * <p>The identifier of the user that associated with the access token, if present.</p>
    */
   idToken?: string;
 }
@@ -173,8 +148,7 @@ export class ExpiredTokenException extends __BaseException {
 }
 
 /**
- * <p>Indicates that an error from the service occurred while trying to process a
- *       request.</p>
+ * <p>Indicates that an error from the service occurred while trying to process a request.</p>
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -222,8 +196,7 @@ export class InvalidClientException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a request contains an invalid grant. This can occur if a client makes a
- *         <a>CreateToken</a> request with an invalid grant type.</p>
+ * <p>Indicates that a request contains an invalid grant. This can occur if a client makes a <a>CreateToken</a> request with an invalid grant type.</p>
  */
 export class InvalidGrantException extends __BaseException {
   readonly name: "InvalidGrantException" = "InvalidGrantException";
@@ -293,8 +266,7 @@ export class InvalidScopeException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the client is making the request too frequently and is more than the
- *       service can handle. </p>
+ * <p>Indicates that the client is making the request too frequently and is more than the service can handle. </p>
  */
 export class SlowDownException extends __BaseException {
   readonly name: "SlowDownException" = "SlowDownException";
@@ -364,8 +336,7 @@ export class UnsupportedGrantTypeException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the client information sent in the request during registration is
- *       invalid.</p>
+ * <p>Indicates that the client information sent in the request during registration is invalid.</p>
  */
 export class InvalidClientMetadataException extends __BaseException {
   readonly name: "InvalidClientMetadataException" = "InvalidClientMetadataException";
@@ -394,8 +365,7 @@ export interface RegisterClientRequest {
   clientName: string | undefined;
 
   /**
-   * <p>The type of client. The service supports only <code>public</code> as a client type.
-   *       Anything other than public will be rejected by the service.</p>
+   * <p>The type of client. The service supports only <code>public</code> as a client type. Anything other than public will be rejected by the service.</p>
    */
   clientType: string | undefined;
 
@@ -420,14 +390,12 @@ export interface RegisterClientResponse {
   clientSecret?: string;
 
   /**
-   * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> were
-   *       issued.</p>
+   * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> were issued.</p>
    */
   clientIdIssuedAt?: number;
 
   /**
-   * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> will
-   *       become invalid.</p>
+   * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> will become invalid.</p>
    */
   clientSecretExpiresAt?: number;
 
@@ -444,7 +412,7 @@ export interface RegisterClientResponse {
 
 export interface StartDeviceAuthorizationRequest {
   /**
-   * <p>The unique identifier string for the client that is registered with Amazon Web Services SSO. This value
+   * <p>The unique identifier string for the client that is registered with AWS SSO. This value
    *       should come from the persisted result of the <a>RegisterClient</a> API
    *       operation.</p>
    */
@@ -457,8 +425,8 @@ export interface StartDeviceAuthorizationRequest {
   clientSecret: string | undefined;
 
   /**
-   * <p>The URL for the AWS access portal. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html">Using
-   *       the AWS access portal</a> in the <i>Amazon Web Services SSO User Guide</i>.</p>
+   * <p>The URL for the AWS SSO user portal. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html">Using
+   *         the User Portal</a> in the <i>AWS Single Sign-On User Guide</i>.</p>
    */
   startUrl: string | undefined;
 }
@@ -475,8 +443,7 @@ export interface StartDeviceAuthorizationResponse {
   userCode?: string;
 
   /**
-   * <p>The URI of the verification page that takes the <code>userCode</code> to authorize the
-   *       device.</p>
+   * <p>The URI of the verification page that takes the <code>userCode</code> to authorize the device.</p>
    */
   verificationUri?: string;
 
@@ -493,8 +460,7 @@ export interface StartDeviceAuthorizationResponse {
   expiresIn?: number;
 
   /**
-   * <p>Indicates the number of seconds the client must wait between attempts when polling for a
-   *       session.</p>
+   * <p>Indicates the number of seconds the client must wait between attempts when polling for a session.</p>
    */
   interval?: number;
 }

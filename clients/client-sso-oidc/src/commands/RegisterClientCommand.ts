@@ -28,7 +28,7 @@ export interface RegisterClientCommandInput extends RegisterClientRequest {}
 export interface RegisterClientCommandOutput extends RegisterClientResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a client with Amazon Web Services SSO. This allows clients to initiate device authorization.
+ * <p>Registers a client with AWS SSO. This allows clients to initiate device authorization.
  *       The output should be persisted for reuse through many authentication requests.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
