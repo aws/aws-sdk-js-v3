@@ -10,6 +10,7 @@ export interface Token {
   readonly token: string;
   /**
    * A {Date} when these token will no longer be accepted.
+   * When expiration is not defined, the token is assumed to be permanent.
    */
   readonly expiration?: Date;
 }
