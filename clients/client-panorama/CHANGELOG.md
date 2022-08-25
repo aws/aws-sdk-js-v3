@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.157.0...v3.158.0) (2022-08-25)
+
+
+### Features
+
+* **client-panorama:** Support sorting and filtering in ListDevices API, and add more fields to device listings and single device detail ([91c5fc6](https://github.com/aws/aws-sdk-js-v3/commit/91c5fc62ee160cecaa32c0072bd5be3f460b27c1))
+
+
+
+
+
 # [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
 
 **Note:** Version bump only for package @aws-sdk/client-panorama

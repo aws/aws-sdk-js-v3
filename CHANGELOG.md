@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.157.0...v3.158.0) (2022-08-25)
+
+
+### Features
+
+* **client-gamelift:** This release adds support for eight EC2 local zones as fleet locations; Atlanta, Chicago, Dallas, Denver, Houston, Kansas City (us-east-1-mci-1a), Los Angeles, and Phoenix. It also adds support for C5d, C6a, C6i, and R5d EC2 instance families. ([e045457](https://github.com/aws/aws-sdk-js-v3/commit/e0454579f6d7ffd5dc9d2648b942fe04799ca472))
+* **client-iot-wireless:** This release includes a new feature for the customers to enable the LoRa gateways to send out beacons for Class B devices and an option to select one or more gateways for Class C devices when sending the LoRaWAN downlink messages. ([8ba0bbe](https://github.com/aws/aws-sdk-js-v3/commit/8ba0bbecbb424062f23862886f8e4ce2eb0b3c2d))
+* **client-panorama:** Support sorting and filtering in ListDevices API, and add more fields to device listings and single device detail ([91c5fc6](https://github.com/aws/aws-sdk-js-v3/commit/91c5fc62ee160cecaa32c0072bd5be3f460b27c1))
+* **client-sso-oidc:** Updated required request parameters on IAM Identity Center's OIDC CreateToken action. ([ab82210](https://github.com/aws/aws-sdk-js-v3/commit/ab82210186cfaaddb6130c28153d3ac3f0fb8389))
+* **clients:** update client endpoints as of 2022-08-25 ([37ae4d9](https://github.com/aws/aws-sdk-js-v3/commit/37ae4d9e97c1d9cf08fff1fd3f4c3fdfe7b7110a))
+
+
+
+
+
 # [3.157.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.156.0...v3.157.0) (2022-08-24)
 
 

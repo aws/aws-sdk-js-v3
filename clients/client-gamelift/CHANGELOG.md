@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.157.0...v3.158.0) (2022-08-25)
+
+
+### Features
+
+* **client-gamelift:** This release adds support for eight EC2 local zones as fleet locations; Atlanta, Chicago, Dallas, Denver, Houston, Kansas City (us-east-1-mci-1a), Los Angeles, and Phoenix. It also adds support for C5d, C6a, C6i, and R5d EC2 instance families. ([e045457](https://github.com/aws/aws-sdk-js-v3/commit/e0454579f6d7ffd5dc9d2648b942fe04799ca472))
+
+
+
+
+
 # [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
 
 **Note:** Version bump only for package @aws-sdk/client-gamelift

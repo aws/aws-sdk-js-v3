@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.157.0...v3.158.0) (2022-08-25)
+
+
+### Features
+
+* **client-iot-wireless:** This release includes a new feature for the customers to enable the LoRa gateways to send out beacons for Class B devices and an option to select one or more gateways for Class C devices when sending the LoRaWAN downlink messages. ([8ba0bbe](https://github.com/aws/aws-sdk-js-v3/commit/8ba0bbecbb424062f23862886f8e4ce2eb0b3c2d))
+
+
+
+
+
 # [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
 
 **Note:** Version bump only for package @aws-sdk/client-iot-wireless

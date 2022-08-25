@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.157.0...v3.158.0) (2022-08-25)
+
+
+### Features
+
+* **clients:** update client endpoints as of 2022-08-25 ([37ae4d9](https://github.com/aws/aws-sdk-js-v3/commit/37ae4d9e97c1d9cf08fff1fd3f4c3fdfe7b7110a))
+
+
+
+
+
 # [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
 
 **Note:** Version bump only for package @aws-sdk/client-rds-data

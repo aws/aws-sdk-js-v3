@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.158.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.157.0...v3.158.0) (2022-08-25)
+
+
+### Features
+
+* **client-sso-oidc:** Updated required request parameters on IAM Identity Center's OIDC CreateToken action. ([ab82210](https://github.com/aws/aws-sdk-js-v3/commit/ab82210186cfaaddb6130c28153d3ac3f0fb8389))
+
+
+
+
+
 # [3.154.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.153.0...v3.154.0) (2022-08-19)
 
 **Note:** Version bump only for package @aws-sdk/client-sso-oidc
