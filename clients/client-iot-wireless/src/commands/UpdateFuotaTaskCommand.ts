@@ -18,7 +18,7 @@ import {
   UpdateFuotaTaskRequestFilterSensitiveLog,
   UpdateFuotaTaskResponse,
   UpdateFuotaTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateFuotaTaskCommand,
   serializeAws_restJson1UpdateFuotaTaskCommand,

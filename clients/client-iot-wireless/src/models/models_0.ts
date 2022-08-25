@@ -402,6 +402,21 @@ export enum BatteryLevel {
   NORMAL = "normal",
 }
 
+/**
+ * <p>Beaconing parameters for configuring the wireless gateways.</p>
+ */
+export interface Beaconing {
+  /**
+   * <p>The data rate for gateways that are sending the beacons.</p>
+   */
+  DataRate?: number;
+
+  /**
+   * <p>The frequency list for the gateways to send the beacons.</p>
+   */
+  Frequencies?: number[];
+}
+
 export interface CancelMulticastGroupSessionRequest {
   /**
    * <p>The ID of the multicast group.</p>
@@ -446,7 +461,7 @@ export enum EventNotificationTopicStatus {
  */
 export interface LoRaWANConnectionStatusEventNotificationConfigurations {
   /**
-   * <p>Enum to denote whether the gateway EUI connection status event topic is enabled or disabled.</p>
+   * <p>Denotes whether the gateway EUI connection status event topic is enabled or disabled.</p>
    */
   GatewayEuiEventTopic?: EventNotificationTopicStatus | string;
 }
@@ -461,7 +476,7 @@ export interface ConnectionStatusEventConfiguration {
   LoRaWAN?: LoRaWANConnectionStatusEventNotificationConfigurations;
 
   /**
-   * <p>Enum to denote whether the wireless gateway ID connection status event topic is enabled or disabled.</p>
+   * <p>Denotes whether the wireless gateway ID connection status event topic is enabled or disabled.</p>
    */
   WirelessGatewayIdEventTopic?: EventNotificationTopicStatus | string;
 }
@@ -471,7 +486,7 @@ export interface ConnectionStatusEventConfiguration {
  */
 export interface LoRaWANConnectionStatusResourceTypeEventConfiguration {
   /**
-   * <p>Enum to denote whether the wireless gateway connection status event topic is enabled or disabled.</p>
+   * <p>Denotes whether the wireless gateway connection status event topic is enabled or disabled.</p>
    */
   WirelessGatewayEventTopic?: EventNotificationTopicStatus | string;
 }
@@ -1146,6 +1161,11 @@ export interface LoRaWANGateway {
    * <p>A list of integer indicating which sub bands are supported by LoRa gateway.</p>
    */
   SubBands?: number[];
+
+  /**
+   * <p>Beaconing object information, which consists of the data rate and frequency parameters.</p>
+   */
+  Beaconing?: Beaconing;
 }
 
 export interface CreateWirelessGatewayRequest {
@@ -1497,7 +1517,7 @@ export interface DeviceProfile {
  */
 export interface SidewalkEventNotificationConfigurations {
   /**
-   * <p>Enum to denote whether amazon id event topic is enabled or disabled.</p>
+   * <p>Denotes whether the Amazon ID event topic is enabled or disabled.</p>
    */
   AmazonIdEventTopic?: EventNotificationTopicStatus | string;
 }
@@ -1513,7 +1533,7 @@ export interface DeviceRegistrationStateEventConfiguration {
   Sidewalk?: SidewalkEventNotificationConfigurations;
 
   /**
-   * <p>Enum to denote whether the wireless device id device registration state event topic is enabled or disabled.</p>
+   * <p>Denotes whether the wireless device ID device registration state event topic is enabled or disabled.</p>
    */
   WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
 }
@@ -1523,7 +1543,7 @@ export interface DeviceRegistrationStateEventConfiguration {
  */
 export interface SidewalkResourceTypeEventConfiguration {
   /**
-   * <p>Enum to denote whether the wireless device join event topic is enabled or disabled.</p>
+   * <p>Denotes whether the wireless device join event topic is enabled or disabled.</p>
    */
   WirelessDeviceEventTopic?: EventNotificationTopicStatus | string;
 }
@@ -1633,6 +1653,52 @@ export interface DisassociateWirelessGatewayFromThingRequest {
 
 export interface DisassociateWirelessGatewayFromThingResponse {}
 
+export enum DownlinkMode {
+  CONCURRENT = "CONCURRENT",
+  SEQUENTIAL = "SEQUENTIAL",
+  USING_UPLINK_GATEWAY = "USING_UPLINK_GATEWAY",
+}
+
+/**
+ * <p>Gateway list item object that specifies the frequency and list of gateways for which the downlink message
+ *             should be sent.</p>
+ */
+export interface GatewayListItem {
+  /**
+   * <p>The ID of the wireless gateways that you want to add to the list of gateways when sending
+   *             downlink messages.</p>
+   */
+  GatewayId: string | undefined;
+
+  /**
+   * <p>The frequency to use for the gateways when sending a downlink message to the wireless device.</p>
+   */
+  DownlinkFrequency: number | undefined;
+}
+
+/**
+ * <p>Specify the list of gateways to which you want to send downlink data traffic when the wireless
+ *             device is running in class B or class C mode.</p>
+ */
+export interface ParticipatingGateways {
+  /**
+   * <p>Indicates whether to send the downlink message in sequential mode or concurrent mode, or to use
+   *             only the chosen gateways from the previous uplink message transmission.</p>
+   */
+  DownlinkMode: DownlinkMode | string | undefined;
+
+  /**
+   * <p>The list of gateways that you want to use for sending the downlink data traffic.</p>
+   */
+  GatewayList: GatewayListItem[] | undefined;
+
+  /**
+   * <p>The duration of time for which AWS IoT Core for LoRaWAN will wait before transmitting the
+   *             payload to the next gateway.</p>
+   */
+  TransmissionInterval: number | undefined;
+}
+
 /**
  * <p>LoRaWAN router info.</p>
  */
@@ -1641,6 +1707,12 @@ export interface LoRaWANSendDataToDevice {
    * <p>The Fport value.</p>
    */
   FPort?: number;
+
+  /**
+   * <p>Choose the gateways that you want to use for the downlink data traffic when the wireless device
+   *             is running in class B or class C mode.</p>
+   */
+  ParticipatingGateways?: ParticipatingGateways;
 }
 
 /**
@@ -1683,7 +1755,7 @@ export enum Event {
  */
 export interface LoRaWANJoinEventNotificationConfigurations {
   /**
-   * <p>Enum to denote whether the Dev EUI join event topic is enabled or disabled.</p>
+   * <p>Denotes whether the Dev EUI join event topic is enabled or disabled.</p>
    */
   DevEuiEventTopic?: EventNotificationTopicStatus | string;
 }
@@ -1698,7 +1770,7 @@ export interface JoinEventConfiguration {
   LoRaWAN?: LoRaWANJoinEventNotificationConfigurations;
 
   /**
-   * <p>Enum to denote whether the wireless device id join event topic is enabled or disabled.</p>
+   * <p>Denotes whether the wireless device ID join event topic is enabled or disabled.</p>
    */
   WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
 }
@@ -1716,7 +1788,7 @@ export interface MessageDeliveryStatusEventConfiguration {
   Sidewalk?: SidewalkEventNotificationConfigurations;
 
   /**
-   * <p>Enum to denote whether the wireless device id device registration state event topic is enabled
+   * <p>Denotes whether the wireless device ID device registration state event topic is enabled
    *             or disabled.</p>
    */
   WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
@@ -1732,7 +1804,7 @@ export interface ProximityEventConfiguration {
   Sidewalk?: SidewalkEventNotificationConfigurations;
 
   /**
-   * <p>Enum to denote whether the wireless device id proximity event topic is enabled or disabled.</p>
+   * <p>Denotes whether the wireless device ID proximity event topic is enabled or disabled.</p>
    */
   WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
 }
@@ -1927,7 +1999,7 @@ export interface GetEventConfigurationByResourceTypesRequest {}
  */
 export interface LoRaWANJoinResourceTypeEventConfiguration {
   /**
-   * <p>Enum to denote whether the wireless device join event topic is enabled or disabled.</p>
+   * <p>Denotes whether the wireless device join event topic is enabled or disabled.</p>
    */
   WirelessDeviceEventTopic?: EventNotificationTopicStatus | string;
 }
@@ -4193,60 +4265,6 @@ export interface UpdateEventConfigurationByResourceTypesRequest {
 
 export interface UpdateEventConfigurationByResourceTypesResponse {}
 
-export interface UpdateFuotaTaskRequest {
-  /**
-   * <p>The ID of a FUOTA task.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The name of a FUOTA task.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The description of the new resource.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The LoRaWAN information used with a FUOTA task.</p>
-   */
-  LoRaWAN?: LoRaWANFuotaTask;
-
-  /**
-   * <p>The S3 URI points to a firmware update image that is to be used with a FUOTA task.</p>
-   */
-  FirmwareUpdateImage?: string;
-
-  /**
-   * <p>The firmware update role that is to be used with a FUOTA task.</p>
-   */
-  FirmwareUpdateRole?: string;
-}
-
-export interface UpdateFuotaTaskResponse {}
-
-export interface UpdateLogLevelsByResourceTypesRequest {
-  /**
-   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
-   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
-   */
-  DefaultLogLevel?: LogLevel | string;
-
-  /**
-   * <p>The list of wireless device log options.</p>
-   */
-  WirelessDeviceLogOptions?: WirelessDeviceLogOption[];
-
-  /**
-   * <p>The list of wireless gateway log options.</p>
-   */
-  WirelessGatewayLogOptions?: WirelessGatewayLogOption[];
-}
-
-export interface UpdateLogLevelsByResourceTypesResponse {}
-
 /**
  * @internal
  */
@@ -4422,6 +4440,13 @@ export const AssociateWirelessGatewayWithThingRequestFilterSensitiveLog = (
 export const AssociateWirelessGatewayWithThingResponseFilterSensitiveLog = (
   obj: AssociateWirelessGatewayWithThingResponse
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BeaconingFilterSensitiveLog = (obj: Beaconing): any => ({
   ...obj,
 });
 
@@ -5063,6 +5088,20 @@ export const DisassociateWirelessGatewayFromThingRequestFilterSensitiveLog = (
 export const DisassociateWirelessGatewayFromThingResponseFilterSensitiveLog = (
   obj: DisassociateWirelessGatewayFromThingResponse
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GatewayListItemFilterSensitiveLog = (obj: GatewayListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParticipatingGatewaysFilterSensitiveLog = (obj: ParticipatingGateways): any => ({
   ...obj,
 });
 
@@ -6206,38 +6245,6 @@ export const UpdateEventConfigurationByResourceTypesRequestFilterSensitiveLog = 
  */
 export const UpdateEventConfigurationByResourceTypesResponseFilterSensitiveLog = (
   obj: UpdateEventConfigurationByResourceTypesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFuotaTaskRequestFilterSensitiveLog = (obj: UpdateFuotaTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFuotaTaskResponseFilterSensitiveLog = (obj: UpdateFuotaTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLogLevelsByResourceTypesRequestFilterSensitiveLog = (
-  obj: UpdateLogLevelsByResourceTypesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLogLevelsByResourceTypesResponseFilterSensitiveLog = (
-  obj: UpdateLogLevelsByResourceTypesResponse
 ): any => ({
   ...obj,
 });

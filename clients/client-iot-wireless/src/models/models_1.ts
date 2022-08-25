@@ -7,6 +7,8 @@ import {
   EventNotificationPartnerType,
   IdentifierType,
   JoinEventConfiguration,
+  LogLevel,
+  LoRaWANFuotaTask,
   LoRaWANMulticast,
   MessageDeliveryStatusEventConfiguration,
   PartnerType,
@@ -14,7 +16,63 @@ import {
   PositionResourceType,
   ProximityEventConfiguration,
   TraceContent,
+  WirelessDeviceLogOption,
+  WirelessGatewayLogOption,
 } from "./models_0";
+
+export interface UpdateFuotaTaskRequest {
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of a FUOTA task.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the new resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The LoRaWAN information used with a FUOTA task.</p>
+   */
+  LoRaWAN?: LoRaWANFuotaTask;
+
+  /**
+   * <p>The S3 URI points to a firmware update image that is to be used with a FUOTA task.</p>
+   */
+  FirmwareUpdateImage?: string;
+
+  /**
+   * <p>The firmware update role that is to be used with a FUOTA task.</p>
+   */
+  FirmwareUpdateRole?: string;
+}
+
+export interface UpdateFuotaTaskResponse {}
+
+export interface UpdateLogLevelsByResourceTypesRequest {
+  /**
+   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
+   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
+   */
+  DefaultLogLevel?: LogLevel | string;
+
+  /**
+   * <p>The list of wireless device log options.</p>
+   */
+  WirelessDeviceLogOptions?: WirelessDeviceLogOption[];
+
+  /**
+   * <p>The list of wireless gateway log options.</p>
+   */
+  WirelessGatewayLogOptions?: WirelessGatewayLogOption[];
+}
+
+export interface UpdateLogLevelsByResourceTypesResponse {}
 
 export interface UpdateMulticastGroupRequest {
   /**
@@ -293,6 +351,38 @@ export interface UpdateWirelessGatewayRequest {
 }
 
 export interface UpdateWirelessGatewayResponse {}
+
+/**
+ * @internal
+ */
+export const UpdateFuotaTaskRequestFilterSensitiveLog = (obj: UpdateFuotaTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFuotaTaskResponseFilterSensitiveLog = (obj: UpdateFuotaTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLogLevelsByResourceTypesRequestFilterSensitiveLog = (
+  obj: UpdateLogLevelsByResourceTypesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLogLevelsByResourceTypesResponseFilterSensitiveLog = (
+  obj: UpdateLogLevelsByResourceTypesResponse
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal

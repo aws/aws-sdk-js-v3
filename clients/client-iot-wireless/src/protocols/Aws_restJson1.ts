@@ -349,6 +349,7 @@ import {
   AbpV1_1,
   AccessDeniedException,
   Accuracy,
+  Beaconing,
   CertificateList,
   ConflictException,
   ConnectionStatusEventConfiguration,
@@ -362,6 +363,7 @@ import {
   EventNotificationItemConfigurations,
   FPorts,
   FuotaTask,
+  GatewayListItem,
   InternalServerException,
   JoinEventConfiguration,
   JoinResourceTypeEventConfiguration,
@@ -397,6 +399,7 @@ import {
   NetworkAnalyzerConfigurations,
   OtaaV1_0_x,
   OtaaV1_1,
+  ParticipatingGateways,
   PositionConfigurationItem,
   Positioning,
   PositionSolverConfigurations,
@@ -8658,6 +8661,23 @@ const serializeAws_restJson1AbpV1_1 = (input: AbpV1_1, context: __SerdeContext):
   };
 };
 
+const serializeAws_restJson1Beaconing = (input: Beaconing, context: __SerdeContext): any => {
+  return {
+    ...(input.DataRate != null && { DataRate: input.DataRate }),
+    ...(input.Frequencies != null && {
+      Frequencies: serializeAws_restJson1BeaconingFrequencies(input.Frequencies, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1BeaconingFrequencies = (input: number[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1ConnectionStatusEventConfiguration = (
   input: ConnectionStatusEventConfiguration,
   context: __SerdeContext
@@ -8720,6 +8740,21 @@ const serializeAws_restJson1FPorts = (input: FPorts, context: __SerdeContext): a
     ...(input.Fuota != null && { Fuota: input.Fuota }),
     ...(input.Multicast != null && { Multicast: input.Multicast }),
     ...(input.Positioning != null && { Positioning: serializeAws_restJson1Positioning(input.Positioning, context) }),
+  };
+};
+
+const serializeAws_restJson1GatewayList = (input: GatewayListItem[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1GatewayListItem(entry, context);
+    });
+};
+
+const serializeAws_restJson1GatewayListItem = (input: GatewayListItem, context: __SerdeContext): any => {
+  return {
+    ...(input.DownlinkFrequency != null && { DownlinkFrequency: input.DownlinkFrequency }),
+    ...(input.GatewayId != null && { GatewayId: input.GatewayId }),
   };
 };
 
@@ -8824,6 +8859,7 @@ const serializeAws_restJson1LoRaWANFuotaTask = (input: LoRaWANFuotaTask, context
 
 const serializeAws_restJson1LoRaWANGateway = (input: LoRaWANGateway, context: __SerdeContext): any => {
   return {
+    ...(input.Beaconing != null && { Beaconing: serializeAws_restJson1Beaconing(input.Beaconing, context) }),
     ...(input.GatewayEui != null && { GatewayEui: input.GatewayEui }),
     ...(input.JoinEuiFilters != null && {
       JoinEuiFilters: serializeAws_restJson1JoinEuiFilters(input.JoinEuiFilters, context),
@@ -8898,6 +8934,9 @@ const serializeAws_restJson1LoRaWANSendDataToDevice = (
 ): any => {
   return {
     ...(input.FPort != null && { FPort: input.FPort }),
+    ...(input.ParticipatingGateways != null && {
+      ParticipatingGateways: serializeAws_restJson1ParticipatingGateways(input.ParticipatingGateways, context),
+    }),
   };
 };
 
@@ -8994,6 +9033,14 @@ const serializeAws_restJson1OtaaV1_1 = (input: OtaaV1_1, context: __SerdeContext
     ...(input.AppKey != null && { AppKey: input.AppKey }),
     ...(input.JoinEui != null && { JoinEui: input.JoinEui }),
     ...(input.NwkKey != null && { NwkKey: input.NwkKey }),
+  };
+};
+
+const serializeAws_restJson1ParticipatingGateways = (input: ParticipatingGateways, context: __SerdeContext): any => {
+  return {
+    ...(input.DownlinkMode != null && { DownlinkMode: input.DownlinkMode }),
+    ...(input.GatewayList != null && { GatewayList: serializeAws_restJson1GatewayList(input.GatewayList, context) }),
+    ...(input.TransmissionInterval != null && { TransmissionInterval: input.TransmissionInterval }),
   };
 };
 
@@ -9318,6 +9365,28 @@ const deserializeAws_restJson1Accuracy = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_restJson1Beaconing = (output: any, context: __SerdeContext): Beaconing => {
+  return {
+    DataRate: __expectInt32(output.DataRate),
+    Frequencies:
+      output.Frequencies != null
+        ? deserializeAws_restJson1BeaconingFrequencies(output.Frequencies, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BeaconingFrequencies = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectInt32(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1CertificateList = (output: any, context: __SerdeContext): CertificateList => {
   return {
     SigningAlg: __expectString(output.SigningAlg),
@@ -9552,6 +9621,25 @@ const deserializeAws_restJson1FuotaTaskList = (output: any, context: __SerdeCont
   return retVal;
 };
 
+const deserializeAws_restJson1GatewayList = (output: any, context: __SerdeContext): GatewayListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1GatewayListItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1GatewayListItem = (output: any, context: __SerdeContext): GatewayListItem => {
+  return {
+    DownlinkFrequency: __expectInt32(output.DownlinkFrequency),
+    GatewayId: __expectString(output.GatewayId),
+  } as any;
+};
+
 const deserializeAws_restJson1JoinEuiFilters = (output: any, context: __SerdeContext): string[][] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -9685,6 +9773,7 @@ const deserializeAws_restJson1LoRaWANFuotaTaskGetInfo = (
 
 const deserializeAws_restJson1LoRaWANGateway = (output: any, context: __SerdeContext): LoRaWANGateway => {
   return {
+    Beaconing: output.Beaconing != null ? deserializeAws_restJson1Beaconing(output.Beaconing, context) : undefined,
     GatewayEui: __expectString(output.GatewayEui),
     JoinEuiFilters:
       output.JoinEuiFilters != null
@@ -9822,6 +9911,10 @@ const deserializeAws_restJson1LoRaWANSendDataToDevice = (
 ): LoRaWANSendDataToDevice => {
   return {
     FPort: __expectInt32(output.FPort),
+    ParticipatingGateways:
+      output.ParticipatingGateways != null
+        ? deserializeAws_restJson1ParticipatingGateways(output.ParticipatingGateways, context)
+        : undefined,
   } as any;
 };
 
@@ -9978,6 +10071,15 @@ const deserializeAws_restJson1OtaaV1_1 = (output: any, context: __SerdeContext):
     AppKey: __expectString(output.AppKey),
     JoinEui: __expectString(output.JoinEui),
     NwkKey: __expectString(output.NwkKey),
+  } as any;
+};
+
+const deserializeAws_restJson1ParticipatingGateways = (output: any, context: __SerdeContext): ParticipatingGateways => {
+  return {
+    DownlinkMode: __expectString(output.DownlinkMode),
+    GatewayList:
+      output.GatewayList != null ? deserializeAws_restJson1GatewayList(output.GatewayList, context) : undefined,
+    TransmissionInterval: __expectInt32(output.TransmissionInterval),
   } as any;
 };
 
