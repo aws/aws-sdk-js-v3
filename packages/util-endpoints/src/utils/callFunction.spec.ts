@@ -17,7 +17,7 @@ describe(callFunction.name, () => {
   });
 
   afterEach(() => {
-    jest.resetAllMocks();
+    jest.clearAllMocks();
   });
 
   it("skips evaluateExpression for boolean arg", () => {
