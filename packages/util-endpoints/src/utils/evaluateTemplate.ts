@@ -1,24 +1,38 @@
+// Do not remove getAttr import. It's called during template evaluation.
 import { getAttr } from "../lib";
 import { EvaluateOptions } from "../types";
 
-export const evaluateTemplate = (template: string, options: EvaluateOptions) => {
-  // Call getAttr so that it's not tree shaken away while bundling.
-  getAttr({ name: "foobar" }, "name");
+const ATTR_SHORTHAND_REGEX = new RegExp("\\${([\\w]+)#([\\w]+)}", "g");
 
+export const evaluateTemplate = (template: string, options: EvaluateOptions) => {
   const templateToEvaluate = template
     // Replace `{value}` with `${value}`
     .replace(new RegExp(`\{([^{}]+)\}`, "g"), "${$1}")
     // Replace `{${value}}` with `{value}`
-    .replace(new RegExp(`\{\\$\{([^{}]+)\}\}`, "g"), "{$1}")
-    // Replace `${value#key}` with `${getAttr(value, "key")}`
-    .replace(new RegExp(`\\$\{(\\w+)#(\\w+)\}`, "g"), "${getAttr($1, '$2')}");
+    .replace(new RegExp(`\{\\$\{([^{}]+)\}\}`, "g"), "{$1}");
 
   const templateContext = {
     ...options.endpointParams,
     ...options.referenceRecord,
   };
+
+  const attrShortHandList = templateToEvaluate.match(ATTR_SHORTHAND_REGEX) || [];
+
+  const attrShortHandMap = attrShortHandList.reduce((acc, attrShortHand) => {
+    const indexOfHash = attrShortHand.indexOf("#");
+    const refName = attrShortHand.substring(2, indexOfHash);
+    const attrName = attrShortHand.substring(indexOfHash + 1, attrShortHand.length - 1);
+    acc[attrShortHand] = getAttr(templateContext[refName] as Record<string, any>, attrName) as string;
+    return acc;
+  }, {} as Record<string, string>);
+
+  const templateWithAttr = Object.entries(attrShortHandMap).reduce(
+    (acc, [shortHand, value]) => acc.replace(shortHand, value),
+    templateToEvaluate
+  );
+
   const templateContextNames = Object.keys(templateContext);
   const templateContextValues = Object.values(templateContext);
 
-  return new Function(...templateContextNames, `return \`${templateToEvaluate}\``)(...templateContextValues);
+  return new Function(...templateContextNames, `return \`${templateWithAttr}\``)(...templateContextValues);
 };
