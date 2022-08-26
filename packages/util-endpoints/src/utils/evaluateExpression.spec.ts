@@ -1,11 +1,11 @@
 import { EndpointError } from "../types";
 import { callFunction } from "./callFunction";
 import { evaluateExpression } from "./evaluateExpression";
-import { evaluateRef } from "./evaluateRef";
 import { evaluateTemplate } from "./evaluateTemplate";
+import { getReferenceValue } from "./getReferenceValue";
 
 jest.mock("./callFunction");
-jest.mock("./evaluateRef");
+jest.mock("./getReferenceValue");
 jest.mock("./evaluateTemplate");
 
 describe(evaluateExpression.name, () => {
@@ -27,7 +27,7 @@ describe(evaluateExpression.name, () => {
     expect(result).toBe(mockResult);
     expect(evaluateTemplate).toHaveBeenCalledWith(mockInput, mockOptions);
     expect(callFunction).not.toHaveBeenCalled();
-    expect(evaluateRef).not.toHaveBeenCalled();
+    expect(getReferenceValue).not.toHaveBeenCalled();
   });
 
   it("calls callFunction if input constains 'fn' key", () => {
@@ -37,17 +37,17 @@ describe(evaluateExpression.name, () => {
     expect(result).toBe(mockResult);
     expect(evaluateTemplate).not.toHaveBeenCalled();
     expect(callFunction).toHaveBeenCalledWith(mockInput, mockOptions);
-    expect(evaluateRef).not.toHaveBeenCalled();
+    expect(getReferenceValue).not.toHaveBeenCalled();
   });
 
-  it("calls evaluateRef if input constains 'ref' key", () => {
+  it("calls getReferenceValue if input constains 'ref' key", () => {
     const mockInput = { ref: "ref" };
-    (evaluateRef as jest.Mock).mockReturnValue(mockResult);
+    (getReferenceValue as jest.Mock).mockReturnValue(mockResult);
     const result = evaluateExpression(mockInput, mockKeyName, mockOptions);
     expect(result).toBe(mockResult);
     expect(evaluateTemplate).not.toHaveBeenCalled();
     expect(callFunction).not.toHaveBeenCalled();
-    expect(evaluateRef).toHaveBeenCalledWith(mockInput, mockOptions);
+    expect(getReferenceValue).toHaveBeenCalledWith(mockInput, mockOptions);
   });
 
   it("throws error if input is neither string, function or reference", () => {
@@ -58,6 +58,6 @@ describe(evaluateExpression.name, () => {
     );
     expect(evaluateTemplate).not.toHaveBeenCalled();
     expect(callFunction).not.toHaveBeenCalled();
-    expect(evaluateRef).not.toHaveBeenCalled();
+    expect(getReferenceValue).not.toHaveBeenCalled();
   });
 });

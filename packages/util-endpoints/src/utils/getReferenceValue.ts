@@ -1,6 +1,6 @@
 import { EndpointError, EvaluateOptions, ReferenceObject } from "../types";
 
-export const evaluateRef = ({ ref }: ReferenceObject, options: EvaluateOptions) => {
+export const getReferenceValue = ({ ref }: ReferenceObject, options: EvaluateOptions) => {
   const referenceRecord = {
     ...options.endpointParams,
     ...options.referenceRecord,

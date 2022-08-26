@@ -1,7 +1,7 @@
 import { EndpointError } from "../types";
-import { evaluateRef } from "./evaluateRef";
+import { getReferenceValue } from "./getReferenceValue";
 
-describe(evaluateRef.name, () => {
+describe(getReferenceValue.name, () => {
   const mockOptions = {
     endpointParams: {},
     referenceRecord: {},
@@ -17,13 +17,13 @@ describe(evaluateRef.name, () => {
     it.each(["endpointParams", "referenceRecord"])("in %s", (key) => {
       const mockInput = { ref: mockRefName };
       const mockOptionsWithVal = { ...mockOptions, [key]: { [mockRefName]: mockRefValue } };
-      const result = evaluateRef(mockInput, mockOptionsWithVal);
+      const result = getReferenceValue(mockInput, mockOptionsWithVal);
       expect(result).toBe(mockRefValue);
     });
   });
 
   it("throws error if reference does not exist", () => {
-    expect(() => evaluateRef({ ref: mockRefName }, mockOptions)).toThrowError(
+    expect(() => getReferenceValue({ ref: mockRefName }, mockOptions)).toThrowError(
       new EndpointError(`Reference '${mockRefName}' not defined`)
     );
   });

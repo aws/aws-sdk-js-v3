@@ -1,7 +1,7 @@
 import { EndpointError, EvaluateOptions, FunctionObject, ReferenceObject } from "../types";
 import { callFunction } from "./callFunction";
-import { evaluateRef } from "./evaluateRef";
 import { evaluateTemplate } from "./evaluateTemplate";
+import { getReferenceValue } from "./getReferenceValue";
 
 export const evaluateExpression = (
   obj: string | FunctionObject | ReferenceObject,
@@ -13,7 +13,7 @@ export const evaluateExpression = (
   } else if ((obj as FunctionObject)["fn"]) {
     return callFunction(obj as FunctionObject, options);
   } else if ((obj as ReferenceObject)["ref"]) {
-    return evaluateRef(obj as ReferenceObject, options);
+    return getReferenceValue(obj as ReferenceObject, options);
   }
   throw new EndpointError(`'${keyName}': ${String(obj)} is not a string, function or reference.`);
 };
