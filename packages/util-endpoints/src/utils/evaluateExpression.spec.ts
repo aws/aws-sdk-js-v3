@@ -1,10 +1,10 @@
 import { EndpointError } from "../types";
+import { callFunction } from "./callFunction";
 import { evaluateExpression } from "./evaluateExpression";
-import { evaluateFn } from "./evaluateFn";
 import { evaluateRef } from "./evaluateRef";
 import { evaluateTemplate } from "./evaluateTemplate";
 
-jest.mock("./evaluateFn");
+jest.mock("./callFunction");
 jest.mock("./evaluateRef");
 jest.mock("./evaluateTemplate");
 
@@ -26,17 +26,17 @@ describe(evaluateExpression.name, () => {
     const result = evaluateExpression(mockInput, mockKeyName, mockOptions);
     expect(result).toBe(mockResult);
     expect(evaluateTemplate).toHaveBeenCalledWith(mockInput, mockOptions);
-    expect(evaluateFn).not.toHaveBeenCalled();
+    expect(callFunction).not.toHaveBeenCalled();
     expect(evaluateRef).not.toHaveBeenCalled();
   });
 
-  it("calls evaluateFn if input constains 'fn' key", () => {
+  it("calls callFunction if input constains 'fn' key", () => {
     const mockInput = { fn: "fn", argv: ["arg1"] };
-    (evaluateFn as jest.Mock).mockReturnValue(mockResult);
+    (callFunction as jest.Mock).mockReturnValue(mockResult);
     const result = evaluateExpression(mockInput, mockKeyName, mockOptions);
     expect(result).toBe(mockResult);
     expect(evaluateTemplate).not.toHaveBeenCalled();
-    expect(evaluateFn).toHaveBeenCalledWith(mockInput, mockOptions);
+    expect(callFunction).toHaveBeenCalledWith(mockInput, mockOptions);
     expect(evaluateRef).not.toHaveBeenCalled();
   });
 
@@ -46,7 +46,7 @@ describe(evaluateExpression.name, () => {
     const result = evaluateExpression(mockInput, mockKeyName, mockOptions);
     expect(result).toBe(mockResult);
     expect(evaluateTemplate).not.toHaveBeenCalled();
-    expect(evaluateFn).not.toHaveBeenCalled();
+    expect(callFunction).not.toHaveBeenCalled();
     expect(evaluateRef).toHaveBeenCalledWith(mockInput, mockOptions);
   });
 
@@ -57,7 +57,7 @@ describe(evaluateExpression.name, () => {
       new EndpointError(`'${mockKeyName}': ${String(mockInput)} is not a string, function or reference.`)
     );
     expect(evaluateTemplate).not.toHaveBeenCalled();
-    expect(evaluateFn).not.toHaveBeenCalled();
+    expect(callFunction).not.toHaveBeenCalled();
     expect(evaluateRef).not.toHaveBeenCalled();
   });
 });

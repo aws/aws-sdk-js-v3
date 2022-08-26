@@ -1,10 +1,10 @@
 import * as lib from "../lib";
+import { callFunction } from "./callFunction";
 import { evaluateExpression } from "./evaluateExpression";
-import { evaluateFn } from "./evaluateFn";
 
 jest.mock("./evaluateExpression");
 
-describe(evaluateFn.name, () => {
+describe(callFunction.name, () => {
   const mockOptions = {
     endpointParams: {},
     referenceRecord: {},
@@ -23,7 +23,7 @@ describe(evaluateFn.name, () => {
   it("skips evaluateExpression for boolean arg", () => {
     const mockBooleanArg = true;
     const mockFn = { fn: mockFunctionName, argv: [mockBooleanArg] };
-    const result = evaluateFn(mockFn, mockOptions);
+    const result = callFunction(mockFn, mockOptions);
     expect(result).toBe(mockReturn);
     expect(evaluateExpression).not.toHaveBeenCalled();
     expect(lib[mockFunctionName]).toHaveBeenCalledWith(mockBooleanArg);
@@ -37,7 +37,7 @@ describe(evaluateFn.name, () => {
 
       (evaluateExpression as jest.Mock).mockReturnValue(mockArgReturn);
 
-      const result = evaluateFn(mockFn, mockOptions);
+      const result = callFunction(mockFn, mockOptions);
       expect(result).toBe(mockReturn);
       expect(evaluateExpression).toHaveBeenCalledWith(arg, "arg", mockOptions);
       expect(lib[mockFunctionName]).toHaveBeenCalledWith(mockArgReturn);
