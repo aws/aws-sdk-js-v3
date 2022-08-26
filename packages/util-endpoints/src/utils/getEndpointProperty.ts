@@ -1,4 +1,6 @@
-import { EndpointError, EndpointObjectProperty, EvaluateOptions } from "../types";
+import { EndpointObjectProperty } from "@aws-sdk/types";
+
+import { EndpointError, EvaluateOptions } from "../types";
 import { evaluateTemplate } from "./evaluateTemplate";
 import { getEndpointProperties } from "./getEndpointProperties";
 

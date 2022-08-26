@@ -25,3 +25,15 @@ export interface EndpointURL {
    */
   isIp: boolean;
 }
+
+export type EndpointObjectProperty =
+  | string
+  | boolean
+  | { [key: string]: EndpointObjectProperty }
+  | EndpointObjectProperty[];
+
+export interface EndpointV2 {
+  url: URL;
+  properties?: Record<string, EndpointObjectProperty>;
+  headers?: Record<string, string[]>;
+}

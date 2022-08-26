@@ -1,4 +1,6 @@
-import { Endpoint, EndpointRuleObject, EvaluateOptions } from "../types";
+import { EndpointV2 } from "@aws-sdk/types";
+
+import { EndpointRuleObject, EvaluateOptions } from "../types";
 import { evaluateConditions } from "./evaluateConditions";
 import { getEndpointHeaders } from "./getEndpointHeaders";
 import { getEndpointProperties } from "./getEndpointProperties";
@@ -7,7 +9,7 @@ import { getEndpointUrl } from "./getEndpointUrl";
 export const evaluateEndpointRule = (
   endpointRule: EndpointRuleObject,
   options: EvaluateOptions
-): Endpoint | undefined => {
+): EndpointV2 | undefined => {
   const { conditions, endpoint } = endpointRule;
 
   const { result, referenceRecord } = evaluateConditions(conditions, options);

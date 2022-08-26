@@ -1,10 +1,6 @@
-import { ConditionObject, Expression } from "./shared";
+import { EndpointObjectProperty } from "@aws-sdk/types";
 
-export type EndpointObjectProperty =
-  | string
-  | boolean
-  | { [key: string]: EndpointObjectProperty }
-  | EndpointObjectProperty[];
+import { ConditionObject, Expression } from "./shared";
 
 export type EndpointObjectProperties = Record<string, EndpointObjectProperty>;
 export type EndpointObjectHeaders = Record<string, Expression[]>;
@@ -19,10 +15,4 @@ export type EndpointRuleObject = {
   conditions?: ConditionObject[];
   endpoint: EndpointObject;
   documentation?: string;
-};
-
-export type Endpoint = {
-  url: URL;
-  properties?: Record<string, EndpointObjectProperty>;
-  headers?: Record<string, string[]>;
 };

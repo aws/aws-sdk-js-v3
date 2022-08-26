@@ -1,4 +1,4 @@
-import { EndpointError, EndpointObjectProperty, EvaluateOptions } from "../types";
+import { EndpointError } from "../types";
 import { evaluateTemplate } from "./evaluateTemplate";
 import { getEndpointProperties } from "./getEndpointProperties";
 import { getEndpointProperty } from "./getEndpointProperty";
