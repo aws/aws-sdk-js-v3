@@ -2488,6 +2488,8 @@ const deserializeAws_restJson1HlsIngest = (output: any, context: __SerdeContext)
 const deserializeAws_restJson1HlsManifest = (output: any, context: __SerdeContext): HlsManifest => {
   return {
     AdMarkers: __expectString(output.adMarkers),
+    AdTriggers: output.adTriggers != null ? deserializeAws_restJson1AdTriggers(output.adTriggers, context) : undefined,
+    AdsOnDeliveryRestrictions: __expectString(output.adsOnDeliveryRestrictions),
     Id: __expectString(output.id),
     IncludeIframeOnlyStream: __expectBoolean(output.includeIframeOnlyStream),
     ManifestName: __expectString(output.manifestName),
