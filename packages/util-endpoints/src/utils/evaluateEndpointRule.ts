@@ -21,15 +21,12 @@ export const evaluateEndpointRule = (
   };
 
   const { url, properties, headers } = endpoint;
-  const endpointHeaders = getEndpointHeaders(headers, endpointRuleOptions);
-  const endpointProperties = getEndpointProperties(properties, endpointRuleOptions);
-
   return {
-    ...(Object.entries(endpointHeaders).length > 0 && {
-      headers: endpointHeaders,
+    ...(headers != undefined && {
+      headers: getEndpointHeaders(headers, endpointRuleOptions),
     }),
-    ...(Object.entries(endpointProperties).length > 0 && {
-      properties: endpointProperties,
+    ...(properties != undefined && {
+      properties: getEndpointProperties(properties, endpointRuleOptions),
     }),
     url: evaluateEndpointUrl(url, endpointRuleOptions),
   };
