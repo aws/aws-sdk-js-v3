@@ -1,0 +1,49 @@
+import { EndpointError, EvaluateOptions } from "../types";
+import { evaluateCondition } from "./evaluateCondition";
+import { evaluateFn } from "./evaluateFn";
+
+jest.mock("./evaluateFn");
+
+describe(evaluateCondition.name, () => {
+  const mockOptions: EvaluateOptions = {
+    endpointParams: {},
+    referenceRecord: {},
+  };
+  const mockAssign = "mockAssign";
+  const mockFnArgs = { fn: "fn", argv: ["arg"] };
+
+  it("throws error if assign is already defined in Reference Record", () => {
+    const mockOptionsWithAssign = {
+      ...mockOptions,
+      referenceRecord: {
+        [mockAssign]: true,
+      },
+    };
+    expect(() => evaluateCondition({ assign: mockAssign, ...mockFnArgs }, mockOptionsWithAssign)).toThrow(
+      new EndpointError(`'${mockAssign}' is already defined in Reference Record.`)
+    );
+    expect(evaluateFn).not.toHaveBeenCalled();
+  });
+
+  describe("evaluates function", () => {
+    describe.each([
+      [true, "truthy", [true, 1, -1, "true", "false"]],
+      [false, "falsy", [false, 0, -0, "", null, undefined, NaN]],
+    ])("returns %s for %s values", (result, boolStatus, testCases) => {
+      it.each(testCases)(`${boolStatus} value: '%s'`, (mockReturn) => {
+        (evaluateFn as jest.Mock).mockReturnValue(mockReturn);
+        const { result, assigned } = evaluateCondition(mockFnArgs, mockOptions);
+        expect(result).toBe(result);
+        expect(assigned).toBeUndefined();
+      });
+    });
+  });
+
+  it("returns assigned value if defined", () => {
+    const mockAssignedValue = "mockAssignedValue";
+    (evaluateFn as jest.Mock).mockReturnValue(mockAssignedValue);
+    const { result, assigned } = evaluateCondition({ assign: mockAssign, ...mockFnArgs }, mockOptions);
+    expect(result).toBe(true);
+    expect(assigned).toEqual({ name: mockAssign, value: mockAssignedValue });
+  });
+});
