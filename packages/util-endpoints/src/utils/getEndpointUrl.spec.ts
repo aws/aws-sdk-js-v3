@@ -1,10 +1,10 @@
 import { EndpointError } from "../types";
-import { evaluateEndpointUrl } from "./evaluateEndpointUrl";
 import { evaluateExpression } from "./evaluateExpression";
+import { getEndpointUrl } from "./getEndpointUrl";
 
 jest.mock("./evaluateExpression");
 
-describe(evaluateEndpointUrl.name, () => {
+describe(getEndpointUrl.name, () => {
   const mockEndpointUrlInput = "http://input.example.com";
   const mockEndpointUrlOutput = "http://output.example.com";
   const mockOptions = {
@@ -14,7 +14,7 @@ describe(evaluateEndpointUrl.name, () => {
 
   it("returns URL is expression evaluates to string", () => {
     (evaluateExpression as jest.Mock).mockReturnValue(mockEndpointUrlOutput);
-    const result = evaluateEndpointUrl(mockEndpointUrlInput, mockOptions);
+    const result = getEndpointUrl(mockEndpointUrlInput, mockOptions);
     expect(result).toEqual(new URL(mockEndpointUrlOutput));
     expect(evaluateExpression).toHaveBeenCalledWith(mockEndpointUrlInput, "Endpoint URL", mockOptions);
   });
@@ -22,7 +22,7 @@ describe(evaluateEndpointUrl.name, () => {
   it("throws error if expression evaluates to non-string", () => {
     const mockNotStringOutput = 42;
     (evaluateExpression as jest.Mock).mockReturnValue(mockNotStringOutput);
-    expect(() => evaluateEndpointUrl(mockEndpointUrlInput, mockOptions)).toThrowError(
+    expect(() => getEndpointUrl(mockEndpointUrlInput, mockOptions)).toThrowError(
       new EndpointError(`Endpoint URL must be a string, got ${typeof mockNotStringOutput}`)
     );
     expect(evaluateExpression).toHaveBeenCalledWith(mockEndpointUrlInput, "Endpoint URL", mockOptions);

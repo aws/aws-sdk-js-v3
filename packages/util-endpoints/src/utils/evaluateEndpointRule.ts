@@ -1,8 +1,8 @@
 import { Endpoint, EndpointRuleObject, EvaluateOptions } from "../types";
 import { evaluateConditions } from "./evaluateConditions";
-import { evaluateEndpointUrl } from "./evaluateEndpointUrl";
 import { getEndpointHeaders } from "./getEndpointHeaders";
 import { getEndpointProperties } from "./getEndpointProperties";
+import { getEndpointUrl } from "./getEndpointUrl";
 
 export const evaluateEndpointRule = (
   endpointRule: EndpointRuleObject,
@@ -28,6 +28,6 @@ export const evaluateEndpointRule = (
     ...(properties != undefined && {
       properties: getEndpointProperties(properties, endpointRuleOptions),
     }),
-    url: evaluateEndpointUrl(url, endpointRuleOptions),
+    url: getEndpointUrl(url, endpointRuleOptions),
   };
 };

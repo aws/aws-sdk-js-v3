@@ -1,12 +1,12 @@
 import { ConditionObject, EndpointRuleObject } from "../types";
 import { evaluateConditions } from "./evaluateConditions";
 import { evaluateEndpointRule } from "./evaluateEndpointRule";
-import { evaluateEndpointUrl } from "./evaluateEndpointUrl";
 import { getEndpointHeaders } from "./getEndpointHeaders";
 import { getEndpointProperties } from "./getEndpointProperties";
+import { getEndpointUrl } from "./getEndpointUrl";
 
 jest.mock("./evaluateConditions");
-jest.mock("./evaluateEndpointUrl");
+jest.mock("./getEndpointUrl");
 jest.mock("./getEndpointHeaders");
 jest.mock("./getEndpointProperties");
 
@@ -31,7 +31,7 @@ describe(evaluateEndpointRule.name, () => {
     const result = evaluateEndpointRule(mockEndpointRule, mockOptions);
     expect(result).toBeUndefined();
     expect(evaluateConditions).toHaveBeenCalledWith(mockConditions, mockOptions);
-    expect(evaluateEndpointUrl).not.toHaveBeenCalled();
+    expect(getEndpointUrl).not.toHaveBeenCalled();
     expect(getEndpointHeaders).not.toHaveBeenCalled();
     expect(getEndpointProperties).not.toHaveBeenCalled();
   });
@@ -49,12 +49,12 @@ describe(evaluateEndpointRule.name, () => {
         result: true,
         referenceRecord: mockReferenceRecord,
       });
-      (evaluateEndpointUrl as jest.Mock).mockReturnValue(mockEndpointUrl);
+      (getEndpointUrl as jest.Mock).mockReturnValue(mockEndpointUrl);
     });
 
     afterEach(() => {
       expect(evaluateConditions).toHaveBeenCalledWith(mockConditions, mockOptions);
-      expect(evaluateEndpointUrl).toHaveBeenCalledWith(mockEndpoint.url, mockUpdatedOptions);
+      expect(getEndpointUrl).toHaveBeenCalledWith(mockEndpoint.url, mockUpdatedOptions);
       jest.clearAllMocks();
     });
 
