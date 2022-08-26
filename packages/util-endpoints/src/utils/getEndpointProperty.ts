@@ -13,6 +13,9 @@ export const getEndpointProperty = (
     case "string":
       return evaluateTemplate(property, options);
     case "object":
+      if (property === null) {
+        throw new EndpointError(`Unexpected endpoint property: ${property}`);
+      }
       return getEndpointProperties(property, options);
     case "boolean":
       return property;
