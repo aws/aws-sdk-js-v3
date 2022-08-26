@@ -29,7 +29,7 @@ export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplic
 
 /**
  * <p>Switches over an Oracle standby database in an Oracle Data Guard environment, making it the new
- *             primary database. Issue this command in the AWS Region that hosts the current standby database.</p>
+ *             primary database. Issue this command in the Region that hosts the current standby database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

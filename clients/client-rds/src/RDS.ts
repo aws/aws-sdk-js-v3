@@ -5938,7 +5938,7 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Switches over an Oracle standby database in an Oracle Data Guard environment, making it the new
-   *             primary database. Issue this command in the AWS Region that hosts the current standby database.</p>
+   *             primary database. Issue this command in the Region that hosts the current standby database.</p>
    */
   public switchoverReadReplica(
     args: SwitchoverReadReplicaCommandInput,
