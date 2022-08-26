@@ -13,7 +13,7 @@ export const resolveEndpoint = (ruleSetObject: RuleSetObject, options: EndpointR
     .map(([k]) => k);
 
   for (const requiredParam of requiredParams) {
-    if (endpointParams[requiredParam] != null) {
+    if (endpointParams[requiredParam] == null) {
       throw new EndpointError(`Missing required parameter: '${requiredParam}'`);
     }
   }
