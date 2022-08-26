@@ -5,7 +5,7 @@ export const evaluateConditions = (conditions: ConditionObject[] = [], options: 
   const conditionsReferenceRecord: Record<string, FunctionReturn> = {};
 
   for (const condition of conditions) {
-    const { result, assigned } = evaluateCondition(condition, {
+    const { result, toAssign } = evaluateCondition(condition, {
       ...options,
       referenceRecord: {
         ...options.referenceRecord,
@@ -17,8 +17,8 @@ export const evaluateConditions = (conditions: ConditionObject[] = [], options: 
       return { result };
     }
 
-    if (assigned) {
-      conditionsReferenceRecord[assigned.name] = assigned.value;
+    if (toAssign) {
+      conditionsReferenceRecord[toAssign.name] = toAssign.value;
     }
   }
 

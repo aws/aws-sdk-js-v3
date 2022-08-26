@@ -32,9 +32,9 @@ describe(evaluateCondition.name, () => {
     ])("returns %s for %s values", (result, boolStatus, testCases) => {
       it.each(testCases)(`${boolStatus} value: '%s'`, (mockReturn) => {
         (evaluateFn as jest.Mock).mockReturnValue(mockReturn);
-        const { result, assigned } = evaluateCondition(mockFnArgs, mockOptions);
+        const { result, toAssign } = evaluateCondition(mockFnArgs, mockOptions);
         expect(result).toBe(result);
-        expect(assigned).toBeUndefined();
+        expect(toAssign).toBeUndefined();
       });
     });
   });
@@ -42,8 +42,8 @@ describe(evaluateCondition.name, () => {
   it("returns assigned value if defined", () => {
     const mockAssignedValue = "mockAssignedValue";
     (evaluateFn as jest.Mock).mockReturnValue(mockAssignedValue);
-    const { result, assigned } = evaluateCondition({ assign: mockAssign, ...mockFnArgs }, mockOptions);
+    const { result, toAssign } = evaluateCondition({ assign: mockAssign, ...mockFnArgs }, mockOptions);
     expect(result).toBe(true);
-    expect(assigned).toEqual({ name: mockAssign, value: mockAssignedValue });
+    expect(toAssign).toEqual({ name: mockAssign, value: mockAssignedValue });
   });
 });

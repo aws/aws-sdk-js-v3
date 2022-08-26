@@ -8,6 +8,6 @@ export const evaluateCondition = ({ assign, ...fnArgs }: ConditionObject, option
   const value = evaluateFn(fnArgs, options);
   return {
     result: !!value,
-    ...(assign != null && { assigned: { name: assign, value } }),
+    ...(assign != null && { toAssign: { name: assign, value } }),
   };
 };
