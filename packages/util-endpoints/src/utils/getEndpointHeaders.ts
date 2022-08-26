@@ -1,7 +1,7 @@
 import { EndpointError, EndpointObjectHeaders, EvaluateOptions } from "../types";
 import { evaluateExpression } from "./evaluateExpression";
 
-export const getEndpointHeaders = (headers: EndpointObjectHeaders = {}, options: EvaluateOptions) =>
+export const getEndpointHeaders = (headers: EndpointObjectHeaders, options: EvaluateOptions) =>
   Object.entries(headers).reduce(
     (acc, [headerKey, headerVal]) => ({
       ...acc,
