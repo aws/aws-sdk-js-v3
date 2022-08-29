@@ -15,8 +15,10 @@ export const parseBoolean = (value: string): boolean => {
   }
 };
 
-/*
+/**
  * Asserts a value is a boolean and returns it.
+ * Casts strings and numbers with a warning if there is evidence that they were
+ * intended to be booleans.
  *
  * @param value A value that is expected to be a boolean.
  * @returns The value if it's a boolean, undefined if it's null/undefined,
@@ -26,14 +28,39 @@ export const expectBoolean = (value: any): boolean | undefined => {
   if (value === null || value === undefined) {
     return undefined;
   }
+  if (typeof value === "number") {
+    if (value === 0 || value === 1) {
+      logger.warn(stackTraceWarning(`Expected boolean, got ${typeof value}: ${value}`));
+    }
+    if (value === 0) {
+      return false;
+    }
+    if (value === 1) {
+      return true;
+    }
+  }
+  if (typeof value === "string") {
+    const lower = value.toLowerCase();
+    if (lower === "false" || lower === "true") {
+      logger.warn(stackTraceWarning(`Expected boolean, got ${typeof value}: ${value}`));
+    }
+    if (lower === "false") {
+      return false;
+    }
+    if (lower === "true") {
+      return true;
+    }
+  }
   if (typeof value === "boolean") {
     return value;
   }
-  throw new TypeError(`Expected boolean, got ${typeof value}`);
+  throw new TypeError(`Expected boolean, got ${typeof value}: ${value}`);
 };
 
 /**
  * Asserts a value is a number and returns it.
+ * Casts strings with a warning if the string is a parseable number.
+ * This is to unblock slight API definition/implementation inconsistencies.
  *
  * @param value A value that is expected to be a number.
  * @returns The value if it's a number, undefined if it's null/undefined,
@@ -43,10 +70,19 @@ export const expectNumber = (value: any): number | undefined => {
   if (value === null || value === undefined) {
     return undefined;
   }
+  if (typeof value === "string") {
+    const parsed = parseFloat(value);
+    if (!Number.isNaN(parsed)) {
+      if (String(parsed) !== String(value)) {
+        logger.warn(stackTraceWarning(`Expected number but observed string: ${value}`));
+      }
+      return parsed;
+    }
+  }
   if (typeof value === "number") {
     return value;
   }
-  throw new TypeError(`Expected number, got ${typeof value}`);
+  throw new TypeError(`Expected number, got ${typeof value}: ${value}`);
 };
 
 const MAX_FLOAT = Math.ceil(2 ** 127 * (2 - 2 ** -23));
@@ -114,7 +150,7 @@ export const expectLong = (value: any): number | undefined => {
   if (Number.isInteger(value) && !Number.isNaN(value)) {
     return value;
   }
-  throw new TypeError(`Expected integer, got ${typeof value}`);
+  throw new TypeError(`Expected integer, got ${typeof value}: ${value}`);
 };
 
 /**
@@ -202,11 +238,13 @@ export const expectObject = (value: any): Record<string, any> | undefined => {
   if (typeof value === "object" && !Array.isArray(value)) {
     return value;
   }
-  throw new TypeError(`Expected object, got ${typeof value}`);
+  const receivedType = Array.isArray(value) ? "array" : typeof value;
+  throw new TypeError(`Expected object, got ${receivedType}: ${value}`);
 };
 
 /**
  * Asserts a value is a string and returns it.
+ * Numbers and boolean will be cast to strings with a warning.
  *
  * @param value A value that is expected to be a string.
  * @returns The value if it's a string, undefined if it's null/undefined,
@@ -219,7 +257,11 @@ export const expectString = (value: any): string | undefined => {
   if (typeof value === "string") {
     return value;
   }
-  throw new TypeError(`Expected string, got ${typeof value}`);
+  if (["boolean", "number", "bigint"].includes(typeof value)) {
+    logger.warn(stackTraceWarning(`Expected string, got ${typeof value}: ${value}`));
+    return String(value);
+  }
+  throw new TypeError(`Expected string, got ${typeof value}: ${value}`);
 };
 
 /**
@@ -238,11 +280,11 @@ export const expectUnion = (value: unknown): Record<string, any> | undefined => 
   const asObject = expectObject(value)!;
 
   const setKeys = Object.entries(asObject)
-    .filter(([_, v]) => v !== null && v !== undefined)
-    .map(([k, _]) => k);
+    .filter(([, v]) => v != null)
+    .map(([k]) => k);
 
   if (setKeys.length === 0) {
-    throw new TypeError(`Unions must have exactly one non-null member`);
+    throw new TypeError(`Unions must have exactly one non-null member. None were found.`);
   }
 
   if (setKeys.length > 1) {
@@ -443,4 +485,24 @@ export const strictParseByte = (value: string | number): number | undefined => {
     return expectByte(parseNumber(value));
   }
   return expectByte(value);
+};
+
+/**
+ * @private
+ * @param message - error message.
+ * @returns truncated stack trace omitting this function.
+ */
+const stackTraceWarning = (message: string): string => {
+  return String(new TypeError(message).stack || message)
+    .split("\n")
+    .slice(0, 5)
+    .filter((s) => !s.includes("stackTraceWarning"))
+    .join("\n");
+};
+
+/**
+ * @private
+ */
+export const logger = {
+  warn: console.warn,
 };
