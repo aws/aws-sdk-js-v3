@@ -24,8 +24,8 @@ describe("throw200ExceptionsMiddlewareOptions", () => {
       mockNextHandler.mockReturnValue({
         response: mockResponse,
         statusCode,
-        // headers: {},
-        // body: "",
+        headers: {},
+        body: "body",
       });
 
       const handler = throw200ExceptionsMiddleware(mockConfig)(mockNextHandler, {} as any);
