@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.159.0...v3.160.0) (2022-08-29)
+
+
+### Bug Fixes
+
+* **token-providers:** move client-sso-oidc in dependencies ([#3886](https://github.com/aws/aws-sdk-js-v3/issues/3886)) ([6e1534b](https://github.com/aws/aws-sdk-js-v3/commit/6e1534b75867476eb046fee0f31d7cbb4d738b10))
+
+
+
+
+
 # [3.159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.158.0...v3.159.0) (2022-08-26)
 
 

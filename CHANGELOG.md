@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.159.0...v3.160.0) (2022-08-29)
+
+
+### Bug Fixes
+
+* **token-providers:** move client-sso-oidc in dependencies ([#3886](https://github.com/aws/aws-sdk-js-v3/issues/3886)) ([6e1534b](https://github.com/aws/aws-sdk-js-v3/commit/6e1534b75867476eb046fee0f31d7cbb4d738b10))
+
+
+### Features
+
+* **client-voice-id:** Amazon Connect Voice ID now detects voice spoofing.  When a prospective fraudster tries to spoof caller audio using audio playback or synthesized speech, Voice ID will return a risk score and outcome to indicate the how likely it is that the voice is spoofed. ([bf82531](https://github.com/aws/aws-sdk-js-v3/commit/bf82531c49e1b8dad002f2bb2dfdf920fc8e1ee6))
+* **clients:** update client endpoints as of 2022-08-29 ([824b4a3](https://github.com/aws/aws-sdk-js-v3/commit/824b4a3844653993771d9cac6f21dea94736536d))
+
+
+
+
+
 # [3.159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.158.0...v3.159.0) (2022-08-26)
 
 
