@@ -1,4 +1,4 @@
-import { EndpointError } from "../EndpointError";
+import { EndpointError } from "../types";
 import { getAttrPathList } from "./getAttrPathList";
 
 export type GetAttrValue = string | boolean | { [key: string]: GetAttrValue } | Array<GetAttrValue>;

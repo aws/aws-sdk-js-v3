@@ -1,4 +1,4 @@
-import { EndpointError } from "../";
+import { EndpointError } from "../types";
 
 /**
  * Parses path as a getAttr expression, returning a list of strings.

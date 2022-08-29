@@ -1,4 +1,4 @@
-import { EndpointError } from "../EndpointError";
+import { EndpointError } from "../types";
 import { getAttr } from "./getAttr";
 import { getAttrPathList } from "./getAttrPathList";
 
