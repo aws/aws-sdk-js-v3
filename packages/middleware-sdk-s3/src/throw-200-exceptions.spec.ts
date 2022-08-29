@@ -27,7 +27,6 @@ describe("throw200ExceptionsMiddlewareOptions", () => {
         headers: {},
         body: "body",
       });
-
       const handler = throw200ExceptionsMiddleware(mockConfig)(mockNextHandler, {} as any);
       const result = await handler({
         input: {},
