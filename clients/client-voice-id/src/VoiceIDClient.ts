@@ -298,8 +298,7 @@ export interface VoiceIDClientResolvedConfig extends VoiceIDClientResolvedConfig
 
 /**
  * <p>Amazon Connect Voice ID provides real-time caller authentication and fraud screening. This guide
- *             describes the APIs used for this service.
- *         </p>
+ *             describes the APIs used for this service. </p>
  */
 export class VoiceIDClient extends __Client<
   __HttpHandlerOptions,

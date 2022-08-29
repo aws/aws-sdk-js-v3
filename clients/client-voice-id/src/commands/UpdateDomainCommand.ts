@@ -28,8 +28,9 @@ export interface UpdateDomainCommandInput extends UpdateDomainRequest {}
 export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified domain. This API has clobber behavior, and clears and replaces all attributes.
- *             If an optional field, such as 'Description' is not provided, it is removed from the domain.</p>
+ * <p>Updates the specified domain. This API has clobber behavior, and clears and replaces
+ *             all attributes. If an optional field, such as 'Description' is not provided, it is
+ *             removed from the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

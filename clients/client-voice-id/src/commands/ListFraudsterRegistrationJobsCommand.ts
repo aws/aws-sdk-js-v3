@@ -30,10 +30,9 @@ export interface ListFraudsterRegistrationJobsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all the fraudster registration jobs in the domain with the given <code>JobStatus</code>.
- *             If <code>JobStatus</code> is not provided, this lists all fraudster registration jobs in the given
- *             domain.
- *         </p>
+ * <p>Lists all the fraudster registration jobs in the domain with the given
+ *                 <code>JobStatus</code>. If <code>JobStatus</code> is not provided, this lists all
+ *             fraudster registration jobs in the given domain. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

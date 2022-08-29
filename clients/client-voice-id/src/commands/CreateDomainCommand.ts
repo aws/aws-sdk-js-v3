@@ -28,9 +28,8 @@ export interface CreateDomainCommandInput extends CreateDomainRequest {}
 export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a domain that contains all Amazon Connect Voice ID data, such as speakers, fraudsters, customer
- *             audio, and voiceprints.
- *         </p>
+ * <p>Creates a domain that contains all Amazon Connect Voice ID data, such as speakers, fraudsters,
+ *             customer audio, and voiceprints. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

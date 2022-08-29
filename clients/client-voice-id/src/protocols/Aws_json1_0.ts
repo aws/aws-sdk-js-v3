@@ -132,6 +132,7 @@ import {
   UpdateDomainRequest,
   UpdateDomainResponse,
   ValidationException,
+  VoiceSpoofingRisk,
 } from "../models/models_0";
 import { VoiceIDServiceException as __BaseException } from "../models/VoiceIDServiceException";
 
@@ -1248,6 +1249,9 @@ const deserializeAws_json1_0OptOutSpeakerCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.voiceid#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
@@ -2174,6 +2178,10 @@ const deserializeAws_json1_0FraudRiskDetails = (output: any, context: __SerdeCon
       output.KnownFraudsterRisk != null
         ? deserializeAws_json1_0KnownFraudsterRisk(output.KnownFraudsterRisk, context)
         : undefined,
+    VoiceSpoofingRisk:
+      output.VoiceSpoofingRisk != null
+        ? deserializeAws_json1_0VoiceSpoofingRisk(output.VoiceSpoofingRisk, context)
+        : undefined,
   } as any;
 };
 
@@ -2567,6 +2575,12 @@ const deserializeAws_json1_0UpdateDomainResponse = (output: any, context: __Serd
 const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_0VoiceSpoofingRisk = (output: any, context: __SerdeContext): VoiceSpoofingRisk => {
+  return {
+    RiskScore: __expectInt32(output.RiskScore),
   } as any;
 };
 

@@ -10,8 +10,7 @@
 AWS SDK for JavaScript VoiceID Client for Node.js, Browser and React Native.
 
 <p>Amazon Connect Voice ID provides real-time caller authentication and fraud screening. This guide
-describes the APIs used for this service.
-</p>
+describes the APIs used for this service. </p>
 
 ## Installing
 

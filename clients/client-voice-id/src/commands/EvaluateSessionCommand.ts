@@ -28,8 +28,8 @@ export interface EvaluateSessionCommandInput extends EvaluateSessionRequest {}
 export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Evaluates a specified session based on audio data accumulated during a streaming Amazon Connect Voice
- *             ID call.</p>
+ * <p>Evaluates a specified session based on audio data accumulated during a streaming
+ *             Amazon Connect Voice ID call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

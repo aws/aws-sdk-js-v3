@@ -28,9 +28,9 @@ export interface ListSpeakerEnrollmentJobsCommandInput extends ListSpeakerEnroll
 export interface ListSpeakerEnrollmentJobsCommandOutput extends ListSpeakerEnrollmentJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the speaker enrollment jobs in the domain with the specified <code>JobStatus</code>. If
- *             <code>JobStatus</code> is not provided, this lists all jobs with all possible speaker enrollment job
- *             statuses.</p>
+ * <p>Lists all the speaker enrollment jobs in the domain with the specified
+ *                 <code>JobStatus</code>. If <code>JobStatus</code> is not provided, this lists all
+ *             jobs with all possible speaker enrollment job statuses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

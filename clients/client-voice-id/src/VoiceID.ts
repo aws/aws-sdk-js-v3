@@ -102,14 +102,12 @@ import { VoiceIDClient } from "./VoiceIDClient";
 
 /**
  * <p>Amazon Connect Voice ID provides real-time caller authentication and fraud screening. This guide
- *             describes the APIs used for this service.
- *         </p>
+ *             describes the APIs used for this service. </p>
  */
 export class VoiceID extends VoiceIDClient {
   /**
-   * <p>Creates a domain that contains all Amazon Connect Voice ID data, such as speakers, fraudsters, customer
-   *             audio, and voiceprints.
-   *         </p>
+   * <p>Creates a domain that contains all Amazon Connect Voice ID data, such as speakers, fraudsters,
+   *             customer audio, and voiceprints. </p>
    */
   public createDomain(
     args: CreateDomainCommandInput,
@@ -391,8 +389,8 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
-   * <p>Evaluates a specified session based on audio data accumulated during a streaming Amazon Connect Voice
-   *             ID call.</p>
+   * <p>Evaluates a specified session based on audio data accumulated during a streaming
+   *             Amazon Connect Voice ID call.</p>
    */
   public evaluateSession(
     args: EvaluateSessionCommandInput,
@@ -424,8 +422,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
-   * <p>Lists all the domains in the Amazon Web Services account.
-   *         </p>
+   * <p>Lists all the domains in the Amazon Web Services account. </p>
    */
   public listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
   public listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
@@ -451,10 +448,9 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
-   * <p>Lists all the fraudster registration jobs in the domain with the given <code>JobStatus</code>.
-   *             If <code>JobStatus</code> is not provided, this lists all fraudster registration jobs in the given
-   *             domain.
-   *         </p>
+   * <p>Lists all the fraudster registration jobs in the domain with the given
+   *                 <code>JobStatus</code>. If <code>JobStatus</code> is not provided, this lists all
+   *             fraudster registration jobs in the given domain. </p>
    */
   public listFraudsterRegistrationJobs(
     args: ListFraudsterRegistrationJobsCommandInput,
@@ -486,9 +482,9 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
-   * <p>Lists all the speaker enrollment jobs in the domain with the specified <code>JobStatus</code>. If
-   *             <code>JobStatus</code> is not provided, this lists all jobs with all possible speaker enrollment job
-   *             statuses.</p>
+   * <p>Lists all the speaker enrollment jobs in the domain with the specified
+   *                 <code>JobStatus</code>. If <code>JobStatus</code> is not provided, this lists all
+   *             jobs with all possible speaker enrollment job statuses.</p>
    */
   public listSpeakerEnrollmentJobs(
     args: ListSpeakerEnrollmentJobsCommandInput,
@@ -581,11 +577,12 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
-   * <p>Opts out a speaker from Voice ID. A speaker can be opted out regardless of whether or not they
-   *             already exist in Voice ID. If they don't yet exist, a new speaker is created in an opted out state.
-   *             If they already exist, their existing status is overridden and they are opted out. Enrollment and
-   *             evaluation authentication requests are rejected for opted out speakers, and opted out speakers have
-   *             no voice embeddings stored in Voice ID.</p>
+   * <p>Opts out a speaker from Voice ID. A speaker can be opted out regardless of whether or
+   *             not they already exist in Voice ID. If they don't yet exist, a new speaker is created
+   *             in an opted out state. If they already exist, their existing status is overridden and
+   *             they are opted out. Enrollment and evaluation authentication requests are rejected for
+   *             opted out speakers, and opted out speakers have no voice embeddings stored in
+   *             Voice ID.</p>
    */
   public optOutSpeaker(
     args: OptOutSpeakerCommandInput,
@@ -739,8 +736,9 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
-   * <p>Updates the specified domain. This API has clobber behavior, and clears and replaces all attributes.
-   *             If an optional field, such as 'Description' is not provided, it is removed from the domain.</p>
+   * <p>Updates the specified domain. This API has clobber behavior, and clears and replaces
+   *             all attributes. If an optional field, such as 'Description' is not provided, it is
+   *             removed from the domain.</p>
    */
   public updateDomain(
     args: UpdateDomainCommandInput,

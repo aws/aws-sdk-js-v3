@@ -28,8 +28,7 @@ export interface ListDomainsCommandInput extends ListDomainsRequest {}
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the domains in the Amazon Web Services account.
- *         </p>
+ * <p>Lists all the domains in the Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
