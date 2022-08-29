@@ -17,6 +17,7 @@ import {
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -2188,7 +2189,7 @@ const deserializeAws_restJson1GetDomainPermissionsPolicyCommandError = async (
 
 export const deserializeAws_restJson1GetPackageVersionAssetCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetPackageVersionAssetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetPackageVersionAssetCommandError(output, context);
@@ -2200,6 +2201,7 @@ export const deserializeAws_restJson1GetPackageVersionAssetCommand = async (
     packageVersionRevision: [, output.headers["x-packageversionrevision"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.asset = data;
   return contents;
 };

@@ -19,6 +19,7 @@ import {
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
@@ -3816,7 +3817,7 @@ const deserializeAws_restJson1DescribeInputDeviceCommandError = async (
 
 export const deserializeAws_restJson1DescribeInputDeviceThumbnailCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<DescribeInputDeviceThumbnailCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeInputDeviceThumbnailCommandError(output, context);
@@ -3835,6 +3836,7 @@ export const deserializeAws_restJson1DescribeInputDeviceThumbnailCommand = async
     ],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.Body = data;
   return contents;
 };

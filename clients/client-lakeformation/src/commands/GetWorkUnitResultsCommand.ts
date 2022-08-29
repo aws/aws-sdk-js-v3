@@ -9,6 +9,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -25,7 +27,17 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetWorkUnitResultsCommandInput extends GetWorkUnitResultsRequest {}
-export interface GetWorkUnitResultsCommandOutput extends GetWorkUnitResultsResponse, __MetadataBearer {}
+type GetWorkUnitResultsCommandOutputType = __MetadataBearer &
+  Omit<GetWorkUnitResultsResponse, "ResultStream"> & {
+    /**
+     * For *`GetWorkUnitResultsResponse["ResultStream"]`*, see {@link GetWorkUnitResultsResponse.ResultStream}.
+     */
+    ResultStream?: __SdkStream<Required<GetWorkUnitResultsResponse>["ResultStream"]>;
+  };
+/**
+ * This interface extends from `GetWorkUnitResultsResponse` interface. There are more parameters than `ResultStream` defined in {@link GetWorkUnitResultsResponse}
+ */
+export interface GetWorkUnitResultsCommandOutput extends GetWorkUnitResultsCommandOutputType {}
 
 /**
  * <p>Returns the work units resulting from the query. Work units can be executed in any order and in parallel. </p>
@@ -92,7 +104,10 @@ export class GetWorkUnitResultsCommand extends $Command<
     return serializeAws_restJson1GetWorkUnitResultsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkUnitResultsCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetWorkUnitResultsCommandOutput> {
     return deserializeAws_restJson1GetWorkUnitResultsCommand(output, context);
   }
 

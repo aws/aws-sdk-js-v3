@@ -15,6 +15,7 @@ import {
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -413,7 +414,7 @@ const deserializeAws_restJson1DeleteObjectCommandError = async (
 
 export const deserializeAws_restJson1GetChunkCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetChunkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetChunkCommandError(output, context);
@@ -428,6 +429,7 @@ export const deserializeAws_restJson1GetChunkCommand = async (
     ChecksumAlgorithm: [, output.headers["x-amz-checksum-algorithm"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.Data = data;
   return contents;
 };
@@ -476,7 +478,7 @@ const deserializeAws_restJson1GetChunkCommandError = async (
 
 export const deserializeAws_restJson1GetObjectMetadataCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetObjectMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetObjectMetadataCommandError(output, context);
@@ -492,6 +494,7 @@ export const deserializeAws_restJson1GetObjectMetadataCommand = async (
     MetadataBlobChecksumAlgorithm: [, output.headers["x-amz-checksum-algorithm"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.MetadataBlob = data;
   return contents;
 };

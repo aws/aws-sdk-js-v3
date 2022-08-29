@@ -9,6 +9,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -29,7 +31,17 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetMediaForFragmentListCommandInput extends GetMediaForFragmentListInput {}
-export interface GetMediaForFragmentListCommandOutput extends GetMediaForFragmentListOutput, __MetadataBearer {}
+type GetMediaForFragmentListCommandOutputType = __MetadataBearer &
+  Omit<GetMediaForFragmentListOutput, "Payload"> & {
+    /**
+     * For *`GetMediaForFragmentListOutput["Payload"]`*, see {@link GetMediaForFragmentListOutput.Payload}.
+     */
+    Payload?: __SdkStream<Required<GetMediaForFragmentListOutput>["Payload"]>;
+  };
+/**
+ * This interface extends from `GetMediaForFragmentListOutput` interface. There are more parameters than `Payload` defined in {@link GetMediaForFragmentListOutput}
+ */
+export interface GetMediaForFragmentListCommandOutput extends GetMediaForFragmentListCommandOutputType {}
 
 /**
  * <p>Gets media for a list of fragments (specified by fragment number) from the archived
@@ -132,7 +144,10 @@ export class GetMediaForFragmentListCommand extends $Command<
     return serializeAws_restJson1GetMediaForFragmentListCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMediaForFragmentListCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetMediaForFragmentListCommandOutput> {
     return deserializeAws_restJson1GetMediaForFragmentListCommand(output, context);
   }
 

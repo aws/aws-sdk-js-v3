@@ -18,6 +18,7 @@ import {
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
@@ -298,7 +299,7 @@ const deserializeAws_restJson1CompleteSnapshotCommandError = async (
 
 export const deserializeAws_restJson1GetSnapshotBlockCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetSnapshotBlockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSnapshotBlockCommandError(output, context);
@@ -313,6 +314,7 @@ export const deserializeAws_restJson1GetSnapshotBlockCommand = async (
     ChecksumAlgorithm: [, output.headers["x-amz-checksum-algorithm"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.BlockData = data;
   return contents;
 };

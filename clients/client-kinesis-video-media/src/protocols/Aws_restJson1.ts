@@ -9,6 +9,7 @@ import {
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -54,7 +55,7 @@ export const serializeAws_restJson1GetMediaCommand = async (
 
 export const deserializeAws_restJson1GetMediaCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetMediaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMediaCommandError(output, context);
@@ -64,6 +65,7 @@ export const deserializeAws_restJson1GetMediaCommand = async (
     ContentType: [, output.headers["content-type"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.Payload = data;
   return contents;
 };

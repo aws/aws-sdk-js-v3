@@ -9,6 +9,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -25,7 +27,17 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface SynthesizeSpeechCommandInput extends SynthesizeSpeechInput {}
-export interface SynthesizeSpeechCommandOutput extends SynthesizeSpeechOutput, __MetadataBearer {}
+type SynthesizeSpeechCommandOutputType = __MetadataBearer &
+  Omit<SynthesizeSpeechOutput, "AudioStream"> & {
+    /**
+     * For *`SynthesizeSpeechOutput["AudioStream"]`*, see {@link SynthesizeSpeechOutput.AudioStream}.
+     */
+    AudioStream?: __SdkStream<Required<SynthesizeSpeechOutput>["AudioStream"]>;
+  };
+/**
+ * This interface extends from `SynthesizeSpeechOutput` interface. There are more parameters than `AudioStream` defined in {@link SynthesizeSpeechOutput}
+ */
+export interface SynthesizeSpeechCommandOutput extends SynthesizeSpeechCommandOutputType {}
 
 /**
  * <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
@@ -96,7 +108,10 @@ export class SynthesizeSpeechCommand extends $Command<
     return serializeAws_restJson1SynthesizeSpeechCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SynthesizeSpeechCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<SynthesizeSpeechCommandOutput> {
     return deserializeAws_restJson1SynthesizeSpeechCommand(output, context);
   }
 

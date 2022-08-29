@@ -9,6 +9,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -29,7 +31,17 @@ type StreamingTraitsCommandInputType = Omit<StreamingTraitsInputOutput, "blob"> 
  * This interface extends from `StreamingTraitsInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsInputOutput}
  */
 export interface StreamingTraitsCommandInput extends StreamingTraitsCommandInputType {}
-export interface StreamingTraitsCommandOutput extends StreamingTraitsInputOutput, __MetadataBearer {}
+type StreamingTraitsCommandOutputType = __MetadataBearer &
+  Omit<StreamingTraitsInputOutput, "blob"> & {
+    /**
+     * For *`StreamingTraitsInputOutput["blob"]`*, see {@link StreamingTraitsInputOutput.blob}.
+     */
+    blob?: __SdkStream<Required<StreamingTraitsInputOutput>["blob"]>;
+  };
+/**
+ * This interface extends from `StreamingTraitsInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsInputOutput}
+ */
+export interface StreamingTraitsCommandOutput extends StreamingTraitsCommandOutputType {}
 
 /**
  * This examples serializes a streaming blob shape in the request body.
@@ -99,7 +111,10 @@ export class StreamingTraitsCommand extends $Command<
     return serializeAws_restJson1StreamingTraitsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StreamingTraitsCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<StreamingTraitsCommandOutput> {
     return deserializeAws_restJson1StreamingTraitsCommand(output, context);
   }
 

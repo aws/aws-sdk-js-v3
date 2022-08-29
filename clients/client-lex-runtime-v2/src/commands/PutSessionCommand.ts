@@ -9,6 +9,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -25,7 +27,17 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface PutSessionCommandInput extends PutSessionRequest {}
-export interface PutSessionCommandOutput extends PutSessionResponse, __MetadataBearer {}
+type PutSessionCommandOutputType = __MetadataBearer &
+  Omit<PutSessionResponse, "audioStream"> & {
+    /**
+     * For *`PutSessionResponse["audioStream"]`*, see {@link PutSessionResponse.audioStream}.
+     */
+    audioStream?: __SdkStream<Required<PutSessionResponse>["audioStream"]>;
+  };
+/**
+ * This interface extends from `PutSessionResponse` interface. There are more parameters than `audioStream` defined in {@link PutSessionResponse}
+ */
+export interface PutSessionCommandOutput extends PutSessionCommandOutputType {}
 
 /**
  * <p>Creates a new session or modifies an existing session with an Amazon Lex V2
@@ -94,7 +106,10 @@ export class PutSessionCommand extends $Command<
     return serializeAws_restJson1PutSessionCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSessionCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<PutSessionCommandOutput> {
     return deserializeAws_restJson1PutSessionCommand(output, context);
   }
 

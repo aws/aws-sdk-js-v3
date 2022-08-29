@@ -42,6 +42,7 @@ import {
   DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
@@ -5509,7 +5510,7 @@ const deserializeAws_restJson1SimpleScalarPropertiesCommandError = async (
 
 export const deserializeAws_restJson1StreamingTraitsCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<StreamingTraitsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StreamingTraitsCommandError(output, context);
@@ -5519,6 +5520,7 @@ export const deserializeAws_restJson1StreamingTraitsCommand = async (
     foo: [, output.headers["x-foo"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.blob = data;
   return contents;
 };
@@ -5575,7 +5577,7 @@ const deserializeAws_restJson1StreamingTraitsRequireLengthCommandError = async (
 
 export const deserializeAws_restJson1StreamingTraitsWithMediaTypeCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<StreamingTraitsWithMediaTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StreamingTraitsWithMediaTypeCommandError(output, context);
@@ -5585,6 +5587,7 @@ export const deserializeAws_restJson1StreamingTraitsWithMediaTypeCommand = async
     foo: [, output.headers["x-foo"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.blob = data;
   return contents;
 };
