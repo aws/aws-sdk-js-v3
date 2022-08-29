@@ -48,6 +48,7 @@ import {
   Provider as __Provider,
   Provider,
   RegionInfoProvider,
+  SdkStreamMixinInjector as __SdkStreamMixinInjector,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
@@ -185,6 +186,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+
+  /**
+   * The internal function that inject utilities to runtime-specific stream to help users consume the data
+   * @internal
+   */
+  sdkStreamMixin?: __SdkStreamMixinInjector;
 }
 
 type KinesisVideoMediaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

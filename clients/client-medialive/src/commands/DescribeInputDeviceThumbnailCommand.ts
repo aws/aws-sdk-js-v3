@@ -9,6 +9,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -25,9 +27,17 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface DescribeInputDeviceThumbnailCommandInput extends DescribeInputDeviceThumbnailRequest {}
-export interface DescribeInputDeviceThumbnailCommandOutput
-  extends DescribeInputDeviceThumbnailResponse,
-    __MetadataBearer {}
+type DescribeInputDeviceThumbnailCommandOutputType = __MetadataBearer &
+  Omit<DescribeInputDeviceThumbnailResponse, "Body"> & {
+    /**
+     * For *`DescribeInputDeviceThumbnailResponse["Body"]`*, see {@link DescribeInputDeviceThumbnailResponse.Body}.
+     */
+    Body?: __SdkStream<Required<DescribeInputDeviceThumbnailResponse>["Body"]>;
+  };
+/**
+ * This interface extends from `DescribeInputDeviceThumbnailResponse` interface. There are more parameters than `Body` defined in {@link DescribeInputDeviceThumbnailResponse}
+ */
+export interface DescribeInputDeviceThumbnailCommandOutput extends DescribeInputDeviceThumbnailCommandOutputType {}
 
 /**
  * Get the latest thumbnail data for the input device.
@@ -96,7 +106,7 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: __SerdeContext
+    context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<DescribeInputDeviceThumbnailCommandOutput> {
     return deserializeAws_restJson1DescribeInputDeviceThumbnailCommand(output, context);
   }

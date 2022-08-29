@@ -20,6 +20,7 @@ import {
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -2762,7 +2763,7 @@ const deserializeAws_restJson1GetTemporaryGlueTableCredentialsCommandError = asy
 
 export const deserializeAws_restJson1GetWorkUnitResultsCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetWorkUnitResultsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetWorkUnitResultsCommandError(output, context);
@@ -2771,6 +2772,7 @@ export const deserializeAws_restJson1GetWorkUnitResultsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.ResultStream = data;
   return contents;
 };

@@ -9,6 +9,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -29,7 +31,17 @@ import {
 } from "../WorkMailMessageFlowClient";
 
 export interface GetRawMessageContentCommandInput extends GetRawMessageContentRequest {}
-export interface GetRawMessageContentCommandOutput extends GetRawMessageContentResponse, __MetadataBearer {}
+type GetRawMessageContentCommandOutputType = __MetadataBearer &
+  Omit<GetRawMessageContentResponse, "messageContent"> & {
+    /**
+     * For *`GetRawMessageContentResponse["messageContent"]`*, see {@link GetRawMessageContentResponse.messageContent}.
+     */
+    messageContent: __SdkStream<Required<GetRawMessageContentResponse>["messageContent"]>;
+  };
+/**
+ * This interface extends from `GetRawMessageContentResponse` interface. There are more parameters than `messageContent` defined in {@link GetRawMessageContentResponse}
+ */
+export interface GetRawMessageContentCommandOutput extends GetRawMessageContentCommandOutputType {}
 
 /**
  * <p>Retrieves the raw content of an in-transit email message, in MIME format.</p>
@@ -96,7 +108,10 @@ export class GetRawMessageContentCommand extends $Command<
     return serializeAws_restJson1GetRawMessageContentCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRawMessageContentCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetRawMessageContentCommandOutput> {
     return deserializeAws_restJson1GetRawMessageContentCommand(output, context);
   }
 

@@ -9,6 +9,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -25,7 +27,17 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetChunkCommandInput extends GetChunkInput {}
-export interface GetChunkCommandOutput extends GetChunkOutput, __MetadataBearer {}
+type GetChunkCommandOutputType = __MetadataBearer &
+  Omit<GetChunkOutput, "Data"> & {
+    /**
+     * For *`GetChunkOutput["Data"]`*, see {@link GetChunkOutput.Data}.
+     */
+    Data: __SdkStream<Required<GetChunkOutput>["Data"]>;
+  };
+/**
+ * This interface extends from `GetChunkOutput` interface. There are more parameters than `Data` defined in {@link GetChunkOutput}
+ */
+export interface GetChunkCommandOutput extends GetChunkCommandOutputType {}
 
 /**
  * Gets the specified object's chunk.
@@ -92,7 +104,10 @@ export class GetChunkCommand extends $Command<
     return serializeAws_restJson1GetChunkCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChunkCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetChunkCommandOutput> {
     return deserializeAws_restJson1GetChunkCommand(output, context);
   }
 

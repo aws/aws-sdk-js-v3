@@ -9,6 +9,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -25,7 +27,17 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetPackageVersionAssetCommandInput extends GetPackageVersionAssetRequest {}
-export interface GetPackageVersionAssetCommandOutput extends GetPackageVersionAssetResult, __MetadataBearer {}
+type GetPackageVersionAssetCommandOutputType = __MetadataBearer &
+  Omit<GetPackageVersionAssetResult, "asset"> & {
+    /**
+     * For *`GetPackageVersionAssetResult["asset"]`*, see {@link GetPackageVersionAssetResult.asset}.
+     */
+    asset?: __SdkStream<Required<GetPackageVersionAssetResult>["asset"]>;
+  };
+/**
+ * This interface extends from `GetPackageVersionAssetResult` interface. There are more parameters than `asset` defined in {@link GetPackageVersionAssetResult}
+ */
+export interface GetPackageVersionAssetCommandOutput extends GetPackageVersionAssetCommandOutputType {}
 
 /**
  * <p>
@@ -96,7 +108,10 @@ export class GetPackageVersionAssetCommand extends $Command<
     return serializeAws_restJson1GetPackageVersionAssetCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPackageVersionAssetCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetPackageVersionAssetCommandOutput> {
     return deserializeAws_restJson1GetPackageVersionAssetCommand(output, context);
   }
 

@@ -9,6 +9,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -25,7 +27,17 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetObjectMetadataCommandInput extends GetObjectMetadataInput {}
-export interface GetObjectMetadataCommandOutput extends GetObjectMetadataOutput, __MetadataBearer {}
+type GetObjectMetadataCommandOutputType = __MetadataBearer &
+  Omit<GetObjectMetadataOutput, "MetadataBlob"> & {
+    /**
+     * For *`GetObjectMetadataOutput["MetadataBlob"]`*, see {@link GetObjectMetadataOutput.MetadataBlob}.
+     */
+    MetadataBlob?: __SdkStream<Required<GetObjectMetadataOutput>["MetadataBlob"]>;
+  };
+/**
+ * This interface extends from `GetObjectMetadataOutput` interface. There are more parameters than `MetadataBlob` defined in {@link GetObjectMetadataOutput}
+ */
+export interface GetObjectMetadataCommandOutput extends GetObjectMetadataCommandOutputType {}
 
 /**
  * Get metadata associated with an Object.
@@ -92,7 +104,10 @@ export class GetObjectMetadataCommand extends $Command<
     return serializeAws_restJson1GetObjectMetadataCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectMetadataCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetObjectMetadataCommandOutput> {
     return deserializeAws_restJson1GetObjectMetadataCommand(output, context);
   }
 

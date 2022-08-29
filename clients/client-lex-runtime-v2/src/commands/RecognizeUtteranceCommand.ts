@@ -9,6 +9,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -34,7 +36,17 @@ type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "input
  * This interface extends from `RecognizeUtteranceRequest` interface. There are more parameters than `inputStream` defined in {@link RecognizeUtteranceRequest}
  */
 export interface RecognizeUtteranceCommandInput extends RecognizeUtteranceCommandInputType {}
-export interface RecognizeUtteranceCommandOutput extends RecognizeUtteranceResponse, __MetadataBearer {}
+type RecognizeUtteranceCommandOutputType = __MetadataBearer &
+  Omit<RecognizeUtteranceResponse, "audioStream"> & {
+    /**
+     * For *`RecognizeUtteranceResponse["audioStream"]`*, see {@link RecognizeUtteranceResponse.audioStream}.
+     */
+    audioStream?: __SdkStream<Required<RecognizeUtteranceResponse>["audioStream"]>;
+  };
+/**
+ * This interface extends from `RecognizeUtteranceResponse` interface. There are more parameters than `audioStream` defined in {@link RecognizeUtteranceResponse}
+ */
+export interface RecognizeUtteranceCommandOutput extends RecognizeUtteranceCommandOutputType {}
 
 /**
  * <p>Sends user input to Amazon Lex V2. You can send text or speech. Clients use
@@ -163,7 +175,10 @@ export class RecognizeUtteranceCommand extends $Command<
     return serializeAws_restJson1RecognizeUtteranceCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecognizeUtteranceCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<RecognizeUtteranceCommandOutput> {
     return deserializeAws_restJson1RecognizeUtteranceCommand(output, context);
   }
 

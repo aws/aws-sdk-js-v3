@@ -9,6 +9,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -25,7 +27,17 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetSnapshotBlockCommandInput extends GetSnapshotBlockRequest {}
-export interface GetSnapshotBlockCommandOutput extends GetSnapshotBlockResponse, __MetadataBearer {}
+type GetSnapshotBlockCommandOutputType = __MetadataBearer &
+  Omit<GetSnapshotBlockResponse, "BlockData"> & {
+    /**
+     * For *`GetSnapshotBlockResponse["BlockData"]`*, see {@link GetSnapshotBlockResponse.BlockData}.
+     */
+    BlockData?: __SdkStream<Required<GetSnapshotBlockResponse>["BlockData"]>;
+  };
+/**
+ * This interface extends from `GetSnapshotBlockResponse` interface. There are more parameters than `BlockData` defined in {@link GetSnapshotBlockResponse}
+ */
+export interface GetSnapshotBlockCommandOutput extends GetSnapshotBlockCommandOutputType {}
 
 /**
  * <p>Returns the data in a block in an Amazon Elastic Block Store snapshot.</p>
@@ -92,7 +104,10 @@ export class GetSnapshotBlockCommand extends $Command<
     return serializeAws_restJson1GetSnapshotBlockCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnapshotBlockCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetSnapshotBlockCommandOutput> {
     return deserializeAws_restJson1GetSnapshotBlockCommand(output, context);
   }
 

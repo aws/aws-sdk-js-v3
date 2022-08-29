@@ -12,6 +12,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -25,7 +27,17 @@ import { deserializeAws_restXmlGetObjectCommand, serializeAws_restXmlGetObjectCo
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface GetObjectCommandInput extends GetObjectRequest {}
-export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBearer {}
+type GetObjectCommandOutputType = __MetadataBearer &
+  Omit<GetObjectOutput, "Body"> & {
+    /**
+     * For *`GetObjectOutput["Body"]`*, see {@link GetObjectOutput.Body}.
+     */
+    Body?: __SdkStream<Required<GetObjectOutput>["Body"]>;
+  };
+/**
+ * This interface extends from `GetObjectOutput` interface. There are more parameters than `Body` defined in {@link GetObjectOutput}
+ */
+export interface GetObjectCommandOutput extends GetObjectCommandOutputType {}
 
 /**
  * <p>Retrieves objects from Amazon S3. To use <code>GET</code>, you must have <code>READ</code>
@@ -279,7 +291,10 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
     return serializeAws_restXmlGetObjectCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetObjectCommandOutput> {
     return deserializeAws_restXmlGetObjectCommand(output, context);
   }
 

@@ -10,6 +10,7 @@ import {
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -78,7 +79,7 @@ export const serializeAws_restJson1PutRawMessageContentCommand = async (
 
 export const deserializeAws_restJson1GetRawMessageContentCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetRawMessageContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetRawMessageContentCommandError(output, context);
@@ -87,6 +88,7 @@ export const deserializeAws_restJson1GetRawMessageContentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.messageContent = data;
   return contents;
 };
