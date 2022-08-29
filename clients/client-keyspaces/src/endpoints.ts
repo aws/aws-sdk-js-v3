@@ -2,7 +2,42 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "cassandra-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-gov-east-1": {
+    variants: [
+      {
+        hostname: "cassandra.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "us-gov-east-1",
+  },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "cassandra.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "us-gov-west-1",
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "cassandra-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {
@@ -23,6 +58,8 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "fips-us-east-1",
+      "fips-us-west-2",
       "me-south-1",
       "sa-east-1",
       "us-east-1",
