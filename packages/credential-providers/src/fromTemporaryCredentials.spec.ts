@@ -2,15 +2,17 @@ import { AssumeRoleCommand, STSClient } from "@aws-sdk/client-sts";
 
 import { fromTemporaryCredentials } from "./fromTemporaryCredentials";
 
-const sendMock = jest.fn();
+const mockSend = jest.fn();
+const mockUsePlugin = jest.fn();
 jest.mock("@aws-sdk/client-sts", () => ({
   STSClient: jest.fn().mockImplementation((config) => ({
     config,
     send: jest.fn().mockImplementation(async function (command) {
       // Mock resolving client credentials provider at send()
       if (typeof config.credentials === "function") config.credentials = await config.credentials();
-      return await sendMock(command);
+      return await mockSend(command);
     }),
+    middlewareStack: { use: mockUsePlugin },
   })),
   AssumeRoleCommand: jest.fn().mockImplementation(function (params) {
     // Return the input so we can assert the input parameters in client's send()
@@ -32,7 +34,7 @@ describe("fromTemporaryCredentials", () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    sendMock.mockResolvedValueOnce({
+    mockSend.mockResolvedValueOnce({
       Credentials: {
         AccessKeyId: "ACCESS_KEY_ID",
         SecretAccessKey: "SECRET_ACCESS_KEY",
@@ -42,6 +44,7 @@ describe("fromTemporaryCredentials", () => {
   });
 
   it("should call STS::AssumeRole API with master credentials", async () => {
+    const plugin = { applyToStack: () => {} };
     const options = {
       params: {
         RoleArn,
@@ -49,6 +52,7 @@ describe("fromTemporaryCredentials", () => {
       },
       masterCredentials,
       clientConfig: { region },
+      clientPlugins: [plugin],
     };
     const provider = fromTemporaryCredentials(options);
     const credential = await provider();
@@ -61,25 +65,31 @@ describe("fromTemporaryCredentials", () => {
       credentials: masterCredentials,
       region,
     });
+    expect(mockUsePlugin).toBeCalledTimes(1);
+    expect(mockUsePlugin).toHaveBeenNthCalledWith(1, plugin);
     expect(AssumeRoleCommand as jest.Mock).toBeCalledWith({
       RoleArn,
       RoleSessionName,
     });
-    expect(sendMock as jest.Mock).toBeCalledWith({ command: "ASSUME_ROLE", input: options.params });
+    expect(mockSend as jest.Mock).toBeCalledWith({ command: "ASSUME_ROLE", input: options.params });
   });
 
   it("should create STS client if not supplied", async () => {
+    const plugin = { applyToStack: () => {} };
     const provider = fromTemporaryCredentials({
       params: {
         RoleArn,
         RoleSessionName,
       },
       masterCredentials,
+      clientPlugins: [plugin],
     });
     await provider();
     expect(STSClient as jest.Mock).toBeCalledWith({
       credentials: masterCredentials,
     });
+    expect(mockUsePlugin).toBeCalledTimes(1);
+    expect(mockUsePlugin).toHaveBeenNthCalledWith(1, plugin);
   });
 
   it("should resolve default credentials if master credential is not supplied", async () => {
@@ -116,7 +126,7 @@ describe("fromTemporaryCredentials", () => {
         }),
       }),
     });
-    sendMock.mockReset().mockImplementation((mockCommand) => ({
+    mockSend.mockReset().mockImplementation((mockCommand) => ({
       Credentials: {
         AccessKeyId: `access_id_from_${idOf(mockCommand.input.RoleArn)}`,
         SecretAccessKey: "SECRET_ACCESS_KEY",
@@ -124,7 +134,7 @@ describe("fromTemporaryCredentials", () => {
       },
     }));
     const credentials = await provider();
-    expect(sendMock.mock.calls.length).toBe(3);
+    expect(mockSend.mock.calls.length).toBe(3);
     expect((AssumeRoleCommand as jest.Mock).mock.calls.length).toBe(3);
     expect(credentials.accessKeyId).toBe("access_id_from_third");
     // Creates STS Client with right master credentials and assume role with
@@ -152,9 +162,9 @@ describe("fromTemporaryCredentials", () => {
     );
 
     // Call assume role API with expected chronological order
-    expect(sendMock.mock.calls[0][0].input).toEqual(expect.objectContaining({ RoleArn: roleArnOf("first") }));
-    expect(sendMock.mock.calls[1][0].input).toEqual(expect.objectContaining({ RoleArn: roleArnOf("second") }));
-    expect(sendMock.mock.calls[2][0].input).toEqual(expect.objectContaining({ RoleArn: roleArnOf("third") }));
+    expect(mockSend.mock.calls[0][0].input).toEqual(expect.objectContaining({ RoleArn: roleArnOf("first") }));
+    expect(mockSend.mock.calls[1][0].input).toEqual(expect.objectContaining({ RoleArn: roleArnOf("second") }));
+    expect(mockSend.mock.calls[2][0].input).toEqual(expect.objectContaining({ RoleArn: roleArnOf("third") }));
 
     // Should not create extra clients if credentials is still valid
     await provider();
@@ -171,7 +181,7 @@ describe("fromTemporaryCredentials", () => {
     });
     await provider();
     expect(mfaCodeProvider).toBeCalledWith(SerialNumber);
-    expect(sendMock).toBeCalledWith(
+    expect(mockSend).toBeCalledWith(
       expect.objectContaining({
         input: {
           RoleArn,

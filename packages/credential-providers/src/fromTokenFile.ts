@@ -3,10 +3,11 @@ import {
   fromTokenFile as _fromTokenFile,
   FromTokenFileInit as _FromTokenFileInit,
 } from "@aws-sdk/credential-provider-web-identity";
-import { CredentialProvider } from "@aws-sdk/types";
+import { CredentialProvider, Pluggable } from "@aws-sdk/types";
 
 export interface FromTokenFileInit extends _FromTokenFileInit {
   clientConfig?: STSClientConfig;
+  clientPlugins?: Pluggable<any, any>[];
 }
 
 /**
@@ -30,6 +31,9 @@ export interface FromTokenFileInit extends _FromTokenFileInit {
  *   credentials: fromTokenFile({
  *     // Optional. STS client config to make the assume role request.
  *     clientConfig: { region }
+ *     // Optional. Custom STS client middleware plugin to modify the client default behavior.
+ *     // e.g. adding custom headers.
+ *     clientPlugins: [addFooHeadersPlugin],
  *   });
  * });
  * ```
@@ -38,5 +42,5 @@ export const fromTokenFile = (init: FromTokenFileInit = {}): CredentialProvider 
   _fromTokenFile({
     ...init,
     roleAssumerWithWebIdentity:
-      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.clientConfig),
+      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.clientConfig, init.clientPlugins),
   });

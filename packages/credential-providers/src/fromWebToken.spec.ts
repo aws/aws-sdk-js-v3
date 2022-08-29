@@ -34,18 +34,20 @@ describe("fromWebToken", () => {
     expect(getDefaultRoleAssumerWithWebIdentity).toBeCalled();
   });
 
-  it("should supply sts config to role assumer", () => {
+  it("should supply sts config and plugins to role assumer", () => {
     const clientConfig = {
       region: "US_FOO_0",
     };
+    const plugin = { applyToStack: () => {} };
     fromWebToken({
       roleArn,
       webIdentityToken,
       clientConfig,
+      clientPlugins: [plugin],
     });
     expect((coreProvider as jest.Mock).mock.calls[0][0]).toMatchObject({
       roleAssumerWithWebIdentity: mockRoleAssumerWithWebIdentity,
     });
-    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig);
+    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig, [plugin]);
   });
 });
