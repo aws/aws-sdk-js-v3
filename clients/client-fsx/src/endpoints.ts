@@ -90,6 +90,7 @@ const partitionHash: PartitionHash = {
       "fips-us-east-2",
       "fips-us-west-1",
       "fips-us-west-2",
+      "me-central-1",
       "me-south-1",
       "prod-ca-central-1",
       "prod-us-east-1",

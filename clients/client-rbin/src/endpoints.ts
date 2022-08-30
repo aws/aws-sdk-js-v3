@@ -2,7 +2,48 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "ca-central-1": {
+    variants: [
+      {
+        hostname: "rbin-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "rbin-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "rbin-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-1": {
+    variants: [
+      {
+        hostname: "rbin-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "rbin-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {
@@ -23,6 +64,12 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "fips-ca-central-1",
+      "fips-us-east-1",
+      "fips-us-east-2",
+      "fips-us-west-1",
+      "fips-us-west-2",
+      "me-central-1",
       "me-south-1",
       "sa-east-1",
       "us-east-1",

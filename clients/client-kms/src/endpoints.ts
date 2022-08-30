@@ -131,6 +131,14 @@ const regionHash: RegionHash = {
       },
     ],
   },
+  "me-central-1": {
+    variants: [
+      {
+        hostname: "kms-fips.me-central-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "me-south-1": {
     variants: [
       {
@@ -256,6 +264,7 @@ const partitionHash: PartitionHash = {
       "eu-west-2-fips",
       "eu-west-3",
       "eu-west-3-fips",
+      "me-central-1",
       "me-central-1-fips",
       "me-south-1",
       "me-south-1-fips",

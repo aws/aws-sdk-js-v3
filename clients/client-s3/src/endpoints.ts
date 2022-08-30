@@ -180,6 +180,14 @@ const regionHash: RegionHash = {
       },
     ],
   },
+  "me-central-1": {
+    variants: [
+      {
+        hostname: "s3.dualstack.me-central-1.amazonaws.com",
+        tags: ["dualstack"],
+      },
+    ],
+  },
   "me-south-1": {
     variants: [
       {
@@ -344,6 +352,7 @@ const partitionHash: PartitionHash = {
       "fips-us-east-2",
       "fips-us-west-1",
       "fips-us-west-2",
+      "me-central-1",
       "me-south-1",
       "s3-external-1",
       "sa-east-1",

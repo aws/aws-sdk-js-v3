@@ -165,6 +165,15 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "eu-west-3",
   },
+  "me-central-1": {
+    variants: [
+      {
+        hostname: "api.ecr.me-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "me-central-1",
+  },
   "me-south-1": {
     variants: [
       {
@@ -321,6 +330,7 @@ const partitionHash: PartitionHash = {
       "fips-us-east-2",
       "fips-us-west-1",
       "fips-us-west-2",
+      "me-central-1",
       "me-south-1",
       "sa-east-1",
       "us-east-1",

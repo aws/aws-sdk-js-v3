@@ -81,6 +81,7 @@ const partitionHash: PartitionHash = {
       "eu-west-3",
       "iam",
       "iam-fips",
+      "me-central-1",
       "me-south-1",
       "sa-east-1",
       "us-east-1",
