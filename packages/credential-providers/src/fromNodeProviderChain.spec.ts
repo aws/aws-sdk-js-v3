@@ -46,13 +46,14 @@ describe(fromNodeProviderChain.name, () => {
     expect(getDefaultRoleAssumerWithWebIdentity).not.toBeCalled();
   });
 
-  it("should use supplied sts options", () => {
+  it("should use supplied sts options and plugins", () => {
     const profile = "profile";
     const clientConfig = {
       region: "US_BAR_1",
     };
-    fromNodeProviderChain({ profile, clientConfig });
-    expect(getDefaultRoleAssumer).toBeCalledWith(clientConfig);
-    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig);
+    const plugin = { applyToStack: () => {} };
+    fromNodeProviderChain({ profile, clientConfig, clientPlugins: [plugin] });
+    expect(getDefaultRoleAssumer).toBeCalledWith(clientConfig, [plugin]);
+    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig, [plugin]);
   });
 });
