@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.160.0...v3.161.0) (2022-08-30)
+
+
+### Bug Fixes
+
+* **credential-providers:** support custom middleware for sts client ([#3887](https://github.com/aws/aws-sdk-js-v3/issues/3887)) ([072dea3](https://github.com/aws/aws-sdk-js-v3/commit/072dea35d610fdea8db4e0ac7233a0f8a8317a5e))
+
+
+
+
+
 # [3.160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.159.0...v3.160.0) (2022-08-29)
 
 **Note:** Version bump only for package @aws-sdk/credential-providers

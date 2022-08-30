@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.160.0...v3.161.0) (2022-08-30)
+
+
+### Features
+
+* **smithy-client:** allow unambiguous type conversions in parse-utils ([#3888](https://github.com/aws/aws-sdk-js-v3/issues/3888)) ([967eb0a](https://github.com/aws/aws-sdk-js-v3/commit/967eb0aea76714a5f3243a57604799479fa7baea))
+
+
+
+
+
 # [3.160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.159.0...v3.160.0) (2022-08-29)
 
 **Note:** Version bump only for package @aws-sdk/smithy-client

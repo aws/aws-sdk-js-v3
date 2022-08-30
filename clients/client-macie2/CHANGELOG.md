@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.160.0...v3.161.0) (2022-08-30)
+
+
+### Features
+
+* **client-macie2:** This release of the Amazon Macie API adds support for using allow lists to define specific text and text patterns to ignore when inspecting data sources for sensitive data. ([1782c8c](https://github.com/aws/aws-sdk-js-v3/commit/1782c8c89bb76fbdad76aa6fe92a4545bcc56c59))
+
+
+
+
+
 # [3.160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.159.0...v3.160.0) (2022-08-29)
 
 **Note:** Version bump only for package @aws-sdk/client-macie2

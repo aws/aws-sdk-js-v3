@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.160.0...v3.161.0) (2022-08-30)
+
+
+### Bug Fixes
+
+* **credential-providers:** support custom middleware for sts client ([#3887](https://github.com/aws/aws-sdk-js-v3/issues/3887)) ([072dea3](https://github.com/aws/aws-sdk-js-v3/commit/072dea35d610fdea8db4e0ac7233a0f8a8317a5e))
+
+
+### Features
+
+* **client-greengrassv2:** Adds topologyFilter to ListInstalledComponentsRequest which allows filtration of components by ROOT or ALL (including root and dependency components). Adds lastStatusChangeTimestamp to ListInstalledComponents response to show the last time a component changed state on a device. ([3927d07](https://github.com/aws/aws-sdk-js-v3/commit/3927d07ea3c8ff34765afabc4847f50147dd020c))
+* **client-lookoutequipment:** This release adds new apis for providing labels. ([d89e69a](https://github.com/aws/aws-sdk-js-v3/commit/d89e69ae2f73e193fa5b00b83d4a623a55fea4af))
+* **client-macie2:** This release of the Amazon Macie API adds support for using allow lists to define specific text and text patterns to ignore when inspecting data sources for sensitive data. ([1782c8c](https://github.com/aws/aws-sdk-js-v3/commit/1782c8c89bb76fbdad76aa6fe92a4545bcc56c59))
+* **clients:** update client endpoints as of 2022-08-30 ([59043d3](https://github.com/aws/aws-sdk-js-v3/commit/59043d3755015c9185990f3ad850aaded13bd58c))
+* **smithy-client:** allow unambiguous type conversions in parse-utils ([#3888](https://github.com/aws/aws-sdk-js-v3/issues/3888)) ([967eb0a](https://github.com/aws/aws-sdk-js-v3/commit/967eb0aea76714a5f3243a57604799479fa7baea))
+
+
+
+
+
 # [3.160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.159.0...v3.160.0) (2022-08-29)
 
 
