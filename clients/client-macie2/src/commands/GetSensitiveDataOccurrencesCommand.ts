@@ -30,7 +30,7 @@ export interface GetSensitiveDataOccurrencesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves (reveals) occurrences of sensitive data reported by a finding.</p>
+ * <p>Retrieves occurrences of sensitive data reported by a finding.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

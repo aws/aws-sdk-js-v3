@@ -58,6 +58,7 @@ import {
   BatchGetCustomDataIdentifiersCommandInput,
   BatchGetCustomDataIdentifiersCommandOutput,
 } from "./commands/BatchGetCustomDataIdentifiersCommand";
+import { CreateAllowListCommandInput, CreateAllowListCommandOutput } from "./commands/CreateAllowListCommand";
 import {
   CreateClassificationJobCommandInput,
   CreateClassificationJobCommandOutput,
@@ -77,6 +78,7 @@ import {
   CreateSampleFindingsCommandOutput,
 } from "./commands/CreateSampleFindingsCommand";
 import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "./commands/DeclineInvitationsCommand";
+import { DeleteAllowListCommandInput, DeleteAllowListCommandOutput } from "./commands/DeleteAllowListCommand";
 import {
   DeleteCustomDataIdentifierCommandInput,
   DeleteCustomDataIdentifierCommandOutput,
@@ -119,6 +121,7 @@ import {
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
+import { GetAllowListCommandInput, GetAllowListCommandOutput } from "./commands/GetAllowListCommand";
 import {
   GetBucketStatisticsCommandInput,
   GetBucketStatisticsCommandOutput,
@@ -162,6 +165,7 @@ import {
 } from "./commands/GetSensitiveDataOccurrencesCommand";
 import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "./commands/GetUsageStatisticsCommand";
 import { GetUsageTotalsCommandInput, GetUsageTotalsCommandOutput } from "./commands/GetUsageTotalsCommand";
+import { ListAllowListsCommandInput, ListAllowListsCommandOutput } from "./commands/ListAllowListsCommand";
 import {
   ListClassificationJobsCommandInput,
   ListClassificationJobsCommandOutput,
@@ -204,6 +208,7 @@ import {
   TestCustomDataIdentifierCommandOutput,
 } from "./commands/TestCustomDataIdentifierCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAllowListCommandInput, UpdateAllowListCommandOutput } from "./commands/UpdateAllowListCommand";
 import {
   UpdateClassificationJobCommandInput,
   UpdateClassificationJobCommandOutput,
@@ -230,6 +235,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 export type ServiceInputTypes =
   | AcceptInvitationCommandInput
   | BatchGetCustomDataIdentifiersCommandInput
+  | CreateAllowListCommandInput
   | CreateClassificationJobCommandInput
   | CreateCustomDataIdentifierCommandInput
   | CreateFindingsFilterCommandInput
@@ -237,6 +243,7 @@ export type ServiceInputTypes =
   | CreateMemberCommandInput
   | CreateSampleFindingsCommandInput
   | DeclineInvitationsCommandInput
+  | DeleteAllowListCommandInput
   | DeleteCustomDataIdentifierCommandInput
   | DeleteFindingsFilterCommandInput
   | DeleteInvitationsCommandInput
@@ -252,6 +259,7 @@ export type ServiceInputTypes =
   | EnableMacieCommandInput
   | EnableOrganizationAdminAccountCommandInput
   | GetAdministratorAccountCommandInput
+  | GetAllowListCommandInput
   | GetBucketStatisticsCommandInput
   | GetClassificationExportConfigurationCommandInput
   | GetCustomDataIdentifierCommandInput
@@ -268,6 +276,7 @@ export type ServiceInputTypes =
   | GetSensitiveDataOccurrencesCommandInput
   | GetUsageStatisticsCommandInput
   | GetUsageTotalsCommandInput
+  | ListAllowListsCommandInput
   | ListClassificationJobsCommandInput
   | ListCustomDataIdentifiersCommandInput
   | ListFindingsCommandInput
@@ -283,6 +292,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | TestCustomDataIdentifierCommandInput
   | UntagResourceCommandInput
+  | UpdateAllowListCommandInput
   | UpdateClassificationJobCommandInput
   | UpdateFindingsFilterCommandInput
   | UpdateMacieSessionCommandInput
@@ -293,6 +303,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptInvitationCommandOutput
   | BatchGetCustomDataIdentifiersCommandOutput
+  | CreateAllowListCommandOutput
   | CreateClassificationJobCommandOutput
   | CreateCustomDataIdentifierCommandOutput
   | CreateFindingsFilterCommandOutput
@@ -300,6 +311,7 @@ export type ServiceOutputTypes =
   | CreateMemberCommandOutput
   | CreateSampleFindingsCommandOutput
   | DeclineInvitationsCommandOutput
+  | DeleteAllowListCommandOutput
   | DeleteCustomDataIdentifierCommandOutput
   | DeleteFindingsFilterCommandOutput
   | DeleteInvitationsCommandOutput
@@ -315,6 +327,7 @@ export type ServiceOutputTypes =
   | EnableMacieCommandOutput
   | EnableOrganizationAdminAccountCommandOutput
   | GetAdministratorAccountCommandOutput
+  | GetAllowListCommandOutput
   | GetBucketStatisticsCommandOutput
   | GetClassificationExportConfigurationCommandOutput
   | GetCustomDataIdentifierCommandOutput
@@ -331,6 +344,7 @@ export type ServiceOutputTypes =
   | GetSensitiveDataOccurrencesCommandOutput
   | GetUsageStatisticsCommandOutput
   | GetUsageTotalsCommandOutput
+  | ListAllowListsCommandOutput
   | ListClassificationJobsCommandOutput
   | ListCustomDataIdentifiersCommandOutput
   | ListFindingsCommandOutput
@@ -346,6 +360,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | TestCustomDataIdentifierCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAllowListCommandOutput
   | UpdateClassificationJobCommandOutput
   | UpdateFindingsFilterCommandOutput
   | UpdateMacieSessionCommandOutput

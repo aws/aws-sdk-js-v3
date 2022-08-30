@@ -18,7 +18,7 @@ import {
   UpdateFindingsFilterRequestFilterSensitiveLog,
   UpdateFindingsFilterResponse,
   UpdateFindingsFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateFindingsFilterCommand,
   serializeAws_restJson1UpdateFindingsFilterCommand,

@@ -13,12 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  UntagResourceRequest,
-  UntagResourceRequestFilterSensitiveLog,
-  UntagResourceResponse,
-  UntagResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UntagResourceRequest, UntagResourceRequestFilterSensitiveLog } from "../models/models_0";
+import { UntagResourceResponse, UntagResourceResponseFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1UntagResourceCommand,
   serializeAws_restJson1UntagResourceCommand,
@@ -28,7 +24,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags (keys and values) from a classification job, custom data identifier, findings filter, or member account.</p>
+ * <p>Removes one or more tags (keys and values) from an Amazon Macie resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

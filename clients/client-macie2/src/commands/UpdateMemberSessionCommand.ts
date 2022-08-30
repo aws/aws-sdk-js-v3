@@ -18,7 +18,7 @@ import {
   UpdateMemberSessionRequestFilterSensitiveLog,
   UpdateMemberSessionResponse,
   UpdateMemberSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateMemberSessionCommand,
   serializeAws_restJson1UpdateMemberSessionCommand,

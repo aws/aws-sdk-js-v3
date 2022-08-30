@@ -28,7 +28,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the tags (keys and values) that are associated with a classification job, custom data identifier, findings filter, or member account.</p>
+ * <p>Retrieves the tags (keys and values) that are associated with an Amazon Macie resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

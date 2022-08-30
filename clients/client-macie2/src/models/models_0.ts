@@ -24,6 +24,41 @@ export interface AdminAccount {
 }
 
 /**
+ * <p>Provides a subset of information about an allow list.</p>
+ */
+export interface AllowListSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the allow list.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the allow list was created in Amazon Macie.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The custom description of the allow list.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The unique identifier for the allow list.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The custom name of the allow list.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the allow list's settings were most recently changed in Amazon Macie.</p>
+   */
+  updatedAt?: Date;
+}
+
+/**
  * <p>Provides information about a custom data identifier.</p>
  */
 export interface BatchGetCustomDataIdentifierSummary {
@@ -677,11 +712,11 @@ export interface _Record {
 }
 
 /**
- * <p>Specifies the location of 1-15 occurrences of sensitive data that was detected by a managed data identifier or a custom data identifier and produced a sensitive data finding. Depending on the file or storage format of the affected S3 object, you can optionally retrieve (reveal) sample occurrences of the sensitive data that was detected.</p>
+ * <p>Specifies the location of 1-15 occurrences of sensitive data that was detected by a managed data identifier or a custom data identifier and produced a sensitive data finding.</p>
  */
 export interface Occurrences {
   /**
-   * <p>An array of objects, one for each occurrence of sensitive data in a Microsoft Excel workbook, CSV file, or TSV file. This value is null for all other types of files.</p><p>Each Cell object specifies a cell or field that contains the sensitive data.</p>
+   * <p>An array of objects, one for each occurrence of sensitive data in a Microsoft Excel workbook, CSV file, or TSV file. This value is null for all other types of files.</p> <p>Each Cell object specifies a cell or field that contains the sensitive data.</p>
    */
   cells?: Cell[];
 
@@ -696,7 +731,7 @@ export interface Occurrences {
   offsetRanges?: Range[];
 
   /**
-   * <p>An array of objects, one for each occurrence of sensitive data in an Adobe Portable Document Format file. This value is null for all other types of files.</p><p>Each Page object specifies a page that contains the sensitive data.</p>
+   * <p>An array of objects, one for each occurrence of sensitive data in an Adobe Portable Document Format file. This value is null for all other types of files.</p> <p>Each Page object specifies a page that contains the sensitive data.</p>
    */
   pages?: Page[];
 
@@ -1627,7 +1662,7 @@ export interface FindingsFilterListItem {
   name?: string;
 
   /**
-   * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the filter.</p>
+   * <p>A map of key-value pairs that specifies which tags (keys and values) are associated with the filter.</p>
    */
   tags?: Record<string, string>;
 }
@@ -2072,7 +2107,7 @@ export interface Member {
   relationshipStatus?: RelationshipStatus | string;
 
   /**
-   * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the account in Amazon Macie.</p>
+   * <p>A map of key-value pairs that specifies which tags (keys and values) are associated with the account in Amazon Macie.</p>
    */
   tags?: Record<string, string>;
 
@@ -2494,6 +2529,62 @@ export interface AccountDetail {
   email: string | undefined;
 }
 
+/**
+ * <p>Provides information about an S3 object that lists specific text to ignore.</p>
+ */
+export interface S3WordsList {
+  /**
+   * <p>The full name of the S3 bucket that contains the object.</p>
+   */
+  bucketName: string | undefined;
+
+  /**
+   * <p>The full name (key) of the object.</p>
+   */
+  objectKey: string | undefined;
+}
+
+/**
+ * <p>Specifies the criteria for an allow list. The criteria must specify a regular expression (regex) or an S3 object (s3WordsList). It can't specify both.</p>
+ */
+export interface AllowListCriteria {
+  /**
+   * <p>The regular expression (<i>regex</i>) that defines the text pattern to ignore. The expression can contain as many as 512 characters.</p>
+   */
+  regex?: string;
+
+  /**
+   * <p>The location and name of the S3 object that lists specific text to ignore.</p>
+   */
+  s3WordsList?: S3WordsList;
+}
+
+export enum AllowListStatusCode {
+  OK = "OK",
+  S3_OBJECT_ACCESS_DENIED = "S3_OBJECT_ACCESS_DENIED",
+  S3_OBJECT_EMPTY = "S3_OBJECT_EMPTY",
+  S3_OBJECT_NOT_FOUND = "S3_OBJECT_NOT_FOUND",
+  S3_OBJECT_OVERSIZE = "S3_OBJECT_OVERSIZE",
+  S3_THROTTLED = "S3_THROTTLED",
+  S3_USER_ACCESS_DENIED = "S3_USER_ACCESS_DENIED",
+  UNKNOWN_ERROR = "UNKNOWN_ERROR",
+}
+
+/**
+ * <p>Provides information about the current status of an allow list, which indicates whether Amazon Macie can access and use the list's criteria.</p>
+ */
+export interface AllowListStatus {
+  /**
+   * <p>The current status of the allow list. If the list's criteria specify a regular expression (regex), this value is typically OK. Amazon Macie can compile the expression.</p> <p>If the list's criteria specify an S3 object, possible values are:</p> <ul><li><p>OK - Macie can retrieve and parse the contents of the object.</p></li> <li><p>S3_OBJECT_ACCESS_DENIED - Macie isn't allowed to access the object or the object is encrypted with a customer managed KMS key that Macie isn't allowed to use. Check the bucket policy and other permissions settings for the bucket and the object. If the object is encrypted, also ensure that it's encrypted with a key that Macie is allowed to use.</p></li> <li><p>S3_OBJECT_EMPTY - Macie can retrieve the object but the object doesn't contain any content. Ensure that the object contains the correct entries. Also ensure that the list's criteria specify the correct bucket and object names.</p></li> <li><p>S3_OBJECT_NOT_FOUND - The object doesn't exist in Amazon S3. Ensure that the list's criteria specify the correct bucket and object names.</p></li> <li><p>S3_OBJECT_OVERSIZE - Macie can retrieve the object. However, the object contains too many entries or its storage size exceeds the quota for an allow list. Try breaking the list into multiple files and ensure that each file doesn't exceed any quotas. Then configure list settings in Macie for each file.</p></li> <li><p>S3_THROTTLED - Amazon S3 throttled the request to retrieve the object. Wait a few minutes and then try again.</p></li> <li><p>S3_USER_ACCESS_DENIED - Amazon S3 denied the request to retrieve the object. If the specified object exists, you're not allowed to access it or it's encrypted with an KMS key that you're not allowed to use. Work with your Amazon Web Services administrator to ensure that the list's criteria specify the correct bucket and object names, and you have read access to the bucket and the object. If the object is encrypted, also ensure that it's encrypted with a key that you're allowed to use.</p></li> <li><p>UNKNOWN_ERROR - A transient or internal error occurred when Macie attempted to retrieve or parse the object. Wait a few minutes and then try again. A list can also have this status if it's encrypted with a key that Amazon S3 and Macie can't access or use.</p></li></ul>
+   */
+  code: AllowListStatusCode | string | undefined;
+
+  /**
+   * <p>A brief description of the status of the allow list. Amazon Macie uses this value to provide additional information about an error that occurred when Macie tried to access and use the list's criteria.</p>
+   */
+  description?: string;
+}
+
 export enum AvailabilityCode {
   AVAILABLE = "AVAILABLE",
   UNAVAILABLE = "UNAVAILABLE",
@@ -2703,6 +2794,45 @@ export interface ClassificationExportConfiguration {
   s3Destination?: S3Destination;
 }
 
+export interface CreateAllowListRequest {
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The criteria that specify the text or text pattern to ignore. The criteria can be the location and name of an S3 object that lists specific text to ignore (s3WordsList), or a regular expression (regex) that defines a text pattern to ignore.</p>
+   */
+  criteria: AllowListCriteria | undefined;
+
+  /**
+   * <p>A custom description of the allow list. The description can contain as many as 512 characters.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>A custom name for the allow list. The name can contain as many as 128 characters.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A map of key-value pairs that specifies the tags to associate with the allow list.</p> <p>An allow list can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export interface CreateAllowListResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the allow list.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The unique identifier for the allow list.</p>
+   */
+  id?: string;
+}
+
 export enum ManagedDataIdentifierSelector {
   ALL = "ALL",
   EXCLUDE = "EXCLUDE",
@@ -2812,6 +2942,11 @@ export interface JobScheduleFrequency {
 
 export interface CreateClassificationJobRequest {
   /**
+   * <p>An array of unique identifiers, one for each allow list for the job to use when it analyzes data.</p>
+   */
+  allowListIds?: string[];
+
+  /**
    * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
@@ -2827,7 +2962,7 @@ export interface CreateClassificationJobRequest {
   description?: string;
 
   /**
-   * <p>For a recurring job, specifies whether to analyze all existing, eligible objects immediately after the job is created (true). To analyze only those objects that are created or changed after you create the job and before the job's first scheduled run, set this value to false.</p><p>If you configure the job to run only once, don't specify a value for this property.</p>
+   * <p>For a recurring job, specifies whether to analyze all existing, eligible objects immediately after the job is created (true). To analyze only those objects that are created or changed after you create the job and before the job's first scheduled run, set this value to false.</p> <p>If you configure the job to run only once, don't specify a value for this property.</p>
    */
   initialRun?: boolean;
 
@@ -2837,7 +2972,7 @@ export interface CreateClassificationJobRequest {
   jobType: JobType | string | undefined;
 
   /**
-   * <p>An array of unique identifiers, one for each managed data identifier for the job to include (use) or exclude (not use) when it analyzes data. Inclusion or exclusion depends on the managed data identifier selection type that you specify for the job (managedDataIdentifierSelector).</p><p>To retrieve a list of valid values for this property, use the ListManagedDataIdentifiers operation.</p>
+   * <p>An array of unique identifiers, one for each managed data identifier for the job to include (use) or exclude (not use) when it analyzes data. Inclusion or exclusion depends on the managed data identifier selection type that you specify for the job (managedDataIdentifierSelector).</p> <p>To retrieve a list of valid values for this property, use the ListManagedDataIdentifiers operation.</p>
    */
   managedDataIdentifierIds?: string[];
 
@@ -3124,9 +3259,23 @@ export interface DeclineInvitationsResponse {
   unprocessedAccounts?: UnprocessedAccount[];
 }
 
+export interface DeleteAllowListRequest {
+  /**
+   * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Specifies whether to force deletion of the allow list, even if active classification jobs are configured to use the list.</p> <p>When you try to delete an allow list, Amazon Macie checks for classification jobs that use the list and have a status other than COMPLETE or CANCELLED. By default, Macie rejects your request if any jobs meet these criteria. To skip these checks and delete the list, set this value to true. To delete the list only if no active jobs are configured to use it, set this value to false.</p>
+   */
+  ignoreJobChecks?: string;
+}
+
+export interface DeleteAllowListResponse {}
+
 export interface DeleteCustomDataIdentifierRequest {
   /**
-   * <p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>
+   * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
    */
   id: string | undefined;
 }
@@ -3135,7 +3284,7 @@ export interface DeleteCustomDataIdentifierResponse {}
 
 export interface DeleteFindingsFilterRequest {
   /**
-   * <p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>
+   * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
    */
   id: string | undefined;
 }
@@ -3158,7 +3307,7 @@ export interface DeleteInvitationsResponse {
 
 export interface DeleteMemberRequest {
   /**
-   * <p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>
+   * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
    */
   id: string | undefined;
 }
@@ -3223,6 +3372,11 @@ export interface Statistics {
 
 export interface DescribeClassificationJobResponse {
   /**
+   * <p>An array of unique identifiers, one for each allow list that the job uses when it analyzes data.</p>
+   */
+  allowListIds?: string[];
+
+  /**
    * <p>The token that was provided to ensure the idempotency of the request to create the job.</p>
    */
   clientToken?: string;
@@ -3233,7 +3387,7 @@ export interface DescribeClassificationJobResponse {
   createdAt?: Date;
 
   /**
-   * <p>An array of unique identifiers, one for each custom data identifier that the job uses to analyze data. This value is null if the job uses only managed data identifiers to analyze data.</p>
+   * <p>An array of unique identifiers, one for each custom data identifier that the job uses when it analyzes data. This value is null if the job uses only managed data identifiers to analyze data.</p>
    */
   customDataIdentifierIds?: string[];
 
@@ -3360,7 +3514,7 @@ export interface DisassociateFromMasterAccountResponse {}
 
 export interface DisassociateMemberRequest {
   /**
-   * <p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>
+   * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
    */
   id: string | undefined;
 }
@@ -3385,7 +3539,7 @@ export interface EnableMacieRequest {
   clientToken?: string;
 
   /**
-   * <p>Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).</p>
+   * <p>Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).</p>
    */
   findingPublishingFrequency?: FindingPublishingFrequency | string;
 
@@ -3438,6 +3592,60 @@ export interface GetAdministratorAccountResponse {
    * <p>The Amazon Web Services account ID for the administrator account. If the accounts are associated by an Amazon Macie membership invitation, this object also provides details about the invitation that was sent to establish the relationship between the accounts.</p>
    */
   administrator?: Invitation;
+}
+
+export interface GetAllowListRequest {
+  /**
+   * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+   */
+  id: string | undefined;
+}
+
+export interface GetAllowListResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the allow list.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the allow list was created in Amazon Macie.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The criteria that specify the text or text pattern to ignore. The criteria can be the location and name of an S3 object that lists specific text to ignore (s3WordsList), or a regular expression (regex) that defines a text pattern to ignore.</p>
+   */
+  criteria?: AllowListCriteria;
+
+  /**
+   * <p>The custom description of the allow list.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The unique identifier for the allow list.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The custom name of the allow list.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The current status of the allow list, which indicates whether Amazon Macie can access and use the list's criteria.</p>
+   */
+  status?: AllowListStatus;
+
+  /**
+   * <p>A map of key-value pairs that specifies which tags (keys and values) are associated with the allow list.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the allow list's settings were most recently changed in Amazon Macie.</p>
+   */
+  updatedAt?: Date;
 }
 
 export interface GetBucketStatisticsRequest {
@@ -3525,7 +3733,7 @@ export interface GetClassificationExportConfigurationResponse {
 
 export interface GetCustomDataIdentifierRequest {
   /**
-   * <p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>
+   * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
    */
   id: string | undefined;
 }
@@ -3628,7 +3836,7 @@ export interface GetFindingsResponse {
 
 export interface GetFindingsFilterRequest {
   /**
-   * <p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>
+   * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
    */
   id: string | undefined;
 }
@@ -3670,7 +3878,7 @@ export interface GetFindingsFilterResponse {
   position?: number;
 
   /**
-   * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the filter.</p>
+   * <p>A map of key-value pairs that specifies which tags (keys and values) are associated with the filter.</p>
    */
   tags?: Record<string, string>;
 }
@@ -3753,7 +3961,7 @@ export interface GetMacieSessionResponse {
   createdAt?: Date;
 
   /**
-   * <p>The frequency with which Amazon Macie publishes updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).</p>
+   * <p>The frequency with which Amazon Macie publishes updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).</p>
    */
   findingPublishingFrequency?: FindingPublishingFrequency | string;
 
@@ -3784,7 +3992,7 @@ export interface GetMasterAccountResponse {
 
 export interface GetMemberRequest {
   /**
-   * <p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>
+   * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
    */
   id: string | undefined;
 }
@@ -3826,7 +4034,7 @@ export interface GetMemberResponse {
   relationshipStatus?: RelationshipStatus | string;
 
   /**
-   * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the member account in Amazon Macie.</p>
+   * <p>A map of key-value pairs that specifies which tags (keys and values) are associated with the account in Amazon Macie.</p>
    */
   tags?: Record<string, string>;
 
@@ -3844,7 +4052,7 @@ export enum RevealStatus {
 }
 
 /**
- * <p>Specifies the configuration settings for retrieving occurrences of sensitive data reported by findings, and the status of the configuration for an Amazon Macie account. When you enable the configuration for the first time, your request must specify an AWS Key Management Service (AWS KMS) key. Otherwise, an error occurs. Macie uses the specified key to encrypt the sensitive data that you retrieve.</p>
+ * <p>Specifies the configuration settings for retrieving occurrences of sensitive data reported by findings, and the status of the configuration for an Amazon Macie account. When you enable the configuration for the first time, your request must specify an Key Management Service (KMS) key. Otherwise, an error occurs. Macie uses the specified key to encrypt the sensitive data that you retrieve.</p>
  */
 export interface RevealConfiguration {
   /**
@@ -3928,7 +4136,7 @@ export interface GetSensitiveDataOccurrencesAvailabilityResponse {
   code?: AvailabilityCode | string;
 
   /**
-   * <p>Specifies why occurrences of sensitive data can't be retrieved for the finding. Possible values are:</p> <ul><li><p>INVALID_CLASSIFICATION_RESULT - Amazon Macie can't verify the location of the sensitive data to retrieve. There isn't a corresponding sensitive data discovery result for the finding. Or the sensitive data discovery result specified by the ClassificationDetails.detailedResultsLocation field of the finding isn't available, is malformed or corrupted, or uses an unsupported storage format.</p></li> <li><p>OBJECT_EXCEEDS_SIZE_QUOTA - The storage size of the affected S3 object exceeds the size quota for retrieving occurrences of sensitive data.</p></li> <li><p>OBJECT_UNAVAILABLE - The affected S3 object isn't available. The object might have been renamed, moved, or deleted. Or the object was changed after Amazon Macie created the finding.</p></li> <li><p>UNSUPPORTED_FINDING_TYPE - The specified finding isn't a sensitive data finding.</p></li> <li><p>UNSUPPORTED_OBJECT_TYPE - The affected S3 object uses a file or storage format that Macie doesn't support for retrieving occurrences of sensitive data.</p></li></ul> <p>This value is null if sensitive data can be retrieved for the finding.</p>
+   * <p>Specifies why occurrences of sensitive data can't be retrieved for the finding. Possible values are:</p> <ul><li><p>INVALID_CLASSIFICATION_RESULT - Amazon Macie can't verify the location of the sensitive data to retrieve. There isn't a corresponding sensitive data discovery result for the finding. Or the sensitive data discovery result specified by the ClassificationDetails.detailedResultsLocation field of the finding isn't available, is malformed or corrupted, or uses an unsupported storage format.</p></li> <li><p>OBJECT_EXCEEDS_SIZE_QUOTA - The storage size of the affected S3 object exceeds the size quota for retrieving occurrences of sensitive data.</p></li> <li><p>OBJECT_UNAVAILABLE - The affected S3 object isn't available. The object might have been renamed, moved, or deleted. Or the object was changed after Macie created the finding.</p></li> <li><p>UNSUPPORTED_FINDING_TYPE - The specified finding isn't a sensitive data finding.</p></li> <li><p>UNSUPPORTED_OBJECT_TYPE - The affected S3 object uses a file or storage format that Macie doesn't support for retrieving occurrences of sensitive data.</p></li></ul> <p>This value is null if sensitive data can be retrieved for the finding.</p>
    */
   reasons?: (UnavailabilityReasonCode | string)[];
 }
@@ -4021,6 +4229,30 @@ export interface GetUsageTotalsResponse {
    * <p>An array of objects that contains the results of the query. Each object contains the data for a specific usage metric.</p>
    */
   usageTotals?: UsageTotal[];
+}
+
+export interface ListAllowListsRequest {
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListAllowListsResponse {
+  /**
+   * <p>An array of objects, one for each allow list.</p>
+   */
+  allowLists?: AllowListSummary[];
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   */
+  nextToken?: string;
 }
 
 /**
@@ -4274,14 +4506,14 @@ export interface ListOrganizationAdminAccountsResponse {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the classification job, custom data identifier, findings filter, or member account.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn: string | undefined;
 }
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the resource.</p>
+   * <p>A map of key-value pairs that specifies which tags (keys and values) are associated with the resource.</p>
    */
   tags?: Record<string, string>;
 }
@@ -4397,7 +4629,7 @@ export interface SearchResourcesResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the classification job, custom data identifier, findings filter, or member account.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn: string | undefined;
 
@@ -4445,136 +4677,27 @@ export interface TestCustomDataIdentifierResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the classification job, custom data identifier, findings filter, or member account.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>One or more tags (keys) to remove from the resource. In an HTTP request to remove multiple tags, append the tagKeys parameter and argument for each tag to remove, and separate them with an ampersand (&amp;).</p>
+   * <p>One or more tags (keys) to remove from the resource. In an HTTP request to remove multiple tags, append the tagKeys parameter and argument for each tag to remove, separated by an ampersand (&amp;).</p>
    */
   tagKeys: string[] | undefined;
-}
-
-export interface UntagResourceResponse {}
-
-export interface UpdateClassificationJobRequest {
-  /**
-   * <p>The unique identifier for the classification job.</p>
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>The new status for the job. Valid values are:</p> <ul><li><p>CANCELLED - Stops the job permanently and cancels it. This value is valid only if the job's current status is IDLE, PAUSED, RUNNING, or USER_PAUSED.</p> <p>If you specify this value and the job's current status is RUNNING, Amazon Macie immediately begins to stop all processing tasks for the job. You can't resume or restart a job after you cancel it.</p></li> <li><p>RUNNING - Resumes the job. This value is valid only if the job's current status is USER_PAUSED.</p> <p>If you paused the job while it was actively running and you specify this value less than 30 days after you paused the job, Macie immediately resumes processing from the point where you paused the job. Otherwise, Macie resumes the job according to the schedule and other settings for the job.</p></li> <li><p>USER_PAUSED - Pauses the job temporarily. This value is valid only if the job's current status is IDLE, PAUSED, or RUNNING. If you specify this value and the job's current status is RUNNING, Macie immediately begins to pause all processing tasks for the job.</p> <p>If you pause a one-time job and you don't resume it within 30 days, the job expires and Macie cancels the job. If you pause a recurring job when its status is RUNNING and you don't resume it within 30 days, the job run expires and Macie cancels the run. To check the expiration date, refer to the UserPausedDetails.jobExpiresAt property.</p></li></ul>
-   */
-  jobStatus: JobStatus | string | undefined;
-}
-
-export interface UpdateClassificationJobResponse {}
-
-export interface UpdateFindingsFilterRequest {
-  /**
-   * <p>The action to perform on findings that meet the filter criteria (findingCriteria). Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
-   */
-  action?: FindingsFilterAction | string;
-
-  /**
-   * <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The criteria to use to filter findings.</p>
-   */
-  findingCriteria?: FindingCriteria;
-
-  /**
-   * <p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>
-   */
-  id: string | undefined;
-
-  /**
-   * <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>
-   */
-  position?: number;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-}
-
-export interface UpdateFindingsFilterResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the filter that was updated.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The unique identifier for the filter that was updated.</p>
-   */
-  id?: string;
-}
-
-export interface UpdateMacieSessionRequest {
-  /**
-   * <p>Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).</p>
-   */
-  findingPublishingFrequency?: FindingPublishingFrequency | string;
-
-  /**
-   * <p>Specifies a new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>
-   */
-  status?: MacieStatus | string;
-}
-
-export interface UpdateMacieSessionResponse {}
-
-export interface UpdateMemberSessionRequest {
-  /**
-   * <p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>
-   */
-  id: string | undefined;
-
-  /**
-   * <p>Specifies the new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>
-   */
-  status: MacieStatus | string | undefined;
-}
-
-export interface UpdateMemberSessionResponse {}
-
-export interface UpdateOrganizationConfigurationRequest {
-  /**
-   * <p>Specifies whether to enable Amazon Macie automatically for an account when the account is added to the organization in Organizations.</p>
-   */
-  autoEnable: boolean | undefined;
-}
-
-export interface UpdateOrganizationConfigurationResponse {}
-
-export interface UpdateRevealConfigurationRequest {
-  /**
-   * <p>The new configuration settings and the status of the configuration for the account.</p>
-   */
-  configuration: RevealConfiguration | undefined;
-}
-
-export interface UpdateRevealConfigurationResponse {
-  /**
-   * <p>The new configuration settings and the status of the configuration for the account.</p>
-   */
-  configuration?: RevealConfiguration;
 }
 
 /**
  * @internal
  */
 export const AdminAccountFilterSensitiveLog = (obj: AdminAccount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllowListSummaryFilterSensitiveLog = (obj: AllowListSummary): any => ({
   ...obj,
 });
 
@@ -5220,6 +5343,27 @@ export const AccountDetailFilterSensitiveLog = (obj: AccountDetail): any => ({
 /**
  * @internal
  */
+export const S3WordsListFilterSensitiveLog = (obj: S3WordsList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllowListCriteriaFilterSensitiveLog = (obj: AllowListCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllowListStatusFilterSensitiveLog = (obj: AllowListStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const BatchGetCustomDataIdentifiersRequestFilterSensitiveLog = (
   obj: BatchGetCustomDataIdentifiersRequest
 ): any => ({
@@ -5290,6 +5434,20 @@ export const S3DestinationFilterSensitiveLog = (obj: S3Destination): any => ({
  * @internal
  */
 export const ClassificationExportConfigurationFilterSensitiveLog = (obj: ClassificationExportConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAllowListRequestFilterSensitiveLog = (obj: CreateAllowListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAllowListResponseFilterSensitiveLog = (obj: CreateAllowListResponse): any => ({
   ...obj,
 });
 
@@ -5458,6 +5616,20 @@ export const DeclineInvitationsRequestFilterSensitiveLog = (obj: DeclineInvitati
  * @internal
  */
 export const DeclineInvitationsResponseFilterSensitiveLog = (obj: DeclineInvitationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAllowListRequestFilterSensitiveLog = (obj: DeleteAllowListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAllowListResponseFilterSensitiveLog = (obj: DeleteAllowListResponse): any => ({
   ...obj,
 });
 
@@ -5702,6 +5874,20 @@ export const GetAdministratorAccountRequestFilterSensitiveLog = (obj: GetAdminis
  * @internal
  */
 export const GetAdministratorAccountResponseFilterSensitiveLog = (obj: GetAdministratorAccountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAllowListRequestFilterSensitiveLog = (obj: GetAllowListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAllowListResponseFilterSensitiveLog = (obj: GetAllowListResponse): any => ({
   ...obj,
 });
 
@@ -5974,6 +6160,20 @@ export const GetUsageTotalsResponseFilterSensitiveLog = (obj: GetUsageTotalsResp
 /**
  * @internal
  */
+export const ListAllowListsRequestFilterSensitiveLog = (obj: ListAllowListsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAllowListsResponseFilterSensitiveLog = (obj: ListAllowListsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListJobsFilterCriteriaFilterSensitiveLog = (obj: ListJobsFilterCriteria): any => ({
   ...obj,
 });
@@ -6218,100 +6418,5 @@ export const TestCustomDataIdentifierResponseFilterSensitiveLog = (obj: TestCust
  * @internal
  */
 export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClassificationJobRequestFilterSensitiveLog = (obj: UpdateClassificationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClassificationJobResponseFilterSensitiveLog = (obj: UpdateClassificationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFindingsFilterRequestFilterSensitiveLog = (obj: UpdateFindingsFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFindingsFilterResponseFilterSensitiveLog = (obj: UpdateFindingsFilterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMacieSessionRequestFilterSensitiveLog = (obj: UpdateMacieSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMacieSessionResponseFilterSensitiveLog = (obj: UpdateMacieSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMemberSessionRequestFilterSensitiveLog = (obj: UpdateMemberSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMemberSessionResponseFilterSensitiveLog = (obj: UpdateMemberSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOrganizationConfigurationRequestFilterSensitiveLog = (
-  obj: UpdateOrganizationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOrganizationConfigurationResponseFilterSensitiveLog = (
-  obj: UpdateOrganizationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRevealConfigurationRequestFilterSensitiveLog = (obj: UpdateRevealConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRevealConfigurationResponseFilterSensitiveLog = (obj: UpdateRevealConfigurationResponse): any => ({
   ...obj,
 });

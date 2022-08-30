@@ -12,6 +12,11 @@ import {
   BatchGetCustomDataIdentifiersCommandOutput,
 } from "./commands/BatchGetCustomDataIdentifiersCommand";
 import {
+  CreateAllowListCommand,
+  CreateAllowListCommandInput,
+  CreateAllowListCommandOutput,
+} from "./commands/CreateAllowListCommand";
+import {
   CreateClassificationJobCommand,
   CreateClassificationJobCommandInput,
   CreateClassificationJobCommandOutput,
@@ -46,6 +51,11 @@ import {
   DeclineInvitationsCommandInput,
   DeclineInvitationsCommandOutput,
 } from "./commands/DeclineInvitationsCommand";
+import {
+  DeleteAllowListCommand,
+  DeleteAllowListCommandInput,
+  DeleteAllowListCommandOutput,
+} from "./commands/DeleteAllowListCommand";
 import {
   DeleteCustomDataIdentifierCommand,
   DeleteCustomDataIdentifierCommandInput,
@@ -117,6 +127,11 @@ import {
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
+import {
+  GetAllowListCommand,
+  GetAllowListCommandInput,
+  GetAllowListCommandOutput,
+} from "./commands/GetAllowListCommand";
 import {
   GetBucketStatisticsCommand,
   GetBucketStatisticsCommandInput,
@@ -190,6 +205,11 @@ import {
   GetUsageTotalsCommandOutput,
 } from "./commands/GetUsageTotalsCommand";
 import {
+  ListAllowListsCommand,
+  ListAllowListsCommandInput,
+  ListAllowListsCommandOutput,
+} from "./commands/ListAllowListsCommand";
+import {
   ListClassificationJobsCommand,
   ListClassificationJobsCommandInput,
   ListClassificationJobsCommandOutput,
@@ -256,6 +276,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateAllowListCommand,
+  UpdateAllowListCommandInput,
+  UpdateAllowListCommandOutput,
+} from "./commands/UpdateAllowListCommand";
 import {
   UpdateClassificationJobCommand,
   UpdateClassificationJobCommandInput,
@@ -346,6 +371,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: BatchGetCustomDataIdentifiersCommandOutput) => void
   ): Promise<BatchGetCustomDataIdentifiersCommandOutput> | void {
     const command = new BatchGetCustomDataIdentifiersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates and defines the settings for an allow list.</p>
+   */
+  public createAllowList(
+    args: CreateAllowListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAllowListCommandOutput>;
+  public createAllowList(
+    args: CreateAllowListCommandInput,
+    cb: (err: any, data?: CreateAllowListCommandOutput) => void
+  ): void;
+  public createAllowList(
+    args: CreateAllowListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAllowListCommandOutput) => void
+  ): void;
+  public createAllowList(
+    args: CreateAllowListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAllowListCommandOutput) => void),
+    cb?: (err: any, data?: CreateAllowListCommandOutput) => void
+  ): Promise<CreateAllowListCommandOutput> | void {
+    const command = new CreateAllowListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -567,6 +624,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: DeclineInvitationsCommandOutput) => void
   ): Promise<DeclineInvitationsCommandOutput> | void {
     const command = new DeclineInvitationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an allow list.</p>
+   */
+  public deleteAllowList(
+    args: DeleteAllowListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAllowListCommandOutput>;
+  public deleteAllowList(
+    args: DeleteAllowListCommandInput,
+    cb: (err: any, data?: DeleteAllowListCommandOutput) => void
+  ): void;
+  public deleteAllowList(
+    args: DeleteAllowListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAllowListCommandOutput) => void
+  ): void;
+  public deleteAllowList(
+    args: DeleteAllowListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAllowListCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAllowListCommandOutput) => void
+  ): Promise<DeleteAllowListCommandOutput> | void {
+    const command = new DeleteAllowListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1046,6 +1135,35 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * <p>Retrieves the settings and status of an allow list.</p>
+   */
+  public getAllowList(
+    args: GetAllowListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAllowListCommandOutput>;
+  public getAllowList(args: GetAllowListCommandInput, cb: (err: any, data?: GetAllowListCommandOutput) => void): void;
+  public getAllowList(
+    args: GetAllowListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAllowListCommandOutput) => void
+  ): void;
+  public getAllowList(
+    args: GetAllowListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAllowListCommandOutput) => void),
+    cb?: (err: any, data?: GetAllowListCommandOutput) => void
+  ): Promise<GetAllowListCommandOutput> | void {
+    const command = new GetAllowListCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves (queries) aggregated statistical data about S3 buckets that Amazon Macie monitors and analyzes.</p>
    */
   public getBucketStatistics(
@@ -1386,7 +1504,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves the status and configuration settings for retrieving (revealing) occurrences of sensitive data reported by findings.</p>
+   * <p>Retrieves the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>
    */
   public getRevealConfiguration(
     args: GetRevealConfigurationCommandInput,
@@ -1418,7 +1536,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves (reveals) occurrences of sensitive data reported by a finding.</p>
+   * <p>Retrieves occurrences of sensitive data reported by a finding.</p>
    */
   public getSensitiveDataOccurrences(
     args: GetSensitiveDataOccurrencesCommandInput,
@@ -1450,7 +1568,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Checks whether occurrences of sensitive data can be retrieved (revealed) for a finding.</p>
+   * <p>Checks whether occurrences of sensitive data can be retrieved for a finding.</p>
    */
   public getSensitiveDataOccurrencesAvailability(
     args: GetSensitiveDataOccurrencesAvailabilityCommandInput,
@@ -1537,6 +1655,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: GetUsageTotalsCommandOutput) => void
   ): Promise<GetUsageTotalsCommandOutput> | void {
     const command = new GetUsageTotalsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a subset of information about all the allow lists for an account.</p>
+   */
+  public listAllowLists(
+    args: ListAllowListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAllowListsCommandOutput>;
+  public listAllowLists(
+    args: ListAllowListsCommandInput,
+    cb: (err: any, data?: ListAllowListsCommandOutput) => void
+  ): void;
+  public listAllowLists(
+    args: ListAllowListsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAllowListsCommandOutput) => void
+  ): void;
+  public listAllowLists(
+    args: ListAllowListsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAllowListsCommandOutput) => void),
+    cb?: (err: any, data?: ListAllowListsCommandOutput) => void
+  ): Promise<ListAllowListsCommandOutput> | void {
+    const command = new ListAllowListsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1795,7 +1945,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves the tags (keys and values) that are associated with a classification job, custom data identifier, findings filter, or member account.</p>
+   * <p>Retrieves the tags (keys and values) that are associated with an Amazon Macie resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1923,7 +2073,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Adds or updates one or more tags (keys and values) that are associated with a classification job, custom data identifier, findings filter, or member account.</p>
+   * <p>Adds or updates one or more tags (keys and values) that are associated with an Amazon Macie resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1981,7 +2131,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Removes one or more tags (keys and values) from a classification job, custom data identifier, findings filter, or member account.</p>
+   * <p>Removes one or more tags (keys and values) from an Amazon Macie resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2002,6 +2152,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the settings for an allow list.</p>
+   */
+  public updateAllowList(
+    args: UpdateAllowListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAllowListCommandOutput>;
+  public updateAllowList(
+    args: UpdateAllowListCommandInput,
+    cb: (err: any, data?: UpdateAllowListCommandOutput) => void
+  ): void;
+  public updateAllowList(
+    args: UpdateAllowListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAllowListCommandOutput) => void
+  ): void;
+  public updateAllowList(
+    args: UpdateAllowListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAllowListCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAllowListCommandOutput) => void
+  ): Promise<UpdateAllowListCommandOutput> | void {
+    const command = new UpdateAllowListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2173,7 +2355,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Updates the status and configuration settings for retrieving (revealing) occurrences of sensitive data reported by findings.</p>
+   * <p>Updates the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>
    */
   public updateRevealConfiguration(
     args: UpdateRevealConfigurationCommandInput,

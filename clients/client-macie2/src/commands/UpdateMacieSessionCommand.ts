@@ -18,7 +18,7 @@ import {
   UpdateMacieSessionRequestFilterSensitiveLog,
   UpdateMacieSessionResponse,
   UpdateMacieSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateMacieSessionCommand,
   serializeAws_restJson1UpdateMacieSessionCommand,

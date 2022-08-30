@@ -31,7 +31,7 @@ export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Checks whether occurrences of sensitive data can be retrieved (revealed) for a finding.</p>
+ * <p>Checks whether occurrences of sensitive data can be retrieved for a finding.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -14,45 +14,45 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
-  GetRevealConfigurationRequest,
-  GetRevealConfigurationRequestFilterSensitiveLog,
-  GetRevealConfigurationResponse,
-  GetRevealConfigurationResponseFilterSensitiveLog,
+  GetAllowListRequest,
+  GetAllowListRequestFilterSensitiveLog,
+  GetAllowListResponse,
+  GetAllowListResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetRevealConfigurationCommand,
-  serializeAws_restJson1GetRevealConfigurationCommand,
+  deserializeAws_restJson1GetAllowListCommand,
+  serializeAws_restJson1GetAllowListCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface GetRevealConfigurationCommandInput extends GetRevealConfigurationRequest {}
-export interface GetRevealConfigurationCommandOutput extends GetRevealConfigurationResponse, __MetadataBearer {}
+export interface GetAllowListCommandInput extends GetAllowListRequest {}
+export interface GetAllowListCommandOutput extends GetAllowListResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>
+ * <p>Retrieves the settings and status of an allow list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, GetRevealConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, GetRevealConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, GetAllowListCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, GetAllowListCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const command = new GetRevealConfigurationCommand(input);
+ * const command = new GetAllowListCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetRevealConfigurationCommandInput} for command's `input` shape.
- * @see {@link GetRevealConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link GetAllowListCommandInput} for command's `input` shape.
+ * @see {@link GetAllowListCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  */
-export class GetRevealConfigurationCommand extends $Command<
-  GetRevealConfigurationCommandInput,
-  GetRevealConfigurationCommandOutput,
+export class GetAllowListCommand extends $Command<
+  GetAllowListCommandInput,
+  GetAllowListCommandOutput,
   Macie2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: GetRevealConfigurationCommandInput) {
+  constructor(readonly input: GetAllowListCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -65,20 +65,20 @@ export class GetRevealConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetRevealConfigurationCommandInput, GetRevealConfigurationCommandOutput> {
+  ): Handler<GetAllowListCommandInput, GetAllowListCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "Macie2Client";
-    const commandName = "GetRevealConfigurationCommand";
+    const commandName = "GetAllowListCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRevealConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRevealConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: GetAllowListRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAllowListResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +88,12 @@ export class GetRevealConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(input: GetRevealConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRevealConfigurationCommand(input, context);
+  private serialize(input: GetAllowListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetAllowListCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRevealConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetRevealConfigurationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAllowListCommandOutput> {
+    return deserializeAws_restJson1GetAllowListCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,7 +18,7 @@ import {
   UpdateClassificationJobRequestFilterSensitiveLog,
   UpdateClassificationJobResponse,
   UpdateClassificationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateClassificationJobCommand,
   serializeAws_restJson1UpdateClassificationJobCommand,

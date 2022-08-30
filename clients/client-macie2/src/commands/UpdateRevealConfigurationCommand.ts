@@ -18,7 +18,7 @@ import {
   UpdateRevealConfigurationRequestFilterSensitiveLog,
   UpdateRevealConfigurationResponse,
   UpdateRevealConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateRevealConfigurationCommand,
   serializeAws_restJson1UpdateRevealConfigurationCommand,
@@ -28,7 +28,7 @@ export interface UpdateRevealConfigurationCommandInput extends UpdateRevealConfi
 export interface UpdateRevealConfigurationCommandOutput extends UpdateRevealConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the status and configuration settings for retrieving (revealing) occurrences of sensitive data reported by findings.</p>
+ * <p>Updates the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

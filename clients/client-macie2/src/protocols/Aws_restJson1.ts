@@ -27,6 +27,7 @@ import {
   BatchGetCustomDataIdentifiersCommandInput,
   BatchGetCustomDataIdentifiersCommandOutput,
 } from "../commands/BatchGetCustomDataIdentifiersCommand";
+import { CreateAllowListCommandInput, CreateAllowListCommandOutput } from "../commands/CreateAllowListCommand";
 import {
   CreateClassificationJobCommandInput,
   CreateClassificationJobCommandOutput,
@@ -46,6 +47,7 @@ import {
   CreateSampleFindingsCommandOutput,
 } from "../commands/CreateSampleFindingsCommand";
 import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "../commands/DeclineInvitationsCommand";
+import { DeleteAllowListCommandInput, DeleteAllowListCommandOutput } from "../commands/DeleteAllowListCommand";
 import {
   DeleteCustomDataIdentifierCommandInput,
   DeleteCustomDataIdentifierCommandOutput,
@@ -88,6 +90,7 @@ import {
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "../commands/GetAdministratorAccountCommand";
+import { GetAllowListCommandInput, GetAllowListCommandOutput } from "../commands/GetAllowListCommand";
 import {
   GetBucketStatisticsCommandInput,
   GetBucketStatisticsCommandOutput,
@@ -131,6 +134,7 @@ import {
 } from "../commands/GetSensitiveDataOccurrencesCommand";
 import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "../commands/GetUsageStatisticsCommand";
 import { GetUsageTotalsCommandInput, GetUsageTotalsCommandOutput } from "../commands/GetUsageTotalsCommand";
+import { ListAllowListsCommandInput, ListAllowListsCommandOutput } from "../commands/ListAllowListsCommand";
 import {
   ListClassificationJobsCommandInput,
   ListClassificationJobsCommandOutput,
@@ -173,6 +177,7 @@ import {
   TestCustomDataIdentifierCommandOutput,
 } from "../commands/TestCustomDataIdentifierCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateAllowListCommandInput, UpdateAllowListCommandOutput } from "../commands/UpdateAllowListCommand";
 import {
   UpdateClassificationJobCommandInput,
   UpdateClassificationJobCommandOutput,
@@ -202,6 +207,9 @@ import {
   AccountDetail,
   AccountLevelPermissions,
   AdminAccount,
+  AllowListCriteria,
+  AllowListStatus,
+  AllowListSummary,
   ApiCallDetails,
   AssumedRole,
   AwsAccount,
@@ -285,6 +293,7 @@ import {
   S3Destination,
   S3JobDefinition,
   S3Object,
+  S3WordsList,
   Scoping,
   SearchResourcesBucketCriteria,
   SearchResourcesCriteria,
@@ -378,6 +387,34 @@ export const serializeAws_restJson1BatchGetCustomDataIdentifiersCommand = async 
   });
 };
 
+export const serializeAws_restJson1CreateAllowListCommand = async (
+  input: CreateAllowListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/allow-lists";
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.criteria != null && { criteria: serializeAws_restJson1AllowListCriteria(input.criteria, context) }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateClassificationJobCommand = async (
   input: CreateClassificationJobCommandInput,
   context: __SerdeContext
@@ -389,6 +426,9 @@ export const serializeAws_restJson1CreateClassificationJobCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobs";
   let body: any;
   body = JSON.stringify({
+    ...(input.allowListIds != null && {
+      allowListIds: serializeAws_restJson1__listOf__string(input.allowListIds, context),
+    }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.customDataIdentifierIds != null && {
       customDataIdentifierIds: serializeAws_restJson1__listOf__string(input.customDataIdentifierIds, context),
@@ -589,6 +629,30 @@ export const serializeAws_restJson1DeclineInvitationsCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteAllowListCommand = async (
+  input: DeleteAllowListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/allow-lists/{id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  const query: any = map({
+    ignoreJobChecks: [, input.ignoreJobChecks!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -922,6 +986,26 @@ export const serializeAws_restJson1GetAdministratorAccountCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/administrator";
   let body: any;
   body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetAllowListCommand = async (
+  input: GetAllowListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/allow-lists/{id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  let body: any;
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1292,6 +1376,30 @@ export const serializeAws_restJson1GetUsageTotalsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/usage";
   const query: any = map({
     timeRange: [, input.timeRange!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAllowListsCommand = async (
+  input: ListAllowListsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/allow-lists";
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1703,6 +1811,33 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateAllowListCommand = async (
+  input: UpdateAllowListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/allow-lists/{id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.criteria != null && { criteria: serializeAws_restJson1AllowListCriteria(input.criteria, context) }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.name != null && { name: input.name }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateClassificationJobCommand = async (
   input: UpdateClassificationJobCommandInput,
   context: __SerdeContext
@@ -1943,6 +2078,68 @@ const deserializeAws_restJson1BatchGetCustomDataIdentifiersCommandError = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetCustomDataIdentifiersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.macie2#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.macie2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1CreateAllowListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAllowListCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateAllowListCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.id != null) {
+    contents.id = __expectString(data.id);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateAllowListCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAllowListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2403,6 +2600,56 @@ const deserializeAws_restJson1DeclineInvitationsCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DeleteAllowListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAllowListCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteAllowListCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteAllowListCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAllowListCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1DeleteCustomDataIdentifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2706,6 +2953,9 @@ export const deserializeAws_restJson1DescribeClassificationJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.allowListIds != null) {
+    contents.allowListIds = deserializeAws_restJson1__listOf__string(data.allowListIds, context);
+  }
   if (data.clientToken != null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -3310,6 +3560,83 @@ const deserializeAws_restJson1GetAdministratorAccountCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.macie2#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetAllowListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAllowListCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetAllowListCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.createdAt != null) {
+    contents.createdAt = __expectNonNull(__parseRfc3339DateTime(data.createdAt));
+  }
+  if (data.criteria != null) {
+    contents.criteria = deserializeAws_restJson1AllowListCriteria(data.criteria, context);
+  }
+  if (data.description != null) {
+    contents.description = __expectString(data.description);
+  }
+  if (data.id != null) {
+    contents.id = __expectString(data.id);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.status != null) {
+    contents.status = deserializeAws_restJson1AllowListStatus(data.status, context);
+  }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  if (data.updatedAt != null) {
+    contents.updatedAt = __expectNonNull(__parseRfc3339DateTime(data.updatedAt));
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetAllowListCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAllowListCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.macie2#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -4419,6 +4746,59 @@ const deserializeAws_restJson1GetUsageTotalsCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListAllowListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAllowListsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAllowListsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.allowLists != null) {
+    contents.allowLists = deserializeAws_restJson1__listOfAllowListSummary(data.allowLists, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListAllowListsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAllowListsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListClassificationJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5229,6 +5609,62 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   });
 };
 
+export const deserializeAws_restJson1UpdateAllowListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAllowListCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateAllowListCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.id != null) {
+    contents.id = __expectString(data.id);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateAllowListCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAllowListCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdateClassificationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5807,6 +6243,13 @@ const serializeAws_restJson1AccountDetail = (input: AccountDetail, context: __Se
   };
 };
 
+const serializeAws_restJson1AllowListCriteria = (input: AllowListCriteria, context: __SerdeContext): any => {
+  return {
+    ...(input.regex != null && { regex: input.regex }),
+    ...(input.s3WordsList != null && { s3WordsList: serializeAws_restJson1S3WordsList(input.s3WordsList, context) }),
+  };
+};
+
 const serializeAws_restJson1BucketCriteria = (
   input: Record<string, BucketCriteriaAdditionalProperties>,
   context: __SerdeContext
@@ -6028,6 +6471,13 @@ const serializeAws_restJson1S3JobDefinition = (input: S3JobDefinition, context: 
       bucketDefinitions: serializeAws_restJson1__listOfS3BucketDefinitionForJob(input.bucketDefinitions, context),
     }),
     ...(input.scoping != null && { scoping: serializeAws_restJson1Scoping(input.scoping, context) }),
+  };
+};
+
+const serializeAws_restJson1S3WordsList = (input: S3WordsList, context: __SerdeContext): any => {
+  return {
+    ...(input.bucketName != null && { bucketName: input.bucketName }),
+    ...(input.objectKey != null && { objectKey: input.objectKey }),
   };
 };
 
@@ -6253,6 +6703,18 @@ const deserializeAws_restJson1__listOfAdminAccount = (output: any, context: __Se
         return null as any;
       }
       return deserializeAws_restJson1AdminAccount(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1__listOfAllowListSummary = (output: any, context: __SerdeContext): AllowListSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AllowListSummary(entry, context);
     });
   return retVal;
 };
@@ -6583,6 +7045,32 @@ const deserializeAws_restJson1AdminAccount = (output: any, context: __SerdeConte
   return {
     accountId: __expectString(output.accountId),
     status: __expectString(output.status),
+  } as any;
+};
+
+const deserializeAws_restJson1AllowListCriteria = (output: any, context: __SerdeContext): AllowListCriteria => {
+  return {
+    regex: __expectString(output.regex),
+    s3WordsList:
+      output.s3WordsList != null ? deserializeAws_restJson1S3WordsList(output.s3WordsList, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AllowListStatus = (output: any, context: __SerdeContext): AllowListStatus => {
+  return {
+    code: __expectString(output.code),
+    description: __expectString(output.description),
+  } as any;
+};
+
+const deserializeAws_restJson1AllowListSummary = (output: any, context: __SerdeContext): AllowListSummary => {
+  return {
+    arn: __expectString(output.arn),
+    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    description: __expectString(output.description),
+    id: __expectString(output.id),
+    name: __expectString(output.name),
+    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
   } as any;
 };
 
@@ -7520,6 +8008,13 @@ const deserializeAws_restJson1S3Object = (output: any, context: __SerdeContext):
     storageClass: __expectString(output.storageClass),
     tags: output.tags != null ? deserializeAws_restJson1KeyValuePairList(output.tags, context) : undefined,
     versionId: __expectString(output.versionId),
+  } as any;
+};
+
+const deserializeAws_restJson1S3WordsList = (output: any, context: __SerdeContext): S3WordsList => {
+  return {
+    bucketName: __expectString(output.bucketName),
+    objectKey: __expectString(output.objectKey),
   } as any;
 };
 

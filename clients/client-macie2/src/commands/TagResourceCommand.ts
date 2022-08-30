@@ -28,7 +28,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or updates one or more tags (keys and values) that are associated with a classification job, custom data identifier, findings filter, or member account.</p>
+ * <p>Adds or updates one or more tags (keys and values) that are associated with an Amazon Macie resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
