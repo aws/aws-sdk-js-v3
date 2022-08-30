@@ -28,7 +28,7 @@ export interface ListPermissionSetsCommandInput extends ListPermissionSetsReques
 export interface ListPermissionSetsCommandOutput extends ListPermissionSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the <a>PermissionSet</a>s in an Amazon Web Services SSO instance.</p>
+ * <p>Lists the <a>PermissionSet</a>s in an IAM Identity Center instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

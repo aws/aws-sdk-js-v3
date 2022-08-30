@@ -31,12 +31,12 @@ export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the Amazon Web Services SSO identity store attributes that you can use with the Amazon Web Services SSO instance
+ * <p>Updates the IAM Identity Center identity store attributes that you can use with the IAM Identity Center instance
  *       for attributes-based access control (ABAC). When using an external identity provider as an
  *       identity source, you can pass attributes through the SAML assertion as an alternative to
- *       configuring attributes from the Amazon Web Services SSO identity store. If a SAML assertion passes any of
- *       these attributes, Amazon Web Services SSO replaces the attribute value with the value from the Amazon Web Services SSO
- *       identity store. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.</p>
+ *       configuring attributes from the IAM Identity Center identity store. If a SAML assertion passes any of
+ *       these attributes, IAM Identity Center replaces the attribute value with the value from the IAM Identity Center
+ *       identity store. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -30,7 +30,7 @@ export interface ListAccountAssignmentCreationStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the status of the Amazon Web Services account assignment creation requests for a specified Amazon Web Services SSO
+ * <p>Lists the status of the AWS account assignment creation requests for a specified IAM Identity Center
  *       instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

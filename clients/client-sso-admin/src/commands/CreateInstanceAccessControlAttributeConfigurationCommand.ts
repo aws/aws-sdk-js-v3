@@ -31,9 +31,9 @@ export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Enables the attributes-based access control (ABAC) feature for the specified Amazon Web Services SSO
+ * <p>Enables the attributes-based access control (ABAC) feature for the specified IAM Identity Center
  *       instance. You can also specify new attributes to add to your ABAC configuration during the
- *       enabling process. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.</p>
+ *       enabling process. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
  *          <note>
  *             <p>After a successful response, call <code>DescribeInstanceAccessControlAttributeConfiguration</code> to validate that
  *       <code>InstanceAccessControlAttributeConfiguration</code> was created.</p>

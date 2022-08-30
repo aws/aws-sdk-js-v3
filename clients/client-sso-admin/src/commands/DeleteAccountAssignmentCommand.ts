@@ -28,7 +28,7 @@ export interface DeleteAccountAssignmentCommandInput extends DeleteAccountAssign
 export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssignmentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a principal's access from a specified Amazon Web Services account using a specified permission
+ * <p>Deletes a principal's access from a specified AWS account using a specified permission
  *       set.</p>
  *          <note>
  *             <p>After a successful response, call <code>DescribeAccountAssignmentCreationStatus</code> to describe the status of an assignment deletion request.</p>

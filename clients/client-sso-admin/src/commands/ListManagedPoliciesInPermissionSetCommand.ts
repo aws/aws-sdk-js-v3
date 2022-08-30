@@ -30,7 +30,7 @@ export interface ListManagedPoliciesInPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon Web Services managed policy that is attached to a specified permission set.</p>
+ * <p>Lists the AWS managed policy that is attached to a specified permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

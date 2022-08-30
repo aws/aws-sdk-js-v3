@@ -31,7 +31,7 @@ export interface PutPermissionsBoundaryToPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Attaches an Amazon Web Services managed or customer managed policy to the specified <a>PermissionSet</a> as a permissions boundary.</p>
+ * <p>Attaches an AWS managed or customer managed policy to the specified <a>PermissionSet</a> as a permissions boundary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
