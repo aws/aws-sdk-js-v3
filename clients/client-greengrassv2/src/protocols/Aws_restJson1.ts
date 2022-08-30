@@ -817,6 +817,7 @@ export const serializeAws_restJson1ListInstalledComponentsCommand = async (
   const query: any = map({
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
+    topologyFilter: [, input.topologyFilter!],
   });
   let body: any;
   return new __HttpRequest({
@@ -3646,6 +3647,10 @@ const deserializeAws_restJson1InstalledComponent = (output: any, context: __Serd
     componentName: __expectString(output.componentName),
     componentVersion: __expectString(output.componentVersion),
     isRoot: __expectBoolean(output.isRoot),
+    lastStatusChangeTimestamp:
+      output.lastStatusChangeTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStatusChangeTimestamp)))
+        : undefined,
     lifecycleState: __expectString(output.lifecycleState),
     lifecycleStateDetails: __expectString(output.lifecycleStateDetails),
   } as any;

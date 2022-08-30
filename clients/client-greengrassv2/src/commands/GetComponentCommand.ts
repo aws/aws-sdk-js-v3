@@ -28,8 +28,7 @@ export interface GetComponentCommandInput extends GetComponentRequest {}
 export interface GetComponentCommandOutput extends GetComponentResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the recipe for a version of a component. Core devices can call this operation to
- *       identify the artifacts and requirements to install a component.</p>
+ * <p>Gets the recipe for a version of a component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

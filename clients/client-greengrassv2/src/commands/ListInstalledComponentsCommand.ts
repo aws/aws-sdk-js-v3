@@ -28,9 +28,10 @@ export interface ListInstalledComponentsCommandInput extends ListInstalledCompon
 export interface ListInstalledComponentsCommandOutput extends ListInstalledComponentsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of the components that a Greengrass core device runs.
- *       This list doesn't include components that are deployed from local deployments or
- *       components that are deployed as dependencies of other components.</p>
+ * <p>Retrieves a paginated list of the components that a Greengrass core device runs. By default,
+ *       this list doesn't include components that are deployed as dependencies of other components. To
+ *       include dependencies in the response, set the <code>topologyFilter</code> parameter to
+ *         <code>ALL</code>.</p>
  *          <note>
  *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core
  *         software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud, then
@@ -49,8 +50,11 @@ export interface ListInstalledComponentsCommandOutput extends ListInstalledCompo
  *                   </p>
  *                </li>
  *                <li>
- *                   <p>At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular interval
- *             that you can configure</a>, which defaults to 24 hours</p>
+ *                   <p>At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular interval that you can configure</a>, which defaults to 24 hours</p>
+ *                </li>
+ *                <li>
+ *                   <p>For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment and
+ *             cloud deployment</p>
  *                </li>
  *             </ul>
  *          </note>

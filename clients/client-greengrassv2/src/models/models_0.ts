@@ -433,9 +433,9 @@ export interface ComponentPlatform {
 
   /**
    * <p>A dictionary of attributes for the platform. The IoT Greengrass Core software defines the
-   *         <code>os</code> and <code>platform</code> by default. You can specify additional platform
-   *       attributes for a core device when you deploy the Greengrass nucleus component. For more information,
-   *       see the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html">Greengrass nucleus
+   *         <code>os</code> and <code>architecture</code> by default. You can specify additional
+   *       platform attributes for a core device when you deploy the Greengrass nucleus component. For more
+   *       information, see the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html">Greengrass nucleus
    *         component</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    */
   attributes?: Record<string, string>;
@@ -2134,6 +2134,11 @@ export interface ListEffectiveDeploymentsResponse {
   nextToken?: string;
 }
 
+export enum InstalledComponentTopologyFilter {
+  ALL = "ALL",
+  ROOT = "ROOT",
+}
+
 export interface ListInstalledComponentsRequest {
   /**
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
@@ -2149,6 +2154,27 @@ export interface ListInstalledComponentsRequest {
    * <p>The token to be used for the next set of paginated results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The filter for the list of components. Choose from the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code> – The list includes all components installed on the core
+   *           device.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ROOT</code> – The list includes only <i>root</i>
+   *           components, which are components that you specify in a deployment. When you choose this
+   *           option, the list doesn't include components that the core device installs as dependencies
+   *           of other components.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>ROOT</code>
+   *          </p>
+   */
+  topologyFilter?: InstalledComponentTopologyFilter | string;
 }
 
 export enum InstalledComponentLifecycleState {
@@ -2190,11 +2216,24 @@ export interface InstalledComponent {
    * <p>Whether or not the component is a root component.</p>
    */
   isRoot?: boolean;
+
+  /**
+   * <p>The status of how current the data is.</p>
+   *          <p>This response is based off of component state changes. The status reflects component
+   *       disruptions and deployments. If a component only sees a configuration update during a
+   *       deployment, it might not undergo a state change and this status would not be updated.</p>
+   */
+  lastStatusChangeTimestamp?: Date;
 }
 
 export interface ListInstalledComponentsResponse {
   /**
    * <p>A list that summarizes each component on the core device.</p>
+   *          <note>
+   *             <p>Accuracy of the <code>lastStatusChangeTimestamp</code> response depends on Greengrass nucleus
+   *         v2.7.0. It performs best on Greengrass nucleus v2.7.0 and can be inaccurate on earlier
+   *         versions.</p>
+   *          </note>
    */
   installedComponents?: InstalledComponent[];
 

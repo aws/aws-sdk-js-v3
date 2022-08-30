@@ -50,6 +50,10 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  *                   <p>At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular interval
  *             that you can configure</a>, which defaults to 24 hours</p>
  *                </li>
+ *                <li>
+ *                   <p>For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment and
+ *             cloud deployment</p>
+ *                </li>
  *             </ul>
  *          </note>
  * @example
