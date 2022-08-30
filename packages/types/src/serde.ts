@@ -54,6 +54,19 @@ export interface ResponseDeserializer<OutputType, ResponseType = any, Context = 
 }
 
 /**
+ * Declare ReadableStream in case dom.d.ts is not added to the tsconfig lib causing
+ * ReadableStream interface is not defined. For developers with dom.d.ts added,
+ * the ReadableStream interface will be merged correctly.
+ *
+ * This is also required for any clients with streaming interface where ReadableStream
+ * type is also referred. The type is only declared here once since this @aws-sdk/types
+ * is depended by all @aws-sdk packages.
+ */
+declare global {
+  export interface ReadableStream {}
+}
+
+/**
  * The interface contains mix-in utility functions to transfer the runtime-specific
  * stream implementation to specified format. Each stream can ONLY be transformed
  * once.
