@@ -27,6 +27,15 @@ export type NativeScalarAttributeValue =
   | NativeAttributeBinary
   | string;
 
+/**
+ * Declare File in case DOM is not added to the tsconfig lib causing
+ * File interface is not defined. For developers with DOM lib added,
+ * the File interface will be merged correctly.
+ */
+declare global {
+  interface File {}
+}
+
 export type NativeAttributeBinary =
   | ArrayBuffer
   | Blob
