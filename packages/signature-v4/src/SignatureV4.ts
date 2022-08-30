@@ -127,6 +127,7 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
       signingService,
     } = options;
     const credentials = await this.credentialProvider();
+    this.validateResolvedCredentials(credentials);
     const region = signingRegion ?? (await this.regionProvider());
 
     const { longDate, shortDate } = formatDate(signingDate);
@@ -200,6 +201,7 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
     { signingDate = new Date(), signingRegion, signingService }: SigningArguments = {}
   ): Promise<string> {
     const credentials = await this.credentialProvider();
+    this.validateResolvedCredentials(credentials);
     const region = signingRegion ?? (await this.regionProvider());
     const { shortDate } = formatDate(signingDate);
 
@@ -219,6 +221,7 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
     }: RequestSigningArguments = {}
   ): Promise<HttpRequest> {
     const credentials = await this.credentialProvider();
+    this.validateResolvedCredentials(credentials);
     const region = signingRegion ?? (await this.regionProvider());
     const request = prepareRequest(requestToSign);
     const { longDate, shortDate } = formatDate(signingDate);
@@ -326,6 +329,18 @@ ${toHex(hashedRequest)}`;
     service?: string
   ): Promise<Uint8Array> {
     return getSigningKey(this.sha256, credentials, shortDate, region, service || this.service);
+  }
+
+  private validateResolvedCredentials(credentials: unknown) {
+    if (
+      typeof credentials !== "object" ||
+      // @ts-expect-error: Property 'accessKeyId' does not exist on type 'object'.ts(2339)
+      typeof credentials.accessKeyId !== "string" ||
+      // @ts-expect-error: Property 'secretAccessKey' does not exist on type 'object'.ts(2339)
+      typeof credentials.secretAccessKey !== "string"
+    ) {
+      throw new Error("Resolved credential object is not valid");
+    }
   }
 }
 
