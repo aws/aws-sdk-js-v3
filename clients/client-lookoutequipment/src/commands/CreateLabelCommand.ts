@@ -14,46 +14,47 @@ import {
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import {
-  ListInferenceEventsRequest,
-  ListInferenceEventsRequestFilterSensitiveLog,
-  ListInferenceEventsResponse,
-  ListInferenceEventsResponseFilterSensitiveLog,
+  CreateLabelRequest,
+  CreateLabelRequestFilterSensitiveLog,
+  CreateLabelResponse,
+  CreateLabelResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0ListInferenceEventsCommand,
-  serializeAws_json1_0ListInferenceEventsCommand,
+  deserializeAws_json1_0CreateLabelCommand,
+  serializeAws_json1_0CreateLabelCommand,
 } from "../protocols/Aws_json1_0";
 
-export interface ListInferenceEventsCommandInput extends ListInferenceEventsRequest {}
-export interface ListInferenceEventsCommandOutput extends ListInferenceEventsResponse, __MetadataBearer {}
+export interface CreateLabelCommandInput extends CreateLabelRequest {}
+export interface CreateLabelCommandOutput extends CreateLabelResponse, __MetadataBearer {}
 
 /**
- * <p> Lists all inference events that have been found for the specified inference scheduler.
- *       </p>
+ * <p>
+ * Creates a label for an event.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, ListInferenceEventsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, ListInferenceEventsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, CreateLabelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, CreateLabelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const command = new ListInferenceEventsCommand(input);
+ * const command = new CreateLabelCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListInferenceEventsCommandInput} for command's `input` shape.
- * @see {@link ListInferenceEventsCommandOutput} for command's `response` shape.
+ * @see {@link CreateLabelCommandInput} for command's `input` shape.
+ * @see {@link CreateLabelCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  */
-export class ListInferenceEventsCommand extends $Command<
-  ListInferenceEventsCommandInput,
-  ListInferenceEventsCommandOutput,
+export class CreateLabelCommand extends $Command<
+  CreateLabelCommandInput,
+  CreateLabelCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListInferenceEventsCommandInput) {
+  constructor(readonly input: CreateLabelCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -66,20 +67,20 @@ export class ListInferenceEventsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LookoutEquipmentClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListInferenceEventsCommandInput, ListInferenceEventsCommandOutput> {
+  ): Handler<CreateLabelCommandInput, CreateLabelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LookoutEquipmentClient";
-    const commandName = "ListInferenceEventsCommand";
+    const commandName = "CreateLabelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInferenceEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInferenceEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: CreateLabelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLabelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +90,12 @@ export class ListInferenceEventsCommand extends $Command<
     );
   }
 
-  private serialize(input: ListInferenceEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListInferenceEventsCommand(input, context);
+  private serialize(input: CreateLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0CreateLabelCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInferenceEventsCommandOutput> {
-    return deserializeAws_json1_0ListInferenceEventsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLabelCommandOutput> {
+    return deserializeAws_json1_0CreateLabelCommand(output, context);
   }
 
   // Start section: command_body_extra

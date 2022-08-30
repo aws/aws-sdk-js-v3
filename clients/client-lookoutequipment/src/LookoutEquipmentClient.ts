@@ -58,12 +58,16 @@ import {
   CreateInferenceSchedulerCommandInput,
   CreateInferenceSchedulerCommandOutput,
 } from "./commands/CreateInferenceSchedulerCommand";
+import { CreateLabelCommandInput, CreateLabelCommandOutput } from "./commands/CreateLabelCommand";
+import { CreateLabelGroupCommandInput, CreateLabelGroupCommandOutput } from "./commands/CreateLabelGroupCommand";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import {
   DeleteInferenceSchedulerCommandInput,
   DeleteInferenceSchedulerCommandOutput,
 } from "./commands/DeleteInferenceSchedulerCommand";
+import { DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/DeleteLabelCommand";
+import { DeleteLabelGroupCommandInput, DeleteLabelGroupCommandOutput } from "./commands/DeleteLabelGroupCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
   DescribeDataIngestionJobCommandInput,
@@ -74,6 +78,8 @@ import {
   DescribeInferenceSchedulerCommandInput,
   DescribeInferenceSchedulerCommandOutput,
 } from "./commands/DescribeInferenceSchedulerCommand";
+import { DescribeLabelCommandInput, DescribeLabelCommandOutput } from "./commands/DescribeLabelCommand";
+import { DescribeLabelGroupCommandInput, DescribeLabelGroupCommandOutput } from "./commands/DescribeLabelGroupCommand";
 import { DescribeModelCommandInput, DescribeModelCommandOutput } from "./commands/DescribeModelCommand";
 import {
   ListDataIngestionJobsCommandInput,
@@ -92,6 +98,8 @@ import {
   ListInferenceSchedulersCommandInput,
   ListInferenceSchedulersCommandOutput,
 } from "./commands/ListInferenceSchedulersCommand";
+import { ListLabelGroupsCommandInput, ListLabelGroupsCommandOutput } from "./commands/ListLabelGroupsCommand";
+import { ListLabelsCommandInput, ListLabelsCommandOutput } from "./commands/ListLabelsCommand";
 import { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import {
   ListSensorStatisticsCommandInput,
@@ -119,24 +127,33 @@ import {
   UpdateInferenceSchedulerCommandInput,
   UpdateInferenceSchedulerCommandOutput,
 } from "./commands/UpdateInferenceSchedulerCommand";
+import { UpdateLabelGroupCommandInput, UpdateLabelGroupCommandOutput } from "./commands/UpdateLabelGroupCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CreateDatasetCommandInput
   | CreateInferenceSchedulerCommandInput
+  | CreateLabelCommandInput
+  | CreateLabelGroupCommandInput
   | CreateModelCommandInput
   | DeleteDatasetCommandInput
   | DeleteInferenceSchedulerCommandInput
+  | DeleteLabelCommandInput
+  | DeleteLabelGroupCommandInput
   | DeleteModelCommandInput
   | DescribeDataIngestionJobCommandInput
   | DescribeDatasetCommandInput
   | DescribeInferenceSchedulerCommandInput
+  | DescribeLabelCommandInput
+  | DescribeLabelGroupCommandInput
   | DescribeModelCommandInput
   | ListDataIngestionJobsCommandInput
   | ListDatasetsCommandInput
   | ListInferenceEventsCommandInput
   | ListInferenceExecutionsCommandInput
   | ListInferenceSchedulersCommandInput
+  | ListLabelGroupsCommandInput
+  | ListLabelsCommandInput
   | ListModelsCommandInput
   | ListSensorStatisticsCommandInput
   | ListTagsForResourceCommandInput
@@ -145,24 +162,33 @@ export type ServiceInputTypes =
   | StopInferenceSchedulerCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateInferenceSchedulerCommandInput;
+  | UpdateInferenceSchedulerCommandInput
+  | UpdateLabelGroupCommandInput;
 
 export type ServiceOutputTypes =
   | CreateDatasetCommandOutput
   | CreateInferenceSchedulerCommandOutput
+  | CreateLabelCommandOutput
+  | CreateLabelGroupCommandOutput
   | CreateModelCommandOutput
   | DeleteDatasetCommandOutput
   | DeleteInferenceSchedulerCommandOutput
+  | DeleteLabelCommandOutput
+  | DeleteLabelGroupCommandOutput
   | DeleteModelCommandOutput
   | DescribeDataIngestionJobCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeInferenceSchedulerCommandOutput
+  | DescribeLabelCommandOutput
+  | DescribeLabelGroupCommandOutput
   | DescribeModelCommandOutput
   | ListDataIngestionJobsCommandOutput
   | ListDatasetsCommandOutput
   | ListInferenceEventsCommandOutput
   | ListInferenceExecutionsCommandOutput
   | ListInferenceSchedulersCommandOutput
+  | ListLabelGroupsCommandOutput
+  | ListLabelsCommandOutput
   | ListModelsCommandOutput
   | ListSensorStatisticsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -171,7 +197,8 @@ export type ServiceOutputTypes =
   | StopInferenceSchedulerCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateInferenceSchedulerCommandOutput;
+  | UpdateInferenceSchedulerCommandOutput
+  | UpdateLabelGroupCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -327,9 +354,8 @@ type LookoutEquipmentClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface LookoutEquipmentClientResolvedConfig extends LookoutEquipmentClientResolvedConfigType {}
 
 /**
- * <p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics
- *          to identify anomalies in machines from sensor data for use in predictive maintenance.
- *       </p>
+ * <p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics to identify
+ *          anomalies in machines from sensor data for use in predictive maintenance. </p>
  */
 export class LookoutEquipmentClient extends __Client<
   __HttpHandlerOptions,

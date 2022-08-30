@@ -26,12 +26,16 @@ import {
   CreateInferenceSchedulerCommandInput,
   CreateInferenceSchedulerCommandOutput,
 } from "../commands/CreateInferenceSchedulerCommand";
+import { CreateLabelCommandInput, CreateLabelCommandOutput } from "../commands/CreateLabelCommand";
+import { CreateLabelGroupCommandInput, CreateLabelGroupCommandOutput } from "../commands/CreateLabelGroupCommand";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "../commands/CreateModelCommand";
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "../commands/DeleteDatasetCommand";
 import {
   DeleteInferenceSchedulerCommandInput,
   DeleteInferenceSchedulerCommandOutput,
 } from "../commands/DeleteInferenceSchedulerCommand";
+import { DeleteLabelCommandInput, DeleteLabelCommandOutput } from "../commands/DeleteLabelCommand";
+import { DeleteLabelGroupCommandInput, DeleteLabelGroupCommandOutput } from "../commands/DeleteLabelGroupCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "../commands/DeleteModelCommand";
 import {
   DescribeDataIngestionJobCommandInput,
@@ -42,6 +46,8 @@ import {
   DescribeInferenceSchedulerCommandInput,
   DescribeInferenceSchedulerCommandOutput,
 } from "../commands/DescribeInferenceSchedulerCommand";
+import { DescribeLabelCommandInput, DescribeLabelCommandOutput } from "../commands/DescribeLabelCommand";
+import { DescribeLabelGroupCommandInput, DescribeLabelGroupCommandOutput } from "../commands/DescribeLabelGroupCommand";
 import { DescribeModelCommandInput, DescribeModelCommandOutput } from "../commands/DescribeModelCommand";
 import {
   ListDataIngestionJobsCommandInput,
@@ -60,6 +66,8 @@ import {
   ListInferenceSchedulersCommandInput,
   ListInferenceSchedulersCommandOutput,
 } from "../commands/ListInferenceSchedulersCommand";
+import { ListLabelGroupsCommandInput, ListLabelGroupsCommandOutput } from "../commands/ListLabelGroupsCommand";
+import { ListLabelsCommandInput, ListLabelsCommandOutput } from "../commands/ListLabelsCommand";
 import { ListModelsCommandInput, ListModelsCommandOutput } from "../commands/ListModelsCommand";
 import {
   ListSensorStatisticsCommandInput,
@@ -87,6 +95,7 @@ import {
   UpdateInferenceSchedulerCommandInput,
   UpdateInferenceSchedulerCommandOutput,
 } from "../commands/UpdateInferenceSchedulerCommand";
+import { UpdateLabelGroupCommandInput, UpdateLabelGroupCommandOutput } from "../commands/UpdateLabelGroupCommand";
 import { LookoutEquipmentServiceException as __BaseException } from "../models/LookoutEquipmentServiceException";
 import {
   AccessDeniedException,
@@ -97,6 +106,10 @@ import {
   CreateDatasetResponse,
   CreateInferenceSchedulerRequest,
   CreateInferenceSchedulerResponse,
+  CreateLabelGroupRequest,
+  CreateLabelGroupResponse,
+  CreateLabelRequest,
+  CreateLabelResponse,
   CreateModelRequest,
   CreateModelResponse,
   DataIngestionJobSummary,
@@ -106,6 +119,8 @@ import {
   DatasetSummary,
   DeleteDatasetRequest,
   DeleteInferenceSchedulerRequest,
+  DeleteLabelGroupRequest,
+  DeleteLabelRequest,
   DeleteModelRequest,
   DescribeDataIngestionJobRequest,
   DescribeDataIngestionJobResponse,
@@ -113,6 +128,10 @@ import {
   DescribeDatasetResponse,
   DescribeInferenceSchedulerRequest,
   DescribeInferenceSchedulerResponse,
+  DescribeLabelGroupRequest,
+  DescribeLabelGroupResponse,
+  DescribeLabelRequest,
+  DescribeLabelResponse,
   DescribeModelRequest,
   DescribeModelResponse,
   DuplicateTimestamps,
@@ -130,8 +149,10 @@ import {
   InsufficientSensorData,
   InternalServerException,
   InvalidSensorData,
+  LabelGroupSummary,
   LabelsInputConfiguration,
   LabelsS3InputConfiguration,
+  LabelSummary,
   LargeTimestampGaps,
   ListDataIngestionJobsRequest,
   ListDataIngestionJobsResponse,
@@ -143,6 +164,10 @@ import {
   ListInferenceExecutionsResponse,
   ListInferenceSchedulersRequest,
   ListInferenceSchedulersResponse,
+  ListLabelGroupsRequest,
+  ListLabelGroupsResponse,
+  ListLabelsRequest,
+  ListLabelsResponse,
   ListModelsRequest,
   ListModelsResponse,
   ListSensorStatisticsRequest,
@@ -173,6 +198,7 @@ import {
   UntagResourceRequest,
   UntagResourceResponse,
   UpdateInferenceSchedulerRequest,
+  UpdateLabelGroupRequest,
   ValidationException,
 } from "../models/models_0";
 
@@ -199,6 +225,32 @@ export const serializeAws_json1_0CreateInferenceSchedulerCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateInferenceSchedulerRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0CreateLabelCommand = async (
+  input: CreateLabelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AWSLookoutEquipmentFrontendService.CreateLabel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0CreateLabelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0CreateLabelGroupCommand = async (
+  input: CreateLabelGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AWSLookoutEquipmentFrontendService.CreateLabelGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0CreateLabelGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -238,6 +290,32 @@ export const serializeAws_json1_0DeleteInferenceSchedulerCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteInferenceSchedulerRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DeleteLabelCommand = async (
+  input: DeleteLabelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AWSLookoutEquipmentFrontendService.DeleteLabel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DeleteLabelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DeleteLabelGroupCommand = async (
+  input: DeleteLabelGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AWSLookoutEquipmentFrontendService.DeleteLabelGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DeleteLabelGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -290,6 +368,32 @@ export const serializeAws_json1_0DescribeInferenceSchedulerCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeInferenceSchedulerRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DescribeLabelCommand = async (
+  input: DescribeLabelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AWSLookoutEquipmentFrontendService.DescribeLabel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DescribeLabelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DescribeLabelGroupCommand = async (
+  input: DescribeLabelGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AWSLookoutEquipmentFrontendService.DescribeLabelGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DescribeLabelGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -368,6 +472,32 @@ export const serializeAws_json1_0ListInferenceSchedulersCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListInferenceSchedulersRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListLabelGroupsCommand = async (
+  input: ListLabelGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AWSLookoutEquipmentFrontendService.ListLabelGroups",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListLabelGroupsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListLabelsCommand = async (
+  input: ListLabelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AWSLookoutEquipmentFrontendService.ListLabels",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListLabelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -488,6 +618,19 @@ export const serializeAws_json1_0UpdateInferenceSchedulerCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0UpdateLabelGroupCommand = async (
+  input: UpdateLabelGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AWSLookoutEquipmentFrontendService.UpdateLabelGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0UpdateLabelGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const deserializeAws_json1_0CreateDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -583,6 +726,121 @@ const deserializeAws_json1_0CreateInferenceSchedulerCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lookoutequipment#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0CreateLabelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLabelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0CreateLabelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0CreateLabelResponse(data, context);
+  const response: CreateLabelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0CreateLabelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLabelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lookoutequipment#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0CreateLabelGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLabelGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0CreateLabelGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0CreateLabelGroupResponse(data, context);
+  const response: CreateLabelGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0CreateLabelGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLabelGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lookoutequipment#ServiceQuotaExceededException":
       throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
@@ -754,6 +1012,106 @@ const deserializeAws_json1_0DeleteInferenceSchedulerCommandError = async (
     case "ValidationException":
     case "com.amazonaws.lookoutequipment#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0DeleteLabelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLabelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DeleteLabelCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteLabelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DeleteLabelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLabelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0DeleteLabelGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLabelGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DeleteLabelGroupCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteLabelGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DeleteLabelGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLabelGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -942,6 +1300,112 @@ const deserializeAws_json1_0DescribeInferenceSchedulerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInferenceSchedulerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0DescribeLabelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLabelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DescribeLabelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeLabelResponse(data, context);
+  const response: DescribeLabelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeLabelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLabelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0DescribeLabelGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLabelGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DescribeLabelGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeLabelGroupResponse(data, context);
+  const response: DescribeLabelGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeLabelGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLabelGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1254,6 +1718,106 @@ const deserializeAws_json1_0ListInferenceSchedulersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInferenceSchedulersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0ListLabelGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLabelGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListLabelGroupsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListLabelGroupsResponse(data, context);
+  const response: ListLabelGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListLabelGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLabelGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0ListLabelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLabelsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListLabelsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListLabelsResponse(data, context);
+  const response: ListLabelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListLabelsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLabelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1772,6 +2336,59 @@ const deserializeAws_json1_0UpdateInferenceSchedulerCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0UpdateLabelGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLabelGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0UpdateLabelGroupCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateLabelGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0UpdateLabelGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLabelGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1897,6 +2514,28 @@ const serializeAws_json1_0CreateInferenceSchedulerRequest = (
   };
 };
 
+const serializeAws_json1_0CreateLabelGroupRequest = (input: CreateLabelGroupRequest, context: __SerdeContext): any => {
+  return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.FaultCodes != null && { FaultCodes: serializeAws_json1_0FaultCodes(input.FaultCodes, context) }),
+    ...(input.LabelGroupName != null && { LabelGroupName: input.LabelGroupName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_0CreateLabelRequest = (input: CreateLabelRequest, context: __SerdeContext): any => {
+  return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.Equipment != null && { Equipment: input.Equipment }),
+    ...(input.FaultCode != null && { FaultCode: input.FaultCode }),
+    ...(input.LabelGroupName != null && { LabelGroupName: input.LabelGroupName }),
+    ...(input.Notes != null && { Notes: input.Notes }),
+    ...(input.Rating != null && { Rating: input.Rating }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+  };
+};
+
 const serializeAws_json1_0CreateModelRequest = (input: CreateModelRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
@@ -1963,6 +2602,19 @@ const serializeAws_json1_0DeleteInferenceSchedulerRequest = (
   };
 };
 
+const serializeAws_json1_0DeleteLabelGroupRequest = (input: DeleteLabelGroupRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.LabelGroupName != null && { LabelGroupName: input.LabelGroupName }),
+  };
+};
+
+const serializeAws_json1_0DeleteLabelRequest = (input: DeleteLabelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.LabelGroupName != null && { LabelGroupName: input.LabelGroupName }),
+    ...(input.LabelId != null && { LabelId: input.LabelId }),
+  };
+};
+
 const serializeAws_json1_0DeleteModelRequest = (input: DeleteModelRequest, context: __SerdeContext): any => {
   return {
     ...(input.ModelName != null && { ModelName: input.ModelName }),
@@ -1993,10 +2645,34 @@ const serializeAws_json1_0DescribeInferenceSchedulerRequest = (
   };
 };
 
+const serializeAws_json1_0DescribeLabelGroupRequest = (
+  input: DescribeLabelGroupRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LabelGroupName != null && { LabelGroupName: input.LabelGroupName }),
+  };
+};
+
+const serializeAws_json1_0DescribeLabelRequest = (input: DescribeLabelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.LabelGroupName != null && { LabelGroupName: input.LabelGroupName }),
+    ...(input.LabelId != null && { LabelId: input.LabelId }),
+  };
+};
+
 const serializeAws_json1_0DescribeModelRequest = (input: DescribeModelRequest, context: __SerdeContext): any => {
   return {
     ...(input.ModelName != null && { ModelName: input.ModelName }),
   };
+};
+
+const serializeAws_json1_0FaultCodes = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_0InferenceInputConfiguration = (
@@ -2088,6 +2764,7 @@ const serializeAws_json1_0LabelsInputConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.LabelGroupName != null && { LabelGroupName: input.LabelGroupName }),
     ...(input.S3InputConfiguration != null && {
       S3InputConfiguration: serializeAws_json1_0LabelsS3InputConfiguration(input.S3InputConfiguration, context),
     }),
@@ -2163,6 +2840,26 @@ const serializeAws_json1_0ListInferenceSchedulersRequest = (
     }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.ModelName != null && { ModelName: input.ModelName }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_0ListLabelGroupsRequest = (input: ListLabelGroupsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.LabelGroupNameBeginsWith != null && { LabelGroupNameBeginsWith: input.LabelGroupNameBeginsWith }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_0ListLabelsRequest = (input: ListLabelsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Equipment != null && { Equipment: input.Equipment }),
+    ...(input.FaultCode != null && { FaultCode: input.FaultCode }),
+    ...(input.IntervalEndTime != null && { IntervalEndTime: Math.round(input.IntervalEndTime.getTime() / 1000) }),
+    ...(input.IntervalStartTime != null && { IntervalStartTime: Math.round(input.IntervalStartTime.getTime() / 1000) }),
+    ...(input.LabelGroupName != null && { LabelGroupName: input.LabelGroupName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
@@ -2288,6 +2985,13 @@ const serializeAws_json1_0UpdateInferenceSchedulerRequest = (
   };
 };
 
+const serializeAws_json1_0UpdateLabelGroupRequest = (input: UpdateLabelGroupRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.FaultCodes != null && { FaultCodes: serializeAws_json1_0FaultCodes(input.FaultCodes, context) }),
+    ...(input.LabelGroupName != null && { LabelGroupName: input.LabelGroupName }),
+  };
+};
+
 const deserializeAws_json1_0AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     Message: __expectString(output.Message),
@@ -2330,6 +3034,22 @@ const deserializeAws_json1_0CreateInferenceSchedulerResponse = (
     InferenceSchedulerArn: __expectString(output.InferenceSchedulerArn),
     InferenceSchedulerName: __expectString(output.InferenceSchedulerName),
     Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_0CreateLabelGroupResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateLabelGroupResponse => {
+  return {
+    LabelGroupArn: __expectString(output.LabelGroupArn),
+    LabelGroupName: __expectString(output.LabelGroupName),
+  } as any;
+};
+
+const deserializeAws_json1_0CreateLabelResponse = (output: any, context: __SerdeContext): CreateLabelResponse => {
+  return {
+    LabelId: __expectString(output.LabelId),
   } as any;
 };
 
@@ -2523,6 +3243,7 @@ const deserializeAws_json1_0DescribeInferenceSchedulerResponse = (
     DataUploadFrequency: __expectString(output.DataUploadFrequency),
     InferenceSchedulerArn: __expectString(output.InferenceSchedulerArn),
     InferenceSchedulerName: __expectString(output.InferenceSchedulerName),
+    LatestInferenceResult: __expectString(output.LatestInferenceResult),
     ModelArn: __expectString(output.ModelArn),
     ModelName: __expectString(output.ModelName),
     RoleArn: __expectString(output.RoleArn),
@@ -2530,6 +3251,39 @@ const deserializeAws_json1_0DescribeInferenceSchedulerResponse = (
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0DescribeLabelGroupResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeLabelGroupResponse => {
+  return {
+    CreatedAt:
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
+    FaultCodes: output.FaultCodes != null ? deserializeAws_json1_0FaultCodes(output.FaultCodes, context) : undefined,
+    LabelGroupArn: __expectString(output.LabelGroupArn),
+    LabelGroupName: __expectString(output.LabelGroupName),
+    UpdatedAt:
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0DescribeLabelResponse = (output: any, context: __SerdeContext): DescribeLabelResponse => {
+  return {
+    CreatedAt:
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
+    EndTime:
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    Equipment: __expectString(output.Equipment),
+    FaultCode: __expectString(output.FaultCode),
+    LabelGroupArn: __expectString(output.LabelGroupArn),
+    LabelGroupName: __expectString(output.LabelGroupName),
+    LabelId: __expectString(output.LabelId),
+    Notes: __expectString(output.Notes),
+    Rating: __expectString(output.Rating),
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
   } as any;
 };
 
@@ -2591,6 +3345,18 @@ const deserializeAws_json1_0DuplicateTimestamps = (output: any, context: __Serde
   return {
     TotalNumberOfDuplicateTimestamps: __expectInt32(output.TotalNumberOfDuplicateTimestamps),
   } as any;
+};
+
+const deserializeAws_json1_0FaultCodes = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_0InferenceEventSummaries = (
@@ -2762,6 +3528,7 @@ const deserializeAws_json1_0InferenceSchedulerSummary = (
     DataUploadFrequency: __expectString(output.DataUploadFrequency),
     InferenceSchedulerArn: __expectString(output.InferenceSchedulerArn),
     InferenceSchedulerName: __expectString(output.InferenceSchedulerName),
+    LatestInferenceResult: __expectString(output.LatestInferenceResult),
     ModelArn: __expectString(output.ModelArn),
     ModelName: __expectString(output.ModelName),
     Status: __expectString(output.Status),
@@ -2831,11 +3598,35 @@ const deserializeAws_json1_0InvalidSensorData = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_0LabelGroupSummaries = (output: any, context: __SerdeContext): LabelGroupSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0LabelGroupSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0LabelGroupSummary = (output: any, context: __SerdeContext): LabelGroupSummary => {
+  return {
+    CreatedAt:
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
+    LabelGroupArn: __expectString(output.LabelGroupArn),
+    LabelGroupName: __expectString(output.LabelGroupName),
+    UpdatedAt:
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0LabelsInputConfiguration = (
   output: any,
   context: __SerdeContext
 ): LabelsInputConfiguration => {
   return {
+    LabelGroupName: __expectString(output.LabelGroupName),
     S3InputConfiguration:
       output.S3InputConfiguration != null
         ? deserializeAws_json1_0LabelsS3InputConfiguration(output.S3InputConfiguration, context)
@@ -2850,6 +3641,35 @@ const deserializeAws_json1_0LabelsS3InputConfiguration = (
   return {
     Bucket: __expectString(output.Bucket),
     Prefix: __expectString(output.Prefix),
+  } as any;
+};
+
+const deserializeAws_json1_0LabelSummaries = (output: any, context: __SerdeContext): LabelSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0LabelSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0LabelSummary = (output: any, context: __SerdeContext): LabelSummary => {
+  return {
+    CreatedAt:
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
+    EndTime:
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    Equipment: __expectString(output.Equipment),
+    FaultCode: __expectString(output.FaultCode),
+    LabelGroupArn: __expectString(output.LabelGroupArn),
+    LabelGroupName: __expectString(output.LabelGroupName),
+    LabelId: __expectString(output.LabelId),
+    Rating: __expectString(output.Rating),
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
   } as any;
 };
 
@@ -2919,6 +3739,27 @@ const deserializeAws_json1_0ListInferenceSchedulersResponse = (
       output.InferenceSchedulerSummaries != null
         ? deserializeAws_json1_0InferenceSchedulerSummaries(output.InferenceSchedulerSummaries, context)
         : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_0ListLabelGroupsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListLabelGroupsResponse => {
+  return {
+    LabelGroupSummaries:
+      output.LabelGroupSummaries != null
+        ? deserializeAws_json1_0LabelGroupSummaries(output.LabelGroupSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_0ListLabelsResponse = (output: any, context: __SerdeContext): ListLabelsResponse => {
+  return {
+    LabelSummaries:
+      output.LabelSummaries != null ? deserializeAws_json1_0LabelSummaries(output.LabelSummaries, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
