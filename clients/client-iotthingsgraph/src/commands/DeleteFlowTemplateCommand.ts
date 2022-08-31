@@ -28,6 +28,8 @@ export interface DeleteFlowTemplateCommandInput extends DeleteFlowTemplateReques
 export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Deletes a workflow. Any new system or deployment that contains this workflow will fail to update or deploy.
  *          Existing deployments that contain the workflow will continue to run (since they use a snapshot of the workflow taken at the time of deployment).</p>
  * @example

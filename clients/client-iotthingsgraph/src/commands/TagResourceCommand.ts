@@ -28,6 +28,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Creates a tag for the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

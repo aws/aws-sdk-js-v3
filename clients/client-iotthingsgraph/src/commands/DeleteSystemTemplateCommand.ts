@@ -28,6 +28,8 @@ export interface DeleteSystemTemplateCommandInput extends DeleteSystemTemplateRe
 export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Deletes a system. New deployments can't contain the system after its deletion.
  *       Existing deployments that contain the system will continue to work because they use a snapshot of the system that is taken when it is deployed.</p>
  * @example

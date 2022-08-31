@@ -28,6 +28,8 @@ export interface SearchFlowTemplatesCommandInput extends SearchFlowTemplatesRequ
 export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Searches for summary information about workflows.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

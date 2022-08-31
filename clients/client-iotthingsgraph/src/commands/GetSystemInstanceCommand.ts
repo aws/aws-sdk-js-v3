@@ -28,6 +28,8 @@ export interface GetSystemInstanceCommandInput extends GetSystemInstanceRequest 
 export interface GetSystemInstanceCommandOutput extends GetSystemInstanceResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Gets a system instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

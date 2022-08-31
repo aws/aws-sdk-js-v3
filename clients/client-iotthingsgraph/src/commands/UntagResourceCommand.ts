@@ -28,6 +28,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Removes a tag from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

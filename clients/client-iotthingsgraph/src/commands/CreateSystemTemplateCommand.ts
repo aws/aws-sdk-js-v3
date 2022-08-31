@@ -28,6 +28,8 @@ export interface CreateSystemTemplateCommandInput extends CreateSystemTemplateRe
 export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Creates a system. The system is validated against the entities in the
  *          latest version of the user's namespace unless another namespace version is specified in the request.</p>
  * @example

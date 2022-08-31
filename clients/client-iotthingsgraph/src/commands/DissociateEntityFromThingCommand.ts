@@ -28,6 +28,8 @@ export interface DissociateEntityFromThingCommandInput extends DissociateEntityF
 export interface DissociateEntityFromThingCommandOutput extends DissociateEntityFromThingResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only
  *          one entity of a particular type can be associated with a thing.</p>
  * @example

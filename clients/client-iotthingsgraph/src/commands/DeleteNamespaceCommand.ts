@@ -28,7 +28,10 @@ export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
 export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows that use entities in the namespace before performing this action.</p>
+ * @deprecated
+ *
+ * <p>Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows that use entities in the namespace before performing this action. This action takes no
+ *       request parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

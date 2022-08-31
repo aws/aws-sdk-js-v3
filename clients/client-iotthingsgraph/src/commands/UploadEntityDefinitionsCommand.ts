@@ -28,6 +28,8 @@ export interface UploadEntityDefinitionsCommandInput extends UploadEntityDefinit
 export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Asynchronously uploads one or more entity definitions to the user's namespace. The <code>document</code> parameter is required if
  *       <code>syncWithPublicNamespace</code> and <code>deleteExistingEntites</code> are false. If the <code>syncWithPublicNamespace</code> parameter  is set to
  *          <code>true</code>, the user's namespace will synchronize with the latest version of the public namespace. If <code>deprecateExistingEntities</code> is set to true,

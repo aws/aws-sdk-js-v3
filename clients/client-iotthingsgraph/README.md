@@ -16,6 +16,8 @@ such as units of measure and communication protocols. AWS IoT Things Graph makes
 and defining how they interact at an abstract level.</p>
 <p>For more information about how AWS IoT Things Graph works, see the <a href="https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-whatis.html">User Guide</a>.</p>
 
+<p>The AWS IoT Things Graph service is discontinued.</p>
+
 ## Installing
 
 To install the this package, simply type add or install @aws-sdk/client-iotthingsgraph

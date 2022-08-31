@@ -28,6 +28,8 @@ export interface GetEntitiesCommandInput extends GetEntitiesRequest {}
 export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the
  *       following TDM entities.</p>
  *          <ul>

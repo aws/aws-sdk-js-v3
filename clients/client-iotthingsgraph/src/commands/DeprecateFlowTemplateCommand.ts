@@ -28,6 +28,8 @@ export interface DeprecateFlowTemplateCommandInput extends DeprecateFlowTemplate
 export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplateResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated flows can't be deployed, but existing deployments will continue to run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -28,6 +28,8 @@ export interface DeleteSystemInstanceCommandInput extends DeleteSystemInstanceRe
 export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Deletes a system instance.
  *          Only system instances that have never been deployed, or that have been undeployed can be deleted.</p>
  *          <p>Users can create a new system instance that has the same ID as a deleted system instance.</p>

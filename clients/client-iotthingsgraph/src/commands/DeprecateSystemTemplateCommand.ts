@@ -28,6 +28,8 @@ export interface DeprecateSystemTemplateCommandInput extends DeprecateSystemTemp
 export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTemplateResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Deprecates the specified system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

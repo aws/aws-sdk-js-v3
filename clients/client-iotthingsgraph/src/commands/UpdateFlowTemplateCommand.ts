@@ -28,6 +28,8 @@ export interface UpdateFlowTemplateCommandInput extends UpdateFlowTemplateReques
 export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. If you don't want this
  *          behavior, copy the workflow (creating a new workflow with a different ID), and update the copy. The workflow can contain only entities in the specified namespace. </p>
  * @example

@@ -28,6 +28,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Lists all tags on an AWS IoT Things Graph resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

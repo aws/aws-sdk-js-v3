@@ -28,6 +28,8 @@ export interface GetUploadStatusCommandInput extends GetUploadStatusRequest {}
 export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Gets the status of the specified upload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

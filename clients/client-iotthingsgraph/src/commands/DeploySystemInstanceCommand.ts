@@ -28,6 +28,8 @@ export interface DeploySystemInstanceCommandInput extends DeploySystemInstanceRe
 export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>
  *             <b>Greengrass and Cloud Deployments</b>
  *          </p>

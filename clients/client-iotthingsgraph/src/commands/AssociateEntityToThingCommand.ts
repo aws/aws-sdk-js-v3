@@ -28,6 +28,8 @@ export interface AssociateEntityToThingCommandInput extends AssociateEntityToThi
 export interface AssociateEntityToThingCommandOutput extends AssociateEntityToThingResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Associates a device with a concrete thing that is in the user's registry.</p>
  *          <p>A thing can be associated with only one device at a time. If you associate a thing with a new device id, its previous association will be removed.</p>
  * @example

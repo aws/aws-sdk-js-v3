@@ -28,6 +28,8 @@ export interface SearchFlowExecutionsCommandInput extends SearchFlowExecutionsRe
 export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Searches for AWS IoT Things Graph workflow execution instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

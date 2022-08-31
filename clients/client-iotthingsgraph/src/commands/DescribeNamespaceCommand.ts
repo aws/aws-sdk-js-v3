@@ -28,6 +28,8 @@ export interface DescribeNamespaceCommandInput extends DescribeNamespaceRequest 
 export interface DescribeNamespaceCommandOutput extends DescribeNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Gets the latest version of the user's namespace and the public version that it is tracking.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -28,6 +28,8 @@ export interface ListFlowExecutionMessagesCommandInput extends ListFlowExecution
 export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutionMessagesResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Returns a list of objects that contain information about events in a flow execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -28,6 +28,8 @@ export interface SearchSystemInstancesCommandInput extends SearchSystemInstances
 export interface SearchSystemInstancesCommandOutput extends SearchSystemInstancesResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Searches for system instances in the user's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
