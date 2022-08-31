@@ -30,7 +30,7 @@ export interface GetOriginAccessControlConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets a CloudFront origin access control.</p>
+ * <p>Gets a CloudFront origin access control configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

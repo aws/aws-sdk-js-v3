@@ -2246,7 +2246,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Gets a CloudFront origin access control.</p>
+   * <p>Gets a CloudFront origin access control, including its unique identifier.</p>
    */
   public getOriginAccessControl(
     args: GetOriginAccessControlCommandInput,
@@ -2278,7 +2278,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Gets a CloudFront origin access control.</p>
+   * <p>Gets a CloudFront origin access control configuration.</p>
    */
   public getOriginAccessControlConfig(
     args: GetOriginAccessControlConfigCommandInput,

@@ -1062,7 +1062,7 @@ export interface GetOriginAccessControlRequest {
 
 export interface GetOriginAccessControlResult {
   /**
-   * <p>Contains an origin access control.</p>
+   * <p>Contains an origin access control, including its unique identifier.</p>
    */
   OriginAccessControl?: OriginAccessControl;
 
@@ -1081,7 +1081,7 @@ export interface GetOriginAccessControlConfigRequest {
 
 export interface GetOriginAccessControlConfigResult {
   /**
-   * <p>Contains an origin access control.</p>
+   * <p>Contains an origin access control configuration.</p>
    */
   OriginAccessControlConfig?: OriginAccessControlConfig;
 

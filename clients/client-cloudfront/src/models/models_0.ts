@@ -5657,7 +5657,7 @@ export enum OriginAccessControlSigningProtocols {
 }
 
 /**
- * <p>A CloudFront origin access control.</p>
+ * <p>A CloudFront origin access control configuration.</p>
  */
 export interface OriginAccessControlConfig {
   /**
@@ -5701,8 +5701,8 @@ export interface OriginAccessControlConfig {
    * 					sign the origin request and instead passes along the <code>Authorization</code>
    * 					header from the viewer request. <b>WARNING: To pass along the
    * 					<code>Authorization</code> header from the viewer request, you
-   * 					<i>must</i> add the <code>Authorization</code> header to an <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html">origin request policy</a> for all cache behaviors that
-   * 					use origins associated with this origin access control.</b>
+   * 					<i>must</i> add the <code>Authorization</code> header to a <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html">cache policy</a> for all cache behaviors that use
+   * 					origins associated with this origin access control.</b>
    *                </p>
    * 			         </li>
    *          </ul>
@@ -5724,7 +5724,7 @@ export interface CreateOriginAccessControlRequest {
 }
 
 /**
- * <p>A CloudFront origin access control.</p>
+ * <p>A CloudFront origin access control, including its unique identifier.</p>
  */
 export interface OriginAccessControl {
   /**
