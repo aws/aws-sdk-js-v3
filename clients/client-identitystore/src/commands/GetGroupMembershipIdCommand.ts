@@ -14,45 +14,45 @@ import {
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import {
-  DescribeUserRequest,
-  DescribeUserRequestFilterSensitiveLog,
-  DescribeUserResponse,
-  DescribeUserResponseFilterSensitiveLog,
+  GetGroupMembershipIdRequest,
+  GetGroupMembershipIdRequestFilterSensitiveLog,
+  GetGroupMembershipIdResponse,
+  GetGroupMembershipIdResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeUserCommand,
-  serializeAws_json1_1DescribeUserCommand,
+  deserializeAws_json1_1GetGroupMembershipIdCommand,
+  serializeAws_json1_1GetGroupMembershipIdCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface DescribeUserCommandInput extends DescribeUserRequest {}
-export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
+export interface GetGroupMembershipIdCommandInput extends GetGroupMembershipIdRequest {}
+export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the user metadata and attributes from the <code>UserId</code> in an identity store.</p>
+ * <p>Retrieves the <code>MembershipId</code> in a group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IdentitystoreClient, DescribeUserCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
- * // const { IdentitystoreClient, DescribeUserCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * import { IdentitystoreClient, GetGroupMembershipIdCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
+ * // const { IdentitystoreClient, GetGroupMembershipIdCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
- * const command = new DescribeUserCommand(input);
+ * const command = new GetGroupMembershipIdCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeUserCommandInput} for command's `input` shape.
- * @see {@link DescribeUserCommandOutput} for command's `response` shape.
+ * @see {@link GetGroupMembershipIdCommandInput} for command's `input` shape.
+ * @see {@link GetGroupMembershipIdCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
  *
  */
-export class DescribeUserCommand extends $Command<
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput,
+export class GetGroupMembershipIdCommand extends $Command<
+  GetGroupMembershipIdCommandInput,
+  GetGroupMembershipIdCommandOutput,
   IdentitystoreClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeUserCommandInput) {
+  constructor(readonly input: GetGroupMembershipIdCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -65,20 +65,20 @@ export class DescribeUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IdentitystoreClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeUserCommandInput, DescribeUserCommandOutput> {
+  ): Handler<GetGroupMembershipIdCommandInput, GetGroupMembershipIdCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IdentitystoreClient";
-    const commandName = "DescribeUserCommand";
+    const commandName = "GetGroupMembershipIdCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: GetGroupMembershipIdRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetGroupMembershipIdResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +88,12 @@ export class DescribeUserCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserCommand(input, context);
+  private serialize(input: GetGroupMembershipIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1GetGroupMembershipIdCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserCommandOutput> {
-    return deserializeAws_json1_1DescribeUserCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupMembershipIdCommandOutput> {
+    return deserializeAws_json1_1GetGroupMembershipIdCommand(output, context);
   }
 
   // Start section: command_body_extra

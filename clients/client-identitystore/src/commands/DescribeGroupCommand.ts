@@ -28,8 +28,7 @@ export interface DescribeGroupCommandInput extends DescribeGroupRequest {}
 export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the group metadata and attributes from <code>GroupId</code> in an identity
- *          store.</p>
+ * <p>Retrieves the group metadata and attributes from <code>GroupId</code> in an identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

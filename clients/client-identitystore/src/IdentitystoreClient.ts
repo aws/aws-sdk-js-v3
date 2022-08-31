@@ -53,23 +53,86 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
+import {
+  CreateGroupMembershipCommandInput,
+  CreateGroupMembershipCommandOutput,
+} from "./commands/CreateGroupMembershipCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
+import {
+  DeleteGroupMembershipCommandInput,
+  DeleteGroupMembershipCommandOutput,
+} from "./commands/DeleteGroupMembershipCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand";
+import {
+  DescribeGroupMembershipCommandInput,
+  DescribeGroupMembershipCommandOutput,
+} from "./commands/DescribeGroupMembershipCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
+import { GetGroupIdCommandInput, GetGroupIdCommandOutput } from "./commands/GetGroupIdCommand";
+import {
+  GetGroupMembershipIdCommandInput,
+  GetGroupMembershipIdCommandOutput,
+} from "./commands/GetGroupMembershipIdCommand";
+import { GetUserIdCommandInput, GetUserIdCommandOutput } from "./commands/GetUserIdCommand";
+import { IsMemberInGroupsCommandInput, IsMemberInGroupsCommandOutput } from "./commands/IsMemberInGroupsCommand";
+import {
+  ListGroupMembershipsCommandInput,
+  ListGroupMembershipsCommandOutput,
+} from "./commands/ListGroupMembershipsCommand";
+import {
+  ListGroupMembershipsForMemberCommandInput,
+  ListGroupMembershipsForMemberCommandOutput,
+} from "./commands/ListGroupMembershipsForMemberCommand";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | CreateGroupCommandInput
+  | CreateGroupMembershipCommandInput
+  | CreateUserCommandInput
+  | DeleteGroupCommandInput
+  | DeleteGroupMembershipCommandInput
+  | DeleteUserCommandInput
   | DescribeGroupCommandInput
+  | DescribeGroupMembershipCommandInput
   | DescribeUserCommandInput
+  | GetGroupIdCommandInput
+  | GetGroupMembershipIdCommandInput
+  | GetUserIdCommandInput
+  | IsMemberInGroupsCommandInput
+  | ListGroupMembershipsCommandInput
+  | ListGroupMembershipsForMemberCommandInput
   | ListGroupsCommandInput
-  | ListUsersCommandInput;
+  | ListUsersCommandInput
+  | UpdateGroupCommandInput
+  | UpdateUserCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateGroupCommandOutput
+  | CreateGroupMembershipCommandOutput
+  | CreateUserCommandOutput
+  | DeleteGroupCommandOutput
+  | DeleteGroupMembershipCommandOutput
+  | DeleteUserCommandOutput
   | DescribeGroupCommandOutput
+  | DescribeGroupMembershipCommandOutput
   | DescribeUserCommandOutput
+  | GetGroupIdCommandOutput
+  | GetGroupMembershipIdCommandOutput
+  | GetUserIdCommandOutput
+  | IsMemberInGroupsCommandOutput
+  | ListGroupMembershipsCommandOutput
+  | ListGroupMembershipsForMemberCommandOutput
   | ListGroupsCommandOutput
-  | ListUsersCommandOutput;
+  | ListUsersCommandOutput
+  | UpdateGroupCommandOutput
+  | UpdateUserCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -225,18 +288,9 @@ type IdentitystoreClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface IdentitystoreClientResolvedConfig extends IdentitystoreClientResolvedConfigType {}
 
 /**
- * <p>The Identity Store service used by AWS IAM Identity Center (successor to AWS Single Sign-On) provides a single place to retrieve all of
- *          your identities (users and groups). For more information, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">IAM Identity Center User
+ * <p>The AWS Single Sign-On (SSO) Identity Store service provides a single place to retrieve all of your
+ *          identities (users and groups). For more information about AWS, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">AWS Single Sign-On User
  *             Guide</a>.</p>
- *
- *          <note>
- *             <p>Although AWS Single Sign-On was renamed, the <code>sso</code> and
- *             <code>identitystore</code> API namespaces will continue to retain their original name for
- *             backward compatibility purposes. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed">IAM Identity Center rename</a>.</p>
- *          </note>
- *
- *          <p>This reference guide describes the identity store operations that you can call
- *          programatically and includes detailed information on data types and errors.</p>
  */
 export class IdentitystoreClient extends __Client<
   __HttpHandlerOptions,

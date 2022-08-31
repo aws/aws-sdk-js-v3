@@ -14,45 +14,45 @@ import {
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import {
-  DescribeUserRequest,
-  DescribeUserRequestFilterSensitiveLog,
-  DescribeUserResponse,
-  DescribeUserResponseFilterSensitiveLog,
+  DeleteUserRequest,
+  DeleteUserRequestFilterSensitiveLog,
+  DeleteUserResponse,
+  DeleteUserResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeUserCommand,
-  serializeAws_json1_1DescribeUserCommand,
+  deserializeAws_json1_1DeleteUserCommand,
+  serializeAws_json1_1DeleteUserCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface DescribeUserCommandInput extends DescribeUserRequest {}
-export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
+export interface DeleteUserCommandInput extends DeleteUserRequest {}
+export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the user metadata and attributes from the <code>UserId</code> in an identity store.</p>
+ * <p>Deletes a user within an identity store given <code>UserId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IdentitystoreClient, DescribeUserCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
- * // const { IdentitystoreClient, DescribeUserCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * import { IdentitystoreClient, DeleteUserCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
+ * // const { IdentitystoreClient, DeleteUserCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
- * const command = new DescribeUserCommand(input);
+ * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeUserCommandInput} for command's `input` shape.
- * @see {@link DescribeUserCommandOutput} for command's `response` shape.
+ * @see {@link DeleteUserCommandInput} for command's `input` shape.
+ * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
  *
  */
-export class DescribeUserCommand extends $Command<
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput,
+export class DeleteUserCommand extends $Command<
+  DeleteUserCommandInput,
+  DeleteUserCommandOutput,
   IdentitystoreClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeUserCommandInput) {
+  constructor(readonly input: DeleteUserCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -65,20 +65,20 @@ export class DescribeUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IdentitystoreClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeUserCommandInput, DescribeUserCommandOutput> {
+  ): Handler<DeleteUserCommandInput, DeleteUserCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IdentitystoreClient";
-    const commandName = "DescribeUserCommand";
+    const commandName = "DeleteUserCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +88,12 @@ export class DescribeUserCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserCommand(input, context);
+  private serialize(input: DeleteUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DeleteUserCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserCommandOutput> {
-    return deserializeAws_json1_1DescribeUserCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserCommandOutput> {
+    return deserializeAws_json1_1DeleteUserCommand(output, context);
   }
 
   // Start section: command_body_extra

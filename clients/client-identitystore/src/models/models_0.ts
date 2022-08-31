@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { DocumentType as __DocumentType } from "@aws-sdk/types";
 
 import { IdentitystoreServiceException as __BaseException } from "./IdentitystoreServiceException";
 
@@ -31,70 +32,175 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export interface DescribeGroupRequest {
+/**
+ * <p>The address associated with the specified user.</p>
+ */
+export interface Address {
   /**
-   * <p>The globally unique identifier for the identity store, such as
-   *          <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and
-   *             <code>1234567890</code> is a randomly generated string that contains number and lower
-   *          case letters. This value is generated at the time that a new identity store is
-   *          created.</p>
+   * <p>The street of the address.</p>
+   */
+  StreetAddress?: string;
+
+  /**
+   * <p>A string of the address locality.</p>
+   */
+  Locality?: string;
+
+  /**
+   * <p>The region of the address.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>The postal code of the address.</p>
+   */
+  PostalCode?: string;
+
+  /**
+   * <p>The country of the address.</p>
+   */
+  Country?: string;
+
+  /**
+   * <p>A string containing a formatted version of the address for display.</p>
+   */
+  Formatted?: string;
+
+  /**
+   * <p>A string representing the type of address. For example, "Home."</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>A boolean representing whether this is the primary address for the associated resource.</p>
+   */
+  Primary?: boolean;
+}
+
+/**
+ * <p>The identifier issued to this resource by an external identity provider.</p>
+ */
+export interface ExternalId {
+  /**
+   * <p>The issuer for an external identifier.</p>
+   */
+  Issuer: string | undefined;
+
+  /**
+   * <p>The identifier issued to this resource by an external identity provider.</p>
+   */
+  Id: string | undefined;
+}
+
+/**
+ * <p>An entity attribute that's unique to a specific entity.</p>
+ */
+export interface UniqueAttribute {
+  /**
+   * <p>A string representation of the path to a given attribute or sub-attribute. Supports
+   *          JMESPath.</p>
+   */
+  AttributePath: string | undefined;
+
+  /**
+   * <p>The value of the attribute.</p>
+   */
+  AttributeValue: __DocumentType | undefined;
+}
+
+/**
+ * <p>A unique identifier for the group value that is not the group's primary identifier. This value can be
+ *          an identifier from an external identity provider (IdP) that is associated with the group or a unique attribute. For example, a
+ *          unique <code>GroupDisplayName</code>.</p>
+ */
+export type AlternateIdentifier =
+  | AlternateIdentifier.ExternalIdMember
+  | AlternateIdentifier.UniqueAttributeMember
+  | AlternateIdentifier.$UnknownMember;
+
+export namespace AlternateIdentifier {
+  /**
+   * <p>The identifier issued to this resource by an external identity provider.</p>
+   */
+  export interface ExternalIdMember {
+    ExternalId: ExternalId;
+    UniqueAttribute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An entity attribute that's unique to a specific entity.</p>
+   */
+  export interface UniqueAttributeMember {
+    ExternalId?: never;
+    UniqueAttribute: UniqueAttribute;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    ExternalId?: never;
+    UniqueAttribute?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ExternalId: (value: ExternalId) => T;
+    UniqueAttribute: (value: UniqueAttribute) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AlternateIdentifier, visitor: Visitor<T>): T => {
+    if (value.ExternalId !== undefined) return visitor.ExternalId(value.ExternalId);
+    if (value.UniqueAttribute !== undefined) return visitor.UniqueAttribute(value.UniqueAttribute);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>An operation that applies to the requested group. This operation might add, replace, or remove an attribute.</p>
+ */
+export interface AttributeOperation {
+  /**
+   * <p>A string representation of the path to a given attribute or sub-attribute. Supports
+   *          JMESPath.</p>
+   */
+  AttributePath: string | undefined;
+
+  /**
+   * <p>The value of the attribute.</p>
+   */
+  AttributeValue?: __DocumentType;
+}
+
+export interface GetGroupIdRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
    */
   IdentityStoreId: string | undefined;
 
   /**
+   * <p>A unique identifier for the group value that is not the group's primary identifier. This value can be
+   *          an identifier from an external identity provider (IdP) that is associated with the group or a unique attribute. For example, a
+   *          unique <code>GroupDisplayName</code>.</p>
+   */
+  AlternateIdentifier: AlternateIdentifier | undefined;
+}
+
+export interface GetGroupIdResponse {
+  /**
    * <p>The identifier for a group in the identity store.</p>
    */
   GroupId: string | undefined;
-}
-
-export interface DescribeGroupResponse {
-  /**
-   * <p>The identifier for a group in the identity store.</p>
-   */
-  GroupId: string | undefined;
 
   /**
-   * <p>Contains the group’s display name value. The length limit is 1,024 characters. This
-   *          value can consist of letters, accented characters, symbols, numbers, punctuation, tab, new
-   *          line, carriage return, space, and nonbreaking space in this attribute. The characters
-   *             <code><>;:%</code> are excluded. This value is specified at the time that the
-   *          group is created and stored as an attribute of the group object in the identity
-   *          store.</p>
+   * <p>The globally unique identifier for the identity store.</p>
    */
-  DisplayName: string | undefined;
-}
-
-/**
- * <p>The request processing has failed because of an unknown error, exception or failure with
- *          an internal server.</p>
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string;
-  /**
-   * <p>The identifier for each request. This value is a globally unique ID that is generated by
-   *          the identity store service for each sent request, and is then returned inside the exception
-   *          if the request fails.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
+  IdentityStoreId: string | undefined;
 }
 
 export enum ResourceType {
   GROUP = "GROUP",
+  GROUP_MEMBERSHIP = "GROUP_MEMBERSHIP",
   IDENTITY_STORE = "IDENTITY_STORE",
   USER = "USER",
 }
@@ -106,20 +212,12 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * <p>The type of resource in the identity store service, which is an enum object. Valid
-   *          values include USER, GROUP, and IDENTITY_STORE.</p>
+   * <p>An enum object indicating the type of resource in the identity store service. Valid values include USER, GROUP, and IDENTITY_STORE.</p>
    */
   ResourceType?: ResourceType | string;
 
   /**
-   * <p>The identifier for a resource in the identity store, which can be used as
-   *             <code>UserId</code> or <code>GroupId</code>. The format for <code>ResourceId</code> is
-   *          either <code>UUID</code> or <code>1234567890-UUID</code>, where <code>UUID</code> is a
-   *          randomly generated value for each resource when it is created and <code>1234567890</code>
-   *          represents the <code>IdentityStoreId</code> string value. In the case that the identity
-   *          store is migrated from a legacy single sign-on identity store, the <code>ResourceId</code> for that
-   *          identity store will be in the format of <code>UUID</code>. Otherwise, it will be in the
-   *             <code>1234567890-UUID</code> format.</p>
+   * <p>The identifier for a resource in the identity store that can be used as <code>UserId</code> or <code>GroupId</code>. The format for <code>ResourceId</code> is either <code>UUID</code> or <code>1234567890-UUID</code>, where <code>UUID</code> is a randomly generated value for each resource when it is created and <code>1234567890</code> represents the <code>IdentityStoreId</code> string value. In the case that the identity store is migrated from a legacy SSO identity store, the <code>ResourceId</code> for that identity store will be in the format of <code>UUID</code>. Otherwise, it will be in the <code>1234567890-UUID</code> format.</p>
    */
   ResourceId?: string;
 
@@ -142,35 +240,6 @@ export class ResourceNotFoundException extends __BaseException {
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.ResourceType = opts.ResourceType;
     this.ResourceId = opts.ResourceId;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>Indicates that the principal has crossed the throttling limits of the API
- *          operations.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The identifier for each request. This value is a globally unique ID that is generated by
-   *          the identity store service for each sent request, and is then returned inside the exception
-   *          if the request fails.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
     this.Message = opts.Message;
     this.RequestId = opts.RequestId;
   }
@@ -204,40 +273,402 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export interface DescribeUserRequest {
+/**
+ * <p>An object containing the identifier of a group member.</p>
+ */
+export type MemberId = MemberId.UserIdMember | MemberId.$UnknownMember;
+
+export namespace MemberId {
+  /**
+   * <p>An object containing the identifiers of resources that can be members.</p>
+   */
+  export interface UserIdMember {
+    UserId: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    UserId?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    UserId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MemberId, visitor: Visitor<T>): T => {
+    if (value.UserId !== undefined) return visitor.UserId(value.UserId);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+export interface GetGroupMembershipIdRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a group in the identity store.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>An object that contains the identifier of a group member. Setting the <code>UserID</code> field to the specific identifier for a user indicates that the user is a member of the group.</p>
+   */
+  MemberId: MemberId | undefined;
+}
+
+export interface GetGroupMembershipIdResponse {
+  /**
+   * <p>The identifier for a <code>GroupMembership</code> in the identity store.</p>
+   */
+  MembershipId: string | undefined;
+
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+}
+
+export interface GetUserIdRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>Any unique attribute associated with a user that is not the <code>UserId</code>.</p>
+   */
+  AlternateIdentifier: AlternateIdentifier | undefined;
+}
+
+export interface GetUserIdResponse {
+  /**
+   * <p>The identifier for a user in the identity store.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+}
+
+export enum ConflictExceptionReason {
+  CONCURRENT_MODIFICATION = "CONCURRENT_MODIFICATION",
+  UNIQUENESS_CONSTRAINT_VIOLATION = "UNIQUENESS_CONSTRAINT_VIOLATION",
+}
+
+/**
+ * <p>This request cannot be completed for one of the following reasons:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Performing the requested operation would violate an existing uniqueness claim in the identity store. Resolve the conflict before retrying this request.</p>
+ *             </li>
+ *             <li>
+ *                <p>The requested resource was being concurrently modified by another request.</p>
+ *             </li>
+ *          </ul>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The identifier for each request. This value is a globally unique ID that is generated by the identity store service for each sent request, and is then returned inside the exception if the request fails.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>This request cannot be completed for one of the following reasons:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Performing the requested operation would violate an existing uniqueness claim in the identity store. Resolve the conflict before retrying this request.</p>
+   *             </li>
+   *             <li>
+   *                <p>The requested resource was being concurrently modified by another request.</p>
+   *             </li>
+   *          </ul>
+   */
+  Reason?: ConflictExceptionReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+    this.Reason = opts.Reason;
+  }
+}
+
+export interface CreateGroupMembershipRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a group in the identity store.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>An object that contains the identifier of a group member. Setting the <code>UserID</code> field to the specific identifier for a user indicates that the user is a member of the group.</p>
+   */
+  MemberId: MemberId | undefined;
+}
+
+export interface CreateGroupMembershipResponse {
+  /**
+   * <p>The identifier for a <code>GroupMembership</code> in the identity store.</p>
+   */
+  MembershipId: string | undefined;
+
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+}
+
+/**
+ * <p>The request would cause the number of users or groups in the identity store to exceed the maximum allowed.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The identifier for each request. This value is a globally unique ID that is generated by the identity store service for each sent request, and is then returned inside the exception if the request fails.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+export interface DeleteGroupMembershipRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a <code>GroupMembership</code> in the identity store.</p>
+   */
+  MembershipId: string | undefined;
+}
+
+export interface DeleteGroupMembershipResponse {}
+
+export interface DescribeGroupMembershipRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a <code>GroupMembership</code> in the identity store.</p>
+   */
+  MembershipId: string | undefined;
+}
+
+export interface DescribeGroupMembershipResponse {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a <code>GroupMembership</code> in the identity store.</p>
+   */
+  MembershipId: string | undefined;
+
+  /**
+   * <p>The identifier for a group in the identity store.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>An object containing the identifier of a group member.</p>
+   */
+  MemberId: MemberId | undefined;
+}
+
+export interface ListGroupMembershipsRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a group in the identity store.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request. This parameter is used in the
+   *             <code>ListUsers</code> and <code>ListGroups</code> requests to specify how many results
+   *          to return in one page. The length limit is 50 characters.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code> and <code>ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Contains the identifiers for a group, a group member, and a <code>GroupMembership</code>
+ *          object in the identity store.</p>
+ */
+export interface GroupMembership {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a <code>GroupMembership</code> object in the identity store.</p>
+   */
+  MembershipId?: string;
+
+  /**
+   * <p>The identifier for a group in the identity store.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>An object that contains the identifier of a group member. Setting the <code>UserID</code> field to the specific identifier for a user indicates that the user is a member of the group.</p>
+   */
+  MemberId?: MemberId;
+}
+
+export interface ListGroupMembershipsResponse {
+  /**
+   * <p>A list of <code>GroupMembership</code> objects in the group.</p>
+   */
+  GroupMemberships: GroupMembership[] | undefined;
+
+  /**
+   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code> and <code>ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
+   */
+  NextToken?: string;
+}
+
+export interface CreateGroupRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>A string containing the name of the group. This value is commonly displayed when the group is referenced.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>A string containing the description of the group.</p>
+   */
+  Description?: string;
+}
+
+export interface CreateGroupResponse {
+  /**
+   * <p>The identifier of the newly created group in the identity store.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+}
+
+export interface DeleteGroupRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a group in the identity store.</p>
+   */
+  GroupId: string | undefined;
+}
+
+export interface DeleteGroupResponse {}
+
+export interface DescribeGroupRequest {
   /**
    * <p>The globally unique identifier for the identity store, such as
    *          <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and
-   *             <code>1234567890</code> is a randomly generated string that contains number and lower
+   *             <code>1234567890</code> is a randomly generated string that contains numbers and lower
    *          case letters. This value is generated at the time that a new identity store is
    *          created.</p>
    */
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>The identifier for a user in the identity store.</p>
+   * <p>The identifier for a group in the identity store.</p>
    */
-  UserId: string | undefined;
+  GroupId: string | undefined;
 }
 
-export interface DescribeUserResponse {
+export interface DescribeGroupResponse {
   /**
-   * <p>Contains the user’s user name value. The length limit is 128 characters. This value can
-   *          consist of letters, accented characters, symbols, numbers, and punctuation. The characters
-   *             <code><>;:%</code> are excluded. This value is specified at the time the user is
-   *          created and stored as an attribute of the user object in the identity store.</p>
+   * <p>The identifier for a group in the identity store.</p>
    */
-  UserName: string | undefined;
+  GroupId: string | undefined;
 
   /**
-   * <p>The identifier for a user in the identity store.</p>
+   * <p>The group’s display name value. The length limit is 1,024 characters. This
+   *          value can consist of letters, accented characters, symbols, numbers, punctuation, tab, new
+   *          line, carriage return, space, and nonbreaking space in this attribute. The characters
+   *             <code>&lt;&gt;;:%</code> are excluded. This value is specified at the time that the
+   *          group is created and stored as an attribute of the group object in the identity
+   *          store.</p>
    */
-  UserId: string | undefined;
+  DisplayName?: string;
+
+  /**
+   * <p>A list of <code>ExternalId</code> objects that contains the identifiers issued to this
+   *          resource by an external identity provider.</p>
+   */
+  ExternalIds?: ExternalId[];
+
+  /**
+   * <p>A string containing a description of the group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
 }
 
 /**
- * <p>A query filter used by <code>ListUsers</code> and <code>ListGroups</code>. This filter
- *          object provides the attribute name and attribute value to search users or groups.</p>
+ * <p>A query filter used by <code>ListUsers</code> and <code>ListGroups</code>. This filter object provides the attribute name and attribute value to
+ *          search users or groups.</p>
  */
 export interface Filter {
   /**
@@ -249,8 +680,7 @@ export interface Filter {
   AttributePath: string | undefined;
 
   /**
-   * <p>Represents the data for an attribute. Each attribute value is described as a name-value
-   *          pair. </p>
+   * <p>Represents the data for an attribute. Each attribute value is described as a name-value pair. </p>
    */
   AttributeValue: string | undefined;
 }
@@ -259,7 +689,7 @@ export interface ListGroupsRequest {
   /**
    * <p>The globally unique identifier for the identity store, such as
    *          <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and
-   *             <code>1234567890</code> is a randomly generated string that contains number and lower
+   *             <code>1234567890</code> is a randomly generated string that contains numbers and lower
    *          case letters. This value is generated at the time that a new identity store is
    *          created.</p>
    */
@@ -267,7 +697,7 @@ export interface ListGroupsRequest {
 
   /**
    * <p>The maximum number of results to be returned per request. This parameter is used in the
-   *             <code>ListUsers</code> and <code>ListGroups</code> request to specify how many results
+   *             <code>ListUsers</code> and <code>ListGroups</code> requests to specify how many results
    *          to return in one page. The length limit is 50 characters.</p>
    */
   MaxResults?: number;
@@ -281,14 +711,16 @@ export interface ListGroupsRequest {
   NextToken?: string;
 
   /**
-   * <p>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and
-   *             <code>ListGroups</code> request. </p>
+   * @deprecated
+   *
+   * <p>A list of <code>Filter</code> objects that is used in the <code>ListUsers</code> and
+   *             <code>ListGroups</code> requests.</p>
    */
   Filters?: Filter[];
 }
 
 /**
- * <p>A group object, which contains a specified group’s metadata and attributes.</p>
+ * <p>A group object that contains a specified group’s metadata and attributes.</p>
  */
 export interface Group {
   /**
@@ -297,13 +729,29 @@ export interface Group {
   GroupId: string | undefined;
 
   /**
-   * <p>Contains the group’s display name value. The length limit is 1,024 characters. This
+   * <p>The group’s display name value. The length limit is 1,024 characters. This
    *          value can consist of letters, accented characters, symbols, numbers, punctuation, tab, new
    *          line, carriage return, space, and nonbreaking space in this attribute. The characters
-   *             <code><>;:%</code> are excluded. This value is specified at the time the group is
-   *          created and stored as an attribute of the group object in the identity store.</p>
+   *             <code>&lt;&gt;;:%</code> are excluded. This value is specified at the time the group
+   *          is created and stored as an attribute of the group object in the identity store.</p>
    */
-  DisplayName: string | undefined;
+  DisplayName?: string;
+
+  /**
+   * <p>A list of <code>ExternalId</code> objects that contains the identifiers issued to this
+   *          resource by an external identity provider.</p>
+   */
+  ExternalIds?: ExternalId[];
+
+  /**
+   * <p>A string containing a description of the specified group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
 }
 
 export interface ListGroupsResponse {
@@ -321,11 +769,462 @@ export interface ListGroupsResponse {
   NextToken?: string;
 }
 
+export interface UpdateGroupRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a group in the identity store.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>A list of <code>AttributeOperation</code> objects to apply to the requested group. These
+   *          operations might add, replace, or remove an attribute.</p>
+   */
+  Operations: AttributeOperation[] | undefined;
+}
+
+export interface UpdateGroupResponse {}
+
+/**
+ * <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  $retryable = {};
+  Message?: string;
+  /**
+   * <p>The identifier for each request. This value is a globally unique ID that is generated by
+   *          the identity store service for each sent request, and is then returned inside the exception
+   *          if the request fails.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The number of seconds that you would like to wait before retrying the next request.</p>
+   */
+  RetryAfterSeconds?: number;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+    this.RetryAfterSeconds = opts.RetryAfterSeconds;
+  }
+}
+
+export interface IsMemberInGroupsRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>An object containing the identifier of a group member.</p>
+   */
+  MemberId: MemberId | undefined;
+
+  /**
+   * <p>A list of identifiers for groups in the identity store.</p>
+   */
+  GroupIds: string[] | undefined;
+}
+
+/**
+ * <p>Indicates whether a resource is a member of a group in the identity store.</p>
+ */
+export interface GroupMembershipExistenceResult {
+  /**
+   * <p>The identifier for a group in the identity store.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>An object that contains the identifier of a group member. Setting the <code>UserID</code> field to the specific identifier for a user indicates that the user is a member of the group.</p>
+   */
+  MemberId?: MemberId;
+
+  /**
+   * <p>Indicates whether a membership relation exists or not.</p>
+   */
+  MembershipExists?: boolean;
+}
+
+export interface IsMemberInGroupsResponse {
+  /**
+   * <p>An object containing results of batch <code>IsMemberInGroups</code> call.</p>
+   */
+  Results: GroupMembershipExistenceResult[] | undefined;
+}
+
+export interface ListGroupMembershipsForMemberRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>An object that contains the identifier of a group member. Setting the <code>UserID</code> field to the specific identifier for a user indicates that the user is a member of the group.</p>
+   */
+  MemberId: MemberId | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request. This parameter is used in the <code>ListUsers</code> and <code>ListGroups</code> requests to specify how many results to return in one page. The length limit is 50 characters.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code> and <code>ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListGroupMembershipsForMemberResponse {
+  /**
+   * <p>A list of <code>GroupMembership</code> objects in the group for a specified member.</p>
+   */
+  GroupMemberships: GroupMembership[] | undefined;
+
+  /**
+   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code> and <code>ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.
+   *          </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {
+    throttling: true,
+  };
+  Message?: string;
+  /**
+   * <p>The identifier for each request. This value is a globally unique ID that is generated by
+   *          the identity store service for each sent request, and is then returned inside the exception
+   *          if the request fails.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The number of seconds that you would like to wait before retrying the next
+   *          request.</p>
+   */
+  RetryAfterSeconds?: number;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+    this.RetryAfterSeconds = opts.RetryAfterSeconds;
+  }
+}
+
+/**
+ * <p>The email address associated with the user.</p>
+ */
+export interface Email {
+  /**
+   * <p>A string containing an email address. For example, "johndoe@amazon.com."</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>A string representing the type of address. For example, "Work."</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>A boolean representing whether this is the primary email for the associated resource.</p>
+   */
+  Primary?: boolean;
+}
+
+/**
+ * <p>The name of the user.</p>
+ */
+export interface Name {
+  /**
+   * <p>A string containing a formatted version of the name for display.</p>
+   */
+  Formatted?: string;
+
+  /**
+   * <p>The family name of the user.</p>
+   */
+  FamilyName?: string;
+
+  /**
+   * <p>The given name of the user.</p>
+   */
+  GivenName?: string;
+
+  /**
+   * <p>The middle name of the user.</p>
+   */
+  MiddleName?: string;
+
+  /**
+   * <p>The honorific prefix of the user. For example, "Dr."</p>
+   */
+  HonorificPrefix?: string;
+
+  /**
+   * <p>The honorific suffix of the user. For example, "M.D."</p>
+   */
+  HonorificSuffix?: string;
+}
+
+/**
+ * <p>The phone number associated with the user.</p>
+ */
+export interface PhoneNumber {
+  /**
+   * <p>A string containing a phone number. For example, "8675309" or "+1 (800) 123-4567".</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>A string representing the type of a phone number. For example, "Mobile."</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>A boolean representing whether this is the primary phone number for the associated resource.</p>
+   */
+  Primary?: boolean;
+}
+
+export interface CreateUserRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>A unique string used to identify the user. The length limit is 128 characters.
+   *          This value can consist of letters, accented characters, symbols, numbers, and punctuation. The characters &lt;&gt;;:% are excluded.
+   *          This value is specified at the time the user is created and stored as an attribute of the user object in the identity store.</p>
+   */
+  UserName?: string;
+
+  /**
+   * <p>An object containing the user's name.</p>
+   */
+  Name?: Name;
+
+  /**
+   * <p>A string containing the user's name. This value is typically formatted for display when
+   *          the user is referenced. For example, "John Doe."</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>A string containing an alternate name for the user.</p>
+   */
+  NickName?: string;
+
+  /**
+   * <p>A string containing a URL that may be associated with the user.</p>
+   */
+  ProfileUrl?: string;
+
+  /**
+   * <p>A list of <code>Email</code> objects containing email addresses associated with the user.</p>
+   */
+  Emails?: Email[];
+
+  /**
+   * <p>A list of <code>Address</code> objects containing addresses associated with the user.</p>
+   */
+  Addresses?: Address[];
+
+  /**
+   * <p>A list of <code>PhoneNumber</code> objects containing phone numbers associated with the user.</p>
+   */
+  PhoneNumbers?: PhoneNumber[];
+
+  /**
+   * <p>A string indicating the user's type. Possible values depend on each customer's specific needs, so they are left unspecified.</p>
+   */
+  UserType?: string;
+
+  /**
+   * <p>A string containing the user's title. Possible values are left unspecified given that they depend on each customer's specific needs.</p>
+   */
+  Title?: string;
+
+  /**
+   * <p>A string containing the preferred language of the user. For example, "American English"
+   *          or "en-us."</p>
+   */
+  PreferredLanguage?: string;
+
+  /**
+   * <p>A string containing the user's geographical region or location.</p>
+   */
+  Locale?: string;
+
+  /**
+   * <p>A string containing the user's time zone.</p>
+   */
+  Timezone?: string;
+}
+
+export interface CreateUserResponse {
+  /**
+   * <p>The identifier of the newly created user in the identity store.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+}
+
+export interface DeleteUserRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a user in the identity store.</p>
+   */
+  UserId: string | undefined;
+}
+
+export interface DeleteUserResponse {}
+
+export interface DescribeUserRequest {
+  /**
+   * <p>The globally unique identifier for the identity store, such as
+   *          <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and
+   *             <code>1234567890</code> is a randomly generated string that contains numbers and lower
+   *          case letters. This value is generated at the time that a new identity store is
+   *          created.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a user in the identity store.</p>
+   */
+  UserId: string | undefined;
+}
+
+export interface DescribeUserResponse {
+  /**
+   * <p>The user’s username value. The length limit is 128 characters. This value can consist of
+   *          letters, accented characters, symbols, numbers, and punctuation. The characters
+   *             <code>&lt;&gt;;:%</code> are excluded. This value is specified at the time the user is
+   *          created and stored as an attribute of the user object in the identity store.</p>
+   */
+  UserName?: string;
+
+  /**
+   * <p>The identifier for a user in the identity store.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>A list of <code>ExternalId</code> objects that contains the identifiers issued to this
+   *          resource by an external identity provider.</p>
+   */
+  ExternalIds?: ExternalId[];
+
+  /**
+   * <p>The name of the user.</p>
+   */
+  Name?: Name;
+
+  /**
+   * <p>The user's name value for display.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>An alternative descriptive name for the user.</p>
+   */
+  NickName?: string;
+
+  /**
+   * <p>A URL link for the user's profile.</p>
+   */
+  ProfileUrl?: string;
+
+  /**
+   * <p>The user's email value.</p>
+   */
+  Emails?: Email[];
+
+  /**
+   * <p>The user's physical address.</p>
+   */
+  Addresses?: Address[];
+
+  /**
+   * <p>A list of <code>PhoneNumber</code> objects associated with a user.</p>
+   */
+  PhoneNumbers?: PhoneNumber[];
+
+  /**
+   * <p>A string indicating the user's type.</p>
+   */
+  UserType?: string;
+
+  /**
+   * <p>A string containing the user's title.</p>
+   */
+  Title?: string;
+
+  /**
+   * <p>The preferred language of the user.</p>
+   */
+  PreferredLanguage?: string;
+
+  /**
+   * <p>A string containing the user's geographical region or location.</p>
+   */
+  Locale?: string;
+
+  /**
+   * <p>The time zone for a user.</p>
+   */
+  Timezone?: string;
+
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+}
+
 export interface ListUsersRequest {
   /**
    * <p>The globally unique identifier for the identity store, such as
    *          <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and
-   *             <code>1234567890</code> is a randomly generated string that contains number and lower
+   *             <code>1234567890</code> is a randomly generated string that contains numbers and lower
    *          case letters. This value is generated at the time that a new identity store is
    *          created.</p>
    */
@@ -333,7 +1232,7 @@ export interface ListUsersRequest {
 
   /**
    * <p>The maximum number of results to be returned per request. This parameter is used in the
-   *             <code>ListUsers</code> and <code>ListGroups</code> request to specify how many results
+   *             <code>ListUsers</code> and <code>ListGroups</code> requests to specify how many results
    *          to return in one page. The length limit is 50 characters.</p>
    */
   MaxResults?: number;
@@ -347,28 +1246,103 @@ export interface ListUsersRequest {
   NextToken?: string;
 
   /**
-   * <p>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and
-   *             <code>ListGroups</code> request. </p>
+   * @deprecated
+   *
+   * <p>A list of <code>Filter</code> objects that is used in the <code>ListUsers</code> and
+   *             <code>ListGroups</code> requests.</p>
    */
   Filters?: Filter[];
 }
 
 /**
- * <p>A user object, which contains a specified user’s metadata and attributes.</p>
+ * <p>A user object that contains a specified user’s metadata and attributes.</p>
  */
 export interface User {
   /**
-   * <p>Contains the user’s user name value. The length limit is 128 characters. This value can
+   * <p>The user’s user name value. The length limit is 128 characters. This value can
    *          consist of letters, accented characters, symbols, numbers, and punctuation. The characters
-   *             <code><>;:%</code> are excluded. This value is specified at the time the user is
+   *             <code>&lt;&gt;;:%</code> are excluded. This value is specified at the time the user is
    *          created and stored as an attribute of the user object in the identity store.</p>
    */
-  UserName: string | undefined;
+  UserName?: string;
 
   /**
    * <p>The identifier for a user in the identity store.</p>
    */
   UserId: string | undefined;
+
+  /**
+   * <p>A list of <code>ExternalId</code> objects that contains the identifiers issued to this
+   *          resource by an external identity provider.</p>
+   */
+  ExternalIds?: ExternalId[];
+
+  /**
+   * <p>An object containing the user's name.</p>
+   */
+  Name?: Name;
+
+  /**
+   * <p>A string containing the user's name that's formatted for display when the user is
+   *          referenced. For example, "John Doe."</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>A string containing an alternate name for the user.</p>
+   */
+  NickName?: string;
+
+  /**
+   * <p>A string containing a URL that may be associated with the user.</p>
+   */
+  ProfileUrl?: string;
+
+  /**
+   * <p>A list of <code>Email</code> objects containing email addresses associated with the user.</p>
+   */
+  Emails?: Email[];
+
+  /**
+   * <p>A list of <code>Address</code> objects containing addresses associated with the user.</p>
+   */
+  Addresses?: Address[];
+
+  /**
+   * <p>A list of <code>PhoneNumber</code> objects containing phone numbers associated with the user.</p>
+   */
+  PhoneNumbers?: PhoneNumber[];
+
+  /**
+   * <p>A string indicating the user's type. Possible values depend on each customer's specific needs, so they are left unspecified.</p>
+   */
+  UserType?: string;
+
+  /**
+   * <p>A string containing the user's title. Possible values depend on each customer's specific needs, so they are left unspecified</p>
+   */
+  Title?: string;
+
+  /**
+   * <p>A string containing the preferred language of the user. For example, "American English"
+   *          or "en-us."</p>
+   */
+  PreferredLanguage?: string;
+
+  /**
+   * <p>A string containing the user's geographical region or location.</p>
+   */
+  Locale?: string;
+
+  /**
+   * <p>A string containing the user's time zone.</p>
+   */
+  Timezone?: string;
+
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
 }
 
 export interface ListUsersResponse {
@@ -386,6 +1360,230 @@ export interface ListUsersResponse {
   NextToken?: string;
 }
 
+export interface UpdateUserRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a user in the identity store.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>A list of <code>AttributeOperation</code> objects to apply to the requested user. These
+   *          operations might add, replace, or remove an attribute.</p>
+   */
+  Operations: AttributeOperation[] | undefined;
+}
+
+export interface UpdateUserResponse {}
+
+/**
+ * @internal
+ */
+export const AddressFilterSensitiveLog = (obj: Address): any => ({
+  ...obj,
+  ...(obj.StreetAddress && { StreetAddress: SENSITIVE_STRING }),
+  ...(obj.Locality && { Locality: SENSITIVE_STRING }),
+  ...(obj.Region && { Region: SENSITIVE_STRING }),
+  ...(obj.PostalCode && { PostalCode: SENSITIVE_STRING }),
+  ...(obj.Country && { Country: SENSITIVE_STRING }),
+  ...(obj.Formatted && { Formatted: SENSITIVE_STRING }),
+  ...(obj.Type && { Type: SENSITIVE_STRING }),
+  ...(obj.Primary && { Primary: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ExternalIdFilterSensitiveLog = (obj: ExternalId): any => ({
+  ...obj,
+  ...(obj.Issuer && { Issuer: SENSITIVE_STRING }),
+  ...(obj.Id && { Id: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UniqueAttributeFilterSensitiveLog = (obj: UniqueAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlternateIdentifierFilterSensitiveLog = (obj: AlternateIdentifier): any => {
+  if (obj.ExternalId !== undefined) return { ExternalId: ExternalIdFilterSensitiveLog(obj.ExternalId) };
+  if (obj.UniqueAttribute !== undefined)
+    return { UniqueAttribute: UniqueAttributeFilterSensitiveLog(obj.UniqueAttribute) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AttributeOperationFilterSensitiveLog = (obj: AttributeOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupIdRequestFilterSensitiveLog = (obj: GetGroupIdRequest): any => ({
+  ...obj,
+  ...(obj.AlternateIdentifier && {
+    AlternateIdentifier: AlternateIdentifierFilterSensitiveLog(obj.AlternateIdentifier),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetGroupIdResponseFilterSensitiveLog = (obj: GetGroupIdResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberIdFilterSensitiveLog = (obj: MemberId): any => {
+  if (obj.UserId !== undefined) return { UserId: obj.UserId };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const GetGroupMembershipIdRequestFilterSensitiveLog = (obj: GetGroupMembershipIdRequest): any => ({
+  ...obj,
+  ...(obj.MemberId && { MemberId: MemberIdFilterSensitiveLog(obj.MemberId) }),
+});
+
+/**
+ * @internal
+ */
+export const GetGroupMembershipIdResponseFilterSensitiveLog = (obj: GetGroupMembershipIdResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUserIdRequestFilterSensitiveLog = (obj: GetUserIdRequest): any => ({
+  ...obj,
+  ...(obj.AlternateIdentifier && {
+    AlternateIdentifier: AlternateIdentifierFilterSensitiveLog(obj.AlternateIdentifier),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetUserIdResponseFilterSensitiveLog = (obj: GetUserIdResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupMembershipRequestFilterSensitiveLog = (obj: CreateGroupMembershipRequest): any => ({
+  ...obj,
+  ...(obj.MemberId && { MemberId: MemberIdFilterSensitiveLog(obj.MemberId) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupMembershipResponseFilterSensitiveLog = (obj: CreateGroupMembershipResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupMembershipRequestFilterSensitiveLog = (obj: DeleteGroupMembershipRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupMembershipResponseFilterSensitiveLog = (obj: DeleteGroupMembershipResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGroupMembershipRequestFilterSensitiveLog = (obj: DescribeGroupMembershipRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGroupMembershipResponseFilterSensitiveLog = (obj: DescribeGroupMembershipResponse): any => ({
+  ...obj,
+  ...(obj.MemberId && { MemberId: MemberIdFilterSensitiveLog(obj.MemberId) }),
+});
+
+/**
+ * @internal
+ */
+export const ListGroupMembershipsRequestFilterSensitiveLog = (obj: ListGroupMembershipsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupMembershipFilterSensitiveLog = (obj: GroupMembership): any => ({
+  ...obj,
+  ...(obj.MemberId && { MemberId: MemberIdFilterSensitiveLog(obj.MemberId) }),
+});
+
+/**
+ * @internal
+ */
+export const ListGroupMembershipsResponseFilterSensitiveLog = (obj: ListGroupMembershipsResponse): any => ({
+  ...obj,
+  ...(obj.GroupMemberships && {
+    GroupMemberships: obj.GroupMemberships.map((item) => GroupMembershipFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupRequestFilterSensitiveLog = (obj: CreateGroupRequest): any => ({
+  ...obj,
+  ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupResponseFilterSensitiveLog = (obj: CreateGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupRequestFilterSensitiveLog = (obj: DeleteGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupResponseFilterSensitiveLog = (obj: DeleteGroupResponse): any => ({
+  ...obj,
+});
+
 /**
  * @internal
  */
@@ -398,21 +1596,9 @@ export const DescribeGroupRequestFilterSensitiveLog = (obj: DescribeGroupRequest
  */
 export const DescribeGroupResponseFilterSensitiveLog = (obj: DescribeGroupResponse): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUserRequestFilterSensitiveLog = (obj: DescribeUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse): any => ({
-  ...obj,
-  ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+  ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
+  ...(obj.ExternalIds && { ExternalIds: obj.ExternalIds.map((item) => ExternalIdFilterSensitiveLog(item)) }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
 });
 
 /**
@@ -436,6 +1622,9 @@ export const ListGroupsRequestFilterSensitiveLog = (obj: ListGroupsRequest): any
  */
 export const GroupFilterSensitiveLog = (obj: Group): any => ({
   ...obj,
+  ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
+  ...(obj.ExternalIds && { ExternalIds: obj.ExternalIds.map((item) => ExternalIdFilterSensitiveLog(item)) }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
 });
 
 /**
@@ -443,6 +1632,170 @@ export const GroupFilterSensitiveLog = (obj: Group): any => ({
  */
 export const ListGroupsResponseFilterSensitiveLog = (obj: ListGroupsResponse): any => ({
   ...obj,
+  ...(obj.Groups && { Groups: obj.Groups.map((item) => GroupFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateGroupRequestFilterSensitiveLog = (obj: UpdateGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGroupResponseFilterSensitiveLog = (obj: UpdateGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IsMemberInGroupsRequestFilterSensitiveLog = (obj: IsMemberInGroupsRequest): any => ({
+  ...obj,
+  ...(obj.MemberId && { MemberId: MemberIdFilterSensitiveLog(obj.MemberId) }),
+});
+
+/**
+ * @internal
+ */
+export const GroupMembershipExistenceResultFilterSensitiveLog = (obj: GroupMembershipExistenceResult): any => ({
+  ...obj,
+  ...(obj.MemberId && { MemberId: MemberIdFilterSensitiveLog(obj.MemberId) }),
+  ...(obj.MembershipExists && { MembershipExists: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IsMemberInGroupsResponseFilterSensitiveLog = (obj: IsMemberInGroupsResponse): any => ({
+  ...obj,
+  ...(obj.Results && { Results: obj.Results.map((item) => GroupMembershipExistenceResultFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListGroupMembershipsForMemberRequestFilterSensitiveLog = (
+  obj: ListGroupMembershipsForMemberRequest
+): any => ({
+  ...obj,
+  ...(obj.MemberId && { MemberId: MemberIdFilterSensitiveLog(obj.MemberId) }),
+});
+
+/**
+ * @internal
+ */
+export const ListGroupMembershipsForMemberResponseFilterSensitiveLog = (
+  obj: ListGroupMembershipsForMemberResponse
+): any => ({
+  ...obj,
+  ...(obj.GroupMemberships && {
+    GroupMemberships: obj.GroupMemberships.map((item) => GroupMembershipFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const EmailFilterSensitiveLog = (obj: Email): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+  ...(obj.Type && { Type: SENSITIVE_STRING }),
+  ...(obj.Primary && { Primary: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NameFilterSensitiveLog = (obj: Name): any => ({
+  ...obj,
+  ...(obj.Formatted && { Formatted: SENSITIVE_STRING }),
+  ...(obj.FamilyName && { FamilyName: SENSITIVE_STRING }),
+  ...(obj.GivenName && { GivenName: SENSITIVE_STRING }),
+  ...(obj.MiddleName && { MiddleName: SENSITIVE_STRING }),
+  ...(obj.HonorificPrefix && { HonorificPrefix: SENSITIVE_STRING }),
+  ...(obj.HonorificSuffix && { HonorificSuffix: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PhoneNumberFilterSensitiveLog = (obj: PhoneNumber): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+  ...(obj.Type && { Type: SENSITIVE_STRING }),
+  ...(obj.Primary && { Primary: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
+  ...obj,
+  ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: NameFilterSensitiveLog(obj.Name) }),
+  ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
+  ...(obj.NickName && { NickName: SENSITIVE_STRING }),
+  ...(obj.ProfileUrl && { ProfileUrl: SENSITIVE_STRING }),
+  ...(obj.Emails && { Emails: obj.Emails.map((item) => EmailFilterSensitiveLog(item)) }),
+  ...(obj.Addresses && { Addresses: obj.Addresses.map((item) => AddressFilterSensitiveLog(item)) }),
+  ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumberFilterSensitiveLog(item)) }),
+  ...(obj.UserType && { UserType: SENSITIVE_STRING }),
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
+  ...(obj.PreferredLanguage && { PreferredLanguage: SENSITIVE_STRING }),
+  ...(obj.Locale && { Locale: SENSITIVE_STRING }),
+  ...(obj.Timezone && { Timezone: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserResponseFilterSensitiveLog = (obj: DeleteUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserRequestFilterSensitiveLog = (obj: DescribeUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse): any => ({
+  ...obj,
+  ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+  ...(obj.ExternalIds && { ExternalIds: obj.ExternalIds.map((item) => ExternalIdFilterSensitiveLog(item)) }),
+  ...(obj.Name && { Name: NameFilterSensitiveLog(obj.Name) }),
+  ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
+  ...(obj.NickName && { NickName: SENSITIVE_STRING }),
+  ...(obj.ProfileUrl && { ProfileUrl: SENSITIVE_STRING }),
+  ...(obj.Emails && { Emails: obj.Emails.map((item) => EmailFilterSensitiveLog(item)) }),
+  ...(obj.Addresses && { Addresses: obj.Addresses.map((item) => AddressFilterSensitiveLog(item)) }),
+  ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumberFilterSensitiveLog(item)) }),
+  ...(obj.UserType && { UserType: SENSITIVE_STRING }),
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
+  ...(obj.PreferredLanguage && { PreferredLanguage: SENSITIVE_STRING }),
+  ...(obj.Locale && { Locale: SENSITIVE_STRING }),
+  ...(obj.Timezone && { Timezone: SENSITIVE_STRING }),
 });
 
 /**
@@ -459,6 +1812,19 @@ export const ListUsersRequestFilterSensitiveLog = (obj: ListUsersRequest): any =
 export const UserFilterSensitiveLog = (obj: User): any => ({
   ...obj,
   ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+  ...(obj.ExternalIds && { ExternalIds: obj.ExternalIds.map((item) => ExternalIdFilterSensitiveLog(item)) }),
+  ...(obj.Name && { Name: NameFilterSensitiveLog(obj.Name) }),
+  ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
+  ...(obj.NickName && { NickName: SENSITIVE_STRING }),
+  ...(obj.ProfileUrl && { ProfileUrl: SENSITIVE_STRING }),
+  ...(obj.Emails && { Emails: obj.Emails.map((item) => EmailFilterSensitiveLog(item)) }),
+  ...(obj.Addresses && { Addresses: obj.Addresses.map((item) => AddressFilterSensitiveLog(item)) }),
+  ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumberFilterSensitiveLog(item)) }),
+  ...(obj.UserType && { UserType: SENSITIVE_STRING }),
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
+  ...(obj.PreferredLanguage && { PreferredLanguage: SENSITIVE_STRING }),
+  ...(obj.Locale && { Locale: SENSITIVE_STRING }),
+  ...(obj.Timezone && { Timezone: SENSITIVE_STRING }),
 });
 
 /**
@@ -467,4 +1833,18 @@ export const UserFilterSensitiveLog = (obj: User): any => ({
 export const ListUsersResponseFilterSensitiveLog = (obj: ListUsersResponse): any => ({
   ...obj,
   ...(obj.Users && { Users: obj.Users.map((item) => UserFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserRequestFilterSensitiveLog = (obj: UpdateUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserResponseFilterSensitiveLog = (obj: UpdateUserResponse): any => ({
+  ...obj,
 });
