@@ -12,12 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeFlowDefinitionRequest,
-  DescribeFlowDefinitionRequestFilterSensitiveLog,
-  DescribeFlowDefinitionResponse,
-  DescribeFlowDefinitionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeFlowDefinitionRequest, DescribeFlowDefinitionRequestFilterSensitiveLog } from "../models/models_1";
+import { DescribeFlowDefinitionResponse, DescribeFlowDefinitionResponseFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeFlowDefinitionCommand,
   serializeAws_json1_1DescribeFlowDefinitionCommand,

@@ -56,11 +56,7 @@ import {
   EndpointInput,
   FeatureDefinition,
   FeatureType,
-  FlowDefinitionOutputConfig,
   GitConfig,
-  HumanLoopActivationConfig,
-  HumanLoopConfig,
-  HumanLoopRequestSource,
   HyperParameterTuningJobObjective,
   HyperParameterTuningJobStrategyType,
   InferenceSpecification,
@@ -284,8 +280,9 @@ export interface HyperParameterTuningInstanceConfig {
  *             use in training jobs launched by hyperparameter tuning jobs. Specify one or more
  *             instance type and count and the allocation strategy for instance selection.</p>
  *         <note>
- *             <p>HyperParameterTuningResourceConfig supports all of the capabilities of
- *                 ResourceConfig with added functionality for flexible instance management.</p>
+ *             <p>
+ *                <code>HyperParameterTuningResourceConfig</code> supports all of the capabilities
+ *                 of ResourceConfig with added functionality for flexible instance management.</p>
  *         </note>
  */
 export interface HyperParameterTuningResourceConfig {
@@ -308,28 +305,32 @@ export interface HyperParameterTuningResourceConfig {
    *         <p>Some instance types have a fixed total local storage size. If you select one of these
    *             instances for training, <code>VolumeSizeInGB</code> cannot be greater than this total
    *             size. For a list of instance types with local instance storage and their sizes, see
-   *                 <a href="https://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance store volumes</a>.</p>
+   *                 <a href="http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance store volumes</a>.</p>
    *         <note>
-   *             <p>SageMaker supports only the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html">General Purpose SSD (gp2)</a> storage volume type.</p>
+   *             <p>SageMaker supports only the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html">General Purpose SSD
+   *                     (gp2)</a> storage volume type.</p>
    *         </note>
    */
   VolumeSizeInGB?: number;
 
   /**
-   * <p>A key used by AWS Key Management Service to encrypt data on the storage volume attached to the compute
-   *             instances used to run the training job. You can use either of the following formats to
-   *             specify a key.</p>
+   * <p>A key used by Amazon Web Services Key Management Service to encrypt data on the storage volume
+   *             attached to the compute instances used to run the training job. You can use either of
+   *             the following formats to specify a key.</p>
    *         <p>KMS Key ID:</p>
    *         <p>
    *             <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
    *          </p>
-   *         <p>Amazon Resource Name (ARN) of a AWS KMS key:</p>
+   *         <p>Amazon Resource Name (ARN) of a KMS key:</p>
    *         <p>
    *             <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
    *          </p>
-   *         <p>Some instances use local storage, which use a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">hardware module to encrypt</a> storage volumes. If you choose one of these
-   *             instance types, you cannot request a <code>VolumeKmsKeyId</code>. For a list of instance
-   *             types that use local storage, see <a href="https://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance store volumes</a>. For more information about AWS Key Management Service, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html">AWS KMS encryption</a> for more information.</p>
+   *         <p>Some instances use local storage, which use a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">hardware module to
+   *                 encrypt</a> storage volumes. If you choose one of these instance types, you
+   *             cannot request a <code>VolumeKmsKeyId</code>. For a list of instance types that use
+   *             local storage, see <a href="http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance store
+   *                 volumes</a>. For more information about Amazon Web Services Key Management Service, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html">KMS
+   *                 encryption</a> for more information.</p>
    */
   VolumeKmsKeyId?: string;
 
@@ -346,7 +347,7 @@ export interface HyperParameterTuningResourceConfig {
    *                 <code>AllocationStrategy</code> controls the order in which multiple configurations
    *             provided in <code>InstanceConfigs</code> are used.</p>
    *         <note>
-   *             <p>If you only want to use a single InstanceConfig inside the
+   *             <p>If you only want to use a single instance configuration inside the
    *                     <code>HyperParameterTuningResourceConfig</code> API, do not provide a value for
    *                     <code>InstanceConfigs</code>. Instead, use <code>InstanceType</code>,
    *                     <code>VolumeSizeInGB</code> and <code>InstanceCount</code>. If you use
@@ -471,8 +472,9 @@ export interface HyperParameterTrainingJobDefinition {
    *             algorithm specification. For distributed training algorithms, specify an instance count
    *             greater than 1.</p>
    *         <note>
-   *             <p>If you want to use hyperparameter optimization with instance type flexibility, use <code>HyperParameterTuningResourceConfig</code> instead.</p>
-   *          </note>
+   *             <p>If you want to use hyperparameter optimization with instance type flexibility, use
+   *                     <code>HyperParameterTuningResourceConfig</code> instead.</p>
+   *         </note>
    */
   ResourceConfig?: ResourceConfig;
 
@@ -524,7 +526,7 @@ export interface HyperParameterTrainingJobDefinition {
    *             instances and storage volumes, used for training jobs launched by the tuning job. By
    *             default, storage volumes hold model artifacts and incremental states. Choose
    *                 <code>File</code> for <code>TrainingInputMode</code> in the
-   *                 <code>AlgorithmSpecification</code>parameter to additionally store training data in
+   *                 <code>AlgorithmSpecification</code> parameter to additionally store training data in
    *             the storage volume (optional).</p>
    */
   HyperParameterTuningResourceConfig?: HyperParameterTuningResourceConfig;
@@ -741,6 +743,76 @@ export interface CreateImageVersionResponse {
 }
 
 /**
+ * <p>The configuration for the payload for a recommendation job.</p>
+ */
+export interface RecommendationJobPayloadConfig {
+  /**
+   * <p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload is stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).</p>
+   */
+  SamplePayloadUrl?: string;
+
+  /**
+   * <p>The supported MIME types for the input data.</p>
+   */
+  SupportedContentTypes?: string[];
+}
+
+/**
+ * <p>Specifies mandatory fields for running an Inference Recommender job directly in the
+ *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceRecommendationsJob.html">CreateInferenceRecommendationsJob</a>
+ *          API. The fields specified in <code>ContainerConfig</code> override the corresponding fields in the model package. Use
+ *       <code>ContainerConfig</code> if you want to specify these fields for the recommendation job but don't want to edit them in your model package.</p>
+ */
+export interface RecommendationJobContainerConfig {
+  /**
+   * <p>The machine learning domain of the model and its components.</p>
+   *          <p>Valid Values: <code>COMPUTER_VISION | NATURAL_LANGUAGE_PROCESSING |
+   *       MACHINE_LEARNING</code>
+   *          </p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>The machine learning task that the model accomplishes.</p>
+   *          <p>Valid Values: <code>IMAGE_CLASSIFICATION | OBJECT_DETECTION
+   *          | TEXT_GENERATION | IMAGE_SEGMENTATION | FILL_MASK | CLASSIFICATION |
+   *       REGRESSION | OTHER</code>
+   *          </p>
+   */
+  Task?: string;
+
+  /**
+   * <p>The machine learning framework of the container image.</p>
+   *          <p>Valid Values: <code>TENSORFLOW | PYTORCH | XGBOOST | SAGEMAKER-SCIKIT-LEARN</code>
+   *          </p>
+   */
+  Framework?: string;
+
+  /**
+   * <p>The framework version of the container image.</p>
+   */
+  FrameworkVersion?: string;
+
+  /**
+   * <p>Specifies the <code>SamplePayloadUrl</code> and all other sample payload-related fields.</p>
+   */
+  PayloadConfig?: RecommendationJobPayloadConfig;
+
+  /**
+   * <p>The name of a pre-trained machine learning model benchmarked by Amazon SageMaker Inference Recommender that matches your model.</p>
+   *          <p>Valid Values: <code>efficientnetb7 | unet | xgboost | faster-rcnn-resnet101 | nasnetlarge | vgg16 | inception-v3 | mask-rcnn | sagemaker-scikit-learn |
+   *       densenet201-gluon | resnet18v2-gluon | xception | densenet201 | yolov4 | resnet152 | bert-base-cased | xceptionV1-keras | resnet50 | retinanet</code>
+   *          </p>
+   */
+  NearestModelName?: string;
+
+  /**
+   * <p>A list of the instance types that are used to generate inferences in real-time.</p>
+   */
+  SupportedInstanceTypes?: string[];
+}
+
+/**
  * <p>Specifies the range of environment parameters</p>
  */
 export interface EnvironmentParameterRanges {
@@ -896,6 +968,12 @@ export interface RecommendationJobInputConfig {
    *          Amazon Web Services Key Management Service (Amazon Web Services KMS) documentation.</p>
    */
   VolumeKmsKeyId?: string;
+
+  /**
+   * <p>Specifies mandatory fields for running an Inference Recommender job. The fields specified in <code>ContainerConfig</code>
+   *          override the corresponding fields in the model package.</p>
+   */
+  ContainerConfig?: RecommendationJobContainerConfig;
 }
 
 export enum RecommendationJobType {
@@ -6206,14 +6284,14 @@ export interface CreateUserProfileRequest {
 
   /**
    * <p>A specifier for the type of value specified in SingleSignOnUserValue.  Currently, the only supported value is "UserName".
-   *            If the Domain's AuthMode is SSO, this field is required.  If the Domain's AuthMode is not SSO, this field cannot be specified.
+   *           If the Domain's AuthMode is Amazon Web Services SSO, this field is required.  If the Domain's AuthMode is not Amazon Web Services SSO, this field cannot be specified.
    *        </p>
    */
   SingleSignOnUserIdentifier?: string;
 
   /**
-   * <p>The username of the associated Amazon Web Services Single Sign-On User for this UserProfile.  If the Domain's AuthMode is SSO, this field is
-   *            required, and must match a valid username of a user in your directory.  If the Domain's AuthMode is not SSO, this field cannot be specified.
+   * <p>The username of the associated Amazon Web Services Single Sign-On User for this UserProfile.  If the Domain's AuthMode is Amazon Web Services SSO, this field is
+   *           required, and must match a valid username of a user in your directory.  If the Domain's AuthMode is not Amazon Web Services SSO, this field cannot be specified.
    *        </p>
    */
   SingleSignOnUserValue?: string;
@@ -8068,7 +8146,7 @@ export interface DescribeDomainResponse {
   HomeEfsFileSystemId?: string;
 
   /**
-   * <p>The SSO managed application instance ID.</p>
+   * <p>The Amazon Web Services SSO managed application instance ID.</p>
    */
   SingleSignOnManagedApplicationInstanceId?: string;
 
@@ -9090,67 +9168,6 @@ export enum FlowDefinitionStatus {
   INITIALIZING = "Initializing",
 }
 
-export interface DescribeFlowDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow defintion.</p>
-   */
-  FlowDefinitionArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
-   */
-  FlowDefinitionName: string | undefined;
-
-  /**
-   * <p>The status of the flow definition. Valid values are listed below.</p>
-   */
-  FlowDefinitionStatus: FlowDefinitionStatus | string | undefined;
-
-  /**
-   * <p>The timestamp when the flow definition was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Container for configuring the source of human task requests. Used to specify if
-   *       Amazon Rekognition or Amazon Textract is used as an integration source.</p>
-   */
-  HumanLoopRequestSource?: HumanLoopRequestSource;
-
-  /**
-   * <p>An object containing information about what triggers a human review workflow.</p>
-   */
-  HumanLoopActivationConfig?: HumanLoopActivationConfig;
-
-  /**
-   * <p>An object containing information about who works on the task, the workforce task price, and other task details.</p>
-   */
-  HumanLoopConfig: HumanLoopConfig | undefined;
-
-  /**
-   * <p>An object containing information about the output file.</p>
-   */
-  OutputConfig: FlowDefinitionOutputConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) execution role for the flow definition.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The reason your flow definition failed.</p>
-   */
-  FailureReason?: string;
-}
-
-export interface DescribeHumanTaskUiRequest {
-  /**
-   * <p>The name of the human task user interface
-   *       (worker task template) you want information about.</p>
-   */
-  HumanTaskUiName: string | undefined;
-}
-
 /**
  * @internal
  */
@@ -9256,6 +9273,20 @@ export const CreateImageVersionRequestFilterSensitiveLog = (obj: CreateImageVers
  * @internal
  */
 export const CreateImageVersionResponseFilterSensitiveLog = (obj: CreateImageVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationJobPayloadConfigFilterSensitiveLog = (obj: RecommendationJobPayloadConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationJobContainerConfigFilterSensitiveLog = (obj: RecommendationJobContainerConfig): any => ({
   ...obj,
 });
 
@@ -11083,19 +11114,5 @@ export const DescribeFeatureMetadataResponseFilterSensitiveLog = (obj: DescribeF
  * @internal
  */
 export const DescribeFlowDefinitionRequestFilterSensitiveLog = (obj: DescribeFlowDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFlowDefinitionResponseFilterSensitiveLog = (obj: DescribeFlowDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHumanTaskUiRequestFilterSensitiveLog = (obj: DescribeHumanTaskUiRequest): any => ({
   ...obj,
 });

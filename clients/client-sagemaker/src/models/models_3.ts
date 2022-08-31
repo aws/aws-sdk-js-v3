@@ -97,6 +97,7 @@ import {
   MetricData,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
+  NotebookInstanceSummary,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
   PipelineStatus,
@@ -108,7 +109,6 @@ import {
   ServiceCatalogProvisionedProductDetails,
   SortBy,
   SortOrder,
-  SortPipelineExecutionsBy,
   SubscribedWorkteam,
   TrainingJobStatus,
   TransformJobStatus,
@@ -119,6 +119,26 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListNotebookInstancesOutput {
+  /**
+   * <p>If the response to the previous <code>ListNotebookInstances</code> request was
+   *             truncated, SageMaker returns this token. To retrieve the next set of notebook instances, use
+   *             the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An array of <code>NotebookInstanceSummary</code> objects, one for each notebook
+   *             instance.</p>
+   */
+  NotebookInstances?: NotebookInstanceSummary[];
+}
+
+export enum SortPipelineExecutionsBy {
+  CREATION_TIME = "CreationTime",
+  PIPELINE_EXECUTION_ARN = "PipelineExecutionArn",
+}
 
 export interface ListPipelineExecutionsRequest {
   /**
@@ -4965,6 +4985,13 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const ListNotebookInstancesOutputFilterSensitiveLog = (obj: ListNotebookInstancesOutput): any => ({
+  ...obj,
+});
 
 /**
  * @internal

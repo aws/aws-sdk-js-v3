@@ -1078,8 +1078,6 @@ import {
   DescribeFeatureMetadataRequest,
   DescribeFeatureMetadataResponse,
   DescribeFlowDefinitionRequest,
-  DescribeFlowDefinitionResponse,
-  DescribeHumanTaskUiRequest,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1168,8 +1166,10 @@ import {
   ProfilerRuleConfiguration,
   ProvisioningParameter,
   RecommendationJobCompiledOutputConfig,
+  RecommendationJobContainerConfig,
   RecommendationJobInputConfig,
   RecommendationJobOutputConfig,
+  RecommendationJobPayloadConfig,
   RecommendationJobResourceLimit,
   RecommendationJobStoppingConditions,
   RedshiftDatasetDefinition,
@@ -1190,6 +1190,8 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DescribeFlowDefinitionResponse,
+  DescribeHumanTaskUiRequest,
   DescribeHumanTaskUiResponse,
   DescribeHyperParameterTuningJobRequest,
   DescribeHyperParameterTuningJobResponse,
@@ -1390,7 +1392,6 @@ import {
   ListNotebookInstanceLifecycleConfigsInput,
   ListNotebookInstanceLifecycleConfigsOutput,
   ListNotebookInstancesInput,
-  ListNotebookInstancesOutput,
   MetricData,
   ModelConfiguration,
   ModelMetadataFilter,
@@ -1429,6 +1430,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListNotebookInstancesOutput,
   ListPipelineExecutionsRequest,
   ListPipelineExecutionsResponse,
   ListPipelineExecutionStepsRequest,
@@ -21377,11 +21379,36 @@ const serializeAws_json1_1RecommendationJobCompiledOutputConfig = (
   };
 };
 
+const serializeAws_json1_1RecommendationJobContainerConfig = (
+  input: RecommendationJobContainerConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Domain != null && { Domain: input.Domain }),
+    ...(input.Framework != null && { Framework: input.Framework }),
+    ...(input.FrameworkVersion != null && { FrameworkVersion: input.FrameworkVersion }),
+    ...(input.NearestModelName != null && { NearestModelName: input.NearestModelName }),
+    ...(input.PayloadConfig != null && {
+      PayloadConfig: serializeAws_json1_1RecommendationJobPayloadConfig(input.PayloadConfig, context),
+    }),
+    ...(input.SupportedInstanceTypes != null && {
+      SupportedInstanceTypes: serializeAws_json1_1RecommendationJobSupportedInstanceTypes(
+        input.SupportedInstanceTypes,
+        context
+      ),
+    }),
+    ...(input.Task != null && { Task: input.Task }),
+  };
+};
+
 const serializeAws_json1_1RecommendationJobInputConfig = (
   input: RecommendationJobInputConfig,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ContainerConfig != null && {
+      ContainerConfig: serializeAws_json1_1RecommendationJobContainerConfig(input.ContainerConfig, context),
+    }),
     ...(input.EndpointConfigurations != null && {
       EndpointConfigurations: serializeAws_json1_1EndpointInputConfigurations(input.EndpointConfigurations, context),
     }),
@@ -21412,6 +21439,21 @@ const serializeAws_json1_1RecommendationJobOutputConfig = (
   };
 };
 
+const serializeAws_json1_1RecommendationJobPayloadConfig = (
+  input: RecommendationJobPayloadConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SamplePayloadUrl != null && { SamplePayloadUrl: input.SamplePayloadUrl }),
+    ...(input.SupportedContentTypes != null && {
+      SupportedContentTypes: serializeAws_json1_1RecommendationJobSupportedContentTypes(
+        input.SupportedContentTypes,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_json1_1RecommendationJobResourceLimit = (
   input: RecommendationJobResourceLimit,
   context: __SerdeContext
@@ -21432,6 +21474,22 @@ const serializeAws_json1_1RecommendationJobStoppingConditions = (
       ModelLatencyThresholds: serializeAws_json1_1ModelLatencyThresholds(input.ModelLatencyThresholds, context),
     }),
   };
+};
+
+const serializeAws_json1_1RecommendationJobSupportedContentTypes = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1RecommendationJobSupportedInstanceTypes = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1RedshiftDatasetDefinition = (
@@ -31879,11 +31937,36 @@ const deserializeAws_json1_1RealtimeInferenceInstanceTypes = (
   return retVal;
 };
 
+const deserializeAws_json1_1RecommendationJobContainerConfig = (
+  output: any,
+  context: __SerdeContext
+): RecommendationJobContainerConfig => {
+  return {
+    Domain: __expectString(output.Domain),
+    Framework: __expectString(output.Framework),
+    FrameworkVersion: __expectString(output.FrameworkVersion),
+    NearestModelName: __expectString(output.NearestModelName),
+    PayloadConfig:
+      output.PayloadConfig != null
+        ? deserializeAws_json1_1RecommendationJobPayloadConfig(output.PayloadConfig, context)
+        : undefined,
+    SupportedInstanceTypes:
+      output.SupportedInstanceTypes != null
+        ? deserializeAws_json1_1RecommendationJobSupportedInstanceTypes(output.SupportedInstanceTypes, context)
+        : undefined,
+    Task: __expectString(output.Task),
+  } as any;
+};
+
 const deserializeAws_json1_1RecommendationJobInputConfig = (
   output: any,
   context: __SerdeContext
 ): RecommendationJobInputConfig => {
   return {
+    ContainerConfig:
+      output.ContainerConfig != null
+        ? deserializeAws_json1_1RecommendationJobContainerConfig(output.ContainerConfig, context)
+        : undefined,
     EndpointConfigurations:
       output.EndpointConfigurations != null
         ? deserializeAws_json1_1EndpointInputConfigurations(output.EndpointConfigurations, context)
@@ -31897,6 +31980,19 @@ const deserializeAws_json1_1RecommendationJobInputConfig = (
     TrafficPattern:
       output.TrafficPattern != null ? deserializeAws_json1_1TrafficPattern(output.TrafficPattern, context) : undefined,
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
+  } as any;
+};
+
+const deserializeAws_json1_1RecommendationJobPayloadConfig = (
+  output: any,
+  context: __SerdeContext
+): RecommendationJobPayloadConfig => {
+  return {
+    SamplePayloadUrl: __expectString(output.SamplePayloadUrl),
+    SupportedContentTypes:
+      output.SupportedContentTypes != null
+        ? deserializeAws_json1_1RecommendationJobSupportedContentTypes(output.SupportedContentTypes, context)
+        : undefined,
   } as any;
 };
 
@@ -31921,6 +32017,36 @@ const deserializeAws_json1_1RecommendationJobStoppingConditions = (
         ? deserializeAws_json1_1ModelLatencyThresholds(output.ModelLatencyThresholds, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1RecommendationJobSupportedContentTypes = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1RecommendationJobSupportedInstanceTypes = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1RecommendationMetrics = (output: any, context: __SerdeContext): RecommendationMetrics => {

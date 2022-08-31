@@ -35,6 +35,10 @@ import {
   EdgeOutputConfig,
   FeatureDefinition,
   FeatureType,
+  FlowDefinitionOutputConfig,
+  HumanLoopActivationConfig,
+  HumanLoopConfig,
+  HumanLoopRequestSource,
   HyperParameterTuningJobObjectiveType,
   HyperParameterTuningJobStrategyType,
   InferenceSpecification,
@@ -137,6 +141,67 @@ import {
   TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
 } from "./models_1";
+
+export interface DescribeFlowDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow defintion.</p>
+   */
+  FlowDefinitionArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
+   */
+  FlowDefinitionName: string | undefined;
+
+  /**
+   * <p>The status of the flow definition. Valid values are listed below.</p>
+   */
+  FlowDefinitionStatus: FlowDefinitionStatus | string | undefined;
+
+  /**
+   * <p>The timestamp when the flow definition was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Container for configuring the source of human task requests. Used to specify if
+   *       Amazon Rekognition or Amazon Textract is used as an integration source.</p>
+   */
+  HumanLoopRequestSource?: HumanLoopRequestSource;
+
+  /**
+   * <p>An object containing information about what triggers a human review workflow.</p>
+   */
+  HumanLoopActivationConfig?: HumanLoopActivationConfig;
+
+  /**
+   * <p>An object containing information about who works on the task, the workforce task price, and other task details.</p>
+   */
+  HumanLoopConfig: HumanLoopConfig | undefined;
+
+  /**
+   * <p>An object containing information about the output file.</p>
+   */
+  OutputConfig: FlowDefinitionOutputConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) execution role for the flow definition.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The reason your flow definition failed.</p>
+   */
+  FailureReason?: string;
+}
+
+export interface DescribeHumanTaskUiRequest {
+  /**
+   * <p>The name of the human task user interface
+   *       (worker task template) you want information about.</p>
+   */
+  HumanTaskUiName: string | undefined;
+}
 
 export enum HumanTaskUiStatus {
   ACTIVE = "Active",
@@ -3637,12 +3702,12 @@ export interface DescribeUserProfileResponse {
   FailureReason?: string;
 
   /**
-   * <p>The SSO user identifier.</p>
+   * <p>The Amazon Web Services SSO user identifier.</p>
    */
   SingleSignOnUserIdentifier?: string;
 
   /**
-   * <p>The SSO user value.</p>
+   * <p>The Amazon Web Services SSO user value.</p>
    */
   SingleSignOnUserValue?: string;
 
@@ -8807,25 +8872,19 @@ export interface NotebookInstanceSummary {
   AdditionalCodeRepositories?: string[];
 }
 
-export interface ListNotebookInstancesOutput {
-  /**
-   * <p>If the response to the previous <code>ListNotebookInstances</code> request was
-   *             truncated, SageMaker returns this token. To retrieve the next set of notebook instances, use
-   *             the token in the next request.</p>
-   */
-  NextToken?: string;
+/**
+ * @internal
+ */
+export const DescribeFlowDefinitionResponseFilterSensitiveLog = (obj: DescribeFlowDefinitionResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>An array of <code>NotebookInstanceSummary</code> objects, one for each notebook
-   *             instance.</p>
-   */
-  NotebookInstances?: NotebookInstanceSummary[];
-}
-
-export enum SortPipelineExecutionsBy {
-  CREATION_TIME = "CreationTime",
-  PIPELINE_EXECUTION_ARN = "PipelineExecutionArn",
-}
+/**
+ * @internal
+ */
+export const DescribeHumanTaskUiRequestFilterSensitiveLog = (obj: DescribeHumanTaskUiRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10558,12 +10617,5 @@ export const ListNotebookInstancesInputFilterSensitiveLog = (obj: ListNotebookIn
  * @internal
  */
 export const NotebookInstanceSummaryFilterSensitiveLog = (obj: NotebookInstanceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotebookInstancesOutputFilterSensitiveLog = (obj: ListNotebookInstancesOutput): any => ({
   ...obj,
 });
