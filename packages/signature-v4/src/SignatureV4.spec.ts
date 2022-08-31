@@ -54,6 +54,16 @@ describe("SignatureV4", () => {
       signingDate: new Date("2000-01-01T00:00:00.000Z"),
     };
 
+    it("should throw on invalid credential", async () => {
+      const signer = new SignatureV4({ ...signerInit, credentials: {} as any });
+      try {
+        await signer.presign(minimalRequest, presigningOptions);
+        fail("This test is expected to fail");
+      } catch (e) {
+        expect(e.message).toBe("Resolved credential object is not valid");
+      }
+    });
+
     it("should sign requests without bodies", async () => {
       const { query } = await signer.presign(minimalRequest, presigningOptions);
       expect(query).toEqual({
@@ -364,6 +374,16 @@ describe("SignatureV4", () => {
   });
 
   describe("#sign (request)", () => {
+    it("should throw on invalid credential", async () => {
+      const signer = new SignatureV4({ ...signerInit, credentials: {} as any });
+      try {
+        await signer.sign(minimalRequest);
+        fail("This test is expected to fail");
+      } catch (e) {
+        expect(e.message).toBe("Resolved credential object is not valid");
+      }
+    });
+
     it("should sign requests without bodies", async () => {
       const { headers } = await signer.sign(minimalRequest, {
         signingDate: new Date("2000-01-01T00:00:00.000Z"),
@@ -658,6 +678,16 @@ describe("SignatureV4", () => {
       sha256: Sha256,
     };
 
+    it("should throw on invalid credential", async () => {
+      const signer = new SignatureV4({ ...signerInit, credentials: {} as any });
+      try {
+        await signer.sign("STRING_TO_SIGN");
+        fail("This test is expected to fail");
+      } catch (e) {
+        expect(e.message).toBe("Resolved credential object is not valid");
+      }
+    });
+
     it("should produce signatures matching known outputs", async () => {
       // Example copied from https://github.com/aws/aws-sdk-php/blob/3.42.0/tests/S3/PostObjectV4Test.php#L37
       const signer = new SignatureV4(signerInit);
@@ -699,6 +729,25 @@ describe("SignatureV4", () => {
       },
       sha256: Sha256,
     };
+
+    it("should throw on invalid credential", async () => {
+      const signer = new SignatureV4({ ...signerInit, credentials: {} as any });
+      try {
+        await signer.sign(
+          {
+            headers: Uint8Array.from([5, 58, 100, 97, 116, 101, 8, 0, 0, 1, 103, 247, 125, 87, 112]),
+            payload: "foo" as any,
+          },
+          {
+            signingDate: new Date(1369353600000),
+            priorSignature: "",
+          }
+        );
+        fail("This test is expected to fail");
+      } catch (e) {
+        expect(e.message).toBe("Resolved credential object is not valid");
+      }
+    });
 
     it("support event signing", async () => {
       const signer = new SignatureV4(signerInit);
