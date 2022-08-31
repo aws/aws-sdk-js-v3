@@ -31,10 +31,10 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * @deprecated
  *
  * <p>Runs one or more SQL statements.</p>
- *         <important>
+ *         <note>
  *             <p>This operation is deprecated. Use the <code>BatchExecuteStatement</code> or
  *                     <code>ExecuteStatement</code> operation.</p>
- *         </important>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

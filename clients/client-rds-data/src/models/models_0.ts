@@ -370,10 +370,10 @@ export interface ResultSetOptions {
    *             it is converted to a String value. The value of <code>DOUBLE_OR_LONG</code>
    *             specifies that it is converted to a Long value if its scale is 0, or to a Double
    *             value otherwise.</p>
-   *         <important>
+   *         <note>
    *             <p>Conversion to Double or Long can result in roundoff errors due to precision loss.
    *                 We recommend converting to String, especially when working with currency values.</p>
-   *         </important>
+   *         </note>
    */
   decimalReturnType?: DecimalReturnType | string;
 
@@ -732,10 +732,10 @@ export interface UpdateResult {
 /**
  * <p>Contains the value of a column.</p>
  *
- *         <important>
+ *         <note>
  *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
  *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
- *         </important>
+ *         </note>
  */
 export type Value =
   | Value.ArrayValuesMember
@@ -1024,11 +1024,11 @@ export interface ExecuteStatementRequest {
    * <p>A value that indicates whether to continue running the statement after
    *             the call times out. By default, the statement stops running when the call
    *             times out.</p>
-   *         <important>
+   *         <note>
    *             <p>For DDL statements, we recommend continuing to run the statement after
    *                the call times out. When a DDL statement terminates before it is finished
    *                running, it can result in errors and possibly corrupted data structures.</p>
-   *         </important>
+   *         </note>
    */
   continueAfterTimeout?: boolean;
 
@@ -1051,10 +1051,10 @@ export interface ExecuteStatementRequest {
 
 /**
  * <p>A structure value returned by a call.</p>
- *         <important>
+ *         <note>
  *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
  *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
- *         </important>
+ *         </note>
  */
 export interface StructValue {
   /**
@@ -1136,10 +1136,10 @@ export interface BatchExecuteStatementResponse {
 
 /**
  * <p>A record returned by a call.</p>
- *         <important>
+ *         <note>
  *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
  *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
- *         </important>
+ *         </note>
  */
 export interface _Record {
   /**
@@ -1194,10 +1194,10 @@ export interface ExecuteStatementResponse {
 
 /**
  * <p>The result set returned by a SQL statement.</p>
- *         <important>
+ *         <note>
  *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
  *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
- *         </important>
+ *         </note>
  */
 export interface ResultFrame {
   /**
@@ -1214,10 +1214,10 @@ export interface ResultFrame {
 /**
  * <p>The result of a SQL statement.</p>
  *
- *         <important>
+ *         <note>
  *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
  *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
- *         </important>
+ *         </note>
  */
 export interface SqlStatementResult {
   /**
