@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.161.0...v3.162.0) (2022-08-31)
+
+
+### Bug Fixes
+
+* **types:** declare ReadableStream type without requiring dom ([#3889](https://github.com/aws/aws-sdk-js-v3/issues/3889)) ([061b5f5](https://github.com/aws/aws-sdk-js-v3/commit/061b5f5812278930207b5c50c0c9f61a26a987ad))
+
+
+
+
+
 # [3.160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.159.0...v3.160.0) (2022-08-29)
 
 **Note:** Version bump only for package @aws-sdk/types

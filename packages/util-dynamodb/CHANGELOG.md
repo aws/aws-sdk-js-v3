@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.161.0...v3.162.0) (2022-08-31)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** declare File interface without requiring dom lib ([#3890](https://github.com/aws/aws-sdk-js-v3/issues/3890)) ([574507f](https://github.com/aws/aws-sdk-js-v3/commit/574507fab12cf7a6bed5af0f66760853ee31780f))
+
+
+
+
+
 # [3.161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.160.0...v3.161.0) (2022-08-30)
 
 **Note:** Version bump only for package @aws-sdk/util-dynamodb

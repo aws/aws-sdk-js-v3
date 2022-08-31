@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.161.0...v3.162.0) (2022-08-31)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** declare File interface without requiring dom lib ([#3890](https://github.com/aws/aws-sdk-js-v3/issues/3890)) ([574507f](https://github.com/aws/aws-sdk-js-v3/commit/574507fab12cf7a6bed5af0f66760853ee31780f))
+* **types:** declare ReadableStream type without requiring dom ([#3889](https://github.com/aws/aws-sdk-js-v3/issues/3889)) ([061b5f5](https://github.com/aws/aws-sdk-js-v3/commit/061b5f5812278930207b5c50c0c9f61a26a987ad))
+
+
+### Features
+
+* **client-identitystore:** Expand IdentityStore API to support Create, Read, Update, Delete and Get operations for User, Group and GroupMembership resources. ([4227bb3](https://github.com/aws/aws-sdk-js-v3/commit/4227bb30f88e0267be898c110f35605e398a7c7c))
+* **client-iotthingsgraph:** This release deprecates all APIs of the ThingsGraph service ([2584904](https://github.com/aws/aws-sdk-js-v3/commit/2584904bb60c9425713778b14df0eb041f445db4))
+* **client-ivs:** IVS Merge Fragmented Streams. This release adds support for recordingReconnectWindow field in IVS recordingConfigurations. For more information see https://docs.aws.amazon.com/ivs/latest/APIReference/Welcome.html ([2cec549](https://github.com/aws/aws-sdk-js-v3/commit/2cec5497424c5a078b1fc4dbe188a9323d95c3c4))
+* **client-sagemaker:** SageMaker Inference Recommender now accepts Inference Recommender fields: Domain, Task, Framework, SamplePayloadUrl, SupportedContentTypes, SupportedInstanceTypes, directly in our CreateInferenceRecommendationsJob API through ContainerConfig ([7ab95c9](https://github.com/aws/aws-sdk-js-v3/commit/7ab95c9351e9bb64bc2090ecfd7214e22cc6a412))
+
+
+
+
+
 # [3.161.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.160.0...v3.161.0) (2022-08-30)
 
 
