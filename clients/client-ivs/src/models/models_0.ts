@@ -433,11 +433,13 @@ export interface ThumbnailConfiguration {
    * <p>The targeted thumbnail-generation interval in seconds. This is configurable (and required)
    *       only if <code>recordingMode</code> is <code>INTERVAL</code>. Default: 60.</p>
    *          <p>
-   *             <b>Important:</b> Setting a value for <code>targetIntervalSeconds</code> does not guarantee that thumbnails
-   *       are generated at the specified interval. For thumbnails to be generated at the
-   *       <code>targetIntervalSeconds</code> interval, the <code>IDR/Keyframe</code> value for the input video must be less than
-   *       the <code>targetIntervalSeconds</code> value. See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/streaming-config.html"> Amazon IVS Streaming Configuration</a> for information on
-   *       setting <code>IDR/Keyframe</code> to the recommended value in video-encoder settings.</p>
+   *             <b>Important:</b> Setting a value for
+   *         <code>targetIntervalSeconds</code> does not guarantee that thumbnails are generated at the
+   *       specified interval. For thumbnails to be generated at the <code>targetIntervalSeconds</code>
+   *       interval, the <code>IDR/Keyframe</code> value for the input video must be less than the
+   *         <code>targetIntervalSeconds</code> value. See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/streaming-config.html"> Amazon IVS Streaming Configuration</a>
+   *       for information on setting <code>IDR/Keyframe</code> to the recommended value in video-encoder
+   *       settings.</p>
    */
   targetIntervalSeconds?: number;
 }
@@ -467,6 +469,12 @@ export interface CreateRecordingConfigurationRequest {
    *       session and modify the interval at which thumbnails are generated for the live session.</p>
    */
   thumbnailConfiguration?: ThumbnailConfiguration;
+
+  /**
+   * <p>If a broadcast disconnects and then reconnects within the specified interval, the multiple
+   *       streams will be considered a single broadcast and merged together. Default: 0.</p>
+   */
+  recordingReconnectWindowSeconds?: number;
 }
 
 export enum RecordingConfigurationState {
@@ -513,6 +521,12 @@ export interface RecordingConfiguration {
    *       session and modify the interval at which thumbnails are generated for the live session.</p>
    */
   thumbnailConfiguration?: ThumbnailConfiguration;
+
+  /**
+   * <p>If a broadcast disconnects and then reconnects within the specified interval, the multiple
+   *       streams will be considered a single broadcast and merged together. Default: 0.</p>
+   */
+  recordingReconnectWindowSeconds?: number;
 }
 
 export interface CreateRecordingConfigurationResponse {

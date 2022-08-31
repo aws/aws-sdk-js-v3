@@ -3,6 +3,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
@@ -199,6 +200,9 @@ export const serializeAws_restJson1CreateRecordingConfigurationCommand = async (
       destinationConfiguration: serializeAws_restJson1DestinationConfiguration(input.destinationConfiguration, context),
     }),
     ...(input.name != null && { name: input.name }),
+    ...(input.recordingReconnectWindowSeconds != null && {
+      recordingReconnectWindowSeconds: input.recordingReconnectWindowSeconds,
+    }),
     ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
     ...(input.thumbnailConfiguration != null && {
       thumbnailConfiguration: serializeAws_restJson1ThumbnailConfiguration(input.thumbnailConfiguration, context),
@@ -2541,6 +2545,7 @@ const deserializeAws_restJson1RecordingConfiguration = (
         ? deserializeAws_restJson1DestinationConfiguration(output.destinationConfiguration, context)
         : undefined,
     name: __expectString(output.name),
+    recordingReconnectWindowSeconds: __expectInt32(output.recordingReconnectWindowSeconds),
     state: __expectString(output.state),
     tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
     thumbnailConfiguration:
