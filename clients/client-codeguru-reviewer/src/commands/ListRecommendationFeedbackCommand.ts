@@ -28,13 +28,8 @@ export interface ListRecommendationFeedbackCommandInput extends ListRecommendati
 export interface ListRecommendationFeedbackCommandOutput extends ListRecommendationFeedbackResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Returns a list of
- *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html">
- *                <code>RecommendationFeedbackSummary</code>
- *             </a>
- *          objects that contain customer recommendation feedback for all CodeGuru Reviewer users.
- *       </p>
+ * <p>Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html">RecommendationFeedbackSummary</a> objects that contain customer recommendation
+ *          feedback for all CodeGuru Reviewer users.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

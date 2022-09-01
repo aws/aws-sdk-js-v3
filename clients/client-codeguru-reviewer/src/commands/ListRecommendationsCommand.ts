@@ -28,9 +28,7 @@ export interface ListRecommendationsCommandInput extends ListRecommendationsRequ
 export interface ListRecommendationsCommandOutput extends ListRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Returns the list of all recommendations for a completed code review.
- *       </p>
+ * <p>Returns the list of all recommendations for a completed code review.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

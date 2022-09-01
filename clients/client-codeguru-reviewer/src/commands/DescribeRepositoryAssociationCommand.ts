@@ -30,12 +30,8 @@ export interface DescribeRepositoryAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *          Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">
- *                <code>RepositoryAssociation</code>
- *             </a> object
- *          that contains information about the requested repository association.
- *       </p>
+ * <p>Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object that contains information about the requested
+ *          repository association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -30,9 +30,7 @@ export interface DescribeRecommendationFeedbackCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *          Describes the customer feedback for a CodeGuru Reviewer recommendation.
- *       </p>
+ * <p>Describes the customer feedback for a CodeGuru Reviewer recommendation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

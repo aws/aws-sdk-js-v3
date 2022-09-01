@@ -28,13 +28,10 @@ export interface CreateCodeReviewCommandInput extends CreateCodeReviewRequest {}
 export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Use to create a code review with a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html">
- *                <code>CodeReviewType</code>
- *             </a>
- *          of <code>RepositoryAnalysis</code>. This type of code review analyzes all code under a specified branch in an associated repository.
- *          <code>PullRequest</code> code reviews are automatically triggered by a pull request.
- *       </p>
+ * <p>Use to create a code review with a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html">CodeReviewType</a> of
+ *             <code>RepositoryAnalysis</code>. This type of code review analyzes all code under a
+ *          specified branch in an associated repository. <code>PullRequest</code> code reviews are
+ *          automatically triggered by a pull request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

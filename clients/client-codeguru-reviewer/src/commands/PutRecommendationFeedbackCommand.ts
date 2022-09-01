@@ -28,9 +28,8 @@ export interface PutRecommendationFeedbackCommandInput extends PutRecommendation
 export interface PutRecommendationFeedbackCommandOutput extends PutRecommendationFeedbackResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is called again with different reactions the previous feedback is overwritten.
- *       </p>
+ * <p>Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is called again with
+ *          different reactions the previous feedback is overwritten.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

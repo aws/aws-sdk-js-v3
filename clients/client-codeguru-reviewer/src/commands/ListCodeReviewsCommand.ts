@@ -28,9 +28,7 @@ export interface ListCodeReviewsCommandInput extends ListCodeReviewsRequest {}
 export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Lists all the code reviews that the customer has created in the past 90 days.
- *       </p>
+ * <p>Lists all the code reviews that the customer has created in the past 90 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
