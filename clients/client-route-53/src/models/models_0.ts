@@ -303,10 +303,6 @@ export interface AlarmIdentifier {
  * 			following:</p>
  * 		       <ul>
  *             <li>
- * 				           <p>Creating geolocation alias resource record sets or latency alias resource
- * 					record sets in a private hosted zone is unsupported.</p>
- * 			         </li>
- *             <li>
  * 				           <p>For information about creating failover resource record sets in a private
  * 					hosted zone, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html">Configuring Failover in a Private Hosted Zone</a>.</p>
  * 			         </li>
@@ -1678,10 +1674,6 @@ export interface ResourceRecordSet {
    *             <li>
    * 				           <p>You can't create an alias resource record set in a private hosted zone to
    * 					route traffic to a CloudFront distribution.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>Creating geolocation alias resource record sets or latency alias resource
-   * 					record sets in a private hosted zone is unsupported.</p>
    * 			         </li>
    *             <li>
    * 				           <p>For information about creating failover resource record sets in a private
@@ -5708,8 +5700,8 @@ export interface LocationSummary {
 
 export interface ListCidrLocationsResponse {
   /**
-   * <p>An opaque
-   * 			pagination token to indicate where the service is to begin enumerating results.</p>
+   * <p>An opaque pagination token to indicate where the service is to begin enumerating
+   * 			results.</p>
    * 		       <p>If no value is provided, the listing of results starts from the beginning.</p>
    */
   NextToken?: string;
