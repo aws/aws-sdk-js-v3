@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.162.0...v3.163.0) (2022-09-01)
+
+
+### Features
+
+* **signature-v4:** validate credential is valid before signing ([#3892](https://github.com/aws/aws-sdk-js-v3/issues/3892)) ([065eb7f](https://github.com/aws/aws-sdk-js-v3/commit/065eb7f15944ecc069d9f0cb02c488a32db0db35))
+
+
+
+
+
 # [3.162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.161.0...v3.162.0) (2022-08-31)
 
 **Note:** Version bump only for package @aws-sdk/signature-v4
