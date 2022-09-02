@@ -2,6 +2,7 @@ import { streamCollector } from "@aws-sdk/node-http-handler";
 import { SdkStream, SdkStreamMixin } from "@aws-sdk/types";
 import { fromArrayBuffer } from "@aws-sdk/util-buffer-from";
 import { Readable } from "stream";
+import { TextDecoder } from "util";
 
 const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transformed.";
 
@@ -30,7 +31,12 @@ export const sdkStreamMixin = (stream: unknown): SdkStream<Readable> => {
     transformToByteArray,
     transformToString: async (encoding?: string) => {
       const buf = await transformToByteArray();
-      return fromArrayBuffer(buf.buffer, buf.byteOffset, buf.byteLength).toString(encoding);
+      if (encoding === undefined || Buffer.isEncoding(encoding)) {
+        return fromArrayBuffer(buf.buffer, buf.byteOffset, buf.byteLength).toString(encoding);
+      } else {
+        const decoder = new TextDecoder(encoding);
+        return decoder.decode(buf);
+      }
     },
     transformToWebStream: () => {
       if (transformed) {
