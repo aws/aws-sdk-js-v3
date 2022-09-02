@@ -387,6 +387,11 @@ export interface Authorization {
   SecretsRoleArn: string | undefined;
 }
 
+export enum CmafEncryptionMethod {
+  AES_CTR = "AES_CTR",
+  SAMPLE_AES = "SAMPLE_AES",
+}
+
 export enum PresetSpeke20Audio {
   PRESET_AUDIO_1 = "PRESET-AUDIO-1",
   PRESET_AUDIO_2 = "PRESET-AUDIO-2",
@@ -479,6 +484,11 @@ export interface CmafEncryption {
    * An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
    */
   ConstantInitializationVector?: string;
+
+  /**
+   * The encryption method to use.
+   */
+  EncryptionMethod?: CmafEncryptionMethod | string;
 
   /**
    * Time (in seconds) between each encryption key rotation.
