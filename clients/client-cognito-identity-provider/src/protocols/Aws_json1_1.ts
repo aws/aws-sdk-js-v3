@@ -9363,6 +9363,7 @@ const serializeAws_json1_1CreateUserPoolClientRequest = (
     ...(input.AnalyticsConfiguration != null && {
       AnalyticsConfiguration: serializeAws_json1_1AnalyticsConfigurationType(input.AnalyticsConfiguration, context),
     }),
+    ...(input.AuthSessionValidity != null && { AuthSessionValidity: input.AuthSessionValidity }),
     ...(input.CallbackURLs != null && {
       CallbackURLs: serializeAws_json1_1CallbackURLsListType(input.CallbackURLs, context),
     }),
@@ -10541,6 +10542,7 @@ const serializeAws_json1_1UpdateUserPoolClientRequest = (
     ...(input.AnalyticsConfiguration != null && {
       AnalyticsConfiguration: serializeAws_json1_1AnalyticsConfigurationType(input.AnalyticsConfiguration, context),
     }),
+    ...(input.AuthSessionValidity != null && { AuthSessionValidity: input.AuthSessionValidity }),
     ...(input.CallbackURLs != null && {
       CallbackURLs: serializeAws_json1_1CallbackURLsListType(input.CallbackURLs, context),
     }),
@@ -13024,6 +13026,7 @@ const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeC
       output.AnalyticsConfiguration != null
         ? deserializeAws_json1_1AnalyticsConfigurationType(output.AnalyticsConfiguration, context)
         : undefined,
+    AuthSessionValidity: __expectInt32(output.AuthSessionValidity),
     CallbackURLs:
       output.CallbackURLs != null
         ? deserializeAws_json1_1CallbackURLsListType(output.CallbackURLs, context)

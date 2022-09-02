@@ -392,17 +392,17 @@ export interface UpdateUserPoolRequest {
   AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
 
   /**
-   * <p>A container with information about the SMS verification message.</p>
+   * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
    */
   SmsVerificationMessage?: string;
 
   /**
-   * <p>The contents of the email verification message.</p>
+   * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
    */
   EmailVerificationMessage?: string;
 
   /**
-   * <p>The subject of the email verification message.</p>
+   * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
    */
   EmailVerificationSubject?: string;
 
@@ -762,10 +762,16 @@ export interface UpdateUserPoolClientRequest {
    *             propagation of user context data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html"> Adding advanced security to a user pool</a>. If you don’t include this
    *             parameter, you can't send device fingerprint information, including source IP address,
    *             to Amazon Cognito advanced security. You can only activate
-   *                 <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a
+   *             <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a
    *             client secret.</p>
    */
   EnablePropagateAdditionalUserContextData?: boolean;
+
+  /**
+   * <p>Amazon Cognito creates a session token for each API request in an authentication flow. <code>AuthSessionValidity</code> is the duration,
+   * in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.</p>
+   */
+  AuthSessionValidity?: number;
 }
 
 /**
