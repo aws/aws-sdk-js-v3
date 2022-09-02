@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.164.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.163.0...v3.164.0) (2022-09-02)
+
+
+### Features
+
+* **client-cognito-identity-provider:** This release adds a new "AuthSessionValidity" field to the UserPoolClient in Cognito. Application admins can configure this value for their users' authentication duration, which is currently fixed at 3 minutes, up to 15 minutes. Setting this field will also apply to the SMS MFA authentication flow. ([fc699df](https://github.com/aws/aws-sdk-js-v3/commit/fc699df42b2c51221037d0fbc927089c050ef301))
+* **client-connect:** This release adds search APIs for Routing Profiles and Queues, which can be used to search for those resources within a Connect Instance. ([bfcf51d](https://github.com/aws/aws-sdk-js-v3/commit/bfcf51d0c5ea58f67d9119f68093675f87fe7666))
+* **client-mediapackage:** Added support for AES_CTR encryption to CMAF origin endpoints ([761dfd0](https://github.com/aws/aws-sdk-js-v3/commit/761dfd0ca9f3c7030ac9d1a8cf2321e79a772aec))
+* **client-sagemaker:** This release enables administrators to attribute user activity and API calls from Studio notebooks, Data Wrangler and Canvas to specific users even when users share the same execution IAM role.  ExecutionRoleIdentityConfig at Sagemaker domain level enables this feature. ([8e57ba3](https://github.com/aws/aws-sdk-js-v3/commit/8e57ba3a0d8dc22f71f4c4f546a500d1a23b9e43))
+* **clients:** update client endpoints as of 2022-09-02 ([9cfaf1b](https://github.com/aws/aws-sdk-js-v3/commit/9cfaf1b5e21a8141e7ddc50245a4d09b904bf776))
+
+
+
+
+
 # [3.163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.162.0...v3.163.0) (2022-09-01)
 
 

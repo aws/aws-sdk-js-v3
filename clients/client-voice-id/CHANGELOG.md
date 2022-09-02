@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.164.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.163.0...v3.164.0) (2022-09-02)
+
+
+### Features
+
+* **clients:** update client endpoints as of 2022-09-02 ([9cfaf1b](https://github.com/aws/aws-sdk-js-v3/commit/9cfaf1b5e21a8141e7ddc50245a4d09b904bf776))
+
+
+
+
+
 # [3.163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.162.0...v3.163.0) (2022-09-01)
 
 **Note:** Version bump only for package @aws-sdk/client-voice-id

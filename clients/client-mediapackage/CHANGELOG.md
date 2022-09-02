@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.164.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.163.0...v3.164.0) (2022-09-02)
+
+
+### Features
+
+* **client-mediapackage:** Added support for AES_CTR encryption to CMAF origin endpoints ([761dfd0](https://github.com/aws/aws-sdk-js-v3/commit/761dfd0ca9f3c7030ac9d1a8cf2321e79a772aec))
+
+
+
+
+
 # [3.163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.162.0...v3.163.0) (2022-09-01)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackage

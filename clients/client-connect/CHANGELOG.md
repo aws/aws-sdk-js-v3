@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.164.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.163.0...v3.164.0) (2022-09-02)
+
+
+### Features
+
+* **client-connect:** This release adds search APIs for Routing Profiles and Queues, which can be used to search for those resources within a Connect Instance. ([bfcf51d](https://github.com/aws/aws-sdk-js-v3/commit/bfcf51d0c5ea58f67d9119f68093675f87fe7666))
+
+
+
+
+
 # [3.163.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.162.0...v3.163.0) (2022-09-01)
 
 **Note:** Version bump only for package @aws-sdk/client-connect
