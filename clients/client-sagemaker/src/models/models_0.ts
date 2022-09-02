@@ -7860,6 +7860,11 @@ export interface UserSettings {
   RSessionAppSettings?: RSessionAppSettings;
 }
 
+export enum ExecutionRoleIdentityConfig {
+  DISABLED = "DISABLED",
+  USER_PROFILE_NAME = "USER_PROFILE_NAME",
+}
+
 /**
  * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level
  *             app.</p>
@@ -7904,6 +7909,12 @@ export interface DomainSettings {
    *             app.</p>
    */
   RStudioServerProDomainSettings?: RStudioServerProDomainSettings;
+
+  /**
+   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">
+   *                <code>sts:SourceIdentity</code> key</a>.</p>
+   */
+  ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig | string;
 }
 
 export interface CreateDomainRequest {
@@ -9833,16 +9844,6 @@ export enum TrainingJobEarlyStoppingType {
 }
 
 /**
- * <p>The job completion criteria.</p>
- */
-export interface TuningJobCompletionCriteria {
-  /**
-   * <p>The value of the objective metric.</p>
-   */
-  TargetObjectiveMetricValue: number | undefined;
-}
-
-/**
  * @internal
  */
 export const ActionSourceFilterSensitiveLog = (obj: ActionSource): any => ({
@@ -11342,12 +11343,5 @@ export const ParameterRangesFilterSensitiveLog = (obj: ParameterRanges): any => 
  * @internal
  */
 export const ResourceLimitsFilterSensitiveLog = (obj: ResourceLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TuningJobCompletionCriteriaFilterSensitiveLog = (obj: TuningJobCompletionCriteria): any => ({
   ...obj,
 });

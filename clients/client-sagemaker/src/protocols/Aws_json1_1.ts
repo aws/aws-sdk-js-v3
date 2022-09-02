@@ -911,7 +911,6 @@ import {
   TransformOutput,
   TransformResources,
   TransformS3DataSource,
-  TuningJobCompletionCriteria,
   UiTemplate,
   USD,
   UserContext,
@@ -1186,6 +1185,7 @@ import {
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
+  TuningJobCompletionCriteria,
   UiConfig,
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
@@ -1407,7 +1407,6 @@ import {
   MonitoringSchedule,
   MonitoringScheduleSummary,
   NotebookInstanceLifecycleConfigSummary,
-  NotebookInstanceSummary,
   ObjectiveStatusCounters,
   OidcConfigForResponse,
   PipelineExperimentConfig,
@@ -1471,6 +1470,7 @@ import {
   ModelPackageGroup,
   ModelStepMetadata,
   NestedFilters,
+  NotebookInstanceSummary,
   Parameter,
   Parent,
   Pipeline,
@@ -18135,6 +18135,9 @@ const serializeAws_json1_1DomainSecurityGroupIds = (input: string[], context: __
 
 const serializeAws_json1_1DomainSettings = (input: DomainSettings, context: __SerdeContext): any => {
   return {
+    ...(input.ExecutionRoleIdentityConfig != null && {
+      ExecutionRoleIdentityConfig: input.ExecutionRoleIdentityConfig,
+    }),
     ...(input.RStudioServerProDomainSettings != null && {
       RStudioServerProDomainSettings: serializeAws_json1_1RStudioServerProDomainSettings(
         input.RStudioServerProDomainSettings,
@@ -18149,6 +18152,9 @@ const serializeAws_json1_1DomainSettings = (input: DomainSettings, context: __Se
 
 const serializeAws_json1_1DomainSettingsForUpdate = (input: DomainSettingsForUpdate, context: __SerdeContext): any => {
   return {
+    ...(input.ExecutionRoleIdentityConfig != null && {
+      ExecutionRoleIdentityConfig: input.ExecutionRoleIdentityConfig,
+    }),
     ...(input.RStudioServerProDomainSettingsForUpdate != null && {
       RStudioServerProDomainSettingsForUpdate: serializeAws_json1_1RStudioServerProDomainSettingsForUpdate(
         input.RStudioServerProDomainSettingsForUpdate,
@@ -26931,6 +26937,7 @@ const deserializeAws_json1_1DomainSecurityGroupIds = (output: any, context: __Se
 
 const deserializeAws_json1_1DomainSettings = (output: any, context: __SerdeContext): DomainSettings => {
   return {
+    ExecutionRoleIdentityConfig: __expectString(output.ExecutionRoleIdentityConfig),
     RStudioServerProDomainSettings:
       output.RStudioServerProDomainSettings != null
         ? deserializeAws_json1_1RStudioServerProDomainSettings(output.RStudioServerProDomainSettings, context)

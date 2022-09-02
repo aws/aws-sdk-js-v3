@@ -102,11 +102,20 @@ import {
   TransformJobDefinition,
   TransformOutput,
   TransformResources,
-  TuningJobCompletionCriteria,
   UserContext,
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>The job completion criteria.</p>
+ */
+export interface TuningJobCompletionCriteria {
+  /**
+   * <p>The value of the objective metric.</p>
+   */
+  TargetObjectiveMetricValue: number | undefined;
+}
 
 /**
  * <p>Configures a hyperparameter tuning job.</p>
@@ -9161,12 +9170,12 @@ export interface DescribeFlowDefinitionRequest {
   FlowDefinitionName: string | undefined;
 }
 
-export enum FlowDefinitionStatus {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing",
-}
+/**
+ * @internal
+ */
+export const TuningJobCompletionCriteriaFilterSensitiveLog = (obj: TuningJobCompletionCriteria): any => ({
+  ...obj,
+});
 
 /**
  * @internal

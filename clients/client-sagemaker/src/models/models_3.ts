@@ -97,7 +97,7 @@ import {
   MetricData,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
-  NotebookInstanceSummary,
+  NotebookInstanceStatus,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
   PipelineStatus,
@@ -119,6 +119,75 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * <p>Provides summary information for an SageMaker notebook instance.</p>
+ */
+export interface NotebookInstanceSummary {
+  /**
+   * <p>The name of the notebook instance that you want a summary for.</p>
+   */
+  NotebookInstanceName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the notebook instance.</p>
+   */
+  NotebookInstanceArn: string | undefined;
+
+  /**
+   * <p>The status of the notebook instance.</p>
+   */
+  NotebookInstanceStatus?: NotebookInstanceStatus | string;
+
+  /**
+   * <p>The URL that you use to connect to the Jupyter notebook running in your notebook
+   *             instance. </p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The type of ML compute instance that the notebook instance is running on.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>A timestamp that shows when the notebook instance was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>A timestamp that shows when the notebook instance was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The name of a notebook instance lifecycle configuration associated with this notebook
+   *             instance.</p>
+   *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+   *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
+   */
+  NotebookInstanceLifecycleConfigName?: string;
+
+  /**
+   * <p>The Git repository associated with the notebook instance as its default code
+   *             repository. This can be either the name of a Git repository stored as a resource in your
+   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *             or in any other Git repository. When you open a notebook instance, it opens in the
+   *             directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *                 Repositories with SageMaker Notebook Instances</a>.</p>
+   */
+  DefaultCodeRepository?: string;
+
+  /**
+   * <p>An array of up to three Git repositories associated with the notebook instance. These
+   *             can be either the names of Git repositories stored as resources in your account, or the
+   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *             or in any other Git repository. These repositories are cloned at the same level as the
+   *             default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *                 Repositories with SageMaker Notebook Instances</a>.</p>
+   */
+  AdditionalCodeRepositories?: string[];
+}
 
 export interface ListNotebookInstancesOutput {
   /**
@@ -4985,6 +5054,13 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const NotebookInstanceSummaryFilterSensitiveLog = (obj: NotebookInstanceSummary): any => ({
+  ...obj,
+});
 
 /**
  * @internal
