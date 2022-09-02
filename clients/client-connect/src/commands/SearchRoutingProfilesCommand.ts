@@ -14,48 +14,46 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import {
-  ListBotsRequest,
-  ListBotsRequestFilterSensitiveLog,
-  ListBotsResponse,
-  ListBotsResponseFilterSensitiveLog,
-} from "../models/models_0";
+  SearchRoutingProfilesRequest,
+  SearchRoutingProfilesRequestFilterSensitiveLog,
+  SearchRoutingProfilesResponse,
+  SearchRoutingProfilesResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
-  deserializeAws_restJson1ListBotsCommand,
-  serializeAws_restJson1ListBotsCommand,
+  deserializeAws_restJson1SearchRoutingProfilesCommand,
+  serializeAws_restJson1SearchRoutingProfilesCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListBotsCommandInput extends ListBotsRequest {}
-export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBearer {}
+export interface SearchRoutingProfilesCommandInput extends SearchRoutingProfilesRequest {}
+export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfilesResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently
- *    associated with the instance. Use this API to returns both Amazon Lex V1 and V2
- *    bots.</p>
+ *          <p>Searches routing profiles in an Amazon Connect instance, with optional filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListBotsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListBotsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, SearchRoutingProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, SearchRoutingProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const command = new ListBotsCommand(input);
+ * const command = new SearchRoutingProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListBotsCommandInput} for command's `input` shape.
- * @see {@link ListBotsCommandOutput} for command's `response` shape.
+ * @see {@link SearchRoutingProfilesCommandInput} for command's `input` shape.
+ * @see {@link SearchRoutingProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
-export class ListBotsCommand extends $Command<
-  ListBotsCommandInput,
-  ListBotsCommandOutput,
+export class SearchRoutingProfilesCommand extends $Command<
+  SearchRoutingProfilesCommandInput,
+  SearchRoutingProfilesCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListBotsCommandInput) {
+  constructor(readonly input: SearchRoutingProfilesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -68,20 +66,20 @@ export class ListBotsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListBotsCommandInput, ListBotsCommandOutput> {
+  ): Handler<SearchRoutingProfilesCommandInput, SearchRoutingProfilesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "ListBotsCommand";
+    const commandName = "SearchRoutingProfilesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBotsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: SearchRoutingProfilesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchRoutingProfilesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,12 +89,12 @@ export class ListBotsCommand extends $Command<
     );
   }
 
-  private serialize(input: ListBotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBotsCommand(input, context);
+  private serialize(input: SearchRoutingProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1SearchRoutingProfilesCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBotsCommandOutput> {
-    return deserializeAws_restJson1ListBotsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchRoutingProfilesCommandOutput> {
+    return deserializeAws_restJson1SearchRoutingProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

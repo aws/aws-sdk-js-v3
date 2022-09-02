@@ -38,7 +38,8 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  *    from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls
  *    for additional analysis, such as legal review or to identify abusive callers.</p>
  *          <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted. For
- *    information about contact record retention and the maximum size of the contact record attributes section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
+ *    information about contact record retention and the maximum size of the contact record attributes
+ *    section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
  *     specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

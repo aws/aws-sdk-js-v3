@@ -948,8 +948,7 @@ export interface CreateContactFlowRequest {
   Name: string | undefined;
 
   /**
-   * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator
-   *    Guide</i>.</p>
+   * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   Type: ContactFlowType | string | undefined;
 
@@ -1247,7 +1246,8 @@ export interface CreateIntegrationAssociationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the integration.</p>
    *          <note>
-   *             <p>When integrating with Amazon Pinpoint, the Amazon Connect and Amazon Pinpoint instances must be in the same account.</p>
+   *             <p>When integrating with Amazon Pinpoint, the Amazon Connect and Amazon Pinpoint
+   *     instances must be in the same account.</p>
    *          </note>
    */
   IntegrationArn: string | undefined;
@@ -1370,8 +1370,8 @@ export interface PhoneNumberQuickConnectConfig {
 }
 
 /**
- * <p>Contains information about a queue for a quick connect. The flow must be of type
- *    Transfer to Queue.</p>
+ * <p>Contains information about a queue for a quick connect. The flow must be of type Transfer to
+ *    Queue.</p>
  */
 export interface QueueQuickConnectConfig {
   /**
@@ -1554,7 +1554,8 @@ export interface CreateSecurityProfileRequest {
   Description?: string;
 
   /**
-   * <p>Permissions assigned to the security profile.</p>
+   * <p>Permissions assigned to the security profile. For a list of valid permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List of security
+   *     profile permissions</a>. </p>
    */
   Permissions?: string[];
 
@@ -2488,8 +2489,7 @@ export interface ContactFlow {
   Name?: string;
 
   /**
-   * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator
-   *    Guide</i>.</p>
+   * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   Type?: ContactFlowType | string;
 
@@ -3327,6 +3327,16 @@ export interface RoutingProfile {
    * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>The number of associated queues in routing profile.</p>
+   */
+  NumberOfAssociatedQueues?: number;
+
+  /**
+   * <p>The number of associated users in routing profile.</p>
+   */
+  NumberOfAssociatedUsers?: number;
 }
 
 export interface DescribeRoutingProfileResponse {
@@ -4123,8 +4133,8 @@ export interface GetCurrentMetricDataResponse {
 }
 
 /**
- * <p>Filters user data based on the contact information that is associated to
- *    the users. It contains a list of <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
+ * <p>Filters user data based on the contact information that is associated to the users. It
+ *    contains a list of <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
  */
 export interface ContactFilter {
   /**
@@ -4143,8 +4153,8 @@ export interface UserDataFilters {
   Queues?: string[];
 
   /**
-   * <p>A filter for the user data based on the contact information that is associated to the user. It
-   *    contains a list of contact states. </p>
+   * <p>A filter for the user data based on the contact information that is associated to the user.
+   *    It contains a list of contact states. </p>
    */
   ContactFilter?: ContactFilter;
 }
@@ -4156,8 +4166,9 @@ export interface GetCurrentUserDataRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>Filters up to 100 <code>Queues</code>, or up to 9 <code>ContactStates</code>. The user data is retrieved only for those users who are associated with
-   *    the queues and have contacts that are in the specified <code>ContactState</code>. </p>
+   * <p>Filters up to 100 <code>Queues</code>, or up to 9 <code>ContactStates</code>. The user data
+   *    is retrieved only for those users who are associated with the queues and have contacts that are
+   *    in the specified <code>ContactState</code>. </p>
    */
   Filters: UserDataFilters | undefined;
 
@@ -4282,13 +4293,14 @@ export interface UserData {
 
   /**
    * <p>A map of maximum slots by channel. The key is a channel name. The value is an integer: the
-   *    maximum number of slots. This is calculated from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html">MediaConcurrency</a> of the RoutingProfile assigned to the agent. </p>
+   *    maximum number of slots. This is calculated from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html">MediaConcurrency</a> of the
+   *    RoutingProfile assigned to the agent. </p>
    */
   MaxSlotsByChannel?: Record<string, number>;
 
   /**
    * <p> A map of active slots by channel. The key is a channel name. The value is an integer: the
-   *    number of active slots.  </p>
+   *    number of active slots. </p>
    */
   ActiveSlotsByChannel?: Record<string, number>;
 

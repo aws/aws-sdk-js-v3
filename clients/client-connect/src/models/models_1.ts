@@ -16,11 +16,13 @@ import {
   OutboundCallerConfig,
   PhoneNumberCountryCode,
   PhoneNumberType,
+  Queue,
   QueueStatus,
   QuickConnectConfig,
   QuickConnectSummary,
   QuickConnectType,
   ReferenceType,
+  RoutingProfile,
   RoutingProfileQueueConfig,
   TaskTemplateConstraints,
   TaskTemplateDefaults,
@@ -333,7 +335,9 @@ export interface ListSecurityProfilePermissionsRequest {
 
 export interface ListSecurityProfilePermissionsResponse {
   /**
-   * <p>The permissions granted to the security profile.</p>
+   * <p>The permissions granted to the security profile. For a complete list of valid permissions,
+   *    see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List
+   *     of security profile permissions</a>.</p>
    */
   Permissions?: string[];
 
@@ -760,6 +764,10 @@ export interface SearchAvailablePhoneNumbersResponse {
   AvailableNumbersList?: AvailableNumberSummary[];
 }
 
+export enum SearchableQueueType {
+  STANDARD = "STANDARD",
+}
+
 export enum StringComparisonType {
   CONTAINS = "CONTAINS",
   EXACT = "EXACT",
@@ -834,6 +842,82 @@ export interface ControlPlaneTagFilter {
    * <p>A leaf node condition which can be used to specify a tag condition. </p>
    */
   TagCondition?: TagCondition;
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ */
+export interface QueueSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+export interface SearchQueuesResponse {
+  /**
+   * <p>Information about the queues.</p>
+   */
+  Queues?: Queue[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The total number of queues which matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ */
+export interface RoutingProfileSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+export interface SearchRoutingProfilesResponse {
+  /**
+   * <p>Information about the routing profiles.</p>
+   */
+  RoutingProfiles?: RoutingProfile[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The total number of routing profiles which matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
 }
 
 /**
@@ -1160,9 +1244,9 @@ export interface StartChatContactRequest {
   /**
    * <p>The identifier of the flow for initiating the chat.
    *    To
-   *    see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the
-   *    flow. On the flow page, under the name of the flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of
-   *    the ARN, shown here in bold: </p>
+   *    see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the flow.
+   *    On the flow page, under the name of the flow, choose <b>Show additional flow
+   *     information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p>
    *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
    *          </p>
    */
@@ -1386,11 +1470,10 @@ export interface StartOutboundVoiceContactRequest {
 
   /**
    * <p>The
-   *    identifier of the flow for the outbound call. To see the ContactFlowId in the Amazon Connect
-   *    console user interface, on the navigation menu go to <b>Routing</b>,
-   *     <b>Contact Flows</b>. Choose the flow. On the flow
-   *    page, under the name of the flow, choose <b>Show additional flow
-   *     information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p>
+   *    identifier of the flow for the outbound call. To see the ContactFlowId in the Amazon Connect console user
+   *    interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the flow. On the flow page, under the name of the
+   *    flow, choose <b>Show additional flow information</b>. The ContactFlowId
+   *    is the last part of the ARN, shown here in bold: </p>
    *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
    *          </p>
    */
@@ -1417,9 +1500,8 @@ export interface StartOutboundVoiceContactRequest {
 
   /**
    * <p>The queue for the call. If you specify a queue, the phone displayed for caller ID is the
-   *    phone number specified in the queue. If you do not specify a queue, the queue defined in the
-   *    flow is used. If you do not specify a queue, you must specify a source phone
-   *    number.</p>
+   *    phone number specified in the queue. If you do not specify a queue, the queue defined in the flow
+   *    is used. If you do not specify a queue, you must specify a source phone number.</p>
    */
   QueueId?: string;
 
@@ -1486,11 +1568,11 @@ export interface StartTaskContactRequest {
   PreviousContactId?: string;
 
   /**
-   * <p>The identifier of the flow for initiating the tasks. To see the ContactFlowId in the
-   *    Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the flow. On
-   *    the flow page, under the name of the flow, choose <b>Show
-   *     additional flow information</b>. The ContactFlowId is the last part of the ARN, shown
-   *    here in bold: </p>
+   * <p>The identifier of the flow for initiating the tasks. To see the ContactFlowId in the Amazon Connect
+   *    console user interface, on the navigation menu go to <b>Routing</b>,
+   *     <b>Contact Flows</b>. Choose the flow. On the flow page, under the
+   *    name of the flow, choose <b>Show additional flow information</b>. The
+   *    ContactFlowId is the last part of the ARN, shown here in bold: </p>
    *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
    *          </p>
    */
@@ -1796,8 +1878,8 @@ export interface UpdateContactAttributesRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The Amazon Connect attributes. These attributes can be accessed in flows just like any other
-   *    contact attributes.</p>
+   * <p>The Amazon Connect attributes. These attributes can be accessed in flows just like any other contact
+   *    attributes.</p>
    *          <p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys
    *    can include only alphanumeric, dash, and underscore characters.</p>
    */
@@ -1837,7 +1919,7 @@ export interface UpdateContactFlowMetadataRequest {
   ContactFlowId: string | undefined;
 
   /**
-   * <p>TThe name of the flow.</p>
+   * <p>The name of the flow.</p>
    */
   Name?: string;
 
@@ -2257,7 +2339,9 @@ export interface UpdateSecurityProfileRequest {
   Description?: string;
 
   /**
-   * <p>The permissions granted to a security profile.</p>
+   * <p>The permissions granted to a security profile. For a list of valid permissions,
+   *    see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List
+   *     of security profile permissions</a>.</p>
    */
   Permissions?: string[];
 
@@ -2542,6 +2626,53 @@ export interface UpdateUserSecurityProfilesRequest {
 }
 
 /**
+ * <p>The search criteria to be used to return queues.</p>
+ */
+export interface QueueSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   */
+  OrConditions?: QueueSearchCriteria[];
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   */
+  AndConditions?: QueueSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition, for example,
+   *     <code>username = 'abc'</code>. </p>
+   */
+  StringCondition?: StringCondition;
+
+  /**
+   * <p>The type of queue.</p>
+   */
+  QueueTypeCondition?: SearchableQueueType | string;
+}
+
+/**
+ * <p>The search criteria to be used to return routing profiles.</p>
+ */
+export interface RoutingProfileSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   */
+  OrConditions?: RoutingProfileSearchCriteria[];
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   */
+  AndConditions?: RoutingProfileSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition, for example,
+   *     <code>username = 'abc'</code>. </p>
+   */
+  StringCondition?: StringCondition;
+}
+
+/**
  * <p>The search criteria to be used to return security profiles.</p>
  */
 export interface SecurityProfileSearchCriteria {
@@ -2564,6 +2695,12 @@ export interface SecurityProfileSearchCriteria {
 
 /**
  * <p>The search criteria to be used to return users.</p>
+ *          <note>
+ *             <p>The <code>Username</code>, <code>Firstname</code>, and <code>Lastname</code> fields support
+ *     "contains" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries
+ *     with character lengths outside of this range result in empty results.
+ *     </p>
+ *          </note>
  */
 export interface UserSearchCriteria {
   /**
@@ -2587,6 +2724,62 @@ export interface UserSearchCriteria {
    * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
    */
   HierarchyGroupCondition?: HierarchyGroupCondition;
+}
+
+export interface SearchQueuesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   */
+  SearchFilter?: QueueSearchFilter;
+
+  /**
+   * <p>The search criteria to be used to return queues.</p>
+   */
+  SearchCriteria?: QueueSearchCriteria;
+}
+
+export interface SearchRoutingProfilesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   */
+  SearchFilter?: RoutingProfileSearchFilter;
+
+  /**
+   * <p>The search criteria to be used to return routing profiles.</p>
+   */
+  SearchCriteria?: RoutingProfileSearchCriteria;
 }
 
 export interface SearchSecurityProfilesRequest {
@@ -2641,6 +2834,12 @@ export interface SearchUsersRequest {
 
   /**
    * <p>The search criteria to be used to return users.</p>
+   *          <note>
+   *             <p>The <code>Username</code>, <code>Firstname</code>, and <code>Lastname</code> fields support
+   *     "contains" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries
+   *     with character lengths outside of this range result in empty results.
+   *     </p>
+   *          </note>
    */
   SearchCriteria?: UserSearchCriteria;
 }
@@ -2949,6 +3148,34 @@ export const TagConditionFilterSensitiveLog = (obj: TagCondition): any => ({
  * @internal
  */
 export const ControlPlaneTagFilterFilterSensitiveLog = (obj: ControlPlaneTagFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueueSearchFilterFilterSensitiveLog = (obj: QueueSearchFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchQueuesResponseFilterSensitiveLog = (obj: SearchQueuesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoutingProfileSearchFilterFilterSensitiveLog = (obj: RoutingProfileSearchFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchRoutingProfilesResponseFilterSensitiveLog = (obj: SearchRoutingProfilesResponse): any => ({
   ...obj,
 });
 
@@ -3540,6 +3767,20 @@ export const UpdateUserSecurityProfilesRequestFilterSensitiveLog = (obj: UpdateU
 /**
  * @internal
  */
+export const QueueSearchCriteriaFilterSensitiveLog = (obj: QueueSearchCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoutingProfileSearchCriteriaFilterSensitiveLog = (obj: RoutingProfileSearchCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const SecurityProfileSearchCriteriaFilterSensitiveLog = (obj: SecurityProfileSearchCriteria): any => ({
   ...obj,
 });
@@ -3548,6 +3789,20 @@ export const SecurityProfileSearchCriteriaFilterSensitiveLog = (obj: SecurityPro
  * @internal
  */
 export const UserSearchCriteriaFilterSensitiveLog = (obj: UserSearchCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchQueuesRequestFilterSensitiveLog = (obj: SearchQueuesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchRoutingProfilesRequestFilterSensitiveLog = (obj: SearchRoutingProfilesRequest): any => ({
   ...obj,
 });
 

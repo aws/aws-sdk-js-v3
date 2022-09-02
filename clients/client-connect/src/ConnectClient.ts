@@ -331,6 +331,11 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
+import { SearchQueuesCommandInput, SearchQueuesCommandOutput } from "./commands/SearchQueuesCommand";
+import {
+  SearchRoutingProfilesCommandInput,
+  SearchRoutingProfilesCommandOutput,
+} from "./commands/SearchRoutingProfilesCommand";
 import {
   SearchSecurityProfilesCommandInput,
   SearchSecurityProfilesCommandOutput,
@@ -588,6 +593,8 @@ export type ServiceInputTypes =
   | ReleasePhoneNumberCommandInput
   | ResumeContactRecordingCommandInput
   | SearchAvailablePhoneNumbersCommandInput
+  | SearchQueuesCommandInput
+  | SearchRoutingProfilesCommandInput
   | SearchSecurityProfilesCommandInput
   | SearchUsersCommandInput
   | SearchVocabulariesCommandInput
@@ -742,6 +749,8 @@ export type ServiceOutputTypes =
   | ReleasePhoneNumberCommandOutput
   | ResumeContactRecordingCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
+  | SearchQueuesCommandOutput
+  | SearchRoutingProfilesCommandOutput
   | SearchSecurityProfilesCommandOutput
   | SearchUsersCommandOutput
   | SearchVocabulariesCommandOutput

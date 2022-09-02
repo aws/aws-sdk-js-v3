@@ -35,6 +35,8 @@ export * from "./ListUseCasesPaginator";
 export * from "./ListUserHierarchyGroupsPaginator";
 export * from "./ListUsersPaginator";
 export * from "./SearchAvailablePhoneNumbersPaginator";
+export * from "./SearchQueuesPaginator";
+export * from "./SearchRoutingProfilesPaginator";
 export * from "./SearchSecurityProfilesPaginator";
 export * from "./SearchUsersPaginator";
 export * from "./SearchVocabulariesPaginator";

@@ -490,6 +490,16 @@ import {
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
 import {
+  SearchQueuesCommand,
+  SearchQueuesCommandInput,
+  SearchQueuesCommandOutput,
+} from "./commands/SearchQueuesCommand";
+import {
+  SearchRoutingProfilesCommand,
+  SearchRoutingProfilesCommandInput,
+  SearchRoutingProfilesCommandOutput,
+} from "./commands/SearchRoutingProfilesCommand";
+import {
   SearchSecurityProfilesCommand,
   SearchSecurityProfilesCommandInput,
   SearchSecurityProfilesCommandOutput,
@@ -2009,6 +2019,8 @@ export class Connect extends ConnectClient {
    *          <important>
    *             <p>Contact information remains available in Amazon Connect for 24 months, and then it is
    *     deleted.</p>
+   *             <p>Only data from November 12, 2021, and later is returned by this
+   *     API.</p>
    *          </important>
    */
   public describeContact(
@@ -2701,8 +2713,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Removes the flow association from a phone number claimed to your Amazon Connect instance, if
-   *    a flow association exists.</p>
+   * <p>Removes the flow association from a phone number claimed to your Amazon Connect instance, if a flow
+   *    association exists.</p>
    */
   public disassociatePhoneNumberContactFlow(
     args: DisassociatePhoneNumberContactFlowCommandInput,
@@ -3105,7 +3117,8 @@ export class Connect extends ConnectClient {
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently
-   *    associated with the instance. </p>
+   *    associated with the instance. Use this API to returns both Amazon Lex V1 and V2
+   *    bots.</p>
    */
   public listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
   public listBots(args: ListBotsCommandInput, cb: (err: any, data?: ListBotsCommandOutput) => void): void;
@@ -3166,8 +3179,8 @@ export class Connect extends ConnectClient {
    * <p>Provides information about the flows for the specified Amazon Connect instance.</p>
    *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
-   *          <p>For more information about flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Flows</a> in the
-   *     <i>Amazon Connect Administrator Guide</i>.</p>
+   *          <p>For more information about flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Flows</a> in the <i>Amazon Connect
+   *     Administrator Guide</i>.</p>
    */
   public listContactFlows(
     args: ListContactFlowsCommandInput,
@@ -3470,8 +3483,9 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Returns a paginated list of all the Amazon Lex bots currently associated with the
-   *    instance.</p>
+   *          <p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To
+   *    return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API.
+   *    </p>
    */
   public listLexBots(args: ListLexBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListLexBotsCommandOutput>;
   public listLexBots(args: ListLexBotsCommandInput, cb: (err: any, data?: ListLexBotsCommandOutput) => void): void;
@@ -4147,6 +4161,69 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Searches queues in an Amazon Connect instance, with optional filtering.</p>
+   */
+  public searchQueues(
+    args: SearchQueuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchQueuesCommandOutput>;
+  public searchQueues(args: SearchQueuesCommandInput, cb: (err: any, data?: SearchQueuesCommandOutput) => void): void;
+  public searchQueues(
+    args: SearchQueuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchQueuesCommandOutput) => void
+  ): void;
+  public searchQueues(
+    args: SearchQueuesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchQueuesCommandOutput) => void),
+    cb?: (err: any, data?: SearchQueuesCommandOutput) => void
+  ): Promise<SearchQueuesCommandOutput> | void {
+    const command = new SearchQueuesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Searches routing profiles in an Amazon Connect instance, with optional filtering.</p>
+   */
+  public searchRoutingProfiles(
+    args: SearchRoutingProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchRoutingProfilesCommandOutput>;
+  public searchRoutingProfiles(
+    args: SearchRoutingProfilesCommandInput,
+    cb: (err: any, data?: SearchRoutingProfilesCommandOutput) => void
+  ): void;
+  public searchRoutingProfiles(
+    args: SearchRoutingProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchRoutingProfilesCommandOutput) => void
+  ): void;
+  public searchRoutingProfiles(
+    args: SearchRoutingProfilesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchRoutingProfilesCommandOutput) => void),
+    cb?: (err: any, data?: SearchRoutingProfilesCommandOutput) => void
+  ): Promise<SearchRoutingProfilesCommandOutput> | void {
+    const command = new SearchRoutingProfilesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Searches security profiles in an Amazon Connect instance, with optional filtering.</p>
    */
   public searchSecurityProfiles(
@@ -4238,8 +4315,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Initiates a flow to start a new chat for the customer. Response of this API provides
-   *    a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
+   * <p>Initiates a flow to start a new chat for the customer. Response of this API provides a token
+   *    required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
    *
    *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s
    *    connection for the created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
@@ -4378,12 +4455,12 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Places an outbound call to a contact, and then initiates the flow. It performs the
-   *    actions in the flow that's specified (in <code>ContactFlowId</code>).</p>
+   * <p>Places an outbound call to a contact, and then initiates the flow. It performs the actions
+   *    in the flow that's specified (in <code>ContactFlowId</code>).</p>
    *
    *          <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If
-   *    the flow places an outbound call to a contact, and then puts the contact in queue, the
-   *    call is then routed to the agent, like any other inbound case.</p>
+   *    the flow places an outbound call to a contact, and then puts the contact in queue, the call is
+   *    then routed to the agent, like any other inbound case.</p>
    *
    *          <p>There is a 60-second dialing timeout for this operation. If the call is not connected after
    *    60 seconds, it fails.</p>
@@ -4395,8 +4472,7 @@ export class Connect extends ConnectClient {
    *          <note>
    *             <p>Campaign calls are not allowed by default. Before you can make a call with
    *      <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase
-   *     request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Amazon Connect campaigns</a>.
-   *     </p>
+   *     request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Amazon Connect campaigns</a>. </p>
    *          </note>
    */
   public startOutboundVoiceContact(
@@ -4610,8 +4686,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Adds the specified tags to the specified resource.</p>
-   *          <p>Some of the supported resource types are agents, routing profiles, queues, quick connects, contact
-   *    flows, agent statuses, hours of operation, phone numbers, security profiles, and task
+   *          <p>Some of the supported resource types are agents, routing profiles, queues, quick connects,
+   *    contact flows, agent statuses, hours of operation, phone numbers, security profiles, and task
    *    templates. For a complete list, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html">Tagging resources in Amazon Connect</a>.</p>
    *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
    *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -4641,8 +4717,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Transfers contacts from one agent or queue to another agent or queue at any point after a
-   *    contact is created. You can transfer a contact to another queue by providing the flow
-   *    which orchestrates the contact to the destination queue. This gives you more control over contact
+   *    contact is created. You can transfer a contact to another queue by providing the flow which
+   *    orchestrates the contact to the destination queue. This gives you more control over contact
    *    handling and helps you adhere to the service level agreement (SLA) guaranteed to your
    *    customers.</p>
    *          <p>Note the following requirements:</p>
@@ -4654,8 +4730,8 @@ export class Connect extends ConnectClient {
    *                <p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p>
    *             </li>
    *             <li>
-   *                <p>The following flow types are supported: Inbound flow, Transfer to agent
-   *      flow, and Transfer to queue flow.</p>
+   *                <p>The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer
+   *      to queue flow.</p>
    *             </li>
    *             <li>
    *                <p>The <code>TransferContact</code> API can be called only on active contacts.</p>
@@ -4808,7 +4884,8 @@ export class Connect extends ConnectClient {
    *    from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls
    *    for additional analysis, such as legal review or to identify abusive callers.</p>
    *          <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted. For
-   *    information about contact record retention and the maximum size of the contact record attributes section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
+   *    information about contact record retention and the maximum size of the contact record attributes
+   *    section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
    *     specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
    */
   public updateContactAttributes(

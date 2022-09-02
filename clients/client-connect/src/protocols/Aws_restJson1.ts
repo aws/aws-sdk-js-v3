@@ -303,6 +303,11 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "../commands/SearchAvailablePhoneNumbersCommand";
+import { SearchQueuesCommandInput, SearchQueuesCommandOutput } from "../commands/SearchQueuesCommand";
+import {
+  SearchRoutingProfilesCommandInput,
+  SearchRoutingProfilesCommandOutput,
+} from "../commands/SearchRoutingProfilesCommand";
 import {
   SearchSecurityProfilesCommandInput,
   SearchSecurityProfilesCommandOutput,
@@ -583,9 +588,13 @@ import {
   HierarchyStructureUpdate,
   OutboundContactNotPermittedException,
   ParticipantDetails,
+  QueueSearchCriteria,
+  QueueSearchFilter,
   QueueSummary,
   Reference,
   RoutingProfileQueueConfigSummary,
+  RoutingProfileSearchCriteria,
+  RoutingProfileSearchFilter,
   RoutingProfileSummary,
   SecurityKey,
   SecurityProfileSearchCriteria,
@@ -3616,6 +3625,71 @@ export const serializeAws_restJson1SearchAvailablePhoneNumbersCommand = async (
     ...(input.PhoneNumberPrefix != null && { PhoneNumberPrefix: input.PhoneNumberPrefix }),
     ...(input.PhoneNumberType != null && { PhoneNumberType: input.PhoneNumberType }),
     ...(input.TargetArn != null && { TargetArn: input.TargetArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SearchQueuesCommand = async (
+  input: SearchQueuesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-queues";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SearchCriteria != null && {
+      SearchCriteria: serializeAws_restJson1QueueSearchCriteria(input.SearchCriteria, context),
+    }),
+    ...(input.SearchFilter != null && {
+      SearchFilter: serializeAws_restJson1QueueSearchFilter(input.SearchFilter, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SearchRoutingProfilesCommand = async (
+  input: SearchRoutingProfilesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-routing-profiles";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SearchCriteria != null && {
+      SearchCriteria: serializeAws_restJson1RoutingProfileSearchCriteria(input.SearchCriteria, context),
+    }),
+    ...(input.SearchFilter != null && {
+      SearchFilter: serializeAws_restJson1RoutingProfileSearchFilter(input.SearchFilter, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -10939,6 +11013,124 @@ const deserializeAws_restJson1SearchAvailablePhoneNumbersCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1SearchQueuesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchQueuesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchQueuesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ApproximateTotalCount != null) {
+    contents.ApproximateTotalCount = __expectLong(data.ApproximateTotalCount);
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.Queues != null) {
+    contents.Queues = deserializeAws_restJson1QueueSearchSummaryList(data.Queues, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1SearchQueuesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchQueuesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1SearchRoutingProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchRoutingProfilesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchRoutingProfilesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ApproximateTotalCount != null) {
+    contents.ApproximateTotalCount = __expectLong(data.ApproximateTotalCount);
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.RoutingProfiles != null) {
+    contents.RoutingProfiles = deserializeAws_restJson1RoutingProfileList(data.RoutingProfiles, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1SearchRoutingProfilesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchRoutingProfilesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1SearchSecurityProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14165,6 +14357,37 @@ const serializeAws_restJson1Queues = (input: string[], context: __SerdeContext):
     });
 };
 
+const serializeAws_restJson1QueueSearchConditionList = (input: QueueSearchCriteria[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1QueueSearchCriteria(entry, context);
+    });
+};
+
+const serializeAws_restJson1QueueSearchCriteria = (input: QueueSearchCriteria, context: __SerdeContext): any => {
+  return {
+    ...(input.AndConditions != null && {
+      AndConditions: serializeAws_restJson1QueueSearchConditionList(input.AndConditions, context),
+    }),
+    ...(input.OrConditions != null && {
+      OrConditions: serializeAws_restJson1QueueSearchConditionList(input.OrConditions, context),
+    }),
+    ...(input.QueueTypeCondition != null && { QueueTypeCondition: input.QueueTypeCondition }),
+    ...(input.StringCondition != null && {
+      StringCondition: serializeAws_restJson1StringCondition(input.StringCondition, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1QueueSearchFilter = (input: QueueSearchFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.TagFilter != null && {
+      TagFilter: serializeAws_restJson1ControlPlaneTagFilter(input.TagFilter, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1QuickConnectConfig = (input: QuickConnectConfig, context: __SerdeContext): any => {
   return {
     ...(input.PhoneConfig != null && {
@@ -14266,6 +14489,45 @@ const serializeAws_restJson1RoutingProfileQueueReferenceList = (
     .map((entry) => {
       return serializeAws_restJson1RoutingProfileQueueReference(entry, context);
     });
+};
+
+const serializeAws_restJson1RoutingProfileSearchConditionList = (
+  input: RoutingProfileSearchCriteria[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1RoutingProfileSearchCriteria(entry, context);
+    });
+};
+
+const serializeAws_restJson1RoutingProfileSearchCriteria = (
+  input: RoutingProfileSearchCriteria,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AndConditions != null && {
+      AndConditions: serializeAws_restJson1RoutingProfileSearchConditionList(input.AndConditions, context),
+    }),
+    ...(input.OrConditions != null && {
+      OrConditions: serializeAws_restJson1RoutingProfileSearchConditionList(input.OrConditions, context),
+    }),
+    ...(input.StringCondition != null && {
+      StringCondition: serializeAws_restJson1StringCondition(input.StringCondition, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1RoutingProfileSearchFilter = (
+  input: RoutingProfileSearchFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TagFilter != null && {
+      TagFilter: serializeAws_restJson1ControlPlaneTagFilter(input.TagFilter, context),
+    }),
+  };
 };
 
 const serializeAws_restJson1S3Config = (input: S3Config, context: __SerdeContext): any => {
@@ -15648,6 +15910,18 @@ const deserializeAws_restJson1QueueReference = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_restJson1QueueSearchSummaryList = (output: any, context: __SerdeContext): Queue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Queue(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1QueueSummary = (output: any, context: __SerdeContext): QueueSummary => {
   return {
     Arn: __expectString(output.Arn),
@@ -15823,10 +16097,24 @@ const deserializeAws_restJson1RoutingProfile = (output: any, context: __SerdeCon
         ? deserializeAws_restJson1MediaConcurrencies(output.MediaConcurrencies, context)
         : undefined,
     Name: __expectString(output.Name),
+    NumberOfAssociatedQueues: __expectLong(output.NumberOfAssociatedQueues),
+    NumberOfAssociatedUsers: __expectLong(output.NumberOfAssociatedUsers),
     RoutingProfileArn: __expectString(output.RoutingProfileArn),
     RoutingProfileId: __expectString(output.RoutingProfileId),
     Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1RoutingProfileList = (output: any, context: __SerdeContext): RoutingProfile[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RoutingProfile(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1RoutingProfileQueueConfigSummary = (

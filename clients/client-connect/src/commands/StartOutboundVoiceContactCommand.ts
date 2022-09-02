@@ -28,12 +28,12 @@ export interface StartOutboundVoiceContactCommandInput extends StartOutboundVoic
 export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoiceContactResponse, __MetadataBearer {}
 
 /**
- * <p>Places an outbound call to a contact, and then initiates the flow. It performs the
- *    actions in the flow that's specified (in <code>ContactFlowId</code>).</p>
+ * <p>Places an outbound call to a contact, and then initiates the flow. It performs the actions
+ *    in the flow that's specified (in <code>ContactFlowId</code>).</p>
  *
  *          <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If
- *    the flow places an outbound call to a contact, and then puts the contact in queue, the
- *    call is then routed to the agent, like any other inbound case.</p>
+ *    the flow places an outbound call to a contact, and then puts the contact in queue, the call is
+ *    then routed to the agent, like any other inbound case.</p>
  *
  *          <p>There is a 60-second dialing timeout for this operation. If the call is not connected after
  *    60 seconds, it fails.</p>
@@ -45,8 +45,7 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  *          <note>
  *             <p>Campaign calls are not allowed by default. Before you can make a call with
  *      <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase
- *     request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Amazon Connect campaigns</a>.
- *     </p>
+ *     request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Amazon Connect campaigns</a>. </p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

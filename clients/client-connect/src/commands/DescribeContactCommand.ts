@@ -33,6 +33,8 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  *          <important>
  *             <p>Contact information remains available in Amazon Connect for 24 months, and then it is
  *     deleted.</p>
+ *             <p>Only data from November 12, 2021, and later is returned by this
+ *     API.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
