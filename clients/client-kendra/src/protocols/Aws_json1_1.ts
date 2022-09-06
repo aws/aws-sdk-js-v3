@@ -11019,6 +11019,9 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     if (typeof cleanValue === "number") {
       cleanValue = cleanValue.toString();
     }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
