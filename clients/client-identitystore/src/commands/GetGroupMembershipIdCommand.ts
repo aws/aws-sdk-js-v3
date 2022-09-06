@@ -28,7 +28,7 @@ export interface GetGroupMembershipIdCommandInput extends GetGroupMembershipIdRe
 export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the <code>MembershipId</code> in a group.</p>
+ * <p>Retrieves the <code>MembershipId</code> in an identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

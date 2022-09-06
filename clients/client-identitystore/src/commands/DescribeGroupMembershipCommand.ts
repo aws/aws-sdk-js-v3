@@ -28,7 +28,7 @@ export interface DescribeGroupMembershipCommandInput extends DescribeGroupMember
 export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembershipResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves membership metadata and attributes from <code>MembershipId</code> in a group.</p>
+ * <p>Retrieves membership metadata and attributes from <code>MembershipId</code> in an identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

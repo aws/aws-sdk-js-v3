@@ -59,9 +59,18 @@ import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } fr
 import { IdentitystoreClient } from "./IdentitystoreClient";
 
 /**
- * <p>The AWS Single Sign-On (SSO) Identity Store service provides a single place to retrieve all of your
- *          identities (users and groups). For more information about AWS, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">AWS Single Sign-On User
+ * <p>The Identity Store service used by AWS IAM Identity Center (successor to AWS Single Sign-On) provides a single place to retrieve all of
+ *          your identities (users and groups). For more information, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">IAM Identity Center User
  *             Guide</a>.</p>
+ *
+ *          <note>
+ *             <p>Although AWS Single Sign-On was renamed, the <code>sso</code> and
+ *             <code>identitystore</code> API namespaces will continue to retain their original name for
+ *             backward compatibility purposes. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed">IAM Identity Center rename</a>.</p>
+ *          </note>
+ *
+ *          <p>This reference guide describes the identity store operations that you can call
+ *          programatically and includes detailed information on data types and errors.</p>
  */
 export class Identitystore extends IdentitystoreClient {
   /**
@@ -233,7 +242,8 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
-   * <p>Retrieves the group metadata and attributes from <code>GroupId</code> in an identity store.</p>
+   * <p>Retrieves the group metadata and attributes from <code>GroupId</code> in an identity
+   *          store.</p>
    */
   public describeGroup(
     args: DescribeGroupCommandInput,
@@ -265,7 +275,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
-   * <p>Retrieves membership metadata and attributes from <code>MembershipId</code> in a group.</p>
+   * <p>Retrieves membership metadata and attributes from <code>MembershipId</code> in an identity store.</p>
    */
   public describeGroupMembership(
     args: DescribeGroupMembershipCommandInput,
@@ -352,7 +362,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
-   * <p>Retrieves the <code>MembershipId</code> in a group.</p>
+   * <p>Retrieves the <code>MembershipId</code> in an identity store.</p>
    */
   public getGroupMembershipId(
     args: GetGroupMembershipIdCommandInput,
@@ -410,7 +420,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
-   * <p>Returns if a member exists in specified groups.</p>
+   * <p>Checks the user's membership in all requested groups and returns if the member exists in all queried groups.</p>
    */
   public isMemberInGroups(
     args: IsMemberInGroupsCommandInput,
@@ -506,10 +516,10 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
-   * <p>
-   *             <i>Filtering for a group by the group <code>DisplayName</code> attribute is deprecated. Instead, use the <code>GetGroupId</code> API action.</i>
-   *          </p>
-   *          <p>Lists all groups in the identity store. Returns a paginated list of complete <code>Group</code> objects.</p>
+   * <p>Lists the attribute name and value of the group that you specified in the search. We
+   *          only support <code>DisplayName</code> as a valid filter attribute path currently, and
+   *          filter is required. This API returns minimum attributes, including <code>GroupId</code> and
+   *          group <code>DisplayName</code> in the response.</p>
    */
   public listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
   public listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
@@ -535,10 +545,10 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
-   * <p>
-   *             <i>Filtering for a user by the <code>UserName</code> attribute is deprecated. Instead, use the <code>GetUserId</code> API action.</i>
-   *          </p>
-   *          <p>Lists all users in the identity store. Returns a paginated list of complete <code>User</code> objects.</p>
+   * <p>Lists the attribute name and value of the user that you specified in the search. We only
+   *          support <code>UserName</code> as a valid filter attribute path currently, and filter is
+   *          required. This API returns minimum attributes, including <code>UserId</code> and
+   *             <code>UserName</code> in the response.</p>
    */
   public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
   public listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;

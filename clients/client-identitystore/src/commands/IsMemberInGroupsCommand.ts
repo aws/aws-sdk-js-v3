@@ -28,7 +28,7 @@ export interface IsMemberInGroupsCommandInput extends IsMemberInGroupsRequest {}
 export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns if a member exists in specified groups.</p>
+ * <p>Checks the user's membership in all requested groups and returns if the member exists in all queried groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

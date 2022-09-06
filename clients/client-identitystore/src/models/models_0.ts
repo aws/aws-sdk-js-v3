@@ -37,7 +37,9 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface Address {
   /**
-   * <p>The street of the address.</p>
+   * <p>The
+   *          street
+   *          of the address.</p>
    */
   StreetAddress?: string;
 
@@ -47,7 +49,9 @@ export interface Address {
   Locality?: string;
 
   /**
-   * <p>The region of the address.</p>
+   * <p>The
+   *          region
+   *          of the address.</p>
    */
   Region?: string;
 
@@ -72,7 +76,11 @@ export interface Address {
   Type?: string;
 
   /**
-   * <p>A boolean representing whether this is the primary address for the associated resource.</p>
+   * <p>A
+   *          Boolean
+   *          value
+   *          representing whether this is the primary address for the associated
+   *          resource.</p>
    */
   Primary?: boolean;
 }
@@ -103,13 +111,14 @@ export interface UniqueAttribute {
   AttributePath: string | undefined;
 
   /**
-   * <p>The value of the attribute.</p>
+   * <p>The value of the attribute. This is a <code>Document</code> type.
+   *          This type is not supported by Java V1, Go V1, and older versions of the AWS CLI.</p>
    */
   AttributeValue: __DocumentType | undefined;
 }
 
 /**
- * <p>A unique identifier for the group value that is not the group's primary identifier. This value can be
+ * <p>A unique identifier for a user or group that is not the its primary identifier. This value can be
  *          an identifier from an external identity provider (IdP) that is associated with the group or a unique attribute. For example, a
  *          unique <code>GroupDisplayName</code>.</p>
  */
@@ -167,7 +176,8 @@ export interface AttributeOperation {
   AttributePath: string | undefined;
 
   /**
-   * <p>The value of the attribute.</p>
+   * <p>The value of the attribute. This is a <code>Document</code> type.
+   *          This type is not supported by Java V1, Go V1, and older versions of the AWS CLI.</p>
    */
   AttributeValue?: __DocumentType;
 }
@@ -179,7 +189,7 @@ export interface GetGroupIdRequest {
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>A unique identifier for the group value that is not the group's primary identifier. This value can be
+   * <p>A unique identifier for an identity resource that is not the primary identifier. This value can be
    *          an identifier from an external identity provider (IdP) that is associated with the group or a unique attribute. For example, a
    *          unique <code>GroupDisplayName</code>.</p>
    */
@@ -322,7 +332,7 @@ export interface GetGroupMembershipIdRequest {
 
 export interface GetGroupMembershipIdResponse {
   /**
-   * <p>The identifier for a <code>GroupMembership</code> in the identity store.</p>
+   * <p>The identifier for a <code>GroupMembership</code> in an identity store.</p>
    */
   MembershipId: string | undefined;
 
@@ -339,7 +349,7 @@ export interface GetUserIdRequest {
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>Any unique attribute associated with a user that is not the <code>UserId</code>.</p>
+   * <p>A unique identifier for an identity resource that is not the primary identifier.</p>
    */
   AlternateIdentifier: AlternateIdentifier | undefined;
 }
@@ -428,7 +438,7 @@ export interface CreateGroupMembershipRequest {
 
 export interface CreateGroupMembershipResponse {
   /**
-   * <p>The identifier for a <code>GroupMembership</code> in the identity store.</p>
+   * <p>The identifier for a newly created <code>GroupMembership</code> in an identity store.</p>
    */
   MembershipId: string | undefined;
 
@@ -471,7 +481,7 @@ export interface DeleteGroupMembershipRequest {
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>The identifier for a <code>GroupMembership</code> in the identity store.</p>
+   * <p>The identifier for a <code>GroupMembership</code> in an identity store.</p>
    */
   MembershipId: string | undefined;
 }
@@ -485,7 +495,7 @@ export interface DescribeGroupMembershipRequest {
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>The identifier for a <code>GroupMembership</code> in the identity store.</p>
+   * <p>The identifier for a <code>GroupMembership</code> in an identity store.</p>
    */
   MembershipId: string | undefined;
 }
@@ -497,7 +507,7 @@ export interface DescribeGroupMembershipResponse {
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>The identifier for a <code>GroupMembership</code> in the identity store.</p>
+   * <p>The identifier for a <code>GroupMembership</code> in an identity store.</p>
    */
   MembershipId: string | undefined;
 
@@ -524,9 +534,8 @@ export interface ListGroupMembershipsRequest {
   GroupId: string | undefined;
 
   /**
-   * <p>The maximum number of results to be returned per request. This parameter is used in the
-   *             <code>ListUsers</code> and <code>ListGroups</code> requests to specify how many results
-   *          to return in one page. The length limit is 50 characters.</p>
+   * <p>The maximum number of results to be returned per request. This parameter is used in all
+   *             <code>List</code> requests to specify how many results to return in one page.</p>
    */
   MaxResults?: number;
 
@@ -547,7 +556,7 @@ export interface GroupMembership {
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>The identifier for a <code>GroupMembership</code> object in the identity store.</p>
+   * <p>The identifier for a <code>GroupMembership</code> object in an identity store.</p>
    */
   MembershipId?: string;
 
@@ -569,7 +578,7 @@ export interface ListGroupMembershipsResponse {
   GroupMemberships: GroupMembership[] | undefined;
 
   /**
-   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code> and <code>ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
+   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code>, and <code>ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
    */
   NextToken?: string;
 }
@@ -593,7 +602,9 @@ export interface CreateGroupRequest {
 
 export interface CreateGroupResponse {
   /**
-   * <p>The identifier of the newly created group in the identity store.</p>
+   * <p>The
+   *          identifier
+   *          of the newly created group in the identity store.</p>
    */
   GroupId: string | undefined;
 
@@ -667,8 +678,8 @@ export interface DescribeGroupResponse {
 }
 
 /**
- * <p>A query filter used by <code>ListUsers</code> and <code>ListGroups</code>. This filter object provides the attribute name and attribute value to
- *          search users or groups.</p>
+ * <p>A query filter used by <code>ListUsers</code> and <code>ListGroups</code>. This filter
+ *          object provides the attribute name and attribute value to search users or groups.</p>
  */
 export interface Filter {
   /**
@@ -680,7 +691,8 @@ export interface Filter {
   AttributePath: string | undefined;
 
   /**
-   * <p>Represents the data for an attribute. Each attribute value is described as a name-value pair. </p>
+   * <p>Represents the data for an attribute. Each attribute value is described as a name-value
+   *          pair. </p>
    */
   AttributeValue: string | undefined;
 }
@@ -713,7 +725,7 @@ export interface ListGroupsRequest {
   /**
    * @deprecated
    *
-   * <p>A list of <code>Filter</code> objects that is used in the <code>ListUsers</code> and
+   * <p>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and
    *             <code>ListGroups</code> requests.</p>
    */
   Filters?: Filter[];
@@ -732,8 +744,8 @@ export interface Group {
    * <p>The group’s display name value. The length limit is 1,024 characters. This
    *          value can consist of letters, accented characters, symbols, numbers, punctuation, tab, new
    *          line, carriage return, space, and nonbreaking space in this attribute. The characters
-   *             <code>&lt;&gt;;:%</code> are excluded. This value is specified at the time the group
-   *          is created and stored as an attribute of the group object in the identity store.</p>
+   *             <code>&lt;&gt;;:%</code> are excluded. This value is specified at the time the group is
+   *          created and stored as an attribute of the group object in the identity store.</p>
    */
   DisplayName?: string;
 
@@ -863,7 +875,7 @@ export interface GroupMembershipExistenceResult {
 
 export interface IsMemberInGroupsResponse {
   /**
-   * <p>An object containing results of batch <code>IsMemberInGroups</code> call.</p>
+   * <p>A list containing the results of membership existence checks.</p>
    */
   Results: GroupMembershipExistenceResult[] | undefined;
 }
@@ -885,7 +897,7 @@ export interface ListGroupMembershipsForMemberRequest {
   MaxResults?: number;
 
   /**
-   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code> and <code>ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
+   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code>, and <code>ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
    */
   NextToken?: string;
 }
@@ -897,7 +909,7 @@ export interface ListGroupMembershipsForMemberResponse {
   GroupMemberships: GroupMembership[] | undefined;
 
   /**
-   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code> and <code>ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.
+   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code>, and <code>ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.
    *          </p>
    */
   NextToken?: string;
@@ -956,13 +968,20 @@ export interface Email {
   Type?: string;
 
   /**
-   * <p>A boolean representing whether this is the primary email for the associated resource.</p>
+   * <p>A
+   *          Boolean
+   *          value
+   *          representing whether this is the primary email
+   *          address
+   *          for the associated resource.</p>
    */
   Primary?: boolean;
 }
 
 /**
- * <p>The name of the user.</p>
+ * <p>The
+ *          full name
+ *          of the user.</p>
  */
 export interface Name {
   /**
@@ -1001,7 +1020,9 @@ export interface Name {
  */
 export interface PhoneNumber {
   /**
-   * <p>A string containing a phone number. For example, "8675309" or "+1 (800) 123-4567".</p>
+   * <p>A string containing a phone number. For example,
+   *          "8675309"
+   *          or "+1 (800) 123-4567".</p>
    */
   Value?: string;
 
@@ -1011,7 +1032,11 @@ export interface PhoneNumber {
   Type?: string;
 
   /**
-   * <p>A boolean representing whether this is the primary phone number for the associated resource.</p>
+   * <p>A
+   *          Boolean
+   *          value
+   *          representing whether this is the primary phone number for the associated
+   *          resource.</p>
    */
   Primary?: boolean;
 }
@@ -1024,7 +1049,7 @@ export interface CreateUserRequest {
 
   /**
    * <p>A unique string used to identify the user. The length limit is 128 characters.
-   *          This value can consist of letters, accented characters, symbols, numbers, and punctuation. The characters &lt;&gt;;:% are excluded.
+   *          This value can consist of letters, accented characters, symbols, numbers, and punctuation.
    *          This value is specified at the time the user is created and stored as an attribute of the user object in the identity store.</p>
    */
   UserName?: string;
@@ -1136,9 +1161,8 @@ export interface DescribeUserRequest {
 
 export interface DescribeUserResponse {
   /**
-   * <p>The user’s username value. The length limit is 128 characters. This value can consist of
-   *          letters, accented characters, symbols, numbers, and punctuation. The characters
-   *             <code>&lt;&gt;;:%</code> are excluded. This value is specified at the time the user is
+   * <p>A unique string used to identify the user. The length limit is 128 characters. This value can consist of
+   *          letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is
    *          created and stored as an attribute of the user object in the identity store.</p>
    */
   UserName?: string;
@@ -1248,8 +1272,8 @@ export interface ListUsersRequest {
   /**
    * @deprecated
    *
-   * <p>A list of <code>Filter</code> objects that is used in the <code>ListUsers</code> and
-   *             <code>ListGroups</code> requests.</p>
+   * <p>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and
+   *             <code>ListGroups</code> requests. </p>
    */
   Filters?: Filter[];
 }
@@ -1259,9 +1283,8 @@ export interface ListUsersRequest {
  */
 export interface User {
   /**
-   * <p>The user’s user name value. The length limit is 128 characters. This value can
-   *          consist of letters, accented characters, symbols, numbers, and punctuation. The characters
-   *             <code>&lt;&gt;;:%</code> are excluded. This value is specified at the time the user is
+   * <p>A unique string used to identify the user. The length limit is 128 characters. This value can
+   *          consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is
    *          created and stored as an attribute of the user object in the identity store.</p>
    */
   UserName?: string;
@@ -1319,7 +1342,9 @@ export interface User {
   UserType?: string;
 
   /**
-   * <p>A string containing the user's title. Possible values depend on each customer's specific needs, so they are left unspecified</p>
+   * <p>A string containing the user's title. Possible values depend on each customer's specific
+   *          needs, so they are left
+   *          unspecified.</p>
    */
   Title?: string;
 
@@ -1335,7 +1360,9 @@ export interface User {
   Locale?: string;
 
   /**
-   * <p>A string containing the user's time zone.</p>
+   * <p>A string containing the
+   *          user's
+   *          time zone.</p>
    */
   Timezone?: string;
 
