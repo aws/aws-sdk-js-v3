@@ -19,7 +19,7 @@ export const throw200ExceptionsMiddleware =
     const { response } = result;
     if (!HttpResponse.isInstance(response)) return result;
     const { statusCode, body } = response;
-    if (statusCode < 200 && statusCode >= 300) return result;
+    if (statusCode < 200 || statusCode >= 300) return result;
 
     // Throw 2XX response that's either an error or has empty body.
     const bodyBytes = await collectBody(body, config);
