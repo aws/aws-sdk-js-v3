@@ -12,8 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListNotebookInstancesInput, ListNotebookInstancesInputFilterSensitiveLog } from "../models/models_2";
-import { ListNotebookInstancesOutput, ListNotebookInstancesOutputFilterSensitiveLog } from "../models/models_3";
+import {
+  ListNotebookInstancesInput,
+  ListNotebookInstancesInputFilterSensitiveLog,
+  ListNotebookInstancesOutput,
+  ListNotebookInstancesOutputFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_json1_1ListNotebookInstancesCommand,
   serializeAws_json1_1ListNotebookInstancesCommand,

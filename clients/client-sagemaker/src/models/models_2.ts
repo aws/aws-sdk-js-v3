@@ -5374,6 +5374,7 @@ export enum ResourceType {
   EXPERIMENT_TRIAL_COMPONENT = "ExperimentTrialComponent",
   FEATURE_GROUP = "FeatureGroup",
   FEATURE_METADATA = "FeatureMetadata",
+  HYPER_PARAMETER_TUNING_JOB = "HyperParameterTuningJob",
   MODEL_PACKAGE = "ModelPackage",
   MODEL_PACKAGE_GROUP = "ModelPackageGroup",
   PIPELINE = "Pipeline",
@@ -5472,6 +5473,112 @@ export interface HumanTaskUiSummary {
    * <p>A timestamp when SageMaker created the human task user interface.</p>
    */
   CreationTime: Date | undefined;
+}
+
+/**
+ * <p>An entity having characteristics over which a user can search for a hyperparameter
+ *             tuning job.</p>
+ */
+export interface HyperParameterTuningJobSearchEntity {
+  /**
+   * <p>The name of a hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJobName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJobArn?: string;
+
+  /**
+   * <p>Configures a hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJobConfig?: HyperParameterTuningJobConfig;
+
+  /**
+   * <p>Defines
+   *             the training jobs launched by a hyperparameter tuning job.</p>
+   */
+  TrainingJobDefinition?: HyperParameterTrainingJobDefinition;
+
+  /**
+   * <p>The job definitions included in a hyperparameter tuning job.</p>
+   */
+  TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[];
+
+  /**
+   * <p>The status of a hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJobStatus?: HyperParameterTuningJobStatus | string;
+
+  /**
+   * <p>The time that a hyperparameter tuning job was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time that a hyperparameter tuning job ended.</p>
+   */
+  HyperParameterTuningEndTime?: Date;
+
+  /**
+   * <p>The time that a hyperparameter tuning job was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The numbers of training jobs launched by a hyperparameter tuning job, categorized by
+   *             status.</p>
+   */
+  TrainingJobStatusCounters?: TrainingJobStatusCounters;
+
+  /**
+   * <p>Specifies the number of training jobs that this hyperparameter tuning job launched,
+   *             categorized by the status of their objective metric. The objective metric status shows
+   *             whether the
+   *             final
+   *             objective metric for the training job has been evaluated by the
+   *             tuning job and used in the hyperparameter tuning process.</p>
+   */
+  ObjectiveStatusCounters?: ObjectiveStatusCounters;
+
+  /**
+   * <p>The container for the summary information about a training job.</p>
+   */
+  BestTrainingJob?: HyperParameterTrainingJobSummary;
+
+  /**
+   * <p>The container for the summary information about a training job.</p>
+   */
+  OverallBestTrainingJob?: HyperParameterTrainingJobSummary;
+
+  /**
+   * <p>Specifies the configuration for a hyperparameter tuning job that uses one or more
+   *             previous hyperparameter tuning jobs as a starting point. The results of previous tuning
+   *             jobs are used to inform which combinations of hyperparameters to search over in the new
+   *             tuning job.</p>
+   *         <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using
+   *             the objective metric, and the training job that performs the best is compared to the
+   *             best training jobs from the parent tuning jobs. From these, the training job that
+   *             performs the best as measured by the objective metric is returned as the overall best
+   *             training job.</p>
+   *         <note>
+   *             <p>All training jobs launched by parent hyperparameter tuning jobs and the new
+   *                 hyperparameter tuning jobs count against the limit of training jobs for the tuning
+   *                 job.</p>
+   *         </note>
+   */
+  WarmStartConfig?: HyperParameterTuningJobWarmStartConfig;
+
+  /**
+   * <p>The error that was created when a hyperparameter tuning job failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The tags associated with a hyperparameter tuning job. For more information see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+   */
+  Tags?: Tag[];
 }
 
 export enum HyperParameterTuningJobSortByOptions {
@@ -8731,91 +8838,6 @@ export enum NotebookInstanceSortOrder {
   DESCENDING = "Descending",
 }
 
-export interface ListNotebookInstancesInput {
-  /**
-   * <p> If the previous call to the <code>ListNotebookInstances</code> is truncated, the
-   *             response includes a <code>NextToken</code>. You can use this token in your subsequent
-   *                 <code>ListNotebookInstances</code> request to fetch the next set of notebook
-   *             instances. </p>
-   *         <note>
-   *             <p>You might specify a filter or a sort order in your request. When response is
-   *                 truncated, you must use the same values for the filer and sort order in the next
-   *                 request. </p>
-   *         </note>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of notebook instances to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The field to sort results by. The default is <code>Name</code>.</p>
-   */
-  SortBy?: NotebookInstanceSortKey | string;
-
-  /**
-   * <p>The sort order for results. </p>
-   */
-  SortOrder?: NotebookInstanceSortOrder | string;
-
-  /**
-   * <p>A string in the notebook instances' name. This filter returns only notebook
-   *             instances whose name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only notebook instances that were created before the
-   *             specified time (timestamp). </p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only notebook instances that were created after the specified
-   *             time (timestamp).</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only notebook instances that were modified before the
-   *             specified time (timestamp).</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only notebook instances that were modified after the
-   *             specified time (timestamp).</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only notebook instances with the specified status.</p>
-   */
-  StatusEquals?: NotebookInstanceStatus | string;
-
-  /**
-   * <p>A string in the name of a notebook instances lifecycle configuration associated with
-   *             this notebook instance. This filter returns only notebook instances associated with a
-   *             lifecycle configuration with a name that contains the specified string.</p>
-   */
-  NotebookInstanceLifecycleConfigNameContains?: string;
-
-  /**
-   * <p>A string in the name or URL of a Git repository associated with this notebook
-   *             instance. This filter returns only notebook instances associated with a git repository
-   *             with a name that contains the specified string.</p>
-   */
-  DefaultCodeRepositoryContains?: string;
-
-  /**
-   * <p>A filter that returns only notebook instances with associated with the specified git
-   *             repository.</p>
-   */
-  AdditionalCodeRepositoryEquals?: string;
-}
-
 /**
  * @internal
  */
@@ -9837,6 +9859,15 @@ export const HumanTaskUiSummaryFilterSensitiveLog = (obj: HumanTaskUiSummary): a
 /**
  * @internal
  */
+export const HyperParameterTuningJobSearchEntityFilterSensitiveLog = (
+  obj: HyperParameterTuningJobSearchEntity
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const HyperParameterTuningJobSummaryFilterSensitiveLog = (obj: HyperParameterTuningJobSummary): any => ({
   ...obj,
 });
@@ -10547,12 +10578,5 @@ export const NotebookInstanceLifecycleConfigSummaryFilterSensitiveLog = (
 export const ListNotebookInstanceLifecycleConfigsOutputFilterSensitiveLog = (
   obj: ListNotebookInstanceLifecycleConfigsOutput
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotebookInstancesInputFilterSensitiveLog = (obj: ListNotebookInstancesInput): any => ({
   ...obj,
 });

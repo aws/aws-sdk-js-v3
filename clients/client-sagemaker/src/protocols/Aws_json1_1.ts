@@ -1298,6 +1298,7 @@ import {
   GitConfigForUpdate,
   HumanTaskUiSummary,
   HyperParameterTrainingJobSummary,
+  HyperParameterTuningJobSearchEntity,
   HyperParameterTuningJobSummary,
   Image,
   ImageVersion,
@@ -1391,7 +1392,6 @@ import {
   ListMonitoringSchedulesResponse,
   ListNotebookInstanceLifecycleConfigsInput,
   ListNotebookInstanceLifecycleConfigsOutput,
-  ListNotebookInstancesInput,
   MetricData,
   ModelConfiguration,
   ModelMetadataFilter,
@@ -1429,6 +1429,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListNotebookInstancesInput,
   ListNotebookInstancesOutput,
   ListPipelineExecutionsRequest,
   ListPipelineExecutionsResponse,
@@ -28205,6 +28206,63 @@ const deserializeAws_json1_1HyperParameterTuningJobObjectives = (
   return retVal;
 };
 
+const deserializeAws_json1_1HyperParameterTuningJobSearchEntity = (
+  output: any,
+  context: __SerdeContext
+): HyperParameterTuningJobSearchEntity => {
+  return {
+    BestTrainingJob:
+      output.BestTrainingJob != null
+        ? deserializeAws_json1_1HyperParameterTrainingJobSummary(output.BestTrainingJob, context)
+        : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    FailureReason: __expectString(output.FailureReason),
+    HyperParameterTuningEndTime:
+      output.HyperParameterTuningEndTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.HyperParameterTuningEndTime)))
+        : undefined,
+    HyperParameterTuningJobArn: __expectString(output.HyperParameterTuningJobArn),
+    HyperParameterTuningJobConfig:
+      output.HyperParameterTuningJobConfig != null
+        ? deserializeAws_json1_1HyperParameterTuningJobConfig(output.HyperParameterTuningJobConfig, context)
+        : undefined,
+    HyperParameterTuningJobName: __expectString(output.HyperParameterTuningJobName),
+    HyperParameterTuningJobStatus: __expectString(output.HyperParameterTuningJobStatus),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ObjectiveStatusCounters:
+      output.ObjectiveStatusCounters != null
+        ? deserializeAws_json1_1ObjectiveStatusCounters(output.ObjectiveStatusCounters, context)
+        : undefined,
+    OverallBestTrainingJob:
+      output.OverallBestTrainingJob != null
+        ? deserializeAws_json1_1HyperParameterTrainingJobSummary(output.OverallBestTrainingJob, context)
+        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    TrainingJobDefinition:
+      output.TrainingJobDefinition != null
+        ? deserializeAws_json1_1HyperParameterTrainingJobDefinition(output.TrainingJobDefinition, context)
+        : undefined,
+    TrainingJobDefinitions:
+      output.TrainingJobDefinitions != null
+        ? deserializeAws_json1_1HyperParameterTrainingJobDefinitions(output.TrainingJobDefinitions, context)
+        : undefined,
+    TrainingJobStatusCounters:
+      output.TrainingJobStatusCounters != null
+        ? deserializeAws_json1_1TrainingJobStatusCounters(output.TrainingJobStatusCounters, context)
+        : undefined,
+    WarmStartConfig:
+      output.WarmStartConfig != null
+        ? deserializeAws_json1_1HyperParameterTuningJobWarmStartConfig(output.WarmStartConfig, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1HyperParameterTuningJobSummaries = (
   output: any,
   context: __SerdeContext
@@ -32297,6 +32355,10 @@ const deserializeAws_json1_1SearchRecord = (output: any, context: __SerdeContext
     FeatureMetadata:
       output.FeatureMetadata != null
         ? deserializeAws_json1_1FeatureMetadata(output.FeatureMetadata, context)
+        : undefined,
+    HyperParameterTuningJob:
+      output.HyperParameterTuningJob != null
+        ? deserializeAws_json1_1HyperParameterTuningJobSearchEntity(output.HyperParameterTuningJob, context)
         : undefined,
     ModelPackage:
       output.ModelPackage != null ? deserializeAws_json1_1ModelPackage(output.ModelPackage, context) : undefined,

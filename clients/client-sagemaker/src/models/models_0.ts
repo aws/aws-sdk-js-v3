@@ -1249,9 +1249,9 @@ export interface StoppingCondition {
    *                 <code>MaxRuntimeInSeconds</code> specifies the maximum time for all of the attempts
    *             in total, not each individual attempt. The default value is 1 day. The maximum value is
    *             28 days.</p>
-   *         <p>The maximum time that a <code>TrainingJob</code> can run in total, including any time spent
-   *             publishing metrics or archiving and uploading models after it has been stopped, is 30
-   *             days.</p>
+   *         <p>The maximum time that a <code>TrainingJob</code> can run in total, including any time
+   *             spent publishing metrics or archiving and uploading models after it has been stopped, is
+   *             30 days.</p>
    */
   MaxRuntimeInSeconds?: number;
 

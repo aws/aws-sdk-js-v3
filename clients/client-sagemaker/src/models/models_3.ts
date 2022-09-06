@@ -92,11 +92,14 @@ import {
   Filter,
   GitConfigForUpdate,
   HyperParameterTrainingJobSummary,
+  HyperParameterTuningJobSearchEntity,
   LambdaStepMetadata,
   LineageType,
   MetricData,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
+  NotebookInstanceSortKey,
+  NotebookInstanceSortOrder,
   NotebookInstanceStatus,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
@@ -119,6 +122,91 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListNotebookInstancesInput {
+  /**
+   * <p> If the previous call to the <code>ListNotebookInstances</code> is truncated, the
+   *             response includes a <code>NextToken</code>. You can use this token in your subsequent
+   *                 <code>ListNotebookInstances</code> request to fetch the next set of notebook
+   *             instances. </p>
+   *         <note>
+   *             <p>You might specify a filter or a sort order in your request. When response is
+   *                 truncated, you must use the same values for the filer and sort order in the next
+   *                 request. </p>
+   *         </note>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of notebook instances to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The field to sort results by. The default is <code>Name</code>.</p>
+   */
+  SortBy?: NotebookInstanceSortKey | string;
+
+  /**
+   * <p>The sort order for results. </p>
+   */
+  SortOrder?: NotebookInstanceSortOrder | string;
+
+  /**
+   * <p>A string in the notebook instances' name. This filter returns only notebook
+   *             instances whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only notebook instances that were created before the
+   *             specified time (timestamp). </p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only notebook instances that were created after the specified
+   *             time (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only notebook instances that were modified before the
+   *             specified time (timestamp).</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only notebook instances that were modified after the
+   *             specified time (timestamp).</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only notebook instances with the specified status.</p>
+   */
+  StatusEquals?: NotebookInstanceStatus | string;
+
+  /**
+   * <p>A string in the name of a notebook instances lifecycle configuration associated with
+   *             this notebook instance. This filter returns only notebook instances associated with a
+   *             lifecycle configuration with a name that contains the specified string.</p>
+   */
+  NotebookInstanceLifecycleConfigNameContains?: string;
+
+  /**
+   * <p>A string in the name or URL of a Git repository associated with this notebook
+   *             instance. This filter returns only notebook instances associated with a git repository
+   *             with a name that contains the specified string.</p>
+   */
+  DefaultCodeRepositoryContains?: string;
+
+  /**
+   * <p>A filter that returns only notebook instances with associated with the specified git
+   *             repository.</p>
+   */
+  AdditionalCodeRepositoryEquals?: string;
+}
 
 /**
  * <p>Provides summary information for an SageMaker notebook instance.</p>
@@ -3750,6 +3838,11 @@ export interface SearchRecord {
    * <p>The feature metadata used to search through the features.</p>
    */
   FeatureMetadata?: FeatureMetadata;
+
+  /**
+   * <p>The properties of a hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJob?: HyperParameterTuningJobSearchEntity;
 }
 
 export interface SearchResponse {
@@ -5054,6 +5147,13 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const ListNotebookInstancesInputFilterSensitiveLog = (obj: ListNotebookInstancesInput): any => ({
+  ...obj,
+});
 
 /**
  * @internal
