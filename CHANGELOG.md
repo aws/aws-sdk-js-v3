@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.164.0...v3.165.0) (2022-09-06)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** process errors with 200 status code ([#3874](https://github.com/aws/aws-sdk-js-v3/issues/3874)) ([850c13f](https://github.com/aws/aws-sdk-js-v3/commit/850c13f0c5beab9aa2c9a7a1d3c7e429bd2ea72e))
+
+
+### Features
+
+* **client-sagemaker:** This release adds HyperParameterTuningJob type in Search API. ([e3b98d4](https://github.com/aws/aws-sdk-js-v3/commit/e3b98d4e6fc2bc318ab22bc51181cbc67e99a788))
+* support multiple error headers ([#3852](https://github.com/aws/aws-sdk-js-v3/issues/3852)) ([e2c4714](https://github.com/aws/aws-sdk-js-v3/commit/e2c4714d748c3c8f457b09767dc456680005be78))
+
+
+
+
+
 # [3.164.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.163.0...v3.164.0) (2022-09-02)
 
 

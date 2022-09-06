@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.164.0...v3.165.0) (2022-09-06)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** process errors with 200 status code ([#3874](https://github.com/aws/aws-sdk-js-v3/issues/3874)) ([850c13f](https://github.com/aws/aws-sdk-js-v3/commit/850c13f0c5beab9aa2c9a7a1d3c7e429bd2ea72e))
+
+
+
+
+
 # [3.162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.161.0...v3.162.0) (2022-08-31)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
