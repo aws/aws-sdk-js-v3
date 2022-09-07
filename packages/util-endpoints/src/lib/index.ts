@@ -1,4 +1,4 @@
-export * from "./aws";
+export * as aws from "./aws";
 export * from "./booleanEquals";
 export * from "./getAttr";
 export * from "./isSet";
