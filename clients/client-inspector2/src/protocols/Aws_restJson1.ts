@@ -3141,6 +3141,9 @@ const serializeAws_restJson1FilterCriteria = (input: FilterCriteria, context: __
     ...(input.firstObservedAt != null && {
       firstObservedAt: serializeAws_restJson1DateFilterList(input.firstObservedAt, context),
     }),
+    ...(input.fixAvailable != null && {
+      fixAvailable: serializeAws_restJson1StringFilterList(input.fixAvailable, context),
+    }),
     ...(input.inspectorScore != null && {
       inspectorScore: serializeAws_restJson1NumberFilterList(input.inspectorScore, context),
     }),
@@ -3890,6 +3893,8 @@ const deserializeAws_restJson1FilterCriteria = (output: any, context: __SerdeCon
       output.firstObservedAt != null
         ? deserializeAws_restJson1DateFilterList(output.firstObservedAt, context)
         : undefined,
+    fixAvailable:
+      output.fixAvailable != null ? deserializeAws_restJson1StringFilterList(output.fixAvailable, context) : undefined,
     inspectorScore:
       output.inspectorScore != null
         ? deserializeAws_restJson1NumberFilterList(output.inspectorScore, context)
@@ -3957,6 +3962,7 @@ const deserializeAws_restJson1Finding = (output: any, context: __SerdeContext): 
       output.firstObservedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.firstObservedAt)))
         : undefined,
+    fixAvailable: __expectString(output.fixAvailable),
     inspectorScore: __limitedParseDouble(output.inspectorScore),
     inspectorScoreDetails:
       output.inspectorScoreDetails != null
@@ -4639,6 +4645,7 @@ const deserializeAws_restJson1VulnerablePackage = (output: any, context: __Serde
     name: __expectString(output.name),
     packageManager: __expectString(output.packageManager),
     release: __expectString(output.release),
+    remediation: __expectString(output.remediation),
     sourceLayerHash: __expectString(output.sourceLayerHash),
     version: __expectString(output.version),
   } as any;

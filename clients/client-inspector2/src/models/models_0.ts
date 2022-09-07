@@ -1851,6 +1851,7 @@ export enum ScanStatusReason {
   EC2_INSTANCE_STOPPED = "EC2_INSTANCE_STOPPED",
   IMAGE_SIZE_EXCEEDED = "IMAGE_SIZE_EXCEEDED",
   INTERNAL_ERROR = "INTERNAL_ERROR",
+  NO_INVENTORY = "NO_INVENTORY",
   NO_RESOURCES_FOUND = "NO_RESOURCES_FOUND",
   PENDING_DISABLE = "PENDING_DISABLE",
   PENDING_INITIAL_SCAN = "PENDING_INITIAL_SCAN",
@@ -1858,6 +1859,7 @@ export enum ScanStatusReason {
   SCAN_ELIGIBILITY_EXPIRED = "SCAN_ELIGIBILITY_EXPIRED",
   SCAN_FREQUENCY_MANUAL = "SCAN_FREQUENCY_MANUAL",
   SCAN_FREQUENCY_SCAN_ON_PUSH = "SCAN_FREQUENCY_SCAN_ON_PUSH",
+  STALE_INVENTORY = "STALE_INVENTORY",
   SUCCESSFUL = "SUCCESSFUL",
   UNMANAGED_EC2_INSTANCE = "UNMANAGED_EC2_INSTANCE",
   UNSUPPORTED_OS = "UNSUPPORTED_OS",
@@ -2166,6 +2168,11 @@ export interface FilterCriteria {
    * <p>Details on the related vulnerabilities used to filter findings.</p>
    */
   relatedVulnerabilities?: StringFilter[];
+
+  /**
+   * <p>Details on whether a fix is available through a version update. This value can be <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>.  A <code>PARTIAL</code> fix means that some, but not all, of the packages identified in the finding have fixes available through updated versions.</p>
+   */
+  fixAvailable?: StringFilter[];
 }
 
 export interface CreateFilterRequest {
@@ -2664,6 +2671,12 @@ export interface Filter {
   tags?: Record<string, string>;
 }
 
+export enum FixAvailable {
+  NO = "NO",
+  PARTIAL = "PARTIAL",
+  YES = "YES",
+}
+
 /**
  * <p>Information about the Amazon Inspector score given to a finding.</p>
  */
@@ -2806,6 +2819,11 @@ export interface VulnerablePackage {
    * <p>The version of the package that contains the vulnerability fix.</p>
    */
   fixedInVersion?: string;
+
+  /**
+   * <p>The code to run in your environment to update packages with a fix available.</p>
+   */
+  remediation?: string;
 }
 
 /**
@@ -2820,7 +2838,7 @@ export interface PackageVulnerabilityDetails {
   /**
    * <p>The packages impacted by this vulnerability.</p>
    */
-  vulnerablePackages: VulnerablePackage[] | undefined;
+  vulnerablePackages?: VulnerablePackage[];
 
   /**
    * <p>The source of the vulnerability information.</p>
@@ -3047,6 +3065,11 @@ export interface Finding {
    * <p>An object that contains the details of a package vulnerability finding.</p>
    */
   packageVulnerabilityDetails?: PackageVulnerabilityDetails;
+
+  /**
+   * <p>Details on whether a fix is available through a version update. This value can be <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>.  A <code>PARTIAL</code> fix means that some, but not all, of the packages identified in the finding have fixes available through updated versions.</p>
+   */
+  fixAvailable?: FixAvailable | string;
 }
 
 export interface GetConfigurationRequest {}
