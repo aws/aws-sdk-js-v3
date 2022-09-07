@@ -67377,6 +67377,10 @@
           {
             "value": "vpc-endpoint-connection-device-type",
             "name": "vpc_endpoint_connection_device_type"
+          },
+          {
+            "value": "vpn-connection-device-type",
+            "name": "vpn_connection_device_type"
           }
         ]
       }
