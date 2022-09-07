@@ -8436,6 +8436,29 @@ export interface ProductionVariant {
    * <p>The serverless configuration for an endpoint. Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.</p>
    */
   ServerlessConfig?: ProductionVariantServerlessConfig;
+
+  /**
+   * <p>The size, in GB, of the ML storage volume attached to individual
+   *           inference instance associated with the production variant. Currenly only
+   *           Amazon EBS gp2 storage volumes are supported.</p>
+   */
+  VolumeSizeInGB?: number;
+
+  /**
+   * <p>The timeout value, in seconds, to download and extract customer
+   *           model artifact from Amazon S3 to individual inference instance associated with
+   *           this production variant.</p>
+   */
+  ModelDataDownloadTimeoutInSeconds?: number;
+
+  /**
+   * <p>The timeout value, in seconds, for the customer inference container
+   *           to pass health check by SageMaker Hosting. For more information on health
+   *           check, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests">How
+   *           Your Container Should Respond to Health Check (Ping)
+   *           Requests</a>.</p>
+   */
+  ContainerStartupHealthCheckTimeoutInSeconds?: number;
 }
 
 export interface CreateEndpointConfigInput {

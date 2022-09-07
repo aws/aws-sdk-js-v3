@@ -34143,6 +34143,24 @@
           "traits": {
             "smithy.api#documentation": "<p>The serverless configuration for an endpoint. Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.</p>"
           }
+        },
+        "VolumeSizeInGB": {
+          "target": "com.amazonaws.sagemaker#ProductionVariantVolumeSizeInGB",
+          "traits": {
+            "smithy.api#documentation": "<p>The size, in GB, of the ML storage volume attached to individual\n          inference instance associated with the production variant. Currenly only\n          Amazon EBS gp2 storage volumes are supported.</p>"
+          }
+        },
+        "ModelDataDownloadTimeoutInSeconds": {
+          "target": "com.amazonaws.sagemaker#ProductionVariantModelDataDownloadTimeoutInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>The timeout value, in seconds, to download and extract customer\n          model artifact from Amazon S3 to individual inference instance associated with\n          this production variant.</p>"
+          }
+        },
+        "ContainerStartupHealthCheckTimeoutInSeconds": {
+          "target": "com.amazonaws.sagemaker#ProductionVariantContainerStartupHealthCheckTimeoutInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>The timeout value, in seconds, for the customer inference container\n          to pass health check by SageMaker Hosting. For more information on health\n          check, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests\">How\n          Your Container Should Respond to Health Check (Ping)\n          Requests</a>.</p>"
+          }
         }
       },
       "traits": {
@@ -34178,6 +34196,16 @@
             "name": "ML_EIA2_XLARGE"
           }
         ]
+      }
+    },
+    "com.amazonaws.sagemaker#ProductionVariantContainerStartupHealthCheckTimeoutInSeconds": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 60,
+          "max": 3600
+        }
       }
     },
     "com.amazonaws.sagemaker#ProductionVariantCoreDumpConfig": {
@@ -34556,6 +34584,16 @@
         }
       }
     },
+    "com.amazonaws.sagemaker#ProductionVariantModelDataDownloadTimeoutInSeconds": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 60,
+          "max": 3600
+        }
+      }
+    },
     "com.amazonaws.sagemaker#ProductionVariantServerlessConfig": {
       "type": "structure",
       "members": {
@@ -34688,6 +34726,16 @@
       "traits": {
         "smithy.api#length": {
           "min": 1
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#ProductionVariantVolumeSizeInGB": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 1,
+          "max": 512
         }
       }
     },

@@ -21157,17 +21157,24 @@ const serializeAws_json1_1ProcessingStoppingCondition = (
 const serializeAws_json1_1ProductionVariant = (input: ProductionVariant, context: __SerdeContext): any => {
   return {
     ...(input.AcceleratorType != null && { AcceleratorType: input.AcceleratorType }),
+    ...(input.ContainerStartupHealthCheckTimeoutInSeconds != null && {
+      ContainerStartupHealthCheckTimeoutInSeconds: input.ContainerStartupHealthCheckTimeoutInSeconds,
+    }),
     ...(input.CoreDumpConfig != null && {
       CoreDumpConfig: serializeAws_json1_1ProductionVariantCoreDumpConfig(input.CoreDumpConfig, context),
     }),
     ...(input.InitialInstanceCount != null && { InitialInstanceCount: input.InitialInstanceCount }),
     ...(input.InitialVariantWeight != null && { InitialVariantWeight: __serializeFloat(input.InitialVariantWeight) }),
     ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
+    ...(input.ModelDataDownloadTimeoutInSeconds != null && {
+      ModelDataDownloadTimeoutInSeconds: input.ModelDataDownloadTimeoutInSeconds,
+    }),
     ...(input.ModelName != null && { ModelName: input.ModelName }),
     ...(input.ServerlessConfig != null && {
       ServerlessConfig: serializeAws_json1_1ProductionVariantServerlessConfig(input.ServerlessConfig, context),
     }),
     ...(input.VariantName != null && { VariantName: input.VariantName }),
+    ...(input.VolumeSizeInGB != null && { VolumeSizeInGB: input.VolumeSizeInGB }),
   };
 };
 
@@ -31627,6 +31634,7 @@ const deserializeAws_json1_1ProcessingStoppingCondition = (
 const deserializeAws_json1_1ProductionVariant = (output: any, context: __SerdeContext): ProductionVariant => {
   return {
     AcceleratorType: __expectString(output.AcceleratorType),
+    ContainerStartupHealthCheckTimeoutInSeconds: __expectInt32(output.ContainerStartupHealthCheckTimeoutInSeconds),
     CoreDumpConfig:
       output.CoreDumpConfig != null
         ? deserializeAws_json1_1ProductionVariantCoreDumpConfig(output.CoreDumpConfig, context)
@@ -31634,12 +31642,14 @@ const deserializeAws_json1_1ProductionVariant = (output: any, context: __SerdeCo
     InitialInstanceCount: __expectInt32(output.InitialInstanceCount),
     InitialVariantWeight: __limitedParseFloat32(output.InitialVariantWeight),
     InstanceType: __expectString(output.InstanceType),
+    ModelDataDownloadTimeoutInSeconds: __expectInt32(output.ModelDataDownloadTimeoutInSeconds),
     ModelName: __expectString(output.ModelName),
     ServerlessConfig:
       output.ServerlessConfig != null
         ? deserializeAws_json1_1ProductionVariantServerlessConfig(output.ServerlessConfig, context)
         : undefined,
     VariantName: __expectString(output.VariantName),
+    VolumeSizeInGB: __expectInt32(output.VolumeSizeInGB),
   } as any;
 };
 
