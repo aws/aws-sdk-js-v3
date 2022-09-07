@@ -1,10 +1,12 @@
+import { EndpointV2 } from "@aws-sdk/types";
+
 import { EndpointError, EndpointResolverOptions, RuleSetObject } from "./types";
 import { evaluateRules } from "./utils";
 
 /**
  * Resolves an endpoint URL by processing the endpoints ruleset and options.
  */
-export const resolveEndpoint = (ruleSetObject: RuleSetObject, options: EndpointResolverOptions) => {
+export const resolveEndpoint = (ruleSetObject: RuleSetObject, options: EndpointResolverOptions): EndpointV2 => {
   const { endpointParams, logger } = options;
   const { parameters, rules } = ruleSetObject;
 

@@ -1,4 +1,3 @@
-// Do not remove getAttr import. It's called during template evaluation.
 import { getAttr } from "../lib";
 import { EvaluateOptions } from "../types";
 

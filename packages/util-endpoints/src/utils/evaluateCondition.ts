@@ -2,7 +2,7 @@ import { ConditionObject, EndpointError, EvaluateOptions } from "../types";
 import { callFunction } from "./callFunction";
 
 export const evaluateCondition = ({ assign, ...fnArgs }: ConditionObject, options: EvaluateOptions) => {
-  if (assign && options.referenceRecord[assign]) {
+  if (assign && assign in options.referenceRecord) {
     throw new EndpointError(`'${assign}' is already defined in Reference Record.`);
   }
   const value = callFunction(fnArgs, options);
