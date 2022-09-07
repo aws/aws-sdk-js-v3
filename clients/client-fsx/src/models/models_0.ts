@@ -99,12 +99,11 @@ export enum Status {
 }
 
 /**
- * <p>A structure providing details of any failures that occurred when creating a file
- *             system.</p>
+ * <p>A structure providing details of any failures that occurred.</p>
  */
 export interface FileSystemFailureDetails {
   /**
-   * <p>A message describing any failures that occurred during file system creation.</p>
+   * <p>A message describing any failures that occurred.</p>
    */
   Message?: string;
 }
@@ -4522,8 +4521,11 @@ export interface CreateOntapVolumeConfiguration {
   JunctionPath: string | undefined;
 
   /**
-   * <p>The security style for the volume. If a volume's security style is not specified,
-   *             it is automatically set to the root volume's security style.
+   * <p>Specifies the security style for the volume. If a volume's security style is not specified,
+   *             it is automatically set to the root volume's security style. The security style determines the type of permissions
+   *             that FSx for ONTAP uses to control data access. For more information, see
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-security-style">Volume security style</a>
+   *             in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.
    *             Specify one of the following values:</p>
    *         <ul>
    *             <li>
@@ -6893,8 +6895,7 @@ export interface FileSystem {
   Lifecycle?: FileSystemLifecycle | string;
 
   /**
-   * <p>A structure providing details of any failures that occurred when creating a file
-   *             system.</p>
+   * <p>A structure providing details of any failures that occurred.</p>
    */
   FailureDetails?: FileSystemFailureDetails;
 
