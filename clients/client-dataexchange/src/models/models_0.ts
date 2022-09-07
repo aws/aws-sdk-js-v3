@@ -33,7 +33,7 @@ export enum ServerSideEncryptionTypes {
 }
 
 /**
- * <p>Encryption configuration of the export job. Includes the encryption type in addition to the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption. type.</p>
+ * <p>Encryption configuration of the export job. Includes the encryption type in addition to the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption type.</p>
  */
 export interface ExportServerSideEncryption {
   /**
@@ -162,11 +162,11 @@ export interface AssetDestinationEntry {
 }
 
 /**
- * The Amazon Redshift datashare asset.
+ * <p>The Amazon Redshift datashare asset.</p>
  */
 export interface RedshiftDataShareAsset {
   /**
-   * The Amazon Resource Name (ARN) of the datashare asset.
+   * <p>The Amazon Resource Name (ARN) of the datashare asset.</p>
    */
   Arn: string | undefined;
 }
@@ -329,13 +329,13 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * An exception occurred with the service.
+ * <p>An exception occurred with the service.</p>
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   /**
-   * The message identifying the service exception that occurred.
+   * <p>The message identifying the service exception that occurred.</p>
    */
   Message: string | undefined;
   /**
@@ -429,7 +429,7 @@ export class ValidationException extends __BaseException {
   Message: string | undefined;
 
   /**
-   * <p>The message that informs you about what the exception was.</p>
+   * <p>The unique identifier for the resource that couldn't be found.</p>
    */
   ExceptionCause?: ExceptionCause | string;
   /**
@@ -457,9 +457,6 @@ export enum Code {
   VALIDATION_EXCEPTION = "VALIDATION_EXCEPTION",
 }
 
-/**
- * <p>The request body for CreateDataSet.</p>
- */
 export interface CreateDataSetRequest {
   /**
    * <p>The type of asset that is added to a data set.</p>
@@ -586,12 +583,12 @@ export class ServiceLimitExceededException extends __BaseException {
   readonly name: "ServiceLimitExceededException" = "ServiceLimitExceededException";
   readonly $fault: "client" = "client";
   /**
-   * <p>The name of the quota that was exceeded.</p>
+   * <p>The name of the limit that was reached.</p>
    */
   LimitName?: LimitName | string;
 
   /**
-   * <p>The maximum value for the service-specific limit.</p>
+   * <p>The value of the exceeded limit.</p>
    */
   LimitValue?: number;
 
@@ -635,9 +632,6 @@ export interface Event {
   RevisionPublished?: RevisionPublished;
 }
 
-/**
- * <p>The request body for CreateEventAction.</p>
- */
 export interface CreateEventActionRequest {
   /**
    * <p>What occurs after a certain event.</p>
@@ -847,27 +841,27 @@ export interface ImportAssetFromSignedUrlRequestDetails {
  */
 export interface RedshiftDataShareAssetSourceEntry {
   /**
-   * The Amazon Resource Name (ARN) of the datashare asset.
+   * <p>The Amazon Resource Name (ARN) of the datashare asset.</p>
    */
   DataShareArn: string | undefined;
 }
 
 /**
- * Details from an import from Amazon Redshift datashare request.
+ * <p>Details from an import from Amazon Redshift datashare request.</p>
  */
 export interface ImportAssetsFromRedshiftDataSharesRequestDetails {
   /**
-   * A list of Amazon Redshift datashare assets.
+   * <p>A list of Amazon Redshift datashare assets.</p>
    */
   AssetSources: RedshiftDataShareAssetSourceEntry[] | undefined;
 
   /**
-   * The unique identifier for the data set associated with this import job.
+   * <p>The unique identifier for the data set associated with this import job.</p>
    */
   DataSetId: string | undefined;
 
   /**
-   * The unique identifier for the revision associated with this import job.
+   * <p>The unique identifier for the revision associated with this import job.</p>
    */
   RevisionId: string | undefined;
 }
@@ -912,12 +906,12 @@ export interface RequestDetails {
   ExportRevisionsToS3?: ExportRevisionsToS3RequestDetails;
 
   /**
-   * <p>Details about the import from signed URL request.</p>
+   * <p>Details about the import from Amazon S3 request.</p>
    */
   ImportAssetFromSignedUrl?: ImportAssetFromSignedUrlRequestDetails;
 
   /**
-   * <p>Details about the import from Amazon S3 request.</p>
+   * <p>Information about the import asset from API Gateway API request.</p>
    */
   ImportAssetsFromS3?: ImportAssetsFromS3RequestDetails;
 
@@ -927,7 +921,7 @@ export interface RequestDetails {
   ImportAssetsFromRedshiftDataShares?: ImportAssetsFromRedshiftDataSharesRequestDetails;
 
   /**
-   * <p>Information about the import asset from API Gateway API request.</p>
+   * <p>Details about the import from signed URL request.</p>
    */
   ImportAssetFromApiGatewayApi?: ImportAssetFromApiGatewayApiRequestDetails;
 }
@@ -942,9 +936,6 @@ export enum Type {
   IMPORT_ASSET_FROM_SIGNED_URL = "IMPORT_ASSET_FROM_SIGNED_URL",
 }
 
-/**
- * <p>The request body for CreateJob.</p>
- */
 export interface CreateJobRequest {
   /**
    * <p>The details for the CreateJob request.</p>
@@ -1133,21 +1124,21 @@ export interface ImportAssetFromSignedUrlResponseDetails {
 }
 
 /**
- * Details from an import from Amazon Redshift datashare response.
+ * <p>Details from an import from Amazon Redshift datashare response.</p>
  */
 export interface ImportAssetsFromRedshiftDataSharesResponseDetails {
   /**
-   * A list of Amazon Redshift datashare asset sources.
+   * <p>A list of Amazon Redshift datashare asset sources.</p>
    */
   AssetSources: RedshiftDataShareAssetSourceEntry[] | undefined;
 
   /**
-   * The unique identifier for the data set associated with this import job.
+   * <p>The unique identifier for the data set associated with this import job.</p>
    */
   DataSetId: string | undefined;
 
   /**
-   * The unique identifier for the revision associated with this import job.
+   * <p>The unique identifier for the revision associated with this import job.</p>
    */
   RevisionId: string | undefined;
 }
@@ -1250,11 +1241,11 @@ export enum JobErrorResourceTypes {
 }
 
 /**
- * An error that occurred with the job request.
+ * <p>An error that occurred with the job request.</p>
  */
 export interface JobError {
   /**
-   * The code for the job error.
+   * <p>The code for the job error.</p>
    */
   Code: Code | string | undefined;
 
@@ -1269,22 +1260,22 @@ export interface JobError {
   LimitName?: JobErrorLimitName | string;
 
   /**
-   * The value of the exceeded limit.
+   * <p>The value of the exceeded limit.</p>
    */
   LimitValue?: number;
 
   /**
-   * The message related to the job error.
+   * <p>The message related to the job error.</p>
    */
   Message: string | undefined;
 
   /**
-   * The unique identifier for the resource related to the error.
+   * <p>The unique identifier for the resource related to the error.</p>
    */
   ResourceId?: string;
 
   /**
-   * The type of resource related to the error.
+   * <p>The type of resource related to the error.</p>
    */
   ResourceType?: JobErrorResourceTypes | string;
 }
@@ -1340,9 +1331,6 @@ export interface CreateJobResponse {
   UpdatedAt?: Date;
 }
 
-/**
- * <p>The request body for CreateRevision.</p>
- */
 export interface CreateRevisionRequest {
   /**
    * <p>An optional comment about the revision.</p>
@@ -1382,7 +1370,7 @@ export interface CreateRevisionResponse {
   DataSetId?: string;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
    */
   Finalized?: boolean;
 
@@ -1720,7 +1708,7 @@ export interface GetRevisionResponse {
   DataSetId?: string;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
    */
   Finalized?: boolean;
 
@@ -1802,7 +1790,7 @@ export interface RevisionEntry {
   DataSetId: string | undefined;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
    */
   Finalized?: boolean;
 
@@ -2020,7 +2008,7 @@ export interface ListJobsRequest {
 }
 
 /**
- * AWS Data Exchange Jobs are asynchronous import or export operations used to create or copy assets. A data set owner can both import and export as they see fit. Someone with an entitlement to a data set can only export. Jobs are deleted 90 days after they are created.
+ * <p>AWS Data Exchange Jobs are asynchronous import or export operations used to create or copy assets. A data set owner can both import and export as they see fit. Someone with an entitlement to a data set can only export. Jobs are deleted 90 days after they are created.</p>
  */
 export interface JobEntry {
   /**
@@ -2119,14 +2107,11 @@ export interface ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * A label that consists of a customer-defined key and an optional value.
+   * <p>A label that consists of a customer-defined key and an optional value.</p>
    */
   Tags?: Record<string, string>;
 }
 
-/**
- * <p>The request body for RevokeRevision.</p>
- */
 export interface RevokeRevisionRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2166,7 +2151,7 @@ export interface RevokeRevisionResponse {
   DataSetId?: string;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
    */
   Finalized?: boolean;
 
@@ -2201,9 +2186,6 @@ export interface RevokeRevisionResponse {
   RevokedAt?: Date;
 }
 
-/**
- * <p>The request body for SendApiAsset.</p>
- */
 export interface SendApiAssetRequest {
   /**
    * <p>The request body.</p>
@@ -2236,7 +2218,7 @@ export interface SendApiAssetRequest {
   Method?: string;
 
   /**
-   * <p>URI path value for the API request. Alternatively, you can set the URI path directly by invoking /v1/{pathValue}</p>
+   * <p>URI path value for the API request. Alternatively, you can set the URI path directly by invoking /v1/{pathValue}.</p>
    */
   Path?: string;
 
@@ -2267,9 +2249,6 @@ export interface StartJobRequest {
 
 export interface StartJobResponse {}
 
-/**
- * <p>The request body for TagResource.</p>
- */
 export interface TagResourceRequest {
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
@@ -2277,7 +2256,7 @@ export interface TagResourceRequest {
   ResourceArn: string | undefined;
 
   /**
-   * A label that consists of a customer-defined key and an optional value.
+   * <p>A label that consists of a customer-defined key and an optional value.</p>
    */
   Tags: Record<string, string> | undefined;
 }
@@ -2289,14 +2268,11 @@ export interface UntagResourceRequest {
   ResourceArn: string | undefined;
 
   /**
-   * The key tags.
+   * <p>The key tags.</p>
    */
   TagKeys: string[] | undefined;
 }
 
-/**
- * <p>The request body for UpdateAsset.</p>
- */
 export interface UpdateAssetRequest {
   /**
    * <p>The unique identifier for an asset.</p>
@@ -2371,9 +2347,6 @@ export interface UpdateAssetResponse {
   UpdatedAt?: Date;
 }
 
-/**
- * <p>The request body for UpdateDataSet.</p>
- */
 export interface UpdateDataSetRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2443,9 +2416,6 @@ export interface UpdateDataSetResponse {
   UpdatedAt?: Date;
 }
 
-/**
- * <p>The request body for UpdateEventAction.</p>
- */
 export interface UpdateEventActionRequest {
   /**
    * <p>What occurs after a certain event.</p>
@@ -2490,9 +2460,6 @@ export interface UpdateEventActionResponse {
   UpdatedAt?: Date;
 }
 
-/**
- * <p>The request body for UpdateRevision.</p>
- */
 export interface UpdateRevisionRequest {
   /**
    * <p>An optional comment about the revision.</p>
@@ -2537,7 +2504,7 @@ export interface UpdateRevisionResponse {
   DataSetId?: string;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products. Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
    */
   Finalized?: boolean;
 
