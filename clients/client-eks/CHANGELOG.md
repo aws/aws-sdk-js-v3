@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.165.0...v3.166.0) (2022-09-07)
+
+
+### Features
+
+* **client-eks:** Adds support for EKS Addons ResolveConflicts "preserve" flag. Also adds new update failed status for EKS Addons. ([315a2c6](https://github.com/aws/aws-sdk-js-v3/commit/315a2c6c37c60006640d21abfcba9a261e13869b))
+
+
+
+
+
 # [3.165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.164.0...v3.165.0) (2022-09-06)
 
 **Note:** Version bump only for package @aws-sdk/client-eks

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.165.0...v3.166.0) (2022-09-07)
+
+
+### Features
+
+* **client-dataexchange:** Documentation updates for AWS Data Exchange. ([b794a32](https://github.com/aws/aws-sdk-js-v3/commit/b794a32957a9760695a612b07022b59975125cb3))
+* **client-ec2:** Documentation updates for Amazon EC2. ([234c407](https://github.com/aws/aws-sdk-js-v3/commit/234c40716996fc0b9b6904740c2bce44ff21ed7e))
+* **client-eks:** Adds support for EKS Addons ResolveConflicts "preserve" flag. Also adds new update failed status for EKS Addons. ([315a2c6](https://github.com/aws/aws-sdk-js-v3/commit/315a2c6c37c60006640d21abfcba9a261e13869b))
+* **client-inspector2:** This release adds new fields like fixAvailable, fixedInVersion and remediation to the finding model. The requirement to have vulnerablePackages in the finding model has also been removed. The documentation has been updated to reflect these changes. ([aa99840](https://github.com/aws/aws-sdk-js-v3/commit/aa99840297a368adf80fedc508442b3eba4b0803))
+* **client-iotsitewise:** Allow specifying units in Asset Properties ([9bc2dce](https://github.com/aws/aws-sdk-js-v3/commit/9bc2dce6420d73ddd9f65ca7953681ce96ae6c20))
+* **client-sagemaker:** SageMaker Hosting now allows customization on ML instance storage volume size, model data download timeout and inference container startup ping health check timeout for each ProductionVariant in CreateEndpointConfig API. ([2d4c98c](https://github.com/aws/aws-sdk-js-v3/commit/2d4c98ca7e80302b4fb9b25348943775c313b98c))
+* **client-sns:** Amazon SNS introduces the Data Protection Policy APIs, which enable customers to attach a data protection policy to an SNS topic. This allows topic owners to enable the new message data protection feature to audit and block sensitive data that is exchanged through their topics. ([fdc8747](https://github.com/aws/aws-sdk-js-v3/commit/fdc8747931bae31e41f0a08e2ccb87e792b0c906))
+
+
+
+
+
 # [3.165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.164.0...v3.165.0) (2022-09-06)
 
 
