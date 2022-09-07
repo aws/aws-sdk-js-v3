@@ -28,11 +28,7 @@ export interface CreateBulkImportJobCommandInput extends CreateBulkImportJobRequ
 export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This API operation is in preview release for IoT SiteWise and is subject to change.
- *       We recommend that you use this operation only with test data, and not in production environments.</p>
- *          </note>
- *          <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information,
+ * <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information,
  *   see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create a bulk import job (CLI)</a>
  *   in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          <important>

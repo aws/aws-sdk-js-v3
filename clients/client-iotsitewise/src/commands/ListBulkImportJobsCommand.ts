@@ -28,13 +28,9 @@ export interface ListBulkImportJobsCommandInput extends ListBulkImportJobsReques
 export interface ListBulkImportJobsCommandOutput extends ListBulkImportJobsResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This API operation is in preview release for IoT SiteWise and is subject to change.
- *       We recommend that you use this operation only with test data, and not in production environments.</p>
- *          </note>
- *          <p>Retrieves a paginated list of bulk import job requests. For more information,
+ * <p>Retrieves a paginated list of bulk import job requests. For more information,
  *     see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html">List bulk import jobs (CLI)</a>
- *     in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *     in the <i>IoT SiteWise User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

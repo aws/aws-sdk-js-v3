@@ -2556,6 +2556,7 @@ export const serializeAws_restJson1UpdateAssetPropertyCommand = async (
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.propertyAlias != null && { propertyAlias: input.propertyAlias }),
     ...(input.propertyNotificationState != null && { propertyNotificationState: input.propertyNotificationState }),
+    ...(input.propertyUnit != null && { propertyUnit: input.propertyUnit }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {

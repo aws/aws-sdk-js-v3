@@ -2231,7 +2231,7 @@ export interface CreateAccessPolicyResponse {
 
 export interface CreateAssetRequest {
   /**
-   * <p>A unique, friendly name for the asset.</p>
+   * <p>A friendly name for the asset.</p>
    */
   assetName: string | undefined;
 
@@ -5374,7 +5374,7 @@ export interface UpdateAssetRequest {
   assetId: string | undefined;
 
   /**
-   * <p>A unique, friendly name for the asset.</p>
+   * <p>A friendly name for the asset.</p>
    */
   assetName: string | undefined;
 
@@ -5484,6 +5484,12 @@ export interface UpdateAssetPropertyRequest {
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the
+   *       value of the <code>assetModelProperty</code> in the asset model.</p>
+   */
+  propertyUnit?: string;
 }
 
 export interface UpdateDashboardRequest {
