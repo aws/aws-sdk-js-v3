@@ -73,6 +73,7 @@ export type AddonStatus =
   | "DEGRADED"
   | "DELETE_FAILED"
   | "DELETING"
+  | "UPDATE_FAILED"
   | "UPDATING";
 
 /**
@@ -128,9 +129,8 @@ export interface Addon {
 
   /**
    * <p>The metadata that you apply to the add-on to assist with categorization and
-   *             organization. Each tag consists of a key and an optional value. You define both.
-   *             Add-on tags do not propagate to any other resources associated with the cluster.
-   *         </p>
+   *             organization. Each tag consists of a key and an optional value. You define both. Add-on
+   *             tags do not propagate to any other resources associated with the cluster. </p>
    */
   tags?: Record<string, string>;
 }
@@ -767,7 +767,7 @@ export interface AutoScalingGroup {
   name?: string;
 }
 
-export type ResolveConflicts = "NONE" | "OVERWRITE";
+export type ResolveConflicts = "NONE" | "OVERWRITE" | "PRESERVE";
 
 export interface CreateAddonRequest {
   /**
@@ -802,8 +802,31 @@ export interface CreateAddonRequest {
   serviceAccountRoleArn?: string;
 
   /**
-   * <p>How to resolve parameter value conflicts when migrating an existing add-on to an
-   *                 Amazon EKS add-on.</p>
+   * <p>How to resolve field value conflicts for an Amazon EKS add-on. Conflicts are
+   *             handled based on the value you choose:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <b>None</b> – If the self-managed version of
+   *                     the add-on is installed on your cluster, Amazon EKS doesn't change the
+   *                     value. Creation of the add-on might fail.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>Overwrite</b> – If the self-managed
+   *                     version of the add-on is installed on your cluster and the Amazon EKS
+   *                     default value is different than the existing value, Amazon EKS changes
+   *                     the value to the Amazon EKS default value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>Preserve</b> – Not supported. You can set
+   *                     this value when updating an add-on though. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html">UpdateAddon</a>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>If you don't currently have the self-managed version of the add-on installed on your
+   *             cluster, the Amazon EKS add-on is installed. Amazon EKS sets all values
+   *             to default values, regardless of the option that you specify.</p>
    */
   resolveConflicts?: ResolveConflicts | string;
 
@@ -1012,12 +1035,12 @@ export interface CreateClusterRequest {
   roleArn: string | undefined;
 
   /**
-   * <p>The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have
-   *             specific requirements to work properly with Kubernetes. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC
-   *                 Considerations</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group Considerations</a> in the
-   *             <i>Amazon EKS User Guide</i>. You must specify at least two subnets. You can specify up to five
-   *             security groups. However, we recommend that you use a dedicated security group for your
-   *             cluster control plane.</p>
+   * <p>The VPC configuration that's used by the cluster control plane. Amazon EKS VPC
+   *             resources have specific requirements to work properly with Kubernetes. For more
+   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security
+   *                 Group Considerations</a> in the <i>Amazon EKS User Guide</i>. You must specify at least two
+   *             subnets. You can specify up to five security groups. However, we recommend that you use
+   *             a dedicated security group for your cluster control plane.</p>
    */
   resourcesVpcConfig: VpcConfigRequest | undefined;
 
@@ -1311,9 +1334,8 @@ export interface Cluster {
 
   /**
    * <p>The metadata that you apply to the cluster to assist with categorization and
-   *             organization. Each tag consists of a key and an optional value. You define both.
-   *             Cluster tags do not propagate to any other resources associated with the
-   *             cluster.</p>
+   *             organization. Each tag consists of a key and an optional value. You define both. Cluster
+   *             tags do not propagate to any other resources associated with the cluster.</p>
    */
   tags?: Record<string, string>;
 
@@ -1484,10 +1506,11 @@ export interface CreateFargateProfileRequest {
   clientRequestToken?: string;
 
   /**
-   * <p>The metadata to apply to the Fargate profile to assist with categorization and
-   *             organization. Each tag consists of a key and an optional value. You define both.
-   *             Fargate profile tags do not propagate to any other resources associated with the
-   *             Fargate profile, such as the pods that are scheduled with it.</p>
+   * <p>The metadata to apply to the Fargate profile to assist with
+   *             categorization and organization. Each tag consists of a key and an optional value. You
+   *             define both. Fargate profile tags do not propagate to any other resources
+   *             associated with the Fargate profile, such as the pods that are scheduled
+   *             with it.</p>
    */
   tags?: Record<string, string>;
 }
@@ -1543,10 +1566,11 @@ export interface FargateProfile {
   status?: FargateProfileStatus | string;
 
   /**
-   * <p>The metadata applied to the Fargate profile to assist with categorization and
-   *             organization. Each tag consists of a key and an optional value. You define both.
-   *             Fargate profile tags do not propagate to any other resources associated with the
-   *             Fargate profile, such as the pods that are scheduled with it.</p>
+   * <p>The metadata applied to the Fargate profile to assist with
+   *             categorization and organization. Each tag consists of a key and an optional value. You
+   *             define both. Fargate profile tags do not propagate to any other resources
+   *             associated with the Fargate profile, such as the pods that are scheduled
+   *             with it.</p>
    */
   tags?: Record<string, string>;
 }
@@ -1562,7 +1586,7 @@ export type CapacityTypes = "ON_DEMAND" | "SPOT";
 
 /**
  * <p>An object representing a node group launch template specification. The launch template
- *             cannot include <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">
+ *             can't include <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">
  *                <code>SubnetId</code>
  *             </a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html">
  *                <code>IamInstanceProfile</code>
@@ -1577,22 +1601,32 @@ export type CapacityTypes = "ON_DEMAND" | "SPOT";
  *                <code>CreateLaunchTemplate</code>
  *             </a> in the Amazon EC2 API
  *             Reference. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
- *         <p>Specify either <code>name</code> or <code>id</code>, but not both.</p>
+ *         <p>You must specify either the launch template ID or the launch template name in the
+ *             request, but not both.</p>
  */
 export interface LaunchTemplateSpecification {
   /**
    * <p>The name of the launch template.</p>
+   *         <p>You must specify either the launch template name or the launch template ID in the
+   *             request, but not both.</p>
    */
   name?: string;
 
   /**
-   * <p>The version of the launch template to use. If no version is specified, then the
-   *             template's default version is used.</p>
+   * <p>The launch template version number, <code>$Latest</code>, or
+   *             <code>$Default</code>.</p>
+   *         <p>If the value is <code>$Latest</code>, Amazon EKS uses the latest version of
+   *             the launch template.</p>
+   *         <p>If the value is <code>$Default</code>, Amazon EKS uses the default version of
+   *             the launch template.</p>
+   *         <p>Default: The default version of the launch template.</p>
    */
   version?: string;
 
   /**
    * <p>The ID of the launch template.</p>
+   *         <p>You must specify either the launch template ID or the launch template name in the
+   *             request, but not both.</p>
    */
   id?: string;
 }
@@ -1795,15 +1829,17 @@ export interface CreateNodegroupRequest {
   labels?: Record<string, string>;
 
   /**
-   * <p>The Kubernetes taints to be applied to the nodes in the node group. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on managed node groups</a>.</p>
+   * <p>The Kubernetes taints to be applied to the nodes in the node group. For more
+   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on
+   *                 managed node groups</a>.</p>
    */
   taints?: Taint[];
 
   /**
    * <p>The metadata to apply to the node group to assist with categorization and
-   *             organization. Each tag consists of a key and an optional value. You
-   *             define both. Node group tags do not propagate to any other resources associated with the node
-   *             group, such as the Amazon EC2 instances or subnets.</p>
+   *             organization. Each tag consists of a key and an optional value. You define both. Node
+   *             group tags do not propagate to any other resources associated with the node group, such
+   *             as the Amazon EC2 instances or subnets.</p>
    */
   tags?: Record<string, string>;
 
@@ -1970,9 +2006,10 @@ export interface Issue {
    *             <li>
    *                 <p>
    *                   <b>NodeCreationFailure</b>: Your launched instances
-   *                     are unable to register with your Amazon EKS cluster. Common causes of this failure
-   *                     are insufficient <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html">node IAM role</a>
-   *                     permissions or lack of outbound internet access for the nodes. </p>
+   *                     are unable to register with your Amazon EKS cluster. Common causes of
+   *                     this failure are insufficient <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html">node IAM
+   *                         role</a> permissions or lack of outbound internet access for the nodes.
+   *                 </p>
    *             </li>
    *          </ul>
    */
@@ -2169,9 +2206,8 @@ export interface Nodegroup {
 
   /**
    * <p>The metadata applied to the node group to assist with categorization and organization.
-   *             Each tag consists of a key and an optional value. You define both. Node group
-   *             tags do not propagate to any other resources associated with the node group, such as the
-   *             Amazon EC2 instances or subnets. </p>
+   *             Each tag consists of a key and an optional value. You define both. Node group tags do
+   *             not propagate to any other resources associated with the node group, such as the Amazon EC2 instances or subnets. </p>
    */
   tags?: Record<string, string>;
 }
@@ -2667,7 +2703,9 @@ export interface ListClustersRequest {
   nextToken?: string;
 
   /**
-   * <p>Indicates whether external clusters are included in the returned list. Use '<code>all</code>' to return connected clusters, or blank to return only Amazon EKS clusters. '<code>all</code>' must be in lowercase otherwise an error occurs.</p>
+   * <p>Indicates whether external clusters are included in the returned list. Use
+   *                 '<code>all</code>' to return connected clusters, or blank to return only Amazon EKS clusters. '<code>all</code>' must be in lowercase otherwise an error
+   *             occurs.</p>
    */
   include?: string[];
 }
@@ -2991,7 +3029,8 @@ export interface RegisterClusterResponse {
 }
 
 /**
- * <p>Required resources (such as service-linked roles) were created and are still propagating. Retry later.</p>
+ * <p>Required resources (such as service-linked roles) were created and are still
+ *             propagating. Retry later.</p>
  */
 export class ResourcePropagationDelayException extends __BaseException {
   readonly name: "ResourcePropagationDelayException" = "ResourcePropagationDelayException";
@@ -3072,8 +3111,29 @@ export interface UpdateAddonRequest {
   serviceAccountRoleArn?: string;
 
   /**
-   * <p>How to resolve parameter value conflicts when applying the new version of the add-on
-   *             to the cluster.</p>
+   * <p>How to resolve field value conflicts for an Amazon EKS add-on if you've
+   *             changed a value from the Amazon EKS default value. Conflicts are handled based
+   *             on the option you choose:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <b>None</b> – Amazon EKS doesn't
+   *                     change the value. The update might fail.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>Overwrite</b> – Amazon EKS
+   *                     overwrites the changed value back to the Amazon EKS default
+   *                     value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>Preserve</b> – Amazon EKS
+   *                     preserves the value. If you choose this option, we recommend that you test any
+   *                     field and value changes on a non-production cluster before updating the add-on
+   *                     on your production cluster.</p>
+   *             </li>
+   *          </ul>
    */
   resolveConflicts?: ResolveConflicts | string;
 
@@ -3173,7 +3233,9 @@ export interface UpdateLabelsPayload {
 }
 
 /**
- * <p>An object representing the details of an update to a taints payload. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on managed node groups</a>.</p>
+ * <p>An object representing the details of an update to a taints payload. For more
+ *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on
+ *                 managed node groups</a>.</p>
  */
 export interface UpdateTaintsPayload {
   /**
@@ -3206,8 +3268,9 @@ export interface UpdateNodegroupConfigRequest {
   labels?: UpdateLabelsPayload;
 
   /**
-   * <p>The Kubernetes taints to be applied to the nodes in the node group after the
-   *             update. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on managed node groups</a>.</p>
+   * <p>The Kubernetes taints to be applied to the nodes in the node group after the update.
+   *             For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on
+   *                 managed node groups</a>.</p>
    */
   taints?: UpdateTaintsPayload;
 
