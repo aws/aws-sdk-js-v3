@@ -49,6 +49,11 @@ import {
 } from "./commands/DeleteSMSSandboxPhoneNumberCommand";
 import { DeleteTopicCommand, DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
 import {
+  GetDataProtectionPolicyCommand,
+  GetDataProtectionPolicyCommandInput,
+  GetDataProtectionPolicyCommandOutput,
+} from "./commands/GetDataProtectionPolicyCommand";
+import {
   GetEndpointAttributesCommand,
   GetEndpointAttributesCommandInput,
   GetEndpointAttributesCommandOutput,
@@ -130,6 +135,11 @@ import {
   PublishBatchCommandOutput,
 } from "./commands/PublishBatchCommand";
 import { PublishCommand, PublishCommandInput, PublishCommandOutput } from "./commands/PublishCommand";
+import {
+  PutDataProtectionPolicyCommand,
+  PutDataProtectionPolicyCommandInput,
+  PutDataProtectionPolicyCommandOutput,
+} from "./commands/PutDataProtectionPolicyCommand";
 import {
   RemovePermissionCommand,
   RemovePermissionCommandInput,
@@ -618,6 +628,38 @@ export class SNS extends SNSClient {
     cb?: (err: any, data?: DeleteTopicCommandOutput) => void
   ): Promise<DeleteTopicCommandOutput> | void {
     const command = new DeleteTopicCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is stored in the specified Amazon SNS topic. </p>
+   */
+  public getDataProtectionPolicy(
+    args: GetDataProtectionPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataProtectionPolicyCommandOutput>;
+  public getDataProtectionPolicy(
+    args: GetDataProtectionPolicyCommandInput,
+    cb: (err: any, data?: GetDataProtectionPolicyCommandOutput) => void
+  ): void;
+  public getDataProtectionPolicy(
+    args: GetDataProtectionPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataProtectionPolicyCommandOutput) => void
+  ): void;
+  public getDataProtectionPolicy(
+    args: GetDataProtectionPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataProtectionPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetDataProtectionPolicyCommandOutput) => void
+  ): Promise<GetDataProtectionPolicyCommandOutput> | void {
+    const command = new GetDataProtectionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1269,6 +1311,38 @@ export class SNS extends SNSClient {
     cb?: (err: any, data?: PublishBatchCommandOutput) => void
   ): Promise<PublishBatchCommandOutput> | void {
     const command = new PublishBatchCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds or updates an inline policy document that is stored in the specified Amazon SNS topic.</p>
+   */
+  public putDataProtectionPolicy(
+    args: PutDataProtectionPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDataProtectionPolicyCommandOutput>;
+  public putDataProtectionPolicy(
+    args: PutDataProtectionPolicyCommandInput,
+    cb: (err: any, data?: PutDataProtectionPolicyCommandOutput) => void
+  ): void;
+  public putDataProtectionPolicy(
+    args: PutDataProtectionPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutDataProtectionPolicyCommandOutput) => void
+  ): void;
+  public putDataProtectionPolicy(
+    args: PutDataProtectionPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDataProtectionPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutDataProtectionPolicyCommandOutput) => void
+  ): Promise<PutDataProtectionPolicyCommandOutput> | void {
+    const command = new PutDataProtectionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

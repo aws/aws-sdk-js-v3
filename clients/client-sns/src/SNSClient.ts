@@ -86,6 +86,10 @@ import {
 } from "./commands/DeleteSMSSandboxPhoneNumberCommand";
 import { DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
 import {
+  GetDataProtectionPolicyCommandInput,
+  GetDataProtectionPolicyCommandOutput,
+} from "./commands/GetDataProtectionPolicyCommand";
+import {
   GetEndpointAttributesCommandInput,
   GetEndpointAttributesCommandOutput,
 } from "./commands/GetEndpointAttributesCommand";
@@ -136,6 +140,10 @@ import { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/List
 import { OptInPhoneNumberCommandInput, OptInPhoneNumberCommandOutput } from "./commands/OptInPhoneNumberCommand";
 import { PublishBatchCommandInput, PublishBatchCommandOutput } from "./commands/PublishBatchCommand";
 import { PublishCommandInput, PublishCommandOutput } from "./commands/PublishCommand";
+import {
+  PutDataProtectionPolicyCommandInput,
+  PutDataProtectionPolicyCommandOutput,
+} from "./commands/PutDataProtectionPolicyCommand";
 import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
 import {
   SetEndpointAttributesCommandInput,
@@ -173,6 +181,7 @@ export type ServiceInputTypes =
   | DeletePlatformApplicationCommandInput
   | DeleteSMSSandboxPhoneNumberCommandInput
   | DeleteTopicCommandInput
+  | GetDataProtectionPolicyCommandInput
   | GetEndpointAttributesCommandInput
   | GetPlatformApplicationAttributesCommandInput
   | GetSMSAttributesCommandInput
@@ -191,6 +200,7 @@ export type ServiceInputTypes =
   | OptInPhoneNumberCommandInput
   | PublishBatchCommandInput
   | PublishCommandInput
+  | PutDataProtectionPolicyCommandInput
   | RemovePermissionCommandInput
   | SetEndpointAttributesCommandInput
   | SetPlatformApplicationAttributesCommandInput
@@ -215,6 +225,7 @@ export type ServiceOutputTypes =
   | DeletePlatformApplicationCommandOutput
   | DeleteSMSSandboxPhoneNumberCommandOutput
   | DeleteTopicCommandOutput
+  | GetDataProtectionPolicyCommandOutput
   | GetEndpointAttributesCommandOutput
   | GetPlatformApplicationAttributesCommandOutput
   | GetSMSAttributesCommandOutput
@@ -233,6 +244,7 @@ export type ServiceOutputTypes =
   | OptInPhoneNumberCommandOutput
   | PublishBatchCommandOutput
   | PublishCommandOutput
+  | PutDataProtectionPolicyCommandOutput
   | RemovePermissionCommandOutput
   | SetEndpointAttributesCommandOutput
   | SetPlatformApplicationAttributesCommandOutput

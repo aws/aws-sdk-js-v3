@@ -507,6 +507,14 @@ export interface CreateTopicInput {
    *         </note>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The body of the policy document you want to use for this topic.</p>
+   *         <p>You can only add one policy per topic.</p>
+   *         <p>The policy must be in JSON string format.</p>
+   *         <p>Length Constraints: Maximum length of 30,720.</p>
+   */
+  DataProtectionPolicy?: string;
 }
 
 /**
@@ -671,6 +679,22 @@ export interface DeleteTopicInput {
    * <p>The ARN of the topic you want to delete.</p>
    */
   TopicArn: string | undefined;
+}
+
+export interface GetDataProtectionPolicyInput {
+  /**
+   * <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to get.</p>
+   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
+   *             in the Amazon Web Services General Reference.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export interface GetDataProtectionPolicyResponse {
+  /**
+   * <p>Retrieves the <code>DataProtectionPolicy</code> in JSON string format.</p>
+   */
+  DataProtectionPolicy?: string;
 }
 
 /**
@@ -2088,6 +2112,22 @@ export class TooManyEntriesInBatchRequestException extends __BaseException {
   }
 }
 
+export interface PutDataProtectionPolicyInput {
+  /**
+   * <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or update.</p>
+   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
+   *             in the Amazon Web Services General Reference.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</p>
+   *         <p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p>
+   *         <p>Length Constraints: Maximum length of 30,720.</p>
+   */
+  DataProtectionPolicy: string | undefined;
+}
+
 /**
  * <p>Input for RemovePermission action.</p>
  */
@@ -2897,6 +2937,20 @@ export const DeleteTopicInputFilterSensitiveLog = (obj: DeleteTopicInput): any =
 /**
  * @internal
  */
+export const GetDataProtectionPolicyInputFilterSensitiveLog = (obj: GetDataProtectionPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataProtectionPolicyResponseFilterSensitiveLog = (obj: GetDataProtectionPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetEndpointAttributesInputFilterSensitiveLog = (obj: GetEndpointAttributesInput): any => ({
   ...obj,
 });
@@ -3221,6 +3275,13 @@ export const PublishBatchResultEntryFilterSensitiveLog = (obj: PublishBatchResul
  * @internal
  */
 export const PublishBatchResponseFilterSensitiveLog = (obj: PublishBatchResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDataProtectionPolicyInputFilterSensitiveLog = (obj: PutDataProtectionPolicyInput): any => ({
   ...obj,
 });
 

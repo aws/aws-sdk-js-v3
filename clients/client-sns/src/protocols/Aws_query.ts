@@ -53,6 +53,10 @@ import {
 } from "../commands/DeleteSMSSandboxPhoneNumberCommand";
 import { DeleteTopicCommandInput, DeleteTopicCommandOutput } from "../commands/DeleteTopicCommand";
 import {
+  GetDataProtectionPolicyCommandInput,
+  GetDataProtectionPolicyCommandOutput,
+} from "../commands/GetDataProtectionPolicyCommand";
+import {
   GetEndpointAttributesCommandInput,
   GetEndpointAttributesCommandOutput,
 } from "../commands/GetEndpointAttributesCommand";
@@ -103,6 +107,10 @@ import { ListTopicsCommandInput, ListTopicsCommandOutput } from "../commands/Lis
 import { OptInPhoneNumberCommandInput, OptInPhoneNumberCommandOutput } from "../commands/OptInPhoneNumberCommand";
 import { PublishBatchCommandInput, PublishBatchCommandOutput } from "../commands/PublishBatchCommand";
 import { PublishCommandInput, PublishCommandOutput } from "../commands/PublishCommand";
+import {
+  PutDataProtectionPolicyCommandInput,
+  PutDataProtectionPolicyCommandOutput,
+} from "../commands/PutDataProtectionPolicyCommand";
 import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "../commands/RemovePermissionCommand";
 import {
   SetEndpointAttributesCommandInput,
@@ -154,6 +162,8 @@ import {
   Endpoint,
   EndpointDisabledException,
   FilterPolicyLimitExceededException,
+  GetDataProtectionPolicyInput,
+  GetDataProtectionPolicyResponse,
   GetEndpointAttributesInput,
   GetEndpointAttributesResponse,
   GetPlatformApplicationAttributesInput,
@@ -210,6 +220,7 @@ import {
   PublishBatchResultEntry,
   PublishInput,
   PublishResponse,
+  PutDataProtectionPolicyInput,
   RemovePermissionInput,
   ResourceNotFoundException,
   SetEndpointAttributesInput,
@@ -415,6 +426,22 @@ export const serializeAws_queryDeleteTopicCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteTopicInput(input, context),
     Action: "DeleteTopic",
+    Version: "2010-03-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryGetDataProtectionPolicyCommand = async (
+  input: GetDataProtectionPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryGetDataProtectionPolicyInput(input, context),
+    Action: "GetDataProtectionPolicy",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -703,6 +730,22 @@ export const serializeAws_queryPublishBatchCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryPublishBatchInput(input, context),
     Action: "PublishBatch",
+    Version: "2010-03-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryPutDataProtectionPolicyCommand = async (
+  input: PutDataProtectionPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryPutDataProtectionPolicyInput(input, context),
+    Action: "PutDataProtectionPolicy",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1444,6 +1487,59 @@ const deserializeAws_queryDeleteTopicCommandError = async (
     case "TagPolicyException":
     case "com.amazonaws.sns#TagPolicyException":
       throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_queryGetDataProtectionPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataProtectionPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryGetDataProtectionPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryGetDataProtectionPolicyResponse(data.GetDataProtectionPolicyResult, context);
+  const response: GetDataProtectionPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryGetDataProtectionPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataProtectionPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
+      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+    case "InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
+      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
+      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidSecurityException":
+    case "com.amazonaws.sns#InvalidSecurityException":
+      throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
+      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2330,6 +2426,9 @@ const deserializeAws_queryPublishCommandError = async (
     case "PlatformApplicationDisabledException":
     case "com.amazonaws.sns#PlatformApplicationDisabledException":
       throw await deserializeAws_queryPlatformApplicationDisabledExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sns#ValidationException":
+      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2425,6 +2524,59 @@ const deserializeAws_queryPublishBatchCommandError = async (
     case "TooManyEntriesInBatchRequestException":
     case "com.amazonaws.sns#TooManyEntriesInBatchRequestException":
       throw await deserializeAws_queryTooManyEntriesInBatchRequestExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sns#ValidationException":
+      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_queryPutDataProtectionPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDataProtectionPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryPutDataProtectionPolicyCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutDataProtectionPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryPutDataProtectionPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDataProtectionPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
+      throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
+    case "InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
+      throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
+      throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidSecurityException":
+    case "com.amazonaws.sns#InvalidSecurityException":
+      throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
+      throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3567,6 +3719,9 @@ const serializeAws_queryCreateTopicInput = (input: CreateTopicInput, context: __
       entries[loc] = value;
     });
   }
+  if (input.DataProtectionPolicy != null) {
+    entries["DataProtectionPolicy"] = input.DataProtectionPolicy;
+  }
   return entries;
 };
 
@@ -3617,6 +3772,17 @@ const serializeAws_queryDeleteTopicInput = (input: DeleteTopicInput, context: __
   const entries: any = {};
   if (input.TopicArn != null) {
     entries["TopicArn"] = input.TopicArn;
+  }
+  return entries;
+};
+
+const serializeAws_queryGetDataProtectionPolicyInput = (
+  input: GetDataProtectionPolicyInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ResourceArn != null) {
+    entries["ResourceArn"] = input.ResourceArn;
   }
   return entries;
 };
@@ -3950,6 +4116,20 @@ const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeCon
   }
   if (input.MessageGroupId != null) {
     entries["MessageGroupId"] = input.MessageGroupId;
+  }
+  return entries;
+};
+
+const serializeAws_queryPutDataProtectionPolicyInput = (
+  input: PutDataProtectionPolicyInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ResourceArn != null) {
+    entries["ResourceArn"] = input.ResourceArn;
+  }
+  if (input.DataProtectionPolicy != null) {
+    entries["DataProtectionPolicy"] = input.DataProtectionPolicy;
   }
   return entries;
 };
@@ -4400,6 +4580,19 @@ const deserializeAws_queryFilterPolicyLimitExceededException = (
   };
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryGetDataProtectionPolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): GetDataProtectionPolicyResponse => {
+  const contents: any = {
+    DataProtectionPolicy: undefined,
+  };
+  if (output["DataProtectionPolicy"] !== undefined) {
+    contents.DataProtectionPolicy = __expectString(output["DataProtectionPolicy"]);
   }
   return contents;
 };
