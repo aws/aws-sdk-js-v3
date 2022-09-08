@@ -18,7 +18,7 @@ import {
   UpdateChannelClassRequestFilterSensitiveLog,
   UpdateChannelClassResponse,
   UpdateChannelClassResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateChannelClassCommand,
   serializeAws_restJson1UpdateChannelClassCommand,

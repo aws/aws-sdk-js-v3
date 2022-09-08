@@ -36,10 +36,6 @@ import {
   HlsMode,
   HlsOutputSelection,
   HlsProgramDateTime,
-  HlsProgramDateTimeClock,
-  HlsRedundantManifest,
-  HlsSegmentationMode,
-  HlsStreamInfResolution,
   IFrameOnlyPlaylistType,
   Input,
   InputAttachment,
@@ -50,7 +46,6 @@ import {
   InputDeviceConnectionState,
   InputDeviceHdSettings,
   InputDeviceNetworkSettings,
-  InputDeviceRequest,
   InputDeviceSettings,
   InputDeviceSummary,
   InputDeviceType,
@@ -87,6 +82,26 @@ import {
   ReservationResourceSpecification,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+export enum HlsProgramDateTimeClock {
+  INITIALIZE_FROM_OUTPUT_TIMECODE = "INITIALIZE_FROM_OUTPUT_TIMECODE",
+  SYSTEM_CLOCK = "SYSTEM_CLOCK",
+}
+
+export enum HlsRedundantManifest {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum HlsSegmentationMode {
+  USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
+  USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
+}
+
+export enum HlsStreamInfResolution {
+  EXCLUDE = "EXCLUDE",
+  INCLUDE = "INCLUDE",
+}
 
 export enum HlsTimedMetadataId3Frame {
   NONE = "NONE",
@@ -1965,6 +1980,11 @@ export enum H265ColorMetadata {
 }
 
 /**
+ * Dolby Vision Profile 8.1 Settings
+ */
+export interface DolbyVision81Settings {}
+
+/**
  * H265 Color Space Settings
  */
 export interface H265ColorSpaceSettings {
@@ -1972,6 +1992,11 @@ export interface H265ColorSpaceSettings {
    * Passthrough applies no color space conversion to the output
    */
   ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
+
+  /**
+   * Dolby Vision Profile 8.1 Settings
+   */
+  DolbyVision81Settings?: DolbyVision81Settings;
 
   /**
    * Hdr10 Settings
@@ -6028,150 +6053,6 @@ export interface TransferInputDeviceRequest {
 export interface TransferInputDeviceResponse {}
 
 /**
- * A request to update a channel.
- */
-export interface UpdateChannelRequest {
-  /**
-   * Specification of CDI inputs for this channel
-   */
-  CdiInputSpecification?: CdiInputSpecification;
-
-  /**
-   * channel ID
-   */
-  ChannelId: string | undefined;
-
-  /**
-   * A list of output destinations for this channel.
-   */
-  Destinations?: OutputDestination[];
-
-  /**
-   * The encoder settings for this channel.
-   */
-  EncoderSettings?: EncoderSettings;
-
-  /**
-   * Placeholder documentation for __listOfInputAttachment
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
-   * Specification of network and file inputs for this channel
-   */
-  InputSpecification?: InputSpecification;
-
-  /**
-   * The log level to write to CloudWatch Logs.
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
-   * Maintenance settings for this channel.
-   */
-  Maintenance?: MaintenanceUpdateSettings;
-
-  /**
-   * The name of the channel.
-   */
-  Name?: string;
-
-  /**
-   * An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.
-   */
-  RoleArn?: string;
-}
-
-/**
- * Placeholder documentation for UpdateChannelResponse
- */
-export interface UpdateChannelResponse {
-  /**
-   * Placeholder documentation for Channel
-   */
-  Channel?: Channel;
-}
-
-/**
- * Channel class that the channel should be updated to.
- */
-export interface UpdateChannelClassRequest {
-  /**
-   * The channel class that you wish to update this channel to use.
-   */
-  ChannelClass: ChannelClass | string | undefined;
-
-  /**
-   * Channel Id of the channel whose class should be updated.
-   */
-  ChannelId: string | undefined;
-
-  /**
-   * A list of output destinations for this channel.
-   */
-  Destinations?: OutputDestination[];
-}
-
-/**
- * Placeholder documentation for UpdateChannelClassResponse
- */
-export interface UpdateChannelClassResponse {
-  /**
-   * Placeholder documentation for Channel
-   */
-  Channel?: Channel;
-}
-
-/**
- * A request to update an input.
- */
-export interface UpdateInputRequest {
-  /**
-   * Destination settings for PUSH type inputs.
-   */
-  Destinations?: InputDestinationRequest[];
-
-  /**
-   * Settings for the devices.
-   */
-  InputDevices?: InputDeviceRequest[];
-
-  /**
-   * Unique ID of the input.
-   */
-  InputId: string | undefined;
-
-  /**
-   * A list of security groups referenced by IDs to attach to the input.
-   */
-  InputSecurityGroups?: string[];
-
-  /**
-   * A list of the MediaConnect Flow ARNs that you want to use as the source of the input. You can specify as few as one
-   * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
-   * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
-   */
-  MediaConnectFlows?: MediaConnectFlowRequest[];
-
-  /**
-   * Name of the input.
-   */
-  Name?: string;
-
-  /**
-   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
-   */
-  RoleArn?: string;
-
-  /**
-   * The source URLs for a PULL-type input. Every PULL type input needs
-   * exactly two source URLs for redundancy.
-   * Only specify sources for PULL type Inputs. Leave Destinations empty.
-   */
-  Sources?: InputSourceRequest[];
-}
-
-/**
  * @internal
  */
 export const HlsGroupSettingsFilterSensitiveLog = (obj: HlsGroupSettings): any => ({
@@ -6521,6 +6402,13 @@ export const H264FilterSettingsFilterSensitiveLog = (obj: H264FilterSettings): a
  * @internal
  */
 export const H264SettingsFilterSensitiveLog = (obj: H264Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DolbyVision81SettingsFilterSensitiveLog = (obj: DolbyVision81Settings): any => ({
   ...obj,
 });
 
@@ -7511,40 +7399,5 @@ export const TransferInputDeviceRequestFilterSensitiveLog = (obj: TransferInputD
  * @internal
  */
 export const TransferInputDeviceResponseFilterSensitiveLog = (obj: TransferInputDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelRequestFilterSensitiveLog = (obj: UpdateChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelResponseFilterSensitiveLog = (obj: UpdateChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelClassRequestFilterSensitiveLog = (obj: UpdateChannelClassRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelClassResponseFilterSensitiveLog = (obj: UpdateChannelClassResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateInputRequestFilterSensitiveLog = (obj: UpdateInputRequest): any => ({
   ...obj,
 });

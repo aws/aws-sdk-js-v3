@@ -189,6 +189,7 @@ import {
   DvbSubDestinationSettings,
   DvbSubSourceSettings,
   DvbTdtSettings,
+  Eac3AtmosSettings,
   Eac3Settings,
   EbuTtDDestinationSettings,
   EmbeddedDestinationSettings,
@@ -305,6 +306,7 @@ import {
   Channel,
   ColorSpacePassthroughSettings,
   ConflictException,
+  DolbyVision81Settings,
   EncoderSettings,
   FeatureActivations,
   FixedModeScheduleActionStartSettings,
@@ -6738,6 +6740,9 @@ const serializeAws_restJson1AudioCodecSettings = (input: AudioCodecSettings, con
   return {
     ...(input.AacSettings != null && { aacSettings: serializeAws_restJson1AacSettings(input.AacSettings, context) }),
     ...(input.Ac3Settings != null && { ac3Settings: serializeAws_restJson1Ac3Settings(input.Ac3Settings, context) }),
+    ...(input.Eac3AtmosSettings != null && {
+      eac3AtmosSettings: serializeAws_restJson1Eac3AtmosSettings(input.Eac3AtmosSettings, context),
+    }),
     ...(input.Eac3Settings != null && {
       eac3Settings: serializeAws_restJson1Eac3Settings(input.Eac3Settings, context),
     }),
@@ -7148,6 +7153,10 @@ const serializeAws_restJson1ColorSpacePassthroughSettings = (
   return {};
 };
 
+const serializeAws_restJson1DolbyVision81Settings = (input: DolbyVision81Settings, context: __SerdeContext): any => {
+  return {};
+};
+
 const serializeAws_restJson1DvbNitSettings = (input: DvbNitSettings, context: __SerdeContext): any => {
   return {
     ...(input.NetworkId != null && { networkId: input.NetworkId }),
@@ -7200,6 +7209,18 @@ const serializeAws_restJson1DvbSubSourceSettings = (input: DvbSubSourceSettings,
 const serializeAws_restJson1DvbTdtSettings = (input: DvbTdtSettings, context: __SerdeContext): any => {
   return {
     ...(input.RepInterval != null && { repInterval: input.RepInterval }),
+  };
+};
+
+const serializeAws_restJson1Eac3AtmosSettings = (input: Eac3AtmosSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.Bitrate != null && { bitrate: __serializeFloat(input.Bitrate) }),
+    ...(input.CodingMode != null && { codingMode: input.CodingMode }),
+    ...(input.Dialnorm != null && { dialnorm: input.Dialnorm }),
+    ...(input.DrcLine != null && { drcLine: input.DrcLine }),
+    ...(input.DrcRf != null && { drcRf: input.DrcRf }),
+    ...(input.HeightTrim != null && { heightTrim: __serializeFloat(input.HeightTrim) }),
+    ...(input.SurroundTrim != null && { surroundTrim: __serializeFloat(input.SurroundTrim) }),
   };
 };
 
@@ -7527,6 +7548,9 @@ const serializeAws_restJson1H265ColorSpaceSettings = (input: H265ColorSpaceSetti
         input.ColorSpacePassthroughSettings,
         context
       ),
+    }),
+    ...(input.DolbyVision81Settings != null && {
+      dolbyVision81Settings: serializeAws_restJson1DolbyVision81Settings(input.DolbyVision81Settings, context),
     }),
     ...(input.Hdr10Settings != null && {
       hdr10Settings: serializeAws_restJson1Hdr10Settings(input.Hdr10Settings, context),
@@ -9792,6 +9816,10 @@ const deserializeAws_restJson1AudioCodecSettings = (output: any, context: __Serd
       output.aacSettings != null ? deserializeAws_restJson1AacSettings(output.aacSettings, context) : undefined,
     Ac3Settings:
       output.ac3Settings != null ? deserializeAws_restJson1Ac3Settings(output.ac3Settings, context) : undefined,
+    Eac3AtmosSettings:
+      output.eac3AtmosSettings != null
+        ? deserializeAws_restJson1Eac3AtmosSettings(output.eac3AtmosSettings, context)
+        : undefined,
     Eac3Settings:
       output.eac3Settings != null ? deserializeAws_restJson1Eac3Settings(output.eac3Settings, context) : undefined,
     Mp2Settings:
@@ -10324,6 +10352,10 @@ const deserializeAws_restJson1ColorSpacePassthroughSettings = (
   return {} as any;
 };
 
+const deserializeAws_restJson1DolbyVision81Settings = (output: any, context: __SerdeContext): DolbyVision81Settings => {
+  return {} as any;
+};
+
 const deserializeAws_restJson1DvbNitSettings = (output: any, context: __SerdeContext): DvbNitSettings => {
   return {
     NetworkId: __expectInt32(output.networkId),
@@ -10376,6 +10408,18 @@ const deserializeAws_restJson1DvbSubSourceSettings = (output: any, context: __Se
 const deserializeAws_restJson1DvbTdtSettings = (output: any, context: __SerdeContext): DvbTdtSettings => {
   return {
     RepInterval: __expectInt32(output.repInterval),
+  } as any;
+};
+
+const deserializeAws_restJson1Eac3AtmosSettings = (output: any, context: __SerdeContext): Eac3AtmosSettings => {
+  return {
+    Bitrate: __limitedParseDouble(output.bitrate),
+    CodingMode: __expectString(output.codingMode),
+    Dialnorm: __expectInt32(output.dialnorm),
+    DrcLine: __expectString(output.drcLine),
+    DrcRf: __expectString(output.drcRf),
+    HeightTrim: __limitedParseDouble(output.heightTrim),
+    SurroundTrim: __limitedParseDouble(output.surroundTrim),
   } as any;
 };
 
@@ -10722,6 +10766,10 @@ const deserializeAws_restJson1H265ColorSpaceSettings = (
     ColorSpacePassthroughSettings:
       output.colorSpacePassthroughSettings != null
         ? deserializeAws_restJson1ColorSpacePassthroughSettings(output.colorSpacePassthroughSettings, context)
+        : undefined,
+    DolbyVision81Settings:
+      output.dolbyVision81Settings != null
+        ? deserializeAws_restJson1DolbyVision81Settings(output.dolbyVision81Settings, context)
         : undefined,
     Hdr10Settings:
       output.hdr10Settings != null ? deserializeAws_restJson1Hdr10Settings(output.hdr10Settings, context) : undefined,

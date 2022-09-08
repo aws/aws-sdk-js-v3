@@ -313,6 +313,71 @@ export interface Ac3Settings {
   MetadataControl?: Ac3MetadataControl | string;
 }
 
+export enum Eac3AtmosCodingMode {
+  CODING_MODE_5_1_4 = "CODING_MODE_5_1_4",
+  CODING_MODE_7_1_4 = "CODING_MODE_7_1_4",
+  CODING_MODE_9_1_6 = "CODING_MODE_9_1_6",
+}
+
+export enum Eac3AtmosDrcLine {
+  FILM_LIGHT = "FILM_LIGHT",
+  FILM_STANDARD = "FILM_STANDARD",
+  MUSIC_LIGHT = "MUSIC_LIGHT",
+  MUSIC_STANDARD = "MUSIC_STANDARD",
+  NONE = "NONE",
+  SPEECH = "SPEECH",
+}
+
+export enum Eac3AtmosDrcRf {
+  FILM_LIGHT = "FILM_LIGHT",
+  FILM_STANDARD = "FILM_STANDARD",
+  MUSIC_LIGHT = "MUSIC_LIGHT",
+  MUSIC_STANDARD = "MUSIC_STANDARD",
+  NONE = "NONE",
+  SPEECH = "SPEECH",
+}
+
+/**
+ * Eac3 Atmos Settings
+ */
+export interface Eac3AtmosSettings {
+  /**
+   * Average bitrate in bits/second. Valid bitrates depend on the coding mode.
+   * //  * @affectsRightSizing true
+   */
+  Bitrate?: number;
+
+  /**
+   * Dolby Digital Plus with Dolby Atmos coding mode. Determines number of channels.
+   */
+  CodingMode?: Eac3AtmosCodingMode | string;
+
+  /**
+   * Sets the dialnorm for the output. Default 23.
+   */
+  Dialnorm?: number;
+
+  /**
+   * Sets the Dolby dynamic range compression profile.
+   */
+  DrcLine?: Eac3AtmosDrcLine | string;
+
+  /**
+   * Sets the profile for heavy Dolby dynamic range compression, ensures that the instantaneous signal peaks do not exceed specified levels.
+   */
+  DrcRf?: Eac3AtmosDrcRf | string;
+
+  /**
+   * Height dimensional trim. Sets the maximum amount to attenuate the height channels when the downstream player isn??t configured to handle Dolby Digital Plus with Dolby Atmos and must remix the channels.
+   */
+  HeightTrim?: number;
+
+  /**
+   * Surround dimensional trim. Sets the maximum amount to attenuate the surround channels when the downstream player isn't configured to handle Dolby Digital Plus with Dolby Atmos and must remix the channels.
+   */
+  SurroundTrim?: number;
+}
+
 export enum Eac3AttenuationControl {
   ATTENUATE_3_DB = "ATTENUATE_3_DB",
   NONE = "NONE",
@@ -574,6 +639,11 @@ export interface AudioCodecSettings {
    * Ac3 Settings
    */
   Ac3Settings?: Ac3Settings;
+
+  /**
+   * Eac3 Atmos Settings
+   */
+  Eac3AtmosSettings?: Eac3AtmosSettings;
 
   /**
    * Eac3 Settings
@@ -4426,26 +4496,6 @@ export enum HlsProgramDateTime {
   INCLUDE = "INCLUDE",
 }
 
-export enum HlsProgramDateTimeClock {
-  INITIALIZE_FROM_OUTPUT_TIMECODE = "INITIALIZE_FROM_OUTPUT_TIMECODE",
-  SYSTEM_CLOCK = "SYSTEM_CLOCK",
-}
-
-export enum HlsRedundantManifest {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum HlsSegmentationMode {
-  USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
-  USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
-}
-
-export enum HlsStreamInfResolution {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
 /**
  * @internal
  */
@@ -4506,6 +4556,13 @@ export const AacSettingsFilterSensitiveLog = (obj: AacSettings): any => ({
  * @internal
  */
 export const Ac3SettingsFilterSensitiveLog = (obj: Ac3Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Eac3AtmosSettingsFilterSensitiveLog = (obj: Eac3AtmosSettings): any => ({
   ...obj,
 });
 
