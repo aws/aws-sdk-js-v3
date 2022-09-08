@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.166.0...v3.167.0) (2022-09-08)
+
+
+### Features
+
+* **client-lookoutmetrics:** Release dimension value filtering feature to allow customers to define dimension filters for including only a subset of their dataset to be used by LookoutMetrics. ([495f023](https://github.com/aws/aws-sdk-js-v3/commit/495f02381202a098b8286746e63d42b869a8a758))
+
+
+
+
+
 # [3.165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.164.0...v3.165.0) (2022-09-06)
 
 **Note:** Version bump only for package @aws-sdk/client-lookoutmetrics

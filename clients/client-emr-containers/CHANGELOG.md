@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.166.0...v3.167.0) (2022-09-08)
+
+
+### Features
+
+* **client-emr-containers:** EMR on EKS now allows running Spark SQL using the newly introduced Spark SQL Job Driver in the Start Job Run API ([3d46a39](https://github.com/aws/aws-sdk-js-v3/commit/3d46a3908bfae300d310fd7c8bc413f5b2e2f97a))
+
+
+
+
+
 # [3.165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.164.0...v3.165.0) (2022-09-06)
 
 **Note:** Version bump only for package @aws-sdk/client-emr-containers

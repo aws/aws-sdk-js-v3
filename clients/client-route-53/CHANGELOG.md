@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.166.0...v3.167.0) (2022-09-08)
+
+
+### Features
+
+* **client-route-53:** Amazon Route 53 now supports the Middle East (UAE) Region (me-central-1) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region. ([9676c8f](https://github.com/aws/aws-sdk-js-v3/commit/9676c8f18cf8da9cf44c2441f852a3b5ffed21fb))
+
+
+
+
+
 # [3.165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.164.0...v3.165.0) (2022-09-06)
 
 **Note:** Version bump only for package @aws-sdk/client-route-53

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.166.0...v3.167.0) (2022-09-08)
+
+
+### Features
+
+* **client-ec2:** This release adds support to send VPC Flow Logs to kinesis-data-firehose as new destination type ([aa03c47](https://github.com/aws/aws-sdk-js-v3/commit/aa03c472758ead17d235499a496ea7613eb0f2ce))
+* **client-emr-containers:** EMR on EKS now allows running Spark SQL using the newly introduced Spark SQL Job Driver in the Start Job Run API ([3d46a39](https://github.com/aws/aws-sdk-js-v3/commit/3d46a3908bfae300d310fd7c8bc413f5b2e2f97a))
+* **client-lookoutmetrics:** Release dimension value filtering feature to allow customers to define dimension filters for including only a subset of their dataset to be used by LookoutMetrics. ([495f023](https://github.com/aws/aws-sdk-js-v3/commit/495f02381202a098b8286746e63d42b869a8a758))
+* **client-medialive:** This change exposes API settings which allow Dolby Atmos and Dolby Vision to be used when running a channel using Elemental Media Live ([c7ddd0d](https://github.com/aws/aws-sdk-js-v3/commit/c7ddd0d3ae20acc26ad64e80816b028e93441c5a))
+* **client-route-53:** Amazon Route 53 now supports the Middle East (UAE) Region (me-central-1) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region. ([9676c8f](https://github.com/aws/aws-sdk-js-v3/commit/9676c8f18cf8da9cf44c2441f852a3b5ffed21fb))
+* **client-sagemaker:** This release adds Mode to AutoMLJobConfig. ([2d197cb](https://github.com/aws/aws-sdk-js-v3/commit/2d197cb9a81f7600d3f77272cb64df632e3ec1cc))
+* **client-ssm:** This release adds support for Systems Manager State Manager Association tagging. ([7141bb4](https://github.com/aws/aws-sdk-js-v3/commit/7141bb4ca3f5517757bd1c4f4a3cf8062705f828))
+* **clients:** update client endpoints as of 2022-09-08 ([b1b31d7](https://github.com/aws/aws-sdk-js-v3/commit/b1b31d769cdd5fb2e79df661795fb1a5f012af9b))
+
+
+
+
+
 # [3.166.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.165.0...v3.166.0) (2022-09-07)
 
 
