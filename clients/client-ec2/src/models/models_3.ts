@@ -2735,9 +2735,9 @@ export interface DescribeFlowLogsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>log-destination-type</code> - The type of destination to which the flow
-   *                     log publishes data. Possible destination types include
-   *                     <code>cloud-watch-logs</code> and <code>s3</code>.</p>
+   *                     <code>log-destination-type</code> - The type of destination for the flow log
+   *                     data (<code>cloud-watch-logs</code> | <code>s3</code> |
+   *                         <code>kinesis-data-firehose</code>).</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -2827,9 +2827,14 @@ export interface FlowLog {
   DeliverLogsErrorMessage?: string;
 
   /**
-   * <p>The ARN of the IAM role that posts logs to CloudWatch Logs.</p>
+   * <p>The ARN of the IAM role allows the service to publish logs to CloudWatch Logs.</p>
    */
   DeliverLogsPermissionArn?: string;
+
+  /**
+   * <p>The ARN of the IAM role that allows the service to publish flow logs across accounts.</p>
+   */
+  DeliverCrossAccountRole?: string;
 
   /**
    * <p>The status of the logs delivery (<code>SUCCESS</code> | <code>FAILED</code>).</p>
@@ -2837,7 +2842,7 @@ export interface FlowLog {
   DeliverLogsStatus?: string;
 
   /**
-   * <p>The flow log ID.</p>
+   * <p>The ID of the flow log.</p>
    */
   FlowLogId?: string;
 
@@ -2852,7 +2857,7 @@ export interface FlowLog {
   LogGroupName?: string;
 
   /**
-   * <p>The ID of the resource on which the flow log was created.</p>
+   * <p>The ID of the resource being monitored.</p>
    */
   ResourceId?: string;
 
@@ -2862,17 +2867,12 @@ export interface FlowLog {
   TrafficType?: TrafficType | string;
 
   /**
-   * <p>The type of destination to which the flow log data is published. Flow log data can be
-   *             published to CloudWatch Logs or Amazon S3.</p>
+   * <p>The type of destination for the flow log data.</p>
    */
   LogDestinationType?: LogDestinationType | string;
 
   /**
-   * <p>The destination to which the flow log data is published. Flow log data can be
-   *             published to an CloudWatch Logs log group or an Amazon S3 bucket. If the flow log publishes to CloudWatch Logs,
-   *             this element indicates the Amazon Resource Name (ARN) of the CloudWatch Logs log group to which
-   *             the data is published. If the flow log publishes to Amazon S3, this element indicates the ARN
-   *             of the Amazon S3 bucket to which the data is published.</p>
+   * <p>The Amazon Resource Name (ARN) of the destination for the flow log data.</p>
    */
   LogDestination?: string;
 

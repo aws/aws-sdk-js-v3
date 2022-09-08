@@ -28,9 +28,9 @@ export interface DescribeFlowLogsCommandInput extends DescribeFlowLogsRequest {}
 export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more flow logs. To view the information in your flow logs (the log
- *             streams for the network interfaces), you must use the CloudWatch Logs console or the CloudWatch Logs
- *             API.</p>
+ * <p>Describes one or more flow logs.</p>
+ *         <p>To view the published flow log records, you must view the log destination. For example,
+ *             the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data Firehose delivery stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -4996,7 +4996,7 @@
         "target": "com.amazonaws.ec2#AttachClassicLinkVpcResult"
       },
       "traits": {
-        "smithy.api#documentation": "<note>\n\t           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>\n\t        <p>Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's\n\t\t\tsecurity groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You\n\t\t\tcan only link an instance that's in the <code>running</code> state. An instance is\n\t\t\tautomatically unlinked from a VPC when it's stopped - you can link it to the VPC again when\n\t\t\tyou restart it.</p>\n\t\t       <p>After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.</p>\n\t\t       <p>Linking your instance to a VPC is sometimes referred to as <i>attaching</i> your instance.</p>"
+        "smithy.api#documentation": "<note>\n\t           <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>\n\t        <p>Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's\n\t\t\tsecurity groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You\n\t\t\tcan only link an instance that's in the <code>running</code> state. An instance is\n\t\t\tautomatically unlinked from a VPC when it's stopped - you can link it to the VPC again when\n\t\t\tyou restart it.</p>\n\t\t       <p>After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.</p>\n\t\t       <p>Linking your instance to a VPC is sometimes referred to as <i>attaching</i> your instance.</p>"
       }
     },
     "com.amazonaws.ec2#AttachClassicLinkVpcRequest": {
@@ -8156,7 +8156,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<note>\n\t           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>\n\t\t       <p>Describes a linked EC2-Classic instance.</p>"
+        "smithy.api#documentation": "<note>\n\t           <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>\n\t\t       <p>Describes a linked EC2-Classic instance.</p>"
       }
     },
     "com.amazonaws.ec2#ClassicLinkInstanceList": {
@@ -10785,7 +10785,7 @@
         "target": "com.amazonaws.ec2#CreateDefaultVpcResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet\n\t\t\tin each Availability Zone. For more information about the components of a default VPC,\n\t\t\tsee <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html\">Default VPC and\n\t\t\tdefault subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. You cannot\n\t\t\tspecify the components of the default VPC yourself.</p>\n\t\t       <p>If you deleted your previous default VPC, you can create a default VPC. You cannot have\n\t\t\tmore than one default VPC per Region.</p>\n\t\t       <p>If your account supports EC2-Classic, you cannot use this action to create a default VPC\n\t\t\tin a Region that supports EC2-Classic. If you want a default VPC in a Region that\n\t\t\tsupports EC2-Classic, see \"I really want a default VPC for my existing EC2 account. Is\n\t\t\tthat possible?\" in the <a href=\"http://aws.amazon.com/vpc/faqs/#Default_VPCs\">Default VPCs\n\t\t\tFAQ</a>.</p>\n\t        <note>\n\t           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>"
+        "smithy.api#documentation": "<p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet\n\t\t\tin each Availability Zone. For more information about the components of a default VPC,\n\t\t\tsee <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html\">Default VPC and\n\t\t\tdefault subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. You cannot\n\t\t\tspecify the components of the default VPC yourself.</p>\n\t\t       <p>If you deleted your previous default VPC, you can create a default VPC. You cannot have\n\t\t\tmore than one default VPC per Region.</p>\n\t\t       <p>If your account supports EC2-Classic, you cannot use this action to create a default VPC\n\t\t\tin a Region that supports EC2-Classic. If you want a default VPC in a Region that\n\t\t\tsupports EC2-Classic, see \"I really want a default VPC for my existing EC2 account. Is\n\t\t\tthat possible?\" in the <a href=\"http://aws.amazon.com/vpc/faqs/#Default_VPCs\">Default VPCs\n\t\t\tFAQ</a>.</p>\n\t        <note>\n\t           <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>"
       }
     },
     "com.amazonaws.ec2#CreateDefaultVpcRequest": {
@@ -11199,19 +11199,25 @@
         "DeliverLogsPermissionArn": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group \n            in your account.</p>\n        <p>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify \n            <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</p>"
+            "smithy.api#documentation": "<p>The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a CloudWatch Logs log group in\n            your account.</p>\n        <p>This parameter is required if the destination type is <code>cloud-watch-logs</code>\n            and unsupported otherwise.</p>"
+          }
+        },
+        "DeliverCrossAccountRole": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.</p>"
           }
         },
         "LogGroupName": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs.</p>\n        <p>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify \n            <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</p>"
+            "smithy.api#documentation": "<p>The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs.</p>\n        <p>This parameter is valid only if the destination type is <code>cloud-watch-logs</code>.</p>"
           }
         },
         "ResourceIds": {
           "target": "com.amazonaws.ec2#FlowLogResourceIds",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the subnet, network interface, or VPC for which you want to create a flow log.</p>\n        <p>Constraints: Maximum of 1000 resources</p>",
+            "smithy.api#documentation": "<p>The IDs of the resources to monitor. For example, if the resource type is\n                <code>VPC</code>, specify the IDs of the VPCs.</p>\n        <p>Constraints: Maximum of 1000 resources</p>",
             "smithy.api#required": {},
             "smithy.api#xmlName": "ResourceId"
           }
@@ -11219,32 +11225,32 @@
         "ResourceType": {
           "target": "com.amazonaws.ec2#FlowLogsResourceType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of resource for which to create the flow log. For example, if you specified a VPC ID for \n            the <code>ResourceId</code> property, specify <code>VPC</code> for this property.</p>",
+            "smithy.api#documentation": "<p>The type of resource to monitor.</p>",
             "smithy.api#required": {}
           }
         },
         "TrafficType": {
           "target": "com.amazonaws.ec2#TrafficType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.</p>"
+            "smithy.api#documentation": "<p>The type of traffic to monitor (accepted traffic, rejected traffic, or all\n            traffic).</p>"
           }
         },
         "LogDestinationType": {
           "target": "com.amazonaws.ec2#LogDestinationType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of destination to which the flow log data is to be published. Flow log data can be \n            published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify <code>cloud-watch-logs</code>. To \n            publish flow log data to Amazon S3, specify <code>s3</code>.</p>\n        <p>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify \n            <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</p>\n        <p>Default: <code>cloud-watch-logs</code>\n         </p>"
+            "smithy.api#documentation": "<p>The type of destination for the flow log data.</p>\n        <p>Default: <code>cloud-watch-logs</code>\n         </p>"
           }
         },
         "LogDestination": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The destination to which the flow log data is to be published. Flow log data can be published \n            to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified\n            for <code>LogDestinationType</code>.</p>\n        <p>If <code>LogDestinationType</code> is not specified or <code>cloud-watch-logs</code>,\n            specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For example, to publish\n            to a log group called <code>my-logs</code>, specify\n            <code>arn:aws:logs:us-east-1:123456789012:log-group:my-logs</code>. Alternatively,\n            use <code>LogGroupName</code> instead.</p> \n        <p>If LogDestinationType is <code>s3</code>, specify the ARN of the Amazon S3 bucket. You can also specify a \n            subfolder in the bucket. To specify a subfolder in the bucket, use the following  ARN format: \n            <code>bucket_ARN/subfolder_name/</code>. For example, to specify a subfolder named <code>my-logs</code> in a \n            bucket named <code>my-bucket</code>, use the following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>. You \n            cannot use <code>AWSLogs</code> as a subfolder name. This is a reserved term.</p>"
+            "smithy.api#documentation": "<p>The destination for the flow log data. The meaning of this parameter depends on the destination type.</p>\n        <ul>\n            <li>\n                <p>If the destination type is <code>cloud-watch-logs</code>, specify the ARN of a CloudWatch Logs log group. For example:</p> \n                <p>arn:aws:logs:<i>region</i>:<i>account_id</i>:log-group:<i>my_group</i>\n               </p>\n                <p>Alternatively, use the <code>LogGroupName</code> parameter.</p> \n            </li>\n            <li>\n                <p>If the destination type is <code>s3</code>, specify the ARN of an S3 bucket. For example:</p> \n                <p>arn:aws:s3:::<i>my_bucket</i>/<i>my_subfolder</i>/</p> \n                <p>The subfolder is optional. Note that you can't use <code>AWSLogs</code> as a subfolder name.</p>\n            </li>\n            <li>\n                <p>If the destination type is <code>kinesis-data-firehose</code>, specify the ARN of a Kinesis Data Firehose delivery stream. For example:</p>\n                <p>arn:aws:firehose:<i>region</i>:<i>account_id</i>:deliverystream:<i>my_stream</i>\n               </p>\n            </li>\n         </ul>"
           }
         },
         "LogFormat": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The fields to include in the flow log record, in the order in which they should\n            appear. For a list of available fields, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records\">Flow log records</a>. If you\n            omit this parameter, the flow log is created using the default format. If you specify this parameter, \n            you must specify at least one field.</p>\n        <p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For\n            the CLI, surround this parameter value with single quotes on Linux or\n            double quotes on Windows.</p>"
+            "smithy.api#documentation": "<p>The fields to include in the flow log record. List the fields in the order in which\n            they should appear. For more information about the available fields, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records\">Flow log\n                records</a>. If you omit this parameter, the flow log is created using the\n            default format. If you specify this parameter, you must include at least one\n            field.</p>\n        <p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For\n            the CLI, surround this parameter value with single quotes on Linux or\n            double quotes on Windows.</p>"
           }
         },
         "TagSpecifications": {
@@ -20206,7 +20212,7 @@
         "target": "com.amazonaws.ec2#DescribeClassicLinkInstancesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes one or more of your linked EC2-Classic instances. This request only returns\n\t\t\tinformation about EC2-Classic instances linked to a VPC through ClassicLink. You cannot\n\t\t\tuse this request to return information about other instances.</p>\n\t        <note>\n\t           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>",
+        "smithy.api#documentation": "<p>Describes one or more of your linked EC2-Classic instances. This request only returns\n\t\t\tinformation about EC2-Classic instances linked to a VPC through ClassicLink. You cannot\n\t\t\tuse this request to return information about other instances.</p>\n\t        <note>\n\t           <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -22161,7 +22167,7 @@
         "target": "com.amazonaws.ec2#DescribeFlowLogsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes one or more flow logs. To view the information in your flow logs (the log\n            streams for the network interfaces), you must use the CloudWatch Logs console or the CloudWatch Logs\n            API.</p>",
+        "smithy.api#documentation": "<p>Describes one or more flow logs.</p> \n        <p>To view the published flow log records, you must view the log destination. For example, \n            the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data Firehose delivery stream.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -22182,7 +22188,7 @@
         "Filter": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters.</p>\n        <ul>\n            <li>\n                <p>\n                    <code>deliver-log-status</code> - The status of the logs delivery (<code>SUCCESS</code> |\n                    <code>FAILED</code>).</p>\n            </li>\n            <li>\n                <p>\n                    <code>log-destination-type</code> - The type of destination to which the flow\n                    log publishes data. Possible destination types include\n                    <code>cloud-watch-logs</code> and <code>s3</code>.</p>\n            </li>\n            <li>\n                <p>\n                    <code>flow-log-id</code> - The ID of the flow log.</p>\n            </li>\n            <li>\n                <p>\n                    <code>log-group-name</code> - The name of the log group.</p>\n            </li>\n            <li>\n                <p>\n                    <code>resource-id</code> - The ID of the VPC, subnet, or network interface.</p>\n            </li>\n            <li>\n                <p>\n                    <code>traffic-type</code> - The type of traffic (<code>ACCEPT</code> |\n                    <code>REJECT</code> | <code>ALL</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>One or more filters.</p>\n        <ul>\n            <li>\n                <p>\n                    <code>deliver-log-status</code> - The status of the logs delivery (<code>SUCCESS</code> |\n                    <code>FAILED</code>).</p>\n            </li>\n            <li>\n                <p>\n                    <code>log-destination-type</code> - The type of destination for the flow log\n                    data (<code>cloud-watch-logs</code> | <code>s3</code> |\n                        <code>kinesis-data-firehose</code>).</p>\n            </li>\n            <li>\n                <p>\n                    <code>flow-log-id</code> - The ID of the flow log.</p>\n            </li>\n            <li>\n                <p>\n                    <code>log-group-name</code> - The name of the log group.</p>\n            </li>\n            <li>\n                <p>\n                    <code>resource-id</code> - The ID of the VPC, subnet, or network interface.</p>\n            </li>\n            <li>\n                <p>\n                    <code>traffic-type</code> - The type of traffic (<code>ACCEPT</code> |\n                    <code>REJECT</code> | <code>ALL</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>\n            </li>\n         </ul>"
           }
         },
         "FlowLogIds": {
@@ -30099,7 +30105,7 @@
         "target": "com.amazonaws.ec2#DescribeVpcClassicLinkResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the ClassicLink status of one or more VPCs.</p>\n\t        <note>\n\t           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>"
+        "smithy.api#documentation": "<p>Describes the ClassicLink status of one or more VPCs.</p>\n\t        <note>\n\t           <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>"
       }
     },
     "com.amazonaws.ec2#DescribeVpcClassicLinkDnsSupport": {
@@ -30111,7 +30117,7 @@
         "target": "com.amazonaws.ec2#DescribeVpcClassicLinkDnsSupportResult"
       },
       "traits": {
-        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS\n            hostname of a linked EC2-Classic instance resolves to its private IP address when\n            addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname\n            of an instance in a VPC resolves to its private IP address when addressed from a linked\n            EC2-Classic instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS\n            hostname of a linked EC2-Classic instance resolves to its private IP address when\n            addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname\n            of an instance in a VPC resolves to its private IP address when addressed from a linked\n            EC2-Classic instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -31199,7 +31205,7 @@
         "target": "com.amazonaws.ec2#DetachClassicLinkVpcResult"
       },
       "traits": {
-        "smithy.api#documentation": "<note>\n\t           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>\n\t\t       <p>Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked, the VPC security groups are no longer associated with it. An instance is automatically unlinked from a VPC when it's stopped.</p>"
+        "smithy.api#documentation": "<note>\n\t           <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>\n\t\t       <p>Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked, the VPC security groups are no longer associated with it. An instance is automatically unlinked from a VPC when it's stopped.</p>"
       }
     },
     "com.amazonaws.ec2#DetachClassicLinkVpcRequest": {
@@ -32204,7 +32210,7 @@
         "target": "com.amazonaws.ec2#DisableVpcClassicLinkResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances linked to it.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances linked to it.</p>\n         <note>\n            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#DisableVpcClassicLinkDnsSupport": {
@@ -32216,7 +32222,7 @@
         "target": "com.amazonaws.ec2#DisableVpcClassicLinkDnsSupportResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to\n\t\t\tpublic IP addresses when addressed between a linked EC2-Classic instance and instances\n\t\t\tin the VPC to which it's linked. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the\n\t\t\t\t<i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>You must specify a VPC ID in the request.</p>\n      \n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to\n\t\t\tpublic IP addresses when addressed between a linked EC2-Classic instance and instances\n\t\t\tin the VPC to which it's linked. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the\n\t\t\t\t<i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>You must specify a VPC ID in the request.</p>\n      \n         <note>\n            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#DisableVpcClassicLinkDnsSupportRequest": {
@@ -34657,7 +34663,7 @@
         "target": "com.amazonaws.ec2#EnableVpcClassicLinkResult"
       },
       "traits": {
-        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your\n\t\t\tClassicLink-enabled VPC to allow communication over private IP addresses. You cannot\n\t\t\tenable your VPC for ClassicLink if any of your VPC route tables have existing routes for\n\t\t\taddress ranges within the <code>10.0.0.0/8</code> IP address range, excluding local\n\t\t\troutes for VPCs in the <code>10.0.0.0/16</code> and <code>10.1.0.0/16</code> IP address\n\t\t\tranges. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the\n\t\t\t\t<i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your\n\t\t\tClassicLink-enabled VPC to allow communication over private IP addresses. You cannot\n\t\t\tenable your VPC for ClassicLink if any of your VPC route tables have existing routes for\n\t\t\taddress ranges within the <code>10.0.0.0/8</code> IP address range, excluding local\n\t\t\troutes for VPCs in the <code>10.0.0.0/16</code> and <code>10.1.0.0/16</code> IP address\n\t\t\tranges. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the\n\t\t\t\t<i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#EnableVpcClassicLinkDnsSupport": {
@@ -34669,7 +34675,7 @@
         "target": "com.amazonaws.ec2#EnableVpcClassicLinkDnsSupportResult"
       },
       "traits": {
-        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, the DNS\n\t\t\thostname of a linked EC2-Classic instance resolves to its private IP address when\n\t\t\taddressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname\n\t\t\tof an instance in a VPC resolves to its private IP address when addressed from a linked\n\t\t\tEC2-Classic instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the\n\t\t\t\t<i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>You must specify a VPC ID in the request.</p>"
+        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, the DNS\n\t\t\thostname of a linked EC2-Classic instance resolves to its private IP address when\n\t\t\taddressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname\n\t\t\tof an instance in a VPC resolves to its private IP address when addressed from a linked\n\t\t\tEC2-Classic instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the\n\t\t\t\t<i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>You must specify a VPC ID in the request.</p>"
       }
     },
     "com.amazonaws.ec2#EnableVpcClassicLinkDnsSupportRequest": {
@@ -37185,8 +37191,16 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "DeliverLogsPermissionArn",
-            "smithy.api#documentation": "<p>The ARN of the IAM role that posts logs to CloudWatch Logs.</p>",
+            "smithy.api#documentation": "<p>The ARN of the IAM role allows the service to publish logs to CloudWatch Logs.</p>",
             "smithy.api#xmlName": "deliverLogsPermissionArn"
+          }
+        },
+        "DeliverCrossAccountRole": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "DeliverCrossAccountRole",
+            "smithy.api#documentation": "<p>The ARN of the IAM role that allows the service to publish flow logs across accounts.</p>",
+            "smithy.api#xmlName": "deliverCrossAccountRole"
           }
         },
         "DeliverLogsStatus": {
@@ -37201,7 +37215,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "FlowLogId",
-            "smithy.api#documentation": "<p>The flow log ID.</p>",
+            "smithy.api#documentation": "<p>The ID of the flow log.</p>",
             "smithy.api#xmlName": "flowLogId"
           }
         },
@@ -37225,7 +37239,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "ResourceId",
-            "smithy.api#documentation": "<p>The ID of the resource on which the flow log was created.</p>",
+            "smithy.api#documentation": "<p>The ID of the resource being monitored.</p>",
             "smithy.api#xmlName": "resourceId"
           }
         },
@@ -37241,7 +37255,7 @@
           "target": "com.amazonaws.ec2#LogDestinationType",
           "traits": {
             "aws.protocols#ec2QueryName": "LogDestinationType",
-            "smithy.api#documentation": "<p>The type of destination to which the flow log data is published. Flow log data can be \n            published to CloudWatch Logs or Amazon S3.</p>",
+            "smithy.api#documentation": "<p>The type of destination for the flow log data.</p>",
             "smithy.api#xmlName": "logDestinationType"
           }
         },
@@ -37249,7 +37263,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "LogDestination",
-            "smithy.api#documentation": "<p>The destination to which the flow log data is published. Flow log data can be\n            published to an CloudWatch Logs log group or an Amazon S3 bucket. If the flow log publishes to CloudWatch Logs,\n            this element indicates the Amazon Resource Name (ARN) of the CloudWatch Logs log group to which\n            the data is published. If the flow log publishes to Amazon S3, this element indicates the ARN\n            of the Amazon S3 bucket to which the data is published.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the destination for the flow log data.</p>",
             "smithy.api#xmlName": "logDestination"
           }
         },
@@ -54179,6 +54193,10 @@
           {
             "value": "s3",
             "name": "s3"
+          },
+          {
+            "value": "kinesis-data-firehose",
+            "name": "kinesis_data_firehose"
           }
         ]
       }
@@ -57938,7 +57956,7 @@
         "target": "com.amazonaws.ec2#ModifyVpcPeeringConnectionOptionsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Modifies the VPC peering connection options on one side of a VPC peering connection. You can do the following:</p>\n         <ul>\n            <li>\n               <p>Enable/disable communication over the peering connection between an EC2-Classic instance that's linked to your VPC (using ClassicLink) and instances in the peer VPC.</p>\n            </li>\n            <li>\n               <p>Enable/disable communication over the peering connection between instances in your VPC and an EC2-Classic instance that's linked to the peer VPC.</p>\n            </li>\n            <li>\n               <p>Enable/disable the ability to resolve public DNS hostnames to private IP\n                    addresses when queried from instances in the peer VPC.</p>\n            </li>\n         </ul>\n         <p>If the peered VPCs are in the same Amazon Web Services account, you can enable DNS resolution \n        for queries from the local VPC. This ensures that queries from the local VPC resolve to private IP\n        addresses in the peer VPC. This option is not available if the peered VPCs are in different\n        different Amazon Web Services accounts or different Regions. For peered VPCs in different \n        Amazon Web Services accounts, each Amazon Web Services account owner must initiate a separate request \n        to modify the peering connection options. For inter-region peering connections, you must use the \n        Region for the requester VPC to modify the requester VPC peering options and the Region for the \n        accepter VPC to modify the accepter VPC peering options. To verify which VPCs are the accepter and \n        the requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a> command.</p>"
+        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Modifies the VPC peering connection options on one side of a VPC peering connection. You can do the following:</p>\n         <ul>\n            <li>\n               <p>Enable/disable communication over the peering connection between an EC2-Classic instance that's linked to your VPC (using ClassicLink) and instances in the peer VPC.</p>\n            </li>\n            <li>\n               <p>Enable/disable communication over the peering connection between instances in your VPC and an EC2-Classic instance that's linked to the peer VPC.</p>\n            </li>\n            <li>\n               <p>Enable/disable the ability to resolve public DNS hostnames to private IP\n                    addresses when queried from instances in the peer VPC.</p>\n            </li>\n         </ul>\n         <p>If the peered VPCs are in the same Amazon Web Services account, you can enable DNS resolution \n        for queries from the local VPC. This ensures that queries from the local VPC resolve to private IP\n        addresses in the peer VPC. This option is not available if the peered VPCs are in different\n        different Amazon Web Services accounts or different Regions. For peered VPCs in different \n        Amazon Web Services accounts, each Amazon Web Services account owner must initiate a separate request \n        to modify the peering connection options. For inter-region peering connections, you must use the \n        Region for the requester VPC to modify the requester VPC peering options and the Region for the \n        accepter VPC to modify the accepter VPC peering options. To verify which VPCs are the accepter and \n        the requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a> command.</p>"
       }
     },
     "com.amazonaws.ec2#ModifyVpcPeeringConnectionOptionsRequest": {
@@ -61200,7 +61218,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Describes the VPC peering connection options.</p>"
+        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Describes the VPC peering connection options.</p>"
       }
     },
     "com.amazonaws.ec2#PeeringConnectionOptionsRequest": {
@@ -61226,7 +61244,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>The VPC peering connection options.</p>"
+        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>The VPC peering connection options.</p>"
       }
     },
     "com.amazonaws.ec2#PeeringTgwInfo": {
@@ -80609,7 +80627,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<note>\n\t           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>\n\t\t       <p>Describes whether a VPC is enabled for ClassicLink.</p>"
+        "smithy.api#documentation": "<note>\n\t           <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>\n\t\t       <p>Describes whether a VPC is enabled for ClassicLink.</p>"
       }
     },
     "com.amazonaws.ec2#VpcClassicLinkIdList": {
@@ -81145,7 +81163,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Describes the VPC peering connection options.</p>"
+        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Describes the VPC peering connection options.</p>"
       }
     },
     "com.amazonaws.ec2#VpcPeeringConnectionStateReason": {

@@ -32822,6 +32822,9 @@ const serializeAws_ec2CreateFlowLogsRequest = (input: CreateFlowLogsRequest, con
   if (input.DeliverLogsPermissionArn != null) {
     entries["DeliverLogsPermissionArn"] = input.DeliverLogsPermissionArn;
   }
+  if (input.DeliverCrossAccountRole != null) {
+    entries["DeliverCrossAccountRole"] = input.DeliverCrossAccountRole;
+  }
   if (input.LogGroupName != null) {
     entries["LogGroupName"] = input.LogGroupName;
   }
@@ -62434,6 +62437,7 @@ const deserializeAws_ec2FlowLog = (output: any, context: __SerdeContext): FlowLo
     CreationTime: undefined,
     DeliverLogsErrorMessage: undefined,
     DeliverLogsPermissionArn: undefined,
+    DeliverCrossAccountRole: undefined,
     DeliverLogsStatus: undefined,
     FlowLogId: undefined,
     FlowLogStatus: undefined,
@@ -62455,6 +62459,9 @@ const deserializeAws_ec2FlowLog = (output: any, context: __SerdeContext): FlowLo
   }
   if (output["deliverLogsPermissionArn"] !== undefined) {
     contents.DeliverLogsPermissionArn = __expectString(output["deliverLogsPermissionArn"]);
+  }
+  if (output["deliverCrossAccountRole"] !== undefined) {
+    contents.DeliverCrossAccountRole = __expectString(output["deliverCrossAccountRole"]);
   }
   if (output["deliverLogsStatus"] !== undefined) {
     contents.DeliverLogsStatus = __expectString(output["deliverLogsStatus"]);
