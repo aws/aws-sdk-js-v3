@@ -6,6 +6,14 @@ export interface EndpointPartition {
   supportsDualStack: boolean;
 }
 
+export interface EndpointARN {
+  partition: string;
+  service: string;
+  region: string;
+  accountId: string;
+  resourceId: Array<string>;
+}
+
 export enum EndpointURLScheme {
   HTTP = "http",
   HTTPS = "https",
