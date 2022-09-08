@@ -1056,6 +1056,40 @@ export interface CreateAnomalyDetectorResponse {
   AnomalyDetectorArn?: string;
 }
 
+export enum FilterOperation {
+  EQUALS = "EQUALS",
+}
+
+/**
+ * <p>Describes a filter for choosing a subset of dimension values. Each filter consists of the dimension that you want to include and the condition statement. The condition statement is specified in the <code>FilterOperation</code> object.</p>
+ */
+export interface Filter {
+  /**
+   * <p>The value that you want to include in the filter.</p>
+   */
+  DimensionValue?: string;
+
+  /**
+   * <p>The condition to apply.</p>
+   */
+  FilterOperation?: FilterOperation | string;
+}
+
+/**
+ * <p>Describes a list of filters for choosing a subset of dimension values. Each filter consists of the dimension and one of its values that you want to include. When multiple dimensions or values are specified, the dimensions are joined with an AND operation and the values are joined with an OR operation. </p>
+ */
+export interface MetricSetDimensionFilter {
+  /**
+   * <p>The dimension that you want to filter on.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The list of filters that you are applying.</p>
+   */
+  FilterList?: Filter[];
+}
+
 /**
  * <p>A calculation made by contrasting a measure and a dimension from your source data.</p>
  */
@@ -1386,6 +1420,11 @@ export interface CreateMetricSetRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> to apply to the dataset.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>A list of filters that specify which data is kept for anomaly detection.</p>
+   */
+  DimensionFilterList?: MetricSetDimensionFilter[];
 }
 
 export interface CreateMetricSetResponse {
@@ -1621,6 +1660,11 @@ export interface DescribeMetricSetResponse {
    * <p>Contains information about the dataset's source data.</p>
    */
   MetricSource?: MetricSource;
+
+  /**
+   * <p>The dimensions and their values that were used to filter the dataset.</p>
+   */
+  DimensionFilterList?: MetricSetDimensionFilter[];
 }
 
 /**
@@ -2394,6 +2438,14 @@ export interface UpdateMetricSetRequest {
    * <p>Contains information about source data used to generate metrics.</p>
    */
   MetricSource?: MetricSource;
+
+  /**
+   * <p>Describes a list of filters for choosing specific dimensions and specific values. Each
+   *       filter consists of the dimension and one of its values that you want to include. When
+   *       multiple dimensions or values are specified, the dimensions are joined with an AND operation
+   *       and the values are joined with an OR operation.</p>
+   */
+  DimensionFilterList?: MetricSetDimensionFilter[];
 }
 
 export interface UpdateMetricSetResponse {
@@ -2673,6 +2725,20 @@ export const CreateAnomalyDetectorRequestFilterSensitiveLog = (obj: CreateAnomal
  * @internal
  */
 export const CreateAnomalyDetectorResponseFilterSensitiveLog = (obj: CreateAnomalyDetectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricSetDimensionFilterFilterSensitiveLog = (obj: MetricSetDimensionFilter): any => ({
   ...obj,
 });
 

@@ -136,6 +136,7 @@ import {
   DimensionValueContribution,
   ExecutionStatus,
   FileFormatDescriptor,
+  Filter,
   InterMetricImpactDetails,
   InternalServerException,
   ItemizedMetricStats,
@@ -144,6 +145,7 @@ import {
   Metric,
   MetricLevelImpact,
   MetricSetDataQualityMetric,
+  MetricSetDimensionFilter,
   MetricSetSummary,
   MetricSource,
   RDSSourceConfig,
@@ -286,6 +288,9 @@ export const serializeAws_restJson1CreateMetricSetCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.AnomalyDetectorArn != null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
+    ...(input.DimensionFilterList != null && {
+      DimensionFilterList: serializeAws_restJson1MetricSetDimensionFilterList(input.DimensionFilterList, context),
+    }),
     ...(input.DimensionList != null && {
       DimensionList: serializeAws_restJson1DimensionList(input.DimensionList, context),
     }),
@@ -958,6 +963,9 @@ export const serializeAws_restJson1UpdateMetricSetCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateMetricSet";
   let body: any;
   body = JSON.stringify({
+    ...(input.DimensionFilterList != null && {
+      DimensionFilterList: serializeAws_restJson1MetricSetDimensionFilterList(input.DimensionFilterList, context),
+    }),
     ...(input.DimensionList != null && {
       DimensionList: serializeAws_restJson1DimensionList(input.DimensionList, context),
     }),
@@ -1625,6 +1633,12 @@ export const deserializeAws_restJson1DescribeMetricSetCommand = async (
   }
   if (data.CreationTime != null) {
     contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
+  }
+  if (data.DimensionFilterList != null) {
+    contents.DimensionFilterList = deserializeAws_restJson1MetricSetDimensionFilterList(
+      data.DimensionFilterList,
+      context
+    );
   }
   if (data.DimensionList != null) {
     contents.DimensionList = deserializeAws_restJson1DimensionList(data.DimensionList, context);
@@ -2985,6 +2999,21 @@ const serializeAws_restJson1FileFormatDescriptor = (input: FileFormatDescriptor,
   };
 };
 
+const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
+  return {
+    ...(input.DimensionValue != null && { DimensionValue: input.DimensionValue }),
+    ...(input.FilterOperation != null && { FilterOperation: input.FilterOperation }),
+  };
+};
+
+const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Filter(entry, context);
+    });
+};
+
 const serializeAws_restJson1HeaderList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -3036,6 +3065,27 @@ const serializeAws_restJson1MetricNameList = (input: string[], context: __SerdeC
     .filter((e: any) => e != null)
     .map((entry) => {
       return entry;
+    });
+};
+
+const serializeAws_restJson1MetricSetDimensionFilter = (
+  input: MetricSetDimensionFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FilterList != null && { FilterList: serializeAws_restJson1FilterList(input.FilterList, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1MetricSetDimensionFilterList = (
+  input: MetricSetDimensionFilter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MetricSetDimensionFilter(entry, context);
     });
 };
 
@@ -3740,6 +3790,25 @@ const deserializeAws_restJson1FileFormatDescriptor = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_restJson1Filter = (output: any, context: __SerdeContext): Filter => {
+  return {
+    DimensionValue: __expectString(output.DimensionValue),
+    FilterOperation: __expectString(output.FilterOperation),
+  } as any;
+};
+
+const deserializeAws_restJson1FilterList = (output: any, context: __SerdeContext): Filter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Filter(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1HeaderList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -3918,6 +3987,31 @@ const deserializeAws_restJson1MetricSetDataQualityMetricList = (
         return null as any;
       }
       return deserializeAws_restJson1MetricSetDataQualityMetric(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MetricSetDimensionFilter = (
+  output: any,
+  context: __SerdeContext
+): MetricSetDimensionFilter => {
+  return {
+    FilterList: output.FilterList != null ? deserializeAws_restJson1FilterList(output.FilterList, context) : undefined,
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_restJson1MetricSetDimensionFilterList = (
+  output: any,
+  context: __SerdeContext
+): MetricSetDimensionFilter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MetricSetDimensionFilter(entry, context);
     });
   return retVal;
 };
