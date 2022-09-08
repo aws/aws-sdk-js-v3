@@ -31,7 +31,6 @@ import {
   OpsItemDataValue,
   OpsItemNotification,
   OpsItemStatus,
-  ParameterInlinePolicy,
   ParameterStringFilter,
   PatchAction,
   PatchComplianceLevel,
@@ -54,6 +53,29 @@ import {
   TargetLocation,
 } from "./models_0";
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * <p>One or more policies assigned to a parameter.</p>
+ */
+export interface ParameterInlinePolicy {
+  /**
+   * <p>The JSON text of the policy.</p>
+   */
+  PolicyText?: string;
+
+  /**
+   * <p>The type of policy. Parameter Store, a capability of Amazon Web Services Systems Manager, supports the following
+   *    policy types: Expiration, ExpirationNotification, and NoChangeNotification. </p>
+   */
+  PolicyType?: string;
+
+  /**
+   * <p>The status of the policy. Policies report the following statuses: Pending (the policy hasn't
+   *    been enforced or applied yet), Finished (the policy was applied), Failed (the policy wasn't
+   *    applied), or InProgress (the policy is being applied now). </p>
+   */
+  PolicyStatus?: string;
+}
 
 export enum ParameterTier {
   ADVANCED = "Advanced",
@@ -7797,6 +7819,9 @@ export interface SendCommandRequest {
   /**
    * <p>The ARN of the Identity and Access Management (IAM) service role to use to publish
    *     Amazon Simple Notification Service (Amazon SNS) notifications for Run Command commands.</p>
+   *          <p>This role must provide the <code>sns:Publish</code> permission for your notification topic.
+   *    For information about creating and using this service role, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring Systems Manager status changes using Amazon SNS notifications</a> in the
+   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   ServiceRoleArn?: string;
 
@@ -8210,8 +8235,7 @@ export interface StartSessionResponse {
   SessionId?: string;
 
   /**
-   * <p>An encrypted token value containing session and caller information. Used to authenticate the
-   *    connection to the managed node.</p>
+   * <p>An encrypted token value containing session and caller information. This token is used to authenticate the connection to the managed node, and is valid only long enough to ensure the connection is successful. Never share your session's token.</p>
    */
   TokenValue?: string;
 
@@ -8788,19 +8812,11 @@ export enum DocumentReviewAction {
 }
 
 /**
- * <p>Information about a document approval review.</p>
+ * @internal
  */
-export interface DocumentReviews {
-  /**
-   * <p>The action to take on a document approval review request.</p>
-   */
-  Action: DocumentReviewAction | string | undefined;
-
-  /**
-   * <p>A comment entered by a user in your organization about the document review request.</p>
-   */
-  Comment?: DocumentReviewCommentSource[];
-}
+export const ParameterInlinePolicyFilterSensitiveLog = (obj: ParameterInlinePolicy): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10350,12 +10366,5 @@ export const DocumentDefaultVersionDescriptionFilterSensitiveLog = (obj: Documen
  * @internal
  */
 export const UpdateDocumentDefaultVersionResultFilterSensitiveLog = (obj: UpdateDocumentDefaultVersionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentReviewsFilterSensitiveLog = (obj: DocumentReviews): any => ({
   ...obj,
 });

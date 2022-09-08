@@ -95,6 +95,7 @@ export interface Activation {
 }
 
 export enum ResourceTypeForTagging {
+  ASSOCIATION = "Association",
   AUTOMATION = "Automation",
   DOCUMENT = "Document",
   MAINTENANCE_WINDOW = "MaintenanceWindow",
@@ -1088,6 +1089,14 @@ export interface CreateAssociationRequest {
    *    can't be specified together.</p>
    */
   TargetMaps?: Record<string, string[]>[];
+
+  /**
+   * <p>Adds or overwrites one or more tags for a State Manager association. <i>Tags</i>
+   *    are metadata that you can assign to your Amazon Web Services resources. Tags enable you to categorize your
+   *    resources in different ways, for example, by purpose, owner, or environment. Each tag consists of
+   *    a key and an optional value, both of which you define. </p>
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -1402,6 +1411,27 @@ export class InvalidSchedule extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidSchedule.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The specified tag key or value is not valid.</p>
+ */
+export class InvalidTag extends __BaseException {
+  readonly name: "InvalidTag" = "InvalidTag";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTag, __BaseException>) {
+    super({
+      name: "InvalidTag",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTag.prototype);
     this.Message = opts.Message;
   }
 }
@@ -1815,7 +1845,7 @@ export interface CreateDocumentRequest {
    *             <ul>
    *                <li>
    *                   <p>
-   *                      <code>aws-</code>
+   *                      <code>aws</code>
    *                   </p>
    *                </li>
    *                <li>
@@ -5700,14 +5730,16 @@ export interface DescribeInstanceAssociationsStatusResult {
 export interface InstanceInformationStringFilter {
   /**
    * <p>The filter key name to describe your managed nodes. For example:</p>
-   *          <p>"InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|"AssociationStatus"|"Tag
-   *    Key"</p>
+   *          <p>"InstanceIds" | "AgentVersion" | "PingStatus" | "PlatformTypes" | "ActivationIds" |
+   *    "IamRole" | "ResourceType" | "AssociationStatus" | "tag-key" | "tag:<code>{keyname}</code>
+   *          </p>
    *          <important>
    *             <p>
-   *                <code>Tag key</code> isn't a valid filter. You must specify either <code>tag-key</code> or
-   *      <code>tag:keyname</code> and a string. Here are some valid examples: tag-key, tag:123, tag:al!,
-   *     tag:Windows. Here are some <i>invalid</i> examples: tag-keys, Tag Key, tag:,
-   *     tagKey, abc:keyname.</p>
+   *                <code>Tag Key</code> isn't a valid filter. You must specify either <code>tag-key</code> or
+   *      <code>tag:{keyname}</code> and a string. Here are some valid examples: <code>tag-key</code>,
+   *      <code>tag:123</code>, <code>tag:al!</code>, <code>tag:Windows</code>. Here are some
+   *      <i>invalid</i> examples: <code>tag-keys</code>, <code>Tag Key</code>,
+   *      <code>tag:</code>, <code>tagKey</code>, <code>abc:keyname</code>.</p>
    *          </important>
    */
   Key: string | undefined;
@@ -5762,8 +5794,8 @@ export interface DescribeInstanceInformationRequest {
 
   /**
    * <p>One or more filters. Use a filter to return a more specific list of managed nodes. You can
-   *    filter based on tags applied to EC2 instances. Use this <code>Filters</code> data type instead of
-   *     <code>InstanceInformationFilterList</code>, which is deprecated.</p>
+   *    filter based on tags applied to your managed nodes. Use this <code>Filters</code> data type
+   *    instead of <code>InstanceInformationFilterList</code>, which is deprecated.</p>
    */
   Filters?: InstanceInformationStringFilter[];
 
@@ -7808,29 +7840,6 @@ export interface DescribeParametersRequest {
 }
 
 /**
- * <p>One or more policies assigned to a parameter.</p>
- */
-export interface ParameterInlinePolicy {
-  /**
-   * <p>The JSON text of the policy.</p>
-   */
-  PolicyText?: string;
-
-  /**
-   * <p>The type of policy. Parameter Store, a capability of Amazon Web Services Systems Manager, supports the following
-   *    policy types: Expiration, ExpirationNotification, and NoChangeNotification. </p>
-   */
-  PolicyType?: string;
-
-  /**
-   * <p>The status of the policy. Policies report the following statuses: Pending (the policy hasn't
-   *    been enforced or applied yet), Finished (the policy was applied), Failed (the policy wasn't
-   *    applied), or InProgress (the policy is being applied now). </p>
-   */
-  PolicyStatus?: string;
-}
-
-/**
  * @internal
  */
 export const AccountSharingInfoFilterSensitiveLog = (obj: AccountSharingInfo): any => ({
@@ -9260,12 +9269,5 @@ export const ParameterStringFilterFilterSensitiveLog = (obj: ParameterStringFilt
  * @internal
  */
 export const DescribeParametersRequestFilterSensitiveLog = (obj: DescribeParametersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterInlinePolicyFilterSensitiveLog = (obj: ParameterInlinePolicy): any => ({
   ...obj,
 });

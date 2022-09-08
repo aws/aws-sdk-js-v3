@@ -21,7 +21,8 @@ import {
   Target,
 } from "./models_0";
 import {
-  DocumentReviews,
+  DocumentReviewAction,
+  DocumentReviewCommentSource,
   InventoryFilter,
   InventoryGroup,
   MaintenanceWindowTaskInvocationParameters,
@@ -31,6 +32,21 @@ import {
   ResultAttribute,
 } from "./models_1";
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * <p>Information about a document approval review.</p>
+ */
+export interface DocumentReviews {
+  /**
+   * <p>The action to take on a document approval review request.</p>
+   */
+  Action: DocumentReviewAction | string | undefined;
+
+  /**
+   * <p>A comment entered by a user in your organization about the document review request.</p>
+   */
+  Comment?: DocumentReviewCommentSource[];
+}
 
 export interface UpdateDocumentMetadataRequest {
   /**
@@ -1146,6 +1162,13 @@ export interface GetOpsSummaryRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const DocumentReviewsFilterSensitiveLog = (obj: DocumentReviews): any => ({
+  ...obj,
+});
 
 /**
  * @internal

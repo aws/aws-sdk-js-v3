@@ -601,6 +601,7 @@ import {
   InvalidResourceId,
   InvalidResourceType,
   InvalidSchedule,
+  InvalidTag,
   InvalidTarget,
   InvalidTargetMaps,
   InvalidTypeNameException,
@@ -634,7 +635,6 @@ import {
   OpsMetadataNotFoundException,
   OpsMetadataTooManyUpdatesException,
   OutputSource,
-  ParameterInlinePolicy,
   ParameterNotFound,
   ParametersFilter,
   ParameterStringFilter,
@@ -725,7 +725,6 @@ import {
   DocumentPermissionLimit,
   DocumentReviewCommentSource,
   DocumentReviewerResponseSource,
-  DocumentReviews,
   DocumentVersionInfo,
   DocumentVersionLimitExceeded,
   DuplicateDocumentContent,
@@ -870,6 +869,7 @@ import {
   Parameter,
   ParameterAlreadyExists,
   ParameterHistory,
+  ParameterInlinePolicy,
   ParameterLimitExceeded,
   ParameterMaxVersionLimitExceeded,
   ParameterMetadata,
@@ -947,6 +947,7 @@ import {
   UpdateDocumentResult,
 } from "../models/models_1";
 import {
+  DocumentReviews,
   GetInventoryRequest,
   GetOpsSummaryRequest,
   InventoryAggregator,
@@ -3029,6 +3030,9 @@ const deserializeAws_json1_1CreateAssociationCommandError = async (
     case "InvalidSchedule":
     case "com.amazonaws.ssm#InvalidSchedule":
       throw await deserializeAws_json1_1InvalidScheduleResponse(parsedOutput, context);
+    case "InvalidTag":
+    case "com.amazonaws.ssm#InvalidTag":
+      throw await deserializeAws_json1_1InvalidTagResponse(parsedOutput, context);
     case "InvalidTarget":
     case "com.amazonaws.ssm#InvalidTarget":
       throw await deserializeAws_json1_1InvalidTargetResponse(parsedOutput, context);
@@ -10310,6 +10314,19 @@ const deserializeAws_json1_1InvalidScheduleResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1InvalidTagResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidTag> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidTag(body, context);
+  const exception = new InvalidTag({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1InvalidTargetResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11401,6 +11418,7 @@ const serializeAws_json1_1CreateAssociationRequest = (
     ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
     ...(input.ScheduleOffset != null && { ScheduleOffset: input.ScheduleOffset }),
     ...(input.SyncCompliance != null && { SyncCompliance: input.SyncCompliance }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.TargetLocations != null && {
       TargetLocations: serializeAws_json1_1TargetLocations(input.TargetLocations, context),
     }),
@@ -17178,6 +17196,12 @@ const deserializeAws_json1_1InvalidRole = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1InvalidSchedule = (output: any, context: __SerdeContext): InvalidSchedule => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidTag = (output: any, context: __SerdeContext): InvalidTag => {
   return {
     Message: __expectString(output.Message),
   } as any;
