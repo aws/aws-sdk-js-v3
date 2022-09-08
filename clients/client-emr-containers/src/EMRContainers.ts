@@ -71,7 +71,8 @@ import { EMRContainersClient } from "./EMRContainersClient";
  *          open-source big data frameworks on Amazon Elastic Kubernetes Service (Amazon EKS). With
  *          this deployment option, you can focus on running analytics workloads while Amazon EMR on
  *          EKS builds, configures, and manages containers for open-source applications. For more
- *          information about Amazon EMR on EKS concepts and tasks, see <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html">What is Amazon EMR on EKS</a>.</p>
+ *          information about Amazon EMR on EKS concepts and tasks, see <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html">What is Amazon EMR on
+ *             EKS</a>.</p>
  *          <p>
  *             <i>Amazon EMR containers</i> is the API name for Amazon EMR on EKS. The
  *             <code>emr-containers</code> prefix is used in the following scenarios: </p>
@@ -81,18 +82,21 @@ import { EMRContainersClient } from "./EMRContainersClient";
  *                   emr-containers start-job-run</code>.</p>
  *             </li>
  *             <li>
- *                <p>It is the prefix before IAM policy actions for Amazon EMR on EKS. For example, <code>"Action": [
- *             "emr-containers:StartJobRun"]</code>. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-actions">Policy actions for Amazon EMR on EKS</a>.</p>
+ *                <p>It is the prefix before IAM policy actions for Amazon EMR on EKS. For example,
+ *                   <code>"Action": [ "emr-containers:StartJobRun"]</code>. For more information, see
+ *                   <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-actions">Policy actions for Amazon EMR on EKS</a>.</p>
  *             </li>
  *             <li>
- *                <p>It is the prefix used in Amazon EMR on EKS service endpoints. For example, <code>emr-containers.us-east-2.amazonaws.com</code>. For more
- *             information, see <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/service-quotas.html#service-endpoints">Amazon EMR on EKS Service Endpoints</a>.</p>
+ *                <p>It is the prefix used in Amazon EMR on EKS service endpoints. For example,
+ *                   <code>emr-containers.us-east-2.amazonaws.com</code>. For more information, see
+ *                   <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/service-quotas.html#service-endpoints">Amazon EMR on EKS Service Endpoints</a>.</p>
  *             </li>
  *          </ul>
  */
 export class EMRContainers extends EMRContainersClient {
   /**
-   * <p>Cancels a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
+   * <p>Cancels a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or
+   *          SparkSQL query, that you submit to Amazon EMR on EKS.</p>
    */
   public cancelJobRun(
     args: CancelJobRunCommandInput,
@@ -121,7 +125,8 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Creates a managed endpoint. A managed endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.</p>
+   * <p>Creates a managed endpoint. A managed endpoint is a gateway that connects EMR Studio to
+   *          Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.</p>
    */
   public createManagedEndpoint(
     args: CreateManagedEndpointCommandInput,
@@ -153,7 +158,11 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Creates a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any additional resource in your system. A single virtual cluster maps to a single Kubernetes namespace. Given this relationship, you can model virtual clusters the same way you model Kubernetes namespaces to meet your requirements.</p>
+   * <p>Creates a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You
+   *          can create, describe, list and delete virtual clusters. They do not consume any additional
+   *          resource in your system. A single virtual cluster maps to a single Kubernetes namespace.
+   *          Given this relationship, you can model virtual clusters the same way you model Kubernetes
+   *          namespaces to meet your requirements.</p>
    */
   public createVirtualCluster(
     args: CreateVirtualClusterCommandInput,
@@ -185,7 +194,8 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Deletes a managed endpoint. A managed endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.</p>
+   * <p>Deletes a managed endpoint. A managed endpoint is a gateway that connects EMR Studio to
+   *          Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.</p>
    */
   public deleteManagedEndpoint(
     args: DeleteManagedEndpointCommandInput,
@@ -217,7 +227,11 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Deletes a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any additional resource in your system. A single virtual cluster maps to a single Kubernetes namespace. Given this relationship, you can model virtual clusters the same way you model Kubernetes namespaces to meet your requirements.</p>
+   * <p>Deletes a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You
+   *          can create, describe, list and delete virtual clusters. They do not consume any additional
+   *          resource in your system. A single virtual cluster maps to a single Kubernetes namespace.
+   *          Given this relationship, you can model virtual clusters the same way you model Kubernetes
+   *          namespaces to meet your requirements.</p>
    */
   public deleteVirtualCluster(
     args: DeleteVirtualClusterCommandInput,
@@ -249,7 +263,8 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Displays detailed information about a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
+   * <p>Displays detailed information about a job run. A job run is a unit of work, such as a
+   *          Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
    */
   public describeJobRun(
     args: DescribeJobRunCommandInput,
@@ -281,7 +296,9 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Displays detailed information about a managed endpoint. A managed endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.</p>
+   * <p>Displays detailed information about a managed endpoint. A managed endpoint is a gateway
+   *          that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your
+   *          virtual cluster.</p>
    */
   public describeManagedEndpoint(
     args: DescribeManagedEndpointCommandInput,
@@ -313,7 +330,12 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Displays detailed information about a specified virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any additional resource in your system. A single virtual cluster maps to a single Kubernetes namespace. Given this relationship, you can model virtual clusters the same way you model Kubernetes namespaces to meet your requirements.</p>
+   * <p>Displays detailed information about a specified virtual cluster. Virtual cluster is a
+   *          managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual
+   *          clusters. They do not consume any additional resource in your system. A single virtual
+   *          cluster maps to a single Kubernetes namespace. Given this relationship, you can model
+   *          virtual clusters the same way you model Kubernetes namespaces to meet your
+   *          requirements.</p>
    */
   public describeVirtualCluster(
     args: DescribeVirtualClusterCommandInput,
@@ -345,7 +367,8 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Lists job runs based on a set of parameters. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
+   * <p>Lists job runs based on a set of parameters. A job run is a unit of work, such as a
+   *          Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
    */
   public listJobRuns(args: ListJobRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobRunsCommandOutput>;
   public listJobRuns(args: ListJobRunsCommandInput, cb: (err: any, data?: ListJobRunsCommandOutput) => void): void;
@@ -371,7 +394,9 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Lists managed endpoints based on a set of parameters. A managed endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.</p>
+   * <p>Lists managed endpoints based on a set of parameters. A managed endpoint is a gateway
+   *          that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your
+   *          virtual cluster.</p>
    */
   public listManagedEndpoints(
     args: ListManagedEndpointsCommandInput,
@@ -435,7 +460,11 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Lists information about the specified virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any additional resource in your system. A single virtual cluster maps to a single Kubernetes namespace. Given this relationship, you can model virtual clusters the same way you model Kubernetes namespaces to meet your requirements.</p>
+   * <p>Lists information about the specified virtual cluster. Virtual cluster is a managed
+   *          entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters.
+   *          They do not consume any additional resource in your system. A single virtual cluster maps
+   *          to a single Kubernetes namespace. Given this relationship, you can model virtual clusters
+   *          the same way you model Kubernetes namespaces to meet your requirements.</p>
    */
   public listVirtualClusters(
     args: ListVirtualClustersCommandInput,
@@ -467,7 +496,8 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Starts a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
+   * <p>Starts a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or
+   *          SparkSQL query, that you submit to Amazon EMR on EKS.</p>
    */
   public startJobRun(args: StartJobRunCommandInput, options?: __HttpHandlerOptions): Promise<StartJobRunCommandOutput>;
   public startJobRun(args: StartJobRunCommandInput, cb: (err: any, data?: StartJobRunCommandOutput) => void): void;
@@ -493,7 +523,14 @@ export class EMRContainers extends EMRContainersClient {
   }
 
   /**
-   * <p>Assigns tags to resources. A tag is a label that you assign to an AWS resource. Each tag consists of a key and an optional value, both of which you define. Tags enable you to categorize your AWS resources by attributes such as purpose, owner, or environment. When you have many resources of the same type, you can quickly identify a specific resource based on the tags you've assigned to it. For example, you can define a set of tags for your Amazon EMR on EKS clusters to help you track each cluster's owner and stack level. We recommend that you devise a consistent set of tag keys for each resource type. You can then search and filter the resources based on the tags that you add.</p>
+   * <p>Assigns tags to resources. A tag is a label that you assign to an AWS resource. Each tag
+   *          consists of a key and an optional value, both of which you define. Tags enable you to
+   *          categorize your AWS resources by attributes such as purpose, owner, or environment. When
+   *          you have many resources of the same type, you can quickly identify a specific resource
+   *          based on the tags you've assigned to it. For example, you can define a set of tags for your
+   *          Amazon EMR on EKS clusters to help you track each cluster's owner and stack level. We
+   *          recommend that you devise a consistent set of tag keys for each resource type. You can then
+   *          search and filter the resources based on the tags that you add.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;

@@ -28,7 +28,8 @@ export interface StartJobRunCommandInput extends StartJobRunRequest {}
 export interface StartJobRunCommandOutput extends StartJobRunResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
+ * <p>Starts a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or
+ *          SparkSQL query, that you submit to Amazon EMR on EKS.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

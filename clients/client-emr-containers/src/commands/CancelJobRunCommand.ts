@@ -28,7 +28,8 @@ export interface CancelJobRunCommandInput extends CancelJobRunRequest {}
 export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
+ * <p>Cancels a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or
+ *          SparkSQL query, that you submit to Amazon EMR on EKS.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

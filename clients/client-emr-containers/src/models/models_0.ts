@@ -66,7 +66,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>A configuration for CloudWatch monitoring. You can configure your jobs to send log information to CloudWatch Logs.</p>
+ * <p>A configuration for CloudWatch monitoring. You can configure your jobs to send log
+ *          information to CloudWatch Logs.</p>
  */
 export interface CloudWatchMonitoringConfiguration {
   /**
@@ -86,7 +87,8 @@ export enum PersistentAppUI {
 }
 
 /**
- * <p> Amazon S3 configuration for monitoring log publishing. You can configure your jobs to send log information to Amazon S3.</p>
+ * <p> Amazon S3 configuration for monitoring log publishing. You can configure your jobs to
+ *          send log information to Amazon S3.</p>
  */
 export interface S3MonitoringConfiguration {
   /**
@@ -317,6 +319,21 @@ export enum FailureReason {
 }
 
 /**
+ * <p>The job driver for job type.</p>
+ */
+export interface SparkSqlJobDriver {
+  /**
+   * <p>The SQL file to be executed.</p>
+   */
+  entryPoint?: string;
+
+  /**
+   * <p>The Spark parameters to be included in the Spark SQL command.</p>
+   */
+  sparkSqlParameters?: string;
+}
+
+/**
  * <p>The information about job driver for Spark submit.</p>
  */
 export interface SparkSubmitJobDriver {
@@ -344,6 +361,11 @@ export interface JobDriver {
    * <p>The job driver parameters specified for spark submit.</p>
    */
   sparkSubmitJobDriver?: SparkSubmitJobDriver;
+
+  /**
+   * <p>The job driver for job type.</p>
+   */
+  sparkSqlJobDriver?: SparkSqlJobDriver;
 }
 
 export enum JobRunState {
@@ -406,7 +428,12 @@ export enum VirtualClusterState {
 }
 
 /**
- * <p>This entity describes a virtual cluster. A virtual cluster is a Kubernetes namespace that Amazon EMR is registered with. Amazon EMR uses virtual clusters to run jobs and host endpoints. Multiple virtual clusters can be backed by the same physical cluster. However, each virtual cluster maps to one namespace on an EKS cluster. Virtual clusters do not create any active resources that contribute to your bill or that require lifecycle management outside the service.</p>
+ * <p>This entity describes a virtual cluster. A virtual cluster is a Kubernetes namespace
+ *          that Amazon EMR is registered with. Amazon EMR uses virtual clusters to run jobs and host
+ *          endpoints. Multiple virtual clusters can be backed by the same physical cluster. However,
+ *          each virtual cluster maps to one namespace on an EKS cluster. Virtual clusters do not
+ *          create any active resources that contribute to your bill or that require lifecycle
+ *          management outside the service.</p>
  */
 export interface VirtualCluster {
   /**
@@ -547,7 +574,8 @@ export interface ListVirtualClustersRequest {
   containerProviderId?: string;
 
   /**
-   * <p>The container provider type of the virtual cluster. EKS is the only supported type as of now.</p>
+   * <p>The container provider type of the virtual cluster. EKS is the only supported type as of
+   *          now.</p>
    */
   containerProviderType?: ContainerProviderType | string;
 
@@ -640,7 +668,11 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>A configuration specification to be used when provisioning virtual clusters, which can include configurations for applications and software bundled with Amazon EMR on EKS. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.</p>
+ * <p>A configuration specification to be used when provisioning virtual clusters, which can
+ *          include configurations for applications and software bundled with Amazon EMR on EKS. A
+ *          configuration consists of a classification, properties, and optional nested configurations.
+ *          A classification refers to an application-specific configuration file. Properties are the
+ *          settings you want to change in that file.</p>
  */
 export interface Configuration {
   /**
@@ -703,7 +735,8 @@ export interface CreateManagedEndpointRequest {
   /**
    * @deprecated
    *
-   * <p>The certificate ARN provided by users for the managed endpoint. This fiedd is under deprecation and will be removed in future releases.</p>
+   * <p>The certificate ARN provided by users for the managed endpoint. This field is under
+   *          deprecation and will be removed in future releases.</p>
    */
   certificateArn?: string;
 
@@ -718,8 +751,7 @@ export interface CreateManagedEndpointRequest {
   clientToken?: string;
 
   /**
-   * <p>The tags of the managed endpoint.
-   *       </p>
+   * <p>The tags of the managed endpoint. </p>
    */
   tags?: Record<string, string>;
 }
@@ -771,7 +803,8 @@ export interface Endpoint {
   /**
    * @deprecated
    *
-   * <p>The certificate ARN of the endpoint. This field is under deprecation and will be removed in future.</p>
+   * <p>The certificate ARN of the endpoint. This field is under deprecation and will be removed
+   *          in future.</p>
    */
   certificateArn?: string;
 
@@ -781,7 +814,8 @@ export interface Endpoint {
   certificateAuthority?: Certificate;
 
   /**
-   * <p>The configuration settings that are used to override existing configurations for endpoints.</p>
+   * <p>The configuration settings that are used to override existing configurations for
+   *          endpoints.</p>
    */
   configurationOverrides?: ConfigurationOverrides;
 
@@ -796,40 +830,34 @@ export interface Endpoint {
   createdAt?: Date;
 
   /**
-   * <p>The security group configuration of the endpoint.
-   *       </p>
+   * <p>The security group configuration of the endpoint. </p>
    */
   securityGroup?: string;
 
   /**
-   * <p>The subnet IDs of the endpoint.
-   *       </p>
+   * <p>The subnet IDs of the endpoint. </p>
    */
   subnetIds?: string[];
 
   /**
-   * <p>
-   *          Additional details of the endpoint state.
-   *       </p>
+   * <p> Additional details of the endpoint state. </p>
    */
   stateDetails?: string;
 
   /**
-   * <p>
-   *          The reasons why the endpoint has failed.
-   *       </p>
+   * <p> The reasons why the endpoint has failed. </p>
    */
   failureReason?: FailureReason | string;
 
   /**
-   * <p>The tags of the endpoint.
-   *       </p>
+   * <p>The tags of the endpoint. </p>
    */
   tags?: Record<string, string>;
 }
 
 /**
- * <p>This entity describes a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS. </p>
+ * <p>This entity describes a job run. A job run is a unit of work, such as a Spark jar,
+ *          PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS. </p>
  */
 export interface JobRun {
   /**
@@ -1111,6 +1139,15 @@ export const DescribeJobRunRequestFilterSensitiveLog = (obj: DescribeJobRunReque
 /**
  * @internal
  */
+export const SparkSqlJobDriverFilterSensitiveLog = (obj: SparkSqlJobDriver): any => ({
+  ...obj,
+  ...(obj.entryPoint && { entryPoint: SENSITIVE_STRING }),
+  ...(obj.sparkSqlParameters && { sparkSqlParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const SparkSubmitJobDriverFilterSensitiveLog = (obj: SparkSubmitJobDriver): any => ({
   ...obj,
   ...(obj.entryPoint && { entryPoint: SENSITIVE_STRING }),
@@ -1126,6 +1163,7 @@ export const JobDriverFilterSensitiveLog = (obj: JobDriver): any => ({
   ...(obj.sparkSubmitJobDriver && {
     sparkSubmitJobDriver: SparkSubmitJobDriverFilterSensitiveLog(obj.sparkSubmitJobDriver),
   }),
+  ...(obj.sparkSqlJobDriver && { sparkSqlJobDriver: SparkSqlJobDriverFilterSensitiveLog(obj.sparkSqlJobDriver) }),
 });
 
 /**

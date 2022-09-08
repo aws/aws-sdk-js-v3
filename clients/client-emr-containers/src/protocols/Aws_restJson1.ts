@@ -77,6 +77,7 @@ import {
   MonitoringConfiguration,
   ResourceNotFoundException,
   S3MonitoringConfiguration,
+  SparkSqlJobDriver,
   SparkSubmitJobDriver,
   ValidationException,
   VirtualCluster,
@@ -1389,6 +1390,9 @@ const serializeAws_restJson1EntryPointArguments = (input: string[], context: __S
 
 const serializeAws_restJson1JobDriver = (input: JobDriver, context: __SerdeContext): any => {
   return {
+    ...(input.sparkSqlJobDriver != null && {
+      sparkSqlJobDriver: serializeAws_restJson1SparkSqlJobDriver(input.sparkSqlJobDriver, context),
+    }),
     ...(input.sparkSubmitJobDriver != null && {
       sparkSubmitJobDriver: serializeAws_restJson1SparkSubmitJobDriver(input.sparkSubmitJobDriver, context),
     }),
@@ -1435,6 +1439,13 @@ const serializeAws_restJson1SensitivePropertiesMap = (input: Record<string, stri
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_restJson1SparkSqlJobDriver = (input: SparkSqlJobDriver, context: __SerdeContext): any => {
+  return {
+    ...(input.entryPoint != null && { entryPoint: input.entryPoint }),
+    ...(input.sparkSqlParameters != null && { sparkSqlParameters: input.sparkSqlParameters }),
+  };
 };
 
 const serializeAws_restJson1SparkSubmitJobDriver = (input: SparkSubmitJobDriver, context: __SerdeContext): any => {
@@ -1596,6 +1607,10 @@ const deserializeAws_restJson1EntryPointArguments = (output: any, context: __Ser
 
 const deserializeAws_restJson1JobDriver = (output: any, context: __SerdeContext): JobDriver => {
   return {
+    sparkSqlJobDriver:
+      output.sparkSqlJobDriver != null
+        ? deserializeAws_restJson1SparkSqlJobDriver(output.sparkSqlJobDriver, context)
+        : undefined,
     sparkSubmitJobDriver:
       output.sparkSubmitJobDriver != null
         ? deserializeAws_restJson1SparkSubmitJobDriver(output.sparkSubmitJobDriver, context)
@@ -1678,6 +1693,13 @@ const deserializeAws_restJson1SensitivePropertiesMap = (
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1SparkSqlJobDriver = (output: any, context: __SerdeContext): SparkSqlJobDriver => {
+  return {
+    entryPoint: __expectString(output.entryPoint),
+    sparkSqlParameters: __expectString(output.sparkSqlParameters),
+  } as any;
 };
 
 const deserializeAws_restJson1SparkSubmitJobDriver = (output: any, context: __SerdeContext): SparkSubmitJobDriver => {
