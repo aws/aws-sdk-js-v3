@@ -1,9 +1,9 @@
 export interface Partition {
   name: string;
   dnsSuffix: string;
-  dnsDualStackSuffix: string;
-  supportFIPS: boolean;
-  supportDualStack: boolean;
+  dualStackDnsSuffix: string;
+  supportsFIPS: boolean;
+  supportsDualStack: boolean;
 }
 
 export enum EndpointURLScheme {
