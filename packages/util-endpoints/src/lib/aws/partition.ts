@@ -36,6 +36,13 @@ export const partition = (value: string): Partition => {
     }
   }
 
+  if (!DEFAULT_PARTITION) {
+    throw new Error(
+      "Provided region was not found in the partition array or regex," +
+        " and default partition with id 'aws' doesn't exist."
+    );
+  }
+
   // Return the default partition.
   return {
     name: DEFAULT_PARTITION.id,
