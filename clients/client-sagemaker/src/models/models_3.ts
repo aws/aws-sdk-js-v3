@@ -99,7 +99,6 @@ import {
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
   NotebookInstanceSortKey,
-  NotebookInstanceSortOrder,
   NotebookInstanceStatus,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
@@ -122,6 +121,11 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export enum NotebookInstanceSortOrder {
+  ASCENDING = "Ascending",
+  DESCENDING = "Descending",
+}
 
 export interface ListNotebookInstancesInput {
   /**

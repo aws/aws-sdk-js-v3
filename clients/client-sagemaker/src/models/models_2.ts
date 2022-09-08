@@ -142,6 +142,13 @@ import {
   TrialComponentStatus,
 } from "./models_1";
 
+export interface DescribeFlowDefinitionRequest {
+  /**
+   * <p>The name of the flow definition.</p>
+   */
+  FlowDefinitionName: string | undefined;
+}
+
 export enum FlowDefinitionStatus {
   ACTIVE = "Active",
   DELETING = "Deleting",
@@ -8833,10 +8840,12 @@ export enum NotebookInstanceSortKey {
   STATUS = "Status",
 }
 
-export enum NotebookInstanceSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+/**
+ * @internal
+ */
+export const DescribeFlowDefinitionRequestFilterSensitiveLog = (obj: DescribeFlowDefinitionRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

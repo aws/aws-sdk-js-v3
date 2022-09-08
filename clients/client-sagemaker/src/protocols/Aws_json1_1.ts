@@ -1076,7 +1076,6 @@ import {
   DescribeFeatureGroupResponse,
   DescribeFeatureMetadataRequest,
   DescribeFeatureMetadataResponse,
-  DescribeFlowDefinitionRequest,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1190,6 +1189,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DescribeFlowDefinitionRequest,
   DescribeFlowDefinitionResponse,
   DescribeHumanTaskUiRequest,
   DescribeHumanTaskUiResponse,
@@ -15663,6 +15663,7 @@ const serializeAws_json1_1AutoMLJobConfig = (input: AutoMLJobConfig, context: __
     ...(input.DataSplitConfig != null && {
       DataSplitConfig: serializeAws_json1_1AutoMLDataSplitConfig(input.DataSplitConfig, context),
     }),
+    ...(input.Mode != null && { Mode: input.Mode }),
     ...(input.SecurityConfig != null && {
       SecurityConfig: serializeAws_json1_1AutoMLSecurityConfig(input.SecurityConfig, context),
     }),
@@ -23517,6 +23518,7 @@ const deserializeAws_json1_1AutoMLJobConfig = (output: any, context: __SerdeCont
       output.DataSplitConfig != null
         ? deserializeAws_json1_1AutoMLDataSplitConfig(output.DataSplitConfig, context)
         : undefined,
+    Mode: __expectString(output.Mode),
     SecurityConfig:
       output.SecurityConfig != null
         ? deserializeAws_json1_1AutoMLSecurityConfig(output.SecurityConfig, context)

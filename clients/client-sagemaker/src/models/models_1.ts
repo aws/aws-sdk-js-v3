@@ -96,7 +96,6 @@ import {
   Tag,
   TrainingInputMode,
   TrainingInstanceType,
-  TrainingJobEarlyStoppingType,
   TrainingSpecification,
   TransformInput,
   TransformJobDefinition,
@@ -106,6 +105,11 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+export enum TrainingJobEarlyStoppingType {
+  AUTO = "Auto",
+  OFF = "Off",
+}
 
 /**
  * <p>The job completion criteria.</p>
@@ -5656,6 +5660,12 @@ export interface CreateTrainingJobRequest {
    *         <p>You can specify a maximum of 100 hyperparameters. Each hyperparameter is a
    *             key-value pair. Each key and value is limited to 256 characters, as specified by the
    *                 <code>Length Constraint</code>. </p>
+   *         <important>
+   *             <p>You must not include any security-sensitive information, such as
+   *             account access IDs, secrets, and tokens, in the dictionary for configuring
+   *             hyperparameters. SageMaker rejects the training job request and returns an
+   *             exception error for detected credentials, if such user input is found.</p>
+   *          </important>
    */
   HyperParameters?: Record<string, string>;
 
@@ -9163,13 +9173,6 @@ export interface DescribeFeatureMetadataResponse {
   Parameters?: FeatureParameter[];
 }
 
-export interface DescribeFlowDefinitionRequest {
-  /**
-   * <p>The name of the flow definition.</p>
-   */
-  FlowDefinitionName: string | undefined;
-}
-
 /**
  * @internal
  */
@@ -11116,12 +11119,5 @@ export const FeatureParameterFilterSensitiveLog = (obj: FeatureParameter): any =
  * @internal
  */
 export const DescribeFeatureMetadataResponseFilterSensitiveLog = (obj: DescribeFeatureMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFlowDefinitionRequestFilterSensitiveLog = (obj: DescribeFlowDefinitionRequest): any => ({
   ...obj,
 });

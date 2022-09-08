@@ -3120,6 +3120,12 @@ export class SageMaker extends SageMakerClient {
    *                     enable the estimation of model parameters during training. Hyperparameters can
    *                     be tuned to optimize this learning process. For a list of hyperparameters for
    *                     each training algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. </p>
+   *                 <important>
+   *                   <p>You must not include any security-sensitive information, such as
+   *                     account access IDs, secrets, and tokens, in the dictionary for configuring
+   *                     hyperparameters. SageMaker rejects the training job request and returns an
+   *                     exception error for detected credentials, if such user input is found.</p>
+   *                </important>
    *             </li>
    *             <li>
    *                 <p>

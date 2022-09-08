@@ -4059,7 +4059,8 @@ export interface AutoMLS3DataSource {
    * <p>The data type.</p>
    *          <p>A ManifestFile should have the format shown below:</p>
    *          <p>
-   *             <code>[ {"prefix": "s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER/DOC-EXAMPLE-PREFIX/"}, </code>
+   *             <code>[ {"prefix": "s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER/DOC-EXAMPLE-PREFIX/"},
+   *          </code>
    *          </p>
    *          <p>
    *             <code>"DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-1",</code>
@@ -4178,8 +4179,9 @@ export interface AutoMLJobCompletionCriteria {
   MaxCandidates?: number;
 
   /**
-   * <p>The maximum time, in seconds, that each training job executed inside hyperparameter tuning is allowed to run as part of a
-   *          hyperparameter tuning job. For more information, see the  used by the  action.</p>
+   * <p>The maximum time, in seconds, that each training job executed inside hyperparameter
+   *          tuning is allowed to run as part of a hyperparameter tuning job. For more information, see
+   *          the  used by the  action.</p>
    */
   MaxRuntimePerTrainingJobInSeconds?: number;
 
@@ -4191,6 +4193,12 @@ export interface AutoMLJobCompletionCriteria {
    *          as automatic one-click Autopilot model deployment, will not be completed. </p>
    */
   MaxAutoMLJobRuntimeInSeconds?: number;
+}
+
+export enum AutoMLMode {
+  AUTO = "AUTO",
+  ENSEMBLING = "ENSEMBLING",
+  HYPERPARAMETER_TUNING = "HYPERPARAMETER_TUNING",
 }
 
 /**
@@ -4259,6 +4267,26 @@ export interface AutoMLJobConfig {
    * <p>The configuration for generating a candidate for an AutoML job (optional). </p>
    */
   CandidateGenerationConfig?: AutoMLCandidateGenerationConfig;
+
+  /**
+   * <p>The method that Autopilot uses to train the data. You can either specify the mode manually
+   *          or let Autopilot choose for you based on the dataset size by selecting <code>AUTO</code>. In
+   *             <code>AUTO</code> mode, Autopilot chooses <code>ENSEMBLING</code> for datasets smaller than
+   *          100 MB, and <code>HYPERPARAMETER_TUNING</code> for larger ones.</p>
+   *          <p>The <code>ENSEMBLING</code> mode uses a multi-stack ensemble model to predict
+   *          classification and regression tasks directly from your dataset. This machine learning mode
+   *          combines several base models to produce an optimal predictive model. It then uses a
+   *          stacking ensemble method to combine predictions from contributing members. A multi-stack
+   *          ensemble model can provide better performance over a single model by combining the
+   *          predictive capabilities of multiple models. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot algorithm support</a> for a list of algorithms supported by
+   *             <code>ENSEMBLING</code> mode.</p>
+   *          <p>The <code>HYPERPARAMETER_TUNING</code> (HPO) mode uses the best hyperparameters to train
+   *          the best version of a model. HPO will automatically select an algorithm for the type of
+   *          problem you want to solve. Then HPO finds the best hyperparameters according to your
+   *          objective metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot algorithm support</a> for a list of algorithms supported by
+   *             <code>HYPERPARAMETER_TUNING</code> mode.</p>
+   */
+  Mode?: AutoMLMode | string;
 }
 
 /**
@@ -8445,15 +8473,15 @@ export interface ProductionVariant {
   VolumeSizeInGB?: number;
 
   /**
-   * <p>The timeout value, in seconds, to download and extract customer
-   *           model artifact from Amazon S3 to individual inference instance associated with
+   * <p>The timeout value, in seconds, to download and extract the
+   *           model that you want to host from Amazon S3 to the individual inference instance associated with
    *           this production variant.</p>
    */
   ModelDataDownloadTimeoutInSeconds?: number;
 
   /**
-   * <p>The timeout value, in seconds, for the customer inference container
-   *           to pass health check by SageMaker Hosting. For more information on health
+   * <p>The timeout value, in seconds, for your inference container
+   *           to pass health check by SageMaker Hosting. For more information about health
    *           check, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests">How
    *           Your Container Should Respond to Health Check (Ping)
    *           Requests</a>.</p>
@@ -9859,11 +9887,6 @@ export interface ResourceLimits {
 export enum HyperParameterTuningJobStrategyType {
   BAYESIAN = "Bayesian",
   RANDOM = "Random",
-}
-
-export enum TrainingJobEarlyStoppingType {
-  AUTO = "Auto",
-  OFF = "Off",
 }
 
 /**
