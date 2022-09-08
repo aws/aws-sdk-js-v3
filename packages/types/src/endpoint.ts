@@ -1,4 +1,4 @@
-export interface Partition {
+export interface EndpointPartition {
   name: string;
   dnsSuffix: string;
   dualStackDnsSuffix: string;

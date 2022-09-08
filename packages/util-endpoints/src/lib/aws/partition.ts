@@ -1,4 +1,4 @@
-import { Partition } from "@aws-sdk/types";
+import { EndpointPartition } from "@aws-sdk/types";
 
 import { partitions } from "./partitions.json";
 
@@ -10,7 +10,7 @@ const DEFAULT_PARTITION = partitions.find((partition) => partition.id === "aws")
  * The matcher MUST always return a successful object describing the partition
  * that the region has been determined to be a part of.
  */
-export const partition = (value: string): Partition => {
+export const partition = (value: string): EndpointPartition => {
   // Check for explicit region listed in the regions array.
   for (const partition of partitions) {
     const { id, regions, outputs } = partition;
