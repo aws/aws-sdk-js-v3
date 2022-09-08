@@ -1,3 +1,19 @@
+export interface EndpointPartition {
+  name: string;
+  dnsSuffix: string;
+  dualStackDnsSuffix: string;
+  supportsFIPS: boolean;
+  supportsDualStack: boolean;
+}
+
+export interface EndpointARN {
+  partition: string;
+  service: string;
+  region: string;
+  accountId: string;
+  resourceId: Array<string>;
+}
+
 export enum EndpointURLScheme {
   HTTP = "http",
   HTTPS = "https",
