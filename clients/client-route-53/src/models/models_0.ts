@@ -247,6 +247,7 @@ export type CloudWatchRegion =
   | "eu-west-1"
   | "eu-west-2"
   | "eu-west-3"
+  | "me-central-1"
   | "me-south-1"
   | "sa-east-1"
   | "us-east-1"
@@ -739,6 +740,7 @@ export type VPCRegion =
   | "eu-west-1"
   | "eu-west-2"
   | "eu-west-3"
+  | "me-central-1"
   | "me-south-1"
   | "sa-east-1"
   | "us-east-1"
@@ -5700,8 +5702,8 @@ export interface LocationSummary {
 
 export interface ListCidrLocationsResponse {
   /**
-   * <p>An opaque pagination token to indicate where the service is to begin enumerating
-   * 			results.</p>
+   * <p>An opaque
+   * 			pagination token to indicate where the service is to begin enumerating results.</p>
    * 		       <p>If no value is provided, the listing of results starts from the beginning.</p>
    */
   NextToken?: string;

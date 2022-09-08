@@ -37,8 +37,9 @@ export interface ChangeCidrCollectionCommandOutput extends ChangeCidrCollectionR
  * 		       <p>
  *             <b>Limits</b>
  *          </p>
- * 		       <p>The max number of CIDR blocks included in the request is 1000. As a result, big updates
- * 			require multiple API calls.</p>
+ * 		       <p>The max number of CIDR blocks included in the request is
+ * 			1000.
+ * 			As a result, big updates require multiple API calls.</p>
  * 		       <p>
  *             <b> PUT and DELETE_IF_EXISTS</b>
  *          </p>
