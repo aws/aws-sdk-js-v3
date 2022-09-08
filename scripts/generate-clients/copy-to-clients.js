@@ -54,12 +54,18 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
           .filter((dep) => Object.keys(devDepToVersionHash).includes(dep))
           .reduce((acc, dep) => ({ ...acc, [dep]: devDepToVersionHash[dep] }), fromContent[name]);
       }
+      if (name === "scripts" && !fromContent[name]["build:include:deps"]) {
+        fromContent[name]["build:include:deps"] = "lerna run --scope $npm_package_name --include-dependencies build";
+      }
+
       merged[name] = mergeManifest(fromContent[name], toContent[name]);
+
       if (name === "scripts" || name === "devDependencies") {
         // Allow target package.json(toContent) has its own special script or
         // dev dependencies that won't be overwritten in codegen
         merged[name] = { ...toContent[name], ...merged[name] };
       }
+
       if (name === "scripts" || name === "dependencies" || name === "devDependencies") {
         // Sort by keys to make sure the order is stable
         merged[name] = Object.fromEntries(Object.entries(merged[name]).sort());
