@@ -40,16 +40,15 @@ module.exports = {
     if (!options.backoff) options.backoff = 500;
     if (!options.maxTime) options.maxTime = 5;
 
-    const delay = options.delay;
-    //TODO: apply clock offset
-    const started = new Date();
+    let delay = options.delay;
+    const started = Date.now();
 
     const self = this;
     const retry = function () {
       callback();
     };
     retry.fail = function (err) {
-      const now = self.AWS.util.date.getDate();
+      const now = Date.now();
       if (now - started < options.maxTime * 1000) {
         setTimeout(function () {
           delay += options.backoff;
