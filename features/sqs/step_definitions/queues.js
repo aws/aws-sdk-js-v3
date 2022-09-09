@@ -23,6 +23,7 @@ Then("list queues should eventually return the queue urls", function (callback) 
         }
         return matchingCount == this.createdQueues.length;
       };
+
       this.request(null, "listQueues", {}, next);
     },
     { maxTime: 60 }
