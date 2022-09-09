@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/util-body-length-node",
   "description": "Determines the length of a request body in node.js",
-  "version": "3.55.0",
+  "version": "3.168.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",

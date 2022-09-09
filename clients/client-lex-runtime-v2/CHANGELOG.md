@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.167.0...v3.168.0) (2022-09-09)
+
+
+### Features
+
+* **client-lex-runtime-v2:** This release is for supporting Composite Slot Type feature in AWS Lex V2. Composite Slot Type will help developer to logically group coherent slots and maintain their inter-relationships in runtime conversation. ([e01fa5e](https://github.com/aws/aws-sdk-js-v3/commit/e01fa5e3aacf7cdafc7c92ebdedc7dc2390abb7d))
+
+
+
+
+
 # [3.165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.164.0...v3.165.0) (2022-09-06)
 
 **Note:** Version bump only for package @aws-sdk/client-lex-runtime-v2

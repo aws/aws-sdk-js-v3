@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.167.0...v3.168.0) (2022-09-09)
+
+
+### Features
+
+* **client-cloudtrail:** This release adds CloudTrail getChannel and listChannels APIs to allow customer to view the ServiceLinkedChannel configurations. ([3c7cfa2](https://github.com/aws/aws-sdk-js-v3/commit/3c7cfa29dc762442c7142910a4cc3dc5f88f6bf4))
+
+
+
+
+
 # [3.165.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.164.0...v3.165.0) (2022-09-06)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudtrail

@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.167.0...v3.168.0) (2022-09-09)
+
+
+### Bug Fixes
+
+* **e2e:** fix "eventually" helper in e2e tests ([#3917](https://github.com/aws/aws-sdk-js-v3/issues/3917)) ([fac9c18](https://github.com/aws/aws-sdk-js-v3/commit/fac9c188973095eeb319f585a71a622e7ec4c141))
+
+
+### Features
+
+* **client-cloudtrail:** This release adds CloudTrail getChannel and listChannels APIs to allow customer to view the ServiceLinkedChannel configurations. ([3c7cfa2](https://github.com/aws/aws-sdk-js-v3/commit/3c7cfa29dc762442c7142910a4cc3dc5f88f6bf4))
+* **client-lex-models-v2:** This release is for supporting Composite Slot Type feature in AWS Lex V2. Composite Slot Type will help developer to logically group coherent slots and maintain their inter-relationships in runtime conversation. ([b45fc65](https://github.com/aws/aws-sdk-js-v3/commit/b45fc65f6298ed617cccc9b38dcc5caf3a890b17))
+* **client-lex-runtime-v2:** This release is for supporting Composite Slot Type feature in AWS Lex V2. Composite Slot Type will help developer to logically group coherent slots and maintain their inter-relationships in runtime conversation. ([e01fa5e](https://github.com/aws/aws-sdk-js-v3/commit/e01fa5e3aacf7cdafc7c92ebdedc7dc2390abb7d))
+* **client-pi:** Increases the maximum values of two RDS Performance Insights APIs. The maximum value of the Limit parameter of DimensionGroup is 25. The MaxResult maximum is now 25 for the following APIs: DescribeDimensionKeys, GetResourceMetrics, ListAvailableResourceDimensions, and ListAvailableResourceMetrics. ([2f5c346](https://github.com/aws/aws-sdk-js-v3/commit/2f5c346f8b42c20358d2cc0d2f1f867d7c4d8138))
+* **clients:** update client endpoints as of 2022-09-09 ([a5dc90b](https://github.com/aws/aws-sdk-js-v3/commit/a5dc90bc5f09175f450f77ca4c6415c1edaec702))
+
+
+
+
+
 # [3.167.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.166.0...v3.167.0) (2022-09-08)
 
 
