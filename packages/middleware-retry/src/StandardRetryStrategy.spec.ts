@@ -1,4 +1,4 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import { v4 } from "uuid";
 
@@ -86,6 +86,9 @@ describe("defaultStrategy", () => {
     (defaultRetryDecider as jest.Mock).mockReturnValue(true);
     (getDefaultRetryQuota as jest.Mock).mockReturnValue(mockDefaultRetryQuota);
     (HttpRequest as unknown as jest.Mock).mockReturnValue({
+      isInstance: jest.fn().mockReturnValue(false),
+    });
+    (HttpResponse as unknown as jest.Mock).mockReturnValue({
       isInstance: jest.fn().mockReturnValue(false),
     });
     (v4 as jest.Mock).mockReturnValue("42");
@@ -220,22 +223,101 @@ describe("defaultStrategy", () => {
       });
     });
 
-    it("delay value returned", async () => {
-      jest.spyOn(global, "setTimeout");
+    describe("totalRetryDelay", () => {
+      describe("when retry-after is not set", () => {
+        it("should be equal to sum of values computed by delayDecider", async () => {
+          jest.spyOn(global, "setTimeout");
 
-      const FIRST_DELAY = 100;
-      const SECOND_DELAY = 200;
+          const FIRST_DELAY = 100;
+          const SECOND_DELAY = 200;
 
-      (defaultDelayDecider as jest.Mock).mockReturnValueOnce(FIRST_DELAY).mockReturnValueOnce(SECOND_DELAY);
+          (defaultDelayDecider as jest.Mock).mockReturnValueOnce(FIRST_DELAY).mockReturnValueOnce(SECOND_DELAY);
 
-      const maxAttempts = 3;
-      const error = await mockFailedOperation(maxAttempts);
-      expect(error.$metadata.totalRetryDelay).toEqual(FIRST_DELAY + SECOND_DELAY);
+          const maxAttempts = 3;
+          const error = await mockFailedOperation(maxAttempts);
+          expect(error.$metadata.totalRetryDelay).toEqual(FIRST_DELAY + SECOND_DELAY);
 
-      expect(defaultDelayDecider as jest.Mock).toHaveBeenCalledTimes(maxAttempts - 1);
-      expect(setTimeout).toHaveBeenCalledTimes(maxAttempts - 1);
-      expect((setTimeout as unknown as jest.Mock).mock.calls[0][1]).toBe(FIRST_DELAY);
-      expect((setTimeout as unknown as jest.Mock).mock.calls[1][1]).toBe(SECOND_DELAY);
+          expect(defaultDelayDecider as jest.Mock).toHaveBeenCalledTimes(maxAttempts - 1);
+          expect(setTimeout).toHaveBeenCalledTimes(maxAttempts - 1);
+          expect((setTimeout as unknown as jest.Mock).mock.calls[0][1]).toBe(FIRST_DELAY);
+          expect((setTimeout as unknown as jest.Mock).mock.calls[1][1]).toBe(SECOND_DELAY);
+        });
+      });
+
+      describe("when retry-after is set", () => {
+        const getErrorWithValues = async (
+          delayDeciderInMs: number,
+          retryAfter: number | string,
+          retryAfterHeaderName?: string
+        ) => {
+          (defaultDelayDecider as jest.Mock).mockReturnValueOnce(delayDeciderInMs);
+
+          const maxAttempts = 2;
+          const mockError = new Error();
+          Object.defineProperty(mockError, "$response", {
+            value: {
+              headers: { [retryAfterHeaderName ? retryAfterHeaderName : "retry-after"]: String(retryAfter) },
+            },
+          });
+          const error = await mockFailedOperation(maxAttempts, { mockError });
+          expect(defaultDelayDecider as jest.Mock).toHaveBeenCalledTimes(maxAttempts - 1);
+          expect(setTimeout).toHaveBeenCalledTimes(maxAttempts - 1);
+
+          return error;
+        };
+
+        beforeEach(() => {
+          jest.spyOn(global, "setTimeout");
+        });
+
+        describe("uses retry-after value if it's greater than that from delayDecider", () => {
+          beforeEach(() => {
+            const { isInstance } = HttpResponse;
+            (isInstance as unknown as jest.Mock).mockReturnValueOnce(true);
+          });
+
+          describe("when value is in seconds", () => {
+            const testWithHeaderName = async (retryAfterHeaderName: string) => {
+              const delayDeciderInMs = 2000;
+              const retryAfterInSeconds = 3;
+
+              const error = await getErrorWithValues(delayDeciderInMs, retryAfterInSeconds, retryAfterHeaderName);
+              expect(error.$metadata.totalRetryDelay).toEqual(retryAfterInSeconds * 1000);
+              expect((setTimeout as unknown as jest.Mock).mock.calls[0][1]).toBe(retryAfterInSeconds * 1000);
+            };
+
+            it("with header in small case", async () => {
+              testWithHeaderName("retry-after");
+            });
+
+            it("with header with first letter capital", async () => {
+              testWithHeaderName("Retry-After");
+            });
+          });
+
+          it("when value is a Date", async () => {
+            const mockDateNow = Date.now();
+            jest.spyOn(Date, "now").mockReturnValue(mockDateNow);
+
+            const delayDeciderInMs = 2000;
+            const retryAfterInSeconds = 3;
+            const retryAfterDate = new Date(mockDateNow + retryAfterInSeconds * 1000);
+
+            const error = await getErrorWithValues(delayDeciderInMs, retryAfterDate.toISOString());
+            expect(error.$metadata.totalRetryDelay).toEqual(retryAfterInSeconds * 1000);
+            expect((setTimeout as unknown as jest.Mock).mock.calls[0][1]).toBe(retryAfterInSeconds * 1000);
+          });
+        });
+
+        it("ignores retry-after value if it's smaller than that from delayDecider", async () => {
+          const delayDeciderInMs = 3000;
+          const retryAfterInSeconds = 2;
+
+          const error = await getErrorWithValues(delayDeciderInMs, retryAfterInSeconds);
+          expect(error.$metadata.totalRetryDelay).toEqual(delayDeciderInMs);
+          expect((setTimeout as unknown as jest.Mock).mock.calls[0][1]).toBe(delayDeciderInMs);
+        });
+      });
     });
   });
 
