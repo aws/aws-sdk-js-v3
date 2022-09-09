@@ -42,6 +42,7 @@ import {
   DialogAction,
   DisconnectionEvent,
   DTMFInputEvent,
+  ElicitSubSlot,
   HeartbeatEvent,
   ImageResponseCard,
   Intent,
@@ -1188,6 +1189,9 @@ const serializeAws_restJson1DialogAction = (input: DialogAction, context: __Serd
   return {
     ...(input.slotElicitationStyle != null && { slotElicitationStyle: input.slotElicitationStyle }),
     ...(input.slotToElicit != null && { slotToElicit: input.slotToElicit }),
+    ...(input.subSlotToElicit != null && {
+      subSlotToElicit: serializeAws_restJson1ElicitSubSlot(input.subSlotToElicit, context),
+    }),
     ...(input.type != null && { type: input.type }),
   };
 };
@@ -1204,6 +1208,15 @@ const serializeAws_restJson1DTMFInputEvent = (input: DTMFInputEvent, context: __
     ...(input.clientTimestampMillis != null && { clientTimestampMillis: input.clientTimestampMillis }),
     ...(input.eventId != null && { eventId: input.eventId }),
     ...(input.inputCharacter != null && { inputCharacter: input.inputCharacter }),
+  };
+};
+
+const serializeAws_restJson1ElicitSubSlot = (input: ElicitSubSlot, context: __SerdeContext): any => {
+  return {
+    ...(input.name != null && { name: input.name }),
+    ...(input.subSlotToElicit != null && {
+      subSlotToElicit: serializeAws_restJson1ElicitSubSlot(input.subSlotToElicit, context),
+    }),
   };
 };
 
@@ -1258,6 +1271,9 @@ const serializeAws_restJson1RuntimeHintDetails = (input: RuntimeHintDetails, con
     ...(input.runtimeHintValues != null && {
       runtimeHintValues: serializeAws_restJson1RuntimeHintValuesList(input.runtimeHintValues, context),
     }),
+    ...(input.subSlotHints != null && {
+      subSlotHints: serializeAws_restJson1SlotHintsSlotMap(input.subSlotHints, context),
+    }),
   };
 };
 
@@ -1303,6 +1319,7 @@ const serializeAws_restJson1SessionState = (input: SessionState, context: __Serd
 const serializeAws_restJson1Slot = (input: Slot, context: __SerdeContext): any => {
   return {
     ...(input.shape != null && { shape: input.shape }),
+    ...(input.subSlots != null && { subSlots: serializeAws_restJson1Slots(input.subSlots, context) }),
     ...(input.value != null && { value: serializeAws_restJson1Value(input.value, context) }),
     ...(input.values != null && { values: serializeAws_restJson1Values(input.values, context) }),
   };
@@ -1484,7 +1501,21 @@ const deserializeAws_restJson1DialogAction = (output: any, context: __SerdeConte
   return {
     slotElicitationStyle: __expectString(output.slotElicitationStyle),
     slotToElicit: __expectString(output.slotToElicit),
+    subSlotToElicit:
+      output.subSlotToElicit != null
+        ? deserializeAws_restJson1ElicitSubSlot(output.subSlotToElicit, context)
+        : undefined,
     type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1ElicitSubSlot = (output: any, context: __SerdeContext): ElicitSubSlot => {
+  return {
+    name: __expectString(output.name),
+    subSlotToElicit:
+      output.subSlotToElicit != null
+        ? deserializeAws_restJson1ElicitSubSlot(output.subSlotToElicit, context)
+        : undefined,
   } as any;
 };
 
@@ -1594,6 +1625,8 @@ const deserializeAws_restJson1RuntimeHintDetails = (output: any, context: __Serd
       output.runtimeHintValues != null
         ? deserializeAws_restJson1RuntimeHintValuesList(output.runtimeHintValues, context)
         : undefined,
+    subSlotHints:
+      output.subSlotHints != null ? deserializeAws_restJson1SlotHintsSlotMap(output.subSlotHints, context) : undefined,
   } as any;
 };
 
@@ -1663,6 +1696,7 @@ const deserializeAws_restJson1SessionState = (output: any, context: __SerdeConte
 const deserializeAws_restJson1Slot = (output: any, context: __SerdeContext): Slot => {
   return {
     shape: __expectString(output.shape),
+    subSlots: output.subSlots != null ? deserializeAws_restJson1Slots(output.subSlots, context) : undefined,
     value: output.value != null ? deserializeAws_restJson1Value(output.value, context) : undefined,
     values: output.values != null ? deserializeAws_restJson1Values(output.values, context) : undefined,
   } as any;
