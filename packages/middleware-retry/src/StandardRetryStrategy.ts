@@ -101,8 +101,7 @@ export class StandardRetryStrategy implements RetryStrategy {
           );
 
           const delayFromResponse = getDelayFromRetryAfterHeader(err.$response);
-          const delay =
-            delayFromResponse && delayFromResponse > delayFromDecider ? delayFromResponse : delayFromDecider;
+          const delay = Math.max(delayFromResponse || 0, delayFromDecider);
 
           totalDelay += delay;
 
