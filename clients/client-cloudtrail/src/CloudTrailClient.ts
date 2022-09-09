@@ -67,6 +67,7 @@ import {
 import { DeleteTrailCommandInput, DeleteTrailCommandOutput } from "./commands/DeleteTrailCommand";
 import { DescribeQueryCommandInput, DescribeQueryCommandOutput } from "./commands/DescribeQueryCommand";
 import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "./commands/DescribeTrailsCommand";
+import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import { GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput } from "./commands/GetEventDataStoreCommand";
 import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "./commands/GetEventSelectorsCommand";
 import {
@@ -76,6 +77,7 @@ import {
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
 import { GetTrailCommandInput, GetTrailCommandOutput } from "./commands/GetTrailCommand";
 import { GetTrailStatusCommandInput, GetTrailStatusCommandOutput } from "./commands/GetTrailStatusCommand";
+import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
 import {
   ListEventDataStoresCommandInput,
   ListEventDataStoresCommandOutput,
@@ -114,12 +116,14 @@ export type ServiceInputTypes =
   | DeleteTrailCommandInput
   | DescribeQueryCommandInput
   | DescribeTrailsCommandInput
+  | GetChannelCommandInput
   | GetEventDataStoreCommandInput
   | GetEventSelectorsCommandInput
   | GetInsightSelectorsCommandInput
   | GetQueryResultsCommandInput
   | GetTrailCommandInput
   | GetTrailStatusCommandInput
+  | ListChannelsCommandInput
   | ListEventDataStoresCommandInput
   | ListPublicKeysCommandInput
   | ListQueriesCommandInput
@@ -145,12 +149,14 @@ export type ServiceOutputTypes =
   | DeleteTrailCommandOutput
   | DescribeQueryCommandOutput
   | DescribeTrailsCommandOutput
+  | GetChannelCommandOutput
   | GetEventDataStoreCommandOutput
   | GetEventSelectorsCommandOutput
   | GetInsightSelectorsCommandOutput
   | GetQueryResultsCommandOutput
   | GetTrailCommandOutput
   | GetTrailStatusCommandOutput
+  | ListChannelsCommandOutput
   | ListEventDataStoresCommandOutput
   | ListPublicKeysCommandOutput
   | ListQueriesCommandOutput

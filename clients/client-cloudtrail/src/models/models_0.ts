@@ -372,7 +372,7 @@ export interface AdvancedFieldSelector {
    *                   <b>
    *                      <code>readOnly</code>
    *                   </b> - Optional. Can be set to <code>Equals</code> a value of <code>true</code>
-   *             or <code>false</code>. If you do not add this field, CloudTrail logs both both <code>read</code> and
+   *             or <code>false</code>. If you do not add this field, CloudTrail logs both <code>read</code> and
    *             <code>write</code> events. A value of <code>true</code> logs only <code>read</code> events. A value of <code>false</code>
    *             logs only <code>write</code> events.</p>
    *             </li>
@@ -812,6 +812,80 @@ export class QueryIdNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>
+ *          Contains information about a returned CloudTrail channel.
+ *       </p>
+ */
+export interface Channel {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the channel.
+   *       </p>
+   */
+  ChannelArn?: string;
+
+  /**
+   * <p>
+   *          The name of the CloudTrail channel. For service-linked channels, the name is <code>aws-service-channel/service-name/custom-suffix</code> where <code>service-name</code> represents the name of the
+   *          Amazon Web Services service that created the channel and <code>custom-suffix</code> represents the suffix created by the Amazon Web Services service.
+   *       </p>
+   */
+  Name?: string;
+}
+
+/**
+ * <p>
+ *          The specified channel ARN is not valid or does not map to a channel in your account.
+ *       </p>
+ */
+export class ChannelARNInvalidException extends __BaseException {
+  readonly name: "ChannelARNInvalidException" = "ChannelARNInvalidException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ChannelARNInvalidException, __BaseException>) {
+    super({
+      name: "ChannelARNInvalidException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ChannelARNInvalidException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>
+ *          The specified channel was not found.
+ *       </p>
+ */
+export class ChannelNotFoundException extends __BaseException {
+  readonly name: "ChannelNotFoundException" = "ChannelNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ChannelNotFoundException, __BaseException>) {
+    super({
+      name: "ChannelNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ChannelNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information,
  *          see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling Trusted Access with Other Amazon Web Services Services</a>
  *          and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>. </p>
@@ -862,7 +936,7 @@ export interface CreateEventDataStoreRequest {
   OrganizationEnabled?: boolean;
 
   /**
-   * <p>The retention period of the event data store, in days. You can set a retention period of up to 2555 days,
+   * <p>The retention period of the event data store, in days. You can set a retention period of up to 2557 days,
    *       the equivalent of seven years.</p>
    */
   RetentionPeriod?: number;
@@ -2050,6 +2124,101 @@ export interface DescribeTrailsResponse {
   trailList?: Trail[];
 }
 
+export interface GetChannelRequest {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the CloudTrail service-linked channel.
+   *       </p>
+   */
+  Channel: string | undefined;
+}
+
+export enum DestinationType {
+  AWS_SERVICE = "AWS_SERVICE",
+  EVENT_DATA_STORE = "EVENT_DATA_STORE",
+}
+
+/**
+ * <p>
+ *          Contains information about the service where CloudTrail delivers events.
+ *       </p>
+ */
+export interface Destination {
+  /**
+   * <p>
+   *          The type of service. For service-linked channels, the value is <code>AWS_SERVICE</code>.
+   *       </p>
+   */
+  Type: DestinationType | string | undefined;
+
+  /**
+   * <p>
+   *          The location of the service. For service-linked channels, this is the name of the Amazon Web Services service.
+   *       </p>
+   */
+  Location: string | undefined;
+}
+
+/**
+ * <p>
+ *          Contains configuration information about the service-linked channel.
+ *       </p>
+ */
+export interface SourceConfig {
+  /**
+   * <p>
+   *          Specifies whether the service-linked channel applies to one region or all regions.
+   *       </p>
+   */
+  ApplyToAllRegions?: boolean;
+
+  /**
+   * <p>
+   *          The advanced event selectors configured for the service-linked channel.
+   *       </p>
+   */
+  AdvancedEventSelectors?: AdvancedEventSelector[];
+}
+
+export interface GetChannelResponse {
+  /**
+   * <p>
+   *          The ARN of the CloudTrail service-linked channel.
+   *       </p>
+   */
+  ChannelArn?: string;
+
+  /**
+   * <p>
+   *          The name of the CloudTrail service-linked channel. For service-linked channels, the value is <code>aws-service-channel/service-name/custom-suffix</code>
+   *          where <code>service-name</code> represents the name of the
+   *          Amazon Web Services service that created the channel and <code>custom-suffix</code> represents the suffix generated by the Amazon Web Services service.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>
+   *          The trail or event data store for the CloudTrail service-linked channel.
+   *       </p>
+   */
+  Source?: string;
+
+  /**
+   * <p>
+   *          Provides information about the advanced event selectors configured for the service-linked channel, and whether the service-linked channel applies to all regions or one region.
+   *       </p>
+   */
+  SourceConfig?: SourceConfig;
+
+  /**
+   * <p>
+   *          The Amazon Web Services service that created the CloudTrail service-linked channel.
+   *       </p>
+   */
+  Destinations?: Destination[];
+}
+
 export interface GetEventDataStoreRequest {
   /**
    * <p>The ARN (or ID suffix of the ARN) of the event data store about which you want information.</p>
@@ -2720,6 +2889,38 @@ export interface GetTrailStatusResponse {
   TimeLoggingStopped?: string;
 }
 
+export interface ListChannelsRequest {
+  /**
+   * <p>
+   *          The maximum number of CloudTrail channels to display on a single page.
+   *       </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>
+   *          A token you can use to get the next page of results.
+   *       </p>
+   */
+  NextToken?: string;
+}
+
+export interface ListChannelsResponse {
+  /**
+   * <p>
+   *          The list of CloudTrail channels.
+   *       </p>
+   */
+  Channels?: Channel[];
+
+  /**
+   * <p>
+   *          A token used to get the next page of results.
+   *       </p>
+   */
+  NextToken?: string;
+}
+
 export interface ListEventDataStoresRequest {
   /**
    * <p>A token you can use to get the next page of event data store results.</p>
@@ -2734,7 +2935,7 @@ export interface ListEventDataStoresRequest {
 
 /**
  * <p>A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events
- *          that you have logged on your account from the last 90 to 2555 days
+ *          that you have logged on your account from the last 90 to 2557 days
  *          (about three months to up to seven years). To select events for an event data store,
  *          use <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced">advanced event selectors</a>.</p>
  */
@@ -3099,7 +3300,7 @@ export interface ListTagsResponse {
 export interface ListTrailsRequest {
   /**
    * <p>The token to use to get the next page of results after a previous API call. This token must be passed
-   *          in with the same parameters that were specified in the the original call. For example, if the original
+   *          in with the same parameters that were specified in the original call. For example, if the original
    *          call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should
    *          include those same parameters.</p>
    */
@@ -3250,7 +3451,7 @@ export interface LookupEventsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call.
+   * <p>The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the original call.
    *          For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.</p>
    */
   NextToken?: string;
@@ -4065,6 +4266,13 @@ export const CancelQueryResponseFilterSensitiveLog = (obj: CancelQueryResponse):
 /**
  * @internal
  */
+export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateEventDataStoreRequestFilterSensitiveLog = (obj: CreateEventDataStoreRequest): any => ({
   ...obj,
 });
@@ -4157,6 +4365,34 @@ export const TrailFilterSensitiveLog = (obj: Trail): any => ({
  * @internal
  */
 export const DescribeTrailsResponseFilterSensitiveLog = (obj: DescribeTrailsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChannelRequestFilterSensitiveLog = (obj: GetChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceConfigFilterSensitiveLog = (obj: SourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChannelResponseFilterSensitiveLog = (obj: GetChannelResponse): any => ({
   ...obj,
 });
 
@@ -4269,6 +4505,20 @@ export const GetTrailStatusRequestFilterSensitiveLog = (obj: GetTrailStatusReque
  * @internal
  */
 export const GetTrailStatusResponseFilterSensitiveLog = (obj: GetTrailStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsRequestFilterSensitiveLog = (obj: ListChannelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsResponseFilterSensitiveLog = (obj: ListChannelsResponse): any => ({
   ...obj,
 });
 

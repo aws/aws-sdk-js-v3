@@ -26,6 +26,7 @@ import {
   DescribeTrailsCommandInput,
   DescribeTrailsCommandOutput,
 } from "./commands/DescribeTrailsCommand";
+import { GetChannelCommand, GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import {
   GetEventDataStoreCommand,
   GetEventDataStoreCommandInput,
@@ -52,6 +53,11 @@ import {
   GetTrailStatusCommandInput,
   GetTrailStatusCommandOutput,
 } from "./commands/GetTrailStatusCommand";
+import {
+  ListChannelsCommand,
+  ListChannelsCommandInput,
+  ListChannelsCommandOutput,
+} from "./commands/ListChannelsCommand";
 import {
   ListEventDataStoresCommand,
   ListEventDataStoresCommandInput,
@@ -372,6 +378,34 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * <p>
+   *          Returns the specified CloudTrail service-linked channel. Amazon Web Services services create service-linked channels to view CloudTrail events.
+   *       </p>
+   */
+  public getChannel(args: GetChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetChannelCommandOutput>;
+  public getChannel(args: GetChannelCommandInput, cb: (err: any, data?: GetChannelCommandOutput) => void): void;
+  public getChannel(
+    args: GetChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChannelCommandOutput) => void
+  ): void;
+  public getChannel(
+    args: GetChannelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChannelCommandOutput) => void),
+    cb?: (err: any, data?: GetChannelCommandOutput) => void
+  ): Promise<GetChannelCommandOutput> | void {
+    const command = new GetChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about an event data store specified as either an ARN or the ID portion of the ARN.</p>
    */
   public getEventDataStore(
@@ -570,6 +604,37 @@ export class CloudTrail extends CloudTrailClient {
     cb?: (err: any, data?: GetTrailStatusCommandOutput) => void
   ): Promise<GetTrailStatusCommandOutput> | void {
     const command = new GetTrailStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Returns all CloudTrail channels.
+   *       </p>
+   */
+  public listChannels(
+    args: ListChannelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelsCommandOutput>;
+  public listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
+  public listChannels(
+    args: ListChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
+  public listChannels(
+    args: ListChannelsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelsCommandOutput) => void),
+    cb?: (err: any, data?: ListChannelsCommandOutput) => void
+  ): Promise<ListChannelsCommandOutput> | void {
+    const command = new ListChannelsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1069,7 +1134,7 @@ export class CloudTrail extends CloudTrailClient {
   /**
    * <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or the ID portion of the ARN.
    *          Other parameters are optional, but at least one optional parameter must be specified, or CloudTrail throws an error.
-   *          <code>RetentionPeriod</code> is in days, and valid values are integers between 90 and 2555.
+   *          <code>RetentionPeriod</code> is in days, and valid values are integers between 90 and 2557.
    *          By default, <code>TerminationProtection</code> is enabled. <code>AdvancedEventSelectors</code> includes or excludes management
    *          and data events in your event data store; for more information about <code>AdvancedEventSelectors</code>, see
    *          <a>PutEventSelectorsRequest$AdvancedEventSelectors</a>.</p>

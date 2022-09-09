@@ -30,7 +30,7 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
 /**
  * <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or the ID portion of the ARN.
  *          Other parameters are optional, but at least one optional parameter must be specified, or CloudTrail throws an error.
- *          <code>RetentionPeriod</code> is in days, and valid values are integers between 90 and 2555.
+ *          <code>RetentionPeriod</code> is in days, and valid values are integers between 90 and 2557.
  *          By default, <code>TerminationProtection</code> is enabled. <code>AdvancedEventSelectors</code> includes or excludes management
  *          and data events in your event data store; for more information about <code>AdvancedEventSelectors</code>, see
  *          <a>PutEventSelectorsRequest$AdvancedEventSelectors</a>.</p>
