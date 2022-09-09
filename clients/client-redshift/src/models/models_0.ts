@@ -470,38 +470,16 @@ export enum AquaStatus {
 }
 
 /**
- * <p>The AQUA (Advanced Query Accelerator) configuration of the cluster.</p>
+ * <p>The operation that uses this structure is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
  */
 export interface AquaConfiguration {
   /**
-   * <p>The value indicates the status of AQUA on the cluster. Possible values include the following.</p>
-   *         <ul>
-   *             <li>
-   *                <p>enabled - AQUA is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>disabled - AQUA is not enabled. </p>
-   *             </li>
-   *             <li>
-   *                <p>applying - AQUA status is being applied. </p>
-   *             </li>
-   *          </ul>
+   * <p>This field is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
   AquaStatus?: AquaStatus | string;
 
   /**
-   * <p>The value represents how the cluster is configured to use AQUA. Possible values include the following.</p>
-   *         <ul>
-   *             <li>
-   *                <p>enabled - Use AQUA if it is available for the current Amazon Web Services Region and Amazon Redshift node type.</p>
-   *             </li>
-   *             <li>
-   *                <p>disabled - Don't use AQUA. </p>
-   *             </li>
-   *             <li>
-   *                <p>auto - Amazon Redshift determines whether to use AQUA.</p>
-   *             </li>
-   *          </ul>
+   * <p>This field is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
   AquaConfigurationStatus?: AquaConfigurationStatus | string;
 }
@@ -2760,7 +2738,7 @@ export interface Cluster {
   TotalStorageCapacityInMegaBytes?: number;
 
   /**
-   * <p>The AQUA (Advanced Query Accelerator) configuration of the cluster.</p>
+   * <p>This field is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
   AquaConfiguration?: AquaConfiguration;
 
@@ -3906,8 +3884,7 @@ export interface CreateClusterMessage {
   HsmConfigurationIdentifier?: string;
 
   /**
-   * <p>The Elastic IP (EIP) address for the cluster. You don't have to specify the EIP for a
-   *             publicly accessible cluster with AvailabilityZoneRelocation turned on.</p>
+   * <p>The Elastic IP (EIP) address for the cluster.</p>
    *         <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible
    *             through an Internet gateway. For more information about provisioning clusters in
    *             EC2-VPC, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
@@ -3969,18 +3946,7 @@ export interface CreateClusterMessage {
   AvailabilityZoneRelocation?: boolean;
 
   /**
-   * <p>The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) when it is created. Possible values include the following.</p>
-   *         <ul>
-   *             <li>
-   *                <p>enabled - Use AQUA if it is available for the current Amazon Web Services Region and Amazon Redshift node type.</p>
-   *             </li>
-   *             <li>
-   *                <p>disabled - Don't use AQUA. </p>
-   *             </li>
-   *             <li>
-   *                <p>auto - Amazon Redshift determines whether to use AQUA.</p>
-   *             </li>
-   *          </ul>
+   * <p>This parameter is retired. It does not set the AQUA configuration status. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
   AquaConfigurationStatus?: AquaConfigurationStatus | string;
 

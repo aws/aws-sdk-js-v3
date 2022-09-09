@@ -1663,7 +1663,7 @@ export interface GetClusterCredentialsMessage {
    *                         <code>PUBLIC</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>Must contain only lowercase letters, numbers, underscore, plus sign, period
+   *                 <p>Must contain uppercase or lowercase letters, numbers, underscore, plus sign, period
    *                     (dot), at symbol (@), or hyphen.</p>
    *             </li>
    *             <li>
@@ -1690,7 +1690,7 @@ export interface GetClusterCredentialsMessage {
    *                 <p>Must be 1 to 64 alphanumeric characters or hyphens</p>
    *             </li>
    *             <li>
-   *                 <p>Must contain only lowercase letters, numbers, underscore, plus sign, period
+   *                 <p>Must contain uppercase or lowercase letters, numbers, underscore, plus sign, period
    *                     (dot), at symbol (@), or hyphen.</p>
    *             </li>
    *             <li>
@@ -1959,25 +1959,14 @@ export interface ModifyAquaInputMessage {
   ClusterIdentifier: string | undefined;
 
   /**
-   * <p>The new value of AQUA configuration status. Possible values include the following.</p>
-   *         <ul>
-   *             <li>
-   *                <p>enabled - Use AQUA if it is available for the current Amazon Web Services Region and Amazon Redshift node type.</p>
-   *             </li>
-   *             <li>
-   *                <p>disabled - Don't use AQUA. </p>
-   *             </li>
-   *             <li>
-   *                <p>auto - Amazon Redshift determines whether to use AQUA.</p>
-   *             </li>
-   *          </ul>
+   * <p>This parameter is retired. Amazon Redshift automatically  determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
   AquaConfigurationStatus?: AquaConfigurationStatus | string;
 }
 
 export interface ModifyAquaOutputMessage {
   /**
-   * <p>The updated AQUA configuration of the cluster. </p>
+   * <p>This parameter is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator). </p>
    */
   AquaConfiguration?: AquaConfiguration;
 }
@@ -2926,14 +2915,15 @@ export interface RestoreFromClusterSnapshotMessage {
 
   /**
    * <p>The name of the snapshot from which to create the new cluster. This parameter isn't
-   *             case sensitive.</p>
+   *             case sensitive. You can specify this parameter or <code>snapshotArn</code>, but not both.</p>
    *         <p>Example: <code>my-snapshot-id</code>
    *         </p>
    */
   SnapshotIdentifier?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the snapshot associated with the message to restore from a cluster.</p>
+   * <p>The Amazon Resource Name (ARN) of the snapshot associated with the message to restore from a cluster. You can specify
+   *             this parameter or <code>snapshotIdentifier</code>, but not both.</p>
    */
   SnapshotArn?: string;
 
@@ -2998,8 +2988,7 @@ export interface RestoreFromClusterSnapshotMessage {
   HsmConfigurationIdentifier?: string;
 
   /**
-   * <p>The elastic IP (EIP) address for the cluster. You don't have to specify the EIP for a
-   *             publicly accessible cluster with AvailabilityZoneRelocation turned on.</p>
+   * <p>The elastic IP (EIP) address for the cluster.</p>
    */
   ElasticIp?: string;
 
@@ -3146,18 +3135,7 @@ export interface RestoreFromClusterSnapshotMessage {
   AvailabilityZoneRelocation?: boolean;
 
   /**
-   * <p>The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values include the following.</p>
-   *         <ul>
-   *             <li>
-   *                <p>enabled - Use AQUA if it is available for the current Amazon Web Services Region and Amazon Redshift node type.</p>
-   *             </li>
-   *             <li>
-   *                <p>disabled - Don't use AQUA. </p>
-   *             </li>
-   *             <li>
-   *                <p>auto - Amazon Redshift determines whether to use AQUA.</p>
-   *             </li>
-   *          </ul>
+   * <p>This parameter is retired. It does not set the AQUA configuration status. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
   AquaConfigurationStatus?: AquaConfigurationStatus | string;
 

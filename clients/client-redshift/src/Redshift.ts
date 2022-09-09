@@ -3825,7 +3825,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   * <p>Modifies whether a cluster can use AQUA (Advanced Query Accelerator). </p>
+   * <p>This operation is retired. Calling this operation does not change AQUA configuration. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator). </p>
    */
   public modifyAquaConfiguration(
     args: ModifyAquaConfigurationCommandInput,

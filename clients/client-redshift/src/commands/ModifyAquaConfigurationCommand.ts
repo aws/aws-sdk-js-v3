@@ -28,7 +28,7 @@ export interface ModifyAquaConfigurationCommandInput extends ModifyAquaInputMess
 export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMessage, __MetadataBearer {}
 
 /**
- * <p>Modifies whether a cluster can use AQUA (Advanced Query Accelerator). </p>
+ * <p>This operation is retired. Calling this operation does not change AQUA configuration. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
