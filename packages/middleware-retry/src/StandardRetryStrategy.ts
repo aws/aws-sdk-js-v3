@@ -127,7 +127,10 @@ export class StandardRetryStrategy implements RetryStrategy {
 const getDelayFromRetryAfterHeader = (response: unknown): number | undefined => {
   if (!HttpResponse.isInstance(response)) return;
 
-  const retryAfter = response.headers[Object.keys(response.headers).find((key) => key.toLowerCase() === "retry-after")];
+  const retryAfterHeaderName = Object.keys(response.headers).find((key) => key.toLowerCase() === "retry-after");
+  if (!retryAfterHeaderName) return;
+
+  const retryAfter = response.headers[retryAfterHeaderName];
 
   const retryAfterSeconds = Number(retryAfter);
   if (!Number.isNaN(retryAfterSeconds)) return retryAfterSeconds * 1000;
