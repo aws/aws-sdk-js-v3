@@ -1,13 +1,11 @@
 // smithy-typescript generated code
 import {
   ConditionalSpecification,
-  DialogCodeHookInvocationSetting,
   DialogCodeHookSettings,
   DialogState,
   ElicitationCodeHookInvocationSetting,
-  FulfillmentCodeHookSettings,
+  FulfillmentUpdatesSpecification,
   InputContext,
-  IntentClosingSetting,
   KendraConfiguration,
   MultipleValuesSetting,
   ObfuscationSetting,
@@ -18,8 +16,230 @@ import {
   SlotConstraint,
   SlotDefaultValueSpecification,
   SlotPriority,
+  SubSlotSetting,
   WaitAndContinueSpecification,
 } from "./models_0";
+
+/**
+ * <p>Provides a statement the Amazon Lex conveys to the user when the intent
+ *          is successfully fulfilled.</p>
+ */
+export interface IntentClosingSetting {
+  /**
+   * <p>The response that Amazon Lex sends to the user when the intent is
+   *          complete.</p>
+   */
+  closingResponse?: ResponseSpecification;
+
+  /**
+   * <p>Specifies whether an intent's closing response is used. When this
+   *          field is false, the closing response isn't sent to the user. If the
+   *             <code>active</code> field isn't specified, the default is
+   *          true.</p>
+   */
+  active?: boolean;
+
+  /**
+   * <p>Specifies the next step that the bot executes after playing the
+   *          intent's closing response.</p>
+   */
+  nextStep?: DialogState;
+
+  /**
+   * <p>A list of conditional branches associated with the intent's closing
+   *          response. These branches are executed when the <code>nextStep</code>
+   *          attribute is set to <code>EvalutateConditional</code>.</p>
+   */
+  conditional?: ConditionalSpecification;
+}
+
+/**
+ * <p>Specifies next steps to run after the dialog code hook
+ *          finishes.</p>
+ */
+export interface PostDialogCodeHookInvocationSpecification {
+  /**
+   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+   *          user input.</p>
+   */
+  successResponse?: ResponseSpecification;
+
+  /**
+   * <p>Specifics the next step the bot runs after the dialog code hook
+   *          finishes successfully. </p>
+   */
+  successNextStep?: DialogState;
+
+  /**
+   * <p>A list of conditional branches to evaluate after the dialog code
+   *          hook finishes successfully.</p>
+   */
+  successConditional?: ConditionalSpecification;
+
+  /**
+   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+   *          user input.</p>
+   */
+  failureResponse?: ResponseSpecification;
+
+  /**
+   * <p>Specifies the next step the bot runs after the dialog code hook
+   *          throws an exception or returns with the <code>State</code> field of the
+   *             <code>Intent</code> object set to <code>Failed</code>.</p>
+   */
+  failureNextStep?: DialogState;
+
+  /**
+   * <p>A list of conditional branches to evaluate after the dialog code
+   *          hook throws an exception or returns with the <code>State</code> field
+   *          of the <code>Intent</code> object set to <code>Failed</code>.</p>
+   */
+  failureConditional?: ConditionalSpecification;
+
+  /**
+   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+   *          user input.</p>
+   */
+  timeoutResponse?: ResponseSpecification;
+
+  /**
+   * <p>Specifies the next step that the bot runs when the code hook times
+   *          out.</p>
+   */
+  timeoutNextStep?: DialogState;
+
+  /**
+   * <p>A list of conditional branches to evaluate if the code hook times
+   *          out.</p>
+   */
+  timeoutConditional?: ConditionalSpecification;
+}
+
+/**
+ * <p>Provides a setting that determines whether the post-fulfillment
+ *          response is sent to the user. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete">https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete</a>
+ *          </p>
+ */
+export interface PostFulfillmentStatusSpecification {
+  /**
+   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+   *          user input.</p>
+   */
+  successResponse?: ResponseSpecification;
+
+  /**
+   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+   *          user input.</p>
+   */
+  failureResponse?: ResponseSpecification;
+
+  /**
+   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+   *          user input.</p>
+   */
+  timeoutResponse?: ResponseSpecification;
+
+  /**
+   * <p>Specifies the next step in the conversation that Amazon Lex
+   *          invokes when the fulfillment code hook completes successfully.</p>
+   */
+  successNextStep?: DialogState;
+
+  /**
+   * <p>A list of conditional branches to evaluate after the fulfillment
+   *          code hook finishes successfully.</p>
+   */
+  successConditional?: ConditionalSpecification;
+
+  /**
+   * <p>Specifies the next step the bot runs after the fulfillment code hook
+   *          throws an exception or returns with the <code>State</code> field of the
+   *             <code>Intent</code> object set to <code>Failed</code>.</p>
+   */
+  failureNextStep?: DialogState;
+
+  /**
+   * <p>A list of conditional branches to evaluate after the fulfillment
+   *          code hook throws an exception or returns with the <code>State</code>
+   *          field of the <code>Intent</code> object set to
+   *          <code>Failed</code>.</p>
+   */
+  failureConditional?: ConditionalSpecification;
+
+  /**
+   * <p>Specifies the next step that the bot runs when the fulfillment code
+   *          hook times out.</p>
+   */
+  timeoutNextStep?: DialogState;
+
+  /**
+   * <p>A list of conditional branches to evaluate if the fulfillment code
+   *          hook times out.</p>
+   */
+  timeoutConditional?: ConditionalSpecification;
+}
+
+/**
+ * <p> Settings that specify the dialog code hook that is
+ *          called by Amazon Lex at a step of the conversation. </p>
+ */
+export interface DialogCodeHookInvocationSetting {
+  /**
+   * <p>Indicates whether a Lambda function should be invoked
+   *          for the dialog.</p>
+   */
+  enableCodeHookInvocation: boolean | undefined;
+
+  /**
+   * <p>Determines whether a dialog code hook is used when the intent is
+   *          activated.</p>
+   */
+  active: boolean | undefined;
+
+  /**
+   * <p>A label that indicates the dialog step from which the dialog code
+   *          hook is happening.</p>
+   */
+  invocationLabel?: string;
+
+  /**
+   * <p>Contains the responses and actions that Amazon Lex takes
+   *          after the Lambda function is complete.</p>
+   */
+  postCodeHookSpecification: PostDialogCodeHookInvocationSpecification | undefined;
+}
+
+/**
+ * <p>Determines if a Lambda function should be invoked for a specific
+ *          intent.</p>
+ */
+export interface FulfillmentCodeHookSettings {
+  /**
+   * <p>Indicates whether a Lambda function should be invoked to fulfill a
+   *          specific intent.</p>
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>Provides settings for messages sent to the user for after the Lambda
+   *          fulfillment function completes. Post-fulfillment messages can be sent
+   *          for both streaming and non-streaming conversations.</p>
+   */
+  postFulfillmentStatusSpecification?: PostFulfillmentStatusSpecification;
+
+  /**
+   * <p>Provides settings for update messages sent to the user for
+   *          long-running Lambda fulfillment functions. Fulfillment updates can be
+   *          used only with streaming conversations.</p>
+   */
+  fulfillmentUpdatesSpecification?: FulfillmentUpdatesSpecification;
+
+  /**
+   * <p>Determines whether the fulfillment code hook is used. When
+   *             <code>active</code> is false, the code hook doesn't run.</p>
+   */
+  active?: boolean;
+}
 
 /**
  * <p>Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.</p>
@@ -108,7 +328,7 @@ export interface SlotCaptureSetting {
 }
 
 /**
- * <p>Settings that you can use for eliciting a slot value.</p>
+ * <p>Specifies the elicitation setting details for constituent sub slots of a composite slot.</p>
  */
 export interface SlotValueElicitationSetting {
   /**
@@ -319,6 +539,12 @@ export interface CreateSlotRequest {
    *          value is <code>false</code>.</p>
    */
   multipleValuesSetting?: MultipleValuesSetting;
+
+  /**
+   * <p>Specifications for the constituent sub slots and the
+   *         expression for the composite slot.</p>
+   */
+  subSlotSetting?: SubSlotSetting;
 }
 
 export interface CreateSlotResponse {
@@ -385,6 +611,12 @@ export interface CreateSlotResponse {
    *          response.</p>
    */
   multipleValuesSetting?: MultipleValuesSetting;
+
+  /**
+   * <p>Specifications for the constituent sub slots and the
+   *         expression for the composite slot.</p>
+   */
+  subSlotSetting?: SubSlotSetting;
 }
 
 export interface DescribeSlotResponse {
@@ -459,6 +691,12 @@ export interface DescribeSlotResponse {
    *          value is <code>false</code>.</p>
    */
   multipleValuesSetting?: MultipleValuesSetting;
+
+  /**
+   * <p>Specifications for the constituent sub slots and the
+   *         expression for the composite slot.</p>
+   */
+  subSlotSetting?: SubSlotSetting;
 }
 
 export interface UpdateSlotRequest {
@@ -527,6 +765,12 @@ export interface UpdateSlotRequest {
    *          value is <code>false</code>.</p>
    */
   multipleValuesSetting?: MultipleValuesSetting;
+
+  /**
+   * <p>Specifications for the constituent sub slots and the
+   *         expression for the composite slot.</p>
+   */
+  subSlotSetting?: SubSlotSetting;
 }
 
 export interface UpdateSlotResponse {
@@ -600,6 +844,12 @@ export interface UpdateSlotResponse {
    *          response.</p>
    */
   multipleValuesSetting?: MultipleValuesSetting;
+
+  /**
+   * <p>Specifications for the constituent sub slots and the
+   *         expression for the composite slot.</p>
+   */
+  subSlotSetting?: SubSlotSetting;
 }
 
 export interface CreateIntentRequest {
@@ -1134,6 +1384,43 @@ export interface UpdateIntentResponse {
    */
   initialResponseSetting?: InitialResponseSetting;
 }
+
+/**
+ * @internal
+ */
+export const IntentClosingSettingFilterSensitiveLog = (obj: IntentClosingSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostDialogCodeHookInvocationSpecificationFilterSensitiveLog = (
+  obj: PostDialogCodeHookInvocationSpecification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostFulfillmentStatusSpecificationFilterSensitiveLog = (obj: PostFulfillmentStatusSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DialogCodeHookInvocationSettingFilterSensitiveLog = (obj: DialogCodeHookInvocationSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FulfillmentCodeHookSettingsFilterSensitiveLog = (obj: FulfillmentCodeHookSettings): any => ({
+  ...obj,
+});
 
 /**
  * @internal

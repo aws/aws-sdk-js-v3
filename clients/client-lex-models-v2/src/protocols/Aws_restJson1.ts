@@ -181,6 +181,7 @@ import {
   Button,
   CloudWatchLogGroupLogDestination,
   CodeHookSpecification,
+  CompositeSlotTypeSetting,
   Condition,
   ConditionalBranch,
   ConditionalSpecification,
@@ -193,7 +194,6 @@ import {
   DateRangeFilter,
   DefaultConditionalBranch,
   DialogAction,
-  DialogCodeHookInvocationSetting,
   DialogCodeHookSettings,
   DialogState,
   ElicitationCodeHookInvocationSetting,
@@ -203,7 +203,6 @@ import {
   ExportSortBy,
   ExportSummary,
   ExternalSourceSetting,
-  FulfillmentCodeHookSettings,
   FulfillmentStartResponseSpecification,
   FulfillmentUpdateResponseSpecification,
   FulfillmentUpdatesSpecification,
@@ -215,7 +214,6 @@ import {
   ImportSortBy,
   ImportSummary,
   InputContext,
-  IntentClosingSetting,
   IntentFilter,
   IntentOverride,
   IntentSortBy,
@@ -232,8 +230,6 @@ import {
   OutputContext,
   PathFormat,
   PlainTextMessage,
-  PostDialogCodeHookInvocationSpecification,
-  PostFulfillmentStatusSpecification,
   PreconditionFailedException,
   Principal,
   PromptSpecification,
@@ -262,8 +258,12 @@ import {
   SlotValueOverride,
   SlotValueRegexFilter,
   SlotValueSelectionSetting,
+  Specifications,
   SSMLMessage,
   StillWaitingResponseSpecification,
+  SubSlotSetting,
+  SubSlotTypeComposition,
+  SubSlotValueElicitationSetting,
   TextLogDestination,
   TextLogSetting,
   ThrottlingException,
@@ -275,8 +275,13 @@ import {
   WaitAndContinueSpecification,
 } from "../models/models_0";
 import {
+  DialogCodeHookInvocationSetting,
+  FulfillmentCodeHookSettings,
   InitialResponseSetting,
+  IntentClosingSetting,
   IntentConfirmationSetting,
+  PostDialogCodeHookInvocationSpecification,
+  PostFulfillmentStatusSpecification,
   SlotCaptureSetting,
   SlotValueElicitationSetting,
 } from "../models/models_1";
@@ -618,6 +623,9 @@ export const serializeAws_restJson1CreateSlotCommand = async (
     }),
     ...(input.slotName != null && { slotName: input.slotName }),
     ...(input.slotTypeId != null && { slotTypeId: input.slotTypeId }),
+    ...(input.subSlotSetting != null && {
+      subSlotSetting: serializeAws_restJson1SubSlotSetting(input.subSlotSetting, context),
+    }),
     ...(input.valueElicitationSetting != null && {
       valueElicitationSetting: serializeAws_restJson1SlotValueElicitationSetting(
         input.valueElicitationSetting,
@@ -652,6 +660,9 @@ export const serializeAws_restJson1CreateSlotTypeCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.compositeSlotTypeSetting != null && {
+      compositeSlotTypeSetting: serializeAws_restJson1CompositeSlotTypeSetting(input.compositeSlotTypeSetting, context),
+    }),
     ...(input.description != null && { description: input.description }),
     ...(input.externalSourceSetting != null && {
       externalSourceSetting: serializeAws_restJson1ExternalSourceSetting(input.externalSourceSetting, context),
@@ -2236,6 +2247,9 @@ export const serializeAws_restJson1UpdateSlotCommand = async (
     }),
     ...(input.slotName != null && { slotName: input.slotName }),
     ...(input.slotTypeId != null && { slotTypeId: input.slotTypeId }),
+    ...(input.subSlotSetting != null && {
+      subSlotSetting: serializeAws_restJson1SubSlotSetting(input.subSlotSetting, context),
+    }),
     ...(input.valueElicitationSetting != null && {
       valueElicitationSetting: serializeAws_restJson1SlotValueElicitationSetting(
         input.valueElicitationSetting,
@@ -2271,6 +2285,9 @@ export const serializeAws_restJson1UpdateSlotTypeCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.compositeSlotTypeSetting != null && {
+      compositeSlotTypeSetting: serializeAws_restJson1CompositeSlotTypeSetting(input.compositeSlotTypeSetting, context),
+    }),
     ...(input.description != null && { description: input.description }),
     ...(input.externalSourceSetting != null && {
       externalSourceSetting: serializeAws_restJson1ExternalSourceSetting(input.externalSourceSetting, context),
@@ -3046,6 +3063,9 @@ export const deserializeAws_restJson1CreateSlotCommand = async (
   if (data.slotTypeId != null) {
     contents.slotTypeId = __expectString(data.slotTypeId);
   }
+  if (data.subSlotSetting != null) {
+    contents.subSlotSetting = deserializeAws_restJson1SubSlotSetting(data.subSlotSetting, context);
+  }
   if (data.valueElicitationSetting != null) {
     contents.valueElicitationSetting = deserializeAws_restJson1SlotValueElicitationSetting(
       data.valueElicitationSetting,
@@ -3110,6 +3130,12 @@ export const deserializeAws_restJson1CreateSlotTypeCommand = async (
   }
   if (data.botVersion != null) {
     contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.compositeSlotTypeSetting != null) {
+    contents.compositeSlotTypeSetting = deserializeAws_restJson1CompositeSlotTypeSetting(
+      data.compositeSlotTypeSetting,
+      context
+    );
   }
   if (data.creationDateTime != null) {
     contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
@@ -4852,6 +4878,9 @@ export const deserializeAws_restJson1DescribeSlotCommand = async (
   if (data.slotTypeId != null) {
     contents.slotTypeId = __expectString(data.slotTypeId);
   }
+  if (data.subSlotSetting != null) {
+    contents.subSlotSetting = deserializeAws_restJson1SubSlotSetting(data.subSlotSetting, context);
+  }
   if (data.valueElicitationSetting != null) {
     contents.valueElicitationSetting = deserializeAws_restJson1SlotValueElicitationSetting(
       data.valueElicitationSetting,
@@ -4913,6 +4942,12 @@ export const deserializeAws_restJson1DescribeSlotTypeCommand = async (
   }
   if (data.botVersion != null) {
     contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.compositeSlotTypeSetting != null) {
+    contents.compositeSlotTypeSetting = deserializeAws_restJson1CompositeSlotTypeSetting(
+      data.compositeSlotTypeSetting,
+      context
+    );
   }
   if (data.creationDateTime != null) {
     contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
@@ -6949,6 +6984,9 @@ export const deserializeAws_restJson1UpdateSlotCommand = async (
   if (data.slotTypeId != null) {
     contents.slotTypeId = __expectString(data.slotTypeId);
   }
+  if (data.subSlotSetting != null) {
+    contents.subSlotSetting = deserializeAws_restJson1SubSlotSetting(data.subSlotSetting, context);
+  }
   if (data.valueElicitationSetting != null) {
     contents.valueElicitationSetting = deserializeAws_restJson1SlotValueElicitationSetting(
       data.valueElicitationSetting,
@@ -7013,6 +7051,12 @@ export const deserializeAws_restJson1UpdateSlotTypeCommand = async (
   }
   if (data.botVersion != null) {
     contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.compositeSlotTypeSetting != null) {
+    contents.compositeSlotTypeSetting = deserializeAws_restJson1CompositeSlotTypeSetting(
+      data.compositeSlotTypeSetting,
+      context
+    );
   }
   if (data.creationDateTime != null) {
     contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
@@ -7485,6 +7529,15 @@ const serializeAws_restJson1CodeHookSpecification = (input: CodeHookSpecificatio
     ...(input.lambdaCodeHook != null && {
       lambdaCodeHook: serializeAws_restJson1LambdaCodeHook(input.lambdaCodeHook, context),
     }),
+  };
+};
+
+const serializeAws_restJson1CompositeSlotTypeSetting = (
+  input: CompositeSlotTypeSetting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.subSlots != null && { subSlots: serializeAws_restJson1SubSlotTypeList(input.subSlots, context) }),
   };
 };
 
@@ -8508,6 +8561,18 @@ const serializeAws_restJson1SlotValueSelectionSetting = (
   };
 };
 
+const serializeAws_restJson1Specifications = (input: Specifications, context: __SerdeContext): any => {
+  return {
+    ...(input.slotTypeId != null && { slotTypeId: input.slotTypeId }),
+    ...(input.valueElicitationSetting != null && {
+      valueElicitationSetting: serializeAws_restJson1SubSlotValueElicitationSetting(
+        input.valueElicitationSetting,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_restJson1SSMLMessage = (input: SSMLMessage, context: __SerdeContext): any => {
   return {
     ...(input.value != null && { value: input.value }),
@@ -8538,6 +8603,71 @@ const serializeAws_restJson1StringMap = (input: Record<string, string>, context:
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_restJson1SubSlotSetting = (input: SubSlotSetting, context: __SerdeContext): any => {
+  return {
+    ...(input.expression != null && { expression: input.expression }),
+    ...(input.slotSpecifications != null && {
+      slotSpecifications: serializeAws_restJson1SubSlotSpecificationMap(input.slotSpecifications, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1SubSlotSpecificationMap = (
+  input: Record<string, Specifications>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1Specifications(value, context),
+    };
+  }, {});
+};
+
+const serializeAws_restJson1SubSlotTypeComposition = (input: SubSlotTypeComposition, context: __SerdeContext): any => {
+  return {
+    ...(input.name != null && { name: input.name }),
+    ...(input.slotTypeId != null && { slotTypeId: input.slotTypeId }),
+  };
+};
+
+const serializeAws_restJson1SubSlotTypeList = (input: SubSlotTypeComposition[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SubSlotTypeComposition(entry, context);
+    });
+};
+
+const serializeAws_restJson1SubSlotValueElicitationSetting = (
+  input: SubSlotValueElicitationSetting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.defaultValueSpecification != null && {
+      defaultValueSpecification: serializeAws_restJson1SlotDefaultValueSpecification(
+        input.defaultValueSpecification,
+        context
+      ),
+    }),
+    ...(input.promptSpecification != null && {
+      promptSpecification: serializeAws_restJson1PromptSpecification(input.promptSpecification, context),
+    }),
+    ...(input.sampleUtterances != null && {
+      sampleUtterances: serializeAws_restJson1SampleUtterancesList(input.sampleUtterances, context),
+    }),
+    ...(input.waitAndContinueSpecification != null && {
+      waitAndContinueSpecification: serializeAws_restJson1WaitAndContinueSpecification(
+        input.waitAndContinueSpecification,
+        context
+      ),
+    }),
+  };
 };
 
 const serializeAws_restJson1SynonymList = (input: SampleValue[], context: __SerdeContext): any => {
@@ -9139,6 +9269,15 @@ const deserializeAws_restJson1CodeHookSpecification = (output: any, context: __S
       output.lambdaCodeHook != null
         ? deserializeAws_restJson1LambdaCodeHook(output.lambdaCodeHook, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CompositeSlotTypeSetting = (
+  output: any,
+  context: __SerdeContext
+): CompositeSlotTypeSetting => {
+  return {
+    subSlots: output.subSlots != null ? deserializeAws_restJson1SubSlotTypeList(output.subSlots, context) : undefined,
   } as any;
 };
 
@@ -10293,6 +10432,16 @@ const deserializeAws_restJson1SlotValueSelectionSetting = (
   } as any;
 };
 
+const deserializeAws_restJson1Specifications = (output: any, context: __SerdeContext): Specifications => {
+  return {
+    slotTypeId: __expectString(output.slotTypeId),
+    valueElicitationSetting:
+      output.valueElicitationSetting != null
+        ? deserializeAws_restJson1SubSlotValueElicitationSetting(output.valueElicitationSetting, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1SSMLMessage = (output: any, context: __SerdeContext): SSMLMessage => {
   return {
     value: __expectString(output.value),
@@ -10324,6 +10473,77 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1SubSlotSetting = (output: any, context: __SerdeContext): SubSlotSetting => {
+  return {
+    expression: __expectString(output.expression),
+    slotSpecifications:
+      output.slotSpecifications != null
+        ? deserializeAws_restJson1SubSlotSpecificationMap(output.slotSpecifications, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SubSlotSpecificationMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, Specifications> => {
+  return Object.entries(output).reduce((acc: Record<string, Specifications>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1Specifications(value, context),
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1SubSlotTypeComposition = (
+  output: any,
+  context: __SerdeContext
+): SubSlotTypeComposition => {
+  return {
+    name: __expectString(output.name),
+    slotTypeId: __expectString(output.slotTypeId),
+  } as any;
+};
+
+const deserializeAws_restJson1SubSlotTypeList = (output: any, context: __SerdeContext): SubSlotTypeComposition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SubSlotTypeComposition(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SubSlotValueElicitationSetting = (
+  output: any,
+  context: __SerdeContext
+): SubSlotValueElicitationSetting => {
+  return {
+    defaultValueSpecification:
+      output.defaultValueSpecification != null
+        ? deserializeAws_restJson1SlotDefaultValueSpecification(output.defaultValueSpecification, context)
+        : undefined,
+    promptSpecification:
+      output.promptSpecification != null
+        ? deserializeAws_restJson1PromptSpecification(output.promptSpecification, context)
+        : undefined,
+    sampleUtterances:
+      output.sampleUtterances != null
+        ? deserializeAws_restJson1SampleUtterancesList(output.sampleUtterances, context)
+        : undefined,
+    waitAndContinueSpecification:
+      output.waitAndContinueSpecification != null
+        ? deserializeAws_restJson1WaitAndContinueSpecification(output.waitAndContinueSpecification, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1SynonymList = (output: any, context: __SerdeContext): SampleValue[] => {
