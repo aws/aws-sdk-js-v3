@@ -1,4 +1,4 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import { SdkError } from "@aws-sdk/types";
 import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
@@ -95,10 +95,14 @@ export class StandardRetryStrategy implements RetryStrategy {
         attempts++;
         if (this.shouldRetry(err as SdkError, attempts, maxAttempts)) {
           retryTokenAmount = this.retryQuota.retrieveRetryTokens(err);
-          const delay = this.delayDecider(
+          const delayFromDecider = this.delayDecider(
             isThrottlingError(err) ? THROTTLING_RETRY_DELAY_BASE : DEFAULT_RETRY_DELAY_BASE,
             attempts
           );
+
+          const delayFromResponse = getDelayFromRetryAfterHeader(err.$response);
+          const delay = Math.max(delayFromResponse || 0, delayFromDecider);
+
           totalDelay += delay;
 
           await new Promise((resolve) => setTimeout(resolve, delay));
@@ -116,6 +120,24 @@ export class StandardRetryStrategy implements RetryStrategy {
     }
   }
 }
+
+/**
+ * Returns number of milliseconds to wait based on "Retry-After" header value.
+ */
+const getDelayFromRetryAfterHeader = (response: unknown): number | undefined => {
+  if (!HttpResponse.isInstance(response)) return;
+
+  const retryAfterHeaderName = Object.keys(response.headers).find((key) => key.toLowerCase() === "retry-after");
+  if (!retryAfterHeaderName) return;
+
+  const retryAfter = response.headers[retryAfterHeaderName];
+
+  const retryAfterSeconds = Number(retryAfter);
+  if (!Number.isNaN(retryAfterSeconds)) return retryAfterSeconds * 1000;
+
+  const retryAfterDate = new Date(retryAfter);
+  return retryAfterDate.getTime() - Date.now();
+};
 
 const asSdkError = (error: unknown): SdkError => {
   if (error instanceof Error) return error;
