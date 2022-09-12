@@ -70,10 +70,13 @@ describe(parseArn.name, () => {
     expect(parseArn(input)).toEqual(outout);
   });
 
-  it.each(["some:random:string:separated:by:colons", "arn:aws:too:short"])(
-    "returns null for invalid arn %s",
-    (input: string) => {
-      expect(parseArn(input)).toBeNull();
-    }
-  );
+  it.each([
+    "arn::s3:us-west-2:123456789012:accesspoint:myendpoint", // partition not present
+    "arn:aws::us-west-2:123456789012:accesspoint:myendpoint", // service not present
+    "arn:aws:s3:us-west-2:123456789012:", // resource ID not present
+    "some:random:string:separated:by:colons",
+    "arn:aws:too:short",
+  ])("returns null for invalid arn %s", (input: string) => {
+    expect(parseArn(input)).toBeNull();
+  });
 });
