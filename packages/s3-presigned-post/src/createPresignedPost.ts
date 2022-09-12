@@ -80,13 +80,18 @@ export const createPresignedPost = async (
   const signingKey = await getSigningKey(sha256, clientCredentials, shortDate, clientRegion, "s3");
   const signature = await hmac(sha256, signingKey, encodedPolicy);
 
-  const endpoint = await client.config.endpoint();
-  if (!client.config.bucketEndpoint) {
-    endpoint.path = `/${Bucket}`;
+  const endpointV1 = await client.config?.endpoint?.();
+  if (endpointV1 && !client.config.isCustomEndpoint) {
+    endpointV1.path = `/${Bucket}`;
   }
 
+  /* TODO(endpointsv2) */
+  // TODO: populate rest of the endpoint parameters
+  const endpointV2 = client.config.endpointProvider({ bucket: Bucket });
+  // TODO: update hostname to path style
+
   return {
-    url: formatUrl(endpoint),
+    url: endpointV1 ? formatUrl(endpointV1) : endpointV2.url.href,
     fields: {
       ...fields,
       key: Key,

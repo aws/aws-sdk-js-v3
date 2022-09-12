@@ -1,0 +1,26 @@
+/**
+ * All endpoint parameters with built-in bindings of AWS::S3::*
+ */
+export interface S3InputConfig {
+  /**
+   * Whether to force path style URLs for S3 objects (e.g., https://s3.amazonaws.com/<bucketName>/<key> instead of https://<bucketName>.s3.amazonaws.com/<key>
+   */
+  forcePathStyle?: boolean;
+  /**
+   * Whether to use the S3 Transfer Acceleration endpoint by default
+   */
+  useAccelerateEndpoint?: boolean;
+}
+
+export interface S3ResolvedConfig {
+  forcePathStyle: boolean;
+  useAccelerateEndpoint: boolean;
+}
+
+export function resolveS3Config<T>(input: T & S3InputConfig): T & S3ResolvedConfig {
+  return {
+    ...input,
+    forcePathStyle: input.forcePathStyle ?? false,
+    useAccelerateEndpoint: input.useAccelerateEndpoint ?? false,
+  };
+}

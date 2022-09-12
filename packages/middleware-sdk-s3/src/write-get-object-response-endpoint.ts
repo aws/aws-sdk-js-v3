@@ -14,7 +14,7 @@ import {
 
 type PreviouslyResolved = {
   region: Provider<string>;
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   disableHostPrefix: boolean;
   runtime: string;
 };
