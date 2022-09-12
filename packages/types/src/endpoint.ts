@@ -53,3 +53,5 @@ export interface EndpointV2 {
   properties?: Record<string, EndpointObjectProperty>;
   headers?: Record<string, string[]>;
 }
+
+export type EndpointParameters = { [name: string]: undefined | string | boolean };

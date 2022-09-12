@@ -2,6 +2,8 @@ import { Provider } from "./util";
 
 /**
  * An object representing temporary or permanent AWS credentials.
+ * @deprecated use auth.ts::Credentials
+ * @private
  */
 export interface Credentials {
   /**
@@ -26,4 +28,8 @@ export interface Credentials {
   readonly expiration?: Date;
 }
 
+/**
+ * @deprecated use auth.ts::Credentials
+ * @private
+ */
 export type CredentialProvider = Provider<Credentials>;
