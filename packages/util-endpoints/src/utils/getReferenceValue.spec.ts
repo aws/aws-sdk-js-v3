@@ -1,4 +1,3 @@
-import { EndpointError } from "../types";
 import { getReferenceValue } from "./getReferenceValue";
 
 describe(getReferenceValue.name, () => {
