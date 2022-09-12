@@ -17,8 +17,8 @@ describe(resolveEndpoint.name, () => {
     const testCasesFile = resolve(testCasesDir, `${ruleName}.json`);
 
     if (existsSync(testCasesFile)) {
-      const ruleSetObject = JSON.parse(readFileSync(rulesFile, "utf-8"));
-      const { testCases } = JSON.parse(readFileSync(testCasesFile, "utf-8"));
+      const ruleSetObject = require(rulesFile);
+      const { testCases } = require(testCasesFile);
 
       const jestTestCases: Array<[string, any, any]> = testCases.map((testCase) => Object.values(testCase));
 
