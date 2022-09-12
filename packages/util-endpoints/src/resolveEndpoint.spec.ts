@@ -52,14 +52,6 @@ describe(resolveEndpoint.name, () => {
     jest.resetAllMocks();
   });
 
-  it("should throw an error if a required parameter is missing", () => {
-    const { requiredParamKey: ignored, ...endpointParamsWithoutRequired } = mockEndpointParams;
-    expect(() => resolveEndpoint(mockRuleSetObject, { endpointParams: endpointParamsWithoutRequired })).toThrow(
-      new EndpointError(`Missing required parameter: '${requiredParamKey}'`)
-    );
-    expect(evaluateRules).not.toHaveBeenCalled();
-  });
-
   it("should use the default value if a parameter is not set", () => {
     const { paramWithDefaultKey: ignored, ...endpointParamsWithoutDefault } = mockEndpointParams;
 
@@ -70,6 +62,42 @@ describe(resolveEndpoint.name, () => {
       endpointParams: {
         ...mockEndpointParams,
         [paramWithDefaultKey]: mockRuleSetParameters[paramWithDefaultKey].default,
+      },
+      referenceRecord: {},
+    });
+  });
+
+  it("should throw an error if a required parameter is missing", () => {
+    const { requiredParamKey: ignored, ...endpointParamsWithoutRequired } = mockEndpointParams;
+    expect(() => resolveEndpoint(mockRuleSetObject, { endpointParams: endpointParamsWithoutRequired })).toThrow(
+      new EndpointError(`Missing required parameter: '${requiredParamKey}'`)
+    );
+    expect(evaluateRules).not.toHaveBeenCalled();
+  });
+
+  it("should not throw an error if a default value is available for required parameter", () => {
+    const { requiredParamKey: ignored, ...endpointParamsWithoutRequired } = mockEndpointParams;
+    const requiredParamDefaultValue = "requiredParamDefaultValue";
+
+    const resolvedEndpoint = resolveEndpoint(
+      {
+        ...mockRuleSetObject,
+        parameters: {
+          ...mockRuleSetParameters,
+          [requiredParamKey]: {
+            ...mockRuleSetParameters[requiredParamKey],
+            default: requiredParamDefaultValue,
+          },
+        },
+      },
+      { endpointParams: endpointParamsWithoutRequired }
+    );
+    expect(resolvedEndpoint).toEqual(mockResolvedEndpoint);
+
+    expect(evaluateRules).toHaveBeenCalledWith(mockRules, {
+      endpointParams: {
+        ...mockEndpointParams,
+        [requiredParamKey]: requiredParamDefaultValue,
       },
       referenceRecord: {},
     });
