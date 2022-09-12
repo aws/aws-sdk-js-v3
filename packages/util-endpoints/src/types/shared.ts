@@ -3,7 +3,7 @@ import { Logger } from "@aws-sdk/types";
 export type ReferenceObject = { ref: string };
 
 export type FunctionObject = { fn: string; argv: FunctionArgv };
-export type FunctionArgv = Array<string | boolean | ReferenceObject | FunctionObject>;
+export type FunctionArgv = Array<Expression | boolean | number>;
 export type FunctionReturn = string | boolean | number | { [key: string]: FunctionReturn };
 
 export type ConditionObject = FunctionObject & { assign?: string };

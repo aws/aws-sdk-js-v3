@@ -22,17 +22,21 @@ describe(callFunction.name, () => {
     jest.clearAllMocks();
   });
 
-  it("skips evaluateExpression for boolean arg", () => {
-    const mockBooleanArg = true;
-    const mockFn = { fn: mockFunctionName, argv: [mockBooleanArg] };
+  it.each([
+    ["boolean", true],
+    ["boolean", false],
+    ["number", 1],
+    ["number", 0],
+  ])("skips evaluateExpression for %s arg: %s", (argType, mockNotExpressionArg) => {
+    const mockFn = { fn: mockFunctionName, argv: [mockNotExpressionArg] };
     const result = callFunction(mockFn, mockOptions);
     expect(result).toBe(mockReturn);
     expect(evaluateExpression).not.toHaveBeenCalled();
-    expect(lib[mockFunctionName]).toHaveBeenCalledWith(mockBooleanArg);
+    expect(lib[mockFunctionName]).toHaveBeenCalledWith(mockNotExpressionArg);
   });
 
   it.each(["string", { ref: "ref" }, { fn: "fn", argv: [] }])(
-    "calls evaluateExpression for non-boolean arg: %s",
+    "calls evaluateExpression for expression arg: %s",
     (arg) => {
       const mockFn = { fn: mockFunctionName, argv: [arg] };
 
