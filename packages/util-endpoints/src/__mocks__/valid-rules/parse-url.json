@@ -47,7 +47,7 @@
             }
           ],
           "endpoint": {
-            "url": "{url#scheme}://{url#authority}{url#normalizedPath}is-ip-addr"
+            "url": "{url#scheme}://{url#authority}{url#path}is-ip-addr"
           },
           "type": "endpoint"
         },
@@ -67,7 +67,7 @@
           "conditions": [
             {
               "fn": "stringEquals",
-              "argv": ["{url#normalizedPath}", "/"]
+              "argv": ["{url#path}", "/"]
             }
           ],
           "endpoint": {
