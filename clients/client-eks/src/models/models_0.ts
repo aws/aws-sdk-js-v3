@@ -61,7 +61,7 @@ export interface AddonIssue {
  */
 export interface AddonHealth {
   /**
-   * <p>An object that represents the add-on's health issues.</p>
+   * <p>An object representing the health issues for an add-on.</p>
    */
   issues?: AddonIssue[];
 }
@@ -102,7 +102,7 @@ export interface Addon {
   addonVersion?: string;
 
   /**
-   * <p>An object that represents the health of the add-on.</p>
+   * <p>An object representing the health of the add-on.</p>
    */
   health?: AddonHealth;
 
@@ -170,7 +170,7 @@ export interface AddonVersionInfo {
   architecture?: string[];
 
   /**
-   * <p>An object that represents the compatibilities of a version.</p>
+   * <p>An object representing the compatibilities of a version.</p>
    */
   compatibilities?: Compatibility[];
 }
@@ -190,7 +190,7 @@ export interface AddonInfo {
   type?: string;
 
   /**
-   * <p>An object that represents information about available add-on versions and compatible
+   * <p>An object representing information about available add-on versions and compatible
    *             Kubernetes versions.</p>
    */
   addonVersions?: AddonVersionInfo[];
@@ -725,7 +725,7 @@ export interface AssociateIdentityProviderConfigRequest {
   clusterName: string | undefined;
 
   /**
-   * <p>An object that represents an OpenID Connect (OIDC) identity provider
+   * <p>An object representing an OpenID Connect (OIDC) identity provider
    *             configuration.</p>
    */
   oidc: OidcIdentityProviderConfigRequest | undefined;
@@ -940,6 +940,47 @@ export interface Logging {
 }
 
 /**
+ * <p>The configuration of your local Amazon EKS cluster on an Amazon Web Services
+ *             Outpost. Before creating a cluster on an Outpost, review <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html">Creating a local Amazon EKS cluster on an Amazon Web Services Outpost</a> in the
+ *             <i>Amazon EKS User Guide</i>. This API isn't available for Amazon EKS clusters on the
+ *                 Amazon Web Services cloud.</p>
+ */
+export interface OutpostConfigRequest {
+  /**
+   * <p>The ARN of the Outpost that you want to use for your local Amazon EKS
+   *             cluster on Outposts. Only a single Outpost ARN is
+   *             supported.</p>
+   */
+  outpostArns: string[] | undefined;
+
+  /**
+   * <p>The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all
+   * Kubernetes            control plane instances. The instance type can't be changed after cluster
+   *             creation.</p>
+   *         <p>Choose an instance type based on the number of nodes that your cluster will have. If
+   *             your cluster will have:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>1–20 nodes, then we recommend specifying a <code>large</code> instance
+   *                     type.</p>
+   *             </li>
+   *             <li>
+   *                 <p>21–100 nodes, then we recommend specifying an <code>xlarge</code>
+   *                     instance type.</p>
+   *             </li>
+   *             <li>
+   *                 <p>101–250 nodes, then we recommend specifying a <code>2xlarge</code>
+   *                     instance type.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For a list of the available Amazon EC2 instance types, see Compute and storage
+   *             in <a href="http://aws.amazon.com/outposts/rack/features/">Outposts rack
+   *                 features</a>. The control plane is not automatically scaled by Amazon EKS.</p>
+   */
+  controlPlaneInstanceType: string | undefined;
+}
+
+/**
  * <p>An object representing the VPC configuration to use for an Amazon EKS
  *             cluster.</p>
  */
@@ -1021,7 +1062,10 @@ export interface CreateClusterRequest {
 
   /**
    * <p>The desired Kubernetes version for your cluster. If you don't specify a value here,
-   *             the latest version available in Amazon EKS is used.</p>
+   *             the default version available in Amazon EKS is used.</p>
+   *         <note>
+   *             <p>The default version might not be the latest version available.</p>
+   *          </note>
    */
   version?: string;
 
@@ -1080,6 +1124,16 @@ export interface CreateClusterRequest {
    * <p>The encryption configuration for the cluster.</p>
    */
   encryptionConfig?: EncryptionConfig[];
+
+  /**
+   * <p>An object representing the configuration of your local Amazon EKS cluster on
+   *             an Amazon Web Services Outpost. Before creating a local cluster on an Outpost, review
+   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html">Creating an Amazon EKS cluster on an Amazon Web Services Outpost</a> in
+   *             the <i>Amazon EKS User Guide</i>. This object isn't available for creating Amazon EKS
+   *             clusters on the Amazon Web Services
+   *             cloud.</p>
+   */
+  outpostConfig?: OutpostConfigRequest;
 }
 
 /**
@@ -1125,6 +1179,52 @@ export interface ConnectorConfigResponse {
    *             cluster.</p>
    */
   roleArn?: string;
+}
+
+export enum ClusterIssueCode {
+  ACCESS_DENIED = "AccessDenied",
+  CLUSTER_UNREACHABLE = "ClusterUnreachable",
+  CONFIGURATION_CONFLICT = "ConfigurationConflict",
+  INTERNAL_FAILURE = "InternalFailure",
+  RESOURCE_LIMIT_EXCEEDED = "ResourceLimitExceeded",
+  RESOURCE_NOT_FOUND = "ResourceNotFound",
+}
+
+/**
+ * <p>An issue with your local Amazon EKS cluster on an Amazon Web Services Outpost.
+ *             You can't use this API with an Amazon EKS cluster on the Amazon Web Services
+ *             cloud.</p>
+ */
+export interface ClusterIssue {
+  /**
+   * <p>The error code of the issue.</p>
+   */
+  code?: ClusterIssueCode | string;
+
+  /**
+   * <p>A description of the issue.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>The resource IDs that the issue relates
+   *             to.</p>
+   */
+  resourceIds?: string[];
+}
+
+/**
+ * <p>An object representing the health of your local Amazon EKS cluster on an
+ *                 Amazon Web Services Outpost. You can't use this API with an Amazon EKS
+ *             cluster on the Amazon Web Services cloud.
+ *             </p>
+ */
+export interface ClusterHealth {
+  /**
+   * <p>An object representing the health issues of your local Amazon EKS cluster on
+   *             an Amazon Web Services Outpost.</p>
+   */
+  issues?: ClusterIssue[];
 }
 
 /**
@@ -1181,6 +1281,26 @@ export interface KubernetesNetworkConfigResponse {
    *             created the cluster. </p>
    */
   ipFamily?: IpFamily | string;
+}
+
+/**
+ * <p>An object representing the configuration of your local Amazon EKS cluster on
+ *             an Amazon Web Services Outpost. This API isn't available for Amazon EKS clusters
+ *             on the Amazon Web Services cloud.</p>
+ */
+export interface OutpostConfigResponse {
+  /**
+   * <p>The ARN of the Outpost that you specified for use with your local Amazon EKS
+   *             cluster on Outposts.</p>
+   */
+  outpostArns: string[] | undefined;
+
+  /**
+   * <p>The Amazon EC2 instance type used for the control plane. The instance type is
+   *             the same for all control plane
+   *             instances.</p>
+   */
+  controlPlaneInstanceType: string | undefined;
 }
 
 /**
@@ -1348,6 +1468,25 @@ export interface Cluster {
    * <p>The configuration used to connect to a cluster for registration.</p>
    */
   connectorConfig?: ConnectorConfigResponse;
+
+  /**
+   * <p>The ID of your local Amazon EKS cluster on an Amazon Web Services Outpost. This
+   *             property isn't available for an Amazon EKS cluster on the Amazon Web Services
+   *             cloud.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>An object representing the health of your local Amazon EKS cluster on an
+   *                 Amazon Web Services Outpost. This object isn't available for clusters on the Amazon Web Services cloud.</p>
+   */
+  health?: ClusterHealth;
+
+  /**
+   * <p>An object representing the configuration of your local Amazon EKS cluster on
+   *             an Amazon Web Services Outpost. This object isn't available for clusters on the Amazon Web Services cloud.</p>
+   */
+  outpostConfig?: OutpostConfigResponse;
 }
 
 export interface CreateClusterResponse {
@@ -2444,7 +2583,7 @@ export interface DescribeIdentityProviderConfigRequest {
   clusterName: string | undefined;
 
   /**
-   * <p>An object that represents an identity provider configuration.</p>
+   * <p>An object representing an identity provider configuration.</p>
    */
   identityProviderConfig: IdentityProviderConfig | undefined;
 }
@@ -2456,7 +2595,7 @@ export enum ConfigStatus {
 }
 
 /**
- * <p>An object that represents the configuration for an OpenID Connect (OIDC) identity
+ * <p>An object representing the configuration for an OpenID Connect (OIDC) identity
  *             provider. </p>
  */
 export interface OidcIdentityProviderConfig {
@@ -2536,7 +2675,7 @@ export interface OidcIdentityProviderConfig {
  */
 export interface IdentityProviderConfigResponse {
   /**
-   * <p>An object that represents an OpenID Connect (OIDC) identity provider
+   * <p>An object representing an OpenID Connect (OIDC) identity provider
    *             configuration.</p>
    */
   oidc?: OidcIdentityProviderConfig;
@@ -2608,7 +2747,7 @@ export interface DisassociateIdentityProviderConfigRequest {
   clusterName: string | undefined;
 
   /**
-   * <p>An object that represents an identity provider configuration.</p>
+   * <p>An object representing an identity provider configuration.</p>
    */
   identityProviderConfig: IdentityProviderConfig | undefined;
 
@@ -3519,6 +3658,13 @@ export const LoggingFilterSensitiveLog = (obj: Logging): any => ({
 /**
  * @internal
  */
+export const OutpostConfigRequestFilterSensitiveLog = (obj: OutpostConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const VpcConfigRequestFilterSensitiveLog = (obj: VpcConfigRequest): any => ({
   ...obj,
 });
@@ -3547,6 +3693,20 @@ export const ConnectorConfigResponseFilterSensitiveLog = (obj: ConnectorConfigRe
 /**
  * @internal
  */
+export const ClusterIssueFilterSensitiveLog = (obj: ClusterIssue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterHealthFilterSensitiveLog = (obj: ClusterHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const OIDCFilterSensitiveLog = (obj: OIDC): any => ({
   ...obj,
 });
@@ -3562,6 +3722,13 @@ export const IdentityFilterSensitiveLog = (obj: Identity): any => ({
  * @internal
  */
 export const KubernetesNetworkConfigResponseFilterSensitiveLog = (obj: KubernetesNetworkConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutpostConfigResponseFilterSensitiveLog = (obj: OutpostConfigResponse): any => ({
   ...obj,
 });
 

@@ -113,6 +113,8 @@ import {
   Certificate,
   ClientException,
   Cluster,
+  ClusterHealth,
+  ClusterIssue,
   Compatibility,
   ConnectorConfigRequest,
   ConnectorConfigResponse,
@@ -141,6 +143,8 @@ import {
   OIDC,
   OidcIdentityProviderConfig,
   OidcIdentityProviderConfigRequest,
+  OutpostConfigRequest,
+  OutpostConfigResponse,
   Provider,
   RemoteAccessConfig,
   ResourceInUseException,
@@ -272,6 +276,9 @@ export const serializeAws_restJson1CreateClusterCommand = async (
     }),
     ...(input.logging != null && { logging: serializeAws_restJson1Logging(input.logging, context) }),
     ...(input.name != null && { name: input.name }),
+    ...(input.outpostConfig != null && {
+      outpostConfig: serializeAws_restJson1OutpostConfigRequest(input.outpostConfig, context),
+    }),
     ...(input.resourcesVpcConfig != null && {
       resourcesVpcConfig: serializeAws_restJson1VpcConfigRequest(input.resourcesVpcConfig, context),
     }),
@@ -3422,6 +3429,13 @@ const serializeAws_restJson1OidcIdentityProviderConfigRequest = (
   };
 };
 
+const serializeAws_restJson1OutpostConfigRequest = (input: OutpostConfigRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.controlPlaneInstanceType != null && { controlPlaneInstanceType: input.controlPlaneInstanceType }),
+    ...(input.outpostArns != null && { outpostArns: serializeAws_restJson1StringList(input.outpostArns, context) }),
+  };
+};
+
 const serializeAws_restJson1Provider = (input: Provider, context: __SerdeContext): any => {
   return {
     ...(input.keyArn != null && { keyArn: input.keyArn }),
@@ -3653,6 +3667,8 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
         ? deserializeAws_restJson1EncryptionConfigList(output.encryptionConfig, context)
         : undefined,
     endpoint: __expectString(output.endpoint),
+    health: output.health != null ? deserializeAws_restJson1ClusterHealth(output.health, context) : undefined,
+    id: __expectString(output.id),
     identity: output.identity != null ? deserializeAws_restJson1Identity(output.identity, context) : undefined,
     kubernetesNetworkConfig:
       output.kubernetesNetworkConfig != null
@@ -3660,6 +3676,10 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
         : undefined,
     logging: output.logging != null ? deserializeAws_restJson1Logging(output.logging, context) : undefined,
     name: __expectString(output.name),
+    outpostConfig:
+      output.outpostConfig != null
+        ? deserializeAws_restJson1OutpostConfigResponse(output.outpostConfig, context)
+        : undefined,
     platformVersion: __expectString(output.platformVersion),
     resourcesVpcConfig:
       output.resourcesVpcConfig != null
@@ -3670,6 +3690,33 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
     tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     version: __expectString(output.version),
   } as any;
+};
+
+const deserializeAws_restJson1ClusterHealth = (output: any, context: __SerdeContext): ClusterHealth => {
+  return {
+    issues: output.issues != null ? deserializeAws_restJson1ClusterIssueList(output.issues, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ClusterIssue = (output: any, context: __SerdeContext): ClusterIssue => {
+  return {
+    code: __expectString(output.code),
+    message: __expectString(output.message),
+    resourceIds:
+      output.resourceIds != null ? deserializeAws_restJson1StringList(output.resourceIds, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ClusterIssueList = (output: any, context: __SerdeContext): ClusterIssue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ClusterIssue(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1Compatibilities = (output: any, context: __SerdeContext): Compatibility[] => {
@@ -4041,6 +4088,14 @@ const deserializeAws_restJson1OidcIdentityProviderConfig = (
     tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     usernameClaim: __expectString(output.usernameClaim),
     usernamePrefix: __expectString(output.usernamePrefix),
+  } as any;
+};
+
+const deserializeAws_restJson1OutpostConfigResponse = (output: any, context: __SerdeContext): OutpostConfigResponse => {
+  return {
+    controlPlaneInstanceType: __expectString(output.controlPlaneInstanceType),
+    outpostArns:
+      output.outpostArns != null ? deserializeAws_restJson1StringList(output.outpostArns, context) : undefined,
   } as any;
 };
 
