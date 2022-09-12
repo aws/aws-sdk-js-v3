@@ -22,9 +22,7 @@ describe(getReferenceValue.name, () => {
     });
   });
 
-  it("throws error if reference does not exist", () => {
-    expect(() => getReferenceValue({ ref: mockRefName }, mockOptions)).toThrowError(
-      new EndpointError(`Reference '${mockRefName}' not defined`)
-    );
+  it("returns undefined if reference does not exist", () => {
+    expect(getReferenceValue({ ref: mockRefName }, mockOptions)).toBeUndefined();
   });
 });
