@@ -1,5 +1,6 @@
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  AuthScheme,
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
@@ -20,7 +21,11 @@ export const awsAuthMiddleware =
   (next: FinalizeHandler<Input, Output>, context: HandlerExecutionContext): FinalizeHandler<Input, Output> =>
     async function (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>> {
       if (!HttpRequest.isInstance(args.request)) return next(args);
-      const signer = await options.signer();
+      // TODO: call authScheme resolver
+      // TODO(endpointsv2)
+      // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+      const authScheme = context["endpointV2"]?.properties?.authSchemes?.[0]! as AuthScheme;
+      const signer = await options.signer(authScheme);
       const output = await next({
         ...args,
         request: await signer.sign(args.request, {

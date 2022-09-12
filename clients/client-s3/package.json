@@ -37,6 +37,7 @@
     "@aws-sdk/md5-js": "*",
     "@aws-sdk/middleware-bucket-endpoint": "*",
     "@aws-sdk/middleware-content-length": "*",
+    "@aws-sdk/middleware-endpoint": "*",
     "@aws-sdk/middleware-expect-continue": "*",
     "@aws-sdk/middleware-flexible-checksums": "*",
     "@aws-sdk/middleware-host-header": "*",

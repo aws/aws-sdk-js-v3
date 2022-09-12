@@ -1,6 +1,7 @@
 import { memoize } from "@aws-sdk/property-provider";
 import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
 import {
+  AuthScheme,
   Credentials,
   HashConstructor,
   Logger,
@@ -27,7 +28,7 @@ export interface AwsAuthInputConfig {
   /**
    * The signer to use when signing requests.
    */
-  signer?: RequestSigner | Provider<RequestSigner>;
+  signer?: RequestSigner | ((authScheme?: AuthScheme) => Promise<RequestSigner>);
 
   /**
    * Whether to escape request path when signing the request.
@@ -62,7 +63,7 @@ export interface SigV4AuthInputConfig {
   /**
    * The signer to use when signing requests.
    */
-  signer?: RequestSigner | Provider<RequestSigner>;
+  signer?: RequestSigner | ((authScheme?: AuthScheme) => Promise<RequestSigner>);
 
   /**
    * Whether to escape request path when signing the request.
@@ -78,7 +79,7 @@ export interface SigV4AuthInputConfig {
 interface PreviouslyResolved {
   credentialDefaultProvider: (input: any) => MemoizedProvider<Credentials>;
   region: string | Provider<string>;
-  regionInfoProvider: RegionInfoProvider;
+  regionInfoProvider?: RegionInfoProvider;
   signingName?: string;
   serviceId: string;
   sha256: HashConstructor;
@@ -104,7 +105,7 @@ export interface AwsAuthResolvedConfig {
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.signer}
    */
-  signer: Provider<RequestSigner>;
+  signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.signingEscapePath}
    */
@@ -124,18 +125,18 @@ export const resolveAwsAuthConfig = <T>(
     ? normalizeCredentialProvider(input.credentials)
     : input.credentialDefaultProvider(input as any);
   const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
-  let signer: Provider<RequestSigner>;
+  let signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
   if (input.signer) {
     //if signer is supplied by user, normalize it to a function returning a promise for signer.
     signer = normalizeProvider(input.signer);
-  } else {
+  } else if (input.regionInfoProvider) {
     //construct a provider inferring signing from region.
     signer = () =>
       normalizeProvider(input.region)()
         .then(
           async (region) =>
             [
-              (await input.regionInfoProvider(region, {
+              (await input.regionInfoProvider!(region, {
                 useFipsEndpoint: await input.useFipsEndpoint(),
                 useDualstackEndpoint: await input.useDualstackEndpoint(),
               })) || {},
@@ -162,6 +163,34 @@ export const resolveAwsAuthConfig = <T>(
           const signerConstructor = input.signerConstructor || SignatureV4;
           return new signerConstructor(params);
         });
+  } else {
+    // Handle endpoints v2 that resolved per-command
+    // TODO(endpointsv2)
+    // TODO: need total refactor for reference auth architecture.
+    signer = async (authScheme?: AuthScheme) => {
+      if (!authScheme) {
+        throw new Error("Unexpected empty auth scheme config");
+      }
+      const signingRegion = authScheme.properties!["signingScope"] as string;
+      const signingService = authScheme.properties!["signingName"] as string;
+      //update client's singing region and signing service config if they are resolved.
+      //signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
+      input.signingRegion = input.signingRegion || signingRegion;
+      //signing name resolving order:
+      //user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
+      input.signingName = input.signingName || signingService || input.serviceId;
+
+      const params: SignatureV4Init & SignatureV4CryptoInit = {
+        ...input,
+        credentials: normalizedCreds,
+        region: input.signingRegion,
+        service: input.signingName,
+        sha256,
+        uriEscapePath: signingEscapePath,
+      };
+      const signerConstructor = input.signerConstructor || SignatureV4;
+      return new signerConstructor(params);
+    };
   }
 
   return {
@@ -196,7 +225,6 @@ export const resolveSigV4AuthConfig = <T>(
       })
     );
   }
-
   return {
     ...input,
     systemClockOffset,

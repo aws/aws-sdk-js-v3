@@ -29,6 +29,7 @@
     "@aws-sdk/md5-js": "*",
     "@aws-sdk/middleware-apply-body-checksum": "*",
     "@aws-sdk/middleware-content-length": "*",
+    "@aws-sdk/middleware-endpoint": "*",
     "@aws-sdk/middleware-host-header": "*",
     "@aws-sdk/middleware-logger": "*",
     "@aws-sdk/middleware-recursion-detection": "*",

@@ -95,7 +95,7 @@ export interface RetryStrategy {
  * Parses a URL in string form into an Endpoint object.
  */
 export interface UrlParser {
-  (url: string): Endpoint;
+  (url: string | URL): Endpoint;
 }
 
 /**
