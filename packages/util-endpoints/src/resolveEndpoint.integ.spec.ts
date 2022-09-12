@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, readFileSync } from "fs";
+import { existsSync, readdirSync } from "fs";
 import { resolve } from "path";
 
 import { resolveEndpoint } from "./resolveEndpoint";
