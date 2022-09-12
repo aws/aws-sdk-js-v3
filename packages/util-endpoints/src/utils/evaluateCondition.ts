@@ -7,7 +7,7 @@ export const evaluateCondition = ({ assign, ...fnArgs }: ConditionObject, option
   }
   const value = callFunction(fnArgs, options);
   return {
-    result: !!value,
+    result: value === "" ? true : !!value,
     ...(assign != null && { toAssign: { name: assign, value } }),
   };
 };

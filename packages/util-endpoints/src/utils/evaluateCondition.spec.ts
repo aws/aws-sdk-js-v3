@@ -27,10 +27,10 @@ describe(evaluateCondition.name, () => {
 
   describe("evaluates function", () => {
     describe.each([
-      [true, "truthy", [true, 1, -1, "true", "false"]],
-      [false, "falsy", [false, 0, -0, "", null, undefined, NaN]],
-    ])("returns %s for %s values", (result, boolStatus, testCases) => {
-      it.each(testCases)(`${boolStatus} value: '%s'`, (mockReturn) => {
+      [true, [true, 1, -1, "true", "false", ""]],
+      [false, [false, 0, -0, null, undefined, NaN]],
+    ])("returns %s for", (result, testCases) => {
+      it.each(testCases)(`value: '%s'`, (mockReturn) => {
         (callFunction as jest.Mock).mockReturnValue(mockReturn);
         const { result, toAssign } = evaluateCondition(mockFnArgs, mockOptions);
         expect(result).toBe(result);
