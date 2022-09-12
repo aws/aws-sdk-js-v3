@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.168.0...v3.169.0) (2022-09-12)
+
+
+### Bug Fixes
+
+* **middleware-retry:** use delay from response header if it's higher ([#3916](https://github.com/aws/aws-sdk-js-v3/issues/3916)) ([9524fa1](https://github.com/aws/aws-sdk-js-v3/commit/9524fa1a515262b5692e326dd1db25966f146941))
+
+
+### Features
+
+* **client-eks:** Adding support for local Amazon EKS clusters on Outposts ([0ec0300](https://github.com/aws/aws-sdk-js-v3/commit/0ec030003c10c57f23d277bd166fcfd2fe13ce9d))
+
+
+
+
+
 # [3.168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.167.0...v3.168.0) (2022-09-09)
 
 

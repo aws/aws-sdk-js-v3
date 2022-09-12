@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.168.0...v3.169.0) (2022-09-12)
+
+
+### Bug Fixes
+
+* **middleware-retry:** use delay from response header if it's higher ([#3916](https://github.com/aws/aws-sdk-js-v3/issues/3916)) ([9524fa1](https://github.com/aws/aws-sdk-js-v3/commit/9524fa1a515262b5692e326dd1db25966f146941))
+
+
+
+
+
 # [3.168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.167.0...v3.168.0) (2022-09-09)
 
 **Note:** Version bump only for package @aws-sdk/middleware-retry
