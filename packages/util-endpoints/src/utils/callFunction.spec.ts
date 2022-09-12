@@ -11,9 +11,11 @@ describe(callFunction.name, () => {
   };
   const mockFunctionName = "mockFunctionName";
   const mockReturn = "mockReturn";
+  const mockArgReturn = "mockArgReturn";
 
   beforeEach(() => {
     lib[mockFunctionName] = jest.fn().mockReturnValue(mockReturn);
+    (evaluateExpression as jest.Mock).mockReturnValue(mockArgReturn);
   });
 
   afterEach(() => {
@@ -32,10 +34,7 @@ describe(callFunction.name, () => {
   it.each(["string", { ref: "ref" }, { fn: "fn", argv: [] }])(
     "calls evaluateExpression for non-boolean arg: %s",
     (arg) => {
-      const mockArgReturn = "mockArgReturn";
       const mockFn = { fn: mockFunctionName, argv: [arg] };
-
-      (evaluateExpression as jest.Mock).mockReturnValue(mockArgReturn);
 
       const result = callFunction(mockFn, mockOptions);
       expect(result).toBe(mockReturn);
@@ -43,4 +42,18 @@ describe(callFunction.name, () => {
       expect(lib[mockFunctionName]).toHaveBeenCalledWith(mockArgReturn);
     }
   );
+
+  it("calls multi-level function", () => {
+    const mockSecondLevelFunctionName = "mockSecondLevelFunctionName";
+    lib[mockFunctionName][mockSecondLevelFunctionName] = jest.fn().mockReturnValue(mockReturn);
+
+    const mockArg = "mockArg";
+    const mockFn = { fn: `${mockFunctionName}.${mockSecondLevelFunctionName}`, argv: [mockArg] };
+
+    const result = callFunction(mockFn, mockOptions);
+    expect(result).toBe(mockReturn);
+    expect(evaluateExpression).toHaveBeenCalledWith(mockArg, "arg", mockOptions);
+    expect(lib[mockFunctionName]).not.toHaveBeenCalled();
+    expect(lib[mockFunctionName][mockSecondLevelFunctionName]).toHaveBeenCalledWith(mockArgReturn);
+  });
 });
