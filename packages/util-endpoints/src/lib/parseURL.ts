@@ -43,6 +43,7 @@ export const parseURL = (value: string): EndpointURL | null => {
     scheme,
     authority,
     path: pathname,
+    normalizedPath: pathname.endsWith("/") ? pathname : `${pathname}/`,
     isIp,
   };
 };
