@@ -99,7 +99,6 @@
     "prettier": "2.7.1",
     "puppeteer": "^5.1.0",
     "rimraf": "3.0.2",
-    "strip-comments": "2.0.1",
     "ts-jest": "28.0.5",
     "ts-loader": "^7.0.5",
     "ts-mocha": "10.0.0",
