@@ -2,6 +2,7 @@
 import { exec } from "child_process";
 import { access, readFile, writeFile } from "fs/promises";
 import { join } from "path";
+import prettier from "prettier";
 import stripComments from "strip-comments";
 import { promisify } from "util";
 
@@ -39,7 +40,13 @@ export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
     for (const downlevelTypesFilepath of files) {
       try {
         const content = await readFile(downlevelTypesFilepath, "utf8");
-        await writeFile(downlevelTypesFilepath, stripComments(content));
+        const strippedContent = stripComments(content);
+        try {
+          const formatted = prettier.format(strippedContent, { parser: "typescript" });
+          await writeFile(downlevelTypesFilepath, formatted);
+        } catch (error) {
+          console.warn(`Failed to format "${downlevelTypesFilepath}". Skipping...`);
+        }
       } catch (error) {
         console.error(`Error while stripping comments from "${downlevelTypesFilepath.replace(process.cwd(), "")}"`);
         console.error(error);
