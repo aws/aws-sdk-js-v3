@@ -51,6 +51,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/config-resolver"
+    "directory": "packages/middleware-endpoint"
   }
 }
