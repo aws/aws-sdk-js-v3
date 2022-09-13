@@ -18,10 +18,12 @@ import software.amazon.smithy.model.shapes.ServiceShape
 import software.amazon.smithy.model.node.Node
 import software.amazon.smithy.gradle.tasks.SmithyBuild
 import software.amazon.smithy.aws.traits.ServiceTrait
+import java.util.stream.Stream
 import kotlin.streams.toList
 
 buildscript {
     repositories {
+        mavenLocal()
         mavenCentral()
     }
     dependencies {
@@ -62,7 +64,10 @@ tasks.register("generate-smithy-build") {
             val model = Model.assembler()
                     .addImport(file.absolutePath)
                     .assemble().result.get();
-            val services = model.shapes(ServiceShape::class.javaObjectType).sorted().toList();
+            val servicesStream: Stream<ServiceShape> = model.shapes(ServiceShape::class.javaObjectType)
+            val servicesStreamSorted: Stream<ServiceShape> = servicesStream.sorted()
+            val services: List<ServiceShape> = servicesStreamSorted.toList()
+
             if (services.size != 1) {
                 throw Exception("There must be exactly one service in each aws model file, but found " +
                         "${services.size} in ${file.name}: ${services.map { it.id }}");

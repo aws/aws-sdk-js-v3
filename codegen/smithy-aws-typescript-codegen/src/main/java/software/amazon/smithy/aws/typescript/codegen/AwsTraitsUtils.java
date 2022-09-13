@@ -19,6 +19,7 @@ import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -44,5 +45,9 @@ final class AwsTraitsUtils {
 
     static boolean isSigV4Service(ServiceShape serviceShape) {
         return serviceShape.hasTrait(SigV4Trait.class);
+    }
+
+    static boolean isEndpointsV2Service(ServiceShape serviceShape) {
+        return serviceShape.hasTrait(EndpointRuleSetTrait.class);
     }
 }

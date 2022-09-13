@@ -16,14 +16,20 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isEndpointsV2Service;
 
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+
+import com.sun.tools.javac.util.List;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
@@ -45,7 +51,9 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             SymbolProvider symbolProvider,
             BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
     ) {
-        if (!settings.generateClient() || !isAwsService(settings, model)) {
+        if (!settings.generateClient()
+            || !isAwsService(settings, model)
+            || settings.getService(model).hasTrait(EndpointRuleSetTrait.class)) {
             return;
         }
 
@@ -65,10 +73,28 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             return;
         }
 
-        writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-        writer.writeDocs("Fetch related hostname, signing name or signing region with given region.\n"
-                        + "@internal");
-        writer.write("regionInfoProvider?: RegionInfoProvider;\n");
+        ServiceShape service = settings.getService(model);
+        if (isEndpointsV2Service(service)) {
+            new ArrayList<String>() {{
+                add("ClientInputEndpointParameters");
+                add("ClientResolvedEndpointParameters");
+                add("resolveClientEndpointParameters");
+                add("EndpointParameters");
+            }}.forEach(name -> {
+                writer.addImport(
+                    name,
+                    null,
+                    Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/EndpointParameters").toString()
+                );
+            });
+
+            writer.addImport("EndpointV2", "__EndpointV2", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+        } else {
+            writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+            writer.writeDocs("Fetch related hostname, signing name or signing region with given region.\n"
+                + "@internal");
+            writer.write("regionInfoProvider?: RegionInfoProvider;\n");
+        }
     }
 
     @Override
@@ -82,15 +108,23 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             return Collections.emptyMap();
         }
 
-        switch (target) {
-            case SHARED:
+        if (settings.getService(model).hasTrait(EndpointRuleSetTrait.class)) {
+            if (target == LanguageTarget.SHARED) {
+                return MapUtils.of("endpointProvider", writer -> {
+                    writer.addImport("defaultEndpointResolver", null,
+                        Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/endpointResolver").toString());
+                    writer.write("defaultEndpointResolver");
+                });
+            }
+        } else {
+            if (target == LanguageTarget.SHARED) {
                 return MapUtils.of("regionInfoProvider", writer -> {
                     writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider",
                         Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoints").toString());
                     writer.write("defaultRegionInfoProvider");
                 });
-            default:
-                return Collections.emptyMap();
+            }
         }
+        return Collections.emptyMap();
     }
 }
