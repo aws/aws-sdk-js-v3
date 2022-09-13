@@ -26,7 +26,7 @@ describe(resolveEndpoint.name, () => {
         const { endpoint, error } = expected;
 
         if (endpoint) {
-          expect(resolveEndpoint(ruleSetObject, { endpointParams })).toEqual({
+          expect(resolveEndpoint(ruleSetObject, { endpointParams })).toStrictEqual({
             ...endpoint,
             url: new URL(endpoint.url),
           });
