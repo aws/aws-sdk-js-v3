@@ -40,7 +40,7 @@ export interface FacetResult {
 
 /**
  * <p>Provides filtering the query results based on document
- *          attributes.</p>
+ *          attributes or metadata fields.</p>
  *          <p>When you use the <code>AndAllFilters</code> or
  *             <code>OrAllFilters</code>, filters you can use 2 layers under the
  *          first attribute filter. For example, you can use:</p>
@@ -88,26 +88,26 @@ export interface AttributeFilter {
   NotFilter?: AttributeFilter;
 
   /**
-   * <p>Performs an equals operation on two document attributes.</p>
+   * <p>Performs an equals operation on two document attributes or metadata fields.</p>
    */
   EqualsTo?: DocumentAttribute;
 
   /**
    * <p>Returns true when a document contains all of the specified document
-   *          attributes. This filter is only applicable to
+   *          attributes or metadata fields. This filter is only applicable to
    *             <code>StringListValue</code> metadata.</p>
    */
   ContainsAll?: DocumentAttribute;
 
   /**
    * <p>Returns true when a document contains any of the specified document
-   *          attributes. This filter is only applicable to
+   *          attributes or metadata fields. This filter is only applicable to
    *             <code>StringListValue</code> metadata.</p>
    */
   ContainsAny?: DocumentAttribute;
 
   /**
-   * <p>Performs a greater than operation on two document attributes. Use
+   * <p>Performs a greater than operation on two document attributes or metadata fields. Use
    *          with a document attribute of type <code>Date</code> or
    *             <code>Long</code>.</p>
    */
@@ -115,20 +115,20 @@ export interface AttributeFilter {
 
   /**
    * <p>Performs a greater or equals than operation on two document
-   *          attributes. Use with a document attribute of type <code>Date</code>
+   *          attributes or metadata fields. Use with a document attribute of type <code>Date</code>
    *          or <code>Long</code>.</p>
    */
   GreaterThanOrEquals?: DocumentAttribute;
 
   /**
-   * <p>Performs a less than operation on two document attributes. Use with
+   * <p>Performs a less than operation on two document attributes or metadata fields. Use with
    *          a document attribute of type <code>Date</code> or
    *          <code>Long</code>.</p>
    */
   LessThan?: DocumentAttribute;
 
   /**
-   * <p>Performs a less than or equals operation on two document attributes.
+   * <p>Performs a less than or equals operation on two document attributes or metadata fields.
    *          Use with a document attribute of type <code>Date</code> or
    *             <code>Long</code>.</p>
    */

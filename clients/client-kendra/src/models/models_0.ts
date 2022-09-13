@@ -3465,6 +3465,7 @@ export enum SharePointOnlineAuthenticationType {
 export enum SharePointVersion {
   SHAREPOINT_2013 = "SHAREPOINT_2013",
   SHAREPOINT_2016 = "SHAREPOINT_2016",
+  SHAREPOINT_2019 = "SHAREPOINT_2019",
   SHAREPOINT_ONLINE = "SHAREPOINT_ONLINE",
 }
 
