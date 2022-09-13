@@ -274,7 +274,7 @@ await aggregatedS3.getObject({...}));
 
 The v3 codebase is generated from internal AWS models that AWS services expose. We use [smithy-typescript](https://github.com/awslabs/smithy-typescript) to generate all code in the `/clients` subdirectory. These packages always have a prefix of `@aws-sdk/client-XXXX` and are one-to-one with AWS services and service operations. You should be importing `@aws-sdk/client-XXXX` for most usage.
 
-Clients depend on common "utility" code in `/packages`. The code in `/packages` is manually written and outside of special cases (like credenitials or abort controller) is generally not very useful alone.
+Clients depend on common "utility" code in `/packages`. The code in `/packages` is manually written and outside of special cases (like credentials or abort controller) is generally not very useful alone.
 
 Lastly we have higher level libraries in `/lib`. These are javascript specific libraries that wrap client operations to make them easier to work with. Popular examples are `@aws-sdk/lib-dynamodb` which [simplifies working with items in Amazon DynamoDB](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-dynamodb/README.md) or `@aws-sdk/lib-storage` which exposes the `Upload` function and [simplifies parallel uploads in S3's multipartUpload](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-storage/README.md).
 
