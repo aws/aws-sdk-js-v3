@@ -2,6 +2,7 @@ import { existsSync, readdirSync } from "fs";
 import { resolve } from "path";
 
 import { resolveEndpoint } from "./resolveEndpoint";
+import { EndpointError } from "./types";
 
 describe(resolveEndpoint.name, () => {
   const mocksDir = resolve(__dirname, "__mocks__");
@@ -33,7 +34,7 @@ describe(resolveEndpoint.name, () => {
         }
 
         if (error) {
-          expect(() => resolveEndpoint(ruleSetObject, { endpointParams })).toThrow(error);
+          expect(() => resolveEndpoint(ruleSetObject, { endpointParams })).toThrowError(new EndpointError(error));
         }
       });
     }
