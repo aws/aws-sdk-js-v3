@@ -37,6 +37,12 @@ export interface EndpointURL {
   path: string;
 
   /**
+   * The parsed path segment of the URL.
+   * This value is guranteed to start and end with a "/".
+   */
+  normalizedPath: string;
+
+  /**
    * A boolean indicating whether the authority is an IP address.
    */
   isIp: boolean;
