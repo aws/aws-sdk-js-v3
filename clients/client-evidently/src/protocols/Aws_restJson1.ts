@@ -115,6 +115,8 @@ import {
   OnlineAbConfig,
   OnlineAbDefinition,
   Project,
+  ProjectAppConfigResource,
+  ProjectAppConfigResourceConfig,
   ProjectDataDelivery,
   ProjectDataDeliveryConfig,
   ProjectSummary,
@@ -297,6 +299,9 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
   let body: any;
   body = JSON.stringify({
+    ...(input.appConfigResource != null && {
+      appConfigResource: serializeAws_restJson1ProjectAppConfigResourceConfig(input.appConfigResource, context),
+    }),
     ...(input.dataDelivery != null && {
       dataDelivery: serializeAws_restJson1ProjectDataDeliveryConfig(input.dataDelivery, context),
     }),
@@ -1151,6 +1156,9 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.appConfigResource != null && {
+      appConfigResource: serializeAws_restJson1ProjectAppConfigResourceConfig(input.appConfigResource, context),
+    }),
     ...(input.description != null && { description: input.description }),
   });
   return new __HttpRequest({
@@ -3475,6 +3483,16 @@ const serializeAws_restJson1OnlineAbConfig = (input: OnlineAbConfig, context: __
   };
 };
 
+const serializeAws_restJson1ProjectAppConfigResourceConfig = (
+  input: ProjectAppConfigResourceConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.applicationId != null && { applicationId: input.applicationId }),
+    ...(input.environmentId != null && { environmentId: input.environmentId }),
+  };
+};
+
 const serializeAws_restJson1ProjectDataDeliveryConfig = (
   input: ProjectDataDeliveryConfig,
   context: __SerdeContext
@@ -4057,6 +4075,10 @@ const deserializeAws_restJson1Project = (output: any, context: __SerdeContext): 
   return {
     activeExperimentCount: __expectLong(output.activeExperimentCount),
     activeLaunchCount: __expectLong(output.activeLaunchCount),
+    appConfigResource:
+      output.appConfigResource != null
+        ? deserializeAws_restJson1ProjectAppConfigResource(output.appConfigResource, context)
+        : undefined,
     arn: __expectString(output.arn),
     createdTime:
       output.createdTime != null
@@ -4077,6 +4099,17 @@ const deserializeAws_restJson1Project = (output: any, context: __SerdeContext): 
     name: __expectString(output.name),
     status: __expectString(output.status),
     tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ProjectAppConfigResource = (
+  output: any,
+  context: __SerdeContext
+): ProjectAppConfigResource => {
+  return {
+    applicationId: __expectString(output.applicationId),
+    configurationProfileId: __expectString(output.configurationProfileId),
+    environmentId: __expectString(output.environmentId),
   } as any;
 };
 
