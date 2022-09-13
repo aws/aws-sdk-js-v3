@@ -64,6 +64,7 @@ import { DeleteAccessCommandInput, DeleteAccessCommandOutput } from "./commands/
 import { DeleteAgreementCommandInput, DeleteAgreementCommandOutput } from "./commands/DeleteAgreementCommand";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand";
 import { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
+import { DeleteHostKeyCommandInput, DeleteHostKeyCommandOutput } from "./commands/DeleteHostKeyCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
 import { DeleteServerCommandInput, DeleteServerCommandOutput } from "./commands/DeleteServerCommand";
 import { DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput } from "./commands/DeleteSshPublicKeyCommand";
@@ -77,6 +78,7 @@ import {
 } from "./commands/DescribeCertificateCommand";
 import { DescribeConnectorCommandInput, DescribeConnectorCommandOutput } from "./commands/DescribeConnectorCommand";
 import { DescribeExecutionCommandInput, DescribeExecutionCommandOutput } from "./commands/DescribeExecutionCommand";
+import { DescribeHostKeyCommandInput, DescribeHostKeyCommandOutput } from "./commands/DescribeHostKeyCommand";
 import { DescribeProfileCommandInput, DescribeProfileCommandOutput } from "./commands/DescribeProfileCommand";
 import {
   DescribeSecurityPolicyCommandInput,
@@ -86,12 +88,14 @@ import { DescribeServerCommandInput, DescribeServerCommandOutput } from "./comma
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import { DescribeWorkflowCommandInput, DescribeWorkflowCommandOutput } from "./commands/DescribeWorkflowCommand";
 import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "./commands/ImportCertificateCommand";
+import { ImportHostKeyCommandInput, ImportHostKeyCommandOutput } from "./commands/ImportHostKeyCommand";
 import { ImportSshPublicKeyCommandInput, ImportSshPublicKeyCommandOutput } from "./commands/ImportSshPublicKeyCommand";
 import { ListAccessesCommandInput, ListAccessesCommandOutput } from "./commands/ListAccessesCommand";
 import { ListAgreementsCommandInput, ListAgreementsCommandOutput } from "./commands/ListAgreementsCommand";
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
 import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
 import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand";
+import { ListHostKeysCommandInput, ListHostKeysCommandOutput } from "./commands/ListHostKeysCommand";
 import { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
 import {
   ListSecurityPoliciesCommandInput,
@@ -121,6 +125,7 @@ import { UpdateAccessCommandInput, UpdateAccessCommandOutput } from "./commands/
 import { UpdateAgreementCommandInput, UpdateAgreementCommandOutput } from "./commands/UpdateAgreementCommand";
 import { UpdateCertificateCommandInput, UpdateCertificateCommandOutput } from "./commands/UpdateCertificateCommand";
 import { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "./commands/UpdateConnectorCommand";
+import { UpdateHostKeyCommandInput, UpdateHostKeyCommandOutput } from "./commands/UpdateHostKeyCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
 import { UpdateServerCommandInput, UpdateServerCommandOutput } from "./commands/UpdateServerCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
@@ -138,6 +143,7 @@ export type ServiceInputTypes =
   | DeleteAgreementCommandInput
   | DeleteCertificateCommandInput
   | DeleteConnectorCommandInput
+  | DeleteHostKeyCommandInput
   | DeleteProfileCommandInput
   | DeleteServerCommandInput
   | DeleteSshPublicKeyCommandInput
@@ -148,18 +154,21 @@ export type ServiceInputTypes =
   | DescribeCertificateCommandInput
   | DescribeConnectorCommandInput
   | DescribeExecutionCommandInput
+  | DescribeHostKeyCommandInput
   | DescribeProfileCommandInput
   | DescribeSecurityPolicyCommandInput
   | DescribeServerCommandInput
   | DescribeUserCommandInput
   | DescribeWorkflowCommandInput
   | ImportCertificateCommandInput
+  | ImportHostKeyCommandInput
   | ImportSshPublicKeyCommandInput
   | ListAccessesCommandInput
   | ListAgreementsCommandInput
   | ListCertificatesCommandInput
   | ListConnectorsCommandInput
   | ListExecutionsCommandInput
+  | ListHostKeysCommandInput
   | ListProfilesCommandInput
   | ListSecurityPoliciesCommandInput
   | ListServersCommandInput
@@ -177,6 +186,7 @@ export type ServiceInputTypes =
   | UpdateAgreementCommandInput
   | UpdateCertificateCommandInput
   | UpdateConnectorCommandInput
+  | UpdateHostKeyCommandInput
   | UpdateProfileCommandInput
   | UpdateServerCommandInput
   | UpdateUserCommandInput;
@@ -193,6 +203,7 @@ export type ServiceOutputTypes =
   | DeleteAgreementCommandOutput
   | DeleteCertificateCommandOutput
   | DeleteConnectorCommandOutput
+  | DeleteHostKeyCommandOutput
   | DeleteProfileCommandOutput
   | DeleteServerCommandOutput
   | DeleteSshPublicKeyCommandOutput
@@ -203,18 +214,21 @@ export type ServiceOutputTypes =
   | DescribeCertificateCommandOutput
   | DescribeConnectorCommandOutput
   | DescribeExecutionCommandOutput
+  | DescribeHostKeyCommandOutput
   | DescribeProfileCommandOutput
   | DescribeSecurityPolicyCommandOutput
   | DescribeServerCommandOutput
   | DescribeUserCommandOutput
   | DescribeWorkflowCommandOutput
   | ImportCertificateCommandOutput
+  | ImportHostKeyCommandOutput
   | ImportSshPublicKeyCommandOutput
   | ListAccessesCommandOutput
   | ListAgreementsCommandOutput
   | ListCertificatesCommandOutput
   | ListConnectorsCommandOutput
   | ListExecutionsCommandOutput
+  | ListHostKeysCommandOutput
   | ListProfilesCommandOutput
   | ListSecurityPoliciesCommandOutput
   | ListServersCommandOutput
@@ -232,6 +246,7 @@ export type ServiceOutputTypes =
   | UpdateAgreementCommandOutput
   | UpdateCertificateCommandOutput
   | UpdateConnectorCommandOutput
+  | UpdateHostKeyCommandOutput
   | UpdateProfileCommandOutput
   | UpdateServerCommandOutput
   | UpdateUserCommandOutput;

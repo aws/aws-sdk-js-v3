@@ -53,6 +53,11 @@ import {
   DeleteConnectorCommandOutput,
 } from "./commands/DeleteConnectorCommand";
 import {
+  DeleteHostKeyCommand,
+  DeleteHostKeyCommandInput,
+  DeleteHostKeyCommandOutput,
+} from "./commands/DeleteHostKeyCommand";
+import {
   DeleteProfileCommand,
   DeleteProfileCommandInput,
   DeleteProfileCommandOutput,
@@ -99,6 +104,11 @@ import {
   DescribeExecutionCommandOutput,
 } from "./commands/DescribeExecutionCommand";
 import {
+  DescribeHostKeyCommand,
+  DescribeHostKeyCommandInput,
+  DescribeHostKeyCommandOutput,
+} from "./commands/DescribeHostKeyCommand";
+import {
   DescribeProfileCommand,
   DescribeProfileCommandInput,
   DescribeProfileCommandOutput,
@@ -129,6 +139,11 @@ import {
   ImportCertificateCommandOutput,
 } from "./commands/ImportCertificateCommand";
 import {
+  ImportHostKeyCommand,
+  ImportHostKeyCommandInput,
+  ImportHostKeyCommandOutput,
+} from "./commands/ImportHostKeyCommand";
+import {
   ImportSshPublicKeyCommand,
   ImportSshPublicKeyCommandInput,
   ImportSshPublicKeyCommandOutput,
@@ -158,6 +173,11 @@ import {
   ListExecutionsCommandInput,
   ListExecutionsCommandOutput,
 } from "./commands/ListExecutionsCommand";
+import {
+  ListHostKeysCommand,
+  ListHostKeysCommandInput,
+  ListHostKeysCommandOutput,
+} from "./commands/ListHostKeysCommand";
 import {
   ListProfilesCommand,
   ListProfilesCommandInput,
@@ -223,6 +243,11 @@ import {
   UpdateConnectorCommandInput,
   UpdateConnectorCommandOutput,
 } from "./commands/UpdateConnectorCommand";
+import {
+  UpdateHostKeyCommand,
+  UpdateHostKeyCommandInput,
+  UpdateHostKeyCommandOutput,
+} from "./commands/UpdateHostKeyCommand";
 import {
   UpdateProfileCommand,
   UpdateProfileCommandInput,
@@ -614,6 +639,38 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Deletes the host key that's specified in the <code>HoskKeyId</code> parameter.</p>
+   */
+  public deleteHostKey(
+    args: DeleteHostKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHostKeyCommandOutput>;
+  public deleteHostKey(
+    args: DeleteHostKeyCommandInput,
+    cb: (err: any, data?: DeleteHostKeyCommandOutput) => void
+  ): void;
+  public deleteHostKey(
+    args: DeleteHostKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHostKeyCommandOutput) => void
+  ): void;
+  public deleteHostKey(
+    args: DeleteHostKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHostKeyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteHostKeyCommandOutput) => void
+  ): Promise<DeleteHostKeyCommandOutput> | void {
+    const command = new DeleteHostKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the profile that's specified in the <code>ProfileId</code> parameter.</p>
    */
   public deleteProfile(
@@ -939,6 +996,38 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Returns the details of the host key that's specified by the <code>HostKeyId</code> and <code>ServerId</code>.</p>
+   */
+  public describeHostKey(
+    args: DescribeHostKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeHostKeyCommandOutput>;
+  public describeHostKey(
+    args: DescribeHostKeyCommandInput,
+    cb: (err: any, data?: DescribeHostKeyCommandOutput) => void
+  ): void;
+  public describeHostKey(
+    args: DescribeHostKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeHostKeyCommandOutput) => void
+  ): void;
+  public describeHostKey(
+    args: DescribeHostKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHostKeyCommandOutput) => void),
+    cb?: (err: any, data?: DescribeHostKeyCommandOutput) => void
+  ): Promise<DescribeHostKeyCommandOutput> | void {
+    const command = new DescribeHostKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the details of the profile that's specified by the <code>ProfileId</code>.</p>
    */
   public describeProfile(
@@ -1142,6 +1231,38 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Adds a host key to the server specified by the <code>ServerId</code> parameter.</p>
+   */
+  public importHostKey(
+    args: ImportHostKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportHostKeyCommandOutput>;
+  public importHostKey(
+    args: ImportHostKeyCommandInput,
+    cb: (err: any, data?: ImportHostKeyCommandOutput) => void
+  ): void;
+  public importHostKey(
+    args: ImportHostKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportHostKeyCommandOutput) => void
+  ): void;
+  public importHostKey(
+    args: ImportHostKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportHostKeyCommandOutput) => void),
+    cb?: (err: any, data?: ImportHostKeyCommandOutput) => void
+  ): Promise<ImportHostKeyCommandOutput> | void {
+    const command = new ImportHostKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds a Secure Shell (SSH) public key to a user account identified by a
    *         <code>UserName</code> value assigned to the specific file transfer protocol-enabled server,
    *       identified by <code>ServerId</code>.</p>
@@ -1333,6 +1454,35 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: ListExecutionsCommandOutput) => void
   ): Promise<ListExecutionsCommandOutput> | void {
     const command = new ListExecutionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of host keys for the server specified by the <code>ServerId</code> paramter.</p>
+   */
+  public listHostKeys(
+    args: ListHostKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHostKeysCommandOutput>;
+  public listHostKeys(args: ListHostKeysCommandInput, cb: (err: any, data?: ListHostKeysCommandOutput) => void): void;
+  public listHostKeys(
+    args: ListHostKeysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHostKeysCommandOutput) => void
+  ): void;
+  public listHostKeys(
+    args: ListHostKeysCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHostKeysCommandOutput) => void),
+    cb?: (err: any, data?: ListHostKeysCommandOutput) => void
+  ): Promise<ListHostKeysCommandOutput> | void {
+    const command = new ListHostKeysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1924,6 +2074,38 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: UpdateConnectorCommandOutput) => void
   ): Promise<UpdateConnectorCommandOutput> | void {
     const command = new UpdateConnectorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the description for the host key specified by the specified by the <code>ServerId</code> and <code>HostKeyId</code> parameters.</p>
+   */
+  public updateHostKey(
+    args: UpdateHostKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHostKeyCommandOutput>;
+  public updateHostKey(
+    args: UpdateHostKeyCommandInput,
+    cb: (err: any, data?: UpdateHostKeyCommandOutput) => void
+  ): void;
+  public updateHostKey(
+    args: UpdateHostKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHostKeyCommandOutput) => void
+  ): void;
+  public updateHostKey(
+    args: UpdateHostKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateHostKeyCommandOutput) => void),
+    cb?: (err: any, data?: UpdateHostKeyCommandOutput) => void
+  ): Promise<UpdateHostKeyCommandOutput> | void {
+    const command = new UpdateHostKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

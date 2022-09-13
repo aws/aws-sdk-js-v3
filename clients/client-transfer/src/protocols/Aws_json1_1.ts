@@ -29,6 +29,7 @@ import { DeleteAccessCommandInput, DeleteAccessCommandOutput } from "../commands
 import { DeleteAgreementCommandInput, DeleteAgreementCommandOutput } from "../commands/DeleteAgreementCommand";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "../commands/DeleteCertificateCommand";
 import { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "../commands/DeleteConnectorCommand";
+import { DeleteHostKeyCommandInput, DeleteHostKeyCommandOutput } from "../commands/DeleteHostKeyCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "../commands/DeleteProfileCommand";
 import { DeleteServerCommandInput, DeleteServerCommandOutput } from "../commands/DeleteServerCommand";
 import { DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput } from "../commands/DeleteSshPublicKeyCommand";
@@ -42,6 +43,7 @@ import {
 } from "../commands/DescribeCertificateCommand";
 import { DescribeConnectorCommandInput, DescribeConnectorCommandOutput } from "../commands/DescribeConnectorCommand";
 import { DescribeExecutionCommandInput, DescribeExecutionCommandOutput } from "../commands/DescribeExecutionCommand";
+import { DescribeHostKeyCommandInput, DescribeHostKeyCommandOutput } from "../commands/DescribeHostKeyCommand";
 import { DescribeProfileCommandInput, DescribeProfileCommandOutput } from "../commands/DescribeProfileCommand";
 import {
   DescribeSecurityPolicyCommandInput,
@@ -51,12 +53,14 @@ import { DescribeServerCommandInput, DescribeServerCommandOutput } from "../comm
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "../commands/DescribeUserCommand";
 import { DescribeWorkflowCommandInput, DescribeWorkflowCommandOutput } from "../commands/DescribeWorkflowCommand";
 import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "../commands/ImportCertificateCommand";
+import { ImportHostKeyCommandInput, ImportHostKeyCommandOutput } from "../commands/ImportHostKeyCommand";
 import { ImportSshPublicKeyCommandInput, ImportSshPublicKeyCommandOutput } from "../commands/ImportSshPublicKeyCommand";
 import { ListAccessesCommandInput, ListAccessesCommandOutput } from "../commands/ListAccessesCommand";
 import { ListAgreementsCommandInput, ListAgreementsCommandOutput } from "../commands/ListAgreementsCommand";
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "../commands/ListCertificatesCommand";
 import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "../commands/ListConnectorsCommand";
 import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "../commands/ListExecutionsCommand";
+import { ListHostKeysCommandInput, ListHostKeysCommandOutput } from "../commands/ListHostKeysCommand";
 import { ListProfilesCommandInput, ListProfilesCommandOutput } from "../commands/ListProfilesCommand";
 import {
   ListSecurityPoliciesCommandInput,
@@ -86,6 +90,7 @@ import { UpdateAccessCommandInput, UpdateAccessCommandOutput } from "../commands
 import { UpdateAgreementCommandInput, UpdateAgreementCommandOutput } from "../commands/UpdateAgreementCommand";
 import { UpdateCertificateCommandInput, UpdateCertificateCommandOutput } from "../commands/UpdateCertificateCommand";
 import { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "../commands/UpdateConnectorCommand";
+import { UpdateHostKeyCommandInput, UpdateHostKeyCommandOutput } from "../commands/UpdateHostKeyCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "../commands/UpdateProfileCommand";
 import { UpdateServerCommandInput, UpdateServerCommandOutput } from "../commands/UpdateServerCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
@@ -114,6 +119,7 @@ import {
   DeleteAgreementRequest,
   DeleteCertificateRequest,
   DeleteConnectorRequest,
+  DeleteHostKeyRequest,
   DeleteProfileRequest,
   DeleteServerRequest,
   DeleteSshPublicKeyRequest,
@@ -133,6 +139,7 @@ import {
   DescribedCertificate,
   DescribedConnector,
   DescribedExecution,
+  DescribedHostKey,
   DescribedProfile,
   DescribedSecurityPolicy,
   DescribedServer,
@@ -140,6 +147,8 @@ import {
   DescribedWorkflow,
   DescribeExecutionRequest,
   DescribeExecutionResponse,
+  DescribeHostKeyRequest,
+  DescribeHostKeyResponse,
   DescribeProfileRequest,
   DescribeProfileResponse,
   DescribeSecurityPolicyRequest,
@@ -160,6 +169,8 @@ import {
   IdentityProviderDetails,
   ImportCertificateRequest,
   ImportCertificateResponse,
+  ImportHostKeyRequest,
+  ImportHostKeyResponse,
   ImportSshPublicKeyRequest,
   ImportSshPublicKeyResponse,
   InputFileLocation,
@@ -179,12 +190,15 @@ import {
   ListedCertificate,
   ListedConnector,
   ListedExecution,
+  ListedHostKey,
   ListedProfile,
   ListedServer,
   ListedUser,
   ListedWorkflow,
   ListExecutionsRequest,
   ListExecutionsResponse,
+  ListHostKeysRequest,
+  ListHostKeysResponse,
   ListProfilesRequest,
   ListProfilesResponse,
   ListSecurityPoliciesRequest,
@@ -230,6 +244,8 @@ import {
   UpdateCertificateResponse,
   UpdateConnectorRequest,
   UpdateConnectorResponse,
+  UpdateHostKeyRequest,
+  UpdateHostKeyResponse,
   UpdateProfileRequest,
   UpdateProfileResponse,
   UpdateServerRequest,
@@ -386,6 +402,19 @@ export const serializeAws_json1_1DeleteConnectorCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteHostKeyCommand = async (
+  input: DeleteHostKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "TransferService.DeleteHostKey",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteHostKeyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteProfileCommand = async (
   input: DeleteProfileCommandInput,
   context: __SerdeContext
@@ -516,6 +545,19 @@ export const serializeAws_json1_1DescribeExecutionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeHostKeyCommand = async (
+  input: DescribeHostKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "TransferService.DescribeHostKey",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeHostKeyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeProfileCommand = async (
   input: DescribeProfileCommandInput,
   context: __SerdeContext
@@ -594,6 +636,19 @@ export const serializeAws_json1_1ImportCertificateCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ImportHostKeyCommand = async (
+  input: ImportHostKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "TransferService.ImportHostKey",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ImportHostKeyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ImportSshPublicKeyCommand = async (
   input: ImportSshPublicKeyCommandInput,
   context: __SerdeContext
@@ -669,6 +724,19 @@ export const serializeAws_json1_1ListExecutionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListExecutionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListHostKeysCommand = async (
+  input: ListHostKeysCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "TransferService.ListHostKeys",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListHostKeysRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -890,6 +958,19 @@ export const serializeAws_json1_1UpdateConnectorCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateConnectorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateHostKeyCommand = async (
+  input: UpdateHostKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "TransferService.UpdateHostKey",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateHostKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1497,6 +1578,56 @@ const deserializeAws_json1_1DeleteConnectorCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DeleteHostKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHostKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteHostKeyCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteHostKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteHostKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHostKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
+      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DeleteProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1991,6 +2122,56 @@ const deserializeAws_json1_1DescribeExecutionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DescribeHostKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHostKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeHostKeyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeHostKeyResponse(data, context);
+  const response: DescribeHostKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeHostKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHostKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
+      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DescribeProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2291,6 +2472,62 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ImportHostKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportHostKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ImportHostKeyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ImportHostKeyResponse(data, context);
+  const response: ImportHostKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ImportHostKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportHostKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
+      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.transfer#ResourceExistsException":
+      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ImportSshPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2580,6 +2817,59 @@ const deserializeAws_json1_1ListExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListExecutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
+      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.transfer#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListHostKeysCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHostKeysCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListHostKeysCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListHostKeysResponse(data, context);
+  const response: ListHostKeysCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListHostKeysCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHostKeysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3480,6 +3770,59 @@ const deserializeAws_json1_1UpdateConnectorCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateHostKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHostKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateHostKeyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateHostKeyResponse(data, context);
+  const response: UpdateHostKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateHostKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHostKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
+      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1UpdateProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3957,6 +4300,13 @@ const serializeAws_json1_1DeleteConnectorRequest = (input: DeleteConnectorReques
   };
 };
 
+const serializeAws_json1_1DeleteHostKeyRequest = (input: DeleteHostKeyRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HostKeyId != null && { HostKeyId: input.HostKeyId }),
+    ...(input.ServerId != null && { ServerId: input.ServerId }),
+  };
+};
+
 const serializeAws_json1_1DeleteProfileRequest = (input: DeleteProfileRequest, context: __SerdeContext): any => {
   return {
     ...(input.ProfileId != null && { ProfileId: input.ProfileId }),
@@ -4042,6 +4392,13 @@ const serializeAws_json1_1DescribeExecutionRequest = (
   return {
     ...(input.ExecutionId != null && { ExecutionId: input.ExecutionId }),
     ...(input.WorkflowId != null && { WorkflowId: input.WorkflowId }),
+  };
+};
+
+const serializeAws_json1_1DescribeHostKeyRequest = (input: DescribeHostKeyRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HostKeyId != null && { HostKeyId: input.HostKeyId }),
+    ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
@@ -4148,6 +4505,15 @@ const serializeAws_json1_1ImportCertificateRequest = (
   };
 };
 
+const serializeAws_json1_1ImportHostKeyRequest = (input: ImportHostKeyRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.HostKeyBody != null && { HostKeyBody: input.HostKeyBody }),
+    ...(input.ServerId != null && { ServerId: input.ServerId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1ImportSshPublicKeyRequest = (
   input: ImportSshPublicKeyRequest,
   context: __SerdeContext
@@ -4205,6 +4571,14 @@ const serializeAws_json1_1ListExecutionsRequest = (input: ListExecutionsRequest,
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.WorkflowId != null && { WorkflowId: input.WorkflowId }),
+  };
+};
+
+const serializeAws_json1_1ListHostKeysRequest = (input: ListHostKeysRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
@@ -4481,6 +4855,14 @@ const serializeAws_json1_1UpdateConnectorRequest = (input: UpdateConnectorReques
     ...(input.ConnectorId != null && { ConnectorId: input.ConnectorId }),
     ...(input.LoggingRole != null && { LoggingRole: input.LoggingRole }),
     ...(input.Url != null && { Url: input.Url }),
+  };
+};
+
+const serializeAws_json1_1UpdateHostKeyRequest = (input: UpdateHostKeyRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.HostKeyId != null && { HostKeyId: input.HostKeyId }),
+    ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
@@ -4849,6 +5231,21 @@ const deserializeAws_json1_1DescribedExecution = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1DescribedHostKey = (output: any, context: __SerdeContext): DescribedHostKey => {
+  return {
+    Arn: __expectString(output.Arn),
+    DateImported:
+      output.DateImported != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateImported)))
+        : undefined,
+    Description: __expectString(output.Description),
+    HostKeyFingerprint: __expectString(output.HostKeyFingerprint),
+    HostKeyId: __expectString(output.HostKeyId),
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Type: __expectString(output.Type),
+  } as any;
+};
+
 const deserializeAws_json1_1DescribedProfile = (output: any, context: __SerdeContext): DescribedProfile => {
   return {
     Arn: __expectString(output.Arn),
@@ -4955,6 +5352,15 @@ const deserializeAws_json1_1DescribeExecutionResponse = (
     Execution:
       output.Execution != null ? deserializeAws_json1_1DescribedExecution(output.Execution, context) : undefined,
     WorkflowId: __expectString(output.WorkflowId),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeHostKeyResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeHostKeyResponse => {
+  return {
+    HostKey: output.HostKey != null ? deserializeAws_json1_1DescribedHostKey(output.HostKey, context) : undefined,
   } as any;
 };
 
@@ -5109,6 +5515,13 @@ const deserializeAws_json1_1ImportCertificateResponse = (
 ): ImportCertificateResponse => {
   return {
     CertificateId: __expectString(output.CertificateId),
+  } as any;
+};
+
+const deserializeAws_json1_1ImportHostKeyResponse = (output: any, context: __SerdeContext): ImportHostKeyResponse => {
+  return {
+    HostKeyId: __expectString(output.HostKeyId),
+    ServerId: __expectString(output.ServerId),
   } as any;
 };
 
@@ -5316,6 +5729,32 @@ const deserializeAws_json1_1ListedExecutions = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_json1_1ListedHostKey = (output: any, context: __SerdeContext): ListedHostKey => {
+  return {
+    Arn: __expectString(output.Arn),
+    DateImported:
+      output.DateImported != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateImported)))
+        : undefined,
+    Description: __expectString(output.Description),
+    Fingerprint: __expectString(output.Fingerprint),
+    HostKeyId: __expectString(output.HostKeyId),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1ListedHostKeys = (output: any, context: __SerdeContext): ListedHostKey[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ListedHostKey(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ListedProfile = (output: any, context: __SerdeContext): ListedProfile => {
   return {
     Arn: __expectString(output.Arn),
@@ -5411,6 +5850,14 @@ const deserializeAws_json1_1ListExecutionsResponse = (output: any, context: __Se
       output.Executions != null ? deserializeAws_json1_1ListedExecutions(output.Executions, context) : undefined,
     NextToken: __expectString(output.NextToken),
     WorkflowId: __expectString(output.WorkflowId),
+  } as any;
+};
+
+const deserializeAws_json1_1ListHostKeysResponse = (output: any, context: __SerdeContext): ListHostKeysResponse => {
+  return {
+    HostKeys: output.HostKeys != null ? deserializeAws_json1_1ListedHostKeys(output.HostKeys, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+    ServerId: __expectString(output.ServerId),
   } as any;
 };
 
@@ -5765,6 +6212,13 @@ const deserializeAws_json1_1UpdateConnectorResponse = (
 ): UpdateConnectorResponse => {
   return {
     ConnectorId: __expectString(output.ConnectorId),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateHostKeyResponse = (output: any, context: __SerdeContext): UpdateHostKeyResponse => {
+  return {
+    HostKeyId: __expectString(output.HostKeyId),
+    ServerId: __expectString(output.ServerId),
   } as any;
 };
 

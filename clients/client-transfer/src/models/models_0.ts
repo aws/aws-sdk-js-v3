@@ -1686,6 +1686,18 @@ export interface DeleteConnectorRequest {
   ConnectorId: string | undefined;
 }
 
+export interface DeleteHostKeyRequest {
+  /**
+   * <p>Provide the ID of the server that contains the host key that you are deleting.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>The ID of the host key that you are deleting.</p>
+   */
+  HostKeyId: string | undefined;
+}
+
 export interface DeleteProfileRequest {
   /**
    * <p>The ID of the profile that you are deleting.</p>
@@ -2367,6 +2379,65 @@ export interface DescribedExecution {
 }
 
 /**
+ * <p>The details for a server host key.</p>
+ */
+export interface DescribedHostKey {
+  /**
+   * <p>The unique Amazon Resource Name (ARN) for the host key.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>A unique identifier for the host key.</p>
+   */
+  HostKeyId?: string;
+
+  /**
+   * <p>The public key fingerprint, which is a short sequence of bytes used to identify the longer public key.</p>
+   */
+  HostKeyFingerprint?: string;
+
+  /**
+   * <p>The text description for this host key.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The encryption algorithm used for the host key. The <code>Type</code> is one of the
+   *       following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>ssh-rsa</p>
+   *             </li>
+   *             <li>
+   *                <p>ssh-ed25519</p>
+   *             </li>
+   *             <li>
+   *                <p>ecdsa-sha2-nistp256
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>ecdsa-sha2-nistp384</p>
+   *             </li>
+   *             <li>
+   *                <p>ecdsa-sha2-nistp521</p>
+   *             </li>
+   *          </ul>
+   */
+  Type?: string;
+
+  /**
+   * <p>The date on which the host key was added to the server.</p>
+   */
+  DateImported?: Date;
+
+  /**
+   * <p>Key-value pairs that can be used to group and search for host keys.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
  * <p>The details for a local or partner AS2 profile.
  *       profile.</p>
  */
@@ -2847,6 +2918,25 @@ export interface DescribeExecutionResponse {
   Execution: DescribedExecution | undefined;
 }
 
+export interface DescribeHostKeyRequest {
+  /**
+   * <p>Provide the ID of the server that contains the host key that you want described.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>Provide the ID of the host key that you want described.</p>
+   */
+  HostKeyId: string | undefined;
+}
+
+export interface DescribeHostKeyResponse {
+  /**
+   * <p>Returns the details for the specified host key.</p>
+   */
+  HostKey: DescribedHostKey | undefined;
+}
+
 export interface DescribeProfileRequest {
   /**
    * <p>The identifier of the profile that you want described.</p>
@@ -2978,6 +3068,41 @@ export interface ImportCertificateResponse {
    * <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
    */
   CertificateId: string | undefined;
+}
+
+export interface ImportHostKeyRequest {
+  /**
+   * <p>Provide the ID of the server that contains the host key that you are importing.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>The public key portion of an SSH key pair.</p>
+   *          <p>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</p>
+   */
+  HostKeyBody: string | undefined;
+
+  /**
+   * <p>Enter a text description to identify this host key.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Key-value pairs that can be used to group and search for host keys.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface ImportHostKeyResponse {
+  /**
+   * <p>Returns the server ID that contains the imported key.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>Returns the host key ID for the imported key.</p>
+   */
+  HostKeyId: string | undefined;
 }
 
 export interface ImportSshPublicKeyRequest {
@@ -3353,6 +3478,60 @@ export interface ListedExecution {
 }
 
 /**
+ * <p>Returns properties of the host key that is specified.</p>
+ */
+export interface ListedHostKey {
+  /**
+   * <p>Specifies the unique Amazon Resource Name (ARN) of the host key.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p></p>
+   */
+  HostKeyId?: string;
+
+  /**
+   * <p>The public key fingerprint, which is a short sequence of bytes used to identify the longer public key.</p>
+   */
+  Fingerprint?: string;
+
+  /**
+   * <p>The current description for the host key. You can change it by calling the <code>UpdateHostKey</code> operation and providing a new description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The encryption algorithm used for the host key. The <code>Type</code> is one of the
+   *       following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>ssh-rsa</p>
+   *             </li>
+   *             <li>
+   *                <p>ssh-ed25519</p>
+   *             </li>
+   *             <li>
+   *                <p>ecdsa-sha2-nistp256
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>ecdsa-sha2-nistp384</p>
+   *             </li>
+   *             <li>
+   *                <p>ecdsa-sha2-nistp521</p>
+   *             </li>
+   *          </ul>
+   */
+  Type?: string;
+
+  /**
+   * <p>The date on which the host key was added to the server.</p>
+   */
+  DateImported?: Date;
+}
+
+/**
  * <p>Returns the properties of the profile that was specified.</p>
  */
 export interface ListedProfile {
@@ -3600,6 +3779,43 @@ export interface ListExecutionsResponse {
    *          </ul>
    */
   Executions: ListedExecution[] | undefined;
+}
+
+export interface ListHostKeysRequest {
+  /**
+   * <p>The maximum number of host keys to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>When there are additional results that were not returned, a <code>NextToken</code>
+   *       parameter is returned. You can use that value for a subsequent call to
+   *       <code>ListHostKeys</code> to continue listing results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Provide the ID of the server that contains the host keys that you want to view.</p>
+   */
+  ServerId: string | undefined;
+}
+
+export interface ListHostKeysResponse {
+  /**
+   * <p>Returns a token that you can use to call <code>ListHostKeys</code> again and receive
+   *       additional results, if there are any.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Returns the server ID that contains the listed host keys.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>Returns an array, where each item contains the details of a host key.</p>
+   */
+  HostKeys: ListedHostKey[] | undefined;
 }
 
 export interface ListProfilesRequest {
@@ -4211,6 +4427,35 @@ export interface UpdateConnectorResponse {
    * <p>Returns the identifier of the connector object that you are updating.</p>
    */
   ConnectorId: string | undefined;
+}
+
+export interface UpdateHostKeyRequest {
+  /**
+   * <p>Provide the ID of the server that contains the host key that you are updating.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>Provide the ID of the host key that you are updating.</p>
+   */
+  HostKeyId: string | undefined;
+
+  /**
+   * <p>Provide an updated description for the host key.</p>
+   */
+  Description: string | undefined;
+}
+
+export interface UpdateHostKeyResponse {
+  /**
+   * <p>Returns the server ID for the server that contains the updated host key.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>Returns the host key ID for the updated host key.</p>
+   */
+  HostKeyId: string | undefined;
 }
 
 export interface UpdateProfileRequest {
@@ -4857,6 +5102,13 @@ export const DeleteConnectorRequestFilterSensitiveLog = (obj: DeleteConnectorReq
 /**
  * @internal
  */
+export const DeleteHostKeyRequestFilterSensitiveLog = (obj: DeleteHostKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteProfileRequestFilterSensitiveLog = (obj: DeleteProfileRequest): any => ({
   ...obj,
 });
@@ -5042,6 +5294,13 @@ export const DescribedExecutionFilterSensitiveLog = (obj: DescribedExecution): a
 /**
  * @internal
  */
+export const DescribedHostKeyFilterSensitiveLog = (obj: DescribedHostKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribedProfileFilterSensitiveLog = (obj: DescribedProfile): any => ({
   ...obj,
 });
@@ -5092,6 +5351,20 @@ export const DescribeExecutionRequestFilterSensitiveLog = (obj: DescribeExecutio
  * @internal
  */
 export const DescribeExecutionResponseFilterSensitiveLog = (obj: DescribeExecutionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHostKeyRequestFilterSensitiveLog = (obj: DescribeHostKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHostKeyResponseFilterSensitiveLog = (obj: DescribeHostKeyResponse): any => ({
   ...obj,
 });
 
@@ -5179,6 +5452,21 @@ export const ImportCertificateRequestFilterSensitiveLog = (obj: ImportCertificat
  * @internal
  */
 export const ImportCertificateResponseFilterSensitiveLog = (obj: ImportCertificateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportHostKeyRequestFilterSensitiveLog = (obj: ImportHostKeyRequest): any => ({
+  ...obj,
+  ...(obj.HostKeyBody && { HostKeyBody: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImportHostKeyResponseFilterSensitiveLog = (obj: ImportHostKeyResponse): any => ({
   ...obj,
 });
 
@@ -5290,6 +5578,13 @@ export const ListedExecutionFilterSensitiveLog = (obj: ListedExecution): any => 
 /**
  * @internal
  */
+export const ListedHostKeyFilterSensitiveLog = (obj: ListedHostKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListedProfileFilterSensitiveLog = (obj: ListedProfile): any => ({
   ...obj,
 });
@@ -5326,6 +5621,20 @@ export const ListExecutionsRequestFilterSensitiveLog = (obj: ListExecutionsReque
  * @internal
  */
 export const ListExecutionsResponseFilterSensitiveLog = (obj: ListExecutionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHostKeysRequestFilterSensitiveLog = (obj: ListHostKeysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHostKeysResponseFilterSensitiveLog = (obj: ListHostKeysResponse): any => ({
   ...obj,
 });
 
@@ -5537,6 +5846,20 @@ export const UpdateConnectorRequestFilterSensitiveLog = (obj: UpdateConnectorReq
  * @internal
  */
 export const UpdateConnectorResponseFilterSensitiveLog = (obj: UpdateConnectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHostKeyRequestFilterSensitiveLog = (obj: UpdateHostKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHostKeyResponseFilterSensitiveLog = (obj: UpdateHostKeyResponse): any => ({
   ...obj,
 });
 
