@@ -31,6 +31,9 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * <p>Adds an integration between the service and a third-party service, which includes
  *          Amazon AppFlow and Amazon Connect.</p>
  *          <p>An integration can belong to only one domain.</p>
+ *          <p>To add or remove tags on an existing Integration, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html"> TagResource
+ *       </a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">
+ *          UntagResource</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

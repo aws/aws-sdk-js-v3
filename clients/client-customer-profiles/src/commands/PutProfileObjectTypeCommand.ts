@@ -29,6 +29,8 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
 
 /**
  * <p>Defines a ProfileObjectType.</p>
+ *          <p>To add or remove tags on an existing ObjectType, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html">
+ *          TagResource</a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

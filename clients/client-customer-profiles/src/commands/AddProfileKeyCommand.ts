@@ -28,7 +28,7 @@ export interface AddProfileKeyCommandInput extends AddProfileKeyRequest {}
 export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a new key value with a specific profile, such as a Contact Trace Record (CTR)
+ * <p>Associates a new key value with a specific profile, such as a Contact Record
  *          ContactId.</p>
  *          <p>A profile object can have a single unique key and any number of additional keys that can
  *          be used to identify the profile that it belongs to.</p>

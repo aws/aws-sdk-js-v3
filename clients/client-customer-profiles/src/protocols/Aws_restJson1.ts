@@ -2112,6 +2112,9 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
   if (data.DomainName != null) {
     contents.DomainName = __expectString(data.DomainName);
   }
+  if (data.IsUnstructured != null) {
+    contents.IsUnstructured = __expectBoolean(data.IsUnstructured);
+  }
   if (data.LastUpdatedAt != null) {
     contents.LastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedAt)));
   }
@@ -3088,6 +3091,9 @@ export const deserializeAws_restJson1PutIntegrationCommand = async (
   }
   if (data.DomainName != null) {
     contents.DomainName = __expectString(data.DomainName);
+  }
+  if (data.IsUnstructured != null) {
+    contents.IsUnstructured = __expectBoolean(data.IsUnstructured);
   }
   if (data.LastUpdatedAt != null) {
     contents.LastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedAt)));
@@ -4396,6 +4402,7 @@ const deserializeAws_restJson1ListIntegrationItem = (output: any, context: __Ser
     CreatedAt:
       output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DomainName: __expectString(output.DomainName),
+    IsUnstructured: __expectBoolean(output.IsUnstructured),
     LastUpdatedAt:
       output.LastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))

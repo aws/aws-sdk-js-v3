@@ -1758,6 +1758,12 @@ export interface GetIntegrationResponse {
    * <p>Unique identifier for the workflow.</p>
    */
   WorkflowId?: string;
+
+  /**
+   * <p>Boolean to indicate if the Flow associated with the Integration is created via Appflow
+   *          console or with ObjectTypeName equals _unstructured via API/CLI in flowDefinition</p>
+   */
+  IsUnstructured?: boolean;
 }
 
 export interface GetMatchesRequest {
@@ -2215,6 +2221,12 @@ export interface ListIntegrationItem {
    * <p>Unique identifier for the workflow.</p>
    */
   WorkflowId?: string;
+
+  /**
+   * <p>Boolean to indicate if the Flow associated with the Integration is created via Appflow
+   *          console or with ObjectTypeName equals _unstructured via API/CLI in flowDefinition</p>
+   */
+  IsUnstructured?: boolean;
 }
 
 export interface ListAccountIntegrationsResponse {
@@ -2928,6 +2940,12 @@ export interface PutIntegrationResponse {
    * <p>Unique identifier for the workflow.</p>
    */
   WorkflowId?: string;
+
+  /**
+   * <p>Boolean to indicate if the Flow associated with the Integration is created via Appflow
+   *          console or with ObjectTypeName equals _unstructured via API/CLI in flowDefinition</p>
+   */
+  IsUnstructured?: boolean;
 }
 
 export interface PutProfileObjectRequest {
