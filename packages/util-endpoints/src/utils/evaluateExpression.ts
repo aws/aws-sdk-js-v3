@@ -1,13 +1,9 @@
-import { EndpointError, EvaluateOptions, FunctionObject, ReferenceObject } from "../types";
+import { EndpointError, EvaluateOptions, Expression, FunctionObject, ReferenceObject } from "../types";
 import { callFunction } from "./callFunction";
 import { evaluateTemplate } from "./evaluateTemplate";
 import { getReferenceValue } from "./getReferenceValue";
 
-export const evaluateExpression = (
-  obj: string | FunctionObject | ReferenceObject,
-  keyName: string,
-  options: EvaluateOptions
-) => {
+export const evaluateExpression = (obj: Expression, keyName: string, options: EvaluateOptions) => {
   if (typeof obj === "string") {
     return evaluateTemplate(obj, options);
   } else if ((obj as FunctionObject)["fn"]) {
