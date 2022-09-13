@@ -4856,14 +4856,14 @@ dot-prop@^6.0.1:
   dependencies:
     is-obj "^2.0.0"
 
-downlevel-dts@0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/downlevel-dts/-/downlevel-dts-0.7.0.tgz#155c24310dad8a4820ad077e64b15a8c461aa932"
-  integrity sha512-tcjGqElN0/oad/LJBlaxmZ3zOYEQOBbGuirKzif8s1jeRiWBdNX9H6OBFlRjOQkosXgV+qSjs4osuGCivyZ4Jw==
+downlevel-dts@0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/downlevel-dts/-/downlevel-dts-0.10.1.tgz#2f0a09f0e63f43c49da78897edb1bb292c8769cf"
+  integrity sha512-bwY63Y0Gfwotcly4vU6rB66m5txvfQzDGd1Gai9E9orqsDIswXKjkdR18Tm6TidnAk9+J5N68a5VMDO2bsQCKQ==
   dependencies:
     semver "^7.3.2"
     shelljs "^0.8.3"
-    typescript "^4.1.0-dev.20201026"
+    typescript next
 
 duplexer2@~0.1.4:
   version "0.1.4"
@@ -11682,15 +11682,15 @@ typedoc@0.19.2:
     shelljs "^0.8.4"
     typedoc-default-themes "^0.11.4"
 
-typescript@^4.1.0-dev.20201026:
-  version "4.2.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.4.tgz#8610b59747de028fda898a8aef0e103f156d0961"
-  integrity sha512-V+evlYHZnQkaz8TRBuxTA92yZBPotr5H+WhQ7bD3hZUndx5tGOa1fuCgeSjxAzM1RiN5IzvadIXTVefuuwZCRg==
-
 typescript@^4.6.4:
   version "4.7.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.4.tgz#1a88596d1cf47d59507a1bcdfb5b9dfe4d488235"
   integrity sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==
+
+typescript@next:
+  version "4.9.0-dev.20220912"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.0-dev.20220912.tgz#e9516a0514137d8d015923dc96354c0cb8ad83ed"
+  integrity sha512-B1WnNBtZgqkG48/Z1v4VQWxZSjJl+iJdgafU/8mLFOZyinS5Jejz04TucADMOTufHaIc4USMcYALrAg03Twg1A==
 
 typescript@~4.6.2:
   version "4.6.2"
