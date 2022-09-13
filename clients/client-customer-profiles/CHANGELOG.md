@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.169.0...v3.170.0) (2022-09-13)
+
+
+### Features
+
+* **client-customer-profiles:** Added isUnstructured in response for Customer Profiles Integration APIs ([a6fb5eb](https://github.com/aws/aws-sdk-js-v3/commit/a6fb5eba8e6f216c5ca9d4af310eb12f0db50864))
+
+
+
+
+
 # [3.169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.168.0...v3.169.0) (2022-09-12)
 
 **Note:** Version bump only for package @aws-sdk/client-customer-profiles

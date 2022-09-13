@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/is-array-buffer",
-  "version": "3.168.0",
+  "version": "3.170.0",
   "description": "Provides a function for detecting if an argument is an ArrayBuffer",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",

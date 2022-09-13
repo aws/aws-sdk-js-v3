@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.169.0...v3.170.0) (2022-09-13)
+
+
+### Features
+
+* **client-transfer:** This release introduces the ability to have multiple server host keys for any of your Transfer Family servers that use the SFTP protocol. ([e09e302](https://github.com/aws/aws-sdk-js-v3/commit/e09e3026b7c0776a6a7da6889116b6fb1507dbdc))
+
+
+
+
+
 # [3.169.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.168.0...v3.169.0) (2022-09-12)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer
