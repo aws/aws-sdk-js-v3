@@ -8,17 +8,11 @@ import { EndpointARN } from "@aws-sdk/types";
 export const parseArn = (value: string): EndpointARN | null => {
   const segments = value.split(":");
 
-  if (segments.length < 6 || segments[0] !== "arn") return null;
+  if (segments.length < 6) return null;
 
-  const [
-    ,
-    //Skip "arn" literal
-    partition,
-    service,
-    region,
-    accountId,
-    ...resourceId
-  ] = segments;
+  const [arn, partition, service, region, accountId, ...resourceId] = segments;
+
+  if (arn !== "arn" || partition === "" || service === "" || resourceId[0] === "") return null;
 
   return {
     partition,
