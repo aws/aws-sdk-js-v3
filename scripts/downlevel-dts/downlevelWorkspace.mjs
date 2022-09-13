@@ -45,7 +45,7 @@ export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
           const formatted = prettier.format(strippedContent, { parser: "typescript" });
           await writeFile(downlevelTypesFilepath, formatted);
         } catch (error) {
-          console.log(`Failed to format "${downlevelTypesFilepath}". Skipping...`);
+          console.warn(`Failed to format "${downlevelTypesFilepath}". Skipping...`);
         }
       } catch (error) {
         console.error(`Error while stripping comments from "${downlevelTypesFilepath.replace(process.cwd(), "")}"`);
