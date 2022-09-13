@@ -6,22 +6,22 @@ export interface EndpointParameterInstruction {
     | ContextParamInstruction;
 }
 
-interface BuiltInParamInstruction {
+export interface BuiltInParamInstruction {
   type: "builtInParams";
   name: string;
 }
 
-interface ClientContextParamInstruction {
+export interface ClientContextParamInstruction {
   type: "clientContextParams";
   name: string; // The client resolved config name that has clientContextParams trait
 }
 
-interface StaticContextParamInstruction {
+export interface StaticContextParamInstruction {
   type: "staticContextParams";
   value: string | boolean;
 }
 
-interface ContextParamInstruction {
+export interface ContextParamInstruction {
   type: "contextParams";
   name: string; // The input structure's member name that has contextParams trait
 }
