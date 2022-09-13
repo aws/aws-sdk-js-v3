@@ -46,6 +46,8 @@ export enum AcceleratorManufacturer {
 
 export enum AcceleratorName {
   A100 = "a100",
+  INFERENTIA = "inferentia",
+  K520 = "k520",
   K80 = "k80",
   M60 = "m60",
   RADEON_PRO_V520 = "radeon-pro-v520",

@@ -2133,6 +2133,11 @@ import {
   ModifyLaunchTemplateCommandOutput,
 } from "./commands/ModifyLaunchTemplateCommand";
 import {
+  ModifyLocalGatewayRouteCommand,
+  ModifyLocalGatewayRouteCommandInput,
+  ModifyLocalGatewayRouteCommandOutput,
+} from "./commands/ModifyLocalGatewayRouteCommand";
+import {
   ModifyManagedPrefixListCommand,
   ModifyManagedPrefixListCommandInput,
   ModifyManagedPrefixListCommandOutput,
@@ -5382,7 +5387,20 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a static route for the specified local gateway route table.</p>
+   * <p>Creates a static route for the specified local gateway route table. You must specify one of the
+   *          following targets: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LocalGatewayVirtualInterfaceGroupId</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NetworkInterfaceId</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public createLocalGatewayRoute(
     args: CreateLocalGatewayRouteCommandInput,
@@ -18527,6 +18545,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ModifyLaunchTemplateCommandOutput) => void
   ): Promise<ModifyLaunchTemplateCommandOutput> | void {
     const command = new ModifyLaunchTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the specified local gateway route.</p>
+   */
+  public modifyLocalGatewayRoute(
+    args: ModifyLocalGatewayRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyLocalGatewayRouteCommandOutput>;
+  public modifyLocalGatewayRoute(
+    args: ModifyLocalGatewayRouteCommandInput,
+    cb: (err: any, data?: ModifyLocalGatewayRouteCommandOutput) => void
+  ): void;
+  public modifyLocalGatewayRoute(
+    args: ModifyLocalGatewayRouteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyLocalGatewayRouteCommandOutput) => void
+  ): void;
+  public modifyLocalGatewayRoute(
+    args: ModifyLocalGatewayRouteCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyLocalGatewayRouteCommandOutput) => void),
+    cb?: (err: any, data?: ModifyLocalGatewayRouteCommandOutput) => void
+  ): Promise<ModifyLocalGatewayRouteCommandOutput> | void {
+    const command = new ModifyLocalGatewayRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

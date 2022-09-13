@@ -64,6 +64,56 @@ import {
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_5";
 
 /**
+ * <p>Contains the output of PurchaseReservedInstancesOffering.</p>
+ */
+export interface PurchaseReservedInstancesOfferingResult {
+  /**
+   * <p>The IDs of the purchased Reserved Instances. If your purchase crosses into a discounted
+   *       pricing tier, the final Reserved Instances IDs might change. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html#crossing-pricing-tiers">Crossing
+   *         pricing tiers</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  ReservedInstancesId?: string;
+}
+
+/**
+ * <p>Describes a request to purchase Scheduled Instances.</p>
+ */
+export interface PurchaseRequest {
+  /**
+   * <p>The number of instances.</p>
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>The purchase token.</p>
+   */
+  PurchaseToken: string | undefined;
+}
+
+/**
+ * <p>Contains the parameters for PurchaseScheduledInstances.</p>
+ */
+export interface PurchaseScheduledInstancesRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that ensures the idempotency of the request.
+   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The purchase requests.</p>
+   */
+  PurchaseRequests: PurchaseRequest[] | undefined;
+}
+
+/**
  * <p>Contains the output of PurchaseScheduledInstances.</p>
  */
 export interface PurchaseScheduledInstancesResult {
@@ -3407,6 +3457,29 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const PurchaseReservedInstancesOfferingResultFilterSensitiveLog = (
+  obj: PurchaseReservedInstancesOfferingResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseRequestFilterSensitiveLog = (obj: PurchaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseScheduledInstancesRequestFilterSensitiveLog = (obj: PurchaseScheduledInstancesRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

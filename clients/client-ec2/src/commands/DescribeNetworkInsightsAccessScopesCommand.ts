@@ -16,8 +16,6 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeNetworkInsightsAccessScopesRequest,
   DescribeNetworkInsightsAccessScopesRequestFilterSensitiveLog,
-} from "../models/models_3";
-import {
   DescribeNetworkInsightsAccessScopesResult,
   DescribeNetworkInsightsAccessScopesResultFilterSensitiveLog,
 } from "../models/models_4";

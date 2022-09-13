@@ -16,8 +16,6 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   PurchaseScheduledInstancesRequest,
   PurchaseScheduledInstancesRequestFilterSensitiveLog,
-} from "../models/models_5";
-import {
   PurchaseScheduledInstancesResult,
   PurchaseScheduledInstancesResultFilterSensitiveLog,
 } from "../models/models_6";

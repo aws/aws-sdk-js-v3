@@ -1519,6 +1519,10 @@ import {
   ModifyLaunchTemplateCommandOutput,
 } from "./commands/ModifyLaunchTemplateCommand";
 import {
+  ModifyLocalGatewayRouteCommandInput,
+  ModifyLocalGatewayRouteCommandOutput,
+} from "./commands/ModifyLocalGatewayRouteCommand";
+import {
   ModifyManagedPrefixListCommandInput,
   ModifyManagedPrefixListCommandOutput,
 } from "./commands/ModifyManagedPrefixListCommand";
@@ -2276,6 +2280,7 @@ export type ServiceInputTypes =
   | ModifyIpamResourceCidrCommandInput
   | ModifyIpamScopeCommandInput
   | ModifyLaunchTemplateCommandInput
+  | ModifyLocalGatewayRouteCommandInput
   | ModifyManagedPrefixListCommandInput
   | ModifyNetworkInterfaceAttributeCommandInput
   | ModifyPrivateDnsNameOptionsCommandInput
@@ -2811,6 +2816,7 @@ export type ServiceOutputTypes =
   | ModifyIpamResourceCidrCommandOutput
   | ModifyIpamScopeCommandOutput
   | ModifyLaunchTemplateCommandOutput
+  | ModifyLocalGatewayRouteCommandOutput
   | ModifyManagedPrefixListCommandOutput
   | ModifyNetworkInterfaceAttributeCommandOutput
   | ModifyPrivateDnsNameOptionsCommandOutput

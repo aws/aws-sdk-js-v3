@@ -5011,7 +5011,7 @@ export interface CreateLocalGatewayRouteRequest {
   /**
    * <p>The ID of the virtual interface group.</p>
    */
-  LocalGatewayVirtualInterfaceGroupId: string | undefined;
+  LocalGatewayVirtualInterfaceGroupId?: string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5019,6 +5019,11 @@ export interface CreateLocalGatewayRouteRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
 }
 
 export type LocalGatewayRouteState = "active" | "blackhole" | "deleted" | "deleting" | "pending";
@@ -5063,6 +5068,21 @@ export interface LocalGatewayRoute {
    * <p>The ID of the Amazon Web Services account that owns the local gateway route.</p>
    */
   OwnerId?: string;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The ID of the customer-owned address pool.</p>
+   */
+  CoipPoolId?: string;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
 }
 
 export interface CreateLocalGatewayRouteResult {

@@ -28,7 +28,20 @@ export interface CreateLocalGatewayRouteCommandInput extends CreateLocalGatewayR
 export interface CreateLocalGatewayRouteCommandOutput extends CreateLocalGatewayRouteResult, __MetadataBearer {}
 
 /**
- * <p>Creates a static route for the specified local gateway route table.</p>
+ * <p>Creates a static route for the specified local gateway route table. You must specify one of the
+ *          following targets: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>LocalGatewayVirtualInterfaceGroupId</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>NetworkInterfaceId</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

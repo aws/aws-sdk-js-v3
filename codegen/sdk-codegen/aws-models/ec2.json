@@ -136,6 +136,14 @@
           {
             "value": "vu9p",
             "name": "VU9P"
+          },
+          {
+            "value": "inferentia",
+            "name": "INFERENTIA"
+          },
+          {
+            "value": "k520",
+            "name": "K520"
           }
         ]
       }
@@ -2963,6 +2971,9 @@
         },
         {
           "target": "com.amazonaws.ec2#ModifyLaunchTemplate"
+        },
+        {
+          "target": "com.amazonaws.ec2#ModifyLocalGatewayRoute"
         },
         {
           "target": "com.amazonaws.ec2#ModifyManagedPrefixList"
@@ -12120,7 +12131,7 @@
         "target": "com.amazonaws.ec2#CreateLocalGatewayRouteResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a static route for the specified local gateway route table.</p>"
+        "smithy.api#documentation": "<p>Creates a static route for the specified local gateway route table. You must specify one of the \n         following targets: </p>\n         <ul>\n            <li>\n               <p>\n                  <code>LocalGatewayVirtualInterfaceGroupId</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>NetworkInterfaceId</code>\n               </p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.ec2#CreateLocalGatewayRouteRequest": {
@@ -12143,14 +12154,19 @@
         "LocalGatewayVirtualInterfaceGroupId": {
           "target": "com.amazonaws.ec2#LocalGatewayVirtualInterfaceGroupId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the virtual interface group.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The ID of the virtual interface group.</p>"
           }
         },
         "DryRun": {
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "NetworkInterfaceId": {
+          "target": "com.amazonaws.ec2#NetworkInterfaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the network interface.</p>"
           }
         }
       }
@@ -53610,6 +53626,30 @@
             "smithy.api#documentation": "<p>The ID of the Amazon Web Services account that owns the local gateway route.</p>",
             "smithy.api#xmlName": "ownerId"
           }
+        },
+        "SubnetId": {
+          "target": "com.amazonaws.ec2#SubnetId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SubnetId",
+            "smithy.api#documentation": "<p>The ID of the subnet.</p>",
+            "smithy.api#xmlName": "subnetId"
+          }
+        },
+        "CoipPoolId": {
+          "target": "com.amazonaws.ec2#CoipPoolId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CoipPoolId",
+            "smithy.api#documentation": "<p>The ID of the customer-owned address pool.</p>",
+            "smithy.api#xmlName": "coipPoolId"
+          }
+        },
+        "NetworkInterfaceId": {
+          "target": "com.amazonaws.ec2#NetworkInterfaceId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NetworkInterfaceId",
+            "smithy.api#documentation": "<p>The ID of the network interface.</p>",
+            "smithy.api#xmlName": "networkInterfaceId"
+          }
         }
       },
       "traits": {
@@ -53710,6 +53750,14 @@
             "smithy.api#documentation": "<p>The tags assigned to the local gateway route table.</p>",
             "smithy.api#xmlName": "tagSet"
           }
+        },
+        "Mode": {
+          "target": "com.amazonaws.ec2#LocalGatewayRouteTableMode",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Mode",
+            "smithy.api#documentation": "<p>The mode of the local gateway route table.</p>",
+            "smithy.api#xmlName": "mode"
+          }
         }
       },
       "traits": {
@@ -53723,6 +53771,21 @@
         "traits": {
           "smithy.api#xmlName": "item"
         }
+      }
+    },
+    "com.amazonaws.ec2#LocalGatewayRouteTableMode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "direct-vpc-routing",
+            "name": "direct_vpc_routing"
+          },
+          {
+            "value": "coip",
+            "name": "coip"
+          }
+        ]
       }
     },
     "com.amazonaws.ec2#LocalGatewayRouteTableSet": {
@@ -56294,6 +56357,62 @@
             "aws.protocols#ec2QueryName": "LaunchTemplate",
             "smithy.api#documentation": "<p>Information about the launch template.</p>",
             "smithy.api#xmlName": "launchTemplate"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#ModifyLocalGatewayRoute": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#ModifyLocalGatewayRouteRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#ModifyLocalGatewayRouteResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Modifies the specified local gateway route.</p>"
+      }
+    },
+    "com.amazonaws.ec2#ModifyLocalGatewayRouteRequest": {
+      "type": "structure",
+      "members": {
+        "DestinationCidrBlock": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The CIDR block used for destination matches. The value that you provide must match the CIDR of an existing route in the table.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LocalGatewayRouteTableId": {
+          "target": "com.amazonaws.ec2#LocalGatewayRoutetableId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the local gateway route table.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NetworkInterfaceId": {
+          "target": "com.amazonaws.ec2#NetworkInterfaceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the network interface.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#ModifyLocalGatewayRouteResult": {
+      "type": "structure",
+      "members": {
+        "Route": {
+          "target": "com.amazonaws.ec2#LocalGatewayRoute",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Route",
+            "smithy.api#xmlName": "route"
           }
         }
       }

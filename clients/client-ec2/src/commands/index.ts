@@ -438,6 +438,7 @@ export * from "./ModifyIpamPoolCommand";
 export * from "./ModifyIpamResourceCidrCommand";
 export * from "./ModifyIpamScopeCommand";
 export * from "./ModifyLaunchTemplateCommand";
+export * from "./ModifyLocalGatewayRouteCommand";
 export * from "./ModifyManagedPrefixListCommand";
 export * from "./ModifyNetworkInterfaceAttributeCommand";
 export * from "./ModifyPrivateDnsNameOptionsCommand";

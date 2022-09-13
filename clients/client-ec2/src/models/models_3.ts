@@ -8481,6 +8481,11 @@ export interface DescribeLocalGatewayRouteTablesRequest {
   DryRun?: boolean;
 }
 
+export enum LocalGatewayRouteTableMode {
+  coip = "coip",
+  direct_vpc_routing = "direct-vpc-routing",
+}
+
 /**
  * <p>Describes a local gateway route table.</p>
  */
@@ -8519,6 +8524,11 @@ export interface LocalGatewayRouteTable {
    * <p>The tags assigned to the local gateway route table.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The mode of the local gateway route table.</p>
+   */
+  Mode?: LocalGatewayRouteTableMode | string;
 }
 
 export interface DescribeLocalGatewayRouteTablesResult {
@@ -9476,36 +9486,6 @@ export interface DescribeNetworkInsightsAccessScopeAnalysesResult {
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeNetworkInsightsAccessScopesRequest {
-  /**
-   * <p>The IDs of the Network Access Scopes.</p>
-   */
-  NetworkInsightsAccessScopeIds?: string[];
-
-  /**
-   * <p>There are no supported filters.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
 }
@@ -11277,15 +11257,6 @@ export const NetworkInsightsAccessScopeAnalysisFilterSensitiveLog = (obj: Networ
  */
 export const DescribeNetworkInsightsAccessScopeAnalysesResultFilterSensitiveLog = (
   obj: DescribeNetworkInsightsAccessScopeAnalysesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNetworkInsightsAccessScopesRequestFilterSensitiveLog = (
-  obj: DescribeNetworkInsightsAccessScopesRequest
 ): any => ({
   ...obj,
 });

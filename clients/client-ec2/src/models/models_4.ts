@@ -112,6 +112,36 @@ import {
   ProductCode,
 } from "./models_3";
 
+export interface DescribeNetworkInsightsAccessScopesRequest {
+  /**
+   * <p>The IDs of the Network Access Scopes.</p>
+   */
+  NetworkInsightsAccessScopeIds?: string[];
+
+  /**
+   * <p>There are no supported filters.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
 export interface DescribeNetworkInsightsAccessScopesResult {
   /**
    * <p>The Network Access Scopes.</p>
@@ -9494,19 +9524,13 @@ export interface ExportClientVpnClientCertificateRevocationListRequest {
 export type ClientCertificateRevocationListStatusCode = "active" | "pending";
 
 /**
- * <p>Describes the state of a client certificate revocation list.</p>
+ * @internal
  */
-export interface ClientCertificateRevocationListStatus {
-  /**
-   * <p>The state of the client certificate revocation list.</p>
-   */
-  Code?: ClientCertificateRevocationListStatusCode | string;
-
-  /**
-   * <p>A message about the status of the client certificate revocation list, if applicable.</p>
-   */
-  Message?: string;
-}
+export const DescribeNetworkInsightsAccessScopesRequestFilterSensitiveLog = (
+  obj: DescribeNetworkInsightsAccessScopesRequest
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11660,15 +11684,6 @@ export const EnableVpcClassicLinkDnsSupportResultFilterSensitiveLog = (
  */
 export const ExportClientVpnClientCertificateRevocationListRequestFilterSensitiveLog = (
   obj: ExportClientVpnClientCertificateRevocationListRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientCertificateRevocationListStatusFilterSensitiveLog = (
-  obj: ClientCertificateRevocationListStatus
 ): any => ({
   ...obj,
 });

@@ -1490,6 +1490,10 @@ import {
   ModifyLaunchTemplateCommandOutput,
 } from "../commands/ModifyLaunchTemplateCommand";
 import {
+  ModifyLocalGatewayRouteCommandInput,
+  ModifyLocalGatewayRouteCommandOutput,
+} from "../commands/ModifyLocalGatewayRouteCommand";
+import {
   ModifyManagedPrefixListCommandInput,
   ModifyManagedPrefixListCommandOutput,
 } from "../commands/ModifyManagedPrefixListCommand";
@@ -2681,7 +2685,6 @@ import {
   DescribeNetworkAclsResult,
   DescribeNetworkInsightsAccessScopeAnalysesRequest,
   DescribeNetworkInsightsAccessScopeAnalysesResult,
-  DescribeNetworkInsightsAccessScopesRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2797,8 +2800,8 @@ import {
   ClassicLinkDnsSupport,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
-  ClientCertificateRevocationListStatus,
   CreateVolumePermission,
+  DescribeNetworkInsightsAccessScopesRequest,
   DescribeNetworkInsightsAccessScopesResult,
   DescribeNetworkInsightsAnalysesRequest,
   DescribeNetworkInsightsAnalysesResult,
@@ -3079,6 +3082,7 @@ import {
   CapacityReservationGroup,
   CapacityReservationSpecification,
   CidrAuthorizationContext,
+  ClientCertificateRevocationListStatus,
   ClientData,
   CoipAddressUsage,
   CreateVolumePermissionModifications,
@@ -3251,6 +3255,8 @@ import {
   ModifyIpamScopeResult,
   ModifyLaunchTemplateRequest,
   ModifyLaunchTemplateResult,
+  ModifyLocalGatewayRouteRequest,
+  ModifyLocalGatewayRouteResult,
   ModifyManagedPrefixListRequest,
   ModifyManagedPrefixListResult,
   ModifyNetworkInterfaceAttributeRequest,
@@ -3327,10 +3333,7 @@ import {
   Purchase,
   PurchaseHostReservationRequest,
   PurchaseHostReservationResult,
-  PurchaseRequest,
   PurchaseReservedInstancesOfferingRequest,
-  PurchaseReservedInstancesOfferingResult,
-  PurchaseScheduledInstancesRequest,
   RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
   ReservationValue,
@@ -3372,6 +3375,9 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  PurchaseRequest,
+  PurchaseReservedInstancesOfferingResult,
+  PurchaseScheduledInstancesRequest,
   PurchaseScheduledInstancesResult,
   RebootInstancesRequest,
   RegisterImageRequest,
@@ -10512,6 +10518,22 @@ export const serializeAws_ec2ModifyLaunchTemplateCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2ModifyLaunchTemplateRequest(input, context),
     Action: "ModifyLaunchTemplate",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyLocalGatewayRouteCommand = async (
+  input: ModifyLocalGatewayRouteCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyLocalGatewayRouteRequest(input, context),
+    Action: "ModifyLocalGatewayRoute",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -27269,6 +27291,41 @@ const deserializeAws_ec2ModifyLaunchTemplateCommandError = async (
   });
 };
 
+export const deserializeAws_ec2ModifyLocalGatewayRouteCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyLocalGatewayRouteCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyLocalGatewayRouteCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyLocalGatewayRouteResult(data, context);
+  const response: ModifyLocalGatewayRouteCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyLocalGatewayRouteCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyLocalGatewayRouteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2ModifyManagedPrefixListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -33248,6 +33305,9 @@ const serializeAws_ec2CreateLocalGatewayRouteRequest = (
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.NetworkInterfaceId != null) {
+    entries["NetworkInterfaceId"] = input.NetworkInterfaceId;
   }
   return entries;
 };
@@ -45542,6 +45602,26 @@ const serializeAws_ec2ModifyLaunchTemplateRequest = (
   }
   if (input.DefaultVersion != null) {
     entries["SetDefaultVersion"] = input.DefaultVersion;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyLocalGatewayRouteRequest = (
+  input: ModifyLocalGatewayRouteRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DestinationCidrBlock != null) {
+    entries["DestinationCidrBlock"] = input.DestinationCidrBlock;
+  }
+  if (input.LocalGatewayRouteTableId != null) {
+    entries["LocalGatewayRouteTableId"] = input.LocalGatewayRouteTableId;
+  }
+  if (input.NetworkInterfaceId != null) {
+    entries["NetworkInterfaceId"] = input.NetworkInterfaceId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -68459,6 +68539,9 @@ const deserializeAws_ec2LocalGatewayRoute = (output: any, context: __SerdeContex
     LocalGatewayRouteTableId: undefined,
     LocalGatewayRouteTableArn: undefined,
     OwnerId: undefined,
+    SubnetId: undefined,
+    CoipPoolId: undefined,
+    NetworkInterfaceId: undefined,
   };
   if (output["destinationCidrBlock"] !== undefined) {
     contents.DestinationCidrBlock = __expectString(output["destinationCidrBlock"]);
@@ -68481,6 +68564,15 @@ const deserializeAws_ec2LocalGatewayRoute = (output: any, context: __SerdeContex
   if (output["ownerId"] !== undefined) {
     contents.OwnerId = __expectString(output["ownerId"]);
   }
+  if (output["subnetId"] !== undefined) {
+    contents.SubnetId = __expectString(output["subnetId"]);
+  }
+  if (output["coipPoolId"] !== undefined) {
+    contents.CoipPoolId = __expectString(output["coipPoolId"]);
+  }
+  if (output["networkInterfaceId"] !== undefined) {
+    contents.NetworkInterfaceId = __expectString(output["networkInterfaceId"]);
+  }
   return contents;
 };
 
@@ -68501,6 +68593,7 @@ const deserializeAws_ec2LocalGatewayRouteTable = (output: any, context: __SerdeC
     OwnerId: undefined,
     State: undefined,
     Tags: undefined,
+    Mode: undefined,
   };
   if (output["localGatewayRouteTableId"] !== undefined) {
     contents.LocalGatewayRouteTableId = __expectString(output["localGatewayRouteTableId"]);
@@ -68524,6 +68617,9 @@ const deserializeAws_ec2LocalGatewayRouteTable = (output: any, context: __SerdeC
     contents.Tags = [];
   } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["mode"] !== undefined) {
+    contents.Mode = __expectString(output["mode"]);
   }
   return contents;
 };
@@ -69190,6 +69286,19 @@ const deserializeAws_ec2ModifyLaunchTemplateResult = (
   };
   if (output["launchTemplate"] !== undefined) {
     contents.LaunchTemplate = deserializeAws_ec2LaunchTemplate(output["launchTemplate"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifyLocalGatewayRouteResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyLocalGatewayRouteResult => {
+  const contents: any = {
+    Route: undefined,
+  };
+  if (output["route"] !== undefined) {
+    contents.Route = deserializeAws_ec2LocalGatewayRoute(output["route"], context);
   }
   return contents;
 };

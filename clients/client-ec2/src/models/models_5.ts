@@ -51,6 +51,7 @@ import {
   IpamResourceTag,
   IpamScope,
   LaunchTemplate,
+  LocalGatewayRoute,
   ManagedPrefixList,
   NetworkInsightsAccessScopeContent,
   Placement,
@@ -117,7 +118,7 @@ import {
   VirtualizationType,
 } from "./models_3";
 import {
-  ClientCertificateRevocationListStatus,
+  ClientCertificateRevocationListStatusCode,
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
   LaunchTemplateConfig,
@@ -127,6 +128,21 @@ import {
   TransitGatewayPropagationState,
   VolumeModification,
 } from "./models_4";
+
+/**
+ * <p>Describes the state of a client certificate revocation list.</p>
+ */
+export interface ClientCertificateRevocationListStatus {
+  /**
+   * <p>The state of the client certificate revocation list.</p>
+   */
+  Code?: ClientCertificateRevocationListStatusCode | string;
+
+  /**
+   * <p>A message about the status of the client certificate revocation list, if applicable.</p>
+   */
+  Message?: string;
+}
 
 export interface ExportClientVpnClientCertificateRevocationListResult {
   /**
@@ -5090,6 +5106,37 @@ export interface ModifyLaunchTemplateResult {
   LaunchTemplate?: LaunchTemplate;
 }
 
+export interface ModifyLocalGatewayRouteRequest {
+  /**
+   * <p>The CIDR block used for destination matches. The value that you provide must match the CIDR of an existing route in the table.</p>
+   */
+  DestinationCidrBlock: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface ModifyLocalGatewayRouteResult {
+  /**
+   * <p>Describes a route for a local gateway route table.</p>
+   */
+  Route?: LocalGatewayRoute;
+}
+
 /**
  * <p>An entry for a prefix list.</p>
  */
@@ -7167,54 +7214,13 @@ export interface PurchaseReservedInstancesOfferingRequest {
 }
 
 /**
- * <p>Contains the output of PurchaseReservedInstancesOffering.</p>
+ * @internal
  */
-export interface PurchaseReservedInstancesOfferingResult {
-  /**
-   * <p>The IDs of the purchased Reserved Instances. If your purchase crosses into a discounted
-   *       pricing tier, the final Reserved Instances IDs might change. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html#crossing-pricing-tiers">Crossing
-   *         pricing tiers</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  ReservedInstancesId?: string;
-}
-
-/**
- * <p>Describes a request to purchase Scheduled Instances.</p>
- */
-export interface PurchaseRequest {
-  /**
-   * <p>The number of instances.</p>
-   */
-  InstanceCount: number | undefined;
-
-  /**
-   * <p>The purchase token.</p>
-   */
-  PurchaseToken: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for PurchaseScheduledInstances.</p>
- */
-export interface PurchaseScheduledInstancesRequest {
-  /**
-   * <p>Unique, case-sensitive identifier that ensures the idempotency of the request.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The purchase requests.</p>
-   */
-  PurchaseRequests: PurchaseRequest[] | undefined;
-}
+export const ClientCertificateRevocationListStatusFilterSensitiveLog = (
+  obj: ClientCertificateRevocationListStatus
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -8751,6 +8757,20 @@ export const ModifyLaunchTemplateResultFilterSensitiveLog = (obj: ModifyLaunchTe
 /**
  * @internal
  */
+export const ModifyLocalGatewayRouteRequestFilterSensitiveLog = (obj: ModifyLocalGatewayRouteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyLocalGatewayRouteResultFilterSensitiveLog = (obj: ModifyLocalGatewayRouteResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const RemovePrefixListEntryFilterSensitiveLog = (obj: RemovePrefixListEntry): any => ({
   ...obj,
 });
@@ -9365,28 +9385,5 @@ export const ReservedInstanceLimitPriceFilterSensitiveLog = (obj: ReservedInstan
 export const PurchaseReservedInstancesOfferingRequestFilterSensitiveLog = (
   obj: PurchaseReservedInstancesOfferingRequest
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseReservedInstancesOfferingResultFilterSensitiveLog = (
-  obj: PurchaseReservedInstancesOfferingResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseRequestFilterSensitiveLog = (obj: PurchaseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseScheduledInstancesRequestFilterSensitiveLog = (obj: PurchaseScheduledInstancesRequest): any => ({
   ...obj,
 });
