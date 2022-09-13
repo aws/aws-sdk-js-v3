@@ -13,6 +13,13 @@ describe(evaluateTemplate.name, () => {
     jest.clearAllMocks();
   });
 
+  it("should escape tilde while processing expression", () => {
+    const template = "foo `bar` baz";
+    // This test verifies that tilde is unescaped after processing.
+    expect(evaluateTemplate(template, mockOptions)).toBe(template);
+    expect(getAttr).not.toHaveBeenCalled();
+  });
+
   describe("should replace `{parameterName}` with value", () => {
     const parameterName = "bar";
     const template = "foo {parameterName} baz";

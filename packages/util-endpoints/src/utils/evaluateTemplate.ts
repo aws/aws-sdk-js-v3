@@ -32,6 +32,7 @@ export const evaluateTemplate = (template: string, options: EvaluateOptions) => 
 
   const templateContextNames = Object.keys(templateContext);
   const templateContextValues = Object.values(templateContext);
+  const templateWithTildeEscaped = templateWithAttr.replace(/\`/g, "\\`");
 
-  return new Function(...templateContextNames, `return \`${templateWithAttr}\``)(...templateContextValues);
+  return new Function(...templateContextNames, `return \`${templateWithTildeEscaped}\``)(...templateContextValues);
 };
