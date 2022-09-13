@@ -73,12 +73,14 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
 
         ServiceShape service = settings.getService(model);
         if (isEndpointsV2Service(service)) {
-            new ArrayList<String>() {{
-                add("ClientInputEndpointParameters");
-                add("ClientResolvedEndpointParameters");
-                add("resolveClientEndpointParameters");
-                add("EndpointParameters");
-            }}.forEach(name -> writer.addImport(
+            new ArrayList<String>() {
+                {
+                    add("ClientInputEndpointParameters");
+                    add("ClientResolvedEndpointParameters");
+                    add("resolveClientEndpointParameters");
+                    add("EndpointParameters");
+                }
+            }.forEach(name -> writer.addImport(
                 name,
                 null,
                 Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/EndpointParameters").toString()
