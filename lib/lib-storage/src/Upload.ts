@@ -124,9 +124,10 @@ export class Upload extends EventEmitter {
       this.client.send(new PutObjectCommand(params)),
       this.client.config?.endpoint?.(),
     ]);
+
     if (!endpoint) {
       // TODO(endpointsv2): handle endpoint v2
-      throw new Error();
+      throw new Error('Could not resolve endpoint from S3 "client.config.endpoint()".');
     }
 
     if (eventEmitter !== null) {

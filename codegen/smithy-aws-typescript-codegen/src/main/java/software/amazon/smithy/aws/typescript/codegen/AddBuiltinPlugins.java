@@ -47,86 +47,89 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
         // Note that order is significant because configurations might
         // rely on previously resolved values.
         return ListUtils.of(
-                RuntimeClientPlugin.builder()
-                        .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Region", HAS_CONFIG)
-                        .servicePredicate((m, s) -> isAwsService(s) || isSigV4Service(s))
-                        .build(),
-                // Only one of Endpoints or CustomEndpoints should be used
-                RuntimeClientPlugin.builder()
-                        .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Endpoints", HAS_CONFIG)
-                        .servicePredicate((m, s) -> isAwsService(s) && !isEndpointsV2Service(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "CustomEndpoints", HAS_CONFIG)
-                        .servicePredicate((m, s) -> !isAwsService(s) && !isEndpointsV2Service(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(TypeScriptDependency.MIDDLEWARE_ENDPOINTS_V2.dependency, "Endpoint", HAS_CONFIG)
-                        .servicePredicate((m, s) -> isAwsService(s) && isEndpointsV2Service(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "Retry")
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(TypeScriptDependency.MIDDLEWARE_CONTENT_LENGTH.dependency, "ContentLength",
-                                         HAS_MIDDLEWARE)
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.ACCEPT_HEADER.dependency, "AcceptHeader",
-                                         HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "API Gateway"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.GLACIER_MIDDLEWARE.dependency,
-                                         "Glacier", HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "Glacier"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.EC2_MIDDLEWARE.dependency,
-                                         "CopySnapshotPresignedUrl", HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("CopySnapshot")
-                                            && testServiceId(s, "EC2"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MACHINELEARNING_MIDDLEWARE.dependency, "PredictEndpoint",
-                                HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("Predict")
-                                            && testServiceId(s, "Machine Learning"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency,
-                                         "ChangeResourceRecordSets", HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ChangeResourceRecordSets")
-                                            && testServiceId(s, "Route 53"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency, "IdNormalizer",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> testInputContainsMember(m, o, ROUTE_53_ID_MEMBERS)
-                                            && testServiceId(s, "Route 53"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_HOST_HEADER.dependency, "HostHeader")
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_LOGGER.dependency, "Logger", HAS_MIDDLEWARE)
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.RECURSION_DETECTION_MIDDLEWARE.dependency,
-                                "RecursionDetection", HAS_MIDDLEWARE)
-                        .build()
+            RuntimeClientPlugin.builder()
+                .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Region", HAS_CONFIG)
+                .servicePredicate((m, s) -> isAwsService(s) || isSigV4Service(s))
+                .build(),
+            // Only one of Endpoints or CustomEndpoints should be used
+            RuntimeClientPlugin.builder()
+                .withConventions(
+                    TypeScriptDependency.CONFIG_RESOLVER.dependency, "Endpoints", HAS_CONFIG)
+                .servicePredicate((m, s) -> isAwsService(s) && !isEndpointsV2Service(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(
+                    TypeScriptDependency.CONFIG_RESOLVER.dependency, "CustomEndpoints", HAS_CONFIG)
+                .servicePredicate((m, s) -> !isAwsService(s) && !isEndpointsV2Service(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(
+                    TypeScriptDependency.MIDDLEWARE_ENDPOINTS_V2.dependency, "Endpoint", HAS_CONFIG)
+                .servicePredicate((m, s) -> isAwsService(s) && isEndpointsV2Service(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "Retry")
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(TypeScriptDependency.MIDDLEWARE_CONTENT_LENGTH.dependency, "ContentLength",
+                    HAS_MIDDLEWARE)
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.ACCEPT_HEADER.dependency, "AcceptHeader",
+                    HAS_MIDDLEWARE)
+                .servicePredicate((m, s) -> testServiceId(s, "API Gateway"))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.GLACIER_MIDDLEWARE.dependency,
+                    "Glacier", HAS_MIDDLEWARE)
+                .servicePredicate((m, s) -> testServiceId(s, "Glacier"))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.EC2_MIDDLEWARE.dependency,
+                    "CopySnapshotPresignedUrl", HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("CopySnapshot")
+                    && testServiceId(s, "EC2"))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.MACHINELEARNING_MIDDLEWARE.dependency, "PredictEndpoint",
+                    HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("Predict")
+                    && testServiceId(s, "Machine Learning"))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency,
+                    "ChangeResourceRecordSets", HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ChangeResourceRecordSets")
+                    && testServiceId(s, "Route 53"))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency, "IdNormalizer",
+                    HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> testInputContainsMember(m, o, ROUTE_53_ID_MEMBERS)
+                    && testServiceId(s, "Route 53"))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.MIDDLEWARE_HOST_HEADER.dependency, "HostHeader")
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.MIDDLEWARE_LOGGER.dependency, "Logger", HAS_MIDDLEWARE)
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.RECURSION_DETECTION_MIDDLEWARE.dependency,
+                    "RecursionDetection", HAS_MIDDLEWARE)
+                .build()
         );
     }
 
     private static boolean testInputContainsMember(
-            Model model,
-            OperationShape operationShape,
-            Set<String> expectedMemberNames
+        Model model,
+        OperationShape operationShape,
+        Set<String> expectedMemberNames
     ) {
         OperationIndex operationIndex = OperationIndex.of(model);
         return operationIndex.getInput(operationShape)
-                .filter(input -> input.getMemberNames().stream().anyMatch(expectedMemberNames::contains))
-                .isPresent();
+            .filter(input -> input.getMemberNames().stream().anyMatch(expectedMemberNames::contains))
+            .isPresent();
     }
 
     private static boolean testServiceId(Shape serviceShape, String expectedId) {

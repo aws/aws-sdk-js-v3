@@ -24,8 +24,6 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-
-import com.sun.tools.javac.util.List;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
@@ -80,17 +78,17 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
                 add("ClientResolvedEndpointParameters");
                 add("resolveClientEndpointParameters");
                 add("EndpointParameters");
-            }}.forEach(name -> {
-                writer.addImport(
-                    name,
-                    null,
-                    Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/EndpointParameters").toString()
-                );
-            });
+            }}.forEach(name -> writer.addImport(
+                name,
+                null,
+                Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/EndpointParameters").toString()
+            ));
 
             writer.addImport("EndpointV2", "__EndpointV2", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         } else {
-            writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+            writer.addImport(
+                "RegionInfoProvider", null, TypeScriptDependency.AWS_SDK_TYPES.packageName
+            );
             writer.writeDocs("Fetch related hostname, signing name or signing region with given region.\n"
                 + "@internal");
             writer.write("regionInfoProvider?: RegionInfoProvider;\n");
