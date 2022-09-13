@@ -5,6 +5,7 @@ export interface EndpointParameterInstruction {
     | StaticContextParamInstruction
     | ContextParamInstruction;
 }
+
 interface BuiltInParamInstruction {
   type: "builtInParams";
   name: string;
