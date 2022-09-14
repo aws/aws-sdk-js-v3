@@ -52,7 +52,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.0.2",
     "@commitlint/config-conventional": "17.0.2",
-    "@cucumber/cucumber": "8.0.0",
+    "@cucumber/cucumber": "8.5.3",
     "@mixer/parallel-prettier": "2.0.3",
     "@tsconfig/recommended": "1.0.1",
     "@types/chai-as-promised": "^7.1.2",
