@@ -18,7 +18,7 @@ import {
   DescribeNetworkAclsRequestFilterSensitiveLog,
   DescribeNetworkAclsResult,
   DescribeNetworkAclsResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeNetworkAclsCommand,
   serializeAws_ec2DescribeNetworkAclsCommand,

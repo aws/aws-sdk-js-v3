@@ -18,7 +18,7 @@ import {
   DescribeBundleTasksRequestFilterSensitiveLog,
   DescribeBundleTasksResult,
   DescribeBundleTasksResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeBundleTasksCommand,
   serializeAws_ec2DescribeBundleTasksCommand,

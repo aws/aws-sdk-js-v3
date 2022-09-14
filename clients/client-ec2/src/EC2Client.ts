@@ -226,6 +226,8 @@ import {
   CreateClientVpnRouteCommandInput,
   CreateClientVpnRouteCommandOutput,
 } from "./commands/CreateClientVpnRouteCommand";
+import { CreateCoipCidrCommandInput, CreateCoipCidrCommandOutput } from "./commands/CreateCoipCidrCommand";
+import { CreateCoipPoolCommandInput, CreateCoipPoolCommandOutput } from "./commands/CreateCoipPoolCommand";
 import {
   CreateCustomerGatewayCommandInput,
   CreateCustomerGatewayCommandOutput,
@@ -272,6 +274,14 @@ import {
   CreateLocalGatewayRouteCommandInput,
   CreateLocalGatewayRouteCommandOutput,
 } from "./commands/CreateLocalGatewayRouteCommand";
+import {
+  CreateLocalGatewayRouteTableCommandInput,
+  CreateLocalGatewayRouteTableCommandOutput,
+} from "./commands/CreateLocalGatewayRouteTableCommand";
+import {
+  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput,
+} from "./commands/CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand";
 import {
   CreateLocalGatewayRouteTableVpcAssociationCommandInput,
   CreateLocalGatewayRouteTableVpcAssociationCommandOutput,
@@ -440,6 +450,8 @@ import {
   DeleteClientVpnRouteCommandInput,
   DeleteClientVpnRouteCommandOutput,
 } from "./commands/DeleteClientVpnRouteCommand";
+import { DeleteCoipCidrCommandInput, DeleteCoipCidrCommandOutput } from "./commands/DeleteCoipCidrCommand";
+import { DeleteCoipPoolCommandInput, DeleteCoipPoolCommandOutput } from "./commands/DeleteCoipPoolCommand";
 import {
   DeleteCustomerGatewayCommandInput,
   DeleteCustomerGatewayCommandOutput,
@@ -476,6 +488,14 @@ import {
   DeleteLocalGatewayRouteCommandInput,
   DeleteLocalGatewayRouteCommandOutput,
 } from "./commands/DeleteLocalGatewayRouteCommand";
+import {
+  DeleteLocalGatewayRouteTableCommandInput,
+  DeleteLocalGatewayRouteTableCommandOutput,
+} from "./commands/DeleteLocalGatewayRouteTableCommand";
+import {
+  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput,
+} from "./commands/DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand";
 import {
   DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
   DeleteLocalGatewayRouteTableVpcAssociationCommandOutput,
@@ -1894,6 +1914,8 @@ export type ServiceInputTypes =
   | CreateCarrierGatewayCommandInput
   | CreateClientVpnEndpointCommandInput
   | CreateClientVpnRouteCommandInput
+  | CreateCoipCidrCommandInput
+  | CreateCoipPoolCommandInput
   | CreateCustomerGatewayCommandInput
   | CreateDefaultSubnetCommandInput
   | CreateDefaultVpcCommandInput
@@ -1913,6 +1935,8 @@ export type ServiceInputTypes =
   | CreateLaunchTemplateCommandInput
   | CreateLaunchTemplateVersionCommandInput
   | CreateLocalGatewayRouteCommandInput
+  | CreateLocalGatewayRouteTableCommandInput
+  | CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput
   | CreateLocalGatewayRouteTableVpcAssociationCommandInput
   | CreateManagedPrefixListCommandInput
   | CreateNatGatewayCommandInput
@@ -1964,6 +1988,8 @@ export type ServiceInputTypes =
   | DeleteCarrierGatewayCommandInput
   | DeleteClientVpnEndpointCommandInput
   | DeleteClientVpnRouteCommandInput
+  | DeleteCoipCidrCommandInput
+  | DeleteCoipPoolCommandInput
   | DeleteCustomerGatewayCommandInput
   | DeleteDhcpOptionsCommandInput
   | DeleteEgressOnlyInternetGatewayCommandInput
@@ -1979,6 +2005,8 @@ export type ServiceInputTypes =
   | DeleteLaunchTemplateCommandInput
   | DeleteLaunchTemplateVersionsCommandInput
   | DeleteLocalGatewayRouteCommandInput
+  | DeleteLocalGatewayRouteTableCommandInput
+  | DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput
   | DeleteLocalGatewayRouteTableVpcAssociationCommandInput
   | DeleteManagedPrefixListCommandInput
   | DeleteNatGatewayCommandInput
@@ -2430,6 +2458,8 @@ export type ServiceOutputTypes =
   | CreateCarrierGatewayCommandOutput
   | CreateClientVpnEndpointCommandOutput
   | CreateClientVpnRouteCommandOutput
+  | CreateCoipCidrCommandOutput
+  | CreateCoipPoolCommandOutput
   | CreateCustomerGatewayCommandOutput
   | CreateDefaultSubnetCommandOutput
   | CreateDefaultVpcCommandOutput
@@ -2449,6 +2479,8 @@ export type ServiceOutputTypes =
   | CreateLaunchTemplateCommandOutput
   | CreateLaunchTemplateVersionCommandOutput
   | CreateLocalGatewayRouteCommandOutput
+  | CreateLocalGatewayRouteTableCommandOutput
+  | CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput
   | CreateLocalGatewayRouteTableVpcAssociationCommandOutput
   | CreateManagedPrefixListCommandOutput
   | CreateNatGatewayCommandOutput
@@ -2500,6 +2532,8 @@ export type ServiceOutputTypes =
   | DeleteCarrierGatewayCommandOutput
   | DeleteClientVpnEndpointCommandOutput
   | DeleteClientVpnRouteCommandOutput
+  | DeleteCoipCidrCommandOutput
+  | DeleteCoipPoolCommandOutput
   | DeleteCustomerGatewayCommandOutput
   | DeleteDhcpOptionsCommandOutput
   | DeleteEgressOnlyInternetGatewayCommandOutput
@@ -2515,6 +2549,8 @@ export type ServiceOutputTypes =
   | DeleteLaunchTemplateCommandOutput
   | DeleteLaunchTemplateVersionsCommandOutput
   | DeleteLocalGatewayRouteCommandOutput
+  | DeleteLocalGatewayRouteTableCommandOutput
+  | DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput
   | DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
   | DeleteManagedPrefixListCommandOutput
   | DeleteNatGatewayCommandOutput

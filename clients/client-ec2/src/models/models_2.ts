@@ -6,18 +6,14 @@ import {
   AddressAttribute,
   AddressAttributeName,
   ApplianceModeSupportValue,
-  BundleTask,
   ByoipCidr,
-  CapacityReservation,
-  CapacityReservationFleetState,
   CarrierGateway,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
+  CoipCidr,
+  CoipPool,
   DnsSupportValue,
   DynamicRoutingValue,
-  FleetCapacityReservation,
-  FleetCapacityReservationTenancy,
-  FleetInstanceMatchCriteria,
   GatewayType,
   InstanceEventWindowState,
   Ipv6SupportValue,
@@ -35,22 +31,327 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 import {
-  AutoAcceptSharedAttachmentsValue,
-  DefaultRouteTableAssociationValue,
-  DefaultRouteTablePropagationValue,
-  GroupIdentifier,
   Ipam,
   IpamPool,
   IpamScope,
   LaunchTemplate,
   LocalGatewayRoute,
+  LocalGatewayRouteTable,
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  MulticastSupportValue,
   SubnetCidrReservation,
   VolumeType,
-  VpnEcmpSupportValue,
 } from "./models_1";
+
+export interface CreateTrafficMirrorSessionRequest {
+  /**
+   * <p>The ID of the source network interface.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>The ID of the Traffic Mirror target.</p>
+   */
+  TrafficMirrorTargetId: string | undefined;
+
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   */
+  TrafficMirrorFilterId: string | undefined;
+
+  /**
+   * <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do
+   *          not specify this parameter when you want to mirror the entire packet. To mirror a subset of
+   *          the packet, set this to the length (in bytes) that you want to mirror. For example, if you
+   *          set this value to 100, then the first 100 bytes that meet the filter criteria are copied to
+   *          the target.</p>
+   *          <p>If you do not want to mirror the entire packet, use the <code>PacketLength</code> parameter to specify the number of bytes in each packet to mirror.</p>
+   */
+  PacketLength?: number;
+
+  /**
+   * <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p>
+   *          <p>Valid values are 1-32766.</p>
+   */
+  SessionNumber: number | undefined;
+
+  /**
+   * <p>The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN
+   *          protocol, see <a href="https://tools.ietf.org/html/rfc7348">RFC 7348</a>. If you do
+   *          not specify a <code>VirtualNetworkId</code>, an account-wide unique id is chosen at
+   *          random.</p>
+   */
+  VirtualNetworkId?: number;
+
+  /**
+   * <p>The description of the Traffic Mirror session.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags to assign to a Traffic Mirror session.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * <p>Describes a Traffic Mirror session.</p>
+ */
+export interface TrafficMirrorSession {
+  /**
+   * <p>The ID for the Traffic Mirror session.</p>
+   */
+  TrafficMirrorSessionId?: string;
+
+  /**
+   * <p>The ID of the Traffic Mirror target.</p>
+   */
+  TrafficMirrorTargetId?: string;
+
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   */
+  TrafficMirrorFilterId?: string;
+
+  /**
+   * <p>The ID of the Traffic Mirror session's network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The ID of the account that owns the Traffic Mirror session.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The number of bytes in each packet to mirror. These are the bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet</p>
+   */
+  PacketLength?: number;
+
+  /**
+   * <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p>
+   *          <p>Valid values are 1-32766.</p>
+   */
+  SessionNumber?: number;
+
+  /**
+   * <p>The virtual network ID associated with the Traffic Mirror session.</p>
+   */
+  VirtualNetworkId?: number;
+
+  /**
+   * <p>The description of the Traffic Mirror session.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags assigned to the Traffic Mirror session.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateTrafficMirrorSessionResult {
+  /**
+   * <p>Information about the Traffic Mirror session.</p>
+   */
+  TrafficMirrorSession?: TrafficMirrorSession;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+export interface CreateTrafficMirrorTargetRequest {
+  /**
+   * <p>The network interface ID that is associated with the target.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.</p>
+   */
+  NetworkLoadBalancerArn?: string;
+
+  /**
+   * <p>The description of the Traffic Mirror target.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags to assign to the Traffic Mirror target.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The ID of the Gateway Load Balancer endpoint.</p>
+   */
+  GatewayLoadBalancerEndpointId?: string;
+}
+
+export type TrafficMirrorTargetType = "gateway-load-balancer-endpoint" | "network-interface" | "network-load-balancer";
+
+/**
+ * <p>Describes a Traffic Mirror target.</p>
+ */
+export interface TrafficMirrorTarget {
+  /**
+   * <p>The ID of the Traffic Mirror target.</p>
+   */
+  TrafficMirrorTargetId?: string;
+
+  /**
+   * <p>The network interface ID that is attached to the target.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Network Load Balancer.</p>
+   */
+  NetworkLoadBalancerArn?: string;
+
+  /**
+   * <p>The type of Traffic Mirror target.</p>
+   */
+  Type?: TrafficMirrorTargetType | string;
+
+  /**
+   * <p>Information about the Traffic Mirror target.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the account that owns the Traffic Mirror target.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The tags assigned to the Traffic Mirror target.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ID of the Gateway Load Balancer endpoint.</p>
+   */
+  GatewayLoadBalancerEndpointId?: string;
+}
+
+export interface CreateTrafficMirrorTargetResult {
+  /**
+   * <p>Information about the Traffic Mirror target.</p>
+   */
+  TrafficMirrorTarget?: TrafficMirrorTarget;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+export type AutoAcceptSharedAttachmentsValue = "disable" | "enable";
+
+export type DefaultRouteTableAssociationValue = "disable" | "enable";
+
+export type DefaultRouteTablePropagationValue = "disable" | "enable";
+
+export type MulticastSupportValue = "disable" | "enable";
+
+export type VpnEcmpSupportValue = "disable" | "enable";
+
+/**
+ * <p>Describes the options for a transit gateway.</p>
+ */
+export interface TransitGatewayRequestOptions {
+  /**
+   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+   *          The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs. The default is <code>64512</code>.</p>
+   */
+  AmazonSideAsn?: number;
+
+  /**
+   * <p>Enable or disable automatic acceptance of attachment requests. Disabled by default.</p>
+   */
+  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | string;
+
+  /**
+   * <p>Enable or disable automatic association with the default association route table. Enabled by default.</p>
+   */
+  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | string;
+
+  /**
+   * <p>Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.</p>
+   */
+  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | string;
+
+  /**
+   * <p>Enable or disable Equal Cost Multipath Protocol support. Enabled by default.</p>
+   */
+  VpnEcmpSupport?: VpnEcmpSupportValue | string;
+
+  /**
+   * <p>Enable or disable DNS support. Enabled by default.</p>
+   */
+  DnsSupport?: DnsSupportValue | string;
+
+  /**
+   * <p>Indicates whether multicast is enabled on the transit gateway</p>
+   */
+  MulticastSupport?: MulticastSupportValue | string;
+
+  /**
+   * <p>One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>
+   */
+  TransitGatewayCidrBlocks?: string[];
+}
+
+export interface CreateTransitGatewayRequest {
+  /**
+   * <p>A description of the transit gateway.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The transit gateway options.</p>
+   */
+  Options?: TransitGatewayRequestOptions;
+
+  /**
+   * <p>The tags to apply to the transit gateway.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 /**
  * <p>Describes the options for a transit gateway.</p>
@@ -3151,6 +3452,57 @@ export interface DeleteClientVpnRouteResult {
   Status?: ClientVpnRouteStatus;
 }
 
+export interface DeleteCoipCidrRequest {
+  /**
+   * <p> A customer-owned IP address range that you want to delete. </p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>
+   *         The ID of the customer-owned address pool.
+   *       </p>
+   */
+  CoipPoolId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteCoipCidrResult {
+  /**
+   * <p>
+   *        Information about a range of customer-owned IP addresses.
+   *       </p>
+   */
+  CoipCidr?: CoipCidr;
+}
+
+export interface DeleteCoipPoolRequest {
+  /**
+   * <p>The ID of the CoIP pool that you want to delete. </p>
+   */
+  CoipPoolId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteCoipPoolResult {
+  /**
+   * <p>Describes a customer-owned address pool.</p>
+   */
+  CoipPool?: CoipPool;
+}
+
 /**
  * <p>Contains the parameters for DeleteCustomerGateway.</p>
  */
@@ -3677,6 +4029,52 @@ export interface DeleteLocalGatewayRouteResult {
    * <p>Information about the route.</p>
    */
   Route?: LocalGatewayRoute;
+}
+
+export interface DeleteLocalGatewayRouteTableRequest {
+  /**
+   * <p>
+   *       The ID of the local gateway route table.
+   *       </p>
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteLocalGatewayRouteTableResult {
+  /**
+   * <p>Describes a local gateway route table.</p>
+   */
+  LocalGatewayRouteTable?: LocalGatewayRouteTable;
+}
+
+export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {
+  /**
+   * <p>
+   *          The ID of the local gateway route table virtual interface group association.
+   *       </p>
+   */
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociationId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult {
+  /**
+   * <p>Describes an association between a local gateway route table and a virtual interface group.</p>
+   */
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation;
 }
 
 export interface DeleteLocalGatewayRouteTableVpcAssociationRequest {
@@ -5145,841 +5543,60 @@ export interface DescribeAggregateIdFormatRequest {
 }
 
 /**
- * <p>Describes the ID format for a resource.</p>
+ * @internal
  */
-export interface IdFormat {
-  /**
-   * <p>The date in UTC at which you are permanently switched over to using longer IDs. If a deadline is not yet available for this resource type, this field is not returned.</p>
-   */
-  Deadline?: Date;
-
-  /**
-   * <p>The type of resource.</p>
-   */
-  Resource?: string;
-
-  /**
-   * <p>Indicates whether longer IDs (17-character IDs) are enabled for the resource.</p>
-   */
-  UseLongIds?: boolean;
-}
-
-export interface DescribeAggregateIdFormatResult {
-  /**
-   * <p>Indicates whether all resource types in the Region are configured to use longer IDs.
-   *             This value is only <code>true</code> if all users are configured to use longer IDs for
-   *             all resources types in the Region.</p>
-   */
-  UseLongIdsAggregated?: boolean;
-
-  /**
-   * <p>Information about each resource's ID format.</p>
-   */
-  Statuses?: IdFormat[];
-}
-
-export interface DescribeAvailabilityZonesRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>group-name</code> - For Availability Zones, use the Region name. For Local
-   *           Zones, use the name of the group associated with the Local Zone (for example,
-   *             <code>us-west-2-lax-1</code>) For Wavelength Zones, use the name of the group associated
-   *           with the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>message</code> - The Zone message.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>opt-in-status</code> - The opt-in status (<code>opted-in</code>, and
-   *             <code>not-opted-in</code> | <code>opt-in-not-required</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>parent-zoneID</code> - The ID of the zone that handles some of the Local Zone
-   *           and Wavelength Zone control plane operations, such as API calls.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>parent-zoneName</code> - The ID of the zone that handles some of the Local Zone
-   *           and Wavelength Zone control plane operations, such as API calls.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>region-name</code> - The name of the Region for the Zone (for example,
-   *             <code>us-east-1</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the Availability Zone, the Local Zone, or the
-   *           Wavelength Zone (<code>available</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zone-id</code> - The ID of the Availability Zone (for example,
-   *             <code>use1-az1</code>), the Local Zone (for example, <code>usw2-lax1-az1</code>), or the
-   *           Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zone-name</code> - The name of the Availability Zone (for example,
-   *             <code>us-east-1a</code>), the Local Zone (for example, <code>us-west-2-lax-1a</code>), or
-   *           the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The names of the Availability Zones, Local Zones, and Wavelength Zones.</p>
-   */
-  ZoneNames?: string[];
-
-  /**
-   * <p>The IDs of the Availability Zones, Local Zones, and Wavelength Zones.</p>
-   */
-  ZoneIds?: string[];
-
-  /**
-   * <p>Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your
-   *       opt-in status.</p>
-   *          <p>If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.</p>
-   */
-  AllAvailabilityZones?: boolean;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+export const CreateTrafficMirrorSessionRequestFilterSensitiveLog = (obj: CreateTrafficMirrorSessionRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a message about an Availability Zone, Local Zone, or Wavelength Zone.</p>
+ * @internal
  */
-export interface AvailabilityZoneMessage {
-  /**
-   * <p>The message about the Availability Zone, Local Zone, or Wavelength Zone.</p>
-   */
-  Message?: string;
-}
-
-export type AvailabilityZoneOptInStatus = "not-opted-in" | "opt-in-not-required" | "opted-in";
-
-export type AvailabilityZoneState = "available" | "impaired" | "information" | "unavailable";
+export const TrafficMirrorSessionFilterSensitiveLog = (obj: TrafficMirrorSession): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes Availability Zones, Local Zones, and Wavelength Zones.</p>
+ * @internal
  */
-export interface AvailabilityZone {
-  /**
-   * <p>The state of the Availability Zone, Local Zone, or Wavelength Zone. This value is always
-   *         <code>available</code>.</p>
-   */
-  State?: AvailabilityZoneState | string;
-
-  /**
-   * <p>For Availability Zones, this parameter always has the value of
-   *         <code>opt-in-not-required</code>.</p>
-   *          <p>For Local Zones and Wavelength Zones, this parameter is the opt-in status. The possible
-   *       values are <code>opted-in</code>, and <code>not-opted-in</code>.</p>
-   */
-  OptInStatus?: AvailabilityZoneOptInStatus | string;
-
-  /**
-   * <p>Any messages about the Availability Zone, Local Zone, or Wavelength Zone.</p>
-   */
-  Messages?: AvailabilityZoneMessage[];
-
-  /**
-   * <p>The name of the Region.</p>
-   */
-  RegionName?: string;
-
-  /**
-   * <p>The name of the Availability Zone, Local Zone, or Wavelength Zone.</p>
-   */
-  ZoneName?: string;
-
-  /**
-   * <p>The ID of the Availability Zone, Local Zone, or Wavelength Zone.</p>
-   */
-  ZoneId?: string;
-
-  /**
-   * <p> For Availability Zones, this parameter has the same value as the Region name.</p>
-   *          <p>For Local Zones, the name of the associated group, for example
-   *         <code>us-west-2-lax-1</code>.</p>
-   *          <p>For Wavelength Zones, the name of the associated group, for example
-   *         <code>us-east-1-wl1-bos-wlz-1</code>.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The name of the network border group.</p>
-   */
-  NetworkBorderGroup?: string;
-
-  /**
-   * <p>The type of zone. The valid values are <code>availability-zone</code>,
-   *         <code>local-zone</code>, and <code>wavelength-zone</code>.</p>
-   */
-  ZoneType?: string;
-
-  /**
-   * <p>The name of the zone that handles some of the Local Zone or Wavelength Zone control plane
-   *       operations, such as API calls.</p>
-   */
-  ParentZoneName?: string;
-
-  /**
-   * <p>The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane
-   *       operations, such as API calls.</p>
-   */
-  ParentZoneId?: string;
-}
-
-export interface DescribeAvailabilityZonesResult {
-  /**
-   * <p>Information about the Availability Zones, Local Zones, and Wavelength Zones.</p>
-   */
-  AvailabilityZones?: AvailabilityZone[];
-}
-
-export interface DescribeBundleTasksRequest {
-  /**
-   * <p>The bundle task IDs.</p>
-   *          <p>Default: Describes all your bundle tasks.</p>
-   */
-  BundleIds?: string[];
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>bundle-id</code> - The ID of the bundle task.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>error-code</code> - If the task failed, the error code returned.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>error-message</code> - If the task failed, the error message returned.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>progress</code> - The level of task completion, as a percentage (for example, 20%).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>s3-bucket</code> - The Amazon S3 bucket to store the AMI.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>s3-prefix</code> - The beginning of the AMI name.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>start-time</code> - The time the task started (for example, 2013-09-15T17:15:20.000Z).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the task (<code>pending</code> | <code>waiting-for-shutdown</code> | <code>bundling</code> |
-   *            <code>storing</code> | <code>cancelling</code> | <code>complete</code> | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>update-time</code> - The time of the most recent update for the task.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DescribeBundleTasksResult {
-  /**
-   * <p>Information about the bundle tasks.</p>
-   */
-  BundleTasks?: BundleTask[];
-}
-
-export interface DescribeByoipCidrsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeByoipCidrsResult {
-  /**
-   * <p>Information about your address ranges.</p>
-   */
-  ByoipCidrs?: ByoipCidr[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeCapacityReservationFleetsRequest {
-  /**
-   * <p>The IDs of the Capacity Reservation Fleets to describe.</p>
-   */
-  CapacityReservationFleetIds?: string[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>One or more filters.</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>
-   *                   <code>state</code> - The state of the Fleet (<code>submitted</code> | <code>modifying</code> | <code>active</code> |
-   * 					<code>partially_fulfilled</code> | <code>expiring</code> | <code>expired</code> | <code>cancelling</code> |
-   * 					<code>cancelled</code> | <code>failed</code>).</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>instance-match-criteria</code> - The instance matching criteria for the Fleet. Only <code>open</code> is supported.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>tenancy</code> - The tenancy of the Fleet (<code>default</code> | <code>dedicated</code>).</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>allocation-strategy</code> - The allocation strategy used by the Fleet. Only <code>prioritized</code> is supported.</p>
-   * 			         </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+export const CreateTrafficMirrorSessionResultFilterSensitiveLog = (obj: CreateTrafficMirrorSessionResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Information about a Capacity Reservation Fleet.</p>
+ * @internal
  */
-export interface CapacityReservationFleet {
-  /**
-   * <p>The ID of the Capacity Reservation Fleet.</p>
-   */
-  CapacityReservationFleetId?: string;
-
-  /**
-   * <p>The ARN of the Capacity Reservation Fleet.</p>
-   */
-  CapacityReservationFleetArn?: string;
-
-  /**
-   * <p>The state of the Capacity Reservation Fleet. Possible states include:</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>
-   *                   <code>submitted</code> - The Capacity Reservation Fleet request has been submitted
-   * 					and Amazon Elastic Compute Cloud is preparing to create the Capacity Reservations.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>modifying</code> - The Capacity Reservation Fleet is being modified. The Fleet
-   * 					remains in this state until the modification is complete.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>active</code> - The Capacity Reservation Fleet has fulfilled its total target
-   * 					capacity and it is attempting to maintain this capacity. The Fleet remains in this
-   * 					state until it is modified or deleted.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>partially_fulfilled</code> - The Capacity Reservation Fleet has partially
-   * 					fulfilled its total target capacity. There is insufficient Amazon EC2 to
-   * 					fulfill the total target capacity. The Fleet is attempting to asynchronously fulfill
-   * 					its total target capacity.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>expiring</code> - The Capacity Reservation Fleet has reach its end date and it
-   * 					is in the process of expiring. One or more of its Capacity reservations might still
-   * 					be active.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>expired</code> - The Capacity Reservation Fleet has reach its end date. The Fleet
-   * 					and its Capacity Reservations are expired. The Fleet can't create new Capacity
-   * 					Reservations.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>cancelling</code> - The Capacity Reservation Fleet is in the process of being
-   * 					cancelled. One or more of its Capacity reservations might still be active.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>cancelled</code> - The Capacity Reservation Fleet has been manually cancelled.
-   * 					The Fleet and its Capacity Reservations are cancelled and the Fleet can't create new
-   * 					Capacity Reservations.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>failed</code> - The Capacity Reservation Fleet failed to reserve capacity for
-   * 					the specified instance types.</p>
-   * 			         </li>
-   *          </ul>
-   */
-  State?: CapacityReservationFleetState | string;
-
-  /**
-   * <p>The total number of capacity units for which the Capacity Reservation Fleet reserves capacity.
-   * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target capacity</a>
-   * 			in the Amazon EC2 User Guide.</p>
-   */
-  TotalTargetCapacity?: number;
-
-  /**
-   * <p>The capacity units that have been fulfilled.</p>
-   */
-  TotalFulfilledCapacity?: number;
-
-  /**
-   * <p>The tenancy of the Capacity Reservation Fleet. Tenancies include:</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>
-   *                   <code>default</code> - The Capacity Reservation Fleet is created on hardware that is
-   * 					shared with other Amazon Web Services accounts.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>dedicated</code> - The Capacity Reservation Fleet is created on single-tenant
-   * 					hardware that is dedicated to a single Amazon Web Services account.</p>
-   * 			         </li>
-   *          </ul>
-   */
-  Tenancy?: FleetCapacityReservationTenancy | string;
-
-  /**
-   * <p>The date and time at which the Capacity Reservation Fleet expires.</p>
-   */
-  EndDate?: Date;
-
-  /**
-   * <p>The date and time at which the Capacity Reservation Fleet was created.</p>
-   */
-  CreateTime?: Date;
-
-  /**
-   * <p>Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All
-   * 			Capacity Reservations in the Fleet inherit this instance matching criteria.</p>
-   * 		       <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching criteria
-   * 			only. This means that instances that have matching attributes (instance type, platform, and
-   * 			Availability Zone) run in the Capacity Reservations automatically. Instances do not need to
-   * 			explicitly target a Capacity Reservation Fleet to use its reserved capacity.</p>
-   */
-  InstanceMatchCriteria?: FleetInstanceMatchCriteria | string;
-
-  /**
-   * <p>The strategy used by the Capacity Reservation Fleet to determine which of the specified
-   * 			instance types to use. For more information, see For more information, see
-   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy">
-   * 				Allocation strategy</a> in the Amazon EC2 User Guide.</p>
-   */
-  AllocationStrategy?: string;
-
-  /**
-   * <p>Information about the instance types for which to reserve the capacity.</p>
-   */
-  InstanceTypeSpecifications?: FleetCapacityReservation[];
-
-  /**
-   * <p>The tags assigned to the Capacity Reservation Fleet.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface DescribeCapacityReservationFleetsResult {
-  /**
-   * <p>Information about the Capacity Reservation Fleets.</p>
-   */
-  CapacityReservationFleets?: CapacityReservationFleet[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeCapacityReservationsRequest {
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   */
-  CapacityReservationIds?: string[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>One or more filters.</p>
-   * 	  	     <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The type of instance for which the Capacity Reservation reserves capacity.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the Capacity Reservation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-platform</code> - The type of operating system for which the Capacity Reservation reserves capacity.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the Capacity Reservation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tenancy</code> - Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the
-   * 	  			following tenancy settings:</p>
-   * 	  			         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>
-   *                   </li>
-   *                </ul>
-   * 	  			      </li>
-   *             <li>
-   *                <p>
-   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost on which the Capacity Reservation was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>
-   * 	  		          <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>active</code>- The Capacity Reservation is active and the capacity is available for your use.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>expired</code> - The Capacity Reservation expired automatically at the date and time specified in your request.
-   * 	  				The reserved capacity is no longer available for your use.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>cancelled</code> - The Capacity Reservation was cancelled. The reserved capacity is no longer available for your use.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>pending</code> - The Capacity Reservation request was successful but the capacity provisioning is still pending.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>failed</code> - The Capacity Reservation request has failed. A request might fail due to invalid request parameters,
-   * 	  				capacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.</p>
-   * 	  		             </li>
-   *                </ul>
-   * 	  		       </li>
-   *             <li>
-   *                <p>
-   *                   <code>start-date</code> - The date and time at which the Capacity Reservation was started.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>end-date</code> - The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is
-   * 	  			released and you can no longer launch instances into it. The Capacity Reservation's state changes to expired when it reaches its end date and time.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>end-date-type</code> - Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:</p>
-   * 	  		          <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>limited</code> - The Capacity Reservation expires automatically at a specified date and time.</p>
-   *                   </li>
-   *                </ul>
-   * 	  		       </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-match-criteria</code> - Indicates the type of instance launches that the Capacity Reservation accepts. The options include:</p>
-   * 	  			         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>open</code> - The Capacity Reservation accepts all instances that have matching
-   * 							attributes (instance type, platform, and Availability Zone). Instances
-   * 							that have matching attributes launch into the Capacity Reservation
-   * 							automatically without specifying any additional parameters.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>targeted</code> - The Capacity Reservation only accepts instances that have matching
-   * 							attributes (instance type, platform, and Availability Zone), and
-   * 							explicitly target the Capacity Reservation. This ensures that only
-   * 							permitted instances can use the reserved capacity.</p>
-   *                   </li>
-   *                </ul>
-   * 	  		       </li>
-   *             <li>
-   * 	  			         <p>
-   *                   <code>placement-group-arn</code> - The ARN of the cluster placement group in which the Capacity Reservation was created.</p>
-   * 	  		       </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DescribeCapacityReservationsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the Capacity Reservations.</p>
-   */
-  CapacityReservations?: CapacityReservation[];
-}
-
-export interface DescribeCarrierGatewaysRequest {
-  /**
-   * <p>One or more carrier gateway IDs.</p>
-   */
-  CarrierGatewayIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>carrier-gateway-id</code> - The ID of the carrier gateway.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>state</code> - The state of the carrier gateway (<code>pending</code> |
-   *                     <code>failed</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner of the carrier gateway.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>vpc-id</code> - The ID of the VPC associated with the carrier gateway.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DescribeCarrierGatewaysResult {
-  /**
-   * <p>Information about the carrier gateway.</p>
-   */
-  CarrierGateways?: CarrierGateway[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeClassicLinkInstancesRequest {
-  /**
-   * <p>One or more filters.</p>
-   * 		       <ul>
-   *             <li>
-   *                       <p>
-   *                   <code>group-id</code> - The ID of a VPC security group that's associated with the instance.</p>
-   *                   </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>instance-id</code> - The ID of the instance.</p>
-   * 			         </li>
-   *             <li>
-   * 			            <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   * 			         </li>
-   *             <li>
-   *
-   * 				           <p>
-   * 					             <code>vpc-id</code> - The ID of the VPC to which the instance is
-   * 					linked.</p>
-   *
-   * 				           <p>
-   *                   <code>vpc-id</code> - The ID of the VPC that the instance is linked to.</p>
-   *
-   * 			         </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more instance IDs. Must be instances linked to a VPC through ClassicLink.</p>
-   */
-  InstanceIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * 		       <p>Constraint: If the value is greater than 1000, we return only 1000 items.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
+export const CreateTrafficMirrorTargetRequestFilterSensitiveLog = (obj: CreateTrafficMirrorTargetRequest): any => ({
+  ...obj,
+});
 
 /**
- * <note>
- * 	           <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- * 	        </note>
- * 		       <p>Describes a linked EC2-Classic instance.</p>
+ * @internal
  */
-export interface ClassicLinkInstance {
-  /**
-   * <p>A list of security groups.</p>
-   */
-  Groups?: GroupIdentifier[];
+export const TrafficMirrorTargetFilterSensitiveLog = (obj: TrafficMirrorTarget): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
+/**
+ * @internal
+ */
+export const CreateTrafficMirrorTargetResultFilterSensitiveLog = (obj: CreateTrafficMirrorTargetResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Any tags assigned to the instance.</p>
-   */
-  Tags?: Tag[];
+/**
+ * @internal
+ */
+export const TransitGatewayRequestOptionsFilterSensitiveLog = (obj: TransitGatewayRequestOptions): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-}
-
-export interface DescribeClassicLinkInstancesResult {
-  /**
-   * <p>Information about one or more linked EC2-Classic instances.</p>
-   */
-  Instances?: ClassicLinkInstance[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const CreateTransitGatewayRequestFilterSensitiveLog = (obj: CreateTransitGatewayRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -6765,6 +6382,34 @@ export const DeleteClientVpnRouteResultFilterSensitiveLog = (obj: DeleteClientVp
 /**
  * @internal
  */
+export const DeleteCoipCidrRequestFilterSensitiveLog = (obj: DeleteCoipCidrRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCoipCidrResultFilterSensitiveLog = (obj: DeleteCoipCidrResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCoipPoolRequestFilterSensitiveLog = (obj: DeleteCoipPoolRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCoipPoolResultFilterSensitiveLog = (obj: DeleteCoipPoolResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteCustomerGatewayRequestFilterSensitiveLog = (obj: DeleteCustomerGatewayRequest): any => ({
   ...obj,
 });
@@ -7000,6 +6645,40 @@ export const DeleteLocalGatewayRouteRequestFilterSensitiveLog = (obj: DeleteLoca
  * @internal
  */
 export const DeleteLocalGatewayRouteResultFilterSensitiveLog = (obj: DeleteLocalGatewayRouteResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLocalGatewayRouteTableRequestFilterSensitiveLog = (
+  obj: DeleteLocalGatewayRouteTableRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLocalGatewayRouteTableResultFilterSensitiveLog = (obj: DeleteLocalGatewayRouteTableResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestFilterSensitiveLog = (
+  obj: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultFilterSensitiveLog = (
+  obj: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
+): any => ({
   ...obj,
 });
 
@@ -7834,153 +7513,5 @@ export const DescribeAddressesAttributeResultFilterSensitiveLog = (obj: Describe
  * @internal
  */
 export const DescribeAggregateIdFormatRequestFilterSensitiveLog = (obj: DescribeAggregateIdFormatRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdFormatFilterSensitiveLog = (obj: IdFormat): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAggregateIdFormatResultFilterSensitiveLog = (obj: DescribeAggregateIdFormatResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAvailabilityZonesRequestFilterSensitiveLog = (obj: DescribeAvailabilityZonesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvailabilityZoneMessageFilterSensitiveLog = (obj: AvailabilityZoneMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAvailabilityZonesResultFilterSensitiveLog = (obj: DescribeAvailabilityZonesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBundleTasksRequestFilterSensitiveLog = (obj: DescribeBundleTasksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBundleTasksResultFilterSensitiveLog = (obj: DescribeBundleTasksResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeByoipCidrsRequestFilterSensitiveLog = (obj: DescribeByoipCidrsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeByoipCidrsResultFilterSensitiveLog = (obj: DescribeByoipCidrsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCapacityReservationFleetsRequestFilterSensitiveLog = (
-  obj: DescribeCapacityReservationFleetsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityReservationFleetFilterSensitiveLog = (obj: CapacityReservationFleet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCapacityReservationFleetsResultFilterSensitiveLog = (
-  obj: DescribeCapacityReservationFleetsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCapacityReservationsRequestFilterSensitiveLog = (
-  obj: DescribeCapacityReservationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCapacityReservationsResultFilterSensitiveLog = (obj: DescribeCapacityReservationsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCarrierGatewaysRequestFilterSensitiveLog = (obj: DescribeCarrierGatewaysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCarrierGatewaysResultFilterSensitiveLog = (obj: DescribeCarrierGatewaysResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClassicLinkInstancesRequestFilterSensitiveLog = (
-  obj: DescribeClassicLinkInstancesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClassicLinkInstanceFilterSensitiveLog = (obj: ClassicLinkInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClassicLinkInstancesResultFilterSensitiveLog = (obj: DescribeClassicLinkInstancesResult): any => ({
   ...obj,
 });

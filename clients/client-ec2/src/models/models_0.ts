@@ -1595,6 +1595,7 @@ export type ResourceType =
   | "capacity-reservation-fleet"
   | "carrier-gateway"
   | "client-vpn-endpoint"
+  | "coip-pool"
   | "customer-gateway"
   | "dedicated-host"
   | "dhcp-options"
@@ -6378,6 +6379,126 @@ export interface CreateClientVpnRouteResult {
   Status?: ClientVpnRouteStatus;
 }
 
+export interface CreateCoipCidrRequest {
+  /**
+   * <p>
+   *       A customer-owned IP address range to create.
+   *       </p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>
+   *          The ID of the address pool.
+   *       </p>
+   */
+  CoipPoolId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>
+ *       Information about a customer-owned IP address range.
+ *       </p>
+ */
+export interface CoipCidr {
+  /**
+   * <p>
+   *       An address range in a customer-owned IP address space.
+   *       </p>
+   */
+  Cidr?: string;
+
+  /**
+   * <p>
+   *          The ID of the address pool.
+   *       </p>
+   */
+  CoipPoolId?: string;
+
+  /**
+   * <p>
+   *       The ID of the local gateway route table.
+   *       </p>
+   */
+  LocalGatewayRouteTableId?: string;
+}
+
+export interface CreateCoipCidrResult {
+  /**
+   * <p>
+   *          Information about a range of customer-owned IP addresses.
+   *       </p>
+   */
+  CoipCidr?: CoipCidr;
+}
+
+export interface CreateCoipPoolRequest {
+  /**
+   * <p>
+   *       The ID of the local gateway route table.
+   *       </p>
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>
+   *       The tags to assign to the CoIP address pool.
+   *       </p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Describes a customer-owned address pool.</p>
+ */
+export interface CoipPool {
+  /**
+   * <p>The ID of the address pool.</p>
+   */
+  PoolId?: string;
+
+  /**
+   * <p>The address ranges of the address pool.</p>
+   */
+  PoolCidrs?: string[];
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   */
+  LocalGatewayRouteTableId?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ARN of the address pool.</p>
+   */
+  PoolArn?: string;
+}
+
+export interface CreateCoipPoolResult {
+  /**
+   * <p>Describes a customer-owned address pool.</p>
+   */
+  CoipPool?: CoipPool;
+}
+
 export type GatewayType = "ipsec.1";
 
 /**
@@ -6828,95 +6949,6 @@ export interface DhcpOptions {
    * <p>Any tags assigned to the DHCP options set.</p>
    */
   Tags?: Tag[];
-}
-
-export interface CreateDhcpOptionsResult {
-  /**
-   * <p>A set of DHCP options.</p>
-   */
-  DhcpOptions?: DhcpOptions;
-}
-
-export interface CreateEgressOnlyInternetGatewayRequest {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
-   * 				idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the VPC for which to create the egress-only internet gateway.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>The tags to assign to the egress-only internet gateway.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-/**
- * <p>Describes the attachment of a VPC to an internet gateway or an egress-only internet
- * 			gateway.</p>
- */
-export interface InternetGatewayAttachment {
-  /**
-   * <p>The current state of the attachment. For an internet gateway, the state is
-   * 				<code>available</code> when attached to a VPC; otherwise, this value is not
-   * 			returned.</p>
-   */
-  State?: AttachmentStatus | string;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-}
-
-/**
- * <p>Describes an egress-only internet gateway.</p>
- */
-export interface EgressOnlyInternetGateway {
-  /**
-   * <p>Information about the attachment of the egress-only internet gateway.</p>
-   */
-  Attachments?: InternetGatewayAttachment[];
-
-  /**
-   * <p>The ID of the egress-only internet gateway.</p>
-   */
-  EgressOnlyInternetGatewayId?: string;
-
-  /**
-   * <p>The tags assigned to the egress-only internet gateway.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateEgressOnlyInternetGatewayResult {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * 			request.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Information about the egress-only internet gateway.</p>
-   */
-  EgressOnlyInternetGateway?: EgressOnlyInternetGateway;
-}
-
-export enum FleetExcessCapacityTerminationPolicy {
-  NO_TERMINATION = "no-termination",
-  TERMINATION = "termination",
 }
 
 /**
@@ -8490,6 +8522,48 @@ export const CreateClientVpnRouteResultFilterSensitiveLog = (obj: CreateClientVp
 /**
  * @internal
  */
+export const CreateCoipCidrRequestFilterSensitiveLog = (obj: CreateCoipCidrRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoipCidrFilterSensitiveLog = (obj: CoipCidr): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCoipCidrResultFilterSensitiveLog = (obj: CreateCoipCidrResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCoipPoolRequestFilterSensitiveLog = (obj: CreateCoipPoolRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoipPoolFilterSensitiveLog = (obj: CoipPool): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCoipPoolResultFilterSensitiveLog = (obj: CreateCoipPoolResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateCustomerGatewayRequestFilterSensitiveLog = (obj: CreateCustomerGatewayRequest): any => ({
   ...obj,
 });
@@ -8589,44 +8663,5 @@ export const DhcpConfigurationFilterSensitiveLog = (obj: DhcpConfiguration): any
  * @internal
  */
 export const DhcpOptionsFilterSensitiveLog = (obj: DhcpOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDhcpOptionsResultFilterSensitiveLog = (obj: CreateDhcpOptionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEgressOnlyInternetGatewayRequestFilterSensitiveLog = (
-  obj: CreateEgressOnlyInternetGatewayRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InternetGatewayAttachmentFilterSensitiveLog = (obj: InternetGatewayAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EgressOnlyInternetGatewayFilterSensitiveLog = (obj: EgressOnlyInternetGateway): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEgressOnlyInternetGatewayResultFilterSensitiveLog = (
-  obj: CreateEgressOnlyInternetGatewayResult
-): any => ({
   ...obj,
 });

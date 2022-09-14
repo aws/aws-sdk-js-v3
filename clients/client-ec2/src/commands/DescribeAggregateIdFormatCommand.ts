@@ -16,9 +16,8 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeAggregateIdFormatRequest,
   DescribeAggregateIdFormatRequestFilterSensitiveLog,
-  DescribeAggregateIdFormatResult,
-  DescribeAggregateIdFormatResultFilterSensitiveLog,
 } from "../models/models_2";
+import { DescribeAggregateIdFormatResult, DescribeAggregateIdFormatResultFilterSensitiveLog } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeAggregateIdFormatCommand,
   serializeAws_ec2DescribeAggregateIdFormatCommand,

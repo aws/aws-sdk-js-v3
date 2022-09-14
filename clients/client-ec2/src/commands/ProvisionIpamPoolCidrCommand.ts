@@ -18,7 +18,7 @@ import {
   ProvisionIpamPoolCidrRequestFilterSensitiveLog,
   ProvisionIpamPoolCidrResult,
   ProvisionIpamPoolCidrResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ProvisionIpamPoolCidrCommand,
   serializeAws_ec2ProvisionIpamPoolCidrCommand,

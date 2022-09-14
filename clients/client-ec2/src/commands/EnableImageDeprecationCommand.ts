@@ -18,7 +18,7 @@ import {
   EnableImageDeprecationRequestFilterSensitiveLog,
   EnableImageDeprecationResult,
   EnableImageDeprecationResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2EnableImageDeprecationCommand,
   serializeAws_ec2EnableImageDeprecationCommand,

@@ -14,47 +14,49 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
-  DescribeCapacityReservationFleetsRequest,
-  DescribeCapacityReservationFleetsRequestFilterSensitiveLog,
-  DescribeCapacityReservationFleetsResult,
-  DescribeCapacityReservationFleetsResultFilterSensitiveLog,
-} from "../models/models_3";
+  CreateLocalGatewayRouteTableRequest,
+  CreateLocalGatewayRouteTableRequestFilterSensitiveLog,
+  CreateLocalGatewayRouteTableResult,
+  CreateLocalGatewayRouteTableResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
-  deserializeAws_ec2DescribeCapacityReservationFleetsCommand,
-  serializeAws_ec2DescribeCapacityReservationFleetsCommand,
+  deserializeAws_ec2CreateLocalGatewayRouteTableCommand,
+  serializeAws_ec2CreateLocalGatewayRouteTableCommand,
 } from "../protocols/Aws_ec2";
 
-export interface DescribeCapacityReservationFleetsCommandInput extends DescribeCapacityReservationFleetsRequest {}
-export interface DescribeCapacityReservationFleetsCommandOutput
-  extends DescribeCapacityReservationFleetsResult,
+export interface CreateLocalGatewayRouteTableCommandInput extends CreateLocalGatewayRouteTableRequest {}
+export interface CreateLocalGatewayRouteTableCommandOutput
+  extends CreateLocalGatewayRouteTableResult,
     __MetadataBearer {}
 
 /**
- * <p>Describes one or more Capacity Reservation Fleets.</p>
+ * <p>
+ *       Creates a local gateway route table.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeCapacityReservationFleetsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeCapacityReservationFleetsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, CreateLocalGatewayRouteTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateLocalGatewayRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const command = new DescribeCapacityReservationFleetsCommand(input);
+ * const command = new CreateLocalGatewayRouteTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeCapacityReservationFleetsCommandInput} for command's `input` shape.
- * @see {@link DescribeCapacityReservationFleetsCommandOutput} for command's `response` shape.
+ * @see {@link CreateLocalGatewayRouteTableCommandInput} for command's `input` shape.
+ * @see {@link CreateLocalGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
-export class DescribeCapacityReservationFleetsCommand extends $Command<
-  DescribeCapacityReservationFleetsCommandInput,
-  DescribeCapacityReservationFleetsCommandOutput,
+export class CreateLocalGatewayRouteTableCommand extends $Command<
+  CreateLocalGatewayRouteTableCommandInput,
+  CreateLocalGatewayRouteTableCommandOutput,
   EC2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeCapacityReservationFleetsCommandInput) {
+  constructor(readonly input: CreateLocalGatewayRouteTableCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -67,20 +69,20 @@ export class DescribeCapacityReservationFleetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeCapacityReservationFleetsCommandInput, DescribeCapacityReservationFleetsCommandOutput> {
+  ): Handler<CreateLocalGatewayRouteTableCommandInput, CreateLocalGatewayRouteTableCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EC2Client";
-    const commandName = "DescribeCapacityReservationFleetsCommand";
+    const commandName = "CreateLocalGatewayRouteTableCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCapacityReservationFleetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCapacityReservationFleetsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: CreateLocalGatewayRouteTableRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLocalGatewayRouteTableResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,18 +92,15 @@ export class DescribeCapacityReservationFleetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeCapacityReservationFleetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeCapacityReservationFleetsCommand(input, context);
+  private serialize(input: CreateLocalGatewayRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_ec2CreateLocalGatewayRouteTableCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeCapacityReservationFleetsCommandOutput> {
-    return deserializeAws_ec2DescribeCapacityReservationFleetsCommand(output, context);
+  ): Promise<CreateLocalGatewayRouteTableCommandOutput> {
+    return deserializeAws_ec2CreateLocalGatewayRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

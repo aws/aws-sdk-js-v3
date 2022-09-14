@@ -18,7 +18,7 @@ import {
   DescribeCarrierGatewaysRequestFilterSensitiveLog,
   DescribeCarrierGatewaysResult,
   DescribeCarrierGatewaysResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeCarrierGatewaysCommand,
   serializeAws_ec2DescribeCarrierGatewaysCommand,

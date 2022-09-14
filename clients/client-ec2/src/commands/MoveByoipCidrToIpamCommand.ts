@@ -18,7 +18,7 @@ import {
   MoveByoipCidrToIpamRequestFilterSensitiveLog,
   MoveByoipCidrToIpamResult,
   MoveByoipCidrToIpamResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2MoveByoipCidrToIpamCommand,
   serializeAws_ec2MoveByoipCidrToIpamCommand,

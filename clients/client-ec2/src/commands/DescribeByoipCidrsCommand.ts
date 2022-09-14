@@ -18,7 +18,7 @@ import {
   DescribeByoipCidrsRequestFilterSensitiveLog,
   DescribeByoipCidrsResult,
   DescribeByoipCidrsResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeByoipCidrsCommand,
   serializeAws_ec2DescribeByoipCidrsCommand,

@@ -18,7 +18,7 @@ import {
   DescribeNetworkInsightsAccessScopeAnalysesRequestFilterSensitiveLog,
   DescribeNetworkInsightsAccessScopeAnalysesResult,
   DescribeNetworkInsightsAccessScopeAnalysesResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesCommand,
   serializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesCommand,

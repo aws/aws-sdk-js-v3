@@ -18,7 +18,7 @@ import {
   MoveAddressToVpcRequestFilterSensitiveLog,
   MoveAddressToVpcResult,
   MoveAddressToVpcResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2MoveAddressToVpcCommand,
   serializeAws_ec2MoveAddressToVpcCommand,

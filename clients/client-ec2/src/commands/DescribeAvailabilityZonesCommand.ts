@@ -18,7 +18,7 @@ import {
   DescribeAvailabilityZonesRequestFilterSensitiveLog,
   DescribeAvailabilityZonesResult,
   DescribeAvailabilityZonesResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeAvailabilityZonesCommand,
   serializeAws_ec2DescribeAvailabilityZonesCommand,

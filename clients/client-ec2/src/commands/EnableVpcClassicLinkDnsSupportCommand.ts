@@ -18,7 +18,7 @@ import {
   EnableVpcClassicLinkDnsSupportRequestFilterSensitiveLog,
   EnableVpcClassicLinkDnsSupportResult,
   EnableVpcClassicLinkDnsSupportResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommand,
   serializeAws_ec2EnableVpcClassicLinkDnsSupportCommand,

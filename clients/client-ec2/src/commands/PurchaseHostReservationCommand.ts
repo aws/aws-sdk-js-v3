@@ -18,7 +18,7 @@ import {
   PurchaseHostReservationRequestFilterSensitiveLog,
   PurchaseHostReservationResult,
   PurchaseHostReservationResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2PurchaseHostReservationCommand,
   serializeAws_ec2PurchaseHostReservationCommand,

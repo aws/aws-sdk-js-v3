@@ -18,7 +18,7 @@ import {
   DescribeNatGatewaysRequestFilterSensitiveLog,
   DescribeNatGatewaysResult,
   DescribeNatGatewaysResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeNatGatewaysCommand,
   serializeAws_ec2DescribeNatGatewaysCommand,

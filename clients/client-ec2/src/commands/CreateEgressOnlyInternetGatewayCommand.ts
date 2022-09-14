@@ -18,7 +18,7 @@ import {
   CreateEgressOnlyInternetGatewayRequestFilterSensitiveLog,
   CreateEgressOnlyInternetGatewayResult,
   CreateEgressOnlyInternetGatewayResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_ec2CreateEgressOnlyInternetGatewayCommand,
   serializeAws_ec2CreateEgressOnlyInternetGatewayCommand,

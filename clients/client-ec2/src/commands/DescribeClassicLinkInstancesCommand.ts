@@ -18,7 +18,7 @@ import {
   DescribeClassicLinkInstancesRequestFilterSensitiveLog,
   DescribeClassicLinkInstancesResult,
   DescribeClassicLinkInstancesResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeClassicLinkInstancesCommand,
   serializeAws_ec2DescribeClassicLinkInstancesCommand,

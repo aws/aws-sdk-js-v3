@@ -18,7 +18,7 @@ import {
   CreateTrafficMirrorTargetRequestFilterSensitiveLog,
   CreateTrafficMirrorTargetResult,
   CreateTrafficMirrorTargetResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_ec2CreateTrafficMirrorTargetCommand,
   serializeAws_ec2CreateTrafficMirrorTargetCommand,

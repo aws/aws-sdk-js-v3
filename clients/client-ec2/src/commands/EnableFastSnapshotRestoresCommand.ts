@@ -16,9 +16,11 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   EnableFastSnapshotRestoresRequest,
   EnableFastSnapshotRestoresRequestFilterSensitiveLog,
+} from "../models/models_4";
+import {
   EnableFastSnapshotRestoresResult,
   EnableFastSnapshotRestoresResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2EnableFastSnapshotRestoresCommand,
   serializeAws_ec2EnableFastSnapshotRestoresCommand,

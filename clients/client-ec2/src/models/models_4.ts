@@ -54,6 +54,9 @@ import {
   InstanceRequirements,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  ManagedPrefixList,
+  NatGateway,
+  NetworkAcl,
   NetworkInsightsAccessScope,
   NetworkInsightsPath,
   NetworkInterface,
@@ -71,8 +74,6 @@ import {
   StorageTier,
   TargetCapacityUnitType,
   TrafficMirrorFilter,
-  TrafficMirrorSession,
-  TrafficMirrorTarget,
   VolumeType,
 } from "./models_1";
 import {
@@ -80,13 +81,14 @@ import {
   DnsEntry,
   DnsNameState,
   Filter,
-  IdFormat,
   IpAddressType,
   PayerResponsibility,
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
   State,
+  TrafficMirrorSession,
+  TrafficMirrorTarget,
   TransitGateway,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
@@ -100,7 +102,6 @@ import {
   VpnGateway,
 } from "./models_2";
 import {
-  AnalysisStatus,
   AttributeBooleanValue,
   EventInformation,
   FastLaunchLaunchTemplateSpecificationResponse,
@@ -108,9 +109,519 @@ import {
   FastLaunchSnapshotConfigurationResponse,
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
+  IdFormat,
   PermissionGroup,
   ProductCode,
 } from "./models_3";
+
+/**
+ * <p>Describes a local gateway virtual interface.</p>
+ */
+export interface LocalGatewayVirtualInterface {
+  /**
+   * <p>The ID of the virtual interface.</p>
+   */
+  LocalGatewayVirtualInterfaceId?: string;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>The ID of the VLAN.</p>
+   */
+  Vlan?: number;
+
+  /**
+   * <p>The local address.</p>
+   */
+  LocalAddress?: string;
+
+  /**
+   * <p>The peer address.</p>
+   */
+  PeerAddress?: string;
+
+  /**
+   * <p>The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway.</p>
+   */
+  LocalBgpAsn?: number;
+
+  /**
+   * <p>The peer BGP ASN.</p>
+   */
+  PeerBgpAsn?: number;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The tags assigned to the virtual interface.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface DescribeLocalGatewayVirtualInterfacesResult {
+  /**
+   * <p>Information about the virtual interfaces.</p>
+   */
+  LocalGatewayVirtualInterfaces?: LocalGatewayVirtualInterface[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeManagedPrefixListsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the prefix list owner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-name</code> - The name of the prefix list.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>One or more prefix list IDs.</p>
+   */
+  PrefixListIds?: string[];
+}
+
+export interface DescribeManagedPrefixListsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the prefix lists.</p>
+   */
+  PrefixLists?: ManagedPrefixList[];
+}
+
+export interface DescribeMovingAddressesRequest {
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>moving-status</code> - The status of the Elastic IP address
+   *           (<code>MovingToVpc</code> | <code>RestoringToClassic</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining
+   *       results of the initial request can be seen by sending another request with the returned
+   *       <code>NextToken</code> value. This value can be between 5 and 1000; if
+   *       <code>MaxResults</code> is given a value outside of this range, an error is returned.</p>
+   *          <p>Default: If no value is provided, the default is 1000.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>One or more Elastic IP addresses.</p>
+   */
+  PublicIps?: string[];
+}
+
+export type MoveStatus = "movingToVpc" | "restoringToClassic";
+
+/**
+ * <p>Describes the status of a moving Elastic IP address.</p>
+ *          <note>
+ *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
+ */
+export interface MovingAddressStatus {
+  /**
+   * <p>The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.</p>
+   */
+  MoveStatus?: MoveStatus | string;
+
+  /**
+   * <p>The Elastic IP address.</p>
+   */
+  PublicIp?: string;
+}
+
+export interface DescribeMovingAddressesResult {
+  /**
+   * <p>The status for each Elastic IP address.</p>
+   */
+  MovingAddressStatuses?: MovingAddressStatus[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeNatGatewaysRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>nat-gateway-id</code> - The ID of the NAT gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the NAT gateway (<code>pending</code> |
+   *               <code>failed</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-id</code> - The ID of the subnet in which the NAT gateway resides.</p>
+   *             </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   * 		          </li>
+   *             <li>
+   * 			            <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   * 		          </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC in which the NAT gateway resides.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filter?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>One or more NAT gateway IDs.</p>
+   */
+  NatGatewayIds?: string[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeNatGatewaysResult {
+  /**
+   * <p>Information about the NAT gateways.</p>
+   */
+  NatGateways?: NatGateway[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeNetworkAclsRequest {
+  /**
+   * <p>One or more filters.</p>
+   * 		       <ul>
+   *             <li>
+   * 		             <p>
+   *                   <code>association.association-id</code> - The ID of an association ID for the ACL.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>association.network-acl-id</code> - The ID of the network ACL involved in the association.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>association.subnet-id</code> - The ID of the subnet involved in the association.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>default</code> - Indicates whether the ACL is the default network ACL for the VPC.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.cidr</code> - The IPv4 CIDR range specified in the entry.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.icmp.code</code> - The ICMP code specified in the entry, if any.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.icmp.type</code> - The ICMP type specified in the entry, if any.</p>
+   * 		          </li>
+   *             <li>
+   *                   <p>
+   *                   <code>entry.ipv6-cidr</code> - The IPv6 CIDR range specified in the entry.</p>
+   *                </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.port-range.from</code> - The start of the port range specified in the entry. </p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.port-range.to</code> - The end of the port range specified in the entry. </p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.protocol</code> - The protocol specified in the entry (<code>tcp</code> | <code>udp</code> | <code>icmp</code> or a protocol number).</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.rule-action</code> - Allows or denies the matching traffic (<code>allow</code> | <code>deny</code>).</p>
+   * 		          </li>
+   *             <li>
+   * 		            <p>
+   *                   <code>entry.egress</code> - A Boolean that indicates the type of rule. Specify <code>true</code>
+   * 		                for egress rules, or <code>false</code> for ingress rules.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.rule-number</code> - The number of an entry (in other words, rule) in
+   *                     the set of ACL entries.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>network-acl-id</code> - The ID of the network ACL.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the network ACL.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>vpc-id</code> - The ID of the VPC for the network ACL.</p>
+   * 		          </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more network ACL IDs.</p>
+   * 		       <p>Default: Describes all your network ACLs.</p>
+   */
+  NetworkAclIds?: string[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface DescribeNetworkAclsResult {
+  /**
+   * <p>Information about one or more network ACLs.</p>
+   */
+  NetworkAcls?: NetworkAcl[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeNetworkInsightsAccessScopeAnalysesRequest {
+  /**
+   * <p>The IDs of the Network Access Scope analyses.</p>
+   */
+  NetworkInsightsAccessScopeAnalysisIds?: string[];
+
+  /**
+   * <p>The ID of the Network Access Scope.</p>
+   */
+  NetworkInsightsAccessScopeId?: string;
+
+  /**
+   * <p>Filters the results based on the start time. The analysis must have started on or after this time.</p>
+   */
+  AnalysisStartTimeBegin?: Date;
+
+  /**
+   * <p>Filters the results based on the start time. The analysis must have started on or before this time.</p>
+   */
+  AnalysisStartTimeEnd?: Date;
+
+  /**
+   * <p>There are no supported filters.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export enum FindingsFound {
+  false = "false",
+  true = "true",
+  unknown = "unknown",
+}
+
+export type AnalysisStatus = "failed" | "running" | "succeeded";
+
+/**
+ * <p>Describes a Network Access Scope analysis.</p>
+ */
+export interface NetworkInsightsAccessScopeAnalysis {
+  /**
+   * <p>The ID of the Network Access Scope analysis.</p>
+   */
+  NetworkInsightsAccessScopeAnalysisId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Network Access Scope analysis.</p>
+   */
+  NetworkInsightsAccessScopeAnalysisArn?: string;
+
+  /**
+   * <p>The ID of the Network Access Scope.</p>
+   */
+  NetworkInsightsAccessScopeId?: string;
+
+  /**
+   * <p>The status.</p>
+   */
+  Status?: AnalysisStatus | string;
+
+  /**
+   * <p>The status message.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The warning message.</p>
+   */
+  WarningMessage?: string;
+
+  /**
+   * <p>The analysis start date.</p>
+   */
+  StartDate?: Date;
+
+  /**
+   * <p>The analysis end date.</p>
+   */
+  EndDate?: Date;
+
+  /**
+   * <p>Indicates whether there are findings.</p>
+   */
+  FindingsFound?: FindingsFound | string;
+
+  /**
+   * <p>The number of network interfaces analyzed.</p>
+   */
+  AnalyzedEniCount?: number;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface DescribeNetworkInsightsAccessScopeAnalysesResult {
+  /**
+   * <p>The Network Access Scope analyses.</p>
+   */
+  NetworkInsightsAccessScopeAnalyses?: NetworkInsightsAccessScopeAnalysis[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
 
 export interface DescribeNetworkInsightsAccessScopesRequest {
   /**
@@ -9323,205 +9834,109 @@ export interface EnableFastSnapshotRestoreErrorItem {
   FastSnapshotRestoreStateErrors?: EnableFastSnapshotRestoreStateErrorItem[];
 }
 
-export interface EnableFastSnapshotRestoresResult {
-  /**
-   * <p>Information about the snapshots for which fast snapshot restores were successfully enabled.</p>
-   */
-  Successful?: EnableFastSnapshotRestoreSuccessItem[];
-
-  /**
-   * <p>Information about the snapshots for which fast snapshot restores could not be enabled.</p>
-   */
-  Unsuccessful?: EnableFastSnapshotRestoreErrorItem[];
-}
-
-export interface EnableImageDeprecationRequest {
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>The date and time to deprecate the AMI, in UTC, in the following format:
-   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
-   *       If you specify a value for seconds, Amazon EC2 rounds the seconds to the
-   *       nearest minute.</p>
-   *          <p>You can’t specify a date in the past. The upper limit for <code>DeprecateAt</code> is 10
-   *       years from now.</p>
-   */
-  DeprecateAt: Date | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface EnableImageDeprecationResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-export interface EnableIpamOrganizationAdminAccountRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The Organizations member account ID that you want to enable as the IPAM account.</p>
-   */
-  DelegatedAdminAccountId: string | undefined;
-}
-
-export interface EnableIpamOrganizationAdminAccountResult {
-  /**
-   * <p>The result of enabling the IPAM account.</p>
-   */
-  Success?: boolean;
-}
-
-export interface EnableSerialConsoleAccessRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface EnableSerialConsoleAccessResult {
-  /**
-   * <p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for
-   * 			your account. If <code>false</code>, access to the EC2 serial console of all instances
-   * 			is disabled for your account.</p>
-   */
-  SerialConsoleAccessEnabled?: boolean;
-}
-
-export interface EnableTransitGatewayRouteTablePropagationRequest {
-  /**
-   * <p>The ID of the propagation route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the transit gateway route table announcement.</p>
-   */
-  TransitGatewayRouteTableAnnouncementId?: string;
-}
-
-export interface EnableTransitGatewayRouteTablePropagationResult {
-  /**
-   * <p>Information about route propagation.</p>
-   */
-  Propagation?: TransitGatewayPropagation;
-}
+/**
+ * @internal
+ */
+export const LocalGatewayVirtualInterfaceFilterSensitiveLog = (obj: LocalGatewayVirtualInterface): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for EnableVgwRoutePropagation.</p>
+ * @internal
  */
-export interface EnableVgwRoutePropagationRequest {
-  /**
-   * <p>The ID of the virtual private gateway that is attached to a VPC. The virtual private
-   *             gateway must be attached to the same VPC that the routing tables are associated with.
-   *         </p>
-   */
-  GatewayId: string | undefined;
+export const DescribeLocalGatewayVirtualInterfacesResultFilterSensitiveLog = (
+  obj: DescribeLocalGatewayVirtualInterfacesResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The ID of the route table. The routing table must be associated with the same VPC that
-   *             the virtual private gateway is attached to. </p>
-   */
-  RouteTableId: string | undefined;
+/**
+ * @internal
+ */
+export const DescribeManagedPrefixListsRequestFilterSensitiveLog = (obj: DescribeManagedPrefixListsRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const DescribeManagedPrefixListsResultFilterSensitiveLog = (obj: DescribeManagedPrefixListsResult): any => ({
+  ...obj,
+});
 
-export interface EnableVolumeIORequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+/**
+ * @internal
+ */
+export const DescribeMovingAddressesRequestFilterSensitiveLog = (obj: DescribeMovingAddressesRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId: string | undefined;
-}
+/**
+ * @internal
+ */
+export const MovingAddressStatusFilterSensitiveLog = (obj: MovingAddressStatus): any => ({
+  ...obj,
+});
 
-export interface EnableVpcClassicLinkRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+/**
+ * @internal
+ */
+export const DescribeMovingAddressesResultFilterSensitiveLog = (obj: DescribeMovingAddressesResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-}
+/**
+ * @internal
+ */
+export const DescribeNatGatewaysRequestFilterSensitiveLog = (obj: DescribeNatGatewaysRequest): any => ({
+  ...obj,
+});
 
-export interface EnableVpcClassicLinkResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
+/**
+ * @internal
+ */
+export const DescribeNatGatewaysResultFilterSensitiveLog = (obj: DescribeNatGatewaysResult): any => ({
+  ...obj,
+});
 
-export interface EnableVpcClassicLinkDnsSupportRequest {
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-}
+/**
+ * @internal
+ */
+export const DescribeNetworkAclsRequestFilterSensitiveLog = (obj: DescribeNetworkAclsRequest): any => ({
+  ...obj,
+});
 
-export interface EnableVpcClassicLinkDnsSupportResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
+/**
+ * @internal
+ */
+export const DescribeNetworkAclsResultFilterSensitiveLog = (obj: DescribeNetworkAclsResult): any => ({
+  ...obj,
+});
 
-export interface ExportClientVpnClientCertificateRevocationListRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
+/**
+ * @internal
+ */
+export const DescribeNetworkInsightsAccessScopeAnalysesRequestFilterSensitiveLog = (
+  obj: DescribeNetworkInsightsAccessScopeAnalysesRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const NetworkInsightsAccessScopeAnalysisFilterSensitiveLog = (obj: NetworkInsightsAccessScopeAnalysis): any => ({
+  ...obj,
+});
 
-export type ClientCertificateRevocationListStatusCode = "active" | "pending";
+/**
+ * @internal
+ */
+export const DescribeNetworkInsightsAccessScopeAnalysesResultFilterSensitiveLog = (
+  obj: DescribeNetworkInsightsAccessScopeAnalysesResult
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11559,131 +11974,5 @@ export const EnableFastSnapshotRestoreStateErrorItemFilterSensitiveLog = (
  * @internal
  */
 export const EnableFastSnapshotRestoreErrorItemFilterSensitiveLog = (obj: EnableFastSnapshotRestoreErrorItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastSnapshotRestoresResultFilterSensitiveLog = (obj: EnableFastSnapshotRestoresResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableImageDeprecationRequestFilterSensitiveLog = (obj: EnableImageDeprecationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableImageDeprecationResultFilterSensitiveLog = (obj: EnableImageDeprecationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableIpamOrganizationAdminAccountRequestFilterSensitiveLog = (
-  obj: EnableIpamOrganizationAdminAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableIpamOrganizationAdminAccountResultFilterSensitiveLog = (
-  obj: EnableIpamOrganizationAdminAccountResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableSerialConsoleAccessRequestFilterSensitiveLog = (obj: EnableSerialConsoleAccessRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableSerialConsoleAccessResultFilterSensitiveLog = (obj: EnableSerialConsoleAccessResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableTransitGatewayRouteTablePropagationRequestFilterSensitiveLog = (
-  obj: EnableTransitGatewayRouteTablePropagationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableTransitGatewayRouteTablePropagationResultFilterSensitiveLog = (
-  obj: EnableTransitGatewayRouteTablePropagationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableVgwRoutePropagationRequestFilterSensitiveLog = (obj: EnableVgwRoutePropagationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableVolumeIORequestFilterSensitiveLog = (obj: EnableVolumeIORequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableVpcClassicLinkRequestFilterSensitiveLog = (obj: EnableVpcClassicLinkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableVpcClassicLinkResultFilterSensitiveLog = (obj: EnableVpcClassicLinkResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableVpcClassicLinkDnsSupportRequestFilterSensitiveLog = (
-  obj: EnableVpcClassicLinkDnsSupportRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableVpcClassicLinkDnsSupportResultFilterSensitiveLog = (
-  obj: EnableVpcClassicLinkDnsSupportResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportClientVpnClientCertificateRevocationListRequestFilterSensitiveLog = (
-  obj: ExportClientVpnClientCertificateRevocationListRequest
-): any => ({
   ...obj,
 });

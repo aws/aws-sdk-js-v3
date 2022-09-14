@@ -18,7 +18,7 @@ import {
   DescribeManagedPrefixListsRequestFilterSensitiveLog,
   DescribeManagedPrefixListsResult,
   DescribeManagedPrefixListsResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeManagedPrefixListsCommand,
   serializeAws_ec2DescribeManagedPrefixListsCommand,

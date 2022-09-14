@@ -263,6 +263,16 @@ import {
   CreateClientVpnRouteCommandOutput,
 } from "./commands/CreateClientVpnRouteCommand";
 import {
+  CreateCoipCidrCommand,
+  CreateCoipCidrCommandInput,
+  CreateCoipCidrCommandOutput,
+} from "./commands/CreateCoipCidrCommand";
+import {
+  CreateCoipPoolCommand,
+  CreateCoipPoolCommandInput,
+  CreateCoipPoolCommandOutput,
+} from "./commands/CreateCoipPoolCommand";
+import {
   CreateCustomerGatewayCommand,
   CreateCustomerGatewayCommandInput,
   CreateCustomerGatewayCommandOutput,
@@ -345,6 +355,16 @@ import {
   CreateLocalGatewayRouteCommandInput,
   CreateLocalGatewayRouteCommandOutput,
 } from "./commands/CreateLocalGatewayRouteCommand";
+import {
+  CreateLocalGatewayRouteTableCommand,
+  CreateLocalGatewayRouteTableCommandInput,
+  CreateLocalGatewayRouteTableCommandOutput,
+} from "./commands/CreateLocalGatewayRouteTableCommand";
+import {
+  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
+  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput,
+} from "./commands/CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand";
 import {
   CreateLocalGatewayRouteTableVpcAssociationCommand,
   CreateLocalGatewayRouteTableVpcAssociationCommandInput,
@@ -589,6 +609,16 @@ import {
   DeleteClientVpnRouteCommandOutput,
 } from "./commands/DeleteClientVpnRouteCommand";
 import {
+  DeleteCoipCidrCommand,
+  DeleteCoipCidrCommandInput,
+  DeleteCoipCidrCommandOutput,
+} from "./commands/DeleteCoipCidrCommand";
+import {
+  DeleteCoipPoolCommand,
+  DeleteCoipPoolCommandInput,
+  DeleteCoipPoolCommandOutput,
+} from "./commands/DeleteCoipPoolCommand";
+import {
   DeleteCustomerGatewayCommand,
   DeleteCustomerGatewayCommandInput,
   DeleteCustomerGatewayCommandOutput,
@@ -659,6 +689,16 @@ import {
   DeleteLocalGatewayRouteCommandInput,
   DeleteLocalGatewayRouteCommandOutput,
 } from "./commands/DeleteLocalGatewayRouteCommand";
+import {
+  DeleteLocalGatewayRouteTableCommand,
+  DeleteLocalGatewayRouteTableCommandInput,
+  DeleteLocalGatewayRouteTableCommandOutput,
+} from "./commands/DeleteLocalGatewayRouteTableCommand";
+import {
+  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
+  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput,
+} from "./commands/DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand";
 import {
   DeleteLocalGatewayRouteTableVpcAssociationCommand,
   DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
@@ -4640,6 +4680,72 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>
+   *      Creates a range of customer-owned IP addresses.
+   *       </p>
+   */
+  public createCoipCidr(
+    args: CreateCoipCidrCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCoipCidrCommandOutput>;
+  public createCoipCidr(
+    args: CreateCoipCidrCommandInput,
+    cb: (err: any, data?: CreateCoipCidrCommandOutput) => void
+  ): void;
+  public createCoipCidr(
+    args: CreateCoipCidrCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCoipCidrCommandOutput) => void
+  ): void;
+  public createCoipCidr(
+    args: CreateCoipCidrCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCoipCidrCommandOutput) => void),
+    cb?: (err: any, data?: CreateCoipCidrCommandOutput) => void
+  ): Promise<CreateCoipCidrCommandOutput> | void {
+    const command = new CreateCoipCidrCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Creates a pool of customer-owned IP (CoIP) addresses. </p>
+   */
+  public createCoipPool(
+    args: CreateCoipPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCoipPoolCommandOutput>;
+  public createCoipPool(
+    args: CreateCoipPoolCommandInput,
+    cb: (err: any, data?: CreateCoipPoolCommandOutput) => void
+  ): void;
+  public createCoipPool(
+    args: CreateCoipPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCoipPoolCommandOutput) => void
+  ): void;
+  public createCoipPool(
+    args: CreateCoipPoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCoipPoolCommandOutput) => void),
+    cb?: (err: any, data?: CreateCoipPoolCommandOutput) => void
+  ): Promise<CreateCoipPoolCommandOutput> | void {
+    const command = new CreateCoipPoolCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides information to Amazon Web Services about your customer gateway device. The
    *             customer gateway device is the appliance at your end of the VPN connection. You
    *             must provide the IP address of the customer gateway device’s external
@@ -5421,6 +5527,76 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CreateLocalGatewayRouteCommandOutput) => void
   ): Promise<CreateLocalGatewayRouteCommandOutput> | void {
     const command = new CreateLocalGatewayRouteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Creates a local gateway route table.
+   *       </p>
+   */
+  public createLocalGatewayRouteTable(
+    args: CreateLocalGatewayRouteTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocalGatewayRouteTableCommandOutput>;
+  public createLocalGatewayRouteTable(
+    args: CreateLocalGatewayRouteTableCommandInput,
+    cb: (err: any, data?: CreateLocalGatewayRouteTableCommandOutput) => void
+  ): void;
+  public createLocalGatewayRouteTable(
+    args: CreateLocalGatewayRouteTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocalGatewayRouteTableCommandOutput) => void
+  ): void;
+  public createLocalGatewayRouteTable(
+    args: CreateLocalGatewayRouteTableCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocalGatewayRouteTableCommandOutput) => void),
+    cb?: (err: any, data?: CreateLocalGatewayRouteTableCommandOutput) => void
+  ): Promise<CreateLocalGatewayRouteTableCommandOutput> | void {
+    const command = new CreateLocalGatewayRouteTableCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Creates a local gateway route table virtual interface group association.
+   *       </p>
+   */
+  public createLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput>;
+  public createLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    cb: (err: any, data?: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void
+  ): void;
+  public createLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void
+  ): void;
+  public createLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void),
+    cb?: (err: any, data?: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void
+  ): Promise<CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> | void {
+    const command = new CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7353,6 +7529,72 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>
+   *       Deletes a range of customer-owned IP addresses.
+   *       </p>
+   */
+  public deleteCoipCidr(
+    args: DeleteCoipCidrCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCoipCidrCommandOutput>;
+  public deleteCoipCidr(
+    args: DeleteCoipCidrCommandInput,
+    cb: (err: any, data?: DeleteCoipCidrCommandOutput) => void
+  ): void;
+  public deleteCoipCidr(
+    args: DeleteCoipCidrCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCoipCidrCommandOutput) => void
+  ): void;
+  public deleteCoipCidr(
+    args: DeleteCoipCidrCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCoipCidrCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCoipCidrCommandOutput) => void
+  ): Promise<DeleteCoipCidrCommandOutput> | void {
+    const command = new DeleteCoipCidrCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a pool of customer-owned IP (CoIP) addresses. </p>
+   */
+  public deleteCoipPool(
+    args: DeleteCoipPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCoipPoolCommandOutput>;
+  public deleteCoipPool(
+    args: DeleteCoipPoolCommandInput,
+    cb: (err: any, data?: DeleteCoipPoolCommandOutput) => void
+  ): void;
+  public deleteCoipPool(
+    args: DeleteCoipPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCoipPoolCommandOutput) => void
+  ): void;
+  public deleteCoipPool(
+    args: DeleteCoipPoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCoipPoolCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCoipPoolCommandOutput) => void
+  ): Promise<DeleteCoipPoolCommandOutput> | void {
+    const command = new DeleteCoipPoolCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified customer gateway. You must delete the VPN connection before you
    *             can delete the customer gateway.</p>
    */
@@ -7858,6 +8100,76 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DeleteLocalGatewayRouteCommandOutput) => void
   ): Promise<DeleteLocalGatewayRouteCommandOutput> | void {
     const command = new DeleteLocalGatewayRouteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Deletes a local gateway route table.
+   *       </p>
+   */
+  public deleteLocalGatewayRouteTable(
+    args: DeleteLocalGatewayRouteTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLocalGatewayRouteTableCommandOutput>;
+  public deleteLocalGatewayRouteTable(
+    args: DeleteLocalGatewayRouteTableCommandInput,
+    cb: (err: any, data?: DeleteLocalGatewayRouteTableCommandOutput) => void
+  ): void;
+  public deleteLocalGatewayRouteTable(
+    args: DeleteLocalGatewayRouteTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLocalGatewayRouteTableCommandOutput) => void
+  ): void;
+  public deleteLocalGatewayRouteTable(
+    args: DeleteLocalGatewayRouteTableCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLocalGatewayRouteTableCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLocalGatewayRouteTableCommandOutput) => void
+  ): Promise<DeleteLocalGatewayRouteTableCommandOutput> | void {
+    const command = new DeleteLocalGatewayRouteTableCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Deletes a local gateway route table virtual interface group association.
+   *       </p>
+   */
+  public deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput>;
+  public deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    cb: (err: any, data?: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void
+  ): void;
+  public deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void
+  ): void;
+  public deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+    args: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput) => void
+  ): Promise<DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> | void {
+    const command = new DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

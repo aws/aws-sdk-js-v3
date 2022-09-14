@@ -197,6 +197,8 @@ import {
   CreateClientVpnRouteCommandInput,
   CreateClientVpnRouteCommandOutput,
 } from "../commands/CreateClientVpnRouteCommand";
+import { CreateCoipCidrCommandInput, CreateCoipCidrCommandOutput } from "../commands/CreateCoipCidrCommand";
+import { CreateCoipPoolCommandInput, CreateCoipPoolCommandOutput } from "../commands/CreateCoipPoolCommand";
 import {
   CreateCustomerGatewayCommandInput,
   CreateCustomerGatewayCommandOutput,
@@ -243,6 +245,14 @@ import {
   CreateLocalGatewayRouteCommandInput,
   CreateLocalGatewayRouteCommandOutput,
 } from "../commands/CreateLocalGatewayRouteCommand";
+import {
+  CreateLocalGatewayRouteTableCommandInput,
+  CreateLocalGatewayRouteTableCommandOutput,
+} from "../commands/CreateLocalGatewayRouteTableCommand";
+import {
+  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput,
+} from "../commands/CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand";
 import {
   CreateLocalGatewayRouteTableVpcAssociationCommandInput,
   CreateLocalGatewayRouteTableVpcAssociationCommandOutput,
@@ -411,6 +421,8 @@ import {
   DeleteClientVpnRouteCommandInput,
   DeleteClientVpnRouteCommandOutput,
 } from "../commands/DeleteClientVpnRouteCommand";
+import { DeleteCoipCidrCommandInput, DeleteCoipCidrCommandOutput } from "../commands/DeleteCoipCidrCommand";
+import { DeleteCoipPoolCommandInput, DeleteCoipPoolCommandOutput } from "../commands/DeleteCoipPoolCommand";
 import {
   DeleteCustomerGatewayCommandInput,
   DeleteCustomerGatewayCommandOutput,
@@ -447,6 +459,14 @@ import {
   DeleteLocalGatewayRouteCommandInput,
   DeleteLocalGatewayRouteCommandOutput,
 } from "../commands/DeleteLocalGatewayRouteCommand";
+import {
+  DeleteLocalGatewayRouteTableCommandInput,
+  DeleteLocalGatewayRouteTableCommandOutput,
+} from "../commands/DeleteLocalGatewayRouteTableCommand";
+import {
+  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput,
+} from "../commands/DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand";
 import {
   DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
   DeleteLocalGatewayRouteTableVpcAssociationCommandOutput,
@@ -1943,6 +1963,8 @@ import {
   ClientVpnAuthorizationRuleStatus,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
+  CoipCidr,
+  CoipPool,
   ConfirmProductInstanceRequest,
   ConfirmProductInstanceResult,
   ConnectionLogOptions,
@@ -1962,6 +1984,10 @@ import {
   CreateClientVpnEndpointResult,
   CreateClientVpnRouteRequest,
   CreateClientVpnRouteResult,
+  CreateCoipCidrRequest,
+  CreateCoipCidrResult,
+  CreateCoipPoolRequest,
+  CreateCoipPoolResult,
   CreateCustomerGatewayRequest,
   CreateCustomerGatewayResult,
   CreateDefaultSubnetRequest,
@@ -1969,14 +1995,10 @@ import {
   CreateDefaultVpcRequest,
   CreateDefaultVpcResult,
   CreateDhcpOptionsRequest,
-  CreateDhcpOptionsResult,
-  CreateEgressOnlyInternetGatewayRequest,
-  CreateEgressOnlyInternetGatewayResult,
   CustomerGateway,
   DhcpConfiguration,
   DhcpOptions,
   DirectoryServiceAuthenticationRequest,
-  EgressOnlyInternetGateway,
   FailedCapacityReservationFleetCancellationResult,
   FederatedAuthenticationRequest,
   FleetCapacityReservation,
@@ -1988,7 +2010,6 @@ import {
   InstanceEventWindowAssociationRequest,
   InstanceEventWindowAssociationTarget,
   InstanceEventWindowTimeRange,
-  InternetGatewayAttachment,
   IpamPoolAllocation,
   IpPermission,
   IpRange,
@@ -2058,6 +2079,9 @@ import {
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
   CpuManufacturer,
+  CreateDhcpOptionsResult,
+  CreateEgressOnlyInternetGatewayRequest,
+  CreateEgressOnlyInternetGatewayResult,
   CreateFleetError,
   CreateFleetInstance,
   CreateFleetRequest,
@@ -2087,6 +2111,10 @@ import {
   CreateLaunchTemplateVersionResult,
   CreateLocalGatewayRouteRequest,
   CreateLocalGatewayRouteResult,
+  CreateLocalGatewayRouteTableRequest,
+  CreateLocalGatewayRouteTableResult,
+  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
+  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
   CreateLocalGatewayRouteTableVpcAssociationRequest,
   CreateLocalGatewayRouteTableVpcAssociationResult,
   CreateManagedPrefixListRequest,
@@ -2136,15 +2164,11 @@ import {
   CreateTrafficMirrorFilterResult,
   CreateTrafficMirrorFilterRuleRequest,
   CreateTrafficMirrorFilterRuleResult,
-  CreateTrafficMirrorSessionRequest,
-  CreateTrafficMirrorSessionResult,
-  CreateTrafficMirrorTargetRequest,
-  CreateTrafficMirrorTargetResult,
-  CreateTransitGatewayRequest,
   CreditSpecification,
   CreditSpecificationRequest,
   DestinationOptionsRequest,
   EbsBlockDevice,
+  EgressOnlyInternetGateway,
   ElasticGpuSpecification,
   ElasticGpuSpecificationResponse,
   ExportTask,
@@ -2168,6 +2192,7 @@ import {
   InstanceRequirementsRequest,
   InstanceSpecification,
   InternetGateway,
+  InternetGatewayAttachment,
   Ipam,
   IpamOperatingRegion,
   IpamPool,
@@ -2219,6 +2244,8 @@ import {
   LaunchTemplateTagSpecificationRequest,
   LaunchTemplateVersion,
   LocalGatewayRoute,
+  LocalGatewayRouteTable,
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   LocalStorageType,
   ManagedPrefixList,
@@ -2264,6 +2291,7 @@ import {
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
   SpotOptionsRequest,
+  StateReason,
   StorageLocation,
   SubnetCidrReservation,
   TargetCapacitySpecificationRequest,
@@ -2274,22 +2302,19 @@ import {
   TrafficMirrorNetworkService,
   TrafficMirrorPortRange,
   TrafficMirrorPortRangeRequest,
-  TrafficMirrorSession,
-  TrafficMirrorTarget,
-  TransitGatewayRequestOptions,
   ValidationError,
   ValidationWarning,
   VCpuCountRange,
   VCpuCountRangeRequest,
 } from "../models/models_1";
 import {
-  AvailabilityZone,
-  AvailabilityZoneMessage,
-  CapacityReservationFleet,
-  ClassicLinkInstance,
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreateTrafficMirrorSessionRequest,
+  CreateTrafficMirrorSessionResult,
+  CreateTrafficMirrorTargetRequest,
+  CreateTrafficMirrorTargetResult,
   CreateTransitGatewayConnectPeerRequest,
   CreateTransitGatewayConnectPeerResult,
   CreateTransitGatewayConnectRequest,
@@ -2305,6 +2330,7 @@ import {
   CreateTransitGatewayPolicyTableResult,
   CreateTransitGatewayPrefixListReferenceRequest,
   CreateTransitGatewayPrefixListReferenceResult,
+  CreateTransitGatewayRequest,
   CreateTransitGatewayResult,
   CreateTransitGatewayRouteRequest,
   CreateTransitGatewayRouteResult,
@@ -2337,6 +2363,10 @@ import {
   DeleteClientVpnEndpointResult,
   DeleteClientVpnRouteRequest,
   DeleteClientVpnRouteResult,
+  DeleteCoipCidrRequest,
+  DeleteCoipCidrResult,
+  DeleteCoipPoolRequest,
+  DeleteCoipPoolResult,
   DeleteCustomerGatewayRequest,
   DeleteDhcpOptionsRequest,
   DeleteEgressOnlyInternetGatewayRequest,
@@ -2368,6 +2398,10 @@ import {
   DeleteLaunchTemplateVersionsResult,
   DeleteLocalGatewayRouteRequest,
   DeleteLocalGatewayRouteResult,
+  DeleteLocalGatewayRouteTableRequest,
+  DeleteLocalGatewayRouteTableResult,
+  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
+  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
   DeleteLocalGatewayRouteTableVpcAssociationRequest,
   DeleteLocalGatewayRouteTableVpcAssociationResult,
   DeleteManagedPrefixListRequest,
@@ -2466,27 +2500,11 @@ import {
   DescribeAddressesRequest,
   DescribeAddressesResult,
   DescribeAggregateIdFormatRequest,
-  DescribeAggregateIdFormatResult,
-  DescribeAvailabilityZonesRequest,
-  DescribeAvailabilityZonesResult,
-  DescribeBundleTasksRequest,
-  DescribeBundleTasksResult,
-  DescribeByoipCidrsRequest,
-  DescribeByoipCidrsResult,
-  DescribeCapacityReservationFleetsRequest,
-  DescribeCapacityReservationFleetsResult,
-  DescribeCapacityReservationsRequest,
-  DescribeCapacityReservationsResult,
-  DescribeCarrierGatewaysRequest,
-  DescribeCarrierGatewaysResult,
-  DescribeClassicLinkInstancesRequest,
-  DescribeClassicLinkInstancesResult,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
   FailedQueuedPurchaseDeletion,
   Filter,
-  IdFormat,
   IKEVersionsListValue,
   IKEVersionsRequestListValue,
   InstanceEventWindowStateChange,
@@ -2513,6 +2531,8 @@ import {
   ServiceConnectivityType,
   ServiceTypeDetail,
   SuccessfulQueuedPurchaseDeletion,
+  TrafficMirrorSession,
+  TrafficMirrorTarget,
   TransitGateway,
   TransitGatewayAttachmentBgpConfiguration,
   TransitGatewayConnect,
@@ -2528,6 +2548,7 @@ import {
   TransitGatewayPolicyTable,
   TransitGatewayPrefixListAttachment,
   TransitGatewayPrefixListReference,
+  TransitGatewayRequestOptions,
   TransitGatewayRoute,
   TransitGatewayRouteAttachment,
   TransitGatewayRouteTable,
@@ -2550,11 +2571,15 @@ import {
   AssociatedTargetNetwork,
   AttributeBooleanValue,
   AuthorizationRule,
+  AvailabilityZone,
+  AvailabilityZoneMessage,
   AvailableCapacity,
   BootModeType,
+  CapacityReservationFleet,
   CapacityReservationOptions,
   CapacityReservationSpecificationResponse,
   CertificateAuthentication,
+  ClassicLinkInstance,
   ClientConnectResponseOptions,
   ClientLoginBannerResponseOptions,
   ClientVpnAuthentication,
@@ -2563,10 +2588,24 @@ import {
   ClientVpnEndpoint,
   ClientVpnEndpointAttributeStatus,
   ClientVpnRoute,
-  CoipPool,
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DescribeAggregateIdFormatResult,
+  DescribeAvailabilityZonesRequest,
+  DescribeAvailabilityZonesResult,
+  DescribeBundleTasksRequest,
+  DescribeBundleTasksResult,
+  DescribeByoipCidrsRequest,
+  DescribeByoipCidrsResult,
+  DescribeCapacityReservationFleetsRequest,
+  DescribeCapacityReservationFleetsResult,
+  DescribeCapacityReservationsRequest,
+  DescribeCapacityReservationsResult,
+  DescribeCarrierGatewaysRequest,
+  DescribeCarrierGatewaysResult,
+  DescribeClassicLinkInstancesRequest,
+  DescribeClassicLinkInstancesResult,
   DescribeClientVpnAuthorizationRulesRequest,
   DescribeClientVpnAuthorizationRulesResult,
   DescribeClientVpnConnectionsRequest,
@@ -2674,17 +2713,6 @@ import {
   DescribeLocalGatewayVirtualInterfaceGroupsRequest,
   DescribeLocalGatewayVirtualInterfaceGroupsResult,
   DescribeLocalGatewayVirtualInterfacesRequest,
-  DescribeLocalGatewayVirtualInterfacesResult,
-  DescribeManagedPrefixListsRequest,
-  DescribeManagedPrefixListsResult,
-  DescribeMovingAddressesRequest,
-  DescribeMovingAddressesResult,
-  DescribeNatGatewaysRequest,
-  DescribeNatGatewaysResult,
-  DescribeNetworkAclsRequest,
-  DescribeNetworkAclsResult,
-  DescribeNetworkInsightsAccessScopeAnalysesRequest,
-  DescribeNetworkInsightsAccessScopeAnalysesResult,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2726,6 +2754,7 @@ import {
   HostOffering,
   HostProperties,
   HostReservation,
+  IdFormat,
   Image,
   ImageAttribute,
   ImportImageLicenseConfigurationResponse,
@@ -2763,16 +2792,11 @@ import {
   LicenseConfiguration,
   LoadPermission,
   LocalGateway,
-  LocalGatewayRouteTable,
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
-  LocalGatewayVirtualInterface,
   LocalGatewayVirtualInterfaceGroup,
   MemoryInfo,
   Monitoring,
-  MovingAddressStatus,
   NetworkCardInfo,
   NetworkInfo,
-  NetworkInsightsAccessScopeAnalysis,
   OnDemandOptions,
   PciId,
   PlacementGroupInfo,
@@ -2786,7 +2810,6 @@ import {
   SnapshotDetail,
   SnapshotTaskDetail,
   SpotOptions,
-  StateReason,
   TargetCapacitySpecification,
   TargetNetwork,
   UsageClassType,
@@ -2801,6 +2824,17 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeLocalGatewayVirtualInterfacesResult,
+  DescribeManagedPrefixListsRequest,
+  DescribeManagedPrefixListsResult,
+  DescribeMovingAddressesRequest,
+  DescribeMovingAddressesResult,
+  DescribeNatGatewaysRequest,
+  DescribeNatGatewaysResult,
+  DescribeNetworkAclsRequest,
+  DescribeNetworkAclsResult,
+  DescribeNetworkInsightsAccessScopeAnalysesRequest,
+  DescribeNetworkInsightsAccessScopeAnalysesResult,
   DescribeNetworkInsightsAccessScopesRequest,
   DescribeNetworkInsightsAccessScopesResult,
   DescribeNetworkInsightsAnalysesRequest,
@@ -2990,26 +3024,10 @@ import {
   EnableFastLaunchResult,
   EnableFastSnapshotRestoreErrorItem,
   EnableFastSnapshotRestoresRequest,
-  EnableFastSnapshotRestoresResult,
   EnableFastSnapshotRestoreStateError,
   EnableFastSnapshotRestoreStateErrorItem,
   EnableFastSnapshotRestoreSuccessItem,
-  EnableImageDeprecationRequest,
-  EnableImageDeprecationResult,
-  EnableIpamOrganizationAdminAccountRequest,
-  EnableIpamOrganizationAdminAccountResult,
-  EnableSerialConsoleAccessRequest,
-  EnableSerialConsoleAccessResult,
-  EnableTransitGatewayRouteTablePropagationRequest,
-  EnableTransitGatewayRouteTablePropagationResult,
-  EnableVgwRoutePropagationRequest,
-  EnableVolumeIORequest,
-  EnableVpcClassicLinkDnsSupportRequest,
-  EnableVpcClassicLinkDnsSupportResult,
-  EnableVpcClassicLinkRequest,
-  EnableVpcClassicLinkResult,
   Explanation,
-  ExportClientVpnClientCertificateRevocationListRequest,
   FastLaunchLaunchTemplateSpecificationRequest,
   FastLaunchSnapshotConfigurationRequest,
   HistoryRecord,
@@ -3019,6 +3037,9 @@ import {
   LaunchTemplateConfig,
   LaunchTemplateOverrides,
   LoadBalancersConfig,
+  LocalGatewayVirtualInterface,
+  MovingAddressStatus,
+  NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
   PrefixList,
   PricingDetail,
@@ -3081,7 +3102,6 @@ import {
   BlobAttributeValue,
   CapacityReservationGroup,
   CapacityReservationSpecification,
-  CidrAuthorizationContext,
   ClientCertificateRevocationListStatus,
   ClientData,
   CoipAddressUsage,
@@ -3090,6 +3110,22 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  EnableFastSnapshotRestoresResult,
+  EnableImageDeprecationRequest,
+  EnableImageDeprecationResult,
+  EnableIpamOrganizationAdminAccountRequest,
+  EnableIpamOrganizationAdminAccountResult,
+  EnableSerialConsoleAccessRequest,
+  EnableSerialConsoleAccessResult,
+  EnableTransitGatewayRouteTablePropagationRequest,
+  EnableTransitGatewayRouteTablePropagationResult,
+  EnableVgwRoutePropagationRequest,
+  EnableVolumeIORequest,
+  EnableVpcClassicLinkDnsSupportRequest,
+  EnableVpcClassicLinkDnsSupportResult,
+  EnableVpcClassicLinkRequest,
+  EnableVpcClassicLinkResult,
+  ExportClientVpnClientCertificateRevocationListRequest,
   ExportClientVpnClientCertificateRevocationListResult,
   ExportClientVpnClientConfigurationRequest,
   ExportClientVpnClientConfigurationResult,
@@ -3197,7 +3233,6 @@ import {
   InstanceUsage,
   IntegrateServices,
   IpamAddressHistoryRecord,
-  IpamCidrAuthorizationContext,
   IpamResourceCidr,
   Ipv6CidrAssociation,
   LaunchPermissionModifications,
@@ -3315,29 +3350,15 @@ import {
   ModifyVpnTunnelOptionsSpecification,
   MonitorInstancesRequest,
   MonitorInstancesResult,
-  MoveAddressToVpcRequest,
-  MoveAddressToVpcResult,
-  MoveByoipCidrToIpamRequest,
-  MoveByoipCidrToIpamResult,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
   PrefixListAssociation,
   PrefixListEntry,
-  ProvisionByoipCidrRequest,
-  ProvisionByoipCidrResult,
-  ProvisionIpamPoolCidrRequest,
-  ProvisionIpamPoolCidrResult,
-  ProvisionPublicIpv4PoolCidrRequest,
-  ProvisionPublicIpv4PoolCidrResult,
   Purchase,
-  PurchaseHostReservationRequest,
-  PurchaseHostReservationResult,
-  PurchaseReservedInstancesOfferingRequest,
   RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
   ReservationValue,
-  ReservedInstanceLimitPrice,
   ReservedInstanceReservationValue,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
@@ -3364,6 +3385,7 @@ import {
   VpnConnectionDeviceType,
 } from "../models/models_5";
 import {
+  CidrAuthorizationContext,
   CpuOptionsRequest,
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
@@ -3372,10 +3394,24 @@ import {
   InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
   InstanceStateChange,
+  IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  MoveAddressToVpcRequest,
+  MoveAddressToVpcResult,
+  MoveByoipCidrToIpamRequest,
+  MoveByoipCidrToIpamResult,
   PrivateDnsNameOptionsRequest,
+  ProvisionByoipCidrRequest,
+  ProvisionByoipCidrResult,
+  ProvisionIpamPoolCidrRequest,
+  ProvisionIpamPoolCidrResult,
+  ProvisionPublicIpv4PoolCidrRequest,
+  ProvisionPublicIpv4PoolCidrResult,
+  PurchaseHostReservationRequest,
+  PurchaseHostReservationResult,
   PurchaseRequest,
+  PurchaseReservedInstancesOfferingRequest,
   PurchaseReservedInstancesOfferingResult,
   PurchaseScheduledInstancesRequest,
   PurchaseScheduledInstancesResult,
@@ -3421,6 +3457,7 @@ import {
   RequestSpotInstancesRequest,
   RequestSpotInstancesResult,
   RequestSpotLaunchSpecification,
+  ReservedInstanceLimitPrice,
   ResetAddressAttributeRequest,
   ResetAddressAttributeResult,
   ResetEbsDefaultKmsKeyIdRequest,
@@ -4347,6 +4384,38 @@ export const serializeAws_ec2CreateClientVpnRouteCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2CreateCoipCidrCommand = async (
+  input: CreateCoipCidrCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateCoipCidrRequest(input, context),
+    Action: "CreateCoipCidr",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2CreateCoipPoolCommand = async (
+  input: CreateCoipPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateCoipPoolRequest(input, context),
+    Action: "CreateCoipPool",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2CreateCustomerGatewayCommand = async (
   input: CreateCustomerGatewayCommandInput,
   context: __SerdeContext
@@ -4646,6 +4715,38 @@ export const serializeAws_ec2CreateLocalGatewayRouteCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2CreateLocalGatewayRouteRequest(input, context),
     Action: "CreateLocalGatewayRoute",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2CreateLocalGatewayRouteTableCommand = async (
+  input: CreateLocalGatewayRouteTableCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateLocalGatewayRouteTableRequest(input, context),
+    Action: "CreateLocalGatewayRouteTable",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand = async (
+  input: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest(input, context),
+    Action: "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5467,6 +5568,38 @@ export const serializeAws_ec2DeleteClientVpnRouteCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DeleteCoipCidrCommand = async (
+  input: DeleteCoipCidrCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteCoipCidrRequest(input, context),
+    Action: "DeleteCoipCidr",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeleteCoipPoolCommand = async (
+  input: DeleteCoipPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteCoipPoolRequest(input, context),
+    Action: "DeleteCoipPool",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DeleteCustomerGatewayCommand = async (
   input: DeleteCustomerGatewayCommandInput,
   context: __SerdeContext
@@ -5702,6 +5835,38 @@ export const serializeAws_ec2DeleteLocalGatewayRouteCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2DeleteLocalGatewayRouteRequest(input, context),
     Action: "DeleteLocalGatewayRoute",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeleteLocalGatewayRouteTableCommand = async (
+  input: DeleteLocalGatewayRouteTableCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteLocalGatewayRouteTableRequest(input, context),
+    Action: "DeleteLocalGatewayRouteTable",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand = async (
+  input: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest(input, context),
+    Action: "DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -13886,6 +14051,76 @@ const deserializeAws_ec2CreateClientVpnRouteCommandError = async (
   });
 };
 
+export const deserializeAws_ec2CreateCoipCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCoipCidrCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateCoipCidrCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateCoipCidrResult(data, context);
+  const response: CreateCoipCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateCoipCidrCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCoipCidrCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2CreateCoipPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCoipPoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateCoipPoolCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateCoipPoolResult(data, context);
+  const response: CreateCoipPoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateCoipPoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCoipPoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2CreateCustomerGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14537,6 +14772,76 @@ const deserializeAws_ec2CreateLocalGatewayRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLocalGatewayRouteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2CreateLocalGatewayRouteTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocalGatewayRouteTableCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateLocalGatewayRouteTableCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateLocalGatewayRouteTableResult(data, context);
+  const response: CreateLocalGatewayRouteTableCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateLocalGatewayRouteTableCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocalGatewayRouteTableCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult(data, context);
+  const response: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -16327,6 +16632,76 @@ const deserializeAws_ec2DeleteClientVpnRouteCommandError = async (
   });
 };
 
+export const deserializeAws_ec2DeleteCoipCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCoipCidrCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteCoipCidrCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteCoipCidrResult(data, context);
+  const response: DeleteCoipCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteCoipCidrCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCoipCidrCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DeleteCoipPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCoipPoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteCoipPoolCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteCoipPoolResult(data, context);
+  const response: DeleteCoipPoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteCoipPoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCoipPoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2DeleteCustomerGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -16826,6 +17201,76 @@ const deserializeAws_ec2DeleteLocalGatewayRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLocalGatewayRouteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DeleteLocalGatewayRouteTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLocalGatewayRouteTableCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteLocalGatewayRouteTableCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteLocalGatewayRouteTableResult(data, context);
+  const response: DeleteLocalGatewayRouteTableCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteLocalGatewayRouteTableCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLocalGatewayRouteTableCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult(data, context);
+  const response: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -32691,6 +33136,38 @@ const serializeAws_ec2CreateClientVpnRouteRequest = (
   return entries;
 };
 
+const serializeAws_ec2CreateCoipCidrRequest = (input: CreateCoipCidrRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Cidr != null) {
+    entries["Cidr"] = input.Cidr;
+  }
+  if (input.CoipPoolId != null) {
+    entries["CoipPoolId"] = input.CoipPoolId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateCoipPoolRequest = (input: CreateCoipPoolRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.LocalGatewayRouteTableId != null) {
+    entries["LocalGatewayRouteTableId"] = input.LocalGatewayRouteTableId;
+  }
+  if (input.TagSpecifications != null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2CreateCustomerGatewayRequest = (
   input: CreateCustomerGatewayRequest,
   context: __SerdeContext
@@ -33308,6 +33785,54 @@ const serializeAws_ec2CreateLocalGatewayRouteRequest = (
   }
   if (input.NetworkInterfaceId != null) {
     entries["NetworkInterfaceId"] = input.NetworkInterfaceId;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateLocalGatewayRouteTableRequest = (
+  input: CreateLocalGatewayRouteTableRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.LocalGatewayId != null) {
+    entries["LocalGatewayId"] = input.LocalGatewayId;
+  }
+  if (input.Mode != null) {
+    entries["Mode"] = input.Mode;
+  }
+  if (input.TagSpecifications != null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest = (
+  input: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.LocalGatewayRouteTableId != null) {
+    entries["LocalGatewayRouteTableId"] = input.LocalGatewayRouteTableId;
+  }
+  if (input.LocalGatewayVirtualInterfaceGroupId != null) {
+    entries["LocalGatewayVirtualInterfaceGroupId"] = input.LocalGatewayVirtualInterfaceGroupId;
+  }
+  if (input.TagSpecifications != null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -35075,6 +35600,31 @@ const serializeAws_ec2DeleteClientVpnRouteRequest = (
   return entries;
 };
 
+const serializeAws_ec2DeleteCoipCidrRequest = (input: DeleteCoipCidrRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Cidr != null) {
+    entries["Cidr"] = input.Cidr;
+  }
+  if (input.CoipPoolId != null) {
+    entries["CoipPoolId"] = input.CoipPoolId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeleteCoipPoolRequest = (input: DeleteCoipPoolRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.CoipPoolId != null) {
+    entries["CoipPoolId"] = input.CoipPoolId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DeleteCustomerGatewayRequest = (
   input: DeleteCustomerGatewayRequest,
   context: __SerdeContext
@@ -35290,6 +35840,35 @@ const serializeAws_ec2DeleteLocalGatewayRouteRequest = (
   }
   if (input.LocalGatewayRouteTableId != null) {
     entries["LocalGatewayRouteTableId"] = input.LocalGatewayRouteTableId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeleteLocalGatewayRouteTableRequest = (
+  input: DeleteLocalGatewayRouteTableRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.LocalGatewayRouteTableId != null) {
+    entries["LocalGatewayRouteTableId"] = input.LocalGatewayRouteTableId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest = (
+  input: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.LocalGatewayRouteTableVirtualInterfaceGroupAssociationId != null) {
+    entries["LocalGatewayRouteTableVirtualInterfaceGroupAssociationId"] =
+      input.LocalGatewayRouteTableVirtualInterfaceGroupAssociationId;
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
@@ -45617,6 +46196,9 @@ const serializeAws_ec2ModifyLocalGatewayRouteRequest = (
   if (input.LocalGatewayRouteTableId != null) {
     entries["LocalGatewayRouteTableId"] = input.LocalGatewayRouteTableId;
   }
+  if (input.LocalGatewayVirtualInterfaceGroupId != null) {
+    entries["LocalGatewayVirtualInterfaceGroupId"] = input.LocalGatewayVirtualInterfaceGroupId;
+  }
   if (input.NetworkInterfaceId != null) {
     entries["NetworkInterfaceId"] = input.NetworkInterfaceId;
   }
@@ -54819,6 +55401,24 @@ const deserializeAws_ec2CoipAddressUsageSet = (output: any, context: __SerdeCont
     });
 };
 
+const deserializeAws_ec2CoipCidr = (output: any, context: __SerdeContext): CoipCidr => {
+  const contents: any = {
+    Cidr: undefined,
+    CoipPoolId: undefined,
+    LocalGatewayRouteTableId: undefined,
+  };
+  if (output["cidr"] !== undefined) {
+    contents.Cidr = __expectString(output["cidr"]);
+  }
+  if (output["coipPoolId"] !== undefined) {
+    contents.CoipPoolId = __expectString(output["coipPoolId"]);
+  }
+  if (output["localGatewayRouteTableId"] !== undefined) {
+    contents.LocalGatewayRouteTableId = __expectString(output["localGatewayRouteTableId"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2CoipPool = (output: any, context: __SerdeContext): CoipPool => {
   const contents: any = {
     PoolId: undefined,
@@ -55173,6 +55773,26 @@ const deserializeAws_ec2CreateClientVpnRouteResult = (
   return contents;
 };
 
+const deserializeAws_ec2CreateCoipCidrResult = (output: any, context: __SerdeContext): CreateCoipCidrResult => {
+  const contents: any = {
+    CoipCidr: undefined,
+  };
+  if (output["coipCidr"] !== undefined) {
+    contents.CoipCidr = deserializeAws_ec2CoipCidr(output["coipCidr"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CreateCoipPoolResult = (output: any, context: __SerdeContext): CreateCoipPoolResult => {
+  const contents: any = {
+    CoipPool: undefined,
+  };
+  if (output["coipPool"] !== undefined) {
+    contents.CoipPool = deserializeAws_ec2CoipPool(output["coipPool"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2CreateCustomerGatewayResult = (
   output: any,
   context: __SerdeContext
@@ -55506,6 +56126,39 @@ const deserializeAws_ec2CreateLocalGatewayRouteResult = (
   };
   if (output["route"] !== undefined) {
     contents.Route = deserializeAws_ec2LocalGatewayRoute(output["route"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CreateLocalGatewayRouteTableResult = (
+  output: any,
+  context: __SerdeContext
+): CreateLocalGatewayRouteTableResult => {
+  const contents: any = {
+    LocalGatewayRouteTable: undefined,
+  };
+  if (output["localGatewayRouteTable"] !== undefined) {
+    contents.LocalGatewayRouteTable = deserializeAws_ec2LocalGatewayRouteTable(
+      output["localGatewayRouteTable"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult = (
+  output: any,
+  context: __SerdeContext
+): CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult => {
+  const contents: any = {
+    LocalGatewayRouteTableVirtualInterfaceGroupAssociation: undefined,
+  };
+  if (output["localGatewayRouteTableVirtualInterfaceGroupAssociation"] !== undefined) {
+    contents.LocalGatewayRouteTableVirtualInterfaceGroupAssociation =
+      deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+        output["localGatewayRouteTableVirtualInterfaceGroupAssociation"],
+        context
+      );
   }
   return contents;
 };
@@ -56270,6 +56923,26 @@ const deserializeAws_ec2DeleteClientVpnRouteResult = (
   return contents;
 };
 
+const deserializeAws_ec2DeleteCoipCidrResult = (output: any, context: __SerdeContext): DeleteCoipCidrResult => {
+  const contents: any = {
+    CoipCidr: undefined,
+  };
+  if (output["coipCidr"] !== undefined) {
+    contents.CoipCidr = deserializeAws_ec2CoipCidr(output["coipCidr"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeleteCoipPoolResult = (output: any, context: __SerdeContext): DeleteCoipPoolResult => {
+  const contents: any = {
+    CoipPool: undefined,
+  };
+  if (output["coipPool"] !== undefined) {
+    contents.CoipPool = deserializeAws_ec2CoipPool(output["coipPool"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DeleteEgressOnlyInternetGatewayResult = (
   output: any,
   context: __SerdeContext
@@ -56571,6 +57244,39 @@ const deserializeAws_ec2DeleteLocalGatewayRouteResult = (
   };
   if (output["route"] !== undefined) {
     contents.Route = deserializeAws_ec2LocalGatewayRoute(output["route"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeleteLocalGatewayRouteTableResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteLocalGatewayRouteTableResult => {
+  const contents: any = {
+    LocalGatewayRouteTable: undefined,
+  };
+  if (output["localGatewayRouteTable"] !== undefined) {
+    contents.LocalGatewayRouteTable = deserializeAws_ec2LocalGatewayRouteTable(
+      output["localGatewayRouteTable"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult => {
+  const contents: any = {
+    LocalGatewayRouteTableVirtualInterfaceGroupAssociation: undefined,
+  };
+  if (output["localGatewayRouteTableVirtualInterfaceGroupAssociation"] !== undefined) {
+    contents.LocalGatewayRouteTableVirtualInterfaceGroupAssociation =
+      deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociation(
+        output["localGatewayRouteTableVirtualInterfaceGroupAssociation"],
+        context
+      );
   }
   return contents;
 };
@@ -68594,6 +69300,7 @@ const deserializeAws_ec2LocalGatewayRouteTable = (output: any, context: __SerdeC
     State: undefined,
     Tags: undefined,
     Mode: undefined,
+    StateReason: undefined,
   };
   if (output["localGatewayRouteTableId"] !== undefined) {
     contents.LocalGatewayRouteTableId = __expectString(output["localGatewayRouteTableId"]);
@@ -68620,6 +69327,9 @@ const deserializeAws_ec2LocalGatewayRouteTable = (output: any, context: __SerdeC
   }
   if (output["mode"] !== undefined) {
     contents.Mode = __expectString(output["mode"]);
+  }
+  if (output["stateReason"] !== undefined) {
+    contents.StateReason = deserializeAws_ec2StateReason(output["stateReason"], context);
   }
   return contents;
 };

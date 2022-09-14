@@ -18,7 +18,7 @@ import {
   EnableVpcClassicLinkRequestFilterSensitiveLog,
   EnableVpcClassicLinkResult,
   EnableVpcClassicLinkResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2EnableVpcClassicLinkCommand,
   serializeAws_ec2EnableVpcClassicLinkCommand,

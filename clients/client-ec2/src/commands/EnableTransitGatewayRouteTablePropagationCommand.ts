@@ -18,7 +18,7 @@ import {
   EnableTransitGatewayRouteTablePropagationRequestFilterSensitiveLog,
   EnableTransitGatewayRouteTablePropagationResult,
   EnableTransitGatewayRouteTablePropagationResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand,
   serializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand,

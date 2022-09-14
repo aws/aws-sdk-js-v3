@@ -16,9 +16,11 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeLocalGatewayVirtualInterfacesRequest,
   DescribeLocalGatewayVirtualInterfacesRequestFilterSensitiveLog,
+} from "../models/models_3";
+import {
   DescribeLocalGatewayVirtualInterfacesResult,
   DescribeLocalGatewayVirtualInterfacesResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand,
   serializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand,

@@ -17,11 +17,9 @@ import {
   AddressFamily,
   AttachmentStatus,
   CurrencyCodeValues,
-  DnsSupportValue,
-  FleetExcessCapacityTerminationPolicy,
+  DhcpOptions,
   HostnameType,
   InstanceEventWindow,
-  InternetGatewayAttachment,
   Ipv4PrefixSpecification,
   PortRange,
   Protocol,
@@ -35,6 +33,95 @@ import {
   UnsuccessfulItem,
   WeekDay,
 } from "./models_0";
+
+export interface CreateDhcpOptionsResult {
+  /**
+   * <p>A set of DHCP options.</p>
+   */
+  DhcpOptions?: DhcpOptions;
+}
+
+export interface CreateEgressOnlyInternetGatewayRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
+   * 				idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the VPC for which to create the egress-only internet gateway.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The tags to assign to the egress-only internet gateway.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+/**
+ * <p>Describes the attachment of a VPC to an internet gateway or an egress-only internet
+ * 			gateway.</p>
+ */
+export interface InternetGatewayAttachment {
+  /**
+   * <p>The current state of the attachment. For an internet gateway, the state is
+   * 				<code>available</code> when attached to a VPC; otherwise, this value is not
+   * 			returned.</p>
+   */
+  State?: AttachmentStatus | string;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+}
+
+/**
+ * <p>Describes an egress-only internet gateway.</p>
+ */
+export interface EgressOnlyInternetGateway {
+  /**
+   * <p>Information about the attachment of the egress-only internet gateway.</p>
+   */
+  Attachments?: InternetGatewayAttachment[];
+
+  /**
+   * <p>The ID of the egress-only internet gateway.</p>
+   */
+  EgressOnlyInternetGatewayId?: string;
+
+  /**
+   * <p>The tags assigned to the egress-only internet gateway.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateEgressOnlyInternetGatewayResult {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * 			request.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Information about the egress-only internet gateway.</p>
+   */
+  EgressOnlyInternetGateway?: EgressOnlyInternetGateway;
+}
+
+export enum FleetExcessCapacityTerminationPolicy {
+  NO_TERMINATION = "no-termination",
+  TERMINATION = "termination",
+}
 
 /**
  * <p>The Amazon EC2 launch template that can be used by
@@ -5092,6 +5179,262 @@ export interface CreateLocalGatewayRouteResult {
   Route?: LocalGatewayRoute;
 }
 
+export enum LocalGatewayRouteTableMode {
+  coip = "coip",
+  direct_vpc_routing = "direct-vpc-routing",
+}
+
+export interface CreateLocalGatewayRouteTableRequest {
+  /**
+   * <p>
+   *       The ID of the local gateway.
+   *       </p>
+   */
+  LocalGatewayId: string | undefined;
+
+  /**
+   * <p>
+   *       The mode of the local gateway route table.
+   *       </p>
+   */
+  Mode?: LocalGatewayRouteTableMode | string;
+
+  /**
+   * <p>
+   *       The tags assigned to the local gateway route table.
+   *       </p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Describes a state change.</p>
+ */
+export interface StateReason {
+  /**
+   * <p>The reason code for the state change.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>The message for the state change.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Server.InsufficientInstanceCapacity</code>: There was insufficient
+   *                     capacity available to satisfy the launch request.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Server.InternalError</code>: An internal error caused the instance to
+   *                     terminate during launch.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Server.ScheduledStop</code>: The instance was stopped due to a scheduled
+   *                     retirement.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Server.SpotInstanceShutdown</code>: The instance was stopped because the
+   *                     number of Spot requests with a maximum price equal to or higher than the Spot
+   *                     price exceeded available capacity or because of an increase in the Spot
+   *                     price.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Server.SpotInstanceTermination</code>: The instance was terminated
+   *                     because the number of Spot requests with a maximum price equal to or higher than
+   *                     the Spot price exceeded available capacity or because of an increase in the Spot
+   *                     price.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Client.InstanceInitiatedShutdown</code>: The instance was shut down
+   *                     using the <code>shutdown -h</code> command from the instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Client.InstanceTerminated</code>: The instance was terminated or
+   *                     rebooted during AMI creation.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Client.InternalError</code>: A client error caused the instance to
+   *                     terminate during launch.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Client.InvalidSnapshot.NotFound</code>: The specified snapshot was not
+   *                     found.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Client.UserInitiatedHibernate</code>: Hibernation was initiated on the
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Client.UserInitiatedShutdown</code>: The instance was shut down using
+   *                     the Amazon EC2 API.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Client.VolumeLimitExceeded</code>: The limit on the number of EBS
+   *                     volumes or total storage was exceeded. Decrease usage or request an increase in
+   *                     your account limits.</p>
+   *             </li>
+   *          </ul>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>Describes a local gateway route table.</p>
+ */
+export interface LocalGatewayRouteTable {
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   */
+  LocalGatewayRouteTableId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the local gateway route table.</p>
+   */
+  LocalGatewayRouteTableArn?: string;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the local gateway route table.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The state of the local gateway route table.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The tags assigned to the local gateway route table.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The mode of the local gateway route table.</p>
+   */
+  Mode?: LocalGatewayRouteTableMode | string;
+
+  /**
+   * <p>Describes a state change.</p>
+   */
+  StateReason?: StateReason;
+}
+
+export interface CreateLocalGatewayRouteTableResult {
+  /**
+   * <p>Describes a local gateway route table.</p>
+   */
+  LocalGatewayRouteTable?: LocalGatewayRouteTable;
+}
+
+export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {
+  /**
+   * <p>
+   *       The ID of the local gateway route table.
+   *       </p>
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>
+   *       The ID of the local gateway route table virtual interface group association.
+   *       </p>
+   */
+  LocalGatewayVirtualInterfaceGroupId: string | undefined;
+
+  /**
+   * <p>
+   *       The tags assigned to the local gateway route table virtual interface group association.
+   *       </p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Describes an association between a local gateway route table and a virtual interface group.</p>
+ */
+export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
+  /**
+   * <p>The ID of the association.</p>
+   */
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociationId?: string;
+
+  /**
+   * <p>The ID of the virtual interface group.</p>
+   */
+  LocalGatewayVirtualInterfaceGroupId?: string;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   */
+  LocalGatewayRouteTableId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group.</p>
+   */
+  LocalGatewayRouteTableArn?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the local gateway virtual interface group association.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The state of the association.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The tags assigned to the association.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult {
+  /**
+   * <p>Describes an association between a local gateway route table and a virtual interface group.</p>
+   */
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation;
+}
+
 export interface CreateLocalGatewayRouteTableVpcAssociationRequest {
   /**
    * <p>The ID of the local gateway route table.</p>
@@ -8061,314 +8404,44 @@ export interface CreateTrafficMirrorFilterRuleResult {
   ClientToken?: string;
 }
 
-export interface CreateTrafficMirrorSessionRequest {
-  /**
-   * <p>The ID of the source network interface.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>The ID of the Traffic Mirror target.</p>
-   */
-  TrafficMirrorTargetId: string | undefined;
-
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   */
-  TrafficMirrorFilterId: string | undefined;
-
-  /**
-   * <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do
-   *          not specify this parameter when you want to mirror the entire packet. To mirror a subset of
-   *          the packet, set this to the length (in bytes) that you want to mirror. For example, if you
-   *          set this value to 100, then the first 100 bytes that meet the filter criteria are copied to
-   *          the target.</p>
-   *          <p>If you do not want to mirror the entire packet, use the <code>PacketLength</code> parameter to specify the number of bytes in each packet to mirror.</p>
-   */
-  PacketLength?: number;
-
-  /**
-   * <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p>
-   *          <p>Valid values are 1-32766.</p>
-   */
-  SessionNumber: number | undefined;
-
-  /**
-   * <p>The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN
-   *          protocol, see <a href="https://tools.ietf.org/html/rfc7348">RFC 7348</a>. If you do
-   *          not specify a <code>VirtualNetworkId</code>, an account-wide unique id is chosen at
-   *          random.</p>
-   */
-  VirtualNetworkId?: number;
-
-  /**
-   * <p>The description of the Traffic Mirror session.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The tags to assign to a Traffic Mirror session.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-}
+/**
+ * @internal
+ */
+export const CreateDhcpOptionsResultFilterSensitiveLog = (obj: CreateDhcpOptionsResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a Traffic Mirror session.</p>
+ * @internal
  */
-export interface TrafficMirrorSession {
-  /**
-   * <p>The ID for the Traffic Mirror session.</p>
-   */
-  TrafficMirrorSessionId?: string;
-
-  /**
-   * <p>The ID of the Traffic Mirror target.</p>
-   */
-  TrafficMirrorTargetId?: string;
-
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   */
-  TrafficMirrorFilterId?: string;
-
-  /**
-   * <p>The ID of the Traffic Mirror session's network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>The ID of the account that owns the Traffic Mirror session.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The number of bytes in each packet to mirror. These are the bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet</p>
-   */
-  PacketLength?: number;
-
-  /**
-   * <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p>
-   *          <p>Valid values are 1-32766.</p>
-   */
-  SessionNumber?: number;
-
-  /**
-   * <p>The virtual network ID associated with the Traffic Mirror session.</p>
-   */
-  VirtualNetworkId?: number;
-
-  /**
-   * <p>The description of the Traffic Mirror session.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The tags assigned to the Traffic Mirror session.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateTrafficMirrorSessionResult {
-  /**
-   * <p>Information about the Traffic Mirror session.</p>
-   */
-  TrafficMirrorSession?: TrafficMirrorSession;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-}
-
-export interface CreateTrafficMirrorTargetRequest {
-  /**
-   * <p>The network interface ID that is associated with the target.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.</p>
-   */
-  NetworkLoadBalancerArn?: string;
-
-  /**
-   * <p>The description of the Traffic Mirror target.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The tags to assign to the Traffic Mirror target.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The ID of the Gateway Load Balancer endpoint.</p>
-   */
-  GatewayLoadBalancerEndpointId?: string;
-}
-
-export type TrafficMirrorTargetType = "gateway-load-balancer-endpoint" | "network-interface" | "network-load-balancer";
+export const CreateEgressOnlyInternetGatewayRequestFilterSensitiveLog = (
+  obj: CreateEgressOnlyInternetGatewayRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a Traffic Mirror target.</p>
+ * @internal
  */
-export interface TrafficMirrorTarget {
-  /**
-   * <p>The ID of the Traffic Mirror target.</p>
-   */
-  TrafficMirrorTargetId?: string;
-
-  /**
-   * <p>The network interface ID that is attached to the target.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Network Load Balancer.</p>
-   */
-  NetworkLoadBalancerArn?: string;
-
-  /**
-   * <p>The type of Traffic Mirror target.</p>
-   */
-  Type?: TrafficMirrorTargetType | string;
-
-  /**
-   * <p>Information about the Traffic Mirror target.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the account that owns the Traffic Mirror target.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The tags assigned to the Traffic Mirror target.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ID of the Gateway Load Balancer endpoint.</p>
-   */
-  GatewayLoadBalancerEndpointId?: string;
-}
-
-export interface CreateTrafficMirrorTargetResult {
-  /**
-   * <p>Information about the Traffic Mirror target.</p>
-   */
-  TrafficMirrorTarget?: TrafficMirrorTarget;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-}
-
-export type AutoAcceptSharedAttachmentsValue = "disable" | "enable";
-
-export type DefaultRouteTableAssociationValue = "disable" | "enable";
-
-export type DefaultRouteTablePropagationValue = "disable" | "enable";
-
-export type MulticastSupportValue = "disable" | "enable";
-
-export type VpnEcmpSupportValue = "disable" | "enable";
+export const InternetGatewayAttachmentFilterSensitiveLog = (obj: InternetGatewayAttachment): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the options for a transit gateway.</p>
+ * @internal
  */
-export interface TransitGatewayRequestOptions {
-  /**
-   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
-   *          The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs. The default is <code>64512</code>.</p>
-   */
-  AmazonSideAsn?: number;
+export const EgressOnlyInternetGatewayFilterSensitiveLog = (obj: EgressOnlyInternetGateway): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Enable or disable automatic acceptance of attachment requests. Disabled by default.</p>
-   */
-  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | string;
-
-  /**
-   * <p>Enable or disable automatic association with the default association route table. Enabled by default.</p>
-   */
-  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | string;
-
-  /**
-   * <p>Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.</p>
-   */
-  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | string;
-
-  /**
-   * <p>Enable or disable Equal Cost Multipath Protocol support. Enabled by default.</p>
-   */
-  VpnEcmpSupport?: VpnEcmpSupportValue | string;
-
-  /**
-   * <p>Enable or disable DNS support. Enabled by default.</p>
-   */
-  DnsSupport?: DnsSupportValue | string;
-
-  /**
-   * <p>Indicates whether multicast is enabled on the transit gateway</p>
-   */
-  MulticastSupport?: MulticastSupportValue | string;
-
-  /**
-   * <p>One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>
-   */
-  TransitGatewayCidrBlocks?: string[];
-}
-
-export interface CreateTransitGatewayRequest {
-  /**
-   * <p>A description of the transit gateway.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The transit gateway options.</p>
-   */
-  Options?: TransitGatewayRequestOptions;
-
-  /**
-   * <p>The tags to apply to the transit gateway.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const CreateEgressOnlyInternetGatewayResultFilterSensitiveLog = (
+  obj: CreateEgressOnlyInternetGatewayResult
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9340,6 +9413,63 @@ export const CreateLocalGatewayRouteResultFilterSensitiveLog = (obj: CreateLocal
 /**
  * @internal
  */
+export const CreateLocalGatewayRouteTableRequestFilterSensitiveLog = (
+  obj: CreateLocalGatewayRouteTableRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StateReasonFilterSensitiveLog = (obj: StateReason): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocalGatewayRouteTableFilterSensitiveLog = (obj: LocalGatewayRouteTable): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLocalGatewayRouteTableResultFilterSensitiveLog = (obj: CreateLocalGatewayRouteTableResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestFilterSensitiveLog = (
+  obj: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocalGatewayRouteTableVirtualInterfaceGroupAssociationFilterSensitiveLog = (
+  obj: LocalGatewayRouteTableVirtualInterfaceGroupAssociation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultFilterSensitiveLog = (
+  obj: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateLocalGatewayRouteTableVpcAssociationRequestFilterSensitiveLog = (
   obj: CreateLocalGatewayRouteTableVpcAssociationRequest
 ): any => ({
@@ -9976,61 +10106,5 @@ export const CreateTrafficMirrorFilterRuleRequestFilterSensitiveLog = (
 export const CreateTrafficMirrorFilterRuleResultFilterSensitiveLog = (
   obj: CreateTrafficMirrorFilterRuleResult
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrafficMirrorSessionRequestFilterSensitiveLog = (obj: CreateTrafficMirrorSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrafficMirrorSessionFilterSensitiveLog = (obj: TrafficMirrorSession): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrafficMirrorSessionResultFilterSensitiveLog = (obj: CreateTrafficMirrorSessionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrafficMirrorTargetRequestFilterSensitiveLog = (obj: CreateTrafficMirrorTargetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrafficMirrorTargetFilterSensitiveLog = (obj: TrafficMirrorTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrafficMirrorTargetResultFilterSensitiveLog = (obj: CreateTrafficMirrorTargetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayRequestOptionsFilterSensitiveLog = (obj: TransitGatewayRequestOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTransitGatewayRequestFilterSensitiveLog = (obj: CreateTransitGatewayRequest): any => ({
   ...obj,
 });

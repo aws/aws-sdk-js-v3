@@ -1815,6 +1815,12 @@
           "target": "com.amazonaws.ec2#CreateClientVpnRoute"
         },
         {
+          "target": "com.amazonaws.ec2#CreateCoipCidr"
+        },
+        {
+          "target": "com.amazonaws.ec2#CreateCoipPool"
+        },
+        {
           "target": "com.amazonaws.ec2#CreateCustomerGateway"
         },
         {
@@ -1870,6 +1876,12 @@
         },
         {
           "target": "com.amazonaws.ec2#CreateLocalGatewayRoute"
+        },
+        {
+          "target": "com.amazonaws.ec2#CreateLocalGatewayRouteTable"
+        },
+        {
+          "target": "com.amazonaws.ec2#CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation"
         },
         {
           "target": "com.amazonaws.ec2#CreateLocalGatewayRouteTableVpcAssociation"
@@ -2025,6 +2037,12 @@
           "target": "com.amazonaws.ec2#DeleteClientVpnRoute"
         },
         {
+          "target": "com.amazonaws.ec2#DeleteCoipCidr"
+        },
+        {
+          "target": "com.amazonaws.ec2#DeleteCoipPool"
+        },
+        {
           "target": "com.amazonaws.ec2#DeleteCustomerGateway"
         },
         {
@@ -2068,6 +2086,12 @@
         },
         {
           "target": "com.amazonaws.ec2#DeleteLocalGatewayRoute"
+        },
+        {
+          "target": "com.amazonaws.ec2#DeleteLocalGatewayRouteTable"
+        },
+        {
+          "target": "com.amazonaws.ec2#DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation"
         },
         {
           "target": "com.amazonaws.ec2#DeleteLocalGatewayRouteTableVpcAssociation"
@@ -9257,6 +9281,38 @@
         }
       }
     },
+    "com.amazonaws.ec2#CoipCidr": {
+      "type": "structure",
+      "members": {
+        "Cidr": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Cidr",
+            "smithy.api#documentation": "<p>\n      An address range in a customer-owned IP address space.\n      </p>",
+            "smithy.api#xmlName": "cidr"
+          }
+        },
+        "CoipPoolId": {
+          "target": "com.amazonaws.ec2#Ipv4PoolCoipId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CoipPoolId",
+            "smithy.api#documentation": "<p>\n         The ID of the address pool.\n      </p>",
+            "smithy.api#xmlName": "coipPoolId"
+          }
+        },
+        "LocalGatewayRouteTableId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LocalGatewayRouteTableId",
+            "smithy.api#documentation": "<p>\n      The ID of the local gateway route table.\n      </p>",
+            "smithy.api#xmlName": "localGatewayRouteTableId"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Information about a customer-owned IP address range.\n      </p>"
+      }
+    },
     "com.amazonaws.ec2#CoipPool": {
       "type": "structure",
       "members": {
@@ -10645,6 +10701,105 @@
             "aws.protocols#ec2QueryName": "Status",
             "smithy.api#documentation": "<p>The current state of the route.</p>",
             "smithy.api#xmlName": "status"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#CreateCoipCidr": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#CreateCoipCidrRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#CreateCoipCidrResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n     Creates a range of customer-owned IP addresses.\n      </p>"
+      }
+    },
+    "com.amazonaws.ec2#CreateCoipCidrRequest": {
+      "type": "structure",
+      "members": {
+        "Cidr": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      A customer-owned IP address range to create.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CoipPoolId": {
+          "target": "com.amazonaws.ec2#Ipv4PoolCoipId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The ID of the address pool.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#CreateCoipCidrResult": {
+      "type": "structure",
+      "members": {
+        "CoipCidr": {
+          "target": "com.amazonaws.ec2#CoipCidr",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CoipCidr",
+            "smithy.api#documentation": "<p>\n         Information about a range of customer-owned IP addresses.\n      </p>",
+            "smithy.api#xmlName": "coipCidr"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#CreateCoipPool": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#CreateCoipPoolRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#CreateCoipPoolResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> Creates a pool of customer-owned IP (CoIP) addresses. </p>"
+      }
+    },
+    "com.amazonaws.ec2#CreateCoipPoolRequest": {
+      "type": "structure",
+      "members": {
+        "LocalGatewayRouteTableId": {
+          "target": "com.amazonaws.ec2#LocalGatewayRoutetableId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the local gateway route table.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagSpecifications": {
+          "target": "com.amazonaws.ec2#TagSpecificationList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The tags to assign to the CoIP address pool.\n      </p>",
+            "smithy.api#xmlName": "TagSpecification"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#CreateCoipPoolResult": {
+      "type": "structure",
+      "members": {
+        "CoipPool": {
+          "target": "com.amazonaws.ec2#CoipPool",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CoipPool",
+            "smithy.api#xmlName": "coipPool"
           }
         }
       }
@@ -12180,6 +12335,117 @@
             "aws.protocols#ec2QueryName": "Route",
             "smithy.api#documentation": "<p>Information about the route.</p>",
             "smithy.api#xmlName": "route"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#CreateLocalGatewayRouteTable": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#CreateLocalGatewayRouteTableRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#CreateLocalGatewayRouteTableResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Creates a local gateway route table. \n      </p>"
+      }
+    },
+    "com.amazonaws.ec2#CreateLocalGatewayRouteTableRequest": {
+      "type": "structure",
+      "members": {
+        "LocalGatewayId": {
+          "target": "com.amazonaws.ec2#LocalGatewayId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the local gateway. \n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Mode": {
+          "target": "com.amazonaws.ec2#LocalGatewayRouteTableMode",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The mode of the local gateway route table.\n      </p>"
+          }
+        },
+        "TagSpecifications": {
+          "target": "com.amazonaws.ec2#TagSpecificationList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The tags assigned to the local gateway route table.\n      </p>",
+            "smithy.api#xmlName": "TagSpecification"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#CreateLocalGatewayRouteTableResult": {
+      "type": "structure",
+      "members": {
+        "LocalGatewayRouteTable": {
+          "target": "com.amazonaws.ec2#LocalGatewayRouteTable",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LocalGatewayRouteTable",
+            "smithy.api#xmlName": "localGatewayRouteTable"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Creates a local gateway route table virtual interface group association. \n      </p>"
+      }
+    },
+    "com.amazonaws.ec2#CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest": {
+      "type": "structure",
+      "members": {
+        "LocalGatewayRouteTableId": {
+          "target": "com.amazonaws.ec2#LocalGatewayRoutetableId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the local gateway route table.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LocalGatewayVirtualInterfaceGroupId": {
+          "target": "com.amazonaws.ec2#LocalGatewayVirtualInterfaceGroupId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the local gateway route table virtual interface group association.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagSpecifications": {
+          "target": "com.amazonaws.ec2#TagSpecificationList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The tags assigned to the local gateway route table virtual interface group association.\n      </p>",
+            "smithy.api#xmlName": "TagSpecification"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult": {
+      "type": "structure",
+      "members": {
+        "LocalGatewayRouteTableVirtualInterfaceGroupAssociation": {
+          "target": "com.amazonaws.ec2#LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
+            "smithy.api#xmlName": "localGatewayRouteTableVirtualInterfaceGroupAssociation"
           }
         }
       }
@@ -16300,6 +16566,98 @@
         }
       }
     },
+    "com.amazonaws.ec2#DeleteCoipCidr": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DeleteCoipCidrRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DeleteCoipCidrResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Deletes a range of customer-owned IP addresses.\n      </p>"
+      }
+    },
+    "com.amazonaws.ec2#DeleteCoipCidrRequest": {
+      "type": "structure",
+      "members": {
+        "Cidr": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p> A customer-owned IP address range that you want to delete. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CoipPoolId": {
+          "target": "com.amazonaws.ec2#Ipv4PoolCoipId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n        The ID of the customer-owned address pool. \n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteCoipCidrResult": {
+      "type": "structure",
+      "members": {
+        "CoipCidr": {
+          "target": "com.amazonaws.ec2#CoipCidr",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CoipCidr",
+            "smithy.api#documentation": "<p>\n       Information about a range of customer-owned IP addresses.\n      </p>",
+            "smithy.api#xmlName": "coipCidr"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteCoipPool": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DeleteCoipPoolRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DeleteCoipPoolResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a pool of customer-owned IP (CoIP) addresses. </p>"
+      }
+    },
+    "com.amazonaws.ec2#DeleteCoipPoolRequest": {
+      "type": "structure",
+      "members": {
+        "CoipPoolId": {
+          "target": "com.amazonaws.ec2#Ipv4PoolCoipId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the CoIP pool that you want to delete. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteCoipPoolResult": {
+      "type": "structure",
+      "members": {
+        "CoipPool": {
+          "target": "com.amazonaws.ec2#CoipPool",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CoipPool",
+            "smithy.api#xmlName": "coipPool"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#DeleteCustomerGateway": {
       "type": "operation",
       "input": {
@@ -17181,6 +17539,90 @@
             "aws.protocols#ec2QueryName": "Route",
             "smithy.api#documentation": "<p>Information about the route.</p>",
             "smithy.api#xmlName": "route"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteLocalGatewayRouteTable": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DeleteLocalGatewayRouteTableRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DeleteLocalGatewayRouteTableResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Deletes a local gateway route table.\n      </p>"
+      }
+    },
+    "com.amazonaws.ec2#DeleteLocalGatewayRouteTableRequest": {
+      "type": "structure",
+      "members": {
+        "LocalGatewayRouteTableId": {
+          "target": "com.amazonaws.ec2#LocalGatewayRoutetableId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the local gateway route table.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteLocalGatewayRouteTableResult": {
+      "type": "structure",
+      "members": {
+        "LocalGatewayRouteTable": {
+          "target": "com.amazonaws.ec2#LocalGatewayRouteTable",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LocalGatewayRouteTable",
+            "smithy.api#xmlName": "localGatewayRouteTable"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Deletes a local gateway route table virtual interface group association.\n      </p>"
+      }
+    },
+    "com.amazonaws.ec2#DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest": {
+      "type": "structure",
+      "members": {
+        "LocalGatewayRouteTableVirtualInterfaceGroupAssociationId": {
+          "target": "com.amazonaws.ec2#LocalGatewayRouteTableVirtualInterfaceGroupAssociationId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The ID of the local gateway route table virtual interface group association.\n      </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult": {
+      "type": "structure",
+      "members": {
+        "LocalGatewayRouteTableVirtualInterfaceGroupAssociation": {
+          "target": "com.amazonaws.ec2#LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
+            "smithy.api#xmlName": "localGatewayRouteTableVirtualInterfaceGroupAssociation"
           }
         }
       }
@@ -53758,6 +54200,13 @@
             "smithy.api#documentation": "<p>The mode of the local gateway route table.</p>",
             "smithy.api#xmlName": "mode"
           }
+        },
+        "StateReason": {
+          "target": "com.amazonaws.ec2#StateReason",
+          "traits": {
+            "aws.protocols#ec2QueryName": "StateReason",
+            "smithy.api#xmlName": "stateReason"
+          }
         }
       },
       "traits": {
@@ -56390,11 +56839,16 @@
             "smithy.api#required": {}
           }
         },
+        "LocalGatewayVirtualInterfaceGroupId": {
+          "target": "com.amazonaws.ec2#LocalGatewayVirtualInterfaceGroupId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The ID of the virtual interface group.\n      </p>"
+          }
+        },
         "NetworkInterfaceId": {
           "target": "com.amazonaws.ec2#NetworkInterfaceId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the network interface.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The ID of the network interface.</p>"
           }
         },
         "DryRun": {
@@ -67238,6 +67692,10 @@
           {
             "value": "carrier-gateway",
             "name": "carrier_gateway"
+          },
+          {
+            "value": "coip-pool",
+            "name": "coip_pool"
           },
           {
             "value": "dedicated-host",

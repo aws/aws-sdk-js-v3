@@ -7,6 +7,7 @@ import {
   AddressAttributeName,
   ByoipCidr,
   ClientVpnAuthorizationRuleStatus,
+  CurrencyCodeValues,
   HostnameType,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
@@ -36,7 +37,7 @@ import {
   SnapshotState,
   SpotInstanceType,
 } from "./models_1";
-import { Filter, InstanceTagNotificationAttribute, TransitGatewayRoute } from "./models_2";
+import { Filter, InstanceTagNotificationAttribute, IpamPoolCidr, TransitGatewayRoute } from "./models_2";
 import {
   ArchitectureValues,
   BootModeValues,
@@ -48,12 +49,13 @@ import {
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
   InstanceState,
-  NetworkInsightsAccessScopeAnalysis,
   TpmSupportValues,
 } from "./models_3";
 import {
   InstanceNetworkInterfaceSpecification,
+  NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
+  PublicIpv4PoolRange,
   RunInstancesMonitoringEnabled,
   ScheduledInstance,
   SnapshotAttributeName,
@@ -61,7 +63,336 @@ import {
   SpotInstanceRequest,
   SpotPlacement,
 } from "./models_4";
-import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_5";
+import { CapacityReservationSpecification, InstanceMonitoring, Purchase } from "./models_5";
+
+export interface MoveAddressToVpcRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The Elastic IP address.</p>
+   */
+  PublicIp: string | undefined;
+}
+
+export enum Status {
+  inClassic = "InClassic",
+  inVpc = "InVpc",
+  moveInProgress = "MoveInProgress",
+}
+
+export interface MoveAddressToVpcResult {
+  /**
+   * <p>The allocation ID for the Elastic IP address.</p>
+   */
+  AllocationId?: string;
+
+  /**
+   * <p>The status of the move of the IP address.</p>
+   */
+  Status?: Status | string;
+}
+
+export interface MoveByoipCidrToIpamRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The BYOIP CIDR.</p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The IPAM pool ID.</p>
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the IPAM pool.</p>
+   */
+  IpamPoolOwner: string | undefined;
+}
+
+export interface MoveByoipCidrToIpamResult {
+  /**
+   * <p>Information about an address range that is provisioned for use with your Amazon Web Services resources
+   *          through bring your own IP addresses (BYOIP).</p>
+   */
+  ByoipCidr?: ByoipCidr;
+}
+
+/**
+ * <p>Provides authorization for Amazon to bring a specific IP address range to a specific
+ *           Amazon Web Services account using bring your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip">Configuring your BYOIP address range</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+export interface CidrAuthorizationContext {
+  /**
+   * <p>The plain-text authorization message for the prefix and account.</p>
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The signed authorization message for the prefix and account.</p>
+   */
+  Signature: string | undefined;
+}
+
+export interface ProvisionByoipCidrRequest {
+  /**
+   * <p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can
+   *          specify is /24. The most specific IPv6 prefix you can specify is /56. The address range cannot overlap with another address range that you've
+   *          brought to this or another Region.</p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>A signed document that proves that you are authorized to bring the specified IP address
+   *          range to Amazon using BYOIP.</p>
+   */
+  CidrAuthorizationContext?: CidrAuthorizationContext;
+
+  /**
+   * <p>(IPv6 only) Indicate whether the address range will be publicly advertised to the
+   *             internet.</p>
+   *         <p>Default: true</p>
+   */
+  PubliclyAdvertisable?: boolean;
+
+  /**
+   * <p>A description for the address range and the address pool.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tags to apply to the address pool.</p>
+   */
+  PoolTagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Reserved.</p>
+   */
+  MultiRegion?: boolean;
+}
+
+export interface ProvisionByoipCidrResult {
+  /**
+   * <p>Information about the address range.</p>
+   */
+  ByoipCidr?: ByoipCidr;
+}
+
+/**
+ * <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.</p>
+ */
+export interface IpamCidrAuthorizationContext {
+  /**
+   * <p>The plain-text authorization message for the prefix and account.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The signed authorization message for the prefix and account.</p>
+   */
+  Signature?: string;
+}
+
+export interface ProvisionIpamPoolCidrRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the IPAM pool to which you want to assign a CIDR.</p>
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The CIDR you want to assign to the IPAM pool.</p>
+   */
+  Cidr?: string;
+
+  /**
+   * <p>A signed document that proves that you are authorized to bring a specified IP address range to Amazon using BYOIP. This option applies to public pools only.</p>
+   */
+  CidrAuthorizationContext?: IpamCidrAuthorizationContext;
+}
+
+export interface ProvisionIpamPoolCidrResult {
+  /**
+   * <p>Information about the provisioned CIDR.</p>
+   */
+  IpamPoolCidr?: IpamPoolCidr;
+}
+
+export interface ProvisionPublicIpv4PoolCidrRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the IPAM pool you would like to use to allocate this CIDR.</p>
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The ID of the public IPv4 pool you would like to use for this CIDR.</p>
+   */
+  PoolId: string | undefined;
+
+  /**
+   * <p>The netmask length of the CIDR you would like to allocate to the public IPv4 pool.</p>
+   */
+  NetmaskLength: number | undefined;
+}
+
+export interface ProvisionPublicIpv4PoolCidrResult {
+  /**
+   * <p>The ID of the pool that you want to provision the CIDR to.</p>
+   */
+  PoolId?: string;
+
+  /**
+   * <p>Describes an address range of an IPv4 address pool.</p>
+   */
+  PoolAddressRange?: PublicIpv4PoolRange;
+}
+
+export interface PurchaseHostReservationRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The currency in which the <code>totalUpfrontPrice</code>, <code>LimitPrice</code>,
+   *             and <code>totalHourlyPrice</code> amounts are specified. At this time, the only
+   *             supported currency is <code>USD</code>.</p>
+   */
+  CurrencyCode?: CurrencyCodeValues | string;
+
+  /**
+   * <p>The IDs of the Dedicated Hosts with which the reservation will be associated.</p>
+   */
+  HostIdSet: string[] | undefined;
+
+  /**
+   * <p>The specified limit is checked against the total upfront cost of the reservation
+   *             (calculated as the offering's upfront cost multiplied by the host count). If the total
+   *             upfront cost is greater than the specified price limit, the request fails. This is used
+   *             to ensure that the purchase does not exceed the expected upfront cost of the purchase.
+   *             At this time, the only supported currency is <code>USD</code>. For example, to indicate
+   *             a limit price of USD 100, specify 100.00.</p>
+   */
+  LimitPrice?: string;
+
+  /**
+   * <p>The ID of the offering.</p>
+   */
+  OfferingId: string | undefined;
+
+  /**
+   * <p>The tags to apply to the Dedicated Host Reservation during purchase.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+export interface PurchaseHostReservationResult {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The currency in which the <code>totalUpfrontPrice</code> and
+   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
+   *             supported currency is <code>USD</code>.</p>
+   */
+  CurrencyCode?: CurrencyCodeValues | string;
+
+  /**
+   * <p>Describes the details of the purchase.</p>
+   */
+  Purchase?: Purchase[];
+
+  /**
+   * <p>The total hourly price of the reservation calculated per hour.</p>
+   */
+  TotalHourlyPrice?: string;
+
+  /**
+   * <p>The total amount charged to your account when you purchase the reservation.</p>
+   */
+  TotalUpfrontPrice?: string;
+}
+
+/**
+ * <p>Describes the limit price of a Reserved Instance offering.</p>
+ */
+export interface ReservedInstanceLimitPrice {
+  /**
+   * <p>Used for Reserved Instance Marketplace offerings. Specifies the limit price on the total order (instanceCount * price).</p>
+   */
+  Amount?: number;
+
+  /**
+   * <p>The currency in which the <code>limitPrice</code> amount is specified.
+   * 				At this time, the only supported currency is <code>USD</code>.</p>
+   */
+  CurrencyCode?: CurrencyCodeValues | string;
+}
+
+/**
+ * <p>Contains the parameters for PurchaseReservedInstancesOffering.</p>
+ */
+export interface PurchaseReservedInstancesOfferingRequest {
+  /**
+   * <p>The number of Reserved Instances to purchase.</p>
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>The ID of the Reserved Instance offering to purchase.</p>
+   */
+  ReservedInstancesOfferingId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.</p>
+   */
+  LimitPrice?: ReservedInstanceLimitPrice;
+
+  /**
+   * <p>The time at which to purchase the Reserved Instance, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   */
+  PurchaseTime?: Date;
+}
 
 /**
  * <p>Contains the output of PurchaseReservedInstancesOffering.</p>
@@ -3457,6 +3788,120 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const MoveAddressToVpcRequestFilterSensitiveLog = (obj: MoveAddressToVpcRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MoveAddressToVpcResultFilterSensitiveLog = (obj: MoveAddressToVpcResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MoveByoipCidrToIpamRequestFilterSensitiveLog = (obj: MoveByoipCidrToIpamRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MoveByoipCidrToIpamResultFilterSensitiveLog = (obj: MoveByoipCidrToIpamResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CidrAuthorizationContextFilterSensitiveLog = (obj: CidrAuthorizationContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionByoipCidrRequestFilterSensitiveLog = (obj: ProvisionByoipCidrRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionByoipCidrResultFilterSensitiveLog = (obj: ProvisionByoipCidrResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpamCidrAuthorizationContextFilterSensitiveLog = (obj: IpamCidrAuthorizationContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionIpamPoolCidrRequestFilterSensitiveLog = (obj: ProvisionIpamPoolCidrRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionIpamPoolCidrResultFilterSensitiveLog = (obj: ProvisionIpamPoolCidrResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionPublicIpv4PoolCidrRequestFilterSensitiveLog = (obj: ProvisionPublicIpv4PoolCidrRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionPublicIpv4PoolCidrResultFilterSensitiveLog = (obj: ProvisionPublicIpv4PoolCidrResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseHostReservationRequestFilterSensitiveLog = (obj: PurchaseHostReservationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseHostReservationResultFilterSensitiveLog = (obj: PurchaseHostReservationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservedInstanceLimitPriceFilterSensitiveLog = (obj: ReservedInstanceLimitPrice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseReservedInstancesOfferingRequestFilterSensitiveLog = (
+  obj: PurchaseReservedInstancesOfferingRequest
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal

@@ -13,39 +13,45 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { EnableVolumeIORequest, EnableVolumeIORequestFilterSensitiveLog } from "../models/models_5";
-import { deserializeAws_ec2EnableVolumeIOCommand, serializeAws_ec2EnableVolumeIOCommand } from "../protocols/Aws_ec2";
+import {
+  CreateCoipCidrRequest,
+  CreateCoipCidrRequestFilterSensitiveLog,
+  CreateCoipCidrResult,
+  CreateCoipCidrResultFilterSensitiveLog,
+} from "../models/models_0";
+import { deserializeAws_ec2CreateCoipCidrCommand, serializeAws_ec2CreateCoipCidrCommand } from "../protocols/Aws_ec2";
 
-export interface EnableVolumeIOCommandInput extends EnableVolumeIORequest {}
-export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
+export interface CreateCoipCidrCommandInput extends CreateCoipCidrRequest {}
+export interface CreateCoipCidrCommandOutput extends CreateCoipCidrResult, __MetadataBearer {}
 
 /**
- * <p>Enables I/O operations for a volume that had I/O operations disabled because the data on
- *       the volume was potentially inconsistent.</p>
+ * <p>
+ *      Creates a range of customer-owned IP addresses.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, EnableVolumeIOCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, EnableVolumeIOCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, CreateCoipCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateCoipCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const command = new EnableVolumeIOCommand(input);
+ * const command = new CreateCoipCidrCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link EnableVolumeIOCommandInput} for command's `input` shape.
- * @see {@link EnableVolumeIOCommandOutput} for command's `response` shape.
+ * @see {@link CreateCoipCidrCommandInput} for command's `input` shape.
+ * @see {@link CreateCoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
-export class EnableVolumeIOCommand extends $Command<
-  EnableVolumeIOCommandInput,
-  EnableVolumeIOCommandOutput,
+export class CreateCoipCidrCommand extends $Command<
+  CreateCoipCidrCommandInput,
+  CreateCoipCidrCommandOutput,
   EC2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: EnableVolumeIOCommandInput) {
+  constructor(readonly input: CreateCoipCidrCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -58,20 +64,20 @@ export class EnableVolumeIOCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<EnableVolumeIOCommandInput, EnableVolumeIOCommandOutput> {
+  ): Handler<CreateCoipCidrCommandInput, CreateCoipCidrCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EC2Client";
-    const commandName = "EnableVolumeIOCommand";
+    const commandName = "CreateCoipCidrCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableVolumeIORequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: CreateCoipCidrRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateCoipCidrResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -81,12 +87,12 @@ export class EnableVolumeIOCommand extends $Command<
     );
   }
 
-  private serialize(input: EnableVolumeIOCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableVolumeIOCommand(input, context);
+  private serialize(input: CreateCoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_ec2CreateCoipCidrCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableVolumeIOCommandOutput> {
-    return deserializeAws_ec2EnableVolumeIOCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCoipCidrCommandOutput> {
+    return deserializeAws_ec2CreateCoipCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

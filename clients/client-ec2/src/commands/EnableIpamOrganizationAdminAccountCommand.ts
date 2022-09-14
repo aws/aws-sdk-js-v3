@@ -18,7 +18,7 @@ import {
   EnableIpamOrganizationAdminAccountRequestFilterSensitiveLog,
   EnableIpamOrganizationAdminAccountResult,
   EnableIpamOrganizationAdminAccountResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2EnableIpamOrganizationAdminAccountCommand,
   serializeAws_ec2EnableIpamOrganizationAdminAccountCommand,
