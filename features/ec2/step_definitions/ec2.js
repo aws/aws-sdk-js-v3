@@ -1,4 +1,4 @@
-const { Before, Given, Then } = require("cucumber");
+const { Before, Given, Then } = require("@cucumber/cucumber");
 
 const waitForVolumeAvailableCallback = (ec2, volumeId, callback) => {
   const { waitForVolumeAvailable } = require("../../../clients/client-ec2");

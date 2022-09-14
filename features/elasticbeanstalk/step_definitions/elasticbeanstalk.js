@@ -1,4 +1,4 @@
-const { Before, Given, Then } = require("cucumber");
+const { Before, Given, Then } = require("@cucumber/cucumber");
 
 Before({ tags: "@elasticbeanstalk" }, function (scenario, callback) {
   const { ElasticBeanstalk } = require("../../../clients/client-elastic-beanstalk");

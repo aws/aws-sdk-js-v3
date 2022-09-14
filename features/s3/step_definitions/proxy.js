@@ -1,6 +1,6 @@
 const url = require("url");
 const http = require("http");
-const { Before, Then } = require("cucumber");
+const { Before, Then } = require("@cucumber/cucumber");
 
 Before({ tags: "@s3 or @proxy" }, function (scenario, callback) {
   const { S3 } = require("../../../clients/client-s3");

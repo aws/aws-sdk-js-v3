@@ -7,7 +7,7 @@ const isType = (obj, type) => {
   return Object.prototype.toString.call(obj) === "[object " + type + "]";
 };
 
-const { Before, Given, Then, When, setDefaultTimeout, setWorldConstructor } = require("cucumber");
+const { Before, Given, Then, When, setDefaultTimeout, setWorldConstructor } = require("@cucumber/cucumber");
 
 setDefaultTimeout(300 * 1000);
 setWorldConstructor(require("./world.js").World);

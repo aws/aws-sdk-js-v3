@@ -1,4 +1,4 @@
-const { Before, Given, Then } = require("cucumber");
+const { Before, Given, Then } = require("@cucumber/cucumber");
 
 Before({ tags: "@cloudwatchlogs" }, function (scenario, callback) {
   const { CloudWatchLogs } = require("../../../clients/client-cloudwatch-logs");
