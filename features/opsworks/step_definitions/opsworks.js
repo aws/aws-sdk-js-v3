@@ -4,8 +4,8 @@ Before({ tags: "@opsworks" }, function () {
   const { IAM } = require("../../../clients/client-iam");
   const { OpsWorks } = require("../../../clients/client-opsworks");
 
-  this.iam = new IAM({ region: "us-west-2" });
-  this.service = new OpsWorks({ region: "us-west-2" });
+  this.iam = new IAM({});
+  this.service = new OpsWorks({});
 });
 
 After({ tags: "@opsworks" }, async function () {
