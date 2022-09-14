@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
+
+
+### Features
+
+* **client-amplifyuibuilder:** Amplify Studio UIBuilder is introducing forms functionality. Forms can be configured from Data Store models, JSON, or from scratch. These forms can then be generated in your project and used like any other React components. ([d09d5fc](https://github.com/aws/aws-sdk-js-v3/commit/d09d5fc36b8f644dfab99c0952ecb773be768a48))
+* **client-ec2:** This update introduces API operations to manage and create local gateway route tables, CoIP pools, and VIF group associations. ([272b997](https://github.com/aws/aws-sdk-js-v3/commit/272b99714de58fe75354127bfc69ae7585839b9e))
+* **clients:** update client endpoints as of 2022-09-14 ([f883fc0](https://github.com/aws/aws-sdk-js-v3/commit/f883fc0df7617650304e394f4ca500c29bc61fa9))
+* **endpoint:** endpoints v2 codegen ([#3942](https://github.com/aws/aws-sdk-js-v3/issues/3942)) ([4b32da4](https://github.com/aws/aws-sdk-js-v3/commit/4b32da42011194d4eefe32eb6f7035872fb163c2))
+* **endpoint:** util-endpoints and middleware-endpoint for endpoints 2.0 ([#3932](https://github.com/aws/aws-sdk-js-v3/issues/3932)) ([e81b7d0](https://github.com/aws/aws-sdk-js-v3/commit/e81b7d0920a74843a2a34857f41b0d6d93abc465))
+
+
+
+
+
 # [3.170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.169.0...v3.170.0) (2022-09-13)
 
 

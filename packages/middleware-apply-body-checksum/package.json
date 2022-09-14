@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-apply-body-checksum",
-  "version": "3.170.0",
+  "version": "3.171.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",

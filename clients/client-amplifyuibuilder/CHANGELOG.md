@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
+
+
+### Features
+
+* **client-amplifyuibuilder:** Amplify Studio UIBuilder is introducing forms functionality. Forms can be configured from Data Store models, JSON, or from scratch. These forms can then be generated in your project and used like any other React components. ([d09d5fc](https://github.com/aws/aws-sdk-js-v3/commit/d09d5fc36b8f644dfab99c0952ecb773be768a48))
+
+
+
+
+
 # [3.170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.169.0...v3.170.0) (2022-09-13)
 
 **Note:** Version bump only for package @aws-sdk/client-amplifyuibuilder
