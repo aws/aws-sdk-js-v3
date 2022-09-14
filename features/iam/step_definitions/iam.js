@@ -47,7 +47,8 @@ Given("I create an IAM role with name prefix {string}", async function (name) {
     AssumeRolePolicyDocument: assumeRolePolicyDocument,
   };
 
-  await this.iam.createRole(params);
+  this.data = await this.iam.createRole(params);
+  this.iamRoleArn = this.data.Role.Arn;
 });
 
 Then("the IAM role should exist", async function () {

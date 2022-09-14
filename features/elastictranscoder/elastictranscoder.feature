@@ -14,9 +14,7 @@ Feature: Elastic Transcoder
     And I pause the pipeline
     And I read the pipeline
     Then the pipeline status should be "Paused"
-    And I delete the pipeline
     And I delete the bucket
-    And I delete the IAM role
 
   @error
   Scenario: Error handling
