@@ -1,9 +1,14 @@
-const { Before, Given, Then } = require("@cucumber/cucumber");
+const { Before, Given, Then, After } = require("@cucumber/cucumber");
 
-Before({ tags: "@cloudwatchlogs" }, function (scenario, callback) {
+Before({ tags: "@cloudwatchlogs" }, function () {
   const { CloudWatchLogs } = require("../../../clients/client-cloudwatch-logs");
   this.service = new CloudWatchLogs({});
-  callback();
+});
+
+After({ tags: "@cloudwatchlogs" }, async function () {
+  if (this.logGroupName) {
+    await this.service.deleteLogGroup({ logGroupName: this.logGroupName });
+  }
 });
 
 Given("I create a CloudWatch logGroup with prefix {string}", function (prefix, callback) {
@@ -22,8 +27,4 @@ Then("the list should contain the CloudWatch logGroup", function (callback) {
     return alarm.logGroupName === name;
   });
   callback();
-});
-
-Then("I delete the CloudWatch logGroup", function (callback) {
-  this.request(null, "deleteLogGroup", { logGroupName: this.logGroupName }, callback);
 });
