@@ -17,6 +17,7 @@ const generateClients = async (models, batchSize) => {
   const options = [
     ":sdk-codegen:clean",
     ":sdk-codegen:build",
+    "--stacktrace",
     `-PmodelsDirProp=${relative(CODE_GEN_SDK_ROOT, TEMP_CODE_GEN_INPUT_DIR)}`,
   ];
 
