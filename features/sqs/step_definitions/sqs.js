@@ -8,3 +8,10 @@ Before({ tags: "@sqs" }, function (scenario, callback) {
   this.createdQueues = [];
   callback();
 });
+
+After({ tags: "@sqs" }, function (scenario, callback) {
+  this.createdQueues.forEach((url) => {
+    this.request(null, "deleteQueue", { QueueUrl: url });
+  });
+  callback();
+});

@@ -29,8 +29,3 @@ Then("list queues should eventually return the queue urls", function (callback) 
     { maxTime: 60 }
   );
 });
-
-Then("I delete the SQS queue", function (callback) {
-  const url = this.createdQueues.pop();
-  this.request(null, "deleteQueue", { QueueUrl: url }, callback);
-});
