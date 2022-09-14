@@ -2,7 +2,7 @@ const { Before, After } = require("@cucumber/cucumber");
 
 Before({ tags: "@sqs" }, function () {
   const { SQS } = require("../../../clients/client-sqs");
-  this.service = new SQS({ region: "us-east-1" });
+  this.service = new SQS({});
   this.createdQueues = [];
 });
 
