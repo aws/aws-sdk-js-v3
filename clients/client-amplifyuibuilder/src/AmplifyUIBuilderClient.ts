@@ -54,54 +54,78 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
+import { CreateFormCommandInput, CreateFormCommandOutput } from "./commands/CreateFormCommand";
 import { CreateThemeCommandInput, CreateThemeCommandOutput } from "./commands/CreateThemeCommand";
 import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
+import { DeleteFormCommandInput, DeleteFormCommandOutput } from "./commands/DeleteFormCommand";
 import { DeleteThemeCommandInput, DeleteThemeCommandOutput } from "./commands/DeleteThemeCommand";
 import {
   ExchangeCodeForTokenCommandInput,
   ExchangeCodeForTokenCommandOutput,
 } from "./commands/ExchangeCodeForTokenCommand";
 import { ExportComponentsCommandInput, ExportComponentsCommandOutput } from "./commands/ExportComponentsCommand";
+import { ExportFormsCommandInput, ExportFormsCommandOutput } from "./commands/ExportFormsCommand";
 import { ExportThemesCommandInput, ExportThemesCommandOutput } from "./commands/ExportThemesCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
+import { GetFormCommandInput, GetFormCommandOutput } from "./commands/GetFormCommand";
+import { GetMetadataCommandInput, GetMetadataCommandOutput } from "./commands/GetMetadataCommand";
 import { GetThemeCommandInput, GetThemeCommandOutput } from "./commands/GetThemeCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
+import { ListFormsCommandInput, ListFormsCommandOutput } from "./commands/ListFormsCommand";
 import { ListThemesCommandInput, ListThemesCommandOutput } from "./commands/ListThemesCommand";
+import { PutMetadataFlagCommandInput, PutMetadataFlagCommandOutput } from "./commands/PutMetadataFlagCommand";
 import { RefreshTokenCommandInput, RefreshTokenCommandOutput } from "./commands/RefreshTokenCommand";
 import { UpdateComponentCommandInput, UpdateComponentCommandOutput } from "./commands/UpdateComponentCommand";
+import { UpdateFormCommandInput, UpdateFormCommandOutput } from "./commands/UpdateFormCommand";
 import { UpdateThemeCommandInput, UpdateThemeCommandOutput } from "./commands/UpdateThemeCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CreateComponentCommandInput
+  | CreateFormCommandInput
   | CreateThemeCommandInput
   | DeleteComponentCommandInput
+  | DeleteFormCommandInput
   | DeleteThemeCommandInput
   | ExchangeCodeForTokenCommandInput
   | ExportComponentsCommandInput
+  | ExportFormsCommandInput
   | ExportThemesCommandInput
   | GetComponentCommandInput
+  | GetFormCommandInput
+  | GetMetadataCommandInput
   | GetThemeCommandInput
   | ListComponentsCommandInput
+  | ListFormsCommandInput
   | ListThemesCommandInput
+  | PutMetadataFlagCommandInput
   | RefreshTokenCommandInput
   | UpdateComponentCommandInput
+  | UpdateFormCommandInput
   | UpdateThemeCommandInput;
 
 export type ServiceOutputTypes =
   | CreateComponentCommandOutput
+  | CreateFormCommandOutput
   | CreateThemeCommandOutput
   | DeleteComponentCommandOutput
+  | DeleteFormCommandOutput
   | DeleteThemeCommandOutput
   | ExchangeCodeForTokenCommandOutput
   | ExportComponentsCommandOutput
+  | ExportFormsCommandOutput
   | ExportThemesCommandOutput
   | GetComponentCommandOutput
+  | GetFormCommandOutput
+  | GetMetadataCommandOutput
   | GetThemeCommandOutput
   | ListComponentsCommandOutput
+  | ListFormsCommandOutput
   | ListThemesCommandOutput
+  | PutMetadataFlagCommandOutput
   | RefreshTokenCommandOutput
   | UpdateComponentCommandOutput
+  | UpdateFormCommandOutput
   | UpdateThemeCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
