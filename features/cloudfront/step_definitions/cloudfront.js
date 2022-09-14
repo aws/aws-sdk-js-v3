@@ -1,4 +1,4 @@
-const { Before, Given } = require("cucumber");
+const { Before, Given } = require("@cucumber/cucumber");
 
 const createParams = {
   CallerReference: "",

@@ -1,5 +1,5 @@
 const jmespath = require("jmespath");
-const { Before, Given, Then } = require("cucumber");
+const { Before, Given, Then } = require("@cucumber/cucumber");
 
 Before({ tags: "@rds" }, function (scenario, callback) {
   const { RDS } = require("../../../clients/client-rds");

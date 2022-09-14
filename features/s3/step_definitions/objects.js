@@ -1,4 +1,4 @@
-const { Before, Given, Then, When } = require("cucumber");
+const { Before, Given, Then, When } = require("@cucumber/cucumber");
 
 function getSignedUrl(client, command, params, callback) {
   const { S3RequestPresigner } = require("../../../packages/s3-request-presigner");

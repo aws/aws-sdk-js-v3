@@ -1,4 +1,4 @@
-const { Before, Given, Then } = require("cucumber");
+const { Before, Given, Then } = require("@cucumber/cucumber");
 
 Before({ tags: "@cognitoidentity" }, function (scenario, callback) {
   const { CognitoIdentity } = require("../../../clients/client-cognito-identity");

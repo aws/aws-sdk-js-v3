@@ -1,4 +1,4 @@
-const { Before, When } = require("cucumber");
+const { Before, When } = require("@cucumber/cucumber");
 
 Before({ tags: "@storagegateway" }, function (scenario, callback) {
   const { StorageGateway } = require("../../../clients/client-storage-gateway");

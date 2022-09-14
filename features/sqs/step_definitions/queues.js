@@ -1,4 +1,4 @@
-const { Given, Then } = require("cucumber");
+const { Given, Then } = require("@cucumber/cucumber");
 
 Given("I create a queue with the prefix name {string}", function (prefix, callback) {
   const name = this.uniqueName(prefix);

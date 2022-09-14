@@ -1,4 +1,4 @@
-const { Before, Given, Then } = require("cucumber");
+const { Before, Given, Then } = require("@cucumber/cucumber");
 
 Before({ tags: "@elasticache" }, function (scenario, callback) {
   const { ElastiCache } = require("../../../clients/client-elasticache");

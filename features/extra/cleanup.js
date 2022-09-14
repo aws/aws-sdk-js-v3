@@ -1,5 +1,5 @@
 const { S3 } = require("../../clients/client-s3");
-const { AfterAll } = require("cucumber");
+const { AfterAll } = require("@cucumber/cucumber");
 
 /**
  * Cleanup fixtures and resources. The world does not exist when

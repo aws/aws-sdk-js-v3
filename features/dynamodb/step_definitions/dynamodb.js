@@ -24,7 +24,7 @@ function waitForTableNotExistsWithCallback(world, callback) {
   );
 }
 
-const { Before, Given, Then, When } = require("cucumber");
+const { Before, Given, Then, When } = require("@cucumber/cucumber");
 
 Before({ tags: "@dynamodb" }, function (scenario, next) {
   const { DynamoDB } = require("../../../clients/client-dynamodb");
