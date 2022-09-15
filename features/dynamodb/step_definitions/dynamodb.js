@@ -1,89 +1,43 @@
+const { AfterAll, Before, Given, Then, When } = require("@cucumber/cucumber");
+const { DynamoDB } = require("../../../clients/client-dynamodb");
 const jmespath = require("jmespath");
 
-function waitForTableExistsCallback(world, callback) {
-  const { waitForTableExists } = require("../../../clients/client-dynamodb");
-  waitForTableExists({ client: world.service }, { TableName: world.tableName }).then(
-    function (data) {
-      callback();
-    },
-    function (err) {
-      callback(err);
-    }
-  );
-}
+let tableName;
 
-function waitForTableNotExistsWithCallback(world, callback) {
-  const { waitForTableNotExists } = require("../../../clients/client-dynamodb");
-  waitForTableNotExists({ client: world.service }, { TableName: world.tableName }).then(
-    function (data) {
-      callback();
-    },
-    function (err) {
-      callback(err);
-    }
-  );
-}
-
-const { Before, Given, Then, When } = require("@cucumber/cucumber");
-
-Before({ tags: "@dynamodb" }, function (scenario, next) {
-  const { DynamoDB } = require("../../../clients/client-dynamodb");
-  this.service = new DynamoDB({
-    maxRetries: 2,
-  });
-  next();
+Before({ tags: "@dynamodb" }, function () {
+  this.service = new DynamoDB({ maxRetries: 2 });
 });
 
-function createTable(world, callback) {
+AfterAll({ tags: "@dynamodb" }, async function () {
+  if (tableName) {
+    const client = new DynamoDB({ maxRetries: 2 });
+    await client.deleteTable({ TableName: tableName });
+    tableName = undefined;
+  }
+});
+
+Given("I have a table", async function () {
+  await this.service.describeTable({ TableName: this.tableName });
+});
+
+When("I create a table", async function () {
+  tableName = this.uniqueName("aws-sdk-js-integration");
   const params = {
-    TableName: world.tableName,
+    TableName: tableName,
     AttributeDefinitions: [{ AttributeName: "id", AttributeType: "S" }],
     KeySchema: [{ AttributeName: "id", KeyType: "HASH" }],
     BillingMode: "PAY_PER_REQUEST",
   };
-
-  world.service.createTable(params, function (err, data) {
-    if (err) {
-      callback(err);
-      return;
-    }
-    waitForTableExistsCallback(world, callback);
-  });
-}
-
-Given("I have a table", function (callback) {
-  const world = this;
-  this.service.listTables({}, function (err, data) {
-    for (let i = 0; i < data.TableNames.length; i++) {
-      if (data.TableNames[i] == world.tableName) {
-        callback();
-        return;
-      }
-    }
-    createTable(world, callback);
-  });
+  this.tableName = tableName;
+  await this.service.createTable(params);
 });
 
-When("I create a table", function (callback) {
-  const world = this;
-  this.tableName = this.uniqueName("aws-sdk-js-integration");
-  this.service.listTables({}, function (err, data) {
-    for (let i = 0; i < data.TableNames.length; i++) {
-      if (data.TableNames[i] == world.tableName) {
-        callback();
-        return;
-      }
-    }
-    createTable(world, callback);
-  });
-});
-
-When("I put the item:", function (string, next) {
+When("I put the item:", async function (string) {
   const params = { TableName: this.tableName, Item: JSON.parse(string) };
-  this.request(null, "putItem", params, next);
+  await this.service.putItem(params);
 });
 
-When("I put a recursive item", function (next) {
+When("I put a recursive item", async function () {
   const params = {
     TableName: this.tableName,
     Item: {
@@ -100,30 +54,21 @@ When("I put a recursive item", function (next) {
       },
     },
   };
-  this.request(null, "putItem", params, next);
+  this.data = await this.service.putItem(params);
 });
 
-Then("the item with id {string} should exist", function (key, next) {
+Then("the item with id {string} should exist", async function (key) {
   const params = { TableName: this.tableName, Key: { id: { S: key } } };
-  this.request(null, "getItem", params, next);
+  this.data = await this.service.getItem(params);
 });
 
-Then("it should have attribute {string} containing {string}", function (attr, value, next) {
+Then("it should have attribute {string} containing {string}", async function (attr, value) {
   this.assert.equal(jmespath.search(this.data.Item, attr), value);
-  next();
 });
 
-When("I delete the table", function (next) {
-  const params = { TableName: this.tableName };
-  this.request(null, "deleteTable", params, next);
-});
-
-Then("the table should eventually exist", function (callback) {
-  waitForTableExistsCallback(this, callback);
-});
-
-Then("the table should eventually not exist", function (callback) {
-  waitForTableNotExistsWithCallback(this, callback);
+Then("the table should eventually exist", async function () {
+  const { waitUntilTableExists } = require("../../../clients/client-dynamodb");
+  await waitUntilTableExists({ client: this.service }, { TableName: this.tableName });
 });
 
 Given("my first request is corrupted with CRC checking (ON|OFF)", function (toggle, callback) {
@@ -180,11 +125,19 @@ Then("the request should( not)? fail with a CRC checking error", function (faile
   callback();
 });
 
-Given("I try to delete an item with key {string} from table {string}", function (key, table, callback) {
+Given("I try to delete an item with key {string} from table {string}", async function (key, table) {
   const params = { TableName: table, Key: { id: { S: key } } };
-  this.request(null, "deleteItem", params, callback, false);
+  try {
+    this.data = await this.service.deleteItem(params);
+  } catch (error) {
+    this.error = error;
+  }
 });
 
-Given("I try to delete a table with an empty table parameter", function (callback) {
-  this.request(null, "deleteTable", { TableName: "" }, callback, false);
+Given("I try to delete a table with an empty table parameter", async function () {
+  try {
+    this.data = await this.service.deleteTable({ TableName: "" });
+  } catch (error) {
+    this.error = error;
+  }
 });
