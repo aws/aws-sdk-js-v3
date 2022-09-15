@@ -16,9 +16,11 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   CreateTrafficMirrorFilterRuleRequest,
   CreateTrafficMirrorFilterRuleRequestFilterSensitiveLog,
+} from "../models/models_1";
+import {
   CreateTrafficMirrorFilterRuleResult,
   CreateTrafficMirrorFilterRuleResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_ec2CreateTrafficMirrorFilterRuleCommand,
   serializeAws_ec2CreateTrafficMirrorFilterRuleCommand,

@@ -114,6 +114,71 @@ import {
   ProductCode,
 } from "./models_3";
 
+export interface DescribeLocalGatewayVirtualInterfacesRequest {
+  /**
+   * <p>The IDs of the virtual interfaces.</p>
+   */
+  LocalGatewayVirtualInterfaceIds?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>local-address</code> - The local address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-bgp-asn</code> - The Border Gateway Protocol (BGP) Autonomous System Number (ASN)
+   *                of the local gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-id</code> - The ID of the local gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peer-address</code> - The peer address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peer-bgp-asn</code> - The peer BGP ASN.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vlan</code> - The ID of the VLAN.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
 /**
  * <p>Describes a local gateway virtual interface.</p>
  */
@@ -272,7 +337,10 @@ export interface DescribeMovingAddressesRequest {
   PublicIps?: string[];
 }
 
-export type MoveStatus = "movingToVpc" | "restoringToClassic";
+export enum MoveStatus {
+  movingToVpc = "movingToVpc",
+  restoringToClassic = "restoringToClassic",
+}
 
 /**
  * <p>Describes the status of a moving Elastic IP address.</p>
@@ -549,7 +617,11 @@ export enum FindingsFound {
   unknown = "unknown",
 }
 
-export type AnalysisStatus = "failed" | "running" | "succeeded";
+export enum AnalysisStatus {
+  failed = "failed",
+  running = "running",
+  succeeded = "succeeded",
+}
 
 /**
  * <p>Describes a Network Access Scope analysis.</p>
@@ -1162,7 +1234,12 @@ export interface DescribeNetworkInsightsPathsResult {
   NextToken?: string;
 }
 
-export type NetworkInterfaceAttribute = "attachment" | "description" | "groupSet" | "sourceDestCheck";
+export enum NetworkInterfaceAttribute {
+  attachment = "attachment",
+  description = "description",
+  groupSet = "groupSet",
+  sourceDestCheck = "sourceDestCheck",
+}
 
 /**
  * <p>Contains the parameters for DescribeNetworkInterfaceAttribute.</p>
@@ -1936,13 +2013,14 @@ export enum OfferingClassType {
   STANDARD = "standard",
 }
 
-export type OfferingTypeValues =
-  | "All Upfront"
-  | "Heavy Utilization"
-  | "Light Utilization"
-  | "Medium Utilization"
-  | "No Upfront"
-  | "Partial Upfront";
+export enum OfferingTypeValues {
+  All_Upfront = "All Upfront",
+  Heavy_Utilization = "Heavy Utilization",
+  Light_Utilization = "Light Utilization",
+  Medium_Utilization = "Medium Utilization",
+  No_Upfront = "No Upfront",
+  Partial_Upfront = "Partial Upfront",
+}
 
 /**
  * <p>Contains the parameters for DescribeReservedInstances.</p>
@@ -2047,7 +2125,9 @@ export interface DescribeReservedInstancesRequest {
 
 export type RIProductDescription = "Linux/UNIX" | "Linux/UNIX (Amazon VPC)" | "Windows" | "Windows (Amazon VPC)";
 
-export type RecurringChargeFrequency = "Hourly";
+export enum RecurringChargeFrequency {
+  Hourly = "Hourly",
+}
 
 /**
  * <p>Describes a recurring charge.</p>
@@ -2069,13 +2149,14 @@ export enum Scope {
   REGIONAL = "Region",
 }
 
-export type ReservedInstanceState =
-  | "active"
-  | "payment-failed"
-  | "payment-pending"
-  | "queued"
-  | "queued-deleted"
-  | "retired";
+export enum ReservedInstanceState {
+  active = "active",
+  payment_failed = "payment-failed",
+  payment_pending = "payment-pending",
+  queued = "queued",
+  queued_deleted = "queued-deleted",
+  retired = "retired",
+}
 
 /**
  * <p>Describes a Reserved Instance.</p>
@@ -3584,7 +3665,10 @@ export interface DescribeSecurityGroupsResult {
   NextToken?: string;
 }
 
-export type SnapshotAttributeName = "createVolumePermission" | "productCodes";
+export enum SnapshotAttributeName {
+  createVolumePermission = "createVolumePermission",
+  productCodes = "productCodes",
+}
 
 export interface DescribeSnapshotAttributeRequest {
   /**
@@ -5266,7 +5350,13 @@ export interface LaunchSpecification {
   Monitoring?: RunInstancesMonitoringEnabled;
 }
 
-export type SpotInstanceState = "active" | "cancelled" | "closed" | "failed" | "open";
+export enum SpotInstanceState {
+  active = "active",
+  cancelled = "cancelled",
+  closed = "closed",
+  failed = "failed",
+  open = "open",
+}
 
 /**
  * <p>Describes the status of a Spot Instance request.</p>
@@ -6952,7 +7042,10 @@ export interface DescribeTrunkInterfaceAssociationsResult {
   NextToken?: string;
 }
 
-export type VolumeAttributeName = "autoEnableIO" | "productCodes";
+export enum VolumeAttributeName {
+  autoEnableIO = "autoEnableIO",
+  productCodes = "productCodes",
+}
 
 export interface DescribeVolumeAttributeRequest {
   /**
@@ -7209,7 +7302,12 @@ export interface DescribeVolumesModificationsRequest {
   MaxResults?: number;
 }
 
-export type VolumeModificationState = "completed" | "failed" | "modifying" | "optimizing";
+export enum VolumeModificationState {
+  completed = "completed",
+  failed = "failed",
+  modifying = "modifying",
+  optimizing = "optimizing",
+}
 
 /**
  * <p>Describes the modification status of an EBS volume.</p>
@@ -7486,7 +7584,10 @@ export interface VolumeStatusEvent {
   InstanceId?: string;
 }
 
-export type VolumeStatusName = "io-enabled" | "io-performance";
+export enum VolumeStatusName {
+  io_enabled = "io-enabled",
+  io_performance = "io-performance",
+}
 
 /**
  * <p>Describes a volume status.</p>
@@ -7503,7 +7604,11 @@ export interface VolumeStatusDetails {
   Status?: string;
 }
 
-export type VolumeStatusInfoStatus = "impaired" | "insufficient-data" | "ok";
+export enum VolumeStatusInfoStatus {
+  impaired = "impaired",
+  insufficient_data = "insufficient-data",
+  ok = "ok",
+}
 
 /**
  * <p>Describes the status of a volume.</p>
@@ -7573,7 +7678,10 @@ export interface DescribeVolumeStatusResult {
   VolumeStatuses?: VolumeStatusItem[];
 }
 
-export type VpcAttributeName = "enableDnsHostnames" | "enableDnsSupport";
+export enum VpcAttributeName {
+  enableDnsHostnames = "enableDnsHostnames",
+  enableDnsSupport = "enableDnsSupport",
+}
 
 export interface DescribeVpcAttributeRequest {
   /**
@@ -7901,6 +8009,16 @@ export interface VpcEndpointConnection {
    * <p>The IP address type for the endpoint.</p>
    */
   IpAddressType?: IpAddressType | string;
+
+  /**
+   * <p>The ID of the VPC endpoint connection.</p>
+   */
+  VpcEndpointConnectionId?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
 }
 
 export interface DescribeVpcEndpointConnectionsResult {
@@ -8236,7 +8354,7 @@ export interface ServiceDetail {
   PrivateDnsName?: string;
 
   /**
-   * <p>The private DNS names assigned to the VPC endpoint service. </p>
+   * <p>The private DNS names assigned to the VPC endpoint service.</p>
    */
   PrivateDnsNames?: PrivateDnsDetails[];
 
@@ -9149,7 +9267,12 @@ export interface DisableTransitGatewayRouteTablePropagationRequest {
   TransitGatewayRouteTableAnnouncementId?: string;
 }
 
-export type TransitGatewayPropagationState = "disabled" | "disabling" | "enabled" | "enabling";
+export enum TransitGatewayPropagationState {
+  disabled = "disabled",
+  disabling = "disabling",
+  enabled = "enabled",
+  enabling = "enabling",
+}
 
 /**
  * <p>Describes route propagation.</p>
@@ -9820,19 +9943,13 @@ export interface EnableFastSnapshotRestoreStateErrorItem {
 }
 
 /**
- * <p>Contains information about the errors that occurred when enabling fast snapshot restores.</p>
+ * @internal
  */
-export interface EnableFastSnapshotRestoreErrorItem {
-  /**
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The errors.</p>
-   */
-  FastSnapshotRestoreStateErrors?: EnableFastSnapshotRestoreStateErrorItem[];
-}
+export const DescribeLocalGatewayVirtualInterfacesRequestFilterSensitiveLog = (
+  obj: DescribeLocalGatewayVirtualInterfacesRequest
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11967,12 +12084,5 @@ export const EnableFastSnapshotRestoreStateErrorFilterSensitiveLog = (
 export const EnableFastSnapshotRestoreStateErrorItemFilterSensitiveLog = (
   obj: EnableFastSnapshotRestoreStateErrorItem
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastSnapshotRestoreErrorItemFilterSensitiveLog = (obj: EnableFastSnapshotRestoreErrorItem): any => ({
   ...obj,
 });

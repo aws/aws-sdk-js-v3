@@ -170,22 +170,24 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsRequest {
   DryRun?: boolean;
 }
 
-export type TransitGatewayAttachmentResourceType =
-  | "connect"
-  | "direct-connect-gateway"
-  | "peering"
-  | "tgw-peering"
-  | "vpc"
-  | "vpn";
+export enum TransitGatewayAttachmentResourceType {
+  connect = "connect",
+  direct_connect_gateway = "direct-connect-gateway",
+  peering = "peering",
+  tgw_peering = "tgw-peering",
+  vpc = "vpc",
+  vpn = "vpn",
+}
 
-export type TransitGatewayMulitcastDomainAssociationState =
-  | "associated"
-  | "associating"
-  | "disassociated"
-  | "disassociating"
-  | "failed"
-  | "pendingAcceptance"
-  | "rejected";
+export enum TransitGatewayMulitcastDomainAssociationState {
+  associated = "associated",
+  associating = "associating",
+  disassociated = "disassociated",
+  disassociating = "disassociating",
+  failed = "failed",
+  pendingAcceptance = "pendingAcceptance",
+  rejected = "rejected",
+}
 
 /**
  * <p>Describes the subnet association with the transit gateway multicast domain.</p>
@@ -298,20 +300,21 @@ export interface TransitGatewayPeeringAttachmentOptions {
   DynamicRouting?: DynamicRoutingValue | string;
 }
 
-export type TransitGatewayAttachmentState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "failed"
-  | "failing"
-  | "initiating"
-  | "initiatingRequest"
-  | "modifying"
-  | "pending"
-  | "pendingAcceptance"
-  | "rejected"
-  | "rejecting"
-  | "rollingBack";
+export enum TransitGatewayAttachmentState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  failed = "failed",
+  failing = "failing",
+  initiating = "initiating",
+  initiatingRequest = "initiatingRequest",
+  modifying = "modifying",
+  pending = "pending",
+  pendingAcceptance = "pendingAcceptance",
+  rejected = "rejected",
+  rejecting = "rejecting",
+  rollingBack = "rollingBack",
+}
 
 /**
  * <p>The status of the transit gateway peering attachment.</p>
@@ -417,11 +420,20 @@ export interface AcceptTransitGatewayVpcAttachmentRequest {
   DryRun?: boolean;
 }
 
-export type ApplianceModeSupportValue = "disable" | "enable";
+export enum ApplianceModeSupportValue {
+  disable = "disable",
+  enable = "enable",
+}
 
-export type DnsSupportValue = "disable" | "enable";
+export enum DnsSupportValue {
+  disable = "disable",
+  enable = "enable",
+}
 
-export type Ipv6SupportValue = "disable" | "enable";
+export enum Ipv6SupportValue {
+  disable = "disable",
+  enable = "enable",
+}
 
 /**
  * <p>Describes the VPC attachment options.</p>
@@ -655,16 +667,17 @@ export interface VpcPeeringConnectionVpcInfo {
   Region?: string;
 }
 
-export type VpcPeeringConnectionStateReasonCode =
-  | "active"
-  | "deleted"
-  | "deleting"
-  | "expired"
-  | "failed"
-  | "initiating-request"
-  | "pending-acceptance"
-  | "provisioning"
-  | "rejected";
+export enum VpcPeeringConnectionStateReasonCode {
+  active = "active",
+  deleted = "deleted",
+  deleting = "deleting",
+  expired = "expired",
+  failed = "failed",
+  initiating_request = "initiating-request",
+  pending_acceptance = "pending-acceptance",
+  provisioning = "provisioning",
+  rejected = "rejected",
+}
 
 /**
  * <p>Describes the status of a VPC peering connection.</p>
@@ -1101,7 +1114,10 @@ export interface AccessScopeAnalysisFinding {
   FindingComponents?: PathComponent[];
 }
 
-export type Protocol = "tcp" | "udp";
+export enum Protocol {
+  tcp = "tcp",
+  udp = "udp",
+}
 
 /**
  * <p>Describes a packet header statement.</p>
@@ -1328,7 +1344,10 @@ export interface AccountAttribute {
   AttributeValues?: AccountAttributeValue[];
 }
 
-export type AccountAttributeName = "default-vpc" | "supported-platforms";
+export enum AccountAttributeName {
+  default_vpc = "default-vpc",
+  supported_platforms = "supported-platforms",
+}
 
 export enum InstanceHealthStatus {
   HEALTHY_STATUS = "healthy",
@@ -1369,6 +1388,40 @@ export enum ActivityStatus {
   PENDING_TERMINATION = "pending_termination",
 }
 
+export enum PrincipalType {
+  Account = "Account",
+  All = "All",
+  OrganizationUnit = "OrganizationUnit",
+  Role = "Role",
+  Service = "Service",
+  User = "User",
+}
+
+/**
+ * <p>Describes a principal.</p>
+ */
+export interface AddedPrincipal {
+  /**
+   * <p>The type of principal.</p>
+   */
+  PrincipalType?: PrincipalType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the principal.</p>
+   */
+  Principal?: string;
+
+  /**
+   * <p>The ID of the service permission.</p>
+   */
+  ServicePermissionId?: string;
+
+  /**
+   * <p>The ID of the service.</p>
+   */
+  ServiceId?: string;
+}
+
 /**
  * <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
  *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
@@ -1398,7 +1451,10 @@ export interface AddPrefixListEntry {
   Description?: string;
 }
 
-export type DomainType = "standard" | "vpc";
+export enum DomainType {
+  standard = "standard",
+  vpc = "vpc",
+}
 
 /**
  * <p>Describes an Elastic IP address, or a carrier IP address.</p>
@@ -1523,7 +1579,9 @@ export interface AddressAttribute {
   PtrRecordUpdate?: PtrUpdateStatus;
 }
 
-export type AddressAttributeName = "domain-name";
+export enum AddressAttributeName {
+  domain_name = "domain-name",
+}
 
 export enum AddressFamily {
   ipv4 = "ipv4",
@@ -1545,15 +1603,16 @@ export interface AdvertiseByoipCidrRequest {
   DryRun?: boolean;
 }
 
-export type ByoipCidrState =
-  | "advertised"
-  | "deprovisioned"
-  | "failed-deprovision"
-  | "failed-provision"
-  | "pending-deprovision"
-  | "pending-provision"
-  | "provisioned"
-  | "provisioned-not-publicly-advertisable";
+export enum ByoipCidrState {
+  advertised = "advertised",
+  deprovisioned = "deprovisioned",
+  failed_deprovision = "failed-deprovision",
+  failed_provision = "failed-provision",
+  pending_deprovision = "pending-deprovision",
+  pending_provision = "pending-provision",
+  provisioned = "provisioned",
+  provisioned_not_publicly_advertisable = "provisioned-not-publicly-advertisable",
+}
 
 /**
  * <p>Information about an address range that is provisioned for use with your Amazon Web Services resources
@@ -1588,84 +1647,90 @@ export interface AdvertiseByoipCidrResult {
   ByoipCidr?: ByoipCidr;
 }
 
-export type Affinity = "default" | "host";
+export enum Affinity {
+  default = "default",
+  host = "host",
+}
 
-export type ResourceType =
-  | "capacity-reservation"
-  | "capacity-reservation-fleet"
-  | "carrier-gateway"
-  | "client-vpn-endpoint"
-  | "coip-pool"
-  | "customer-gateway"
-  | "dedicated-host"
-  | "dhcp-options"
-  | "egress-only-internet-gateway"
-  | "elastic-gpu"
-  | "elastic-ip"
-  | "export-image-task"
-  | "export-instance-task"
-  | "fleet"
-  | "fpga-image"
-  | "host-reservation"
-  | "image"
-  | "import-image-task"
-  | "import-snapshot-task"
-  | "instance"
-  | "instance-event-window"
-  | "internet-gateway"
-  | "ipam"
-  | "ipam-pool"
-  | "ipam-scope"
-  | "ipv4pool-ec2"
-  | "ipv6pool-ec2"
-  | "key-pair"
-  | "launch-template"
-  | "local-gateway"
-  | "local-gateway-route-table"
-  | "local-gateway-route-table-virtual-interface-group-association"
-  | "local-gateway-route-table-vpc-association"
-  | "local-gateway-virtual-interface"
-  | "local-gateway-virtual-interface-group"
-  | "natgateway"
-  | "network-acl"
-  | "network-insights-access-scope"
-  | "network-insights-access-scope-analysis"
-  | "network-insights-analysis"
-  | "network-insights-path"
-  | "network-interface"
-  | "placement-group"
-  | "prefix-list"
-  | "replace-root-volume-task"
-  | "reserved-instances"
-  | "route-table"
-  | "security-group"
-  | "security-group-rule"
-  | "snapshot"
-  | "spot-fleet-request"
-  | "spot-instances-request"
-  | "subnet"
-  | "subnet-cidr-reservation"
-  | "traffic-mirror-filter"
-  | "traffic-mirror-filter-rule"
-  | "traffic-mirror-session"
-  | "traffic-mirror-target"
-  | "transit-gateway"
-  | "transit-gateway-attachment"
-  | "transit-gateway-connect-peer"
-  | "transit-gateway-multicast-domain"
-  | "transit-gateway-policy-table"
-  | "transit-gateway-route-table"
-  | "transit-gateway-route-table-announcement"
-  | "volume"
-  | "vpc"
-  | "vpc-endpoint"
-  | "vpc-endpoint-connection-device-type"
-  | "vpc-endpoint-service"
-  | "vpc-flow-log"
-  | "vpc-peering-connection"
-  | "vpn-connection"
-  | "vpn-connection-device-type"
-  | "vpn-gateway";
+export enum ResourceType {
+  capacity_reservation = "capacity-reservation",
+  capacity_reservation_fleet = "capacity-reservation-fleet",
+  carrier_gateway = "carrier-gateway",
+  client_vpn_endpoint = "client-vpn-endpoint",
+  coip_pool = "coip-pool",
+  customer_gateway = "customer-gateway",
+  dedicated_host = "dedicated-host",
+  dhcp_options = "dhcp-options",
+  egress_only_internet_gateway = "egress-only-internet-gateway",
+  elastic_gpu = "elastic-gpu",
+  elastic_ip = "elastic-ip",
+  export_image_task = "export-image-task",
+  export_instance_task = "export-instance-task",
+  fleet = "fleet",
+  fpga_image = "fpga-image",
+  host_reservation = "host-reservation",
+  image = "image",
+  import_image_task = "import-image-task",
+  import_snapshot_task = "import-snapshot-task",
+  instance = "instance",
+  instance_event_window = "instance-event-window",
+  internet_gateway = "internet-gateway",
+  ipam = "ipam",
+  ipam_pool = "ipam-pool",
+  ipam_scope = "ipam-scope",
+  ipv4pool_ec2 = "ipv4pool-ec2",
+  ipv6pool_ec2 = "ipv6pool-ec2",
+  key_pair = "key-pair",
+  launch_template = "launch-template",
+  local_gateway = "local-gateway",
+  local_gateway_route_table = "local-gateway-route-table",
+  local_gateway_route_table_virtual_interface_group_association = "local-gateway-route-table-virtual-interface-group-association",
+  local_gateway_route_table_vpc_association = "local-gateway-route-table-vpc-association",
+  local_gateway_virtual_interface = "local-gateway-virtual-interface",
+  local_gateway_virtual_interface_group = "local-gateway-virtual-interface-group",
+  natgateway = "natgateway",
+  network_acl = "network-acl",
+  network_insights_access_scope = "network-insights-access-scope",
+  network_insights_access_scope_analysis = "network-insights-access-scope-analysis",
+  network_insights_analysis = "network-insights-analysis",
+  network_insights_path = "network-insights-path",
+  network_interface = "network-interface",
+  placement_group = "placement-group",
+  prefix_list = "prefix-list",
+  replace_root_volume_task = "replace-root-volume-task",
+  reserved_instances = "reserved-instances",
+  route_table = "route-table",
+  security_group = "security-group",
+  security_group_rule = "security-group-rule",
+  snapshot = "snapshot",
+  spot_fleet_request = "spot-fleet-request",
+  spot_instances_request = "spot-instances-request",
+  subnet = "subnet",
+  subnet_cidr_reservation = "subnet-cidr-reservation",
+  traffic_mirror_filter = "traffic-mirror-filter",
+  traffic_mirror_filter_rule = "traffic-mirror-filter-rule",
+  traffic_mirror_session = "traffic-mirror-session",
+  traffic_mirror_target = "traffic-mirror-target",
+  transit_gateway = "transit-gateway",
+  transit_gateway_attachment = "transit-gateway-attachment",
+  transit_gateway_connect_peer = "transit-gateway-connect-peer",
+  transit_gateway_multicast_domain = "transit-gateway-multicast-domain",
+  transit_gateway_policy_table = "transit-gateway-policy-table",
+  transit_gateway_route_table = "transit-gateway-route-table",
+  transit_gateway_route_table_announcement = "transit-gateway-route-table-announcement",
+  volume = "volume",
+  vpc = "vpc",
+  vpc_endpoint = "vpc-endpoint",
+  vpc_endpoint_connection = "vpc-endpoint-connection",
+  vpc_endpoint_connection_device_type = "vpc-endpoint-connection-device-type",
+  vpc_endpoint_service = "vpc-endpoint-service",
+  vpc_endpoint_service_permission = "vpc-endpoint-service-permission",
+  vpc_flow_log = "vpc-flow-log",
+  vpc_peering_connection = "vpc-peering-connection",
+  vpn_connection = "vpn-connection",
+  vpn_connection_device_type = "vpn-connection-device-type",
+  vpn_gateway = "vpn-gateway",
+}
 
 /**
  * <p>The tags to apply to a resource when the resource is being created.</p>
@@ -1783,9 +1848,15 @@ export interface AllocateAddressResult {
   CarrierIp?: string;
 }
 
-export type AutoPlacement = "off" | "on";
+export enum AutoPlacement {
+  off = "off",
+  on = "on",
+}
 
-export type HostRecovery = "off" | "on";
+export enum HostRecovery {
+  off = "off",
+  on = "on",
+}
 
 export interface AllocateHostsRequest {
   /**
@@ -1988,28 +2059,20 @@ export interface AllocateIpamPoolCidrResult {
   IpamPoolAllocation?: IpamPoolAllocation;
 }
 
-export type AllocationState =
-  | "available"
-  | "pending"
-  | "permanent-failure"
-  | "released"
-  | "released-permanent-failure"
-  | "under-assessment";
+export enum AllocationState {
+  available = "available",
+  pending = "pending",
+  permanent_failure = "permanent-failure",
+  released = "released",
+  released_permanent_failure = "released-permanent-failure",
+  under_assessment = "under-assessment",
+}
 
 export enum AllocationStrategy {
   CAPACITY_OPTIMIZED = "capacityOptimized",
   CAPACITY_OPTIMIZED_PRIORITIZED = "capacityOptimizedPrioritized",
   DIVERSIFIED = "diversified",
   LOWEST_PRICE = "lowestPrice",
-}
-
-export enum PrincipalType {
-  Account = "Account",
-  All = "All",
-  OrganizationUnit = "OrganizationUnit",
-  Role = "Role",
-  Service = "Service",
-  User = "User",
 }
 
 /**
@@ -2025,9 +2088,27 @@ export interface AllowedPrincipal {
    * <p>The Amazon Resource Name (ARN) of the principal.</p>
    */
   Principal?: string;
+
+  /**
+   * <p>The ID of the service permission.</p>
+   */
+  ServicePermissionId?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ID of the service.</p>
+   */
+  ServiceId?: string;
 }
 
-export type AllowsMultipleInstanceTypes = "off" | "on";
+export enum AllowsMultipleInstanceTypes {
+  off = "off",
+  on = "on",
+}
 
 /**
  * <p>Describes an potential intermediate component of a feasible path.</p>
@@ -2273,12 +2354,13 @@ export interface AssociateClientVpnTargetNetworkRequest {
   DryRun?: boolean;
 }
 
-export type AssociationStatusCode =
-  | "associated"
-  | "associating"
-  | "association-failed"
-  | "disassociated"
-  | "disassociating";
+export enum AssociationStatusCode {
+  associated = "associated",
+  associating = "associating",
+  association_failed = "association-failed",
+  disassociated = "disassociated",
+  disassociating = "disassociating",
+}
 
 /**
  * <p>Describes the state of a target network association.</p>
@@ -2627,12 +2709,13 @@ export interface AssociateRouteTableRequest {
   GatewayId?: string;
 }
 
-export type RouteTableAssociationStateCode =
-  | "associated"
-  | "associating"
-  | "disassociated"
-  | "disassociating"
-  | "failed";
+export enum RouteTableAssociationStateCode {
+  associated = "associated",
+  associating = "associating",
+  disassociated = "disassociated",
+  disassociating = "disassociating",
+  failed = "failed",
+}
 
 /**
  * <p>Describes the state of an association between a route table and a subnet or gateway.</p>
@@ -2675,13 +2758,14 @@ export interface AssociateSubnetCidrBlockRequest {
   SubnetId: string | undefined;
 }
 
-export type SubnetCidrBlockStateCode =
-  | "associated"
-  | "associating"
-  | "disassociated"
-  | "disassociating"
-  | "failed"
-  | "failing";
+export enum SubnetCidrBlockStateCode {
+  associated = "associated",
+  associating = "associating",
+  disassociated = "disassociated",
+  disassociating = "disassociating",
+  failed = "failed",
+  failing = "failing",
+}
 
 /**
  * <p>Describes the state of a CIDR block.</p>
@@ -2780,7 +2864,12 @@ export interface AssociateTransitGatewayPolicyTableRequest {
   DryRun?: boolean;
 }
 
-export type TransitGatewayAssociationState = "associated" | "associating" | "disassociated" | "disassociating";
+export enum TransitGatewayAssociationState {
+  associated = "associated",
+  associating = "associating",
+  disassociated = "disassociated",
+  disassociating = "disassociating",
+}
 
 /**
  * <p>Describes a transit gateway policy table association.</p>
@@ -3031,13 +3120,14 @@ export interface AssociateVpcCidrBlockRequest {
   Ipv6NetmaskLength?: number;
 }
 
-export type VpcCidrBlockStateCode =
-  | "associated"
-  | "associating"
-  | "disassociated"
-  | "disassociating"
-  | "failed"
-  | "failing";
+export enum VpcCidrBlockStateCode {
+  associated = "associated",
+  associating = "associating",
+  disassociated = "disassociated",
+  disassociating = "disassociating",
+  failed = "failed",
+  failing = "failing",
+}
 
 /**
  * <p>Describes the state of a CIDR block.</p>
@@ -3246,7 +3336,13 @@ export interface AttachVolumeRequest {
   DryRun?: boolean;
 }
 
-export type VolumeAttachmentState = "attached" | "attaching" | "busy" | "detached" | "detaching";
+export enum VolumeAttachmentState {
+  attached = "attached",
+  attaching = "attaching",
+  busy = "busy",
+  detached = "detached",
+  detaching = "detaching",
+}
 
 /**
  * <p>Describes volume attachment details.</p>
@@ -3306,7 +3402,12 @@ export interface AttachVpnGatewayRequest {
   DryRun?: boolean;
 }
 
-export type AttachmentStatus = "attached" | "attaching" | "detached" | "detaching";
+export enum AttachmentStatus {
+  attached = "attached",
+  attaching = "attaching",
+  detached = "detached",
+  detaching = "detaching",
+}
 
 /**
  * <p>Describes an attachment between a virtual private gateway and a VPC.</p>
@@ -3372,7 +3473,12 @@ export interface AuthorizeClientVpnIngressRequest {
   DryRun?: boolean;
 }
 
-export type ClientVpnAuthorizationRuleStatusCode = "active" | "authorizing" | "failed" | "revoking";
+export enum ClientVpnAuthorizationRuleStatusCode {
+  active = "active",
+  authorizing = "authorizing",
+  failed = "failed",
+  revoking = "revoking",
+}
 
 /**
  * <p>Describes the state of an authorization rule.</p>
@@ -3905,14 +4011,15 @@ export interface BundleTaskError {
   Message?: string;
 }
 
-export type BundleTaskState =
-  | "bundling"
-  | "cancelling"
-  | "complete"
-  | "failed"
-  | "pending"
-  | "storing"
-  | "waiting-for-shutdown";
+export enum BundleTaskState {
+  bundling = "bundling",
+  cancelling = "cancelling",
+  complete = "complete",
+  failed = "failed",
+  pending = "pending",
+  storing = "storing",
+  waiting_for_shutdown = "waiting-for-shutdown",
+}
 
 /**
  * <p>Describes a bundle task.</p>
@@ -4173,7 +4280,12 @@ export interface CancelReservedInstancesListingRequest {
   ReservedInstancesListingId: string | undefined;
 }
 
-export type ListingState = "available" | "cancelled" | "pending" | "sold";
+export enum ListingState {
+  available = "available",
+  cancelled = "cancelled",
+  pending = "pending",
+  sold = "sold",
+}
 
 /**
  * <p>Describes a Reserved Instance listing state.</p>
@@ -4190,7 +4302,9 @@ export interface InstanceCount {
   State?: ListingState | string;
 }
 
-export type CurrencyCodeValues = "USD";
+export enum CurrencyCodeValues {
+  USD = "USD",
+}
 
 /**
  * <p>Describes the price for a Reserved Instance.</p>
@@ -4219,7 +4333,12 @@ export interface PriceSchedule {
   Term?: number;
 }
 
-export type ListingStatus = "active" | "cancelled" | "closed" | "pending";
+export enum ListingStatus {
+  active = "active",
+  cancelled = "cancelled",
+  closed = "closed",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a Reserved Instance listing.</p>
@@ -4411,7 +4530,13 @@ export interface CancelSpotInstanceRequestsRequest {
   SpotInstanceRequestIds: string[] | undefined;
 }
 
-export type CancelSpotInstanceRequestState = "active" | "cancelled" | "closed" | "completed" | "open";
+export enum CancelSpotInstanceRequestState {
+  active = "active",
+  cancelled = "cancelled",
+  closed = "closed",
+  completed = "completed",
+  open = "open",
+}
 
 /**
  * <p>Describes a request to cancel a Spot Instance.</p>
@@ -4724,9 +4849,15 @@ export interface CopySnapshotResult {
   Tags?: Tag[];
 }
 
-export type EndDateType = "limited" | "unlimited";
+export enum EndDateType {
+  limited = "limited",
+  unlimited = "unlimited",
+}
 
-export type InstanceMatchCriteria = "open" | "targeted";
+export enum InstanceMatchCriteria {
+  open = "open",
+  targeted = "targeted",
+}
 
 export enum CapacityReservationInstancePlatform {
   LINUX_UNIX = "Linux/UNIX",
@@ -4748,7 +4879,10 @@ export enum CapacityReservationInstancePlatform {
   WINDOWS_WITH_SQL_SERVER_WEB = "Windows with SQL Server Web",
 }
 
-export type CapacityReservationTenancy = "dedicated" | "default";
+export enum CapacityReservationTenancy {
+  dedicated = "dedicated",
+  default = "default",
+}
 
 export interface CreateCapacityReservationRequest {
   /**
@@ -4892,7 +5026,13 @@ export interface CreateCapacityReservationRequest {
   PlacementGroupArn?: string;
 }
 
-export type CapacityReservationState = "active" | "cancelled" | "expired" | "failed" | "pending";
+export enum CapacityReservationState {
+  active = "active",
+  cancelled = "cancelled",
+  expired = "expired",
+  failed = "failed",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a Capacity Reservation.</p>
@@ -5096,575 +5236,576 @@ export enum FleetInstanceMatchCriteria {
   open = "open",
 }
 
-export type _InstanceType =
-  | "a1.2xlarge"
-  | "a1.4xlarge"
-  | "a1.large"
-  | "a1.medium"
-  | "a1.metal"
-  | "a1.xlarge"
-  | "c1.medium"
-  | "c1.xlarge"
-  | "c3.2xlarge"
-  | "c3.4xlarge"
-  | "c3.8xlarge"
-  | "c3.large"
-  | "c3.xlarge"
-  | "c4.2xlarge"
-  | "c4.4xlarge"
-  | "c4.8xlarge"
-  | "c4.large"
-  | "c4.xlarge"
-  | "c5.12xlarge"
-  | "c5.18xlarge"
-  | "c5.24xlarge"
-  | "c5.2xlarge"
-  | "c5.4xlarge"
-  | "c5.9xlarge"
-  | "c5.large"
-  | "c5.metal"
-  | "c5.xlarge"
-  | "c5a.12xlarge"
-  | "c5a.16xlarge"
-  | "c5a.24xlarge"
-  | "c5a.2xlarge"
-  | "c5a.4xlarge"
-  | "c5a.8xlarge"
-  | "c5a.large"
-  | "c5a.xlarge"
-  | "c5ad.12xlarge"
-  | "c5ad.16xlarge"
-  | "c5ad.24xlarge"
-  | "c5ad.2xlarge"
-  | "c5ad.4xlarge"
-  | "c5ad.8xlarge"
-  | "c5ad.large"
-  | "c5ad.xlarge"
-  | "c5d.12xlarge"
-  | "c5d.18xlarge"
-  | "c5d.24xlarge"
-  | "c5d.2xlarge"
-  | "c5d.4xlarge"
-  | "c5d.9xlarge"
-  | "c5d.large"
-  | "c5d.metal"
-  | "c5d.xlarge"
-  | "c5n.18xlarge"
-  | "c5n.2xlarge"
-  | "c5n.4xlarge"
-  | "c5n.9xlarge"
-  | "c5n.large"
-  | "c5n.metal"
-  | "c5n.xlarge"
-  | "c6a.12xlarge"
-  | "c6a.16xlarge"
-  | "c6a.24xlarge"
-  | "c6a.2xlarge"
-  | "c6a.32xlarge"
-  | "c6a.48xlarge"
-  | "c6a.4xlarge"
-  | "c6a.8xlarge"
-  | "c6a.large"
-  | "c6a.metal"
-  | "c6a.xlarge"
-  | "c6g.12xlarge"
-  | "c6g.16xlarge"
-  | "c6g.2xlarge"
-  | "c6g.4xlarge"
-  | "c6g.8xlarge"
-  | "c6g.large"
-  | "c6g.medium"
-  | "c6g.metal"
-  | "c6g.xlarge"
-  | "c6gd.12xlarge"
-  | "c6gd.16xlarge"
-  | "c6gd.2xlarge"
-  | "c6gd.4xlarge"
-  | "c6gd.8xlarge"
-  | "c6gd.large"
-  | "c6gd.medium"
-  | "c6gd.metal"
-  | "c6gd.xlarge"
-  | "c6gn.12xlarge"
-  | "c6gn.16xlarge"
-  | "c6gn.2xlarge"
-  | "c6gn.4xlarge"
-  | "c6gn.8xlarge"
-  | "c6gn.large"
-  | "c6gn.medium"
-  | "c6gn.xlarge"
-  | "c6i.12xlarge"
-  | "c6i.16xlarge"
-  | "c6i.24xlarge"
-  | "c6i.2xlarge"
-  | "c6i.32xlarge"
-  | "c6i.4xlarge"
-  | "c6i.8xlarge"
-  | "c6i.large"
-  | "c6i.metal"
-  | "c6i.xlarge"
-  | "c6id.12xlarge"
-  | "c6id.16xlarge"
-  | "c6id.24xlarge"
-  | "c6id.2xlarge"
-  | "c6id.32xlarge"
-  | "c6id.4xlarge"
-  | "c6id.8xlarge"
-  | "c6id.large"
-  | "c6id.metal"
-  | "c6id.xlarge"
-  | "c7g.12xlarge"
-  | "c7g.16xlarge"
-  | "c7g.2xlarge"
-  | "c7g.4xlarge"
-  | "c7g.8xlarge"
-  | "c7g.large"
-  | "c7g.medium"
-  | "c7g.xlarge"
-  | "cc1.4xlarge"
-  | "cc2.8xlarge"
-  | "cg1.4xlarge"
-  | "cr1.8xlarge"
-  | "d2.2xlarge"
-  | "d2.4xlarge"
-  | "d2.8xlarge"
-  | "d2.xlarge"
-  | "d3.2xlarge"
-  | "d3.4xlarge"
-  | "d3.8xlarge"
-  | "d3.xlarge"
-  | "d3en.12xlarge"
-  | "d3en.2xlarge"
-  | "d3en.4xlarge"
-  | "d3en.6xlarge"
-  | "d3en.8xlarge"
-  | "d3en.xlarge"
-  | "dl1.24xlarge"
-  | "f1.16xlarge"
-  | "f1.2xlarge"
-  | "f1.4xlarge"
-  | "g2.2xlarge"
-  | "g2.8xlarge"
-  | "g3.16xlarge"
-  | "g3.4xlarge"
-  | "g3.8xlarge"
-  | "g3s.xlarge"
-  | "g4ad.16xlarge"
-  | "g4ad.2xlarge"
-  | "g4ad.4xlarge"
-  | "g4ad.8xlarge"
-  | "g4ad.xlarge"
-  | "g4dn.12xlarge"
-  | "g4dn.16xlarge"
-  | "g4dn.2xlarge"
-  | "g4dn.4xlarge"
-  | "g4dn.8xlarge"
-  | "g4dn.metal"
-  | "g4dn.xlarge"
-  | "g5.12xlarge"
-  | "g5.16xlarge"
-  | "g5.24xlarge"
-  | "g5.2xlarge"
-  | "g5.48xlarge"
-  | "g5.4xlarge"
-  | "g5.8xlarge"
-  | "g5.xlarge"
-  | "g5g.16xlarge"
-  | "g5g.2xlarge"
-  | "g5g.4xlarge"
-  | "g5g.8xlarge"
-  | "g5g.metal"
-  | "g5g.xlarge"
-  | "h1.16xlarge"
-  | "h1.2xlarge"
-  | "h1.4xlarge"
-  | "h1.8xlarge"
-  | "hi1.4xlarge"
-  | "hpc6a.48xlarge"
-  | "hs1.8xlarge"
-  | "i2.2xlarge"
-  | "i2.4xlarge"
-  | "i2.8xlarge"
-  | "i2.xlarge"
-  | "i3.16xlarge"
-  | "i3.2xlarge"
-  | "i3.4xlarge"
-  | "i3.8xlarge"
-  | "i3.large"
-  | "i3.metal"
-  | "i3.xlarge"
-  | "i3en.12xlarge"
-  | "i3en.24xlarge"
-  | "i3en.2xlarge"
-  | "i3en.3xlarge"
-  | "i3en.6xlarge"
-  | "i3en.large"
-  | "i3en.metal"
-  | "i3en.xlarge"
-  | "i4i.16xlarge"
-  | "i4i.2xlarge"
-  | "i4i.32xlarge"
-  | "i4i.4xlarge"
-  | "i4i.8xlarge"
-  | "i4i.large"
-  | "i4i.metal"
-  | "i4i.xlarge"
-  | "im4gn.16xlarge"
-  | "im4gn.2xlarge"
-  | "im4gn.4xlarge"
-  | "im4gn.8xlarge"
-  | "im4gn.large"
-  | "im4gn.xlarge"
-  | "inf1.24xlarge"
-  | "inf1.2xlarge"
-  | "inf1.6xlarge"
-  | "inf1.xlarge"
-  | "is4gen.2xlarge"
-  | "is4gen.4xlarge"
-  | "is4gen.8xlarge"
-  | "is4gen.large"
-  | "is4gen.medium"
-  | "is4gen.xlarge"
-  | "m1.large"
-  | "m1.medium"
-  | "m1.small"
-  | "m1.xlarge"
-  | "m2.2xlarge"
-  | "m2.4xlarge"
-  | "m2.xlarge"
-  | "m3.2xlarge"
-  | "m3.large"
-  | "m3.medium"
-  | "m3.xlarge"
-  | "m4.10xlarge"
-  | "m4.16xlarge"
-  | "m4.2xlarge"
-  | "m4.4xlarge"
-  | "m4.large"
-  | "m4.xlarge"
-  | "m5.12xlarge"
-  | "m5.16xlarge"
-  | "m5.24xlarge"
-  | "m5.2xlarge"
-  | "m5.4xlarge"
-  | "m5.8xlarge"
-  | "m5.large"
-  | "m5.metal"
-  | "m5.xlarge"
-  | "m5a.12xlarge"
-  | "m5a.16xlarge"
-  | "m5a.24xlarge"
-  | "m5a.2xlarge"
-  | "m5a.4xlarge"
-  | "m5a.8xlarge"
-  | "m5a.large"
-  | "m5a.xlarge"
-  | "m5ad.12xlarge"
-  | "m5ad.16xlarge"
-  | "m5ad.24xlarge"
-  | "m5ad.2xlarge"
-  | "m5ad.4xlarge"
-  | "m5ad.8xlarge"
-  | "m5ad.large"
-  | "m5ad.xlarge"
-  | "m5d.12xlarge"
-  | "m5d.16xlarge"
-  | "m5d.24xlarge"
-  | "m5d.2xlarge"
-  | "m5d.4xlarge"
-  | "m5d.8xlarge"
-  | "m5d.large"
-  | "m5d.metal"
-  | "m5d.xlarge"
-  | "m5dn.12xlarge"
-  | "m5dn.16xlarge"
-  | "m5dn.24xlarge"
-  | "m5dn.2xlarge"
-  | "m5dn.4xlarge"
-  | "m5dn.8xlarge"
-  | "m5dn.large"
-  | "m5dn.metal"
-  | "m5dn.xlarge"
-  | "m5n.12xlarge"
-  | "m5n.16xlarge"
-  | "m5n.24xlarge"
-  | "m5n.2xlarge"
-  | "m5n.4xlarge"
-  | "m5n.8xlarge"
-  | "m5n.large"
-  | "m5n.metal"
-  | "m5n.xlarge"
-  | "m5zn.12xlarge"
-  | "m5zn.2xlarge"
-  | "m5zn.3xlarge"
-  | "m5zn.6xlarge"
-  | "m5zn.large"
-  | "m5zn.metal"
-  | "m5zn.xlarge"
-  | "m6a.12xlarge"
-  | "m6a.16xlarge"
-  | "m6a.24xlarge"
-  | "m6a.2xlarge"
-  | "m6a.32xlarge"
-  | "m6a.48xlarge"
-  | "m6a.4xlarge"
-  | "m6a.8xlarge"
-  | "m6a.large"
-  | "m6a.metal"
-  | "m6a.xlarge"
-  | "m6g.12xlarge"
-  | "m6g.16xlarge"
-  | "m6g.2xlarge"
-  | "m6g.4xlarge"
-  | "m6g.8xlarge"
-  | "m6g.large"
-  | "m6g.medium"
-  | "m6g.metal"
-  | "m6g.xlarge"
-  | "m6gd.12xlarge"
-  | "m6gd.16xlarge"
-  | "m6gd.2xlarge"
-  | "m6gd.4xlarge"
-  | "m6gd.8xlarge"
-  | "m6gd.large"
-  | "m6gd.medium"
-  | "m6gd.metal"
-  | "m6gd.xlarge"
-  | "m6i.12xlarge"
-  | "m6i.16xlarge"
-  | "m6i.24xlarge"
-  | "m6i.2xlarge"
-  | "m6i.32xlarge"
-  | "m6i.4xlarge"
-  | "m6i.8xlarge"
-  | "m6i.large"
-  | "m6i.metal"
-  | "m6i.xlarge"
-  | "m6id.12xlarge"
-  | "m6id.16xlarge"
-  | "m6id.24xlarge"
-  | "m6id.2xlarge"
-  | "m6id.32xlarge"
-  | "m6id.4xlarge"
-  | "m6id.8xlarge"
-  | "m6id.large"
-  | "m6id.metal"
-  | "m6id.xlarge"
-  | "mac1.metal"
-  | "mac2.metal"
-  | "p2.16xlarge"
-  | "p2.8xlarge"
-  | "p2.xlarge"
-  | "p3.16xlarge"
-  | "p3.2xlarge"
-  | "p3.8xlarge"
-  | "p3dn.24xlarge"
-  | "p4d.24xlarge"
-  | "p4de.24xlarge"
-  | "r3.2xlarge"
-  | "r3.4xlarge"
-  | "r3.8xlarge"
-  | "r3.large"
-  | "r3.xlarge"
-  | "r4.16xlarge"
-  | "r4.2xlarge"
-  | "r4.4xlarge"
-  | "r4.8xlarge"
-  | "r4.large"
-  | "r4.xlarge"
-  | "r5.12xlarge"
-  | "r5.16xlarge"
-  | "r5.24xlarge"
-  | "r5.2xlarge"
-  | "r5.4xlarge"
-  | "r5.8xlarge"
-  | "r5.large"
-  | "r5.metal"
-  | "r5.xlarge"
-  | "r5a.12xlarge"
-  | "r5a.16xlarge"
-  | "r5a.24xlarge"
-  | "r5a.2xlarge"
-  | "r5a.4xlarge"
-  | "r5a.8xlarge"
-  | "r5a.large"
-  | "r5a.xlarge"
-  | "r5ad.12xlarge"
-  | "r5ad.16xlarge"
-  | "r5ad.24xlarge"
-  | "r5ad.2xlarge"
-  | "r5ad.4xlarge"
-  | "r5ad.8xlarge"
-  | "r5ad.large"
-  | "r5ad.xlarge"
-  | "r5b.12xlarge"
-  | "r5b.16xlarge"
-  | "r5b.24xlarge"
-  | "r5b.2xlarge"
-  | "r5b.4xlarge"
-  | "r5b.8xlarge"
-  | "r5b.large"
-  | "r5b.metal"
-  | "r5b.xlarge"
-  | "r5d.12xlarge"
-  | "r5d.16xlarge"
-  | "r5d.24xlarge"
-  | "r5d.2xlarge"
-  | "r5d.4xlarge"
-  | "r5d.8xlarge"
-  | "r5d.large"
-  | "r5d.metal"
-  | "r5d.xlarge"
-  | "r5dn.12xlarge"
-  | "r5dn.16xlarge"
-  | "r5dn.24xlarge"
-  | "r5dn.2xlarge"
-  | "r5dn.4xlarge"
-  | "r5dn.8xlarge"
-  | "r5dn.large"
-  | "r5dn.metal"
-  | "r5dn.xlarge"
-  | "r5n.12xlarge"
-  | "r5n.16xlarge"
-  | "r5n.24xlarge"
-  | "r5n.2xlarge"
-  | "r5n.4xlarge"
-  | "r5n.8xlarge"
-  | "r5n.large"
-  | "r5n.metal"
-  | "r5n.xlarge"
-  | "r6a.12xlarge"
-  | "r6a.16xlarge"
-  | "r6a.24xlarge"
-  | "r6a.2xlarge"
-  | "r6a.32xlarge"
-  | "r6a.48xlarge"
-  | "r6a.4xlarge"
-  | "r6a.8xlarge"
-  | "r6a.large"
-  | "r6a.metal"
-  | "r6a.xlarge"
-  | "r6g.12xlarge"
-  | "r6g.16xlarge"
-  | "r6g.2xlarge"
-  | "r6g.4xlarge"
-  | "r6g.8xlarge"
-  | "r6g.large"
-  | "r6g.medium"
-  | "r6g.metal"
-  | "r6g.xlarge"
-  | "r6gd.12xlarge"
-  | "r6gd.16xlarge"
-  | "r6gd.2xlarge"
-  | "r6gd.4xlarge"
-  | "r6gd.8xlarge"
-  | "r6gd.large"
-  | "r6gd.medium"
-  | "r6gd.metal"
-  | "r6gd.xlarge"
-  | "r6i.12xlarge"
-  | "r6i.16xlarge"
-  | "r6i.24xlarge"
-  | "r6i.2xlarge"
-  | "r6i.32xlarge"
-  | "r6i.4xlarge"
-  | "r6i.8xlarge"
-  | "r6i.large"
-  | "r6i.metal"
-  | "r6i.xlarge"
-  | "r6id.12xlarge"
-  | "r6id.16xlarge"
-  | "r6id.24xlarge"
-  | "r6id.2xlarge"
-  | "r6id.32xlarge"
-  | "r6id.4xlarge"
-  | "r6id.8xlarge"
-  | "r6id.large"
-  | "r6id.metal"
-  | "r6id.xlarge"
-  | "t1.micro"
-  | "t2.2xlarge"
-  | "t2.large"
-  | "t2.medium"
-  | "t2.micro"
-  | "t2.nano"
-  | "t2.small"
-  | "t2.xlarge"
-  | "t3.2xlarge"
-  | "t3.large"
-  | "t3.medium"
-  | "t3.micro"
-  | "t3.nano"
-  | "t3.small"
-  | "t3.xlarge"
-  | "t3a.2xlarge"
-  | "t3a.large"
-  | "t3a.medium"
-  | "t3a.micro"
-  | "t3a.nano"
-  | "t3a.small"
-  | "t3a.xlarge"
-  | "t4g.2xlarge"
-  | "t4g.large"
-  | "t4g.medium"
-  | "t4g.micro"
-  | "t4g.nano"
-  | "t4g.small"
-  | "t4g.xlarge"
-  | "u-12tb1.112xlarge"
-  | "u-12tb1.metal"
-  | "u-18tb1.metal"
-  | "u-24tb1.metal"
-  | "u-6tb1.112xlarge"
-  | "u-6tb1.56xlarge"
-  | "u-6tb1.metal"
-  | "u-9tb1.112xlarge"
-  | "u-9tb1.metal"
-  | "vt1.24xlarge"
-  | "vt1.3xlarge"
-  | "vt1.6xlarge"
-  | "x1.16xlarge"
-  | "x1.32xlarge"
-  | "x1e.16xlarge"
-  | "x1e.2xlarge"
-  | "x1e.32xlarge"
-  | "x1e.4xlarge"
-  | "x1e.8xlarge"
-  | "x1e.xlarge"
-  | "x2gd.12xlarge"
-  | "x2gd.16xlarge"
-  | "x2gd.2xlarge"
-  | "x2gd.4xlarge"
-  | "x2gd.8xlarge"
-  | "x2gd.large"
-  | "x2gd.medium"
-  | "x2gd.metal"
-  | "x2gd.xlarge"
-  | "x2idn.16xlarge"
-  | "x2idn.24xlarge"
-  | "x2idn.32xlarge"
-  | "x2idn.metal"
-  | "x2iedn.16xlarge"
-  | "x2iedn.24xlarge"
-  | "x2iedn.2xlarge"
-  | "x2iedn.32xlarge"
-  | "x2iedn.4xlarge"
-  | "x2iedn.8xlarge"
-  | "x2iedn.metal"
-  | "x2iedn.xlarge"
-  | "x2iezn.12xlarge"
-  | "x2iezn.2xlarge"
-  | "x2iezn.4xlarge"
-  | "x2iezn.6xlarge"
-  | "x2iezn.8xlarge"
-  | "x2iezn.metal"
-  | "z1d.12xlarge"
-  | "z1d.2xlarge"
-  | "z1d.3xlarge"
-  | "z1d.6xlarge"
-  | "z1d.large"
-  | "z1d.metal"
-  | "z1d.xlarge";
+export enum _InstanceType {
+  a1_2xlarge = "a1.2xlarge",
+  a1_4xlarge = "a1.4xlarge",
+  a1_large = "a1.large",
+  a1_medium = "a1.medium",
+  a1_metal = "a1.metal",
+  a1_xlarge = "a1.xlarge",
+  c1_medium = "c1.medium",
+  c1_xlarge = "c1.xlarge",
+  c3_2xlarge = "c3.2xlarge",
+  c3_4xlarge = "c3.4xlarge",
+  c3_8xlarge = "c3.8xlarge",
+  c3_large = "c3.large",
+  c3_xlarge = "c3.xlarge",
+  c4_2xlarge = "c4.2xlarge",
+  c4_4xlarge = "c4.4xlarge",
+  c4_8xlarge = "c4.8xlarge",
+  c4_large = "c4.large",
+  c4_xlarge = "c4.xlarge",
+  c5_12xlarge = "c5.12xlarge",
+  c5_18xlarge = "c5.18xlarge",
+  c5_24xlarge = "c5.24xlarge",
+  c5_2xlarge = "c5.2xlarge",
+  c5_4xlarge = "c5.4xlarge",
+  c5_9xlarge = "c5.9xlarge",
+  c5_large = "c5.large",
+  c5_metal = "c5.metal",
+  c5_xlarge = "c5.xlarge",
+  c5a_12xlarge = "c5a.12xlarge",
+  c5a_16xlarge = "c5a.16xlarge",
+  c5a_24xlarge = "c5a.24xlarge",
+  c5a_2xlarge = "c5a.2xlarge",
+  c5a_4xlarge = "c5a.4xlarge",
+  c5a_8xlarge = "c5a.8xlarge",
+  c5a_large = "c5a.large",
+  c5a_xlarge = "c5a.xlarge",
+  c5ad_12xlarge = "c5ad.12xlarge",
+  c5ad_16xlarge = "c5ad.16xlarge",
+  c5ad_24xlarge = "c5ad.24xlarge",
+  c5ad_2xlarge = "c5ad.2xlarge",
+  c5ad_4xlarge = "c5ad.4xlarge",
+  c5ad_8xlarge = "c5ad.8xlarge",
+  c5ad_large = "c5ad.large",
+  c5ad_xlarge = "c5ad.xlarge",
+  c5d_12xlarge = "c5d.12xlarge",
+  c5d_18xlarge = "c5d.18xlarge",
+  c5d_24xlarge = "c5d.24xlarge",
+  c5d_2xlarge = "c5d.2xlarge",
+  c5d_4xlarge = "c5d.4xlarge",
+  c5d_9xlarge = "c5d.9xlarge",
+  c5d_large = "c5d.large",
+  c5d_metal = "c5d.metal",
+  c5d_xlarge = "c5d.xlarge",
+  c5n_18xlarge = "c5n.18xlarge",
+  c5n_2xlarge = "c5n.2xlarge",
+  c5n_4xlarge = "c5n.4xlarge",
+  c5n_9xlarge = "c5n.9xlarge",
+  c5n_large = "c5n.large",
+  c5n_metal = "c5n.metal",
+  c5n_xlarge = "c5n.xlarge",
+  c6a_12xlarge = "c6a.12xlarge",
+  c6a_16xlarge = "c6a.16xlarge",
+  c6a_24xlarge = "c6a.24xlarge",
+  c6a_2xlarge = "c6a.2xlarge",
+  c6a_32xlarge = "c6a.32xlarge",
+  c6a_48xlarge = "c6a.48xlarge",
+  c6a_4xlarge = "c6a.4xlarge",
+  c6a_8xlarge = "c6a.8xlarge",
+  c6a_large = "c6a.large",
+  c6a_metal = "c6a.metal",
+  c6a_xlarge = "c6a.xlarge",
+  c6g_12xlarge = "c6g.12xlarge",
+  c6g_16xlarge = "c6g.16xlarge",
+  c6g_2xlarge = "c6g.2xlarge",
+  c6g_4xlarge = "c6g.4xlarge",
+  c6g_8xlarge = "c6g.8xlarge",
+  c6g_large = "c6g.large",
+  c6g_medium = "c6g.medium",
+  c6g_metal = "c6g.metal",
+  c6g_xlarge = "c6g.xlarge",
+  c6gd_12xlarge = "c6gd.12xlarge",
+  c6gd_16xlarge = "c6gd.16xlarge",
+  c6gd_2xlarge = "c6gd.2xlarge",
+  c6gd_4xlarge = "c6gd.4xlarge",
+  c6gd_8xlarge = "c6gd.8xlarge",
+  c6gd_large = "c6gd.large",
+  c6gd_medium = "c6gd.medium",
+  c6gd_metal = "c6gd.metal",
+  c6gd_xlarge = "c6gd.xlarge",
+  c6gn_12xlarge = "c6gn.12xlarge",
+  c6gn_16xlarge = "c6gn.16xlarge",
+  c6gn_2xlarge = "c6gn.2xlarge",
+  c6gn_4xlarge = "c6gn.4xlarge",
+  c6gn_8xlarge = "c6gn.8xlarge",
+  c6gn_large = "c6gn.large",
+  c6gn_medium = "c6gn.medium",
+  c6gn_xlarge = "c6gn.xlarge",
+  c6i_12xlarge = "c6i.12xlarge",
+  c6i_16xlarge = "c6i.16xlarge",
+  c6i_24xlarge = "c6i.24xlarge",
+  c6i_2xlarge = "c6i.2xlarge",
+  c6i_32xlarge = "c6i.32xlarge",
+  c6i_4xlarge = "c6i.4xlarge",
+  c6i_8xlarge = "c6i.8xlarge",
+  c6i_large = "c6i.large",
+  c6i_metal = "c6i.metal",
+  c6i_xlarge = "c6i.xlarge",
+  c6id_12xlarge = "c6id.12xlarge",
+  c6id_16xlarge = "c6id.16xlarge",
+  c6id_24xlarge = "c6id.24xlarge",
+  c6id_2xlarge = "c6id.2xlarge",
+  c6id_32xlarge = "c6id.32xlarge",
+  c6id_4xlarge = "c6id.4xlarge",
+  c6id_8xlarge = "c6id.8xlarge",
+  c6id_large = "c6id.large",
+  c6id_metal = "c6id.metal",
+  c6id_xlarge = "c6id.xlarge",
+  c7g_12xlarge = "c7g.12xlarge",
+  c7g_16xlarge = "c7g.16xlarge",
+  c7g_2xlarge = "c7g.2xlarge",
+  c7g_4xlarge = "c7g.4xlarge",
+  c7g_8xlarge = "c7g.8xlarge",
+  c7g_large = "c7g.large",
+  c7g_medium = "c7g.medium",
+  c7g_xlarge = "c7g.xlarge",
+  cc1_4xlarge = "cc1.4xlarge",
+  cc2_8xlarge = "cc2.8xlarge",
+  cg1_4xlarge = "cg1.4xlarge",
+  cr1_8xlarge = "cr1.8xlarge",
+  d2_2xlarge = "d2.2xlarge",
+  d2_4xlarge = "d2.4xlarge",
+  d2_8xlarge = "d2.8xlarge",
+  d2_xlarge = "d2.xlarge",
+  d3_2xlarge = "d3.2xlarge",
+  d3_4xlarge = "d3.4xlarge",
+  d3_8xlarge = "d3.8xlarge",
+  d3_xlarge = "d3.xlarge",
+  d3en_12xlarge = "d3en.12xlarge",
+  d3en_2xlarge = "d3en.2xlarge",
+  d3en_4xlarge = "d3en.4xlarge",
+  d3en_6xlarge = "d3en.6xlarge",
+  d3en_8xlarge = "d3en.8xlarge",
+  d3en_xlarge = "d3en.xlarge",
+  dl1_24xlarge = "dl1.24xlarge",
+  f1_16xlarge = "f1.16xlarge",
+  f1_2xlarge = "f1.2xlarge",
+  f1_4xlarge = "f1.4xlarge",
+  g2_2xlarge = "g2.2xlarge",
+  g2_8xlarge = "g2.8xlarge",
+  g3_16xlarge = "g3.16xlarge",
+  g3_4xlarge = "g3.4xlarge",
+  g3_8xlarge = "g3.8xlarge",
+  g3s_xlarge = "g3s.xlarge",
+  g4ad_16xlarge = "g4ad.16xlarge",
+  g4ad_2xlarge = "g4ad.2xlarge",
+  g4ad_4xlarge = "g4ad.4xlarge",
+  g4ad_8xlarge = "g4ad.8xlarge",
+  g4ad_xlarge = "g4ad.xlarge",
+  g4dn_12xlarge = "g4dn.12xlarge",
+  g4dn_16xlarge = "g4dn.16xlarge",
+  g4dn_2xlarge = "g4dn.2xlarge",
+  g4dn_4xlarge = "g4dn.4xlarge",
+  g4dn_8xlarge = "g4dn.8xlarge",
+  g4dn_metal = "g4dn.metal",
+  g4dn_xlarge = "g4dn.xlarge",
+  g5_12xlarge = "g5.12xlarge",
+  g5_16xlarge = "g5.16xlarge",
+  g5_24xlarge = "g5.24xlarge",
+  g5_2xlarge = "g5.2xlarge",
+  g5_48xlarge = "g5.48xlarge",
+  g5_4xlarge = "g5.4xlarge",
+  g5_8xlarge = "g5.8xlarge",
+  g5_xlarge = "g5.xlarge",
+  g5g_16xlarge = "g5g.16xlarge",
+  g5g_2xlarge = "g5g.2xlarge",
+  g5g_4xlarge = "g5g.4xlarge",
+  g5g_8xlarge = "g5g.8xlarge",
+  g5g_metal = "g5g.metal",
+  g5g_xlarge = "g5g.xlarge",
+  h1_16xlarge = "h1.16xlarge",
+  h1_2xlarge = "h1.2xlarge",
+  h1_4xlarge = "h1.4xlarge",
+  h1_8xlarge = "h1.8xlarge",
+  hi1_4xlarge = "hi1.4xlarge",
+  hpc6a_48xlarge = "hpc6a.48xlarge",
+  hs1_8xlarge = "hs1.8xlarge",
+  i2_2xlarge = "i2.2xlarge",
+  i2_4xlarge = "i2.4xlarge",
+  i2_8xlarge = "i2.8xlarge",
+  i2_xlarge = "i2.xlarge",
+  i3_16xlarge = "i3.16xlarge",
+  i3_2xlarge = "i3.2xlarge",
+  i3_4xlarge = "i3.4xlarge",
+  i3_8xlarge = "i3.8xlarge",
+  i3_large = "i3.large",
+  i3_metal = "i3.metal",
+  i3_xlarge = "i3.xlarge",
+  i3en_12xlarge = "i3en.12xlarge",
+  i3en_24xlarge = "i3en.24xlarge",
+  i3en_2xlarge = "i3en.2xlarge",
+  i3en_3xlarge = "i3en.3xlarge",
+  i3en_6xlarge = "i3en.6xlarge",
+  i3en_large = "i3en.large",
+  i3en_metal = "i3en.metal",
+  i3en_xlarge = "i3en.xlarge",
+  i4i_16xlarge = "i4i.16xlarge",
+  i4i_2xlarge = "i4i.2xlarge",
+  i4i_32xlarge = "i4i.32xlarge",
+  i4i_4xlarge = "i4i.4xlarge",
+  i4i_8xlarge = "i4i.8xlarge",
+  i4i_large = "i4i.large",
+  i4i_metal = "i4i.metal",
+  i4i_xlarge = "i4i.xlarge",
+  im4gn_16xlarge = "im4gn.16xlarge",
+  im4gn_2xlarge = "im4gn.2xlarge",
+  im4gn_4xlarge = "im4gn.4xlarge",
+  im4gn_8xlarge = "im4gn.8xlarge",
+  im4gn_large = "im4gn.large",
+  im4gn_xlarge = "im4gn.xlarge",
+  inf1_24xlarge = "inf1.24xlarge",
+  inf1_2xlarge = "inf1.2xlarge",
+  inf1_6xlarge = "inf1.6xlarge",
+  inf1_xlarge = "inf1.xlarge",
+  is4gen_2xlarge = "is4gen.2xlarge",
+  is4gen_4xlarge = "is4gen.4xlarge",
+  is4gen_8xlarge = "is4gen.8xlarge",
+  is4gen_large = "is4gen.large",
+  is4gen_medium = "is4gen.medium",
+  is4gen_xlarge = "is4gen.xlarge",
+  m1_large = "m1.large",
+  m1_medium = "m1.medium",
+  m1_small = "m1.small",
+  m1_xlarge = "m1.xlarge",
+  m2_2xlarge = "m2.2xlarge",
+  m2_4xlarge = "m2.4xlarge",
+  m2_xlarge = "m2.xlarge",
+  m3_2xlarge = "m3.2xlarge",
+  m3_large = "m3.large",
+  m3_medium = "m3.medium",
+  m3_xlarge = "m3.xlarge",
+  m4_10xlarge = "m4.10xlarge",
+  m4_16xlarge = "m4.16xlarge",
+  m4_2xlarge = "m4.2xlarge",
+  m4_4xlarge = "m4.4xlarge",
+  m4_large = "m4.large",
+  m4_xlarge = "m4.xlarge",
+  m5_12xlarge = "m5.12xlarge",
+  m5_16xlarge = "m5.16xlarge",
+  m5_24xlarge = "m5.24xlarge",
+  m5_2xlarge = "m5.2xlarge",
+  m5_4xlarge = "m5.4xlarge",
+  m5_8xlarge = "m5.8xlarge",
+  m5_large = "m5.large",
+  m5_metal = "m5.metal",
+  m5_xlarge = "m5.xlarge",
+  m5a_12xlarge = "m5a.12xlarge",
+  m5a_16xlarge = "m5a.16xlarge",
+  m5a_24xlarge = "m5a.24xlarge",
+  m5a_2xlarge = "m5a.2xlarge",
+  m5a_4xlarge = "m5a.4xlarge",
+  m5a_8xlarge = "m5a.8xlarge",
+  m5a_large = "m5a.large",
+  m5a_xlarge = "m5a.xlarge",
+  m5ad_12xlarge = "m5ad.12xlarge",
+  m5ad_16xlarge = "m5ad.16xlarge",
+  m5ad_24xlarge = "m5ad.24xlarge",
+  m5ad_2xlarge = "m5ad.2xlarge",
+  m5ad_4xlarge = "m5ad.4xlarge",
+  m5ad_8xlarge = "m5ad.8xlarge",
+  m5ad_large = "m5ad.large",
+  m5ad_xlarge = "m5ad.xlarge",
+  m5d_12xlarge = "m5d.12xlarge",
+  m5d_16xlarge = "m5d.16xlarge",
+  m5d_24xlarge = "m5d.24xlarge",
+  m5d_2xlarge = "m5d.2xlarge",
+  m5d_4xlarge = "m5d.4xlarge",
+  m5d_8xlarge = "m5d.8xlarge",
+  m5d_large = "m5d.large",
+  m5d_metal = "m5d.metal",
+  m5d_xlarge = "m5d.xlarge",
+  m5dn_12xlarge = "m5dn.12xlarge",
+  m5dn_16xlarge = "m5dn.16xlarge",
+  m5dn_24xlarge = "m5dn.24xlarge",
+  m5dn_2xlarge = "m5dn.2xlarge",
+  m5dn_4xlarge = "m5dn.4xlarge",
+  m5dn_8xlarge = "m5dn.8xlarge",
+  m5dn_large = "m5dn.large",
+  m5dn_metal = "m5dn.metal",
+  m5dn_xlarge = "m5dn.xlarge",
+  m5n_12xlarge = "m5n.12xlarge",
+  m5n_16xlarge = "m5n.16xlarge",
+  m5n_24xlarge = "m5n.24xlarge",
+  m5n_2xlarge = "m5n.2xlarge",
+  m5n_4xlarge = "m5n.4xlarge",
+  m5n_8xlarge = "m5n.8xlarge",
+  m5n_large = "m5n.large",
+  m5n_metal = "m5n.metal",
+  m5n_xlarge = "m5n.xlarge",
+  m5zn_12xlarge = "m5zn.12xlarge",
+  m5zn_2xlarge = "m5zn.2xlarge",
+  m5zn_3xlarge = "m5zn.3xlarge",
+  m5zn_6xlarge = "m5zn.6xlarge",
+  m5zn_large = "m5zn.large",
+  m5zn_metal = "m5zn.metal",
+  m5zn_xlarge = "m5zn.xlarge",
+  m6a_12xlarge = "m6a.12xlarge",
+  m6a_16xlarge = "m6a.16xlarge",
+  m6a_24xlarge = "m6a.24xlarge",
+  m6a_2xlarge = "m6a.2xlarge",
+  m6a_32xlarge = "m6a.32xlarge",
+  m6a_48xlarge = "m6a.48xlarge",
+  m6a_4xlarge = "m6a.4xlarge",
+  m6a_8xlarge = "m6a.8xlarge",
+  m6a_large = "m6a.large",
+  m6a_metal = "m6a.metal",
+  m6a_xlarge = "m6a.xlarge",
+  m6g_12xlarge = "m6g.12xlarge",
+  m6g_16xlarge = "m6g.16xlarge",
+  m6g_2xlarge = "m6g.2xlarge",
+  m6g_4xlarge = "m6g.4xlarge",
+  m6g_8xlarge = "m6g.8xlarge",
+  m6g_large = "m6g.large",
+  m6g_medium = "m6g.medium",
+  m6g_metal = "m6g.metal",
+  m6g_xlarge = "m6g.xlarge",
+  m6gd_12xlarge = "m6gd.12xlarge",
+  m6gd_16xlarge = "m6gd.16xlarge",
+  m6gd_2xlarge = "m6gd.2xlarge",
+  m6gd_4xlarge = "m6gd.4xlarge",
+  m6gd_8xlarge = "m6gd.8xlarge",
+  m6gd_large = "m6gd.large",
+  m6gd_medium = "m6gd.medium",
+  m6gd_metal = "m6gd.metal",
+  m6gd_xlarge = "m6gd.xlarge",
+  m6i_12xlarge = "m6i.12xlarge",
+  m6i_16xlarge = "m6i.16xlarge",
+  m6i_24xlarge = "m6i.24xlarge",
+  m6i_2xlarge = "m6i.2xlarge",
+  m6i_32xlarge = "m6i.32xlarge",
+  m6i_4xlarge = "m6i.4xlarge",
+  m6i_8xlarge = "m6i.8xlarge",
+  m6i_large = "m6i.large",
+  m6i_metal = "m6i.metal",
+  m6i_xlarge = "m6i.xlarge",
+  m6id_12xlarge = "m6id.12xlarge",
+  m6id_16xlarge = "m6id.16xlarge",
+  m6id_24xlarge = "m6id.24xlarge",
+  m6id_2xlarge = "m6id.2xlarge",
+  m6id_32xlarge = "m6id.32xlarge",
+  m6id_4xlarge = "m6id.4xlarge",
+  m6id_8xlarge = "m6id.8xlarge",
+  m6id_large = "m6id.large",
+  m6id_metal = "m6id.metal",
+  m6id_xlarge = "m6id.xlarge",
+  mac1_metal = "mac1.metal",
+  mac2_metal = "mac2.metal",
+  p2_16xlarge = "p2.16xlarge",
+  p2_8xlarge = "p2.8xlarge",
+  p2_xlarge = "p2.xlarge",
+  p3_16xlarge = "p3.16xlarge",
+  p3_2xlarge = "p3.2xlarge",
+  p3_8xlarge = "p3.8xlarge",
+  p3dn_24xlarge = "p3dn.24xlarge",
+  p4d_24xlarge = "p4d.24xlarge",
+  p4de_24xlarge = "p4de.24xlarge",
+  r3_2xlarge = "r3.2xlarge",
+  r3_4xlarge = "r3.4xlarge",
+  r3_8xlarge = "r3.8xlarge",
+  r3_large = "r3.large",
+  r3_xlarge = "r3.xlarge",
+  r4_16xlarge = "r4.16xlarge",
+  r4_2xlarge = "r4.2xlarge",
+  r4_4xlarge = "r4.4xlarge",
+  r4_8xlarge = "r4.8xlarge",
+  r4_large = "r4.large",
+  r4_xlarge = "r4.xlarge",
+  r5_12xlarge = "r5.12xlarge",
+  r5_16xlarge = "r5.16xlarge",
+  r5_24xlarge = "r5.24xlarge",
+  r5_2xlarge = "r5.2xlarge",
+  r5_4xlarge = "r5.4xlarge",
+  r5_8xlarge = "r5.8xlarge",
+  r5_large = "r5.large",
+  r5_metal = "r5.metal",
+  r5_xlarge = "r5.xlarge",
+  r5a_12xlarge = "r5a.12xlarge",
+  r5a_16xlarge = "r5a.16xlarge",
+  r5a_24xlarge = "r5a.24xlarge",
+  r5a_2xlarge = "r5a.2xlarge",
+  r5a_4xlarge = "r5a.4xlarge",
+  r5a_8xlarge = "r5a.8xlarge",
+  r5a_large = "r5a.large",
+  r5a_xlarge = "r5a.xlarge",
+  r5ad_12xlarge = "r5ad.12xlarge",
+  r5ad_16xlarge = "r5ad.16xlarge",
+  r5ad_24xlarge = "r5ad.24xlarge",
+  r5ad_2xlarge = "r5ad.2xlarge",
+  r5ad_4xlarge = "r5ad.4xlarge",
+  r5ad_8xlarge = "r5ad.8xlarge",
+  r5ad_large = "r5ad.large",
+  r5ad_xlarge = "r5ad.xlarge",
+  r5b_12xlarge = "r5b.12xlarge",
+  r5b_16xlarge = "r5b.16xlarge",
+  r5b_24xlarge = "r5b.24xlarge",
+  r5b_2xlarge = "r5b.2xlarge",
+  r5b_4xlarge = "r5b.4xlarge",
+  r5b_8xlarge = "r5b.8xlarge",
+  r5b_large = "r5b.large",
+  r5b_metal = "r5b.metal",
+  r5b_xlarge = "r5b.xlarge",
+  r5d_12xlarge = "r5d.12xlarge",
+  r5d_16xlarge = "r5d.16xlarge",
+  r5d_24xlarge = "r5d.24xlarge",
+  r5d_2xlarge = "r5d.2xlarge",
+  r5d_4xlarge = "r5d.4xlarge",
+  r5d_8xlarge = "r5d.8xlarge",
+  r5d_large = "r5d.large",
+  r5d_metal = "r5d.metal",
+  r5d_xlarge = "r5d.xlarge",
+  r5dn_12xlarge = "r5dn.12xlarge",
+  r5dn_16xlarge = "r5dn.16xlarge",
+  r5dn_24xlarge = "r5dn.24xlarge",
+  r5dn_2xlarge = "r5dn.2xlarge",
+  r5dn_4xlarge = "r5dn.4xlarge",
+  r5dn_8xlarge = "r5dn.8xlarge",
+  r5dn_large = "r5dn.large",
+  r5dn_metal = "r5dn.metal",
+  r5dn_xlarge = "r5dn.xlarge",
+  r5n_12xlarge = "r5n.12xlarge",
+  r5n_16xlarge = "r5n.16xlarge",
+  r5n_24xlarge = "r5n.24xlarge",
+  r5n_2xlarge = "r5n.2xlarge",
+  r5n_4xlarge = "r5n.4xlarge",
+  r5n_8xlarge = "r5n.8xlarge",
+  r5n_large = "r5n.large",
+  r5n_metal = "r5n.metal",
+  r5n_xlarge = "r5n.xlarge",
+  r6a_12xlarge = "r6a.12xlarge",
+  r6a_16xlarge = "r6a.16xlarge",
+  r6a_24xlarge = "r6a.24xlarge",
+  r6a_2xlarge = "r6a.2xlarge",
+  r6a_32xlarge = "r6a.32xlarge",
+  r6a_48xlarge = "r6a.48xlarge",
+  r6a_4xlarge = "r6a.4xlarge",
+  r6a_8xlarge = "r6a.8xlarge",
+  r6a_large = "r6a.large",
+  r6a_metal = "r6a.metal",
+  r6a_xlarge = "r6a.xlarge",
+  r6g_12xlarge = "r6g.12xlarge",
+  r6g_16xlarge = "r6g.16xlarge",
+  r6g_2xlarge = "r6g.2xlarge",
+  r6g_4xlarge = "r6g.4xlarge",
+  r6g_8xlarge = "r6g.8xlarge",
+  r6g_large = "r6g.large",
+  r6g_medium = "r6g.medium",
+  r6g_metal = "r6g.metal",
+  r6g_xlarge = "r6g.xlarge",
+  r6gd_12xlarge = "r6gd.12xlarge",
+  r6gd_16xlarge = "r6gd.16xlarge",
+  r6gd_2xlarge = "r6gd.2xlarge",
+  r6gd_4xlarge = "r6gd.4xlarge",
+  r6gd_8xlarge = "r6gd.8xlarge",
+  r6gd_large = "r6gd.large",
+  r6gd_medium = "r6gd.medium",
+  r6gd_metal = "r6gd.metal",
+  r6gd_xlarge = "r6gd.xlarge",
+  r6i_12xlarge = "r6i.12xlarge",
+  r6i_16xlarge = "r6i.16xlarge",
+  r6i_24xlarge = "r6i.24xlarge",
+  r6i_2xlarge = "r6i.2xlarge",
+  r6i_32xlarge = "r6i.32xlarge",
+  r6i_4xlarge = "r6i.4xlarge",
+  r6i_8xlarge = "r6i.8xlarge",
+  r6i_large = "r6i.large",
+  r6i_metal = "r6i.metal",
+  r6i_xlarge = "r6i.xlarge",
+  r6id_12xlarge = "r6id.12xlarge",
+  r6id_16xlarge = "r6id.16xlarge",
+  r6id_24xlarge = "r6id.24xlarge",
+  r6id_2xlarge = "r6id.2xlarge",
+  r6id_32xlarge = "r6id.32xlarge",
+  r6id_4xlarge = "r6id.4xlarge",
+  r6id_8xlarge = "r6id.8xlarge",
+  r6id_large = "r6id.large",
+  r6id_metal = "r6id.metal",
+  r6id_xlarge = "r6id.xlarge",
+  t1_micro = "t1.micro",
+  t2_2xlarge = "t2.2xlarge",
+  t2_large = "t2.large",
+  t2_medium = "t2.medium",
+  t2_micro = "t2.micro",
+  t2_nano = "t2.nano",
+  t2_small = "t2.small",
+  t2_xlarge = "t2.xlarge",
+  t3_2xlarge = "t3.2xlarge",
+  t3_large = "t3.large",
+  t3_medium = "t3.medium",
+  t3_micro = "t3.micro",
+  t3_nano = "t3.nano",
+  t3_small = "t3.small",
+  t3_xlarge = "t3.xlarge",
+  t3a_2xlarge = "t3a.2xlarge",
+  t3a_large = "t3a.large",
+  t3a_medium = "t3a.medium",
+  t3a_micro = "t3a.micro",
+  t3a_nano = "t3a.nano",
+  t3a_small = "t3a.small",
+  t3a_xlarge = "t3a.xlarge",
+  t4g_2xlarge = "t4g.2xlarge",
+  t4g_large = "t4g.large",
+  t4g_medium = "t4g.medium",
+  t4g_micro = "t4g.micro",
+  t4g_nano = "t4g.nano",
+  t4g_small = "t4g.small",
+  t4g_xlarge = "t4g.xlarge",
+  u_12tb1_112xlarge = "u-12tb1.112xlarge",
+  u_12tb1_metal = "u-12tb1.metal",
+  u_18tb1_metal = "u-18tb1.metal",
+  u_24tb1_metal = "u-24tb1.metal",
+  u_6tb1_112xlarge = "u-6tb1.112xlarge",
+  u_6tb1_56xlarge = "u-6tb1.56xlarge",
+  u_6tb1_metal = "u-6tb1.metal",
+  u_9tb1_112xlarge = "u-9tb1.112xlarge",
+  u_9tb1_metal = "u-9tb1.metal",
+  vt1_24xlarge = "vt1.24xlarge",
+  vt1_3xlarge = "vt1.3xlarge",
+  vt1_6xlarge = "vt1.6xlarge",
+  x1_16xlarge = "x1.16xlarge",
+  x1_32xlarge = "x1.32xlarge",
+  x1e_16xlarge = "x1e.16xlarge",
+  x1e_2xlarge = "x1e.2xlarge",
+  x1e_32xlarge = "x1e.32xlarge",
+  x1e_4xlarge = "x1e.4xlarge",
+  x1e_8xlarge = "x1e.8xlarge",
+  x1e_xlarge = "x1e.xlarge",
+  x2gd_12xlarge = "x2gd.12xlarge",
+  x2gd_16xlarge = "x2gd.16xlarge",
+  x2gd_2xlarge = "x2gd.2xlarge",
+  x2gd_4xlarge = "x2gd.4xlarge",
+  x2gd_8xlarge = "x2gd.8xlarge",
+  x2gd_large = "x2gd.large",
+  x2gd_medium = "x2gd.medium",
+  x2gd_metal = "x2gd.metal",
+  x2gd_xlarge = "x2gd.xlarge",
+  x2idn_16xlarge = "x2idn.16xlarge",
+  x2idn_24xlarge = "x2idn.24xlarge",
+  x2idn_32xlarge = "x2idn.32xlarge",
+  x2idn_metal = "x2idn.metal",
+  x2iedn_16xlarge = "x2iedn.16xlarge",
+  x2iedn_24xlarge = "x2iedn.24xlarge",
+  x2iedn_2xlarge = "x2iedn.2xlarge",
+  x2iedn_32xlarge = "x2iedn.32xlarge",
+  x2iedn_4xlarge = "x2iedn.4xlarge",
+  x2iedn_8xlarge = "x2iedn.8xlarge",
+  x2iedn_metal = "x2iedn.metal",
+  x2iedn_xlarge = "x2iedn.xlarge",
+  x2iezn_12xlarge = "x2iezn.12xlarge",
+  x2iezn_2xlarge = "x2iezn.2xlarge",
+  x2iezn_4xlarge = "x2iezn.4xlarge",
+  x2iezn_6xlarge = "x2iezn.6xlarge",
+  x2iezn_8xlarge = "x2iezn.8xlarge",
+  x2iezn_metal = "x2iezn.metal",
+  z1d_12xlarge = "z1d.12xlarge",
+  z1d_2xlarge = "z1d.2xlarge",
+  z1d_3xlarge = "z1d.3xlarge",
+  z1d_6xlarge = "z1d.6xlarge",
+  z1d_large = "z1d.large",
+  z1d_metal = "z1d.metal",
+  z1d_xlarge = "z1d.xlarge",
+}
 
 /**
  * <p>Information about an instance type to use in a Capacity Reservation Fleet.</p>
@@ -5956,7 +6097,12 @@ export interface CreateCarrierGatewayRequest {
   ClientToken?: string;
 }
 
-export type CarrierGatewayState = "available" | "deleted" | "deleting" | "pending";
+export enum CarrierGatewayState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a carrier gateway.</p>
@@ -6031,10 +6177,11 @@ export interface CertificateAuthenticationRequest {
   ClientRootCertificateChainArn?: string;
 }
 
-export type ClientVpnAuthenticationType =
-  | "certificate-authentication"
-  | "directory-service-authentication"
-  | "federated-authentication";
+export enum ClientVpnAuthenticationType {
+  certificate_authentication = "certificate-authentication",
+  directory_service_authentication = "directory-service-authentication",
+  federated_authentication = "federated-authentication",
+}
 
 /**
  * <p>Describes the authentication method to be used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a>
@@ -6120,9 +6267,15 @@ export interface ConnectionLogOptions {
   CloudwatchLogStream?: string;
 }
 
-export type SelfServicePortal = "disabled" | "enabled";
+export enum SelfServicePortal {
+  disabled = "disabled",
+  enabled = "enabled",
+}
 
-export type TransportProtocol = "tcp" | "udp";
+export enum TransportProtocol {
+  tcp = "tcp",
+  udp = "udp",
+}
 
 export interface CreateClientVpnEndpointRequest {
   /**
@@ -6250,7 +6403,12 @@ export interface CreateClientVpnEndpointRequest {
   ClientLoginBannerOptions?: ClientLoginBannerOptions;
 }
 
-export type ClientVpnEndpointStatusCode = "available" | "deleted" | "deleting" | "pending-associate";
+export enum ClientVpnEndpointStatusCode {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending_associate = "pending-associate",
+}
 
 /**
  * <p>Describes the state of a Client VPN endpoint.</p>
@@ -6355,7 +6513,12 @@ export interface CreateClientVpnRouteRequest {
   DryRun?: boolean;
 }
 
-export type ClientVpnRouteStatusCode = "active" | "creating" | "deleting" | "failed";
+export enum ClientVpnRouteStatusCode {
+  active = "active",
+  creating = "creating",
+  deleting = "deleting",
+  failed = "failed",
+}
 
 /**
  * <p>Describes the state of a Client VPN endpoint route.</p>
@@ -6499,7 +6662,9 @@ export interface CreateCoipPoolResult {
   CoipPool?: CoipPool;
 }
 
-export type GatewayType = "ipsec.1";
+export enum GatewayType {
+  ipsec_1 = "ipsec.1",
+}
 
 /**
  * <p>Contains the parameters for CreateCustomerGateway.</p>
@@ -6664,7 +6829,10 @@ export interface PrivateDnsNameOptionsOnLaunch {
   EnableResourceNameDnsAAAARecord?: boolean;
 }
 
-export type SubnetState = "available" | "pending";
+export enum SubnetState {
+  available = "available",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a subnet.</p>
@@ -6801,9 +6969,16 @@ export interface CreateDefaultVpcRequest {
   DryRun?: boolean;
 }
 
-export type Tenancy = "dedicated" | "default" | "host";
+export enum Tenancy {
+  dedicated = "dedicated",
+  default = "default",
+  host = "host",
+}
 
-export type VpcState = "available" | "pending";
+export enum VpcState {
+  available = "available",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a VPC.</p>
@@ -6924,31 +7099,6 @@ export interface DhcpConfiguration {
    * <p>One or more values for the DHCP option.</p>
    */
   Values?: AttributeValue[];
-}
-
-/**
- * <p>Describes a set of DHCP options.</p>
- */
-export interface DhcpOptions {
-  /**
-   * <p>One or more DHCP options in the set.</p>
-   */
-  DhcpConfigurations?: DhcpConfiguration[];
-
-  /**
-   * <p>The ID of the set of DHCP options.</p>
-   */
-  DhcpOptionsId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the DHCP options set.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>Any tags assigned to the DHCP options set.</p>
-   */
-  Tags?: Tag[];
 }
 
 /**
@@ -7371,6 +7521,13 @@ export const AccountAttributeFilterSensitiveLog = (obj: AccountAttribute): any =
  * @internal
  */
 export const ActiveInstanceFilterSensitiveLog = (obj: ActiveInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddedPrincipalFilterSensitiveLog = (obj: AddedPrincipal): any => ({
   ...obj,
 });
 
@@ -8656,12 +8813,5 @@ export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => ({
  * @internal
  */
 export const DhcpConfigurationFilterSensitiveLog = (obj: DhcpConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DhcpOptionsFilterSensitiveLog = (obj: DhcpOptions): any => ({
   ...obj,
 });

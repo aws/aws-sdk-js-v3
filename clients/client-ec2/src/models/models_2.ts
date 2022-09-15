@@ -41,8 +41,21 @@ import {
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
   SubnetCidrReservation,
+  TrafficMirrorFilterRule,
   VolumeType,
 } from "./models_1";
+
+export interface CreateTrafficMirrorFilterRuleResult {
+  /**
+   * <p>The Traffic Mirror rule.</p>
+   */
+  TrafficMirrorFilterRule?: TrafficMirrorFilterRule;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
 
 export interface CreateTrafficMirrorSessionRequest {
   /**
@@ -214,7 +227,11 @@ export interface CreateTrafficMirrorTargetRequest {
   GatewayLoadBalancerEndpointId?: string;
 }
 
-export type TrafficMirrorTargetType = "gateway-load-balancer-endpoint" | "network-interface" | "network-load-balancer";
+export enum TrafficMirrorTargetType {
+  gateway_load_balancer_endpoint = "gateway-load-balancer-endpoint",
+  network_interface = "network-interface",
+  network_load_balancer = "network-load-balancer",
+}
 
 /**
  * <p>Describes a Traffic Mirror target.</p>
@@ -273,15 +290,30 @@ export interface CreateTrafficMirrorTargetResult {
   ClientToken?: string;
 }
 
-export type AutoAcceptSharedAttachmentsValue = "disable" | "enable";
+export enum AutoAcceptSharedAttachmentsValue {
+  disable = "disable",
+  enable = "enable",
+}
 
-export type DefaultRouteTableAssociationValue = "disable" | "enable";
+export enum DefaultRouteTableAssociationValue {
+  disable = "disable",
+  enable = "enable",
+}
 
-export type DefaultRouteTablePropagationValue = "disable" | "enable";
+export enum DefaultRouteTablePropagationValue {
+  disable = "disable",
+  enable = "enable",
+}
 
-export type MulticastSupportValue = "disable" | "enable";
+export enum MulticastSupportValue {
+  disable = "disable",
+  enable = "enable",
+}
 
-export type VpnEcmpSupportValue = "disable" | "enable";
+export enum VpnEcmpSupportValue {
+  disable = "disable",
+  enable = "enable",
+}
 
 /**
  * <p>Describes the options for a transit gateway.</p>
@@ -409,7 +441,13 @@ export interface TransitGatewayOptions {
   MulticastSupport?: MulticastSupportValue | string;
 }
 
-export type TransitGatewayState = "available" | "deleted" | "deleting" | "modifying" | "pending";
+export enum TransitGatewayState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  modifying = "modifying",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a transit gateway.</p>
@@ -463,7 +501,9 @@ export interface CreateTransitGatewayResult {
   TransitGateway?: TransitGateway;
 }
 
-export type ProtocolValue = "gre";
+export enum ProtocolValue {
+  gre = "gre",
+}
 
 /**
  * <p>The options for a Connect attachment.</p>
@@ -611,7 +651,10 @@ export interface CreateTransitGatewayConnectPeerRequest {
   DryRun?: boolean;
 }
 
-export type BgpStatus = "down" | "up";
+export enum BgpStatus {
+  down = "down",
+  up = "up",
+}
 
 /**
  * <p>The BGP configuration information.</p>
@@ -673,7 +716,12 @@ export interface TransitGatewayConnectPeerConfiguration {
   BgpConfigurations?: TransitGatewayAttachmentBgpConfiguration[];
 }
 
-export type TransitGatewayConnectPeerState = "available" | "deleted" | "deleting" | "pending";
+export enum TransitGatewayConnectPeerState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a transit gateway Connect peer.</p>
@@ -717,11 +765,20 @@ export interface CreateTransitGatewayConnectPeerResult {
   TransitGatewayConnectPeer?: TransitGatewayConnectPeer;
 }
 
-export type AutoAcceptSharedAssociationsValue = "disable" | "enable";
+export enum AutoAcceptSharedAssociationsValue {
+  disable = "disable",
+  enable = "enable",
+}
 
-export type Igmpv2SupportValue = "disable" | "enable";
+export enum Igmpv2SupportValue {
+  disable = "disable",
+  enable = "enable",
+}
 
-export type StaticSourcesSupportValue = "disable" | "enable";
+export enum StaticSourcesSupportValue {
+  disable = "disable",
+  enable = "enable",
+}
 
 /**
  * <p>The options for the transit gateway multicast domain.</p>
@@ -787,7 +844,12 @@ export interface TransitGatewayMulticastDomainOptions {
   AutoAcceptSharedAssociations?: AutoAcceptSharedAssociationsValue | string;
 }
 
-export type TransitGatewayMulticastDomainState = "available" | "deleted" | "deleting" | "pending";
+export enum TransitGatewayMulticastDomainState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending = "pending",
+}
 
 /**
  * <p>Describes the transit gateway multicast domain.</p>
@@ -989,7 +1051,12 @@ export interface CreateTransitGatewayPrefixListReferenceRequest {
   DryRun?: boolean;
 }
 
-export type TransitGatewayPrefixListReferenceState = "available" | "deleting" | "modifying" | "pending";
+export enum TransitGatewayPrefixListReferenceState {
+  available = "available",
+  deleting = "deleting",
+  modifying = "modifying",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a transit gateway prefix list attachment.</p>
@@ -1083,7 +1150,13 @@ export interface CreateTransitGatewayRouteRequest {
   DryRun?: boolean;
 }
 
-export type TransitGatewayRouteState = "active" | "blackhole" | "deleted" | "deleting" | "pending";
+export enum TransitGatewayRouteState {
+  active = "active",
+  blackhole = "blackhole",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a route attachment.</p>
@@ -1105,7 +1178,10 @@ export interface TransitGatewayRouteAttachment {
   ResourceType?: TransitGatewayAttachmentResourceType | string;
 }
 
-export type TransitGatewayRouteType = "propagated" | "static";
+export enum TransitGatewayRouteType {
+  propagated = "propagated",
+  static = "static",
+}
 
 /**
  * <p>Describes a route for a transit gateway route table.</p>
@@ -1168,7 +1244,12 @@ export interface CreateTransitGatewayRouteTableRequest {
   DryRun?: boolean;
 }
 
-export type TransitGatewayRouteTableState = "available" | "deleted" | "deleting" | "pending";
+export enum TransitGatewayRouteTableState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a transit gateway route table.</p>
@@ -1559,7 +1640,14 @@ export interface CreateVolumeRequest {
   ClientToken?: string;
 }
 
-export type VolumeState = "available" | "creating" | "deleted" | "deleting" | "error" | "in-use";
+export enum VolumeState {
+  available = "available",
+  creating = "creating",
+  deleted = "deleted",
+  deleting = "deleting",
+  error = "error",
+  in_use = "in-use",
+}
 
 /**
  * <p>Describes a volume.</p>
@@ -2395,7 +2483,10 @@ export interface CreateVpcPeeringConnectionResult {
   VpcPeeringConnection?: VpcPeeringConnection;
 }
 
-export type TunnelInsideIpVersion = "ipv4" | "ipv6";
+export enum TunnelInsideIpVersion {
+  ipv4 = "ipv4",
+  ipv6 = "ipv6",
+}
 
 /**
  * <p>The IKE version that is permitted for the VPN tunnel.</p>
@@ -3123,9 +3214,16 @@ export interface VpnConnectionOptions {
   TunnelOptions?: TunnelOption[];
 }
 
-export type VpnStaticRouteSource = "Static";
+export enum VpnStaticRouteSource {
+  Static = "Static",
+}
 
-export type VpnState = "available" | "deleted" | "deleting" | "pending";
+export enum VpnState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a static route for a VPN connection.</p>
@@ -3147,7 +3245,10 @@ export interface VpnStaticRoute {
   State?: VpnState | string;
 }
 
-export type TelemetryStatus = "DOWN" | "UP";
+export enum TelemetryStatus {
+  DOWN = "DOWN",
+  UP = "UP",
+}
 
 /**
  * <p>Describes telemetry for a VPN tunnel.</p>
@@ -5533,14 +5634,14 @@ export interface DescribeAddressesAttributeResult {
   NextToken?: string;
 }
 
-export interface DescribeAggregateIdFormatRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const CreateTrafficMirrorFilterRuleResultFilterSensitiveLog = (
+  obj: CreateTrafficMirrorFilterRuleResult
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7506,12 +7607,5 @@ export const DescribeAddressesAttributeRequestFilterSensitiveLog = (obj: Describ
  * @internal
  */
 export const DescribeAddressesAttributeResultFilterSensitiveLog = (obj: DescribeAddressesAttributeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAggregateIdFormatRequestFilterSensitiveLog = (obj: DescribeAggregateIdFormatRequest): any => ({
   ...obj,
 });

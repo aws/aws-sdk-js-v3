@@ -4,6 +4,7 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import {
   _InstanceType,
   AccessScopeAnalysisFinding,
+  AddedPrincipal,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
   AddressAttribute,
@@ -118,7 +119,7 @@ import {
 import {
   AnalysisStatus,
   CreateVolumePermission,
-  EnableFastSnapshotRestoreErrorItem,
+  EnableFastSnapshotRestoreStateErrorItem,
   EnableFastSnapshotRestoreSuccessItem,
   ExcessCapacityTerminationPolicy,
   LaunchTemplateConfig,
@@ -128,6 +129,21 @@ import {
   TransitGatewayPropagationState,
   VolumeModification,
 } from "./models_4";
+
+/**
+ * <p>Contains information about the errors that occurred when enabling fast snapshot restores.</p>
+ */
+export interface EnableFastSnapshotRestoreErrorItem {
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The errors.</p>
+   */
+  FastSnapshotRestoreStateErrors?: EnableFastSnapshotRestoreStateErrorItem[];
+}
 
 export interface EnableFastSnapshotRestoresResult {
   /**
@@ -327,7 +343,10 @@ export interface ExportClientVpnClientCertificateRevocationListRequest {
   DryRun?: boolean;
 }
 
-export type ClientCertificateRevocationListStatusCode = "active" | "pending";
+export enum ClientCertificateRevocationListStatusCode {
+  active = "active",
+  pending = "pending",
+}
 
 /**
  * <p>Describes the state of a client certificate revocation list.</p>
@@ -921,7 +940,12 @@ export interface GetConsoleScreenshotResult {
   InstanceId?: string;
 }
 
-export type UnlimitedSupportedInstanceFamily = "t2" | "t3" | "t3a" | "t4g";
+export enum UnlimitedSupportedInstanceFamily {
+  t2 = "t2",
+  t3 = "t3",
+  t3a = "t3a",
+  t4g = "t4g",
+}
 
 export interface GetDefaultCreditSpecificationRequest {
   /**
@@ -3799,7 +3823,10 @@ export interface ModifyAddressAttributeResult {
   Address?: AddressAttribute;
 }
 
-export type ModifyAvailabilityZoneOptInStatus = "not-opted-in" | "opted-in";
+export enum ModifyAvailabilityZoneOptInStatus {
+  not_opted_in = "not-opted-in",
+  opted_in = "opted-in",
+}
 
 export interface ModifyAvailabilityZoneGroupRequest {
   /**
@@ -4213,7 +4240,10 @@ export interface LoadPermissionModifications {
   Remove?: LoadPermissionRequest[];
 }
 
-export type OperationType = "add" | "remove";
+export enum OperationType {
+  add = "add",
+  remove = "remove",
+}
 
 export interface ModifyFpgaImageAttributeRequest {
   /**
@@ -5010,7 +5040,10 @@ export interface ModifyInstanceMetadataOptionsResult {
   InstanceMetadataOptions?: InstanceMetadataOptionsResponse;
 }
 
-export type HostTenancy = "dedicated" | "host";
+export enum HostTenancy {
+  dedicated = "dedicated",
+  host = "host",
+}
 
 export interface ModifyInstancePlacementRequest {
   /**
@@ -5889,7 +5922,12 @@ export interface ModifyTrafficMirrorFilterNetworkServicesResult {
   TrafficMirrorFilter?: TrafficMirrorFilter;
 }
 
-export type TrafficMirrorFilterRuleField = "description" | "destination-port-range" | "protocol" | "source-port-range";
+export enum TrafficMirrorFilterRuleField {
+  description = "description",
+  destination_port_range = "destination-port-range",
+  protocol = "protocol",
+  source_port_range = "source-port-range",
+}
 
 export interface ModifyTrafficMirrorFilterRuleRequest {
   /**
@@ -5964,7 +6002,11 @@ export interface ModifyTrafficMirrorFilterRuleResult {
   TrafficMirrorFilterRule?: TrafficMirrorFilterRule;
 }
 
-export type TrafficMirrorSessionField = "description" | "packet-length" | "virtual-network-id";
+export enum TrafficMirrorSessionField {
+  description = "description",
+  packet_length = "packet-length",
+  virtual_network_id = "virtual-network-id",
+}
 
 export interface ModifyTrafficMirrorSessionRequest {
   /**
@@ -6580,6 +6622,11 @@ export interface ModifyVpcEndpointServicePermissionsRequest {
 
 export interface ModifyVpcEndpointServicePermissionsResult {
   /**
+   * <p>Information about the added principals.</p>
+   */
+  AddedPrincipals?: AddedPrincipal[];
+
+  /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
   ReturnValue?: boolean;
@@ -6672,7 +6719,9 @@ export interface ModifyVpcPeeringConnectionOptionsResult {
   RequesterPeeringConnectionOptions?: PeeringConnectionOptions;
 }
 
-export type VpcTenancy = "default";
+export enum VpcTenancy {
+  default = "default",
+}
 
 export interface ModifyVpcTenancyRequest {
   /**
@@ -7084,12 +7133,12 @@ export interface InstanceMonitoring {
   Monitoring?: Monitoring;
 }
 
-export interface MonitorInstancesResult {
-  /**
-   * <p>The monitoring information.</p>
-   */
-  InstanceMonitorings?: InstanceMonitoring[];
-}
+/**
+ * @internal
+ */
+export const EnableFastSnapshotRestoreErrorItemFilterSensitiveLog = (obj: EnableFastSnapshotRestoreErrorItem): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9268,12 +9317,5 @@ export const MonitorInstancesRequestFilterSensitiveLog = (obj: MonitorInstancesR
  * @internal
  */
 export const InstanceMonitoringFilterSensitiveLog = (obj: InstanceMonitoring): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitorInstancesResultFilterSensitiveLog = (obj: MonitorInstancesResult): any => ({
   ...obj,
 });

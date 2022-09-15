@@ -17,7 +17,7 @@ import {
   AddressFamily,
   AttachmentStatus,
   CurrencyCodeValues,
-  DhcpOptions,
+  DhcpConfiguration,
   HostnameType,
   InstanceEventWindow,
   Ipv4PrefixSpecification,
@@ -33,6 +33,31 @@ import {
   UnsuccessfulItem,
   WeekDay,
 } from "./models_0";
+
+/**
+ * <p>Describes a set of DHCP options.</p>
+ */
+export interface DhcpOptions {
+  /**
+   * <p>One or more DHCP options in the set.</p>
+   */
+  DhcpConfigurations?: DhcpConfiguration[];
+
+  /**
+   * <p>The ID of the set of DHCP options.</p>
+   */
+  DhcpOptionsId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the DHCP options set.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>Any tags assigned to the DHCP options set.</p>
+   */
+  Tags?: Tag[];
+}
 
 export interface CreateDhcpOptionsResult {
   /**
@@ -836,7 +861,11 @@ export enum SpotAllocationStrategy {
   LOWEST_PRICE = "lowest-price",
 }
 
-export type SpotInstanceInterruptionBehavior = "hibernate" | "stop" | "terminate";
+export enum SpotInstanceInterruptionBehavior {
+  hibernate = "hibernate",
+  stop = "stop",
+  terminate = "terminate",
+}
 
 export enum FleetReplacementStrategy {
   LAUNCH = "launch",
@@ -1715,7 +1744,9 @@ export interface CreateFleetError {
   ErrorMessage?: string;
 }
 
-export type PlatformValues = "Windows";
+export enum PlatformValues {
+  Windows = "Windows",
+}
 
 /**
  * <p>Describes the instances that were launched by the fleet.</p>
@@ -1795,16 +1826,25 @@ export interface DestinationOptionsRequest {
   PerHourPartition?: boolean;
 }
 
-export type LogDestinationType = "cloud-watch-logs" | "kinesis-data-firehose" | "s3";
+export enum LogDestinationType {
+  cloud_watch_logs = "cloud-watch-logs",
+  kinesis_data_firehose = "kinesis-data-firehose",
+  s3 = "s3",
+}
 
-export type FlowLogsResourceType =
-  | "NetworkInterface"
-  | "Subnet"
-  | "TransitGateway"
-  | "TransitGatewayAttachment"
-  | "VPC";
+export enum FlowLogsResourceType {
+  NetworkInterface = "NetworkInterface",
+  Subnet = "Subnet",
+  TransitGateway = "TransitGateway",
+  TransitGatewayAttachment = "TransitGatewayAttachment",
+  VPC = "VPC",
+}
 
-export type TrafficType = "ACCEPT" | "ALL" | "REJECT";
+export enum TrafficType {
+  ACCEPT = "ACCEPT",
+  ALL = "ALL",
+  REJECT = "REJECT",
+}
 
 export interface CreateFlowLogsRequest {
   /**
@@ -2005,7 +2045,15 @@ export interface CreateFpgaImageResult {
   FpgaImageGlobalId?: string;
 }
 
-export type VolumeType = "gp2" | "gp3" | "io1" | "io2" | "sc1" | "st1" | "standard";
+export enum VolumeType {
+  gp2 = "gp2",
+  gp3 = "gp3",
+  io1 = "io1",
+  io2 = "io2",
+  sc1 = "sc1",
+  st1 = "st1",
+  standard = "standard",
+}
 
 /**
  * <p>Describes a block device for an EBS volume.</p>
@@ -2325,9 +2373,15 @@ export interface CreateInstanceEventWindowResult {
   InstanceEventWindow?: InstanceEventWindow;
 }
 
-export type ContainerFormat = "ova";
+export enum ContainerFormat {
+  ova = "ova",
+}
 
-export type DiskImageFormat = "RAW" | "VHD" | "VMDK";
+export enum DiskImageFormat {
+  RAW = "RAW",
+  VHD = "VHD",
+  VMDK = "VMDK",
+}
 
 /**
  * <p>Describes an export instance task.</p>
@@ -2358,7 +2412,11 @@ export interface ExportToS3TaskSpecification {
   S3Prefix?: string;
 }
 
-export type ExportEnvironment = "citrix" | "microsoft" | "vmware";
+export enum ExportEnvironment {
+  citrix = "citrix",
+  microsoft = "microsoft",
+  vmware = "vmware",
+}
 
 export interface CreateInstanceExportTaskRequest {
   /**
@@ -2430,7 +2488,12 @@ export interface InstanceExportDetails {
   TargetEnvironment?: ExportEnvironment | string;
 }
 
-export type ExportTaskState = "active" | "cancelled" | "cancelling" | "completed";
+export enum ExportTaskState {
+  active = "active",
+  cancelled = "cancelled",
+  cancelling = "cancelling",
+  completed = "completed",
+}
 
 /**
  * <p>Describes an export instance task.</p>
@@ -3252,7 +3315,10 @@ export interface LaunchTemplateBlockDeviceMappingRequest {
   NoDevice?: string;
 }
 
-export type CapacityReservationPreference = "none" | "open";
+export enum CapacityReservationPreference {
+  none = "none",
+  open = "open",
+}
 
 /**
  * <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
@@ -3405,13 +3471,25 @@ export interface LaunchTemplateIamInstanceProfileSpecificationRequest {
   Name?: string;
 }
 
-export type ShutdownBehavior = "stop" | "terminate";
+export enum ShutdownBehavior {
+  stop = "stop",
+  terminate = "terminate",
+}
 
-export type MarketType = "spot";
+export enum MarketType {
+  spot = "spot",
+}
 
-export type InstanceInterruptionBehavior = "hibernate" | "stop" | "terminate";
+export enum InstanceInterruptionBehavior {
+  hibernate = "hibernate",
+  stop = "stop",
+  terminate = "terminate",
+}
 
-export type SpotInstanceType = "one-time" | "persistent";
+export enum SpotInstanceType {
+  one_time = "one-time",
+  persistent = "persistent",
+}
 
 /**
  * <p>The options for Spot Instances.</p>
@@ -3502,7 +3580,10 @@ export interface LaunchTemplateInstanceMaintenanceOptionsRequest {
   AutoRecovery?: LaunchTemplateAutoRecoveryState | string;
 }
 
-export type LaunchTemplateInstanceMetadataEndpointState = "disabled" | "enabled";
+export enum LaunchTemplateInstanceMetadataEndpointState {
+  disabled = "disabled",
+  enabled = "enabled",
+}
 
 export enum LaunchTemplateInstanceMetadataProtocolIpv6 {
   disabled = "disabled",
@@ -4549,7 +4630,10 @@ export interface LaunchTemplateInstanceMaintenanceOptions {
   AutoRecovery?: LaunchTemplateAutoRecoveryState | string;
 }
 
-export type LaunchTemplateInstanceMetadataOptionsState = "applied" | "pending";
+export enum LaunchTemplateInstanceMetadataOptionsState {
+  applied = "applied",
+  pending = "pending",
+}
 
 /**
  * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
@@ -5113,9 +5197,18 @@ export interface CreateLocalGatewayRouteRequest {
   NetworkInterfaceId?: string;
 }
 
-export type LocalGatewayRouteState = "active" | "blackhole" | "deleted" | "deleting" | "pending";
+export enum LocalGatewayRouteState {
+  active = "active",
+  blackhole = "blackhole",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending = "pending",
+}
 
-export type LocalGatewayRouteType = "propagated" | "static";
+export enum LocalGatewayRouteType {
+  propagated = "propagated",
+  static = "static",
+}
 
 /**
  * <p>Describes a route for a local gateway route table.</p>
@@ -5556,19 +5649,20 @@ export interface CreateManagedPrefixListRequest {
   ClientToken?: string;
 }
 
-export type PrefixListState =
-  | "create-complete"
-  | "create-failed"
-  | "create-in-progress"
-  | "delete-complete"
-  | "delete-failed"
-  | "delete-in-progress"
-  | "modify-complete"
-  | "modify-failed"
-  | "modify-in-progress"
-  | "restore-complete"
-  | "restore-failed"
-  | "restore-in-progress";
+export enum PrefixListState {
+  create_complete = "create-complete",
+  create_failed = "create-failed",
+  create_in_progress = "create-in-progress",
+  delete_complete = "delete-complete",
+  delete_failed = "delete-failed",
+  delete_in_progress = "delete-in-progress",
+  modify_complete = "modify-complete",
+  modify_failed = "modify-failed",
+  modify_in_progress = "modify-in-progress",
+  restore_complete = "restore-complete",
+  restore_failed = "restore-failed",
+  restore_in_progress = "restore-in-progress",
+}
 
 /**
  * <p>Describes a managed prefix list.</p>
@@ -5922,7 +6016,10 @@ export interface IcmpTypeCode {
   Type?: number;
 }
 
-export type RuleAction = "allow" | "deny";
+export enum RuleAction {
+  allow = "allow",
+  deny = "deny",
+}
 
 /**
  * <p>Describes an entry in a network ACL.</p>
@@ -6284,7 +6381,11 @@ export interface CreateNetworkInsightsPathResult {
   NetworkInsightsPath?: NetworkInsightsPath;
 }
 
-export type NetworkInterfaceCreationType = "branch" | "efa" | "trunk";
+export enum NetworkInterfaceCreationType {
+  branch = "branch",
+  efa = "efa",
+  trunk = "trunk",
+}
 
 /**
  * <p>Contains the parameters for CreateNetworkInterface.</p>
@@ -6492,24 +6593,25 @@ export interface GroupIdentifier {
   GroupId?: string;
 }
 
-export type NetworkInterfaceType =
-  | "api_gateway_managed"
-  | "aws_codestar_connections_managed"
-  | "branch"
-  | "efa"
-  | "gateway_load_balancer"
-  | "gateway_load_balancer_endpoint"
-  | "global_accelerator_managed"
-  | "interface"
-  | "iot_rules_managed"
-  | "lambda"
-  | "load_balancer"
-  | "natGateway"
-  | "network_load_balancer"
-  | "quicksight"
-  | "transit_gateway"
-  | "trunk"
-  | "vpc_endpoint";
+export enum NetworkInterfaceType {
+  api_gateway_managed = "api_gateway_managed",
+  aws_codestar_connections_managed = "aws_codestar_connections_managed",
+  branch = "branch",
+  efa = "efa",
+  gateway_load_balancer = "gateway_load_balancer",
+  gateway_load_balancer_endpoint = "gateway_load_balancer_endpoint",
+  global_accelerator_managed = "global_accelerator_managed",
+  interface = "interface",
+  iot_rules_managed = "iot_rules_managed",
+  lambda = "lambda",
+  load_balancer = "load_balancer",
+  natGateway = "natGateway",
+  network_load_balancer = "network_load_balancer",
+  quicksight = "quicksight",
+  transit_gateway = "transit_gateway",
+  trunk = "trunk",
+  vpc_endpoint = "vpc_endpoint",
+}
 
 /**
  * <p>Describes an IPv6 address associated with a network interface.</p>
@@ -6556,7 +6658,13 @@ export interface NetworkInterfacePrivateIpAddress {
   PrivateIpAddress?: string;
 }
 
-export type NetworkInterfaceStatus = "associated" | "attaching" | "available" | "detaching" | "in-use";
+export enum NetworkInterfaceStatus {
+  associated = "associated",
+  attaching = "attaching",
+  available = "available",
+  detaching = "detaching",
+  in_use = "in-use",
+}
 
 /**
  * <p>Describes a network interface.</p>
@@ -6712,7 +6820,10 @@ export interface CreateNetworkInterfaceResult {
   ClientToken?: string;
 }
 
-export type InterfacePermissionType = "EIP-ASSOCIATE" | "INSTANCE-ATTACH";
+export enum InterfacePermissionType {
+  EIP_ASSOCIATE = "EIP-ASSOCIATE",
+  INSTANCE_ATTACH = "INSTANCE-ATTACH",
+}
 
 /**
  * <p>Contains the parameters for CreateNetworkInterfacePermission.</p>
@@ -6746,7 +6857,12 @@ export interface CreateNetworkInterfacePermissionRequest {
   DryRun?: boolean;
 }
 
-export type NetworkInterfacePermissionStateCode = "granted" | "pending" | "revoked" | "revoking";
+export enum NetworkInterfacePermissionStateCode {
+  granted = "granted",
+  pending = "pending",
+  revoked = "revoked",
+  revoking = "revoking",
+}
 
 /**
  * <p>Describes the state of a network interface permission.</p>
@@ -6813,7 +6929,11 @@ export enum SpreadLevel {
   rack = "rack",
 }
 
-export type PlacementStrategy = "cluster" | "partition" | "spread";
+export enum PlacementStrategy {
+  cluster = "cluster",
+  partition = "partition",
+  spread = "spread",
+}
 
 export interface CreatePlacementGroupRequest {
   /**
@@ -6860,7 +6980,12 @@ export interface CreatePlacementGroupRequest {
   SpreadLevel?: SpreadLevel | string;
 }
 
-export type PlacementGroupState = "available" | "deleted" | "deleting" | "pending";
+export enum PlacementGroupState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a placement group.</p>
@@ -7320,9 +7445,16 @@ export interface PropagatingVgw {
   GatewayId?: string;
 }
 
-export type RouteOrigin = "CreateRoute" | "CreateRouteTable" | "EnableVgwRoutePropagation";
+export enum RouteOrigin {
+  CreateRoute = "CreateRoute",
+  CreateRouteTable = "CreateRouteTable",
+  EnableVgwRoutePropagation = "EnableVgwRoutePropagation",
+}
 
-export type RouteState = "active" | "blackhole";
+export enum RouteState {
+  active = "active",
+  blackhole = "blackhole",
+}
 
 /**
  * <p>Describes a route in a route table.</p>
@@ -7567,7 +7699,13 @@ export interface CreateSnapshotRequest {
   DryRun?: boolean;
 }
 
-export type SnapshotState = "completed" | "error" | "pending" | "recoverable" | "recovering";
+export enum SnapshotState {
+  completed = "completed",
+  error = "error",
+  pending = "pending",
+  recoverable = "recoverable",
+  recovering = "recovering",
+}
 
 export enum StorageTier {
   archive = "archive",
@@ -7680,7 +7818,9 @@ export interface Snapshot {
   RestoreExpiryTime?: Date;
 }
 
-export type CopyTagsFromSource = "volume";
+export enum CopyTagsFromSource {
+  volume = "volume",
+}
 
 /**
  * <p>The instance details to specify which volumes should be snapshotted.</p>
@@ -7863,7 +8003,10 @@ export interface SpotInstanceStateFault {
   Message?: string;
 }
 
-export type DatafeedSubscriptionState = "Active" | "Inactive";
+export enum DatafeedSubscriptionState {
+  Active = "Active",
+  Inactive = "Inactive",
+}
 
 /**
  * <p>Describes the data feed for a Spot Instance.</p>
@@ -8198,9 +8341,15 @@ export interface TrafficMirrorPortRange {
   ToPort?: number;
 }
 
-export type TrafficMirrorRuleAction = "accept" | "reject";
+export enum TrafficMirrorRuleAction {
+  accept = "accept",
+  reject = "reject",
+}
 
-export type TrafficDirection = "egress" | "ingress";
+export enum TrafficDirection {
+  egress = "egress",
+  ingress = "ingress",
+}
 
 /**
  * <p>Describes the Traffic Mirror rule.</p>
@@ -8262,7 +8411,9 @@ export interface TrafficMirrorFilterRule {
   Description?: string;
 }
 
-export type TrafficMirrorNetworkService = "amazon-dns";
+export enum TrafficMirrorNetworkService {
+  amazon_dns = "amazon-dns",
+}
 
 /**
  * <p>Describes the Traffic Mirror filter.</p>
@@ -8392,17 +8543,12 @@ export interface CreateTrafficMirrorFilterRuleRequest {
   ClientToken?: string;
 }
 
-export interface CreateTrafficMirrorFilterRuleResult {
-  /**
-   * <p>The Traffic Mirror rule.</p>
-   */
-  TrafficMirrorFilterRule?: TrafficMirrorFilterRule;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-}
+/**
+ * @internal
+ */
+export const DhcpOptionsFilterSensitiveLog = (obj: DhcpOptions): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10096,15 +10242,6 @@ export const TrafficMirrorPortRangeRequestFilterSensitiveLog = (obj: TrafficMirr
  */
 export const CreateTrafficMirrorFilterRuleRequestFilterSensitiveLog = (
   obj: CreateTrafficMirrorFilterRuleRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrafficMirrorFilterRuleResultFilterSensitiveLog = (
-  obj: CreateTrafficMirrorFilterRuleResult
 ): any => ({
   ...obj,
 });

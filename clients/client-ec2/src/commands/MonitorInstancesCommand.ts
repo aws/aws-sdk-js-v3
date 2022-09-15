@@ -13,12 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  MonitorInstancesRequest,
-  MonitorInstancesRequestFilterSensitiveLog,
-  MonitorInstancesResult,
-  MonitorInstancesResultFilterSensitiveLog,
-} from "../models/models_5";
+import { MonitorInstancesRequest, MonitorInstancesRequestFilterSensitiveLog } from "../models/models_5";
+import { MonitorInstancesResult, MonitorInstancesResultFilterSensitiveLog } from "../models/models_6";
 import {
   deserializeAws_ec2MonitorInstancesCommand,
   serializeAws_ec2MonitorInstancesCommand,

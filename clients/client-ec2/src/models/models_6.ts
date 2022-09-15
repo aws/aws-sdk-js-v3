@@ -65,6 +65,13 @@ import {
 } from "./models_4";
 import { CapacityReservationSpecification, InstanceMonitoring, Purchase } from "./models_5";
 
+export interface MonitorInstancesResult {
+  /**
+   * <p>The monitoring information.</p>
+   */
+  InstanceMonitorings?: InstanceMonitoring[];
+}
+
 export interface MoveAddressToVpcRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -1195,18 +1202,22 @@ export interface ReplaceTransitGatewayRouteResult {
   Route?: TransitGatewayRoute;
 }
 
-export type ReportInstanceReasonCodes =
-  | "instance-stuck-in-state"
-  | "not-accepting-credentials"
-  | "other"
-  | "password-not-available"
-  | "performance-ebs-volume"
-  | "performance-instance-store"
-  | "performance-network"
-  | "performance-other"
-  | "unresponsive";
+export enum ReportInstanceReasonCodes {
+  instance_stuck_in_state = "instance-stuck-in-state",
+  not_accepting_credentials = "not-accepting-credentials",
+  other = "other",
+  password_not_available = "password-not-available",
+  performance_ebs_volume = "performance-ebs-volume",
+  performance_instance_store = "performance-instance-store",
+  performance_network = "performance-network",
+  performance_other = "performance-other",
+  unresponsive = "unresponsive",
+}
 
-export type ReportStatusType = "impaired" | "ok";
+export enum ReportStatusType {
+  impaired = "impaired",
+  ok = "ok",
+}
 
 export interface ReportInstanceStatusRequest {
   /**
@@ -1582,7 +1593,9 @@ export interface ResetEbsDefaultKmsKeyIdResult {
   KmsKeyId?: string;
 }
 
-export type ResetFpgaImageAttributeName = "loadPermission";
+export enum ResetFpgaImageAttributeName {
+  loadPermission = "loadPermission",
+}
 
 export interface ResetFpgaImageAttributeRequest {
   /**
@@ -1610,7 +1623,9 @@ export interface ResetFpgaImageAttributeResult {
   Return?: boolean;
 }
 
-export type ResetImageAttributeName = "launchPermission";
+export enum ResetImageAttributeName {
+  launchPermission = "launchPermission",
+}
 
 /**
  * <p>Contains the parameters for ResetImageAttribute.</p>
@@ -3166,7 +3181,10 @@ export interface SearchTransitGatewayMulticastGroupsRequest {
   DryRun?: boolean;
 }
 
-export type MembershipType = "igmp" | "static";
+export enum MembershipType {
+  igmp = "igmp",
+  static = "static",
+}
 
 /**
  * <p>Describes the  transit gateway multicast group resources.</p>
@@ -3788,6 +3806,13 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const MonitorInstancesResultFilterSensitiveLog = (obj: MonitorInstancesResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal

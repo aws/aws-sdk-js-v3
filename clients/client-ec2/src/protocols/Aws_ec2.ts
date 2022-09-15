@@ -1858,6 +1858,7 @@ import {
   AccountAttributeName,
   AccountAttributeValue,
   ActiveInstance,
+  AddedPrincipal,
   AddIpamOperatingRegion,
   AdditionalDetail,
   AddPrefixListEntry,
@@ -1997,7 +1998,6 @@ import {
   CreateDhcpOptionsRequest,
   CustomerGateway,
   DhcpConfiguration,
-  DhcpOptions,
   DirectoryServiceAuthenticationRequest,
   FailedCapacityReservationFleetCancellationResult,
   FederatedAuthenticationRequest,
@@ -2163,10 +2163,10 @@ import {
   CreateTrafficMirrorFilterRequest,
   CreateTrafficMirrorFilterResult,
   CreateTrafficMirrorFilterRuleRequest,
-  CreateTrafficMirrorFilterRuleResult,
   CreditSpecification,
   CreditSpecificationRequest,
   DestinationOptionsRequest,
+  DhcpOptions,
   EbsBlockDevice,
   EgressOnlyInternetGateway,
   ElasticGpuSpecification,
@@ -2311,6 +2311,7 @@ import {
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreateTrafficMirrorFilterRuleResult,
   CreateTrafficMirrorSessionRequest,
   CreateTrafficMirrorSessionResult,
   CreateTrafficMirrorTargetRequest,
@@ -2499,7 +2500,6 @@ import {
   DescribeAddressesAttributeResult,
   DescribeAddressesRequest,
   DescribeAddressesResult,
-  DescribeAggregateIdFormatRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2591,6 +2591,7 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DescribeAggregateIdFormatRequest,
   DescribeAggregateIdFormatResult,
   DescribeAvailabilityZonesRequest,
   DescribeAvailabilityZonesResult,
@@ -2712,7 +2713,6 @@ import {
   DescribeLocalGatewaysResult,
   DescribeLocalGatewayVirtualInterfaceGroupsRequest,
   DescribeLocalGatewayVirtualInterfaceGroupsResult,
-  DescribeLocalGatewayVirtualInterfacesRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2824,6 +2824,7 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeLocalGatewayVirtualInterfacesRequest,
   DescribeLocalGatewayVirtualInterfacesResult,
   DescribeManagedPrefixListsRequest,
   DescribeManagedPrefixListsResult,
@@ -3022,7 +3023,6 @@ import {
   EnableEbsEncryptionByDefaultResult,
   EnableFastLaunchRequest,
   EnableFastLaunchResult,
-  EnableFastSnapshotRestoreErrorItem,
   EnableFastSnapshotRestoresRequest,
   EnableFastSnapshotRestoreStateError,
   EnableFastSnapshotRestoreStateErrorItem,
@@ -3110,6 +3110,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  EnableFastSnapshotRestoreErrorItem,
   EnableFastSnapshotRestoresResult,
   EnableImageDeprecationRequest,
   EnableImageDeprecationResult,
@@ -3349,7 +3350,6 @@ import {
   ModifyVpnTunnelOptionsResult,
   ModifyVpnTunnelOptionsSpecification,
   MonitorInstancesRequest,
-  MonitorInstancesResult,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
@@ -3397,6 +3397,7 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  MonitorInstancesResult,
   MoveAddressToVpcRequest,
   MoveAddressToVpcResult,
   MoveByoipCidrToIpamRequest,
@@ -52921,6 +52922,36 @@ const deserializeAws_ec2ActiveInstanceSet = (output: any, context: __SerdeContex
     });
 };
 
+const deserializeAws_ec2AddedPrincipal = (output: any, context: __SerdeContext): AddedPrincipal => {
+  const contents: any = {
+    PrincipalType: undefined,
+    Principal: undefined,
+    ServicePermissionId: undefined,
+    ServiceId: undefined,
+  };
+  if (output["principalType"] !== undefined) {
+    contents.PrincipalType = __expectString(output["principalType"]);
+  }
+  if (output["principal"] !== undefined) {
+    contents.Principal = __expectString(output["principal"]);
+  }
+  if (output["servicePermissionId"] !== undefined) {
+    contents.ServicePermissionId = __expectString(output["servicePermissionId"]);
+  }
+  if (output["serviceId"] !== undefined) {
+    contents.ServiceId = __expectString(output["serviceId"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AddedPrincipalSet = (output: any, context: __SerdeContext): AddedPrincipal[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2AddedPrincipal(entry, context);
+    });
+};
+
 const deserializeAws_ec2AdditionalDetail = (output: any, context: __SerdeContext): AdditionalDetail => {
   const contents: any = {
     AdditionalDetailType: undefined,
@@ -53125,12 +53156,26 @@ const deserializeAws_ec2AllowedPrincipal = (output: any, context: __SerdeContext
   const contents: any = {
     PrincipalType: undefined,
     Principal: undefined,
+    ServicePermissionId: undefined,
+    Tags: undefined,
+    ServiceId: undefined,
   };
   if (output["principalType"] !== undefined) {
     contents.PrincipalType = __expectString(output["principalType"]);
   }
   if (output["principal"] !== undefined) {
     contents.Principal = __expectString(output["principal"]);
+  }
+  if (output["servicePermissionId"] !== undefined) {
+    contents.ServicePermissionId = __expectString(output["servicePermissionId"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["serviceId"] !== undefined) {
+    contents.ServiceId = __expectString(output["serviceId"]);
   }
   return contents;
 };
@@ -70243,8 +70288,17 @@ const deserializeAws_ec2ModifyVpcEndpointServicePermissionsResult = (
   context: __SerdeContext
 ): ModifyVpcEndpointServicePermissionsResult => {
   const contents: any = {
+    AddedPrincipals: undefined,
     ReturnValue: undefined,
   };
+  if (output.addedPrincipalSet === "") {
+    contents.AddedPrincipals = [];
+  } else if (output["addedPrincipalSet"] !== undefined && output["addedPrincipalSet"]["item"] !== undefined) {
+    contents.AddedPrincipals = deserializeAws_ec2AddedPrincipalSet(
+      __getArrayIfSingleItem(output["addedPrincipalSet"]["item"]),
+      context
+    );
+  }
   if (output["return"] !== undefined) {
     contents.ReturnValue = __parseBoolean(output["return"]);
   }
@@ -79642,6 +79696,8 @@ const deserializeAws_ec2VpcEndpointConnection = (output: any, context: __SerdeCo
     NetworkLoadBalancerArns: undefined,
     GatewayLoadBalancerArns: undefined,
     IpAddressType: undefined,
+    VpcEndpointConnectionId: undefined,
+    Tags: undefined,
   };
   if (output["serviceId"] !== undefined) {
     contents.ServiceId = __expectString(output["serviceId"]);
@@ -79687,6 +79743,14 @@ const deserializeAws_ec2VpcEndpointConnection = (output: any, context: __SerdeCo
   }
   if (output["ipAddressType"] !== undefined) {
     contents.IpAddressType = __expectString(output["ipAddressType"]);
+  }
+  if (output["vpcEndpointConnectionId"] !== undefined) {
+    contents.VpcEndpointConnectionId = __expectString(output["vpcEndpointConnectionId"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
   }
   return contents;
 };

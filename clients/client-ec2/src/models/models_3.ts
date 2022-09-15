@@ -20,7 +20,6 @@ import {
   CoipPool,
   CurrencyCodeValues,
   CustomerGateway,
-  DhcpOptions,
   FleetCapacityReservation,
   FleetCapacityReservationTenancy,
   FleetInstanceMatchCriteria,
@@ -38,6 +37,7 @@ import {
   CapacityReservationTargetResponse,
   DefaultTargetCapacityType,
   DestinationFileFormat,
+  DhcpOptions,
   DiskImageFormat,
   EgressOnlyInternetGateway,
   ExportTask,
@@ -73,6 +73,15 @@ import {
   TrafficType,
 } from "./models_1";
 import { Filter, FleetStateCode, InstanceTagNotificationAttribute } from "./models_2";
+
+export interface DescribeAggregateIdFormatRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 /**
  * <p>Describes the ID format for a resource.</p>
@@ -207,9 +216,18 @@ export interface AvailabilityZoneMessage {
   Message?: string;
 }
 
-export type AvailabilityZoneOptInStatus = "not-opted-in" | "opt-in-not-required" | "opted-in";
+export enum AvailabilityZoneOptInStatus {
+  not_opted_in = "not-opted-in",
+  opt_in_not_required = "opt-in-not-required",
+  opted_in = "opted-in",
+}
 
-export type AvailabilityZoneState = "available" | "impaired" | "information" | "unavailable";
+export enum AvailabilityZoneState {
+  available = "available",
+  impaired = "impaired",
+  information = "information",
+  unavailable = "unavailable",
+}
 
 /**
  * <p>Describes Availability Zones, Local Zones, and Wavelength Zones.</p>
@@ -1038,7 +1056,12 @@ export interface DescribeClientVpnConnectionsRequest {
   DryRun?: boolean;
 }
 
-export type ClientVpnConnectionStatusCode = "active" | "failed-to-terminate" | "terminated" | "terminating";
+export enum ClientVpnConnectionStatusCode {
+  active = "active",
+  failed_to_terminate = "failed-to-terminate",
+  terminated = "terminated",
+  terminating = "terminating",
+}
 
 /**
  * <p>Describes the status of a client connection.</p>
@@ -1182,7 +1205,9 @@ export interface DescribeClientVpnEndpointsRequest {
   DryRun?: boolean;
 }
 
-export type AssociatedNetworkType = "vpc";
+export enum AssociatedNetworkType {
+  vpc = "vpc",
+}
 
 /**
  * <p>Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.</p>
@@ -1260,7 +1285,10 @@ export interface ClientVpnAuthentication {
   FederatedAuthentication?: FederatedAuthentication;
 }
 
-export type ClientVpnEndpointAttributeStatusCode = "applied" | "applying";
+export enum ClientVpnEndpointAttributeStatusCode {
+  applied = "applied",
+  applying = "applying",
+}
 
 /**
  * <p>Describes the status of the Client VPN endpoint attribute.</p>
@@ -1337,7 +1365,9 @@ export interface ConnectionLogResponseOptions {
   CloudwatchLogStream?: string;
 }
 
-export type VpnProtocol = "openvpn";
+export enum VpnProtocol {
+  openvpn = "openvpn",
+}
 
 /**
  * <p>Describes a Client VPN endpoint.</p>
@@ -1873,7 +1903,12 @@ export interface ImportVolumeTaskDetails {
   Volume?: DiskImageVolumeDescription;
 }
 
-export type ConversionTaskState = "active" | "cancelled" | "cancelling" | "completed";
+export enum ConversionTaskState {
+  active = "active",
+  cancelled = "cancelled",
+  cancelling = "cancelling",
+  completed = "completed",
+}
 
 /**
  * <p>Describes a conversion task.</p>
@@ -2584,7 +2619,13 @@ export interface DescribeFastSnapshotRestoresRequest {
   DryRun?: boolean;
 }
 
-export type FastSnapshotRestoreStateCode = "disabled" | "disabling" | "enabled" | "enabling" | "optimizing";
+export enum FastSnapshotRestoreStateCode {
+  disabled = "disabled",
+  disabling = "disabling",
+  enabled = "enabled",
+  enabling = "enabling",
+  optimizing = "optimizing",
+}
 
 /**
  * <p>Describes fast snapshot restores for a snapshot.</p>
@@ -3730,7 +3771,12 @@ export interface DescribeFlowLogsResult {
   NextToken?: string;
 }
 
-export type FpgaImageAttributeName = "description" | "loadPermission" | "name" | "productCodes";
+export enum FpgaImageAttributeName {
+  description = "description",
+  loadPermission = "loadPermission",
+  name = "name",
+  productCodes = "productCodes",
+}
 
 export interface DescribeFpgaImageAttributeRequest {
   /**
@@ -3751,7 +3797,9 @@ export interface DescribeFpgaImageAttributeRequest {
   Attribute: FpgaImageAttributeName | string | undefined;
 }
 
-export type PermissionGroup = "all";
+export enum PermissionGroup {
+  all = "all",
+}
 
 /**
  * <p>Describes a load permission.</p>
@@ -3768,7 +3816,10 @@ export interface LoadPermission {
   Group?: PermissionGroup | string;
 }
 
-export type ProductCodeValues = "devpay" | "marketplace";
+export enum ProductCodeValues {
+  devpay = "devpay",
+  marketplace = "marketplace",
+}
 
 /**
  * <p>Describes a product code.</p>
@@ -3930,7 +3981,12 @@ export interface PciId {
   SubsystemVendorId?: string;
 }
 
-export type FpgaImageStateCode = "available" | "failed" | "pending" | "unavailable";
+export enum FpgaImageStateCode {
+  available = "available",
+  failed = "failed",
+  pending = "pending",
+  unavailable = "unavailable",
+}
 
 /**
  * <p>Describes the state of the bitstream generation process for an Amazon FPGA image (AFI).</p>
@@ -4689,18 +4745,19 @@ export interface DescribeIdFormatResult {
   Statuses?: IdFormat[];
 }
 
-export type ImageAttributeName =
-  | "blockDeviceMapping"
-  | "bootMode"
-  | "description"
-  | "kernel"
-  | "lastLaunchedTime"
-  | "launchPermission"
-  | "productCodes"
-  | "ramdisk"
-  | "sriovNetSupport"
-  | "tpmSupport"
-  | "uefiData";
+export enum ImageAttributeName {
+  blockDeviceMapping = "blockDeviceMapping",
+  bootMode = "bootMode",
+  description = "description",
+  kernel = "kernel",
+  lastLaunchedTime = "lastLaunchedTime",
+  launchPermission = "launchPermission",
+  productCodes = "productCodes",
+  ramdisk = "ramdisk",
+  sriovNetSupport = "sriovNetSupport",
+  tpmSupport = "tpmSupport",
+  uefiData = "uefiData",
+}
 
 /**
  * <p>Contains the parameters for DescribeImageAttribute.</p>
@@ -5043,23 +5100,52 @@ export interface DescribeImagesRequest {
   DryRun?: boolean;
 }
 
-export type ArchitectureValues = "arm64" | "i386" | "x86_64" | "x86_64_mac";
+export enum ArchitectureValues {
+  arm64 = "arm64",
+  i386 = "i386",
+  x86_64 = "x86_64",
+  x86_64_mac = "x86_64_mac",
+}
 
-export type BootModeValues = "legacy-bios" | "uefi";
+export enum BootModeValues {
+  legacy_bios = "legacy-bios",
+  uefi = "uefi",
+}
 
-export type HypervisorType = "ovm" | "xen";
+export enum HypervisorType {
+  ovm = "ovm",
+  xen = "xen",
+}
 
-export type ImageTypeValues = "kernel" | "machine" | "ramdisk";
+export enum ImageTypeValues {
+  kernel = "kernel",
+  machine = "machine",
+  ramdisk = "ramdisk",
+}
 
-export type DeviceType = "ebs" | "instance-store";
+export enum DeviceType {
+  ebs = "ebs",
+  instance_store = "instance-store",
+}
 
-export type ImageState = "available" | "deregistered" | "error" | "failed" | "invalid" | "pending" | "transient";
+export enum ImageState {
+  available = "available",
+  deregistered = "deregistered",
+  error = "error",
+  failed = "failed",
+  invalid = "invalid",
+  pending = "pending",
+  transient = "transient",
+}
 
 export enum TpmSupportValues {
   v2_0 = "v2.0",
 }
 
-export type VirtualizationType = "hvm" | "paravirtual";
+export enum VirtualizationType {
+  hvm = "hvm",
+  paravirtual = "paravirtual",
+}
 
 /**
  * <p>Describes an image.</p>
@@ -5582,23 +5668,24 @@ export interface DescribeImportSnapshotTasksResult {
   NextToken?: string;
 }
 
-export type InstanceAttributeName =
-  | "blockDeviceMapping"
-  | "disableApiStop"
-  | "disableApiTermination"
-  | "ebsOptimized"
-  | "enaSupport"
-  | "enclaveOptions"
-  | "groupSet"
-  | "instanceInitiatedShutdownBehavior"
-  | "instanceType"
-  | "kernel"
-  | "productCodes"
-  | "ramdisk"
-  | "rootDeviceName"
-  | "sourceDestCheck"
-  | "sriovNetSupport"
-  | "userData";
+export enum InstanceAttributeName {
+  blockDeviceMapping = "blockDeviceMapping",
+  disableApiStop = "disableApiStop",
+  disableApiTermination = "disableApiTermination",
+  ebsOptimized = "ebsOptimized",
+  enaSupport = "enaSupport",
+  enclaveOptions = "enclaveOptions",
+  groupSet = "groupSet",
+  instanceInitiatedShutdownBehavior = "instanceInitiatedShutdownBehavior",
+  instanceType = "instanceType",
+  kernel = "kernel",
+  productCodes = "productCodes",
+  ramdisk = "ramdisk",
+  rootDeviceName = "rootDeviceName",
+  sourceDestCheck = "sourceDestCheck",
+  sriovNetSupport = "sriovNetSupport",
+  userData = "userData",
+}
 
 export interface DescribeInstanceAttributeRequest {
   /**
@@ -6591,7 +6678,10 @@ export interface HibernationOptions {
   Configured?: boolean;
 }
 
-export type InstanceLifecycleType = "scheduled" | "spot";
+export enum InstanceLifecycleType {
+  scheduled = "scheduled",
+  spot = "spot",
+}
 
 /**
  * <p>Describes a license configuration.</p>
@@ -6619,7 +6709,10 @@ export interface InstanceMaintenanceOptions {
   AutoRecovery?: InstanceAutoRecoveryState | string;
 }
 
-export type InstanceMetadataEndpointState = "disabled" | "enabled";
+export enum InstanceMetadataEndpointState {
+  disabled = "disabled",
+  enabled = "enabled",
+}
 
 export enum InstanceMetadataProtocolState {
   disabled = "disabled",
@@ -6636,7 +6729,10 @@ export enum InstanceMetadataTagsState {
   enabled = "enabled",
 }
 
-export type InstanceMetadataOptionsState = "applied" | "pending";
+export enum InstanceMetadataOptionsState {
+  applied = "applied",
+  pending = "pending",
+}
 
 /**
  * <p>The metadata options for the instance.</p>
@@ -6698,7 +6794,12 @@ export interface InstanceMetadataOptionsResponse {
   InstanceMetadataTags?: InstanceMetadataTagsState | string;
 }
 
-export type MonitoringState = "disabled" | "disabling" | "enabled" | "pending";
+export enum MonitoringState {
+  disabled = "disabled",
+  disabling = "disabling",
+  enabled = "enabled",
+  pending = "pending",
+}
 
 /**
  * <p>Describes the monitoring of an instance.</p>
@@ -6941,7 +7042,14 @@ export interface PrivateDnsNameOptionsResponse {
   EnableResourceNameDnsAAAARecord?: boolean;
 }
 
-export type InstanceStateName = "pending" | "running" | "shutting-down" | "stopped" | "stopping" | "terminated";
+export enum InstanceStateName {
+  pending = "pending",
+  running = "running",
+  shutting_down = "shutting-down",
+  stopped = "stopped",
+  stopping = "stopping",
+  terminated = "terminated",
+}
 
 /**
  * <p>Describes the current state of an instance.</p>
@@ -7482,12 +7590,13 @@ export interface DescribeInstanceStatusRequest {
   IncludeAllInstances?: boolean;
 }
 
-export type EventCode =
-  | "instance-reboot"
-  | "instance-retirement"
-  | "instance-stop"
-  | "system-maintenance"
-  | "system-reboot";
+export enum EventCode {
+  instance_reboot = "instance-reboot",
+  instance_retirement = "instance-retirement",
+  instance_stop = "instance-stop",
+  system_maintenance = "system-maintenance",
+  system_reboot = "system-reboot",
+}
 
 /**
  * <p>Describes a scheduled event for an instance.</p>
@@ -7527,9 +7636,16 @@ export interface InstanceStatusEvent {
   NotBeforeDeadline?: Date;
 }
 
-export type StatusName = "reachability";
+export enum StatusName {
+  reachability = "reachability",
+}
 
-export type StatusType = "failed" | "initializing" | "insufficient-data" | "passed";
+export enum StatusType {
+  failed = "failed",
+  initializing = "initializing",
+  insufficient_data = "insufficient-data",
+  passed = "passed",
+}
 
 /**
  * <p>Describes the instance status.</p>
@@ -7552,7 +7668,13 @@ export interface InstanceStatusDetails {
   Status?: StatusType | string;
 }
 
-export type SummaryStatus = "impaired" | "initializing" | "insufficient-data" | "not-applicable" | "ok";
+export enum SummaryStatus {
+  impaired = "impaired",
+  initializing = "initializing",
+  insufficient_data = "insufficient-data",
+  not_applicable = "not-applicable",
+  ok = "ok",
+}
 
 /**
  * <p>Describes the status of an instance.</p>
@@ -7625,7 +7747,11 @@ export interface DescribeInstanceStatusResult {
   NextToken?: string;
 }
 
-export type LocationType = "availability-zone" | "availability-zone-id" | "region";
+export enum LocationType {
+  availability_zone = "availability-zone",
+  availability_zone_id = "availability-zone-id",
+  region = "region",
+}
 
 export interface DescribeInstanceTypeOfferingsRequest {
   /**
@@ -7991,9 +8117,16 @@ export interface EbsOptimizedInfo {
   MaximumIops?: number;
 }
 
-export type EbsOptimizedSupport = "default" | "supported" | "unsupported";
+export enum EbsOptimizedSupport {
+  default = "default",
+  supported = "supported",
+  unsupported = "unsupported",
+}
 
-export type EbsEncryptionSupport = "supported" | "unsupported";
+export enum EbsEncryptionSupport {
+  supported = "supported",
+  unsupported = "unsupported",
+}
 
 export enum EbsNvmeSupport {
   REQUIRED = "required",
@@ -8162,7 +8295,10 @@ export interface InferenceAcceleratorInfo {
   Accelerators?: InferenceDeviceInfo[];
 }
 
-export type DiskType = "hdd" | "ssd";
+export enum DiskType {
+  hdd = "hdd",
+  ssd = "ssd",
+}
 
 /**
  * <p>Describes a disk.</p>
@@ -8240,7 +8376,11 @@ export interface EfaInfo {
   MaximumEfaInterfaces?: number;
 }
 
-export type EnaSupport = "required" | "supported" | "unsupported";
+export enum EnaSupport {
+  required = "required",
+  supported = "supported",
+  unsupported = "unsupported",
+}
 
 /**
  * <p>Describes the network card support of the instance type.</p>
@@ -8327,7 +8467,11 @@ export interface NetworkInfo {
   EncryptionInTransitSupported?: boolean;
 }
 
-export type PlacementGroupStrategy = "cluster" | "partition" | "spread";
+export enum PlacementGroupStrategy {
+  cluster = "cluster",
+  partition = "partition",
+  spread = "spread",
+}
 
 /**
  * <p>Describes the placement group support of the instance type.</p>
@@ -8339,7 +8483,12 @@ export interface PlacementGroupInfo {
   SupportedStrategies?: (PlacementGroupStrategy | string)[];
 }
 
-export type ArchitectureType = "arm64" | "i386" | "x86_64" | "x86_64_mac";
+export enum ArchitectureType {
+  arm64 = "arm64",
+  i386 = "i386",
+  x86_64 = "x86_64",
+  x86_64_mac = "x86_64_mac",
+}
 
 /**
  * <p>Describes the processor used by the instance type.</p>
@@ -8356,11 +8505,20 @@ export interface ProcessorInfo {
   SustainedClockSpeedInGhz?: number;
 }
 
-export type BootModeType = "legacy-bios" | "uefi";
+export enum BootModeType {
+  legacy_bios = "legacy-bios",
+  uefi = "uefi",
+}
 
-export type RootDeviceType = "ebs" | "instance-store";
+export enum RootDeviceType {
+  ebs = "ebs",
+  instance_store = "instance-store",
+}
 
-export type UsageClassType = "on-demand" | "spot";
+export enum UsageClassType {
+  on_demand = "on-demand",
+  spot = "spot",
+}
 
 /**
  * <p>Describes the vCPU configurations for the instance type.</p>
@@ -9555,70 +9713,12 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsResult {
   NextToken?: string;
 }
 
-export interface DescribeLocalGatewayVirtualInterfacesRequest {
-  /**
-   * <p>The IDs of the virtual interfaces.</p>
-   */
-  LocalGatewayVirtualInterfaceIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-address</code> - The local address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-bgp-asn</code> - The Border Gateway Protocol (BGP) Autonomous System Number (ASN)
-   *                of the local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of the local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>peer-address</code> - The peer address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>peer-bgp-asn</code> - The peer BGP ASN.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vlan</code> - The ID of the VLAN.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const DescribeAggregateIdFormatRequestFilterSensitiveLog = (obj: DescribeAggregateIdFormatRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11392,15 +11492,6 @@ export const LocalGatewayVirtualInterfaceGroupFilterSensitiveLog = (obj: LocalGa
  */
 export const DescribeLocalGatewayVirtualInterfaceGroupsResultFilterSensitiveLog = (
   obj: DescribeLocalGatewayVirtualInterfaceGroupsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayVirtualInterfacesRequestFilterSensitiveLog = (
-  obj: DescribeLocalGatewayVirtualInterfacesRequest
 ): any => ({
   ...obj,
 });
