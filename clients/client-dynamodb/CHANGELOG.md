@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.171.0...v3.172.0) (2022-09-15)
+
+
+### Features
+
+* **client-dynamodb:** Increased DynamoDB transaction limit from 25 to 100. ([a2d8893](https://github.com/aws/aws-sdk-js-v3/commit/a2d88936c7a6fec219ed930e8209809db6bfef63))
+
+
+
+
+
 # [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb

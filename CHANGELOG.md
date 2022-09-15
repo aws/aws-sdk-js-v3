@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.171.0...v3.172.0) (2022-09-15)
+
+
+### Bug Fixes
+
+* **e2e:** delete cloudwatch groups in After call ([#3951](https://github.com/aws/aws-sdk-js-v3/issues/3951)) ([8ed83f0](https://github.com/aws/aws-sdk-js-v3/commit/8ed83f0587ba8f66a945989223b97b3c3192c0dd))
+* **e2e:** delete cognitoidentity resources in After call ([#3955](https://github.com/aws/aws-sdk-js-v3/issues/3955)) ([d8e6a9a](https://github.com/aws/aws-sdk-js-v3/commit/d8e6a9a0ae5dccbc51da57b7e24bb0b8cb4ac233))
+* **e2e:** delete IAM+ resources in After call ([#3952](https://github.com/aws/aws-sdk-js-v3/issues/3952)) ([b30b9b2](https://github.com/aws/aws-sdk-js-v3/commit/b30b9b2154d13d9b2d0cffad75d2004d412f2cc9))
+* **e2e:** move deletion of sqs queues to After call ([#3948](https://github.com/aws/aws-sdk-js-v3/issues/3948)) ([d07097b](https://github.com/aws/aws-sdk-js-v3/commit/d07097b102d17f3b77098a82184634f9290ad1c3))
+
+
+### Features
+
+* **client-dynamodb:** Increased DynamoDB transaction limit from 25 to 100. ([a2d8893](https://github.com/aws/aws-sdk-js-v3/commit/a2d88936c7a6fec219ed930e8209809db6bfef63))
+* **client-ec2:** This feature allows customers to create tags for vpc-endpoint-connections and vpc-endpoint-service-permissions. ([7b3d77d](https://github.com/aws/aws-sdk-js-v3/commit/7b3d77d6af837ee5f263005a647c132de43a99b9))
+* **client-sagemaker:** Amazon SageMaker Automatic Model Tuning now supports specifying Hyperband strategy for tuning jobs, which uses a multi-fidelity based tuning strategy to stop underperforming hyperparameter configurations early. ([155db1e](https://github.com/aws/aws-sdk-js-v3/commit/155db1e5a62828afa8faaf4215adfe417b81946b))
+* **clients:** update client endpoints as of 2022-09-15 ([cae8d4c](https://github.com/aws/aws-sdk-js-v3/commit/cae8d4ce51817315227ec9699ed72d2bb0de5c11))
+
+
+
+
+
 # [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
 
 
