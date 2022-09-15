@@ -29,7 +29,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
 
 /**
  * <p>
- *             <code>TransactWriteItems</code> is a synchronous write operation that groups up to 25
+ *             <code>TransactWriteItems</code> is a synchronous write operation that groups up to 100
  *             action requests. These actions can target items in different tables, but not in
  *             different Amazon Web Services accounts or Regions, and no two actions can target the same
  *             item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code>

@@ -2097,7 +2097,7 @@ export class DynamoDB extends DynamoDBClient {
    * <p>
    *             <code>TransactGetItems</code> is a synchronous operation that atomically retrieves
    *             multiple items from one or more tables (but not from indexes) in a single account and
-   *             Region. A <code>TransactGetItems</code> call can contain up to 25
+   *             Region. A <code>TransactGetItems</code> call can contain up to 100
    *                 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code>
    *             structure that specifies an item to retrieve from a table in the account and Region. A
    *             call to <code>TransactGetItems</code> cannot retrieve items from tables in more than one
@@ -2153,7 +2153,7 @@ export class DynamoDB extends DynamoDBClient {
 
   /**
    * <p>
-   *             <code>TransactWriteItems</code> is a synchronous write operation that groups up to 25
+   *             <code>TransactWriteItems</code> is a synchronous write operation that groups up to 100
    *             action requests. These actions can target items in different tables, but not in
    *             different Amazon Web Services accounts or Regions, and no two actions can target the same
    *             item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code>

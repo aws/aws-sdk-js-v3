@@ -6744,7 +6744,7 @@ export interface TransactGetItemsOutput {
   ConsumedCapacity?: ConsumedCapacity[];
 
   /**
-   * <p>An ordered array of up to 25 <code>ItemResponse</code> objects, each of which
+   * <p>An ordered array of up to 100 <code>ItemResponse</code> objects, each of which
    *             corresponds to the <code>TransactGetItem</code> object in the same position in the
    *                 <i>TransactItems</i> array. Each <code>ItemResponse</code> object
    *             contains a Map of the name-value pairs that are the projected attributes of the
@@ -7437,7 +7437,7 @@ export interface ExpectedAttributeValue {
 
 export interface TransactGetItemsInput {
   /**
-   * <p>An ordered array of up to 25 <code>TransactGetItem</code> objects, each of which
+   * <p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which
    *             contains a <code>Get</code> structure.</p>
    */
   TransactItems: TransactGetItem[] | undefined;
@@ -9691,7 +9691,7 @@ export interface TransactWriteItem {
 
 export interface TransactWriteItemsInput {
   /**
-   * <p>An ordered array of up to 25 <code>TransactWriteItem</code> objects, each of which
+   * <p>An ordered array of up to 100 <code>TransactWriteItem</code> objects, each of which
    *             contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or
    *                 <code>Delete</code> object. These can operate on items in different tables, but the
    *             tables must reside in the same Amazon Web Services account and Region, and no two of them
