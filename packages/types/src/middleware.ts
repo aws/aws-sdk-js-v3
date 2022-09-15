@@ -354,6 +354,13 @@ export interface MiddlewareStack<Input extends object, Output extends object> ex
   ): MiddlewareStack<InputType, OutputType>;
 
   /**
+   * Returns a list of the current order of middleware in the stack.
+   * This does not execute the middleware functions, nor does it
+   * provide a reference to the stack itself.
+   */
+  identify(): string[];
+
+  /**
    * Builds a single handler function from zero or more middleware classes and
    * a core handler. The core handler is meant to send command objects to AWS
    * services and return promises that will resolve with the operation result

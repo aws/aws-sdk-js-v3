@@ -31,8 +31,7 @@ export const serializerMiddlewareOption: SerializeHandlerOptions = {
 
 // Type the modifies the EndpointBearer to make it compatible with Endpoints 2.0 change.
 // Must be removed after all clients has been onboard the Endpoints 2.0
-export type V1OrV2Endpoint<T extends EndpointBearer> = Omit<T, "endpoint"> & {
-  endpoint?: Provider<Endpoint>;
+export type V1OrV2Endpoint<T extends EndpointBearer> = T & {
   urlParser?: UrlParser;
 };
 

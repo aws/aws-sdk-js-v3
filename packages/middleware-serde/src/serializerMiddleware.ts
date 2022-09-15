@@ -18,13 +18,16 @@ export const serializerMiddleware =
   (next: SerializeHandler<Input, Output>, context: HandlerExecutionContext): SerializeHandler<Input, Output> =>
   async (args: SerializeHandlerArguments<Input>): Promise<SerializeHandlerOutput<Output>> => {
     const endpoint =
-      context["endpointV2"]?.url && options.urlParser
-        ? () => Promise.resolve(options.urlParser!(context["endpointV2"].url as URL))
+      context.endpointV2?.url && options.urlParser
+        ? async () => options.urlParser!(context.endpointV2.url as URL)
         : options.endpoint;
+
     if (!endpoint) {
       throw new Error("No valid endpoint provider available");
     }
-    const request = await serializer(args.input, { ...options, endpoint } as any); // TODO: remove any
+
+    const request = await serializer(args.input, { ...options, endpoint });
+
     return next({
       ...args,
       request,

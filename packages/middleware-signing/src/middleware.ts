@@ -24,14 +24,14 @@ export const awsAuthMiddleware =
       // TODO: call authScheme resolver
       // TODO(endpointsv2)
       // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
-      const authScheme = context["endpointV2"]?.properties?.authSchemes?.[0]! as AuthScheme;
+      const authScheme = context.endpointV2?.properties?.authSchemes?.[0]! as AuthScheme;
       const signer = await options.signer(authScheme);
       const output = await next({
         ...args,
         request: await signer.sign(args.request, {
           signingDate: getSkewCorrectedDate(options.systemClockOffset),
-          signingRegion: context["signing_region"],
-          signingService: context["signing_service"],
+          signingRegion: context.signing_region,
+          signingService: context.signing_service,
         }),
       }).catch((error) => {
         const serverTime: string | undefined = error.ServerTime ?? getDateHeader(error.$response);

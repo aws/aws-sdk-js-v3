@@ -5,7 +5,8 @@ import { getEndpointFromRegion } from "./utils/getEndpointFromRegion";
 
 export interface EndpointsInputConfig {
   /**
-   * The fully qualified endpoint of the webservice. This is only required when using a custom endpoint (for example, when using a local version of S3).
+   * The fully qualified endpoint of the webservice. This is only required when using 
+   * a custom endpoint (for example, when using a local version of S3).
    */
   endpoint?: string | Endpoint | Provider<Endpoint>;
 
@@ -56,7 +57,7 @@ export const resolveEndpointsConfig = <T>(
     endpoint: endpoint
       ? normalizeProvider(typeof endpoint === "string" ? urlParser(endpoint) : endpoint)
       : () => getEndpointFromRegion({ ...input, useDualstackEndpoint, useFipsEndpoint }),
-    isCustomEndpoint: endpoint ? true : false,
+    isCustomEndpoint: !!endpoint,
     useDualstackEndpoint,
   };
 };
