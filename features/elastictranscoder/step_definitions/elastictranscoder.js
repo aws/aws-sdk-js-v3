@@ -18,6 +18,10 @@ After({ tags: "@elastictranscoder" }, async function () {
     await this.service.deletePipeline({ Id: this.pipelineId });
     this.pipelineId = undefined;
   }
+  if (this.bucket) {
+    await this.s3.deleteBucket({ Bucket: this.bucket });
+    this.bucket = undefined;
+  }
 });
 
 Given("I create an Elastic Transcoder pipeline with name prefix {string}", async function (prefix) {
