@@ -10,7 +10,6 @@ Feature: Amazon ElastiCache
     And I describe the cache parameter groups
     Then the value at "CacheParameterGroups" should be a list
     And the cache parameter group should be described
-    And I delete the cache parameter group
 
   Scenario: Error handling
     Given I create a cache parameter group with name prefix ""
