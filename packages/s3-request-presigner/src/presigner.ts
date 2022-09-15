@@ -24,7 +24,7 @@ export class S3RequestPresigner implements RequestPresigner {
     this.signer = new SignatureV4MultiRegion(resolvedOptions);
   }
 
-  public async presign(
+  public presign(
     requestToSign: IHttpRequest,
     { unsignableHeaders = new Set(), unhoistableHeaders = new Set(), ...options }: RequestPresigningArguments = {}
   ): Promise<IHttpRequest> {
@@ -38,11 +38,12 @@ export class S3RequestPresigner implements RequestPresigner {
         unhoistableHeaders.add(header);
       });
     requestToSign.headers[SHA256_HEADER] = UNSIGNED_PAYLOAD;
-    if (!requestToSign.headers["host"]) {
-      requestToSign.headers.host = requestToSign.hostname;
-      if (requestToSign.port) {
-        requestToSign.headers.host = `${requestToSign.headers.host}:${requestToSign.port}`;
-      }
+
+    const currentHostHeader = requestToSign.headers.host;
+    const port = requestToSign.port;
+    const expectedHostHeader = `${requestToSign.hostname}${requestToSign.port != null ? ":" + port : ""}`;
+    if (!currentHostHeader || (currentHostHeader === requestToSign.hostname && requestToSign.port != null)) {
+      requestToSign.headers.host = expectedHostHeader;
     }
     return this.signer.presign(requestToSign, {
       expiresIn: 900,
