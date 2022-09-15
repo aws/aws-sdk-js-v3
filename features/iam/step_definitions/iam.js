@@ -1,60 +1,43 @@
-const { Before, Given, Then } = require("@cucumber/cucumber");
+const { After, Before, Given, Then } = require("@cucumber/cucumber");
 
-Before({ tags: "@iam" }, function (scenario, callback) {
+Before({ tags: "@iam" }, function () {
   const { IAM } = require("../../../clients/client-iam");
   this.iam = new IAM({});
-  callback();
 });
 
-Given("I have an IAM username {string}", function (name, callback) {
-  this.iamUserArn = "";
+After({ tags: "@iam" }, async function () {
+  if (this.iamUser) {
+    await this.iam.deleteUser({ UserName: this.iamUser });
+    this.iamUser = undefined;
+  }
+  if (this.iamRoleName) {
+    await this.iam.deleteRole({ RoleName: this.iamRoleName });
+    this.iamRoleName = undefined;
+  }
+});
+
+Given("I have an IAM username {string}", function (name) {
   this.iamUser = this.uniqueName(name);
-  callback();
 });
 
-Given("I create an IAM user with the username", function (callback) {
-  const world = this;
-  const next = function () {
-    if (world.data) this.iamUserArn = world.data.User.Arn;
-    else this.iamUserArn = null;
-    callback();
-  };
-  next.fail = callback;
-  this.request(
-    "iam",
-    "createUser",
-    {
-      UserName: this.iamUser,
-    },
-    next,
-    false
-  );
+Given("I create an IAM user with the username", async function () {
+  try {
+    const { User } = await this.iam.createUser({ UserName: this.iamUser });
+    this.iamUserArn = User.Arn;
+  } catch (error) {
+    this.error = error;
+  }
 });
 
-Given("I get the IAM user", function (callback) {
-  this.request("iam", "getUser", { UserName: this.iamUser }, callback);
+Then("the IAM user should exist", async function () {
+  const { User } = await this.iam.getUser({ UserName: this.iamUser });
+  this.assert.equal(User.UserName, this.iamUser);
+  this.assert.equal(User.Arn, this.iamUserArn);
 });
 
-Then("the IAM user should exist", function (callback) {
-  this.assert.equal(this.data.User.UserName, this.iamUser);
-  callback();
-});
-
-Then("I delete the IAM user", function (callback) {
-  this.request(
-    "iam",
-    "deleteUser",
-    {
-      UserName: this.iamUser,
-    },
-    callback
-  );
-});
-
-Given("I create an IAM role with name prefix {string}", function (name, callback) {
+Given("I create an IAM role with name prefix {string}", async function (name) {
   this.iamRoleName = this.uniqueName(name);
 
-  const world = this;
   const assumeRolePolicyDocument =
     '{"Version":"2008-10-17","Statement":[' +
     '{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},' +
@@ -63,27 +46,12 @@ Given("I create an IAM role with name prefix {string}", function (name, callback
     RoleName: this.iamRoleName,
     AssumeRolePolicyDocument: assumeRolePolicyDocument,
   };
-  const next = function () {
-    world.iamRoleArn = world.data.Role.Arn;
-    callback();
-  };
-  next.fail = callback;
 
-  this.request("iam", "createRole", params, next);
+  this.data = await this.iam.createRole(params);
+  this.iamRoleArn = this.data.Role.Arn;
 });
 
-Then("the IAM role should exist", function (callback) {
-  this.assert.compare(this.iamRoleArn.length, ">", 0);
-  callback();
-});
-
-Then("I delete the IAM role", function (callback) {
-  this.request(
-    "iam",
-    "deleteRole",
-    {
-      RoleName: this.iamRoleName,
-    },
-    callback
-  );
+Then("the IAM role should exist", async function () {
+  const { Role } = await this.iam.getRole({ RoleName: this.iamRoleName });
+  this.assert.equal(Role.RoleName, this.iamRoleName);
 });
