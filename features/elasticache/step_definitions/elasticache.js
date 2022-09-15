@@ -1,43 +1,46 @@
-const { Before, Given, Then } = require("@cucumber/cucumber");
+const { After, Before, Given, Then } = require("@cucumber/cucumber");
 
-Before({ tags: "@elasticache" }, function (scenario, callback) {
+Before({ tags: "@elasticache" }, function () {
   const { ElastiCache } = require("../../../clients/client-elasticache");
   this.service = new ElastiCache({});
-  callback();
 });
 
-Given("I create a cache parameter group with name prefix {string}", function (prefix, callback) {
+After({ tags: "@elasticache" }, async function () {
+  if (this.cacheGroupName) {
+    await this.service.deleteCacheParameterGroup({ CacheParameterGroupName: this.cacheGroupName });
+    this.cacheGroupName = undefined;
+  }
+});
+
+Given("I create a cache parameter group with name prefix {string}", async function (prefix) {
   this.cacheGroupName = this.uniqueName(prefix);
   const params = {
     Description: "Description",
     CacheParameterGroupName: this.cacheGroupName,
     CacheParameterGroupFamily: "memcached1.4",
   };
-  this.request(null, "createCacheParameterGroup", params, callback, false);
+  try {
+    this.data = await this.service.createCacheParameterGroup(params);
+  } catch (error) {
+    this.error = error;
+  }
 });
 
-Given("the cache parameter group name is in the result", function (callback) {
+Given("the cache parameter group name is in the result", async function () {
   const name = this.data.CacheParameterGroup.CacheParameterGroupName;
   this.assert.equal(name, this.cacheGroupName);
-  callback();
 });
 
-Given("I describe the cache parameter groups", function (callback) {
-  const params = {
-    CacheParameterGroupName: this.cacheGroupName,
-  };
-  this.request(null, "describeCacheParameterGroups", params, callback);
+Given("I describe the cache parameter groups", async function () {
+  const params = { CacheParameterGroupName: this.cacheGroupName };
+  try {
+    this.data = await this.service.describeCacheParameterGroups(params);
+  } catch (error) {
+    this.error = error;
+  }
 });
 
-Then("the cache parameter group should be described", function (callback) {
+Then("the cache parameter group should be described", function () {
   const item = this.data.CacheParameterGroups[0];
   this.assert.equal(item.CacheParameterGroupName, this.cacheGroupName);
-  callback();
-});
-
-Then("I delete the cache parameter group", function (callback) {
-  const params = {
-    CacheParameterGroupName: this.cacheGroupName,
-  };
-  this.request(null, "deleteCacheParameterGroup", params, callback);
 });
