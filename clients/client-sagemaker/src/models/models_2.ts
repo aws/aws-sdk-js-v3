@@ -83,7 +83,6 @@ import {
   ExperimentConfig,
   ExperimentSource,
   FeatureGroupStatus,
-  FeatureParameter,
   HumanTaskConfig,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
@@ -141,6 +140,63 @@ import {
   TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
 } from "./models_1";
+
+/**
+ * <p>A key-value pair that you specify to describe the feature.</p>
+ */
+export interface FeatureParameter {
+  /**
+   * <p>A key that must contain a value to describe the feature.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value that belongs to a key.</p>
+   */
+  Value?: string;
+}
+
+export interface DescribeFeatureMetadataResponse {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the feature group that contains the feature.</p>
+   */
+  FeatureGroupArn: string | undefined;
+
+  /**
+   * <p>The name of the feature group that you've specified.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the feature that you've specified.</p>
+   */
+  FeatureName: string | undefined;
+
+  /**
+   * <p>The data type of the feature.</p>
+   */
+  FeatureType: FeatureType | string | undefined;
+
+  /**
+   * <p>A timestamp indicating when the feature was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp indicating when the metadata for the feature group was modified. For example, if you add a parameter describing the feature, the timestamp changes to reflect the last time you </p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The description you added to describe the feature.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The key-value pairs that you added to describe the feature.</p>
+   */
+  Parameters?: FeatureParameter[];
+}
 
 export interface DescribeFlowDefinitionRequest {
   /**
@@ -4285,8 +4341,7 @@ export interface DomainSettingsForUpdate {
   RStudioServerProDomainSettingsForUpdate?: RStudioServerProDomainSettingsForUpdate;
 
   /**
-   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">
-   *                <code>sts:SourceIdentity</code> key</a>. This configuration can only be modified if there are no apps in the <code>InService</code> or <code>Pending</code> state.</p>
+   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>. This configuration can only be modified if there are no apps in the <code>InService</code> or <code>Pending</code> state.</p>
    */
   ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig | string;
 }
@@ -5620,9 +5675,8 @@ export interface HyperParameterTuningJobSummary {
   /**
    * <p>Specifies the search strategy hyperparameter tuning uses to choose which
    *             hyperparameters to
-   *             use
-   *             for each iteration. Currently, the only valid value is
-   *             Bayesian.</p>
+   *             evaluate
+   *             at each iteration.</p>
    */
   Strategy: HyperParameterTuningJobStrategyType | string | undefined;
 
@@ -8820,25 +8874,19 @@ export interface NotebookInstanceLifecycleConfigSummary {
   LastModifiedTime?: Date;
 }
 
-export interface ListNotebookInstanceLifecycleConfigsOutput {
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To get the next set of
-   *             lifecycle configurations, use it in the next request. </p>
-   */
-  NextToken?: string;
+/**
+ * @internal
+ */
+export const FeatureParameterFilterSensitiveLog = (obj: FeatureParameter): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>An array of <code>NotebookInstanceLifecycleConfiguration</code> objects, each listing
-   *             a lifecycle configuration.</p>
-   */
-  NotebookInstanceLifecycleConfigs?: NotebookInstanceLifecycleConfigSummary[];
-}
-
-export enum NotebookInstanceSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+/**
+ * @internal
+ */
+export const DescribeFeatureMetadataResponseFilterSensitiveLog = (obj: DescribeFeatureMetadataResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10577,15 +10625,6 @@ export const ListNotebookInstanceLifecycleConfigsInputFilterSensitiveLog = (
  */
 export const NotebookInstanceLifecycleConfigSummaryFilterSensitiveLog = (
   obj: NotebookInstanceLifecycleConfigSummary
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotebookInstanceLifecycleConfigsOutputFilterSensitiveLog = (
-  obj: ListNotebookInstanceLifecycleConfigsOutput
 ): any => ({
   ...obj,
 });

@@ -55,7 +55,6 @@ import {
   EdgePresetDeploymentType,
   EndpointInput,
   FeatureDefinition,
-  FeatureType,
   GitConfig,
   HyperParameterTuningJobObjective,
   HyperParameterTuningJobStrategyType,
@@ -106,6 +105,84 @@ import {
   VpcConfig,
 } from "./models_0";
 
+/**
+ * <p>The configuration for <code>Hyperband</code>, a multi-fidelity based hyperparameter
+ *          tuning strategy. <code>Hyperband</code> uses the final and intermediate results of a
+ *          training job to dynamically allocate resources to utilized hyperparameter configurations
+ *          while automatically stopping under-performing configurations. This parameter should be
+ *          provided only if <code>Hyperband</code> is selected as the <code>StrategyConfig</code>
+ *          under the <code>HyperParameterTuningJobConfig</code> API.</p>
+ */
+export interface HyperbandStrategyConfig {
+  /**
+   * <p>The minimum number of resources (such as epochs) that can be used by a training job
+   *          launched by a hyperparameter tuning job. If the value for <code>MinResource</code> has not
+   *          been reached, the training job will not be stopped by <code>Hyperband</code>.</p>
+   */
+  MinResource?: number;
+
+  /**
+   * <p>The maximum number of resources (such as epochs) that can be used by a training job
+   *          launched by a hyperparameter tuning job. Once a job reaches the <code>MaxResource</code>
+   *          value, it is stopped. If a value for <code>MaxResource</code> is not provided, and
+   *             <code>Hyperband</code> is selected as the hyperparameter tuning strategy,
+   *             <code>HyperbandTrainingJ</code> attempts to infer <code>MaxResource</code> from the
+   *          following keys (if present) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-StaticHyperParameters">StaticsHyperParameters</a>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>epochs</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>numepochs</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>n-epochs</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>n_epochs</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>num_epochs</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>If <code>HyperbandStrategyConfig</code> is unable to infer a value for
+   *             <code>MaxResource</code>, it generates a validation error. The maximum value is 20,000
+   *          epochs. All metrics that correspond to an objective metric are used to derive <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html">early stopping
+   *             decisions</a>. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training.html">distributive</a> training jobs,
+   *          ensure that duplicate metrics are not printed in the logs across the individual nodes in a
+   *          training job. If multiple nodes are publishing duplicate or incorrect metrics, training
+   *          jobs may make an incorrect stopping decision and stop the job prematurely. </p>
+   */
+  MaxResource?: number;
+}
+
+/**
+ * <p>The configuration for a training job launched by a hyperparameter tuning job. Choose
+ *             <code>Bayesian</code> for Bayesian optimization, and <code>Random</code> for random
+ *          search optimization. For more advanced use cases, use <code>Hyperband</code>, which
+ *          evaluates objective metrics for training jobs after every epoch. For more information about
+ *          strategies, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How Hyperparameter
+ *             Tuning Works</a>.</p>
+ */
+export interface HyperParameterTuningJobStrategyConfig {
+  /**
+   * <p>The configuration for the object that specifies the <code>Hyperband</code> strategy.
+   *          This parameter is only supported for the <code>Hyperband</code> selection for
+   *             <code>Strategy</code> within the <code>HyperParameterTuningJobConfig</code> API.</p>
+   */
+  HyperbandStrategyConfig?: HyperbandStrategyConfig;
+}
+
 export enum TrainingJobEarlyStoppingType {
   AUTO = "Auto",
   OFF = "Off",
@@ -127,12 +204,18 @@ export interface TuningJobCompletionCriteria {
 export interface HyperParameterTuningJobConfig {
   /**
    * <p>Specifies how hyperparameter tuning chooses the combinations of hyperparameter values
-   *             to use for the training job it launches. To use the Bayesian search strategy, set this
-   *             to <code>Bayesian</code>. To randomly search, set it to <code>Random</code>. For
-   *             information about search strategies, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How
+   *             to use for the training job it launches. For information about search strategies, see
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How
    *                 Hyperparameter Tuning Works</a>.</p>
    */
   Strategy: HyperParameterTuningJobStrategyType | string | undefined;
+
+  /**
+   * <p>The configuration for the <code>Hyperband</code> optimization strategy. This parameter
+   *          should be provided only if <code>Hyperband</code> is selected as the strategy for
+   *             <code>HyperParameterTuningJobConfig</code>.</p>
+   */
+  StrategyConfig?: HyperParameterTuningJobStrategyConfig;
 
   /**
    * <p>The <a>HyperParameterTuningJobObjective</a> object that specifies the
@@ -158,8 +241,10 @@ export interface HyperParameterTuningJobConfig {
 
   /**
    * <p>Specifies whether to use early stopping for training jobs launched by the
-   *             hyperparameter tuning job. This can be one of the following values (the default value is
-   *                 <code>OFF</code>):</p>
+   *             hyperparameter tuning job. Because the <code>Hyperband</code> strategy has its own
+   *             advanced internal early stopping mechanism,
+   *             <code>TrainingJobEarlyStoppingType</code> must be <code>OFF</code> to use <code>Hyperband</code>. This parameter can take on one of the following values (the
+   *             default value is <code>OFF</code>):</p>
    *         <dl>
    *             <dt>OFF</dt>
    *             <dd>
@@ -2844,7 +2929,7 @@ export interface HumanTaskConfig {
   /**
    * <p>Defines the maximum number of data objects that can be labeled by human workers at the
    *             same time. Also referred to as batch size. Each object may have more than one worker at one time.
-   *             The default value is 1000 objects.</p>
+   *             The default value is 1000 objects. To increase the maximum value to 5000 objects, contact Amazon Web Services Support.</p>
    */
   MaxConcurrentTaskCount?: number;
 
@@ -9117,61 +9202,20 @@ export interface DescribeFeatureMetadataRequest {
 }
 
 /**
- * <p>A key-value pair that you specify to describe the feature.</p>
+ * @internal
  */
-export interface FeatureParameter {
-  /**
-   * <p>A key that must contain a value to describe the feature.</p>
-   */
-  Key?: string;
+export const HyperbandStrategyConfigFilterSensitiveLog = (obj: HyperbandStrategyConfig): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The value that belongs to a key.</p>
-   */
-  Value?: string;
-}
-
-export interface DescribeFeatureMetadataResponse {
-  /**
-   * <p>The Amazon Resource Number (ARN) of the feature group that contains the feature.</p>
-   */
-  FeatureGroupArn: string | undefined;
-
-  /**
-   * <p>The name of the feature group that you've specified.</p>
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>The name of the feature that you've specified.</p>
-   */
-  FeatureName: string | undefined;
-
-  /**
-   * <p>The data type of the feature.</p>
-   */
-  FeatureType: FeatureType | string | undefined;
-
-  /**
-   * <p>A timestamp indicating when the feature was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp indicating when the metadata for the feature group was modified. For example, if you add a parameter describing the feature, the timestamp changes to reflect the last time you </p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The description you added to describe the feature.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The key-value pairs that you added to describe the feature.</p>
-   */
-  Parameters?: FeatureParameter[];
-}
+/**
+ * @internal
+ */
+export const HyperParameterTuningJobStrategyConfigFilterSensitiveLog = (
+  obj: HyperParameterTuningJobStrategyConfig
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11105,19 +11149,5 @@ export const DescribeFeatureGroupResponseFilterSensitiveLog = (obj: DescribeFeat
  * @internal
  */
 export const DescribeFeatureMetadataRequestFilterSensitiveLog = (obj: DescribeFeatureMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeatureParameterFilterSensitiveLog = (obj: FeatureParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFeatureMetadataResponseFilterSensitiveLog = (obj: DescribeFeatureMetadataResponse): any => ({
   ...obj,
 });

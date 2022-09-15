@@ -41,7 +41,6 @@ import {
   DebugRuleEvaluationStatus,
   DriftCheckBaselines,
   ExperimentConfig,
-  FeatureParameter,
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
   ModelArtifacts,
@@ -89,6 +88,7 @@ import {
   FailStepMetadata,
   FeatureGroup,
   FeatureMetadata,
+  FeatureParameter,
   Filter,
   GitConfigForUpdate,
   HyperParameterTrainingJobSummary,
@@ -98,7 +98,7 @@ import {
   MetricData,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
-  NotebookInstanceSortKey,
+  NotebookInstanceLifecycleConfigSummary,
   NotebookInstanceStatus,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
@@ -121,6 +121,26 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListNotebookInstanceLifecycleConfigsOutput {
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To get the next set of
+   *             lifecycle configurations, use it in the next request. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An array of <code>NotebookInstanceLifecycleConfiguration</code> objects, each listing
+   *             a lifecycle configuration.</p>
+   */
+  NotebookInstanceLifecycleConfigs?: NotebookInstanceLifecycleConfigSummary[];
+}
+
+export enum NotebookInstanceSortKey {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name",
+  STATUS = "Status",
+}
 
 export enum NotebookInstanceSortOrder {
   ASCENDING = "Ascending",
@@ -5151,6 +5171,15 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const ListNotebookInstanceLifecycleConfigsOutputFilterSensitiveLog = (
+  obj: ListNotebookInstanceLifecycleConfigsOutput
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal

@@ -1075,7 +1075,6 @@ import {
   DescribeFeatureGroupRequest,
   DescribeFeatureGroupResponse,
   DescribeFeatureMetadataRequest,
-  DescribeFeatureMetadataResponse,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1089,13 +1088,14 @@ import {
   ExperimentConfig,
   ExperimentSource,
   Explainability,
-  FeatureParameter,
   FileSource,
   HumanTaskConfig,
+  HyperbandStrategyConfig,
   HyperParameterAlgorithmSpecification,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningInstanceConfig,
   HyperParameterTuningJobConfig,
+  HyperParameterTuningJobStrategyConfig,
   HyperParameterTuningJobWarmStartConfig,
   HyperParameterTuningResourceConfig,
   InferenceExecutionConfig,
@@ -1189,6 +1189,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DescribeFeatureMetadataResponse,
   DescribeFlowDefinitionRequest,
   DescribeFlowDefinitionResponse,
   DescribeHumanTaskUiRequest,
@@ -1282,6 +1283,7 @@ import {
   FeatureGroup,
   FeatureGroupSummary,
   FeatureMetadata,
+  FeatureParameter,
   Filter,
   FinalHyperParameterTuningJobObjectiveMetric,
   FlowDefinitionSummary,
@@ -1391,7 +1393,6 @@ import {
   ListMonitoringSchedulesRequest,
   ListMonitoringSchedulesResponse,
   ListNotebookInstanceLifecycleConfigsInput,
-  ListNotebookInstanceLifecycleConfigsOutput,
   MetricData,
   ModelConfiguration,
   ModelMetadataFilter,
@@ -1429,6 +1430,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListNotebookInstanceLifecycleConfigsOutput,
   ListNotebookInstancesInput,
   ListNotebookInstancesOutput,
   ListPipelineExecutionsRequest,
@@ -18610,6 +18612,13 @@ const serializeAws_json1_1HumanTaskConfig = (input: HumanTaskConfig, context: __
   };
 };
 
+const serializeAws_json1_1HyperbandStrategyConfig = (input: HyperbandStrategyConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResource != null && { MaxResource: input.MaxResource }),
+    ...(input.MinResource != null && { MinResource: input.MinResource }),
+  };
+};
+
 const serializeAws_json1_1HyperParameterAlgorithmSpecification = (
   input: HyperParameterAlgorithmSpecification,
   context: __SerdeContext
@@ -18768,6 +18777,9 @@ const serializeAws_json1_1HyperParameterTuningJobConfig = (
       ResourceLimits: serializeAws_json1_1ResourceLimits(input.ResourceLimits, context),
     }),
     ...(input.Strategy != null && { Strategy: input.Strategy }),
+    ...(input.StrategyConfig != null && {
+      StrategyConfig: serializeAws_json1_1HyperParameterTuningJobStrategyConfig(input.StrategyConfig, context),
+    }),
     ...(input.TrainingJobEarlyStoppingType != null && {
       TrainingJobEarlyStoppingType: input.TrainingJobEarlyStoppingType,
     }),
@@ -18799,6 +18811,17 @@ const serializeAws_json1_1HyperParameterTuningJobObjectives = (
     .map((entry) => {
       return serializeAws_json1_1HyperParameterTuningJobObjective(entry, context);
     });
+};
+
+const serializeAws_json1_1HyperParameterTuningJobStrategyConfig = (
+  input: HyperParameterTuningJobStrategyConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HyperbandStrategyConfig != null && {
+      HyperbandStrategyConfig: serializeAws_json1_1HyperbandStrategyConfig(input.HyperbandStrategyConfig, context),
+    }),
+  };
 };
 
 const serializeAws_json1_1HyperParameterTuningJobWarmStartConfig = (
@@ -27961,6 +27984,16 @@ const deserializeAws_json1_1HumanTaskUiSummary = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1HyperbandStrategyConfig = (
+  output: any,
+  context: __SerdeContext
+): HyperbandStrategyConfig => {
+  return {
+    MaxResource: __expectInt32(output.MaxResource),
+    MinResource: __expectInt32(output.MinResource),
+  } as any;
+};
+
 const deserializeAws_json1_1HyperParameterAlgorithmSpecification = (
   output: any,
   context: __SerdeContext
@@ -28182,6 +28215,10 @@ const deserializeAws_json1_1HyperParameterTuningJobConfig = (
     ResourceLimits:
       output.ResourceLimits != null ? deserializeAws_json1_1ResourceLimits(output.ResourceLimits, context) : undefined,
     Strategy: __expectString(output.Strategy),
+    StrategyConfig:
+      output.StrategyConfig != null
+        ? deserializeAws_json1_1HyperParameterTuningJobStrategyConfig(output.StrategyConfig, context)
+        : undefined,
     TrainingJobEarlyStoppingType: __expectString(output.TrainingJobEarlyStoppingType),
     TuningJobCompletionCriteria:
       output.TuningJobCompletionCriteria != null
@@ -28268,6 +28305,18 @@ const deserializeAws_json1_1HyperParameterTuningJobSearchEntity = (
     WarmStartConfig:
       output.WarmStartConfig != null
         ? deserializeAws_json1_1HyperParameterTuningJobWarmStartConfig(output.WarmStartConfig, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1HyperParameterTuningJobStrategyConfig = (
+  output: any,
+  context: __SerdeContext
+): HyperParameterTuningJobStrategyConfig => {
+  return {
+    HyperbandStrategyConfig:
+      output.HyperbandStrategyConfig != null
+        ? deserializeAws_json1_1HyperbandStrategyConfig(output.HyperbandStrategyConfig, context)
         : undefined,
   } as any;
 };

@@ -6036,8 +6036,7 @@ export interface CreateAppRequest {
   UserProfileName: string | undefined;
 
   /**
-   * <p>The type of app. Supported apps are <code>JupyterServer</code> and
-   *         <code>KernelGateway</code>. <code>TensorBoard</code> is not supported.</p>
+   * <p>The type of app.</p>
    */
   AppType: AppType | string | undefined;
 
@@ -7939,8 +7938,7 @@ export interface DomainSettings {
   RStudioServerProDomainSettings?: RStudioServerProDomainSettings;
 
   /**
-   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">
-   *                <code>sts:SourceIdentity</code> key</a>.</p>
+   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>.</p>
    */
   ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig | string;
 }
@@ -9886,6 +9884,7 @@ export interface ResourceLimits {
 
 export enum HyperParameterTuningJobStrategyType {
   BAYESIAN = "Bayesian",
+  HYPERBAND = "Hyperband",
   RANDOM = "Random",
 }
 

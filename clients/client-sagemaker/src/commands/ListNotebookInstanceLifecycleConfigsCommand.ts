@@ -15,9 +15,11 @@ import {
 import {
   ListNotebookInstanceLifecycleConfigsInput,
   ListNotebookInstanceLifecycleConfigsInputFilterSensitiveLog,
+} from "../models/models_2";
+import {
   ListNotebookInstanceLifecycleConfigsOutput,
   ListNotebookInstanceLifecycleConfigsOutputFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommand,
   serializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommand,
