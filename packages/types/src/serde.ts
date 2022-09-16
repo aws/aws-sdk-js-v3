@@ -6,7 +6,7 @@ import { Decoder, Encoder, Provider } from "./util";
  * Interface for object requires an Endpoint set.
  */
 export interface EndpointBearer {
-  /* TODO(endpointsv2) */
+  /* TODO(endpointsv2) post-release */
   // Keep using Endpoint V1 interface in serde
   // After all services have onboard EndpointV2, we need to migrate it to Endpoint V2 interface too.
   endpoint: Provider<Endpoint>;

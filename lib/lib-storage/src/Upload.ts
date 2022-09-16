@@ -13,8 +13,10 @@ import {
   Tag,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
+import { EndpointResolvedConfig, getEndpointFromInstructions, toEndpointV1 } from "@aws-sdk/middleware-endpoint";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { extendedEncodeURIComponent } from "@aws-sdk/smithy-client";
+import { Endpoint } from "@aws-sdk/types";
 import { EventEmitter } from "events";
 
 import { byteLength } from "./bytelength";
@@ -101,7 +103,8 @@ export class Upload extends EventEmitter {
     this.isMultiPart = false;
     const params = { ...this.params, Body: dataPart.data };
 
-    const requestHandler = this.client.config.requestHandler;
+    const clientConfig = this.client.config;
+    const requestHandler = clientConfig.requestHandler;
     const eventEmitter: EventEmitter | null = requestHandler instanceof EventEmitter ? requestHandler : null;
     const uploadEventListener = (event: ProgressEvent) => {
       this.bytesUploadedSoFar = event.loaded;
@@ -120,14 +123,22 @@ export class Upload extends EventEmitter {
       eventEmitter.on("xhr.upload.progress", uploadEventListener);
     }
 
-    const [putResult, endpoint] = await Promise.all([
-      this.client.send(new PutObjectCommand(params)),
-      this.client.config?.endpoint?.(),
-    ]);
+    const resolved = await Promise.all([this.client.send(new PutObjectCommand(params)), clientConfig?.endpoint?.()]);
+    const putResult = resolved[0];
+    let endpoint: Endpoint = resolved[1];
 
     if (!endpoint) {
-      // TODO(endpointsv2): handle endpoint v2
-      throw new Error('Could not resolve endpoint from S3 "client.config.endpoint()".');
+      endpoint = toEndpointV1(
+        await getEndpointFromInstructions(
+          params,
+          PutObjectCommand,
+          clientConfig
+        )
+      );
+    }
+
+    if (!endpoint) {
+      throw new Error('Could not resolve endpoint from S3 "client.config.endpoint()" nor EndpointsV2.');
     }
 
     if (eventEmitter !== null) {

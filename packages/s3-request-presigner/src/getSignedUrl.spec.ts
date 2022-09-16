@@ -34,8 +34,7 @@ describe("getSignedUrl", () => {
     mockPresign.mockReset();
   });
 
-  /* TODO(endpointsv2) */
-  it.skip("should call S3Presigner.sign", async () => {
+  it("should call S3Presigner.sign", async () => {
     const mockPresigned = "a presigned url";
     mockPresign.mockReturnValue(mockPresigned);
     const client = new S3Client(clientParams);
@@ -58,8 +57,7 @@ describe("getSignedUrl", () => {
     expect(command.middlewareStack.remove("presignInterceptMiddleware")).toBe(false);
   });
 
-  /* TODO(endpointsv2) */
-  it.skip("should presign with signing region and service in context if exists", async () => {
+  it("should presign with signing region and service in context if exists", async () => {
     const mockPresigned = "a presigned url";
     mockPresign.mockReturnValue(mockPresigned);
     const signingRegion = "aws-foo-1";
@@ -88,8 +86,7 @@ describe("getSignedUrl", () => {
     });
   });
 
-  /* TODO(endpointsv2) */
-  it.skip("should presign with parameters from presign options if set", async () => {
+  it("should presign with parameters from presign options if set", async () => {
     const mockPresigned = "a presigned url";
     mockPresign.mockReturnValue(mockPresigned);
     const options: RequestPresigningArguments = {
@@ -110,8 +107,7 @@ describe("getSignedUrl", () => {
     expect(mockPresign.mock.calls[0][1]).toMatchObject(options);
   });
 
-  /* TODO(endpointsv2) */
-  it.skip("should not throw if it's called concurrently", async () => {
+  it("should not throw if it's called concurrently", async () => {
     const mockPresigned = "a presigned url";
     mockPresign.mockReturnValue(mockPresigned);
     const client = new S3Client(clientParams);
@@ -123,8 +119,7 @@ describe("getSignedUrl", () => {
     return expect(Promise.all(commands.map((command) => getSignedUrl(client, command)))).resolves.toBeInstanceOf(Array);
   });
 
-  /* TODO(endpointsv2) */
-  it.skip.each(["amz-sdk-invocation-id", "amz-sdk-request", "x-amz-user-agent"])(
+  it.each(["amz-sdk-invocation-id", "amz-sdk-request", "x-amz-user-agent"])(
     "should delete '%s' header",
     async (header) => {
       const client = new S3Client(clientParams);
@@ -132,22 +127,20 @@ describe("getSignedUrl", () => {
         Bucket: "Bucket",
         Key: "Key",
       });
-      /*TODO: uncomment after handling endpoints v2*/
-      // command.middlewareStack.add(
-      //   (next) => (args) => {
-      //     (args.request ?? {})[header] = "foo";
-      //     return next(args);
-      //   },
-      //   { step: "serialize", priority: "low" }
-      // );
+      command.middlewareStack.add(
+        (next) => (args) => {
+          (args.request ?? {})[header] = "foo";
+          return next(args);
+        },
+        { step: "serialize", priority: "low" }
+      );
       await getSignedUrl(client, command);
       expect(mockPresign).toBeCalled();
       expect(mockPresign.mock.calls[0][0].headers[header]).toBeUndefined();
     }
   );
 
-  /* TODO(endpointsv2) */
-  it.skip("should presign request with MRAP ARN", async () => {
+  it("should presign request with MRAP ARN", async () => {
     const mockPresigned = "a presigned url";
     mockPresign.mockReturnValue(mockPresigned);
     const client = new S3Client(clientParams);
@@ -162,13 +155,12 @@ describe("getSignedUrl", () => {
     });
   });
 
-  /* TODO(endpointsv2) */
-  it.skip("should throw if presign request with MRAP ARN and disableMultiregionAccessPoints option", () => {
+  it("should throw if presign request with MRAP ARN and disableMultiregionAccessPoints option", () => {
     const mockPresigned = "a presigned url";
     mockPresign.mockReturnValue(mockPresigned);
     const client = new S3Client({
       ...clientParams,
-      /*TODO: handle endpoints v2*/ // disableMultiregionAccessPoints: true,
+      disableMultiregionAccessPoints: true,
     });
     const command = new GetObjectCommand({
       Bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap",

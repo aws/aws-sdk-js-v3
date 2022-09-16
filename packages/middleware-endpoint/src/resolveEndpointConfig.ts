@@ -1,6 +1,8 @@
 import { Endpoint, EndpointParameters, EndpointV2, Logger, Provider, UrlParser } from "@aws-sdk/types";
 import { normalizeProvider } from "@aws-sdk/util-middleware";
 
+import { toEndpointV1 } from "./adaptors/toEndpointV1";
+
 /**
  * Endpoint config interfaces and resolver for Endpoints v2. They live in separate package to allow per-service onboarding.
  * When all services onboard the Endpoints v2, the resolver in config-resolver package can be removed.
@@ -102,5 +104,3 @@ export const resolveEndpointConfig = <T, P extends EndpointParameters = Endpoint
     useFipsEndpoint: normalizeProvider(input.useFipsEndpoint ?? false),
   };
 };
-
-declare const toEndpointV1: (endpoint: string | Endpoint | EndpointV2) => Endpoint; // TODO(endpointsV2) implementation

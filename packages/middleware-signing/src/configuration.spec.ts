@@ -22,8 +22,7 @@ describe("AuthConfig", () => {
       jest.clearAllMocks();
     });
 
-    // TODO(endpointsv2)
-    it.skip("should memoize custom credential provider", async () => {
+    it("should memoize custom credential provider", async () => {
       const { signer: signerProvider } = resolveAwsAuthConfig(inputParams);
       const signer = await signerProvider({ name: "sigv4", properties: {} });
       const request = new HttpRequest({});
@@ -34,8 +33,7 @@ describe("AuthConfig", () => {
       expect(inputParams.credentials).toBeCalledTimes(1);
     });
 
-    // TODO(endpointsv2)
-    it.skip("should refresh custom credential provider if expired", async () => {
+    it("should refresh custom credential provider if expired", async () => {
       const FOUR_MINUTES_AND_59_SEC = 299 * 1000;
       const input = {
         ...inputParams,
@@ -75,8 +73,7 @@ describe("AuthConfig", () => {
       jest.clearAllMocks();
     });
 
-    // TODO(endpointsv2)
-    it.skip("should memoize custom credential provider", async () => {
+    it("should memoize custom credential provider", async () => {
       const { signer: signerProvider } = resolveSigV4AuthConfig(inputParams);
       const signer = await signerProvider({ name: "sigv4", properties: {} });
       const request = new HttpRequest({});
@@ -87,8 +84,7 @@ describe("AuthConfig", () => {
       expect(inputParams.credentials).toBeCalledTimes(1);
     });
 
-    // TODO(endpointsv2)
-    it.skip("should refresh custom credential provider if expired", async () => {
+    it("should refresh custom credential provider if expired", async () => {
       const FOUR_MINUTES_AND_59_SEC = 299 * 1000;
       const input = {
         ...inputParams,

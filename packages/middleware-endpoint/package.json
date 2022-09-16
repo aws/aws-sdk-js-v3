@@ -5,6 +5,7 @@
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
+    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
@@ -19,6 +20,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/protocol-http": "*",
     "@aws-sdk/signature-v4": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-config-provider": "*",

@@ -46,7 +46,6 @@ export function getSerdePlugin<
 ): Pluggable<InputType, OutputType> {
   return {
     applyToStack: (commandStack: MiddlewareStack<InputType, OutputType>) => {
-      // @ts-ignore deser complains endpoint type mismatch in SerdeContext. However, endpoint in deserializing is not used.
       commandStack.add(deserializerMiddleware(config, deserializer), deserializerMiddlewareOption);
       commandStack.add(serializerMiddleware(config, serializer), serializerMiddlewareOption);
     },

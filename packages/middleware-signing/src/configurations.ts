@@ -11,6 +11,7 @@ import {
   RegionInfoProvider,
   RequestSigner,
 } from "@aws-sdk/types";
+import { normalizeProvider } from "@aws-sdk/util-middleware";
 
 // 5 minutes buffer time the refresh the credential before it really expires
 const CREDENTIAL_EXPIRE_WINDOW = 300000;
@@ -127,10 +128,11 @@ export const resolveAwsAuthConfig = <T>(
   const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
   let signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
   if (input.signer) {
-    //if signer is supplied by user, normalize it to a function returning a promise for signer.
+    // if signer is supplied by user, normalize it to a function returning a promise for signer.
     signer = normalizeProvider(input.signer);
   } else if (input.regionInfoProvider) {
-    //construct a provider inferring signing from region.
+    // This branch is for endpoints V1.
+    // construct a provider inferring signing from region.
     signer = () =>
       normalizeProvider(input.region)()
         .then(
@@ -145,11 +147,11 @@ export const resolveAwsAuthConfig = <T>(
         )
         .then(([regionInfo, region]) => {
           const { signingRegion, signingService } = regionInfo;
-          //update client's singing region and signing service config if they are resolved.
-          //signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
+          // update client's singing region and signing service config if they are resolved.
+          // signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
           input.signingRegion = input.signingRegion || signingRegion || region;
-          //signing name resolving order:
-          //user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
+          // signing name resolving order:
+          // user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
           input.signingName = input.signingName || signingService || input.serviceId;
 
           const params: SignatureV4Init & SignatureV4CryptoInit = {
@@ -160,12 +162,12 @@ export const resolveAwsAuthConfig = <T>(
             sha256,
             uriEscapePath: signingEscapePath,
           };
-          const signerConstructor = input.signerConstructor || SignatureV4;
-          return new signerConstructor(params);
+          const SignerCtor = input.signerConstructor || SignatureV4;
+          return new SignerCtor(params);
         });
   } else {
+    // This branch is for endpoints V2.
     // Handle endpoints v2 that resolved per-command
-    // TODO(endpointsv2)
     // TODO: need total refactor for reference auth architecture.
     signer = async (authScheme?: AuthScheme) => {
       if (!authScheme) {
@@ -173,11 +175,11 @@ export const resolveAwsAuthConfig = <T>(
       }
       const signingRegion = authScheme.properties!["signingScope"] as string;
       const signingService = authScheme.properties!["signingName"] as string;
-      //update client's singing region and signing service config if they are resolved.
-      //signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
+      // update client's singing region and signing service config if they are resolved.
+      // signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
       input.signingRegion = input.signingRegion || signingRegion;
-      //signing name resolving order:
-      //user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
+      // signing name resolving order:
+      // user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
       input.signingName = input.signingName || signingService || input.serviceId;
 
       const params: SignatureV4Init & SignatureV4CryptoInit = {
@@ -188,8 +190,8 @@ export const resolveAwsAuthConfig = <T>(
         sha256,
         uriEscapePath: signingEscapePath,
       };
-      const signerConstructor = input.signerConstructor || SignatureV4;
-      return new signerConstructor(params);
+      const SignerCtor = input.signerConstructor || SignatureV4;
+      return new SignerCtor(params);
     };
   }
 
@@ -212,7 +214,7 @@ export const resolveSigV4AuthConfig = <T>(
   const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
   let signer: Provider<RequestSigner>;
   if (input.signer) {
-    //if signer is supplied by user, normalize it to a function returning a promise for signer.
+    // if signer is supplied by user, normalize it to a function returning a promise for signer.
     signer = normalizeProvider(input.signer);
   } else {
     signer = normalizeProvider(
@@ -232,14 +234,6 @@ export const resolveSigV4AuthConfig = <T>(
     credentials: normalizedCreds,
     signer,
   };
-};
-
-const normalizeProvider = <T>(input: T | Provider<T>): Provider<T> => {
-  if (typeof input === "object") {
-    const promisified = Promise.resolve(input);
-    return () => promisified;
-  }
-  return input as Provider<T>;
 };
 
 const normalizeCredentialProvider = (

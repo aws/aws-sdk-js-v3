@@ -257,8 +257,6 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
 
     const stack = clientStack.concat(this.middlewareStack);
 
-    console.log(stack.identify());
-
     const { logger } = configuration;
     const clientName = "S3Client";
     const commandName = "GetObjectCommand";

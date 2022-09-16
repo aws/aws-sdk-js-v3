@@ -16,7 +16,7 @@ export class S3RequestPresigner implements RequestPresigner {
     const resolvedOptions = {
       // Allow `signingName` because we want to support usecase of supply client's resolved config
       // directly. Where service equals signingName.
-      // TODO: support endpoints 2.0. Signing name and region are resolved from the endpoint resolver.
+      // TODO(endpointsv2): Signing name and region are resolved from the endpoint resolver.
       service: options.signingName || options.service || "s3",
       uriEscapePath: options.uriEscapePath || false,
       applyChecksum: options.applyChecksum || false,
