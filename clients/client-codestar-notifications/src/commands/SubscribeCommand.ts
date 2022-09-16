@@ -32,7 +32,7 @@ export interface SubscribeCommandInput extends SubscribeRequest {}
 export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBearer {}
 
 /**
- * <p>Creates an association between a notification rule and an SNS topic so that the
+ * <p>Creates an association between a notification rule and an Chatbot topic or Chatbot client so that the
  *             associated target can receive notifications when the events described in the rule are
  *             triggered.</p>
  * @example

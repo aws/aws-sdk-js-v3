@@ -96,7 +96,7 @@ import {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>DeleteTarget</a>, which removes a notification rule target (SNS topic) from a
+ *                   <a>DeleteTarget</a>, which removes a notification rule target from a
  *           notification rule. </p>
  *             </li>
  *             <li>
@@ -135,13 +135,13 @@ import {
  *
  *
  *
- *          <p> For information about how to use AWS CodeStar Notifications, see link in the CodeStarNotifications User Guide.
+ *         <p> For information about how to use AWS CodeStar Notifications, see the <a href="https://docs.aws.amazon.com/dtconsole/latest/userguide/what-is-dtconsole.html">Amazon Web Services Developer Tools Console User Guide</a>.
  *     </p>
  */
 export class CodestarNotifications extends CodestarNotificationsClient {
   /**
    * <p>Creates a notification rule for a resource. The rule specifies the events you want
-   *             notifications about and the targets (such as SNS topics) where you want to receive
+   *             notifications about and the targets (such as Chatbot topics or Chatbot clients configured for Slack) where you want to receive
    *             them.</p>
    */
   public createNotificationRule(
@@ -299,7 +299,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
-   * <p>Returns a list of the notification rules for an AWS account.</p>
+   * <p>Returns a list of the notification rules for an Amazon Web Services account.</p>
    */
   public listNotificationRules(
     args: ListNotificationRulesCommandInput,
@@ -363,7 +363,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
-   * <p>Returns a list of the notification rule targets for an AWS account.</p>
+   * <p>Returns a list of the notification rule targets for an Amazon Web Services account.</p>
    */
   public listTargets(args: ListTargetsCommandInput, options?: __HttpHandlerOptions): Promise<ListTargetsCommandOutput>;
   public listTargets(args: ListTargetsCommandInput, cb: (err: any, data?: ListTargetsCommandOutput) => void): void;
@@ -389,7 +389,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
-   * <p>Creates an association between a notification rule and an SNS topic so that the
+   * <p>Creates an association between a notification rule and an Chatbot topic or Chatbot client so that the
    *             associated target can receive notifications when the events described in the rule are
    *             triggered.</p>
    */
@@ -443,7 +443,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
-   * <p>Removes an association between a notification rule and an Amazon SNS topic so that
+   * <p>Removes an association between a notification rule and an Chatbot topic so that
    *             subscribers to that topic stop receiving notifications when the events described in the
    *             rule are triggered.</p>
    */

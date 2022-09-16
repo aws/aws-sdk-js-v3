@@ -6,8 +6,10 @@ import {
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
   parseEpochTimestamp as __parseEpochTimestamp,
+  resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
@@ -361,15 +363,13 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/json",
-  };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untagResource";
-  let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untagResource/{Arn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  const query: any = map({
+    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
   });
+  let body: any;
   return new __HttpRequest({
     protocol,
     hostname,
@@ -377,6 +377,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -840,6 +841,9 @@ const deserializeAws_restJson1SubscribeCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConfigurationException":
+    case "com.amazonaws.codestarnotifications#ConfigurationException":
+      throw await deserializeAws_restJson1ConfigurationExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -887,6 +891,9 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
       throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.codestarnotifications#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -972,6 +979,9 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
       throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.codestarnotifications#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1013,6 +1023,9 @@ const deserializeAws_restJson1UpdateNotificationRuleCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConfigurationException":
+    case "com.amazonaws.codestarnotifications#ConfigurationException":
+      throw await deserializeAws_restJson1ConfigurationExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1215,14 +1228,6 @@ const serializeAws_restJson1ListTargetsFilters = (input: ListTargetsFilter[], co
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_restJson1ListTargetsFilter(entry, context);
-    });
-};
-
-const serializeAws_restJson1TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
     });
 };
 

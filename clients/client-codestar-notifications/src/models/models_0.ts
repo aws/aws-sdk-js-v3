@@ -79,24 +79,31 @@ export enum NotificationRuleStatus {
 }
 
 /**
- * <p>Information about the SNS topics associated with a  notification rule.</p>
+ * <p>Information about the Chatbot topics or Chatbot clients associated with a  notification rule.</p>
  */
 export interface Target {
   /**
-   * <p>The target type. Can be an Amazon SNS topic.</p>
+   * <p>The target type. Can be an Chatbot topic or Chatbot client.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Chatbot topics are specified as <code>SNS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Chatbot clients are specified as <code>AWSChatbotSlack</code>.</p>
+   *             </li>
+   *          </ul>
    */
   TargetType?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the SNS topic.</p>
+   * <p>The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.</p>
    */
   TargetAddress?: string;
 }
 
 export interface CreateNotificationRuleRequest {
   /**
-   * <p>The name for the notification rule. Notifictaion rule names must be unique in your AWS
-   *             account.</p>
+   * <p>The name for the notification rule. Notification rule names must be unique in your Amazon Web Services account.</p>
    */
   Name: string | undefined;
 
@@ -107,20 +114,20 @@ export interface CreateNotificationRuleRequest {
   EventTypeIds: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to associate with the notification rule. Supported resources include pipelines in AWS CodePipeline,
-   *       repositories in AWS CodeCommit, and build projects in AWS CodeBuild.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to associate with the notification rule. Supported resources include pipelines in CodePipeline,
+   *       repositories in CodeCommit, and build projects in CodeBuild.</p>
    */
   Resource: string | undefined;
 
   /**
-   * <p>A list of Amazon Resource Names (ARNs) of SNS topics to associate with the
+   * <p>A list of Amazon Resource Names (ARNs) of Amazon Simple Notification Service topics and Chatbot clients to associate with the
    *       notification rule.</p>
    */
   Targets: Target[] | undefined;
 
   /**
-   * <p>The level of detail to include in the notifications for this resource. BASIC will include only the
-   *         contents of the event as it would appear in AWS CloudWatch. FULL will include any supplemental information
+   * <p>The level of detail to include in the notifications for this resource. <code>BASIC</code> will include only the
+   *         contents of the event as it would appear in Amazon CloudWatch. <code>FULL</code> will include any supplemental information
    *         provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    */
   DetailType: DetailType | string | undefined;
@@ -131,20 +138,20 @@ export interface CreateNotificationRuleRequest {
    *             parameters is received and a token is included, the request returns information about
    *             the initial request that used that token.</p>
    *         <note>
-   *             <p>The AWS SDKs prepopulate client request tokens. If you are using an AWS SDK, an
+   *             <p>The Amazon Web Services SDKs prepopulate client request tokens. If you are using an Amazon Web Services SDK, an
    *                 idempotency token is created for you.</p>
    *         </note>
    */
   ClientRequestToken?: string;
 
   /**
-   * <p>A list of tags to apply to this notification rule. Key names cannot start with "aws". </p>
+   * <p>A list of tags to apply to this notification rule. Key names cannot start with "<code>aws</code>". </p>
    */
   Tags?: Record<string, string>;
 
   /**
-   * <p>The status of the notification rule. The default value is ENABLED. If the status is
-   *             set to DISABLED, notifications aren't sent for the notification rule.</p>
+   * <p>The status of the notification rule. The default value is <code>ENABLED</code>. If the status is
+   *             set to <code>DISABLED</code>, notifications aren't sent for the notification rule.</p>
    */
   Status?: NotificationRuleStatus | string;
 }
@@ -181,7 +188,7 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * <p>A resource with the same name or ID already exists. Notification rule names must be
- *             unique in your AWS account.</p>
+ *             unique in your Amazon Web Services account.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
   readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
@@ -238,14 +245,14 @@ export interface DeleteNotificationRuleResult {
 
 export interface DeleteTargetRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the SNS topic to delete.</p>
+   * <p>The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client to delete.</p>
    */
   TargetAddress: string | undefined;
 
   /**
-   * <p>A Boolean value that can be used to delete all associations with this SNS topic. The
+   * <p>A Boolean value that can be used to delete all associations with this Chatbot topic. The
    *             default value is FALSE. If set to TRUE, all associations between that target and every
-   *             notification rule in your AWS account are deleted.</p>
+   *             notification rule in your Amazon Web Services account are deleted.</p>
    */
   ForceUnsubscribeAll?: boolean;
 }
@@ -264,7 +271,9 @@ export interface DescribeNotificationRuleRequest {
  */
 export interface EventTypeSummary {
   /**
-   * <p>The system-generated ID of the event.</p>
+   * <p>The system-generated ID of the event. For a complete list of event types and IDs, see
+   *           <a href="https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api">Notification concepts</a>
+   *           in the <i>Developer Tools Console User Guide</i>.</p>
    */
   EventTypeId?: string;
 
@@ -297,12 +306,20 @@ export enum TargetStatus {
  */
 export interface TargetSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the SNS topic.</p>
+   * <p>The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.</p>
    */
   TargetAddress?: string;
 
   /**
-   * <p>The type of the target (for example, SNS).</p>
+   * <p>The type of the target (for example, <code>SNS</code>).</p>
+   *          <ul>
+   *             <li>
+   *                <p>Chatbot topics are specified as <code>SNS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Chatbot clients are specified as <code>AWSChatbotSlack</code>.</p>
+   *             </li>
+   *          </ul>
    */
   TargetType?: string;
 
@@ -335,13 +352,13 @@ export interface DescribeNotificationRuleResult {
   Resource?: string;
 
   /**
-   * <p>A list of the SNS topics associated with the notification rule.</p>
+   * <p>A list of the Chatbot topics and Chatbot clients associated with the notification rule.</p>
    */
   Targets?: TargetSummary[];
 
   /**
    * <p>The level of detail included in the notifications for this resource. BASIC will include only the
-   *             contents of the event as it would appear in AWS CloudWatch. FULL will include any supplemental information
+   *             contents of the event as it would appear in Amazon CloudWatch. FULL will include any supplemental information
    *             provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    */
   DetailType?: DetailType | string;
@@ -489,7 +506,7 @@ export interface ListNotificationRulesFilter {
 
   /**
    * <p>The value of the attribute you want to use to filter the returned notification rules. For example, if you specify filtering by <i>RESOURCE</i>
-   *           in Name, you might specify the ARN of a pipeline in AWS CodePipeline for the value.</p>
+   *           in Name, you might specify the ARN of a pipeline in CodePipeline for the value.</p>
    */
   Value: string | undefined;
 }
@@ -539,7 +556,7 @@ export interface ListNotificationRulesResult {
   NextToken?: string;
 
   /**
-   * <p>The list of notification rules for the AWS account, by Amazon Resource Name (ARN) and ID. </p>
+   * <p>The list of notification rules for the Amazon Web Services account, by Amazon Resource Name (ARN) and ID. </p>
    */
   NotificationRules?: NotificationRuleSummary[];
 }
@@ -567,9 +584,9 @@ export enum ListTargetsFilterName {
 /**
  * <p>Information about a filter to apply to the list of returned targets. You can filter by
  *             target type, address, or status. For example, to filter results to notification rules
- *             that have active Amazon SNS topics as targets, you could specify a ListTargetsFilter
- *             Name as TargetType and a Value of SNS, and a Name of TARGET_STATUS and a Value of
- *             ACTIVE.</p>
+ *             that have active Chatbot topics as targets, you could specify a ListTargetsFilter
+ *             Name as <code>TargetType</code> and a Value of <code>SNS</code>, and a Name of <code>TARGET_STATUS</code> and a Value of
+ *             <code>ACTIVE</code>.</p>
  */
 export interface ListTargetsFilter {
   /**
@@ -579,7 +596,7 @@ export interface ListTargetsFilter {
 
   /**
    * <p>The value of the attribute you want to use to filter the returned targets. For example,
-   *             if you specify <i>SNS</i> for the Target type, you could specify an Amazon
+   *             if you specify <code>SNS</code> for the Target type, you could specify an Amazon
    *             Resource Name (ARN) for a topic as the value.</p>
    */
   Value: string | undefined;
@@ -628,7 +645,7 @@ export interface SubscribeRequest {
   Arn: string | undefined;
 
   /**
-   * <p>Information about the SNS topics associated with a  notification rule.</p>
+   * <p>Information about the Chatbot topics or Chatbot clients associated with a  notification rule.</p>
    */
   Target: Target | undefined;
 
@@ -653,7 +670,7 @@ export interface TagResourceRequest {
   Arn: string | undefined;
 
   /**
-   * <p>The list of tags to associate with the resource. Tag key names cannot start with "aws".</p>
+   * <p>The list of tags to associate with the resource. Tag key names cannot start with "<code>aws</code>".</p>
    */
   Tags: Record<string, string> | undefined;
 }
@@ -672,7 +689,7 @@ export interface UnsubscribeRequest {
   Arn: string | undefined;
 
   /**
-   * <p>The ARN of the SNS topic to unsubscribe from the notification rule.</p>
+   * <p>The ARN of the Chatbot topic to unsubscribe from the notification rule.</p>
    */
   TargetAddress: string | undefined;
 }
@@ -717,7 +734,9 @@ export interface UpdateNotificationRuleRequest {
   Status?: NotificationRuleStatus | string;
 
   /**
-   * <p>A list of event types associated with this notification rule.</p>
+   * <p>A list of event types associated with this notification rule. For a complete list of event types and IDs, see
+   *           <a href="https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api">Notification concepts</a>
+   *        in the <i>Developer Tools Console User Guide</i>.</p>
    */
   EventTypeIds?: string[];
 
@@ -729,7 +748,7 @@ export interface UpdateNotificationRuleRequest {
 
   /**
    * <p>The level of detail to include in the notifications for this resource. BASIC will include only the
-   *             contents of the event as it would appear in AWS CloudWatch. FULL will include any supplemental information
+   *             contents of the event as it would appear in Amazon CloudWatch. FULL will include any supplemental information
    *             provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    */
   DetailType?: DetailType | string;

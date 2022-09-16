@@ -33,7 +33,7 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
 
 /**
  * <p>Creates a notification rule for a resource. The rule specifies the events you want
- *             notifications about and the targets (such as SNS topics) where you want to receive
+ *             notifications about and the targets (such as Chatbot topics or Chatbot clients configured for Slack) where you want to receive
  *             them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

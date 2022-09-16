@@ -32,7 +32,7 @@ export interface ListTargetsCommandInput extends ListTargetsRequest {}
 export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the notification rule targets for an AWS account.</p>
+ * <p>Returns a list of the notification rule targets for an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

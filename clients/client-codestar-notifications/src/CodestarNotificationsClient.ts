@@ -313,7 +313,7 @@ export interface CodestarNotificationsClientResolvedConfig extends CodestarNotif
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>DeleteTarget</a>, which removes a notification rule target (SNS topic) from a
+ *                   <a>DeleteTarget</a>, which removes a notification rule target from a
  *           notification rule. </p>
  *             </li>
  *             <li>
@@ -352,7 +352,7 @@ export interface CodestarNotificationsClientResolvedConfig extends CodestarNotif
  *
  *
  *
- *          <p> For information about how to use AWS CodeStar Notifications, see link in the CodeStarNotifications User Guide.
+ *         <p> For information about how to use AWS CodeStar Notifications, see the <a href="https://docs.aws.amazon.com/dtconsole/latest/userguide/what-is-dtconsole.html">Amazon Web Services Developer Tools Console User Guide</a>.
  *     </p>
  */
 export class CodestarNotificationsClient extends __Client<

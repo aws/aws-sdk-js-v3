@@ -32,7 +32,7 @@ export interface ListNotificationRulesCommandInput extends ListNotificationRules
 export interface ListNotificationRulesCommandOutput extends ListNotificationRulesResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the notification rules for an AWS account.</p>
+ * <p>Returns a list of the notification rules for an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
