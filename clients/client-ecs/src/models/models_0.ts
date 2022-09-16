@@ -3476,9 +3476,9 @@ export interface FirelensConfiguration {
 export interface HealthCheck {
   /**
    * <p>A string array representing the command that the container runs to determine if it is
-   * 			healthy. The string array must start with <code>CMD</code> to execute the command
-   * 			arguments directly, or <code>CMD-SHELL</code> to run the command with the container's
-   * 			default shell. </p>
+   * 			healthy. The string array must start with <code>CMD</code> to run the command arguments
+   * 			directly, or <code>CMD-SHELL</code> to run the command with the container's default
+   * 			shell. </p>
    * 		       <p> When you use the Amazon Web Services Management Console JSON panel, the Command Line Interface, or the APIs, enclose the list
    * 			of commands in brackets.</p>
    * 		       <p>
@@ -4246,8 +4246,10 @@ export interface ContainerDefinition {
    * 			300 MiB. This configuration would allow the container to only reserve 128 MiB of memory
    * 			from the remaining resources on the container instance, but also allow the container to
    * 			consume more memory resources when needed.</p>
-   * 		       <p>The Docker daemon reserves a minimum of 4 MiB of memory for a container. Therefore, we
-   * 			recommend that you specify fewer than 4 MiB of memory for your containers. </p>
+   * 		       <p>The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a
+   * 			container. So, don't specify less than 6 MiB of memory for your containers. </p>
+   * 		       <p>The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a
+   * 			container. So, don't specify less than 4 MiB of memory for your containers.</p>
    */
   memoryReservation?: number;
 
@@ -4400,7 +4402,7 @@ export interface ContainerDefinition {
 
   /**
    * <p>The dependencies defined for container startup and shutdown. A container can contain
-   * 			multiple dependencies. When a dependency is defined for container startup, for container
+   * 			multiple dependencies on other containers in a task definition. When a dependency is defined for container startup, for container
    * 			shutdown it is reversed.</p>
    * 		       <p>For tasks using the EC2 launch type, the container instances require at
    * 			least version 1.26.0 of the container agent to turn on container dependencies. However,
@@ -4943,7 +4945,7 @@ export enum OSFamily {
 
 /**
  * <p>Information about the platform for the Amazon ECS service or task.</p>
- * 		       <p>For more informataion about <code>RuntimePlatform</code>, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform">RuntimePlatform</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 		       <p>For more information about <code>RuntimePlatform</code>, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform">RuntimePlatform</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface RuntimePlatform {
   /**
@@ -5389,10 +5391,21 @@ export interface TaskDefinition {
    *                 <p>1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)</p>
    *             </li>
    *             <li>
-   *                 <p>2048 (2 vCPU) - Available <code>memory</code> values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)</p>
+   *                 <p>2048 (2 vCPU) - Available <code>memory</code> values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)</p>
    *             </li>
    *             <li>
-   *                 <p>4096 (4 vCPU) - Available <code>memory</code> values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)</p>
+   *                 <p>4096 (4 vCPU) - Available <code>memory</code> values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)</p>
+   *             </li>
+   *             <li>
+   *                 <p>8192 (8 vCPU)  - Available <code>memory</code> values: 16 GB and 60 GB in 4 GB increments</p>
+   *
+   *                  <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
+   *             </li>
+   *             <li>
+   *                 <p>16384 (16vCPU)  - Available <code>memory</code> values: 32GB and 120 GB in 8 GB increments</p>
+   *                  <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
    *             </li>
    *          </ul>
    */
@@ -5423,6 +5436,16 @@ export interface TaskDefinition {
    *             </li>
    *             <li>
    *                 <p>Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available <code>cpu</code> values: 4096 (4 vCPU)</p>
+   *             </li>
+   *             <li>
+   *                 <p>Between 16 GB and 60 GB in 4 GB increments - Available <code>cpu</code> values: 8192 (8 vCPU)</p>
+   *                 <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Between 32GB and 120 GB in 8 GB increments - Available <code>cpu</code> values: 16384 (16 vCPU)</p>
+   *                 <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
    *             </li>
    *          </ul>
    */
@@ -6235,10 +6258,21 @@ export interface Task {
    *                 <p>1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)</p>
    *             </li>
    *             <li>
-   *                 <p>2048 (2 vCPU) - Available <code>memory</code> values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)</p>
+   *                 <p>2048 (2 vCPU) - Available <code>memory</code> values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)</p>
    *             </li>
    *             <li>
-   *                 <p>4096 (4 vCPU) - Available <code>memory</code> values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)</p>
+   *                 <p>4096 (4 vCPU) - Available <code>memory</code> values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)</p>
+   *             </li>
+   *             <li>
+   *                 <p>8192 (8 vCPU)  - Available <code>memory</code> values: 16 GB and 60 GB in 4 GB increments</p>
+   *
+   *                  <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
+   *             </li>
+   *             <li>
+   *                 <p>16384 (16vCPU)  - Available <code>memory</code> values: 32GB and 120 GB in 8 GB increments</p>
+   *                  <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
    *             </li>
    *          </ul>
    */
@@ -6332,6 +6366,16 @@ export interface Task {
    *             </li>
    *             <li>
    *                 <p>Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available <code>cpu</code> values: 4096 (4 vCPU)</p>
+   *             </li>
+   *             <li>
+   *                 <p>Between 16 GB and 60 GB in 4 GB increments - Available <code>cpu</code> values: 8192 (8 vCPU)</p>
+   *                 <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Between 32GB and 120 GB in 8 GB increments - Available <code>cpu</code> values: 16384 (16 vCPU)</p>
+   *                 <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
    *             </li>
    *          </ul>
    */
@@ -7676,9 +7720,10 @@ export interface RegisterTaskDefinitionRequest {
    * 			         <p>Task-level CPU and memory parameters are ignored for Windows containers. We
    * 				recommend specifying container-level resources for Windows containers.</p>
    * 		       </note>
-   * 		       <p>If you're using the EC2 launch type, this field is optional. Supported
-   * 			values are between <code>128</code> CPU units (<code>0.125</code> vCPUs) and
-   * 				<code>10240</code> CPU units (<code>10</code> vCPUs).</p>
+   * 		       <p>If you're using the EC2 launch type, this field is optional. Supported values
+   * 			are between <code>128</code> CPU units (<code>0.125</code> vCPUs) and <code>10240</code>
+   * 			CPU units (<code>10</code> vCPUs). If you do not specify a value, the parameter is
+   * 			ignored.</p>
    * 		       <p>If you're using the Fargate launch type, this field is required and you
    * 			must use one of the following values, which determines your range of supported values
    * 			for the <code>memory</code> parameter:</p>
@@ -7695,10 +7740,21 @@ export interface RegisterTaskDefinitionRequest {
    *                 <p>1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)</p>
    *             </li>
    *             <li>
-   *                 <p>2048 (2 vCPU) - Available <code>memory</code> values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)</p>
+   *                 <p>2048 (2 vCPU) - Available <code>memory</code> values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)</p>
    *             </li>
    *             <li>
-   *                 <p>4096 (4 vCPU) - Available <code>memory</code> values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)</p>
+   *                 <p>4096 (4 vCPU) - Available <code>memory</code> values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)</p>
+   *             </li>
+   *             <li>
+   *                 <p>8192 (8 vCPU)  - Available <code>memory</code> values: 16 GB and 60 GB in 4 GB increments</p>
+   *
+   *                  <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
+   *             </li>
+   *             <li>
+   *                 <p>16384 (16vCPU)  - Available <code>memory</code> values: 32GB and 120 GB in 8 GB increments</p>
+   *                  <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
    *             </li>
    *          </ul>
    */
@@ -7735,6 +7791,16 @@ export interface RegisterTaskDefinitionRequest {
    *             </li>
    *             <li>
    *                 <p>Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available <code>cpu</code> values: 4096 (4 vCPU)</p>
+   *             </li>
+   *             <li>
+   *                 <p>Between 16 GB and 60 GB in 4 GB increments - Available <code>cpu</code> values: 8192 (8 vCPU)</p>
+   *                 <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Between 32GB and 120 GB in 8 GB increments - Available <code>cpu</code> values: 16384 (16 vCPU)</p>
+   *                 <p>This option requires Linux platform <code>1.4.0</code> or
+   *                                         later.</p>
    *             </li>
    *          </ul>
    */
