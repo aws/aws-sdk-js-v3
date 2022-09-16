@@ -1,9 +1,17 @@
-const { Before, Given, Then, When } = require("@cucumber/cucumber");
+const { After, Before, Given, Then, When } = require("@cucumber/cucumber");
 
-Before({ tags: "@buckets" }, function (scenario, callback) {
+Before({ tags: "@buckets" }, function () {
   const { S3 } = require("../../../clients/client-s3");
   this.S3 = S3;
-  callback();
+});
+
+After({ tags: "@buckets" }, function (callback) {
+  if (this.bucket) {
+    this.request("s3", "deleteBucket", { Bucket: this.bucket }, callback);
+    this.bucket = undefined;
+  } else {
+    callback();
+  }
 });
 
 Given("I am using the S3 {string} region", function (region, callback) {
