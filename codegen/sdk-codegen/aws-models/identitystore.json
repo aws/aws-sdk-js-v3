@@ -2072,11 +2072,15 @@
       }
     },
     "com.amazonaws.identitystore#RetryAfterSeconds": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.identitystore#SensitiveBooleanType": {
       "type": "boolean",
       "traits": {
+        "smithy.api#default": false,
         "smithy.api#sensitive": {}
       }
     },

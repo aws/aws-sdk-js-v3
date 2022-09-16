@@ -2753,6 +2753,7 @@
     "com.amazonaws.amplifyuibuilder#ListComponentsLimit": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -2788,6 +2789,7 @@
         "maxResults": {
           "target": "com.amazonaws.amplifyuibuilder#ListComponentsLimit",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of components to retrieve.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -2847,6 +2849,7 @@
     "com.amazonaws.amplifyuibuilder#ListFormsLimit": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -2882,6 +2885,7 @@
         "maxResults": {
           "target": "com.amazonaws.amplifyuibuilder#ListFormsLimit",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of forms to retrieve.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -2941,6 +2945,7 @@
     "com.amazonaws.amplifyuibuilder#ListThemesLimit": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -2976,6 +2981,7 @@
         "maxResults": {
           "target": "com.amazonaws.amplifyuibuilder#ListThemesLimit",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of theme results to return in the response.</p>",
             "smithy.api#httpQuery": "maxResults"
           }

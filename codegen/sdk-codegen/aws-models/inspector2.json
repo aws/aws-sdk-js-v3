@@ -188,7 +188,10 @@
       }
     },
     "com.amazonaws.inspector2#AggCounts": {
-      "type": "long"
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.inspector2#AggregationFindingType": {
       "type": "string",
@@ -4996,6 +4999,7 @@
     "com.amazonaws.inspector2#MonthlyCostEstimate": {
       "type": "double",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0
         }
@@ -5209,7 +5213,10 @@
       }
     },
     "com.amazonaws.inspector2#PackageEpoch": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.inspector2#PackageFilter": {
       "type": "structure",
@@ -7047,6 +7054,7 @@
     "com.amazonaws.inspector2#UsageValue": {
       "type": "double",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0
         }
