@@ -45,10 +45,6 @@ Given("I create a bucket", function (callback) {
   });
 });
 
-When("I delete the bucket", function (callback) {
-  this.request("s3", "deleteBucket", { Bucket: this.bucket }, callback);
-});
-
 Then("the bucket should exist", function (next) {
   this.waitForBucketExists(this.s3, { Bucket: this.bucket }, next);
 });
