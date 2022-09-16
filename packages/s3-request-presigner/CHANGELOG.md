@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.173.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.172.0...v3.173.0) (2022-09-16)
+
+
+### Bug Fixes
+
+* **s3-request-presigner:** add port to host name if missed ([#3897](https://github.com/aws/aws-sdk-js-v3/issues/3897)) ([37f574f](https://github.com/aws/aws-sdk-js-v3/commit/37f574fe33546720177866ed1c34333c68066c8e))
+
+
+
+
+
 # [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
 
 **Note:** Version bump only for package @aws-sdk/s3-request-presigner

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.173.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.172.0...v3.173.0) (2022-09-16)
+
+
+### Bug Fixes
+
+* **e2e:** delete cloudwatch alarms in After call ([#3956](https://github.com/aws/aws-sdk-js-v3/issues/3956)) ([b439cea](https://github.com/aws/aws-sdk-js-v3/commit/b439cea932aadff86b99d356434c5ae11c066262))
+* **e2e:** delete DynamoDB table in AfterAll call ([#3960](https://github.com/aws/aws-sdk-js-v3/issues/3960)) ([b6c0c4a](https://github.com/aws/aws-sdk-js-v3/commit/b6c0c4aad6a4c0081cd4918765dd094b4f03d461))
+* **e2e:** delete elasticache resources in After call ([#3957](https://github.com/aws/aws-sdk-js-v3/issues/3957)) ([8c3e174](https://github.com/aws/aws-sdk-js-v3/commit/8c3e174232aca4dee148554579d9159185881314))
+* **e2e:** delete elasticbeanstalk app in After call ([#3958](https://github.com/aws/aws-sdk-js-v3/issues/3958)) ([8efcc12](https://github.com/aws/aws-sdk-js-v3/commit/8efcc125bf4915910bcf104794bfefe1bd4c6f51))
+* **e2e:** delete s3 buckets in After Call ([#3962](https://github.com/aws/aws-sdk-js-v3/issues/3962)) ([5c92d80](https://github.com/aws/aws-sdk-js-v3/commit/5c92d808d82ea8bcace40d54dd63709a017b0a5c))
+* **e2e:** delete sns topic in After call ([#3959](https://github.com/aws/aws-sdk-js-v3/issues/3959)) ([9195a8c](https://github.com/aws/aws-sdk-js-v3/commit/9195a8cac1795c2af33294d672c109aa9a3e2131))
+* **s3-request-presigner:** add port to host name if missed ([#3897](https://github.com/aws/aws-sdk-js-v3/issues/3897)) ([37f574f](https://github.com/aws/aws-sdk-js-v3/commit/37f574fe33546720177866ed1c34333c68066c8e))
+
+
+### Features
+
+* **client-codestar-notifications:** This release adds tag based access control for the UntagResource API. ([5c923c2](https://github.com/aws/aws-sdk-js-v3/commit/5c923c2706dc6053287a8995a08092d2794d0276))
+
+
+
+
+
 # [3.172.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.171.0...v3.172.0) (2022-09-15)
 
 
