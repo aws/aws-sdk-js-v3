@@ -246,6 +246,7 @@
         "samplingRate": {
           "target": "com.amazonaws.evidently#SplitWeight",
           "traits": {
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience\n      is the total audience minus the audience that you have allocated to overrides or current launches of\n      this feature.</p>\n         <p>This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.</p>"
           }
         },
@@ -2223,6 +2224,7 @@
         "period": {
           "target": "com.amazonaws.evidently#ResultsPeriod",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>In seconds, the amount of time to aggregate results together. </p>"
           }
         }
@@ -4338,6 +4340,7 @@
     "com.amazonaws.evidently#ResultsPeriod": {
       "type": "long",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 300,
           "max": 90000
@@ -4777,6 +4780,7 @@
     "com.amazonaws.evidently#SplitWeight": {
       "type": "long",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 100000
@@ -5518,6 +5522,7 @@
         "samplingRate": {
           "target": "com.amazonaws.evidently#SplitWeight",
           "traits": {
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience\n      is the total audience minus the audience that you have allocated to overrides or current launches of\n      this feature.</p>\n         <p>This is represented in thousandths of a percent. For example, specify 20,000 to allocate 20% of the available audience.</p>"
           }
         },
