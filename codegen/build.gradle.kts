@@ -28,7 +28,7 @@ allprojects {
         mavenCentral()
     }
     group = "software.amazon.smithy.typescript"
-    version = "0.11.0"
+    version = "0.12.0"
 }
 
 extra["smithyVersion"] = "[1.25.0,1.26.0["

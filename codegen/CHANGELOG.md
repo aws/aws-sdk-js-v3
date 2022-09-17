@@ -1,5 +1,31 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.12.0 (2022-09-19)
+
+### Features
+
+* Added support for endpoints v2. ([#3942](https://github.com/aws/aws-sdk-js-v3/pull/3942))
+* Added support for multiple error headers. ([#3852](https://github.com/aws/aws-sdk-js-v3/pull/3852))
+* Added support for customer middleware for STS client. ([#3887](https://github.com/aws/aws-sdk-js-v3/pull/3887))
+* Added fallback to status code for unmodeled errors. ([#3752](https://github.com/aws/aws-sdk-js-v3/pull/3752))
+* Removed unnecessary S3 Size modification from inte to long. ([#3664](https://github.com/aws/aws-sdk-js-v3/pull/3664))
+* Removed deprecated S3 regional endpoints middleware. ([#3656](https://github.com/aws/aws-sdk-js-v3/pull/3656))
+* Added support for recursion detection middleware in Lambda. ([#3654](https://github.com/aws/aws-sdk-js-v3/pull/3654))
+* Used Record type instead of Object. ([#3659](https://github.com/aws/aws-sdk-js-v3/pull/3659))
+* Added check for javascript property validity for property access. ([#3649](https://github.com/aws/aws-sdk-js-v3/pull/3649))
+* Added codegen indicator comment to all generated files. ([#3592](https://github.com/aws/aws-sdk-js-v3/pull/3592))
+* Updated HTTP2 handler to accept parameters from default config provider. ([#3580](https://github.com/aws/aws-sdk-js-v3/pull/3580), [#3810](https://github.com/aws/aws-sdk-js-v3/pull/3810))
+* Enabled HTTP2 support based on protocol trait definition. ([#3577](https://github.com/aws/aws-sdk-js-v3/pull/3577))
+* Added support for multi-region sigv4a signer. ([#3518](https://github.com/aws/aws-sdk-js-v3/pull/3518))
+
+### Bug Fixes
+
+* Fixed README generation to handle service documentation containing `${}`. ([#3834](https://github.com/aws/aws-sdk-js-v3/pull/3834))
+* Fixed error code parsing when it is a number. ([#3371](https://github.com/aws/aws-sdk-js-v3/pull/3371))
+* Fixed serialization of event stream payloads. ([#3655](https://github.com/aws/aws-sdk-js-v3/pull/3655))
+* Fixed endpoints for S3's WriteGetObjectResponse. ([#3662](https://github.com/aws/aws-sdk-js-v3/pull/3662)) 
+* Fixed handling of empty xml tags. ([#3623](https://github.com/aws/aws-sdk-js-v3/pull/3623))
+
 ## 0.11.0 (2022-04-04)
 
 ### Features
