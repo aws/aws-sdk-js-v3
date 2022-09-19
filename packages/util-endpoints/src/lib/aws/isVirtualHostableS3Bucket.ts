@@ -30,7 +30,7 @@ export const isVirtualHostableS3Bucket = (value: string, allowSubDomains = false
     return false;
   }
 
-  // Value must not be formatted as an IP address.
+  // Value must not be an IP address.
   if (isIpAddress(value)) {
     return false;
   }
