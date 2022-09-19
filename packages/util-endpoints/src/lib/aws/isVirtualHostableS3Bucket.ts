@@ -1,4 +1,5 @@
-import { isValidHostLabel } from "packages/util-endpoints/dist-types/lib";
+import { isIpAddress } from "../isIpAddress";
+import { isValidHostLabel } from "../isValidHostLabel";
 
 /**
  * Evaluates whether a string is a DNS compatible bucket name and can be used with
@@ -29,7 +30,10 @@ export const isVirtualHostableS3Bucket = (value: string, allowSubDomains = false
     return false;
   }
 
-  // ToDo: Value must not be formatted as an IP address.
+  // Value must not be formatted as an IP address.
+  if (isIpAddress(value)) {
+    return false;
+  }
 
   return true;
 };
