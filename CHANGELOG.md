@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.174.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.173.0...v3.174.0) (2022-09-19)
+
+
+### Features
+
+* **client-cloudtrail:** This release includes support for importing existing trails into CloudTrail Lake. ([464cb91](https://github.com/aws/aws-sdk-js-v3/commit/464cb91ea65053f01eb9c49c3a45e962b1bb1764))
+* **client-ec2:** This release adds CapacityAllocations field to DescribeCapacityReservations ([22b9a0e](https://github.com/aws/aws-sdk-js-v3/commit/22b9a0e6996809435dee2611b42e6ec654086ac0))
+* **client-mediaconnect:** This change allows the customer to use the SRT Caller protocol as part of their flows ([6e0d3c0](https://github.com/aws/aws-sdk-js-v3/commit/6e0d3c05917c4aabb700e227bcd7797a18ef2e33))
+* **client-rds:** This release adds support for Amazon RDS Proxy with SQL Server compatibility. ([a8bb844](https://github.com/aws/aws-sdk-js-v3/commit/a8bb844bb67136309b8764015d6ab38f98bf9fe4))
+* **clients:** update client endpoints as of 2022-09-19 ([c7adf6b](https://github.com/aws/aws-sdk-js-v3/commit/c7adf6b0c4fc6f171ccb9bb019486c5b1712734c))
+* **util-endpoints:** add aws.isVirtualHostableS3Bucket ([#3967](https://github.com/aws/aws-sdk-js-v3/issues/3967)) ([2fbe419](https://github.com/aws/aws-sdk-js-v3/commit/2fbe4199b971b0da966369c36a28521ba389a466))
+
+
+
+
+
 # [3.173.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.172.0...v3.173.0) (2022-09-16)
 
 

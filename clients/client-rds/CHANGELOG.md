@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.174.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.173.0...v3.174.0) (2022-09-19)
+
+
+### Features
+
+* **client-rds:** This release adds support for Amazon RDS Proxy with SQL Server compatibility. ([a8bb844](https://github.com/aws/aws-sdk-js-v3/commit/a8bb844bb67136309b8764015d6ab38f98bf9fe4))
+
+
+
+
+
 # [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

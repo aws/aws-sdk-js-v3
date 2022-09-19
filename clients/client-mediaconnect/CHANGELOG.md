@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.174.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.173.0...v3.174.0) (2022-09-19)
+
+
+### Features
+
+* **client-mediaconnect:** This change allows the customer to use the SRT Caller protocol as part of their flows ([6e0d3c0](https://github.com/aws/aws-sdk-js-v3/commit/6e0d3c05917c4aabb700e227bcd7797a18ef2e33))
+
+
+
+
+
 # [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconnect
