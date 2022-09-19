@@ -11,4 +11,13 @@
  * If allowSubDomains is true, then the provided value may be zero or more dotted
  * values, which are each validated as per rules above.
  */
-export const isVirtualHostableS3Bucket = (value: string, allowSubDomains = false) => {};
+export const isVirtualHostableS3Bucket = (value: string, allowSubDomains = false) => {
+  if (allowSubDomains) {
+    for (const label of value.split(".")) {
+      if (!isVirtualHostableS3Bucket(label)) {
+        return false;
+      }
+    }
+    return true;
+  }
+};
