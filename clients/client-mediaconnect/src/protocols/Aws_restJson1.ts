@@ -960,6 +960,8 @@ export const serializeAws_restJson1UpdateFlowSourceCommand = async (
     ...(input.Protocol != null && { protocol: input.Protocol }),
     ...(input.SenderControlPort != null && { senderControlPort: input.SenderControlPort }),
     ...(input.SenderIpAddress != null && { senderIpAddress: input.SenderIpAddress }),
+    ...(input.SourceListenerAddress != null && { sourceListenerAddress: input.SourceListenerAddress }),
+    ...(input.SourceListenerPort != null && { sourceListenerPort: input.SourceListenerPort }),
     ...(input.StreamId != null && { streamId: input.StreamId }),
     ...(input.VpcInterfaceName != null && { vpcInterfaceName: input.VpcInterfaceName }),
     ...(input.WhitelistCidr != null && { whitelistCidr: input.WhitelistCidr }),
@@ -3134,6 +3136,8 @@ const serializeAws_restJson1SetSourceRequest = (input: SetSourceRequest, context
     ...(input.Protocol != null && { protocol: input.Protocol }),
     ...(input.SenderControlPort != null && { senderControlPort: input.SenderControlPort }),
     ...(input.SenderIpAddress != null && { senderIpAddress: input.SenderIpAddress }),
+    ...(input.SourceListenerAddress != null && { sourceListenerAddress: input.SourceListenerAddress }),
+    ...(input.SourceListenerPort != null && { sourceListenerPort: input.SourceListenerPort }),
     ...(input.StreamId != null && { streamId: input.StreamId }),
     ...(input.VpcInterfaceName != null && { vpcInterfaceName: input.VpcInterfaceName }),
     ...(input.WhitelistCidr != null && { whitelistCidr: input.WhitelistCidr }),
@@ -3716,6 +3720,8 @@ const deserializeAws_restJson1Transport = (output: any, context: __SerdeContext)
     SenderControlPort: __expectInt32(output.senderControlPort),
     SenderIpAddress: __expectString(output.senderIpAddress),
     SmoothingLatency: __expectInt32(output.smoothingLatency),
+    SourceListenerAddress: __expectString(output.sourceListenerAddress),
+    SourceListenerPort: __expectInt32(output.sourceListenerPort),
     StreamId: __expectString(output.streamId),
   } as any;
 };

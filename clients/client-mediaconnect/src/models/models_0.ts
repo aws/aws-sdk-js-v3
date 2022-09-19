@@ -288,6 +288,7 @@ export enum Protocol {
   rist = "rist",
   rtp = "rtp",
   rtp_fec = "rtp-fec",
+  srt_caller = "srt-caller",
   srt_listener = "srt-listener",
   st2110_jpegxs = "st2110-jpegxs",
   zixi_pull = "zixi-pull",
@@ -951,6 +952,16 @@ export interface Transport {
   SmoothingLatency?: number;
 
   /**
+   * Source IP or domain name for SRT-caller protocol.
+   */
+  SourceListenerAddress?: string;
+
+  /**
+   * Source port for SRT-caller protocol.
+   */
+  SourceListenerPort?: number;
+
+  /**
    * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
    */
   StreamId?: string;
@@ -1171,6 +1182,16 @@ export interface SetSourceRequest {
    * The IP address that the flow communicates with to initiate connection with the sender.
    */
   SenderIpAddress?: string;
+
+  /**
+   * Source IP or domain name for SRT-caller protocol.
+   */
+  SourceListenerAddress?: string;
+
+  /**
+   * Source port for SRT-caller protocol.
+   */
+  SourceListenerPort?: number;
 
   /**
    * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -2666,6 +2687,16 @@ export interface UpdateFlowSourceRequest {
    * The ARN of the source that you want to update.
    */
   SourceArn: string | undefined;
+
+  /**
+   * Source IP or domain name for SRT-caller protocol.
+   */
+  SourceListenerAddress?: string;
+
+  /**
+   * Source port for SRT-caller protocol.
+   */
+  SourceListenerPort?: number;
 
   /**
    * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
