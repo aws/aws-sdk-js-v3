@@ -2,11 +2,12 @@
 import {
   _InstanceType,
   ActiveInstance,
+  AddressAttribute,
+  AddressAttributeName,
   AllocationState,
   AllowsMultipleInstanceTypes,
   AssociationStatus,
   AttachmentStatus,
-  AttributeValue,
   AutoPlacement,
   BundleTask,
   ByoipCidr,
@@ -32,6 +33,7 @@ import {
   TransportProtocol,
 } from "./models_0";
 import {
+  AttributeValue,
   BlockDeviceMapping,
   CapacityReservationPreference,
   CapacityReservationTargetResponse,
@@ -73,6 +75,47 @@ import {
   TrafficType,
 } from "./models_1";
 import { Filter, FleetStateCode, InstanceTagNotificationAttribute } from "./models_2";
+
+export interface DescribeAddressesAttributeRequest {
+  /**
+   * <p>[EC2-VPC] The allocation IDs.</p>
+   */
+  AllocationIds?: string[];
+
+  /**
+   * <p>The attribute of the IP address.</p>
+   */
+  Attribute?: AddressAttributeName | string;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DescribeAddressesAttributeResult {
+  /**
+   * <p>Information about the IP addresses.</p>
+   */
+  Addresses?: AddressAttribute[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
 
 export interface DescribeAggregateIdFormatRequest {
   /**
@@ -3294,10 +3337,15 @@ export interface FleetSpotMaintenanceStrategies {
 export interface SpotOptions {
   /**
    * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance
-   *          pools specified by the EC2 Fleet.</p>
+   *          pools specified by the EC2 Fleet launch configuration. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation strategies for Spot Instances</a> in the
+   *          <i>Amazon EC2 User Guide</i>.</p>
    *          <p>
-   *             <code>lowest-price</code> - EC2 Fleet launches instances from the Spot Instance pools with the lowest
-   *          price.</p>
+   *             <code>lowest-price</code> - EC2 Fleet launches instances from the lowest-price Spot Instance pool that
+   *          has available capacity. If the cheapest pool doesn't have available capacity, the Spot Instances
+   *          come from the next cheapest pool that has available capacity. If a pool runs out of
+   *          capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your
+   *          request by drawing from the next cheapest pool. To ensure that your desired capacity is
+   *          met, you might receive Spot Instances from several pools.</p>
    *          <p>
    *             <code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance pools that you
    *          specify.</p>
@@ -6752,13 +6800,14 @@ export interface InstanceMetadataOptionsResponse {
   /**
    * <p>The state of token usage for your instance metadata requests.</p>
    *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are
-   *             returned. If you retrieve the IAM role credentials using a valid signed
-   *             token, the version 2.0 role credentials are returned.</p>
-   *         <p>If the state is <code>required</code>, you must send a signed token header with any
-   *             instance metadata retrieval requests. In this state, retrieving the IAM
-   *             role credential always returns the version 2.0 credentials; the version 1.0 credentials
-   *             are not available.</p>
+   *             with or without a session token on your request. If you retrieve the IAM
+   *             role credentials without a token, the version 1.0 role credentials are returned. If you
+   *             retrieve the IAM role credentials using a valid session token, the
+   *             version 2.0 role credentials are returned.</p>
+   *         <p>If the state is <code>required</code>, you must send a session token with any instance
+   *             metadata retrieval requests. In this state, retrieving the IAM role
+   *             credentials always returns the version 2.0 credentials; the version 1.0 credentials are
+   *             not available.</p>
    *         <p>Default: <code>optional</code>
    *          </p>
    */
@@ -7426,10 +7475,6 @@ export interface Instance {
  * <p>Describes a launch request for one or more instances, and includes owner, requester,
  *             and security group information that applies to all instances in the launch
  *             request.</p>
- *
- *         <note>
- *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *         </note>
  */
 export interface Reservation {
   /**
@@ -9672,46 +9717,18 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsRequest {
 }
 
 /**
- * <p>Describes a local gateway virtual interface group.</p>
+ * @internal
  */
-export interface LocalGatewayVirtualInterfaceGroup {
-  /**
-   * <p>The ID of the virtual interface group.</p>
-   */
-  LocalGatewayVirtualInterfaceGroupId?: string;
+export const DescribeAddressesAttributeRequestFilterSensitiveLog = (obj: DescribeAddressesAttributeRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The IDs of the virtual interfaces.</p>
-   */
-  LocalGatewayVirtualInterfaceIds?: string[];
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   */
-  LocalGatewayId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the local gateway virtual interface group.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The tags assigned to the virtual interface group.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface DescribeLocalGatewayVirtualInterfaceGroupsResult {
-  /**
-   * <p>The virtual interface groups.</p>
-   */
-  LocalGatewayVirtualInterfaceGroups?: LocalGatewayVirtualInterfaceGroup[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DescribeAddressesAttributeResultFilterSensitiveLog = (obj: DescribeAddressesAttributeResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11476,22 +11493,6 @@ export const DescribeLocalGatewaysResultFilterSensitiveLog = (obj: DescribeLocal
  */
 export const DescribeLocalGatewayVirtualInterfaceGroupsRequestFilterSensitiveLog = (
   obj: DescribeLocalGatewayVirtualInterfaceGroupsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocalGatewayVirtualInterfaceGroupFilterSensitiveLog = (obj: LocalGatewayVirtualInterfaceGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayVirtualInterfaceGroupsResultFilterSensitiveLog = (
-  obj: DescribeLocalGatewayVirtualInterfaceGroupsResult
 ): any => ({
   ...obj,
 });

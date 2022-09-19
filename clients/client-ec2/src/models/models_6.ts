@@ -49,6 +49,7 @@ import {
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
   InstanceState,
+  Monitoring,
   TpmSupportValues,
 } from "./models_3";
 import {
@@ -63,7 +64,36 @@ import {
   SpotInstanceRequest,
   SpotPlacement,
 } from "./models_4";
-import { CapacityReservationSpecification, InstanceMonitoring, Purchase } from "./models_5";
+import { CapacityReservationSpecification, Purchase } from "./models_5";
+
+export interface MonitorInstancesRequest {
+  /**
+   * <p>The IDs of the instances.</p>
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Describes the monitoring of an instance.</p>
+ */
+export interface InstanceMonitoring {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The monitoring for the instance.</p>
+   */
+  Monitoring?: Monitoring;
+}
 
 export interface MonitorInstancesResult {
   /**
@@ -2290,13 +2320,14 @@ export interface InstanceMetadataOptionsRequest {
   /**
    * <p>The state of token usage for your instance metadata requests.</p>
    *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are
-   *             returned. If you retrieve the IAM role credentials using a valid signed
-   *             token, the version 2.0 role credentials are returned.</p>
-   *         <p>If the state is <code>required</code>, you must send a signed token header with any
-   *             instance metadata retrieval requests. In this state, retrieving the IAM
-   *             role credentials always returns the version 2.0 credentials; the version 1.0 credentials
-   *             are not available.</p>
+   *             with or without a session token on your request. If you retrieve the IAM
+   *             role credentials without a token, the version 1.0 role credentials are returned. If you
+   *             retrieve the IAM role credentials using a valid session token, the
+   *             version 2.0 role credentials are returned.</p>
+   *         <p>If the state is <code>required</code>, you must send a session token with any instance
+   *             metadata retrieval requests. In this state, retrieving the IAM role
+   *             credentials always returns the version 2.0 credentials; the version 1.0 credentials are
+   *             not available.</p>
    *         <p>Default: <code>optional</code>
    *          </p>
    */
@@ -3806,6 +3837,20 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const MonitorInstancesRequestFilterSensitiveLog = (obj: MonitorInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceMonitoringFilterSensitiveLog = (obj: InstanceMonitoring): any => ({
+  ...obj,
+});
 
 /**
  * @internal

@@ -2075,6 +2075,10 @@ export enum AllocationStrategy {
   LOWEST_PRICE = "lowestPrice",
 }
 
+export enum AllocationType {
+  used = "used",
+}
+
 /**
  * <p>Describes a principal.</p>
  */
@@ -5026,6 +5030,23 @@ export interface CreateCapacityReservationRequest {
   PlacementGroupArn?: string;
 }
 
+/**
+ * <p>Information about instance capacity usage for a Capacity Reservation.</p>
+ */
+export interface CapacityAllocation {
+  /**
+   * <p>The usage type. <code>used</code> indicates that the instance capacity is
+   * 			in use by instances that are running in the Capacity Reservation.</p>
+   */
+  AllocationType?: AllocationType | string;
+
+  /**
+   * <p>The amount of instance capacity associated with the usage. For example a value of
+   * 			<code>4</code> indicates that instance capacity for 4 instances is currently in use.</p>
+   */
+  Count?: number;
+}
+
 export enum CapacityReservationState {
   active = "active",
   cancelled = "cancelled",
@@ -5223,6 +5244,11 @@ export interface CapacityReservation {
    * 			<i>Amazon EC2 User Guide</i>.</p>
    */
   PlacementGroupArn?: string;
+
+  /**
+   * <p>Information about instance capacity usage.</p>
+   */
+  CapacityAllocations?: CapacityAllocation[];
 }
 
 export interface CreateCapacityReservationResult {
@@ -7077,31 +7103,6 @@ export interface CreateDhcpOptionsRequest {
 }
 
 /**
- * <p>Describes a value for a resource attribute that is a String.</p>
- */
-export interface AttributeValue {
-  /**
-   * <p>The attribute value. The value is case-sensitive.</p>
-   */
-  Value?: string;
-}
-
-/**
- * <p>Describes a DHCP configuration option.</p>
- */
-export interface DhcpConfiguration {
-  /**
-   * <p>The name of a DHCP option.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>One or more values for the DHCP option.</p>
-   */
-  Values?: AttributeValue[];
-}
-
-/**
  * @internal
  */
 export const AcceleratorCountFilterSensitiveLog = (obj: AcceleratorCount): any => ({
@@ -8517,6 +8518,13 @@ export const CreateCapacityReservationRequestFilterSensitiveLog = (obj: CreateCa
 /**
  * @internal
  */
+export const CapacityAllocationFilterSensitiveLog = (obj: CapacityAllocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CapacityReservationFilterSensitiveLog = (obj: CapacityReservation): any => ({
   ...obj,
 });
@@ -8799,19 +8807,5 @@ export const NewDhcpConfigurationFilterSensitiveLog = (obj: NewDhcpConfiguration
  * @internal
  */
 export const CreateDhcpOptionsRequestFilterSensitiveLog = (obj: CreateDhcpOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DhcpConfigurationFilterSensitiveLog = (obj: DhcpConfiguration): any => ({
   ...obj,
 });

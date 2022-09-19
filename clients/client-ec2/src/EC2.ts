@@ -11649,9 +11649,6 @@ export class EC2 extends EC2Client {
    *             not specify any instance IDs at all, the call fails. If you describe instances and
    *             specify only instance IDs that are in an unaffected zone, the call works
    *             normally.</p>
-   *         <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *         </note>
    */
   public describeInstances(
     args: DescribeInstancesCommandInput,
@@ -12851,9 +12848,6 @@ export class EC2 extends EC2Client {
    * <p>Describes one or more of the Reserved Instances that you purchased.</p>
    *          <p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
    * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          </note>
    */
   public describeReservedInstances(
     args: DescribeReservedInstancesCommandInput,
@@ -12924,9 +12918,6 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p>
    *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          </note>
    */
   public describeReservedInstancesModifications(
     args: DescribeReservedInstancesModificationsCommandInput,
@@ -12964,9 +12955,6 @@ export class EC2 extends EC2Client {
    *          <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
    * 				in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          </note>
    */
   public describeReservedInstancesOfferings(
     args: DescribeReservedInstancesOfferingsCommandInput,
@@ -13037,10 +13025,6 @@ export class EC2 extends EC2Client {
    *          <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>
    *          <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a>
    *          to purchase Scheduled Instances with that schedule.</p>
-   *
-   *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          </note>
    */
   public describeScheduledInstanceAvailability(
     args: DescribeScheduledInstanceAvailabilityCommandInput,
@@ -13075,10 +13059,6 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>
-   *
-   *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          </note>
    */
   public describeScheduledInstances(
     args: DescribeScheduledInstancesCommandInput,
@@ -19002,15 +18982,13 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Modifies the Availability Zone, instance count, instance type, or network platform
-   *             (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be
-   *             modified must be identical, except for Availability Zone, network platform, and instance
-   *             type.</p>
+   * <p>Modifies the configuration of your Reserved Instances, such as the Availability Zone,
+   *        instance count, or instance type. The Reserved Instances to be modified must be identical,
+   *        except for Availability Zone, network platform, and instance type.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved
    * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public modifyReservedInstances(
@@ -20294,6 +20272,9 @@ export class EC2 extends EC2Client {
    *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> and
    *    	   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
    *    	   in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <note>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          </note>
    */
   public purchaseReservedInstancesOffering(
     args: PurchaseReservedInstancesOfferingCommandInput,
@@ -20325,7 +20306,10 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Purchases the Scheduled Instances with the specified schedule.</p>
+   * <note>
+   *             <p>You can no longer purchase Scheduled Instances.</p>
+   *          </note>
+   *          <p>Purchases the Scheduled Instances with the specified schedule.</p>
    *          <p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term.
    *          Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a>
    *          to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance,
@@ -21202,7 +21186,7 @@ export class EC2 extends EC2Client {
    *                     <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *         </important>
    *         <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *         </note>
    */
   public requestSpotInstances(
@@ -21829,9 +21813,8 @@ export class EC2 extends EC2Client {
    *                 pairs</a>.</p>
    *         <p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What to do if
    *                 an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting connecting to your instance</a>.</p>
-   *
    *         <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *         </note>
    */
   public runInstances(

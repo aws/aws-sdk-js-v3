@@ -3,8 +3,6 @@ import {
   AccountAttribute,
   AccountAttributeName,
   Address,
-  AddressAttribute,
-  AddressAttributeName,
   ApplianceModeSupportValue,
   ByoipCidr,
   CarrierGateway,
@@ -41,9 +39,92 @@ import {
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
   SubnetCidrReservation,
+  TrafficDirection,
   TrafficMirrorFilterRule,
+  TrafficMirrorRuleAction,
   VolumeType,
 } from "./models_1";
+
+/**
+ * <p>Information about the Traffic Mirror filter rule port range.</p>
+ */
+export interface TrafficMirrorPortRangeRequest {
+  /**
+   * <p>The first port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The last port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
+   */
+  ToPort?: number;
+}
+
+export interface CreateTrafficMirrorFilterRuleRequest {
+  /**
+   * <p>The ID of the filter that this rule is associated with.</p>
+   */
+  TrafficMirrorFilterId: string | undefined;
+
+  /**
+   * <p>The type of traffic.</p>
+   */
+  TrafficDirection: TrafficDirection | string | undefined;
+
+  /**
+   * <p>The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given
+   *          direction. The rules are processed in ascending order by rule number.</p>
+   */
+  RuleNumber: number | undefined;
+
+  /**
+   * <p>The action to take on the filtered traffic.</p>
+   */
+  RuleAction: TrafficMirrorRuleAction | string | undefined;
+
+  /**
+   * <p>The destination port range.</p>
+   */
+  DestinationPortRange?: TrafficMirrorPortRangeRequest;
+
+  /**
+   * <p>The source port range.</p>
+   */
+  SourcePortRange?: TrafficMirrorPortRangeRequest;
+
+  /**
+   * <p>The protocol, for example UDP, to assign to the Traffic Mirror rule.</p>
+   *          <p>For information about the protocol value, see <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a> on the  Internet Assigned Numbers Authority (IANA) website.</p>
+   */
+  Protocol?: number;
+
+  /**
+   * <p>The destination CIDR block to assign to the Traffic Mirror rule.</p>
+   */
+  DestinationCidrBlock: string | undefined;
+
+  /**
+   * <p>The source CIDR block to assign to the Traffic Mirror rule.</p>
+   */
+  SourceCidrBlock: string | undefined;
+
+  /**
+   * <p>The description of the Traffic Mirror rule.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
 
 export interface CreateTrafficMirrorFilterRuleResult {
   /**
@@ -5593,46 +5674,21 @@ export interface DescribeAddressesResult {
   Addresses?: Address[];
 }
 
-export interface DescribeAddressesAttributeRequest {
-  /**
-   * <p>[EC2-VPC] The allocation IDs.</p>
-   */
-  AllocationIds?: string[];
+/**
+ * @internal
+ */
+export const TrafficMirrorPortRangeRequestFilterSensitiveLog = (obj: TrafficMirrorPortRangeRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The attribute of the IP address.</p>
-   */
-  Attribute?: AddressAttributeName | string;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DescribeAddressesAttributeResult {
-  /**
-   * <p>Information about the IP addresses.</p>
-   */
-  Addresses?: AddressAttribute[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const CreateTrafficMirrorFilterRuleRequestFilterSensitiveLog = (
+  obj: CreateTrafficMirrorFilterRuleRequest
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7593,19 +7649,5 @@ export const DescribeAddressesRequestFilterSensitiveLog = (obj: DescribeAddresse
  * @internal
  */
 export const DescribeAddressesResultFilterSensitiveLog = (obj: DescribeAddressesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAddressesAttributeRequestFilterSensitiveLog = (obj: DescribeAddressesAttributeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAddressesAttributeResultFilterSensitiveLog = (obj: DescribeAddressesAttributeResult): any => ({
   ...obj,
 });

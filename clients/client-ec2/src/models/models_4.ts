@@ -11,7 +11,6 @@ import {
   AnalysisRouteTableRoute,
   AnalysisSecurityGroupRule,
   AssociationStatus,
-  AttributeValue,
   BatchState,
   CurrencyCodeValues,
   IamInstanceProfileAssociation,
@@ -45,6 +44,7 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 import {
+  AttributeValue,
   BlockDeviceMapping,
   FleetLaunchTemplateSpecification,
   FleetType,
@@ -113,6 +113,48 @@ import {
   PermissionGroup,
   ProductCode,
 } from "./models_3";
+
+/**
+ * <p>Describes a local gateway virtual interface group.</p>
+ */
+export interface LocalGatewayVirtualInterfaceGroup {
+  /**
+   * <p>The ID of the virtual interface group.</p>
+   */
+  LocalGatewayVirtualInterfaceGroupId?: string;
+
+  /**
+   * <p>The IDs of the virtual interfaces.</p>
+   */
+  LocalGatewayVirtualInterfaceIds?: string[];
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the local gateway virtual interface group.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The tags assigned to the virtual interface group.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface DescribeLocalGatewayVirtualInterfaceGroupsResult {
+  /**
+   * <p>The virtual interface groups.</p>
+   */
+  LocalGatewayVirtualInterfaceGroups?: LocalGatewayVirtualInterfaceGroup[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
 
 export interface DescribeLocalGatewayVirtualInterfacesRequest {
   /**
@@ -2390,9 +2432,6 @@ export interface DescribeReservedInstancesModificationsRequest {
 
 /**
  * <p>Describes the configuration settings for the modified Reserved Instances.</p>
- *          <note>
- *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          </note>
  */
 export interface ReservedInstancesConfiguration {
   /**
@@ -3088,9 +3127,6 @@ export interface ScheduledInstanceRecurrence {
 
 /**
  * <p>Describes a schedule that is available for your Scheduled Instances.</p>
- *          <note>
- *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          </note>
  */
 export interface ScheduledInstanceAvailability {
   /**
@@ -3249,9 +3285,6 @@ export interface DescribeScheduledInstancesRequest {
 
 /**
  * <p>Describes a Scheduled Instance.</p>
- *          <note>
- *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          </note>
  */
 export interface ScheduledInstance {
   /**
@@ -4398,9 +4431,9 @@ export interface SpotFleetTagSpecification {
   /**
    * <p>The type of resource. Currently, the only resource type that is supported is
    *                 <code>instance</code>. To tag the Spot Fleet request on creation, use the
-   *                 <code>TagSpecifications</code> parameter in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html">
-   *                <code>SpotFleetRequestConfigData</code>
-   *             </a>.</p>
+   *                 <code>TagSpecifications</code> parameter in <code>
+   *                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html">SpotFleetRequestConfigData</a>
+   *             </code>.</p>
    */
   ResourceType?: ResourceType | string;
 
@@ -4412,12 +4445,8 @@ export interface SpotFleetTagSpecification {
 
 /**
  * <p>Describes the launch specification for one or more Spot Instances. If you include
- *             On-Demand capacity in your fleet request or want to specify an EFA network device, you
- *             can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
- *
- *         <note>
- *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
- *         </note>
+ *           On-Demand capacity in your fleet request or want to specify an EFA network device, you
+ *           can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
  */
 export interface SpotFleetLaunchSpecification {
   /**
@@ -4533,7 +4562,7 @@ export interface SpotFleetLaunchSpecification {
    *          identify instance types with those attributes.</p>
    *          <note>
    *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
-   *                <code>InstanceTypes</code>.</p>
+   *                <code>InstanceType</code>.</p>
    *          </note>
    */
   InstanceRequirements?: InstanceRequirements;
@@ -4595,7 +4624,7 @@ export interface LaunchTemplateOverrides {
    *          when you specify a list of instance types.</p>
    *          <note>
    *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
-   *                <code>InstanceTypes</code>.</p>
+   *                <code>InstanceType</code>.</p>
    *          </note>
    */
   InstanceRequirements?: InstanceRequirements;
@@ -4736,23 +4765,33 @@ export interface SpotMaintenanceStrategies {
  */
 export interface SpotFleetRequestConfigData {
   /**
-   * <p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by
-   *             the Spot Fleet request.</p>
-   *         <p>If the allocation strategy is <code>lowestPrice</code>, Spot Fleet launches instances from
-   *             the Spot Instance pools with the lowest price. This is the default allocation strategy.</p>
-   *         <p>If the allocation strategy is <code>diversified</code>, Spot Fleet launches instances from
-   *             all the Spot Instance pools that you specify.</p>
-   *         <p>If the allocation strategy is <code>capacityOptimized</code> (recommended), Spot Fleet
-   *             launches instances from Spot Instance pools with optimal capacity for the number of instances
-   *             that are launching. To give certain instance types a higher chance of launching first,
-   *             use <code>capacityOptimizedPrioritized</code>. Set a priority for each instance type by
-   *             using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You
-   *             can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2
-   *             implements the priorities on a best-effort basis, but optimizes for capacity first.
-   *                 <code>capacityOptimizedPrioritized</code> is supported only if your Spot Fleet uses a
+   * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance
+   *             pools specified by the Spot Fleet launch configuration. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html">Allocation
+   *                 strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *         <p>
+   *             <code>lowestPrice</code> - Spot Fleet launches instances from the lowest-price Spot Instance pool
+   *             that has available capacity. If the cheapest pool doesn't have available capacity, the
+   *             Spot Instances come from the next cheapest pool that has available capacity. If a pool runs out
+   *             of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your
+   *             request by drawing from the next cheapest pool. To ensure that your desired capacity is
+   *             met, you might receive Spot Instances from several pools.</p>
+   *         <p>
+   *             <code>diversified</code> - Spot Fleet launches instances from all of the Spot Instance pools that you
+   *             specify.</p>
+   *         <p>
+   *             <code>capacityOptimized</code> (recommended) - Spot Fleet launches instances from Spot Instance pools
+   *             with optimal capacity for the number of instances that are launching. To give certain
+   *             instance types a higher chance of launching first, use
+   *             <code>capacityOptimizedPrioritized</code>. Set a priority for each instance type by
+   *             using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can
+   *             assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements
+   *             the priorities on a best-effort basis, but optimizes for capacity first.
+   *             <code>capacityOptimizedPrioritized</code> is supported only if your Spot Fleet uses a
    *             launch template. Note that if the <code>OnDemandAllocationStrategy</code> is set to
-   *                 <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
+   *             <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
    *             capacity.</p>
+   *         <p>Default: <code>lowestPrice</code>
+   *          </p>
    */
   AllocationStrategy?: AllocationStrategy | string;
 
@@ -4959,9 +4998,9 @@ export interface SpotFleetRequestConfigData {
    *                 <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise the
    *             Spot Fleet request fails. To tag instances at launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
    *                 template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in
-   *             the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">
-   *                <code>SpotFleetTagSpecification</code>
-   *             </a> (valid only if you use
+   *             the <code>
+   *                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">SpotFleetTagSpecification</a>
+   *             </code> (valid only if you use
    *                 <code>LaunchSpecifications</code>). For information about tagging after launch, see
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your Resources</a>.</p>
    */
@@ -5266,9 +5305,6 @@ export interface RunInstancesMonitoringEnabled {
 
 /**
  * <p>Describes the launch specification for an instance.</p>
- *          <note>
- *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
- *          </note>
  */
 export interface LaunchSpecification {
   /**
@@ -9913,34 +9949,20 @@ export interface EnableFastSnapshotRestoreSuccessItem {
 }
 
 /**
- * <p>Describes an error that occurred when enabling fast snapshot restores.</p>
+ * @internal
  */
-export interface EnableFastSnapshotRestoreStateError {
-  /**
-   * <p>The error code.</p>
-   */
-  Code?: string;
-
-  /**
-   * <p>The error message.</p>
-   */
-  Message?: string;
-}
+export const LocalGatewayVirtualInterfaceGroupFilterSensitiveLog = (obj: LocalGatewayVirtualInterfaceGroup): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains information about an error that occurred when enabling fast snapshot restores.</p>
+ * @internal
  */
-export interface EnableFastSnapshotRestoreStateErrorItem {
-  /**
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The error.</p>
-   */
-  Error?: EnableFastSnapshotRestoreStateError;
-}
+export const DescribeLocalGatewayVirtualInterfaceGroupsResultFilterSensitiveLog = (
+  obj: DescribeLocalGatewayVirtualInterfaceGroupsResult
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -12065,24 +12087,6 @@ export const EnableFastSnapshotRestoresRequestFilterSensitiveLog = (obj: EnableF
  */
 export const EnableFastSnapshotRestoreSuccessItemFilterSensitiveLog = (
   obj: EnableFastSnapshotRestoreSuccessItem
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastSnapshotRestoreStateErrorFilterSensitiveLog = (
-  obj: EnableFastSnapshotRestoreStateError
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastSnapshotRestoreStateErrorItemFilterSensitiveLog = (
-  obj: EnableFastSnapshotRestoreStateErrorItem
 ): any => ({
   ...obj,
 });

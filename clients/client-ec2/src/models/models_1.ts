@@ -17,7 +17,6 @@ import {
   AddressFamily,
   AttachmentStatus,
   CurrencyCodeValues,
-  DhcpConfiguration,
   HostnameType,
   InstanceEventWindow,
   Ipv4PrefixSpecification,
@@ -33,6 +32,31 @@ import {
   UnsuccessfulItem,
   WeekDay,
 } from "./models_0";
+
+/**
+ * <p>Describes a value for a resource attribute that is a String.</p>
+ */
+export interface AttributeValue {
+  /**
+   * <p>The attribute value. The value is case-sensitive.</p>
+   */
+  Value?: string;
+}
+
+/**
+ * <p>Describes a DHCP configuration option.</p>
+ */
+export interface DhcpConfiguration {
+  /**
+   * <p>The name of a DHCP option.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>One or more values for the DHCP option.</p>
+   */
+  Values?: AttributeValue[];
+}
 
 /**
  * <p>Describes a set of DHCP options.</p>
@@ -315,12 +339,12 @@ export interface VCpuCountRangeRequest {
 /**
  * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
  *       identify instance types with these attributes.</p>
- *          <p>When you specify multiple parameters, you get instance types that satisfy all of the
- *          specified parameters. If you specify multiple values for a parameter, you get instance
+ *          <p>When you specify multiple attributes, you get instance types that satisfy all of the
+ *          specified attributes. If you specify multiple values for an attribute, you get instance
  *          types that satisfy any of the specified values.</p>
  *          <note>
- *             <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other parameters
- *             are optional. Any unspecified optional parameter is set to its default.</p>
+ *             <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes
+ *             are optional. Any unspecified optional attribute is set to its default.</p>
  *          </note>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
  *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -365,7 +389,8 @@ export interface InstanceRequirementsRequest {
   MemoryGiBPerVCpu?: MemoryGiBPerVCpuRequest;
 
   /**
-   * <p>The instance types to exclude. You can use strings with one or more wild cards, represented by
+   * <p>The instance types to exclude.</p>
+   *          <p>You can use strings with one or more wild cards, represented by
    *          an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The
    *          following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
    *             <code>r*</code>, <code>*3*</code>.</p>
@@ -598,6 +623,12 @@ export interface InstanceRequirementsRequest {
    *             <li>
    *                <p>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services Inferentia GPUs, specify <code>inferentia</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p>
+   *             </li>
    *          </ul>
    *          <p>Default: Any accelerator</p>
    */
@@ -683,7 +714,7 @@ export interface FleetLaunchTemplateOverridesRequest {
   /**
    * <p>The instance type.</p>
    *          <note>
-   *             <p>If you specify <code>InstanceTypes</code>, you can't specify
+   *             <p>If you specify <code>InstanceType</code>, you can't specify
    *                <code>InstanceRequirements</code>.</p>
    *          </note>
    */
@@ -739,7 +770,7 @@ export interface FleetLaunchTemplateOverridesRequest {
    *          identify instance types with those attributes.</p>
    *          <note>
    *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
-   *                <code>InstanceTypes</code>.</p>
+   *                <code>InstanceType</code>.</p>
    *          </note>
    */
   InstanceRequirements?: InstanceRequirementsRequest;
@@ -921,11 +952,16 @@ export interface FleetSpotMaintenanceStrategiesRequest {
  */
 export interface SpotOptionsRequest {
   /**
-   * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by
-   *          the EC2 Fleet.</p>
+   * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance
+   *          pools specified by the EC2 Fleet launch configuration. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation strategies for Spot Instances</a> in the
+   *          <i>Amazon EC2 User Guide</i>.</p>
    *          <p>
-   *             <code>lowest-price</code> - EC2 Fleet launches instances from
-   *          the Spot Instance pools with the lowest price.</p>
+   *             <code>lowest-price</code> - EC2 Fleet launches instances from the lowest-price Spot Instance pool that
+   *          has available capacity. If the cheapest pool doesn't have available capacity, the Spot Instances
+   *          come from the next cheapest pool that has available capacity. If a pool runs out of
+   *          capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your
+   *          request by drawing from the next cheapest pool. To ensure that your desired capacity is
+   *          met, you might receive Spot Instances from several pools.</p>
    *          <p>
    *             <code>diversified</code> - EC2 Fleet launches instances from all
    *          of the Spot Instance pools that you specify.</p>
@@ -1320,12 +1356,12 @@ export interface VCpuCountRange {
 /**
  * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
  *          identify instance types with these attributes.</p>
- *          <p>When you specify multiple parameters, you get instance types that satisfy all of the
- *          specified parameters. If you specify multiple values for a parameter, you get instance
+ *          <p>When you specify multiple attributes, you get instance types that satisfy all of the
+ *          specified attributes. If you specify multiple values for an attribute, you get instance
  *          types that satisfy any of the specified values.</p>
  *          <note>
- *             <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other parameters
- *             are optional. Any unspecified optional parameter is set to its default.</p>
+ *             <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes
+ *             are optional. Any unspecified optional attribute is set to its default.</p>
  *          </note>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
  *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -1370,7 +1406,8 @@ export interface InstanceRequirements {
   MemoryGiBPerVCpu?: MemoryGiBPerVCpu;
 
   /**
-   * <p>The instance types to exclude. You can use strings with one or more wild cards, represented by
+   * <p>The instance types to exclude.</p>
+   *          <p>You can use strings with one or more wild cards, represented by
    *       an asterisk (<code>*</code>), to exclude an instance type, size, or generation. The
    *       following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
    *       <code>r*</code>, <code>*3*</code>.</p>
@@ -1604,6 +1641,12 @@ export interface InstanceRequirements {
    *             <li>
    *                <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services Inferentia GPUs, specify <code>inferentia</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p>
+   *             </li>
    *          </ul>
    *          <p>Default: Any accelerator</p>
    */
@@ -1633,7 +1676,7 @@ export interface FleetLaunchTemplateOverrides {
   /**
    * <p>The instance type.</p>
    *          <note>
-   *             <p>If you specify <code>InstanceTypes</code>, you can't specify
+   *             <p>If you specify <code>InstanceType</code>, you can't specify
    *                <code>InstanceRequirements</code>.</p>
    *          </note>
    */
@@ -1689,7 +1732,7 @@ export interface FleetLaunchTemplateOverrides {
    *          identify instance types with those attributes.</p>
    *          <note>
    *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
-   *             <code>InstanceTypes</code>.</p>
+   *             <code>InstanceType</code>.</p>
    *          </note>
    */
   InstanceRequirements?: InstanceRequirements;
@@ -4149,7 +4192,7 @@ export interface RequestLaunchTemplateData {
    * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
    *          identify instance types with these attributes.</p>
    *          <p>If you specify <code>InstanceRequirements</code>, you can't specify
-   *             <code>InstanceTypes</code>.</p>
+   *             <code>InstanceType</code>.</p>
    */
   InstanceRequirements?: InstanceRequirementsRequest;
 
@@ -8463,85 +8506,18 @@ export interface CreateTrafficMirrorFilterResult {
 }
 
 /**
- * <p>Information about the Traffic Mirror filter rule port range.</p>
+ * @internal
  */
-export interface TrafficMirrorPortRangeRequest {
-  /**
-   * <p>The first port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
-   */
-  FromPort?: number;
+export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The last port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
-   */
-  ToPort?: number;
-}
-
-export interface CreateTrafficMirrorFilterRuleRequest {
-  /**
-   * <p>The ID of the filter that this rule is associated with.</p>
-   */
-  TrafficMirrorFilterId: string | undefined;
-
-  /**
-   * <p>The type of traffic.</p>
-   */
-  TrafficDirection: TrafficDirection | string | undefined;
-
-  /**
-   * <p>The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given
-   *          direction. The rules are processed in ascending order by rule number.</p>
-   */
-  RuleNumber: number | undefined;
-
-  /**
-   * <p>The action to take on the filtered traffic.</p>
-   */
-  RuleAction: TrafficMirrorRuleAction | string | undefined;
-
-  /**
-   * <p>The destination port range.</p>
-   */
-  DestinationPortRange?: TrafficMirrorPortRangeRequest;
-
-  /**
-   * <p>The source port range.</p>
-   */
-  SourcePortRange?: TrafficMirrorPortRangeRequest;
-
-  /**
-   * <p>The protocol, for example UDP, to assign to the Traffic Mirror rule.</p>
-   *          <p>For information about the protocol value, see <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a> on the  Internet Assigned Numbers Authority (IANA) website.</p>
-   */
-  Protocol?: number;
-
-  /**
-   * <p>The destination CIDR block to assign to the Traffic Mirror rule.</p>
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>The source CIDR block to assign to the Traffic Mirror rule.</p>
-   */
-  SourceCidrBlock: string | undefined;
-
-  /**
-   * <p>The description of the Traffic Mirror rule.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-}
+/**
+ * @internal
+ */
+export const DhcpConfigurationFilterSensitiveLog = (obj: DhcpConfiguration): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10227,21 +10203,5 @@ export const TrafficMirrorFilterFilterSensitiveLog = (obj: TrafficMirrorFilter):
  * @internal
  */
 export const CreateTrafficMirrorFilterResultFilterSensitiveLog = (obj: CreateTrafficMirrorFilterResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrafficMirrorPortRangeRequestFilterSensitiveLog = (obj: TrafficMirrorPortRangeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrafficMirrorFilterRuleRequestFilterSensitiveLog = (
-  obj: CreateTrafficMirrorFilterRuleRequest
-): any => ({
   ...obj,
 });

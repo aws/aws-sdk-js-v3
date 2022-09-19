@@ -1705,6 +1705,17 @@
         }
       }
     },
+    "com.amazonaws.ec2#AllocationType": {
+      "type": "enum",
+      "members": {
+        "used": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "used"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#AllowedPrincipal": {
       "type": "structure",
       "members": {
@@ -7696,6 +7707,41 @@
         }
       }
     },
+    "com.amazonaws.ec2#CapacityAllocation": {
+      "type": "structure",
+      "members": {
+        "AllocationType": {
+          "target": "com.amazonaws.ec2#AllocationType",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AllocationType",
+            "smithy.api#documentation": "<p>The usage type. <code>used</code> indicates that the instance capacity is \n\t\t\tin use by instances that are running in the Capacity Reservation.</p>",
+            "smithy.api#xmlName": "allocationType"
+          }
+        },
+        "Count": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Count",
+            "smithy.api#clientOptional": {},
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The amount of instance capacity associated with the usage. For example a value of \n\t\t\t<code>4</code> indicates that instance capacity for 4 instances is currently in use.</p>",
+            "smithy.api#xmlName": "count"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about instance capacity usage for a Capacity Reservation.</p>"
+      }
+    },
+    "com.amazonaws.ec2#CapacityAllocations": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#CapacityAllocation",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
     "com.amazonaws.ec2#CapacityReservation": {
       "type": "structure",
       "members": {
@@ -7881,6 +7927,14 @@
             "aws.protocols#ec2QueryName": "PlacementGroupArn",
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the cluster placement group in which \n\t\t\tthe Capacity Reservation was created. For more information, see \n\t\t\t<a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html\">\n\t\t\t\tCapacity Reservations for cluster placement groups</a> in the \n\t\t\t<i>Amazon EC2 User Guide</i>.</p>",
             "smithy.api#xmlName": "placementGroupArn"
+          }
+        },
+        "CapacityAllocations": {
+          "target": "com.amazonaws.ec2#CapacityAllocations",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CapacityAllocationSet",
+            "smithy.api#documentation": "<p>Information about instance capacity usage.</p>",
+            "smithy.api#xmlName": "capacityAllocationSet"
           }
         }
       },
@@ -25508,7 +25562,7 @@
         "target": "com.amazonaws.ec2#DescribeInstancesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified instances or all instances.</p>\n        <p>If you specify instance IDs, the output includes information for only the specified\n            instances. If you specify filters, the output includes information for only those\n            instances that meet the filter criteria. If you do not specify instance IDs or filters,\n            the output includes information for all instances, which can affect performance. We\n            recommend that you use pagination to ensure that the operation returns quickly and\n            successfully.</p>\n        <p>If you specify an instance ID that is not valid, an error is returned. If you specify\n            an instance that you do not own, it is not included in the output.</p>\n        <p>Recently terminated instances might appear in the returned results. This interval is\n            usually less than one hour.</p>\n        <p>If you describe instances in the rare case where an Availability Zone is experiencing\n            a service disruption and you specify instance IDs that are in the affected zone, or do\n            not specify any instance IDs at all, the call fails. If you describe instances and\n            specify only instance IDs that are in an unaffected zone, the call works\n            normally.</p>\n        <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>\n        </note>",
+        "smithy.api#documentation": "<p>Describes the specified instances or all instances.</p>\n        <p>If you specify instance IDs, the output includes information for only the specified\n            instances. If you specify filters, the output includes information for only those\n            instances that meet the filter criteria. If you do not specify instance IDs or filters,\n            the output includes information for all instances, which can affect performance. We\n            recommend that you use pagination to ensure that the operation returns quickly and\n            successfully.</p>\n        <p>If you specify an instance ID that is not valid, an error is returned. If you specify\n            an instance that you do not own, it is not included in the output.</p>\n        <p>Recently terminated instances might appear in the returned results. This interval is\n            usually less than one hour.</p>\n        <p>If you describe instances in the rare case where an Availability Zone is experiencing\n            a service disruption and you specify instance IDs that are in the affected zone, or do\n            not specify any instance IDs at all, the call fails. If you describe instances and\n            specify only instance IDs that are in an unaffected zone, the call works\n            normally.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -28496,7 +28550,7 @@
         "target": "com.amazonaws.ec2#DescribeReservedInstancesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes one or more of the Reserved Instances that you purchased.</p>\n         <p>For more information about Reserved Instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\">Reserved\n\t\t\t\tInstances</a> in the <i>Amazon EC2 User Guide</i>.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Describes one or more of the Reserved Instances that you purchased.</p>\n         <p>For more information about Reserved Instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\">Reserved\n\t\t\t\tInstances</a> in the <i>Amazon EC2 User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#DescribeReservedInstancesListings": {
@@ -28567,7 +28621,7 @@
         "target": "com.amazonaws.ec2#DescribeReservedInstancesModificationsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p>\n   \t     <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p>\n   \t     <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -28638,7 +28692,7 @@
         "target": "com.amazonaws.ec2#DescribeReservedInstancesOfferingsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p>\n         <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Reserved Instance Marketplace</a>\n\t\t\t\tin the <i>Amazon EC2 User Guide</i>.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p>\n         <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Reserved Instance Marketplace</a>\n\t\t\t\tin the <i>Amazon EC2 User Guide</i>.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -28959,7 +29013,7 @@
         "target": "com.amazonaws.ec2#DescribeScheduledInstanceAvailabilityResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Finds available schedules that meet the specified criteria.</p>\n         <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>\n         <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a>\n         to purchase Scheduled Instances with that schedule.</p>\n      \n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Finds available schedules that meet the specified criteria.</p>\n         <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>\n         <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a>\n         to purchase Scheduled Instances with that schedule.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -29080,7 +29134,7 @@
         "target": "com.amazonaws.ec2#DescribeScheduledInstancesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>\n      \n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -39377,7 +39431,7 @@
           "target": "com.amazonaws.ec2#InstanceType",
           "traits": {
             "aws.protocols#ec2QueryName": "InstanceType",
-            "smithy.api#documentation": "<p>The instance type.</p>\n         <note>\n            <p>If you specify <code>InstanceTypes</code>, you can't specify\n               <code>InstanceRequirements</code>.</p>\n         </note>",
+            "smithy.api#documentation": "<p>The instance type.</p>\n         <note>\n            <p>If you specify <code>InstanceType</code>, you can't specify\n               <code>InstanceRequirements</code>.</p>\n         </note>",
             "smithy.api#xmlName": "instanceType"
           }
         },
@@ -39437,7 +39491,7 @@
           "target": "com.amazonaws.ec2#InstanceRequirements",
           "traits": {
             "aws.protocols#ec2QueryName": "InstanceRequirements",
-            "smithy.api#documentation": "<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will\n         identify instance types with those attributes.</p>\n         <note>\n            <p>If you specify <code>InstanceRequirements</code>, you can't specify\n            <code>InstanceTypes</code>.</p>\n         </note>",
+            "smithy.api#documentation": "<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will\n         identify instance types with those attributes.</p>\n         <note>\n            <p>If you specify <code>InstanceRequirements</code>, you can't specify\n            <code>InstanceType</code>.</p>\n         </note>",
             "smithy.api#xmlName": "instanceRequirements"
           }
         }
@@ -39470,7 +39524,7 @@
         "InstanceType": {
           "target": "com.amazonaws.ec2#InstanceType",
           "traits": {
-            "smithy.api#documentation": "<p>The instance type.</p>\n         <note>\n            <p>If you specify <code>InstanceTypes</code>, you can't specify\n               <code>InstanceRequirements</code>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The instance type.</p>\n         <note>\n            <p>If you specify <code>InstanceType</code>, you can't specify\n               <code>InstanceRequirements</code>.</p>\n         </note>"
           }
         },
         "MaxPrice": {
@@ -39516,7 +39570,7 @@
         "InstanceRequirements": {
           "target": "com.amazonaws.ec2#InstanceRequirementsRequest",
           "traits": {
-            "smithy.api#documentation": "<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will\n         identify instance types with those attributes.</p>\n         <note>\n            <p>If you specify <code>InstanceRequirements</code>, you can't specify\n               <code>InstanceTypes</code>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will\n         identify instance types with those attributes.</p>\n         <note>\n            <p>If you specify <code>InstanceRequirements</code>, you can't specify\n               <code>InstanceType</code>.</p>\n         </note>"
           }
         }
       },
@@ -47911,7 +47965,7 @@
         "HttpTokens": {
           "target": "com.amazonaws.ec2#HttpTokensState",
           "traits": {
-            "smithy.api#documentation": "<p>The state of token usage for your instance metadata requests.</p>\n        <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata\n            with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are\n            returned. If you retrieve the IAM role credentials using a valid signed\n            token, the version 2.0 role credentials are returned.</p>\n        <p>If the state is <code>required</code>, you must send a signed token header with any\n            instance metadata retrieval requests. In this state, retrieving the IAM\n            role credentials always returns the version 2.0 credentials; the version 1.0 credentials\n            are not available.</p>\n        <p>Default: <code>optional</code>\n         </p>"
+            "smithy.api#documentation": "<p>The state of token usage for your instance metadata requests.</p>\n        <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata\n            with or without a session token on your request. If you retrieve the IAM\n            role credentials without a token, the version 1.0 role credentials are returned. If you\n            retrieve the IAM role credentials using a valid session token, the\n            version 2.0 role credentials are returned.</p>\n        <p>If the state is <code>required</code>, you must send a session token with any instance\n            metadata retrieval requests. In this state, retrieving the IAM role\n            credentials always returns the version 2.0 credentials; the version 1.0 credentials are\n            not available.</p>\n        <p>Default: <code>optional</code>\n         </p>"
           }
         },
         "HttpPutResponseHopLimit": {
@@ -47960,7 +48014,7 @@
           "target": "com.amazonaws.ec2#HttpTokensState",
           "traits": {
             "aws.protocols#ec2QueryName": "HttpTokens",
-            "smithy.api#documentation": "<p>The state of token usage for your instance metadata requests.</p>\n        <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata\n            with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are\n            returned. If you retrieve the IAM role credentials using a valid signed\n            token, the version 2.0 role credentials are returned.</p>\n        <p>If the state is <code>required</code>, you must send a signed token header with any\n            instance metadata retrieval requests. In this state, retrieving the IAM\n            role credential always returns the version 2.0 credentials; the version 1.0 credentials\n            are not available.</p>\n        <p>Default: <code>optional</code>\n         </p>",
+            "smithy.api#documentation": "<p>The state of token usage for your instance metadata requests.</p>\n        <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata\n            with or without a session token on your request. If you retrieve the IAM\n            role credentials without a token, the version 1.0 role credentials are returned. If you\n            retrieve the IAM role credentials using a valid session token, the\n            version 2.0 role credentials are returned.</p>\n        <p>If the state is <code>required</code>, you must send a session token with any instance\n            metadata retrieval requests. In this state, retrieving the IAM role\n            credentials always returns the version 2.0 credentials; the version 1.0 credentials are\n            not available.</p>\n        <p>Default: <code>optional</code>\n         </p>",
             "smithy.api#xmlName": "httpTokens"
           }
         },
@@ -48624,7 +48678,7 @@
           "target": "com.amazonaws.ec2#ExcludedInstanceTypeSet",
           "traits": {
             "aws.protocols#ec2QueryName": "ExcludedInstanceTypeSet",
-            "smithy.api#documentation": "<p>The instance types to exclude. You can use strings with one or more wild cards, represented by\n      an asterisk (<code>*</code>), to exclude an instance type, size, or generation. The\n      following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,\n      <code>r*</code>, <code>*3*</code>.</p>\n         <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance\n      family, which includes all C5a and C5n instance types. If you specify\n      <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n\n      instance types.</p>\n         <p>Default: No excluded instance types</p>",
+            "smithy.api#documentation": "<p>The instance types to exclude.</p>\n         <p>You can use strings with one or more wild cards, represented by\n      an asterisk (<code>*</code>), to exclude an instance type, size, or generation. The\n      following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,\n      <code>r*</code>, <code>*3*</code>.</p>\n         <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance\n      family, which includes all C5a and C5n instance types. If you specify\n      <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n\n      instance types.</p>\n         <p>Default: No excluded instance types</p>",
             "smithy.api#xmlName": "excludedInstanceTypeSet"
           }
         },
@@ -48750,7 +48804,7 @@
           "target": "com.amazonaws.ec2#AcceleratorNameSet",
           "traits": {
             "aws.protocols#ec2QueryName": "AcceleratorNameSet",
-            "smithy.api#documentation": "<p>The accelerators that must be on the instance type.</p>\n         <ul>\n            <li>\n               <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p>\n            </li>\n         </ul>\n         <p>Default: Any accelerator</p>",
+            "smithy.api#documentation": "<p>The accelerators that must be on the instance type.</p>\n         <ul>\n            <li>\n               <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with Amazon Web Services Inferentia GPUs, specify <code>inferentia</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p>\n            </li>\n         </ul>\n         <p>Default: Any accelerator</p>",
             "smithy.api#xmlName": "acceleratorNameSet"
           }
         },
@@ -48764,7 +48818,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will\n         identify instance types with these attributes.</p>\n         <p>When you specify multiple parameters, you get instance types that satisfy all of the\n         specified parameters. If you specify multiple values for a parameter, you get instance\n         types that satisfy any of the specified values.</p>\n         <note>\n            <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other parameters\n            are optional. Any unspecified optional parameter is set to its default.</p>\n         </note>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\">Spot\n            placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will\n         identify instance types with these attributes.</p>\n         <p>When you specify multiple attributes, you get instance types that satisfy all of the\n         specified attributes. If you specify multiple values for an attribute, you get instance\n         types that satisfy any of the specified values.</p>\n         <note>\n            <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes\n            are optional. Any unspecified optional attribute is set to its default.</p>\n         </note>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\">Spot\n            placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#InstanceRequirementsRequest": {
@@ -48802,7 +48856,7 @@
         "ExcludedInstanceTypes": {
           "target": "com.amazonaws.ec2#ExcludedInstanceTypeSet",
           "traits": {
-            "smithy.api#documentation": "<p>The instance types to exclude. You can use strings with one or more wild cards, represented by\n         an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The\n         following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,\n            <code>r*</code>, <code>*3*</code>.</p>\n         <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance\n      family, which includes all C5a and C5n instance types. If you specify\n      <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n\n      instance types.</p>\n         <p>Default: No excluded instance types</p>",
+            "smithy.api#documentation": "<p>The instance types to exclude.</p>\n         <p>You can use strings with one or more wild cards, represented by\n         an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The\n         following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,\n            <code>r*</code>, <code>*3*</code>.</p>\n         <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance\n      family, which includes all C5a and C5n instance types. If you specify\n      <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n\n      instance types.</p>\n         <p>Default: No excluded instance types</p>",
             "smithy.api#xmlName": "ExcludedInstanceType"
           }
         },
@@ -48903,7 +48957,7 @@
         "AcceleratorNames": {
           "target": "com.amazonaws.ec2#AcceleratorNameSet",
           "traits": {
-            "smithy.api#documentation": "<p>The accelerators that must be on the instance type.</p>\n         <ul>\n            <li>\n               <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</p>\n            </li>\n         </ul>\n         <p>Default: Any accelerator</p>",
+            "smithy.api#documentation": "<p>The accelerators that must be on the instance type.</p>\n         <ul>\n            <li>\n               <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with Amazon Web Services Inferentia GPUs, specify <code>inferentia</code>.</p>\n            </li>\n            <li>\n               <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p>\n            </li>\n         </ul>\n         <p>Default: Any accelerator</p>",
             "smithy.api#xmlName": "AcceleratorName"
           }
         },
@@ -48915,7 +48969,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will\n      identify instance types with these attributes.</p>\n         <p>When you specify multiple parameters, you get instance types that satisfy all of the\n         specified parameters. If you specify multiple values for a parameter, you get instance\n         types that satisfy any of the specified values.</p>\n         <note>\n            <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other parameters\n            are optional. Any unspecified optional parameter is set to its default.</p>\n         </note>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\">Spot\n            placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will\n      identify instance types with these attributes.</p>\n         <p>When you specify multiple attributes, you get instance types that satisfy all of the\n         specified attributes. If you specify multiple values for an attribute, you get instance\n         types that satisfy any of the specified values.</p>\n         <note>\n            <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes\n            are optional. Any unspecified optional attribute is set to its default.</p>\n         </note>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\">Spot\n            placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#InstanceRequirementsWithMetadataRequest": {
@@ -55642,7 +55696,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the launch specification for an instance.</p>\n         <note>\n           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Describes the launch specification for an instance.</p>"
       }
     },
     "com.amazonaws.ec2#LaunchSpecsList": {
@@ -57094,7 +57148,7 @@
           "target": "com.amazonaws.ec2#InstanceRequirements",
           "traits": {
             "aws.protocols#ec2QueryName": "InstanceRequirements",
-            "smithy.api#documentation": "<p>The instance requirements. When you specify instance requirements, Amazon EC2 will identify\n         instance types with the provided requirements, and then use your On-Demand and Spot\n         allocation strategies to launch instances from these instance types, in the same way as\n         when you specify a list of instance types.</p>\n         <note>\n            <p>If you specify <code>InstanceRequirements</code>, you can't specify\n               <code>InstanceTypes</code>.</p>\n         </note>",
+            "smithy.api#documentation": "<p>The instance requirements. When you specify instance requirements, Amazon EC2 will identify\n         instance types with the provided requirements, and then use your On-Demand and Spot\n         allocation strategies to launch instances from these instance types, in the same way as\n         when you specify a list of instance types.</p>\n         <note>\n            <p>If you specify <code>InstanceRequirements</code>, you can't specify\n               <code>InstanceType</code>.</p>\n         </note>",
             "smithy.api#xmlName": "instanceRequirements"
           }
         }
@@ -60497,7 +60551,7 @@
         "HttpTokens": {
           "target": "com.amazonaws.ec2#HttpTokensState",
           "traits": {
-            "smithy.api#documentation": "<p>The state of token usage for your instance metadata requests. If the parameter is not\n            specified in the request, the default state is <code>optional</code>.</p>\n        <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata\n            with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are\n            returned. If you retrieve the IAM role credentials using a valid signed\n            token, the version 2.0 role credentials are returned.</p>\n        <p>If the state is <code>required</code>, you must send a signed token header with any\n            instance metadata retrieval requests. In this state, retrieving the IAM\n            role credential always returns the version 2.0 credentials; the version 1.0 credentials\n            are not available.</p>"
+            "smithy.api#documentation": "<p>The state of token usage for your instance metadata requests. If the parameter is not\n            specified in the request, the default state is <code>optional</code>.</p>\n        <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata\n            with or without a session token on your request. If you retrieve the IAM\n            role credentials without a token, the version 1.0 role credentials are returned. If you\n            retrieve the IAM role credentials using a valid session token, the\n            version 2.0 role credentials are returned.</p>\n        <p>If the state is <code>required</code>, you must send a session token with any instance\n            metadata retrieval requests. In this state, retrieving the IAM role\n            credentials always returns the version 2.0 credentials; the version 1.0 credentials are\n            not available.</p>"
           }
         },
         "HttpPutResponseHopLimit": {
@@ -61309,7 +61363,7 @@
         "target": "com.amazonaws.ec2#ModifyReservedInstancesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Modifies the Availability Zone, instance count, instance type, or network platform\n            (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be\n            modified must be identical, except for Availability Zone, network platform, and instance\n            type.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\">Modifying Reserved\n\t\t\t\tInstances</a> in the <i>Amazon EC2 User Guide</i>.</p>\n     \n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Modifies the configuration of your Reserved Instances, such as the Availability Zone, \n       instance count, or instance type. The Reserved Instances to be modified must be identical, \n       except for Availability Zone, network platform, and instance type.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\">Modifying Reserved\n\t\t\t\tInstances</a> in the <i>Amazon EC2 User Guide</i>.</p>\n         <note>\n            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#ModifyReservedInstancesRequest": {
@@ -68604,7 +68658,7 @@
         "target": "com.amazonaws.ec2#PurchaseReservedInstancesOfferingResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower \n       hourly rate compared to On-Demand instance pricing.</p> \n\t\t       <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings \n\t\t\tthat match your specifications. After you've purchased a Reserved Instance, you can check for your\n\t\t\tnew Reserved Instance with <a>DescribeReservedInstances</a>.</p>\n         <p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a\n      purchase time, the default is the current time.</p>\n   \t     <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\">Reserved Instances</a> and \n   \t   <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Reserved Instance Marketplace</a> \n   \t   in the <i>Amazon EC2 User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower \n       hourly rate compared to On-Demand instance pricing.</p> \n\t\t       <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings \n\t\t\tthat match your specifications. After you've purchased a Reserved Instance, you can check for your\n\t\t\tnew Reserved Instance with <a>DescribeReservedInstances</a>.</p>\n         <p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a\n      purchase time, the default is the current time.</p>\n   \t     <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\">Reserved Instances</a> and \n   \t   <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Reserved Instance Marketplace</a> \n   \t   in the <i>Amazon EC2 User Guide</i>.</p>\n         <note>\n            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#PurchaseReservedInstancesOfferingRequest": {
@@ -68681,7 +68735,7 @@
         "target": "com.amazonaws.ec2#PurchaseScheduledInstancesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Purchases the Scheduled Instances with the specified schedule.</p>\n         <p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term.\n         Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a>\n         to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance,\n         you must call <a>RunScheduledInstances</a> during each scheduled time period.</p>\n         <p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>"
+        "smithy.api#documentation": "<note>\n            <p>You can no longer purchase Scheduled Instances.</p>\n         </note>\n         <p>Purchases the Scheduled Instances with the specified schedule.</p>\n         <p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term.\n         Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a>\n         to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance,\n         you must call <a>RunScheduledInstances</a> during each scheduled time period.</p>\n         <p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>"
       }
     },
     "com.amazonaws.ec2#PurchaseScheduledInstancesRequest": {
@@ -70805,7 +70859,7 @@
         "InstanceRequirements": {
           "target": "com.amazonaws.ec2#InstanceRequirementsRequest",
           "traits": {
-            "smithy.api#documentation": "<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will\n         identify instance types with these attributes.</p>\n         <p>If you specify <code>InstanceRequirements</code>, you can't specify\n            <code>InstanceTypes</code>.</p>"
+            "smithy.api#documentation": "<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will\n         identify instance types with these attributes.</p>\n         <p>If you specify <code>InstanceRequirements</code>, you can't specify\n            <code>InstanceType</code>.</p>"
           }
         },
         "PrivateDnsNameOptions": {
@@ -70899,7 +70953,7 @@
         "target": "com.amazonaws.ec2#RequestSpotInstancesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a Spot Instance request.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html\">Spot Instance requests</a> in\n            the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        \n        <important>\n            <p>We strongly discourage using the RequestSpotInstances API because it is a legacy\n                API with no planned investment. For options for requesting Spot Instances, see\n                    <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use\">Which\n                    is the best Spot request method to use?</a> in the\n                    <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        </important>\n        <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        </note>"
+        "smithy.api#documentation": "<p>Creates a Spot Instance request.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html\">Spot Instance requests</a> in\n            the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        \n        <important>\n            <p>We strongly discourage using the RequestSpotInstances API because it is a legacy\n                API with no planned investment. For options for requesting Spot Instances, see\n                    <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use\">Which\n                    is the best Spot request method to use?</a> in the\n                    <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        </important>\n        <note>\n            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        </note>"
       }
     },
     "com.amazonaws.ec2#RequestSpotInstancesRequest": {
@@ -71229,7 +71283,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes a launch request for one or more instances, and includes owner, requester,\n            and security group information that applies to all instances in the launch\n            request.</p>\n        \n        <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>\n        </note>"
+        "smithy.api#documentation": "<p>Describes a launch request for one or more instances, and includes owner, requester,\n            and security group information that applies to all instances in the launch\n            request.</p>"
       }
     },
     "com.amazonaws.ec2#ReservationFleetInstanceSpecification": {
@@ -71679,7 +71733,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the configuration settings for the modified Reserved Instances.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Describes the configuration settings for the modified Reserved Instances.</p>"
       }
     },
     "com.amazonaws.ec2#ReservedInstancesConfigurationList": {
@@ -74478,7 +74532,7 @@
         "target": "com.amazonaws.ec2#Reservation"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Launches the specified number of instances using an AMI for which you have\n            permissions.</p>\n        <p>You can specify a number of options, or leave the default options. The following rules\n            apply:</p>\n        <ul>\n            <li>\n                <p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from\n                    your default VPC for you. If you don't have a default VPC, you must specify a\n                    subnet ID in the request.</p>\n            </li>\n            <li>\n                <p>[EC2-Classic] If don't specify an Availability Zone, we choose one for\n                    you.</p>\n            </li>\n            <li>\n                <p>Some instance types must be launched into a VPC. If you do not have a default\n                    VPC, or if you do not specify a subnet ID, the request fails. For more\n                    information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types\">Instance types available only in a VPC</a>.</p>\n            </li>\n            <li>\n                <p>[EC2-VPC] All instances have a network interface with a primary private IPv4\n                    address. If you don't specify this address, we choose one from the IPv4 range of\n                    your subnet.</p>\n            </li>\n            <li>\n                <p>Not all instance types support IPv6 addresses. For more information, see\n                        <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance\n                    types</a>.</p>\n            </li>\n            <li>\n                <p>If you don't specify a security group ID, we use the default security group.\n                    For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\">Security\n                        groups</a>.</p>\n            </li>\n            <li>\n                <p>If any of the AMIs have a product code attached for which the user has not\n                    subscribed, the request fails.</p>\n            </li>\n         </ul>\n        <p>You can create a <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">launch template</a>,\n            which is a resource that contains the parameters to launch an instance. When you launch\n            an instance using <a>RunInstances</a>, you can specify the launch template\n            instead of specifying the launch parameters.</p>\n        <p>To ensure faster instance launches, break up large requests into smaller batches. For\n            example, create five separate launch requests for 100 instances each instead of one\n            launch request for 500 instances.</p>\n        <p>An instance is ready for you to use when it's in the <code>running</code> state. You\n            can check the state of your instance using <a>DescribeInstances</a>. You can\n            tag instances and EBS volumes during launch, after launch, or both. For more\n            information, see <a>CreateTags</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging your Amazon EC2\n                resources</a>.</p>\n        <p>Linux instances have access to the public key of the key pair at boot. You can use\n            this key to provide secure access to the instance. Amazon EC2 public images use this\n            feature to provide secure access without passwords. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Key\n                pairs</a>.</p>\n        <p>For troubleshooting, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html\">What to do if\n                an instance immediately terminates</a>, and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html\">Troubleshooting connecting to your instance</a>.</p>\n        \n        <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>\n        </note>"
+        "smithy.api#documentation": "<p>Launches the specified number of instances using an AMI for which you have\n            permissions.</p>\n        <p>You can specify a number of options, or leave the default options. The following rules\n            apply:</p>\n        <ul>\n            <li>\n                <p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from\n                    your default VPC for you. If you don't have a default VPC, you must specify a\n                    subnet ID in the request.</p>\n            </li>\n            <li>\n                <p>[EC2-Classic] If don't specify an Availability Zone, we choose one for\n                    you.</p>\n            </li>\n            <li>\n                <p>Some instance types must be launched into a VPC. If you do not have a default\n                    VPC, or if you do not specify a subnet ID, the request fails. For more\n                    information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types\">Instance types available only in a VPC</a>.</p>\n            </li>\n            <li>\n                <p>[EC2-VPC] All instances have a network interface with a primary private IPv4\n                    address. If you don't specify this address, we choose one from the IPv4 range of\n                    your subnet.</p>\n            </li>\n            <li>\n                <p>Not all instance types support IPv6 addresses. For more information, see\n                        <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance\n                    types</a>.</p>\n            </li>\n            <li>\n                <p>If you don't specify a security group ID, we use the default security group.\n                    For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\">Security\n                        groups</a>.</p>\n            </li>\n            <li>\n                <p>If any of the AMIs have a product code attached for which the user has not\n                    subscribed, the request fails.</p>\n            </li>\n         </ul>\n        <p>You can create a <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">launch template</a>,\n            which is a resource that contains the parameters to launch an instance. When you launch\n            an instance using <a>RunInstances</a>, you can specify the launch template\n            instead of specifying the launch parameters.</p>\n        <p>To ensure faster instance launches, break up large requests into smaller batches. For\n            example, create five separate launch requests for 100 instances each instead of one\n            launch request for 500 instances.</p>\n        <p>An instance is ready for you to use when it's in the <code>running</code> state. You\n            can check the state of your instance using <a>DescribeInstances</a>. You can\n            tag instances and EBS volumes during launch, after launch, or both. For more\n            information, see <a>CreateTags</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging your Amazon EC2\n                resources</a>.</p>\n        <p>Linux instances have access to the public key of the key pair at boot. You can use\n            this key to provide secure access to the instance. Amazon EC2 public images use this\n            feature to provide secure access without passwords. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Key\n                pairs</a>.</p>\n        <p>For troubleshooting, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html\">What to do if\n                an instance immediately terminates</a>, and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html\">Troubleshooting connecting to your instance</a>.</p>\n        <note>\n            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>\n        </note>"
       }
     },
     "com.amazonaws.ec2#RunInstancesMonitoringEnabled": {
@@ -75074,7 +75128,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes a Scheduled Instance.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Describes a Scheduled Instance.</p>"
       }
     },
     "com.amazonaws.ec2#ScheduledInstanceAvailability": {
@@ -75196,7 +75250,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes a schedule that is available for your Scheduled Instances.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Describes a schedule that is available for your Scheduled Instances.</p>"
       }
     },
     "com.amazonaws.ec2#ScheduledInstanceAvailabilitySet": {
@@ -77869,13 +77923,13 @@
           "target": "com.amazonaws.ec2#InstanceRequirements",
           "traits": {
             "aws.protocols#ec2QueryName": "InstanceRequirements",
-            "smithy.api#documentation": "<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will\n         identify instance types with those attributes.</p>\n         <note>\n            <p>If you specify <code>InstanceRequirements</code>, you can't specify\n               <code>InstanceTypes</code>.</p>\n         </note>",
+            "smithy.api#documentation": "<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will\n         identify instance types with those attributes.</p>\n         <note>\n            <p>If you specify <code>InstanceRequirements</code>, you can't specify\n               <code>InstanceType</code>.</p>\n         </note>",
             "smithy.api#xmlName": "instanceRequirements"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the launch specification for one or more Spot Instances. If you include\n            On-Demand capacity in your fleet request or want to specify an EFA network device, you\n            can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html\">LaunchTemplateConfig</a>.</p>\n        \n        <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        </note>"
+        "smithy.api#documentation": "<p>Describes the launch specification for one or more Spot Instances. If you include\n          On-Demand capacity in your fleet request or want to specify an EFA network device, you\n          can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html\">LaunchTemplateConfig</a>.</p>"
       }
     },
     "com.amazonaws.ec2#SpotFleetMonitoring": {
@@ -77959,7 +78013,7 @@
           "target": "com.amazonaws.ec2#AllocationStrategy",
           "traits": {
             "aws.protocols#ec2QueryName": "AllocationStrategy",
-            "smithy.api#documentation": "<p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by\n            the Spot Fleet request.</p>\n        <p>If the allocation strategy is <code>lowestPrice</code>, Spot Fleet launches instances from\n            the Spot Instance pools with the lowest price. This is the default allocation strategy.</p>\n        <p>If the allocation strategy is <code>diversified</code>, Spot Fleet launches instances from\n            all the Spot Instance pools that you specify.</p>\n        <p>If the allocation strategy is <code>capacityOptimized</code> (recommended), Spot Fleet\n            launches instances from Spot Instance pools with optimal capacity for the number of instances\n            that are launching. To give certain instance types a higher chance of launching first,\n            use <code>capacityOptimizedPrioritized</code>. Set a priority for each instance type by\n            using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You\n            can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2\n            implements the priorities on a best-effort basis, but optimizes for capacity first.\n                <code>capacityOptimizedPrioritized</code> is supported only if your Spot Fleet uses a\n            launch template. Note that if the <code>OnDemandAllocationStrategy</code> is set to\n                <code>prioritized</code>, the same priority is applied when fulfilling On-Demand\n            capacity.</p>",
+            "smithy.api#documentation": "<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance\n            pools specified by the Spot Fleet launch configuration. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html\">Allocation\n                strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        <p>\n            <code>lowestPrice</code> - Spot Fleet launches instances from the lowest-price Spot Instance pool\n            that has available capacity. If the cheapest pool doesn't have available capacity, the\n            Spot Instances come from the next cheapest pool that has available capacity. If a pool runs out\n            of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your\n            request by drawing from the next cheapest pool. To ensure that your desired capacity is\n            met, you might receive Spot Instances from several pools.</p>\n        <p>\n            <code>diversified</code> - Spot Fleet launches instances from all of the Spot Instance pools that you\n            specify.</p>\n        <p>\n            <code>capacityOptimized</code> (recommended) - Spot Fleet launches instances from Spot Instance pools\n            with optimal capacity for the number of instances that are launching. To give certain\n            instance types a higher chance of launching first, use\n            <code>capacityOptimizedPrioritized</code>. Set a priority for each instance type by\n            using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can\n            assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements\n            the priorities on a best-effort basis, but optimizes for capacity first.\n            <code>capacityOptimizedPrioritized</code> is supported only if your Spot Fleet uses a\n            launch template. Note that if the <code>OnDemandAllocationStrategy</code> is set to\n            <code>prioritized</code>, the same priority is applied when fulfilling On-Demand\n            capacity.</p>\n        <p>Default: <code>lowestPrice</code>\n         </p>",
             "smithy.api#xmlName": "allocationStrategy"
           }
         },
@@ -78175,7 +78229,7 @@
         "TagSpecifications": {
           "target": "com.amazonaws.ec2#TagSpecificationList",
           "traits": {
-            "smithy.api#documentation": "<p>The key-value pair for tagging the Spot Fleet request on creation. The value for\n                <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise the\n            Spot Fleet request fails. To tag instances at launch, specify the tags in the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template\">launch\n                template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in\n            the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html\">\n               <code>SpotFleetTagSpecification</code>\n            </a> (valid only if you use\n                <code>LaunchSpecifications</code>). For information about tagging after launch, see\n                <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources\">Tagging Your Resources</a>.</p>",
+            "smithy.api#documentation": "<p>The key-value pair for tagging the Spot Fleet request on creation. The value for\n                <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise the\n            Spot Fleet request fails. To tag instances at launch, specify the tags in the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template\">launch\n                template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in\n            the <code>\n               <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html\">SpotFleetTagSpecification</a>\n            </code> (valid only if you use\n                <code>LaunchSpecifications</code>). For information about tagging after launch, see\n                <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources\">Tagging Your Resources</a>.</p>",
             "smithy.api#xmlName": "TagSpecification"
           }
         }
@@ -78212,7 +78266,7 @@
           "target": "com.amazonaws.ec2#ResourceType",
           "traits": {
             "aws.protocols#ec2QueryName": "ResourceType",
-            "smithy.api#documentation": "<p>The type of resource. Currently, the only resource type that is supported is\n                <code>instance</code>. To tag the Spot Fleet request on creation, use the\n                <code>TagSpecifications</code> parameter in <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html\">\n               <code>SpotFleetRequestConfigData</code>\n            </a>.</p>",
+            "smithy.api#documentation": "<p>The type of resource. Currently, the only resource type that is supported is\n                <code>instance</code>. To tag the Spot Fleet request on creation, use the\n                <code>TagSpecifications</code> parameter in <code>\n               <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html\">SpotFleetRequestConfigData</a>\n            </code>.</p>",
             "smithy.api#xmlName": "resourceType"
           }
         },
@@ -78615,7 +78669,7 @@
           "target": "com.amazonaws.ec2#SpotAllocationStrategy",
           "traits": {
             "aws.protocols#ec2QueryName": "AllocationStrategy",
-            "smithy.api#documentation": "<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance\n         pools specified by the EC2 Fleet.</p>\n         <p>\n            <code>lowest-price</code> - EC2 Fleet launches instances from the Spot Instance pools with the lowest\n         price.</p>\n         <p>\n            <code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance pools that you\n         specify.</p>\n         <p>\n            <code>capacity-optimized</code> (recommended) - EC2 Fleet launches instances from Spot Instance pools\n         with optimal capacity for the number of instances that are launching. To give certain\n         instance types a higher chance of launching first, use\n            <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by\n         using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can\n         assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements\n         the priorities on a best-effort basis, but optimizes for capacity first.\n            <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a\n         launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to\n            <code>prioritized</code>, the same priority is applied when fulfilling On-Demand\n         capacity.</p>\n         <p>Default: <code>lowest-price</code>\n         </p>",
+            "smithy.api#documentation": "<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance\n         pools specified by the EC2 Fleet launch configuration. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html\">Allocation strategies for Spot Instances</a> in the\n         <i>Amazon EC2 User Guide</i>.</p>\n         <p>\n            <code>lowest-price</code> - EC2 Fleet launches instances from the lowest-price Spot Instance pool that\n         has available capacity. If the cheapest pool doesn't have available capacity, the Spot Instances\n         come from the next cheapest pool that has available capacity. If a pool runs out of\n         capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your\n         request by drawing from the next cheapest pool. To ensure that your desired capacity is\n         met, you might receive Spot Instances from several pools.</p>\n         <p>\n            <code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance pools that you\n         specify.</p>\n         <p>\n            <code>capacity-optimized</code> (recommended) - EC2 Fleet launches instances from Spot Instance pools\n         with optimal capacity for the number of instances that are launching. To give certain\n         instance types a higher chance of launching first, use\n            <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by\n         using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can\n         assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements\n         the priorities on a best-effort basis, but optimizes for capacity first.\n            <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a\n         launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to\n            <code>prioritized</code>, the same priority is applied when fulfilling On-Demand\n         capacity.</p>\n         <p>Default: <code>lowest-price</code>\n         </p>",
             "smithy.api#xmlName": "allocationStrategy"
           }
         },
@@ -78694,7 +78748,7 @@
         "AllocationStrategy": {
           "target": "com.amazonaws.ec2#SpotAllocationStrategy",
           "traits": {
-            "smithy.api#documentation": "<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by\n         the EC2 Fleet.</p>\n         <p>\n            <code>lowest-price</code> - EC2 Fleet launches instances from\n         the Spot Instance pools with the lowest price.</p>\n         <p>\n            <code>diversified</code> - EC2 Fleet launches instances from all\n         of the Spot Instance pools that you specify.</p>\n         <p>\n            <code>capacity-optimized</code> (recommended) - EC2 Fleet\n         launches instances from Spot Instance pools with optimal capacity for the number of instances that\n         are launching. To give certain instance types a higher chance of launching first, use\n            <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by\n         using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can\n         assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements\n         the priorities on a best-effort basis, but optimizes for capacity first.\n            <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a\n         launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to\n            <code>prioritized</code>, the same priority is applied when fulfilling On-Demand\n         capacity.</p>\n         <p>Default: <code>lowest-price</code>\n         </p>"
+            "smithy.api#documentation": "<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance\n         pools specified by the EC2 Fleet launch configuration. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html\">Allocation strategies for Spot Instances</a> in the\n         <i>Amazon EC2 User Guide</i>.</p>\n         <p>\n            <code>lowest-price</code> - EC2 Fleet launches instances from the lowest-price Spot Instance pool that\n         has available capacity. If the cheapest pool doesn't have available capacity, the Spot Instances\n         come from the next cheapest pool that has available capacity. If a pool runs out of\n         capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your\n         request by drawing from the next cheapest pool. To ensure that your desired capacity is\n         met, you might receive Spot Instances from several pools.</p>\n         <p>\n            <code>diversified</code> - EC2 Fleet launches instances from all\n         of the Spot Instance pools that you specify.</p>\n         <p>\n            <code>capacity-optimized</code> (recommended) - EC2 Fleet\n         launches instances from Spot Instance pools with optimal capacity for the number of instances that\n         are launching. To give certain instance types a higher chance of launching first, use\n            <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by\n         using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can\n         assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements\n         the priorities on a best-effort basis, but optimizes for capacity first.\n            <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a\n         launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to\n            <code>prioritized</code>, the same priority is applied when fulfilling On-Demand\n         capacity.</p>\n         <p>Default: <code>lowest-price</code>\n         </p>"
           }
         },
         "MaintenanceStrategies": {

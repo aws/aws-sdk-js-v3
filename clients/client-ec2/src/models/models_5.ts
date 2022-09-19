@@ -10,7 +10,6 @@ import {
   AddressAttribute,
   Affinity,
   ApplianceModeSupportValue,
-  AttributeValue,
   AutoPlacement,
   CapacityReservationState,
   ClientConnectOptions,
@@ -36,6 +35,7 @@ import {
   UnsuccessfulItem,
 } from "./models_0";
 import {
+  AttributeValue,
   CapacityReservationPreference,
   CapacityReservationTarget,
   DiskImageFormat,
@@ -63,7 +63,6 @@ import {
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
   TrafficMirrorNetworkService,
-  TrafficMirrorPortRangeRequest,
   TrafficMirrorRuleAction,
   VolumeType,
 } from "./models_1";
@@ -83,6 +82,7 @@ import {
   Phase2DHGroupNumbersRequestListValue,
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
+  TrafficMirrorPortRangeRequest,
   TrafficMirrorSession,
   TransitGateway,
   TransitGatewayPrefixListReference,
@@ -109,7 +109,6 @@ import {
   InstanceMetadataTagsState,
   InstanceStatusEvent,
   LaunchPermission,
-  Monitoring,
   PaymentOption,
   PermissionGroup,
   SnapshotDetail,
@@ -119,7 +118,6 @@ import {
 import {
   AnalysisStatus,
   CreateVolumePermission,
-  EnableFastSnapshotRestoreStateErrorItem,
   EnableFastSnapshotRestoreSuccessItem,
   ExcessCapacityTerminationPolicy,
   LaunchTemplateConfig,
@@ -129,6 +127,36 @@ import {
   TransitGatewayPropagationState,
   VolumeModification,
 } from "./models_4";
+
+/**
+ * <p>Describes an error that occurred when enabling fast snapshot restores.</p>
+ */
+export interface EnableFastSnapshotRestoreStateError {
+  /**
+   * <p>The error code.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>Contains information about an error that occurred when enabling fast snapshot restores.</p>
+ */
+export interface EnableFastSnapshotRestoreStateErrorItem {
+  /**
+   * <p>The Availability Zone.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The error.</p>
+   */
+  Error?: EnableFastSnapshotRestoreStateError;
+}
 
 /**
  * <p>Contains information about the errors that occurred when enabling fast snapshot restores.</p>
@@ -4977,13 +5005,14 @@ export interface ModifyInstanceMetadataOptionsRequest {
    * <p>The state of token usage for your instance metadata requests. If the parameter is not
    *             specified in the request, the default state is <code>optional</code>.</p>
    *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are
-   *             returned. If you retrieve the IAM role credentials using a valid signed
-   *             token, the version 2.0 role credentials are returned.</p>
-   *         <p>If the state is <code>required</code>, you must send a signed token header with any
-   *             instance metadata retrieval requests. In this state, retrieving the IAM
-   *             role credential always returns the version 2.0 credentials; the version 1.0 credentials
-   *             are not available.</p>
+   *             with or without a session token on your request. If you retrieve the IAM
+   *             role credentials without a token, the version 1.0 role credentials are returned. If you
+   *             retrieve the IAM role credentials using a valid session token, the
+   *             version 2.0 role credentials are returned.</p>
+   *         <p>If the state is <code>required</code>, you must send a session token with any instance
+   *             metadata retrieval requests. In this state, retrieving the IAM role
+   *             credentials always returns the version 2.0 credentials; the version 1.0 credentials are
+   *             not available.</p>
    */
   HttpTokens?: HttpTokensState | string;
 
@@ -7104,34 +7133,23 @@ export interface ModifyVpnTunnelOptionsResult {
   VpnConnection?: VpnConnection;
 }
 
-export interface MonitorInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const EnableFastSnapshotRestoreStateErrorFilterSensitiveLog = (
+  obj: EnableFastSnapshotRestoreStateError
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the monitoring of an instance.</p>
+ * @internal
  */
-export interface InstanceMonitoring {
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The monitoring for the instance.</p>
-   */
-  Monitoring?: Monitoring;
-}
+export const EnableFastSnapshotRestoreStateErrorItemFilterSensitiveLog = (
+  obj: EnableFastSnapshotRestoreStateErrorItem
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9303,19 +9321,5 @@ export const ModifyVpnTunnelOptionsRequestFilterSensitiveLog = (obj: ModifyVpnTu
  * @internal
  */
 export const ModifyVpnTunnelOptionsResultFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitorInstancesRequestFilterSensitiveLog = (obj: MonitorInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceMonitoringFilterSensitiveLog = (obj: InstanceMonitoring): any => ({
   ...obj,
 });

@@ -18,7 +18,7 @@ import {
   DescribeAddressesAttributeRequestFilterSensitiveLog,
   DescribeAddressesAttributeResult,
   DescribeAddressesAttributeResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeAddressesAttributeCommand,
   serializeAws_ec2DescribeAddressesAttributeCommand,

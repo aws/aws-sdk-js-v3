@@ -1920,7 +1920,6 @@ import {
   AttachVolumeRequest,
   AttachVpnGatewayRequest,
   AttachVpnGatewayResult,
-  AttributeValue,
   AuthorizeClientVpnIngressRequest,
   AuthorizeClientVpnIngressResult,
   AuthorizeSecurityGroupEgressRequest,
@@ -1953,6 +1952,7 @@ import {
   CancelSpotFleetRequestsSuccessItem,
   CancelSpotInstanceRequestsRequest,
   CancelSpotInstanceRequestsResult,
+  CapacityAllocation,
   CapacityReservation,
   CapacityReservationFleetCancellationState,
   CarrierGateway,
@@ -1997,7 +1997,6 @@ import {
   CreateDefaultVpcResult,
   CreateDhcpOptionsRequest,
   CustomerGateway,
-  DhcpConfiguration,
   DirectoryServiceAuthenticationRequest,
   FailedCapacityReservationFleetCancellationResult,
   FederatedAuthenticationRequest,
@@ -2072,6 +2071,7 @@ import {
   VpcPeeringConnectionVpcInfo,
 } from "../models/models_0";
 import {
+  AttributeValue,
   BaselineEbsBandwidthMbps,
   BaselineEbsBandwidthMbpsRequest,
   BlockDeviceMapping,
@@ -2162,10 +2162,10 @@ import {
   CreateTagsRequest,
   CreateTrafficMirrorFilterRequest,
   CreateTrafficMirrorFilterResult,
-  CreateTrafficMirrorFilterRuleRequest,
   CreditSpecification,
   CreditSpecificationRequest,
   DestinationOptionsRequest,
+  DhcpConfiguration,
   DhcpOptions,
   EbsBlockDevice,
   EgressOnlyInternetGateway,
@@ -2301,7 +2301,6 @@ import {
   TrafficMirrorFilterRule,
   TrafficMirrorNetworkService,
   TrafficMirrorPortRange,
-  TrafficMirrorPortRangeRequest,
   ValidationError,
   ValidationWarning,
   VCpuCountRange,
@@ -2311,6 +2310,7 @@ import {
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreateTrafficMirrorFilterRuleRequest,
   CreateTrafficMirrorFilterRuleResult,
   CreateTrafficMirrorSessionRequest,
   CreateTrafficMirrorSessionResult,
@@ -2496,8 +2496,6 @@ import {
   DeregisterTransitGatewayMulticastGroupSourcesResult,
   DescribeAccountAttributesRequest,
   DescribeAccountAttributesResult,
-  DescribeAddressesAttributeRequest,
-  DescribeAddressesAttributeResult,
   DescribeAddressesRequest,
   DescribeAddressesResult,
   DnsEntry,
@@ -2531,6 +2529,7 @@ import {
   ServiceConnectivityType,
   ServiceTypeDetail,
   SuccessfulQueuedPurchaseDeletion,
+  TrafficMirrorPortRangeRequest,
   TrafficMirrorSession,
   TrafficMirrorTarget,
   TransitGateway,
@@ -2591,6 +2590,8 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DescribeAddressesAttributeRequest,
+  DescribeAddressesAttributeResult,
   DescribeAggregateIdFormatRequest,
   DescribeAggregateIdFormatResult,
   DescribeAvailabilityZonesRequest,
@@ -2712,7 +2713,6 @@ import {
   DescribeLocalGatewaysRequest,
   DescribeLocalGatewaysResult,
   DescribeLocalGatewayVirtualInterfaceGroupsRequest,
-  DescribeLocalGatewayVirtualInterfaceGroupsResult,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2792,7 +2792,6 @@ import {
   LicenseConfiguration,
   LoadPermission,
   LocalGateway,
-  LocalGatewayVirtualInterfaceGroup,
   MemoryInfo,
   Monitoring,
   NetworkCardInfo,
@@ -2824,6 +2823,7 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeLocalGatewayVirtualInterfaceGroupsResult,
   DescribeLocalGatewayVirtualInterfacesRequest,
   DescribeLocalGatewayVirtualInterfacesResult,
   DescribeManagedPrefixListsRequest,
@@ -3024,8 +3024,6 @@ import {
   EnableFastLaunchRequest,
   EnableFastLaunchResult,
   EnableFastSnapshotRestoresRequest,
-  EnableFastSnapshotRestoreStateError,
-  EnableFastSnapshotRestoreStateErrorItem,
   EnableFastSnapshotRestoreSuccessItem,
   Explanation,
   FastLaunchLaunchTemplateSpecificationRequest,
@@ -3038,6 +3036,7 @@ import {
   LaunchTemplateOverrides,
   LoadBalancersConfig,
   LocalGatewayVirtualInterface,
+  LocalGatewayVirtualInterfaceGroup,
   MovingAddressStatus,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
@@ -3112,6 +3111,8 @@ import {
   EbsInstanceBlockDeviceSpecification,
   EnableFastSnapshotRestoreErrorItem,
   EnableFastSnapshotRestoresResult,
+  EnableFastSnapshotRestoreStateError,
+  EnableFastSnapshotRestoreStateErrorItem,
   EnableImageDeprecationRequest,
   EnableImageDeprecationResult,
   EnableIpamOrganizationAdminAccountRequest,
@@ -3228,7 +3229,6 @@ import {
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
   InstanceFamilyCreditSpecification,
-  InstanceMonitoring,
   InstanceRequirementsWithMetadataRequest,
   InstanceTypeInfoFromInstanceRequirements,
   InstanceUsage,
@@ -3349,7 +3349,6 @@ import {
   ModifyVpnTunnelOptionsRequest,
   ModifyVpnTunnelOptionsResult,
   ModifyVpnTunnelOptionsSpecification,
-  MonitorInstancesRequest,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
@@ -3393,10 +3392,12 @@ import {
   InstanceMaintenanceOptionsRequest,
   InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
+  InstanceMonitoring,
   InstanceStateChange,
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  MonitorInstancesRequest,
   MonitorInstancesResult,
   MoveAddressToVpcRequest,
   MoveAddressToVpcResult,
@@ -54517,6 +54518,28 @@ const deserializeAws_ec2CancelSpotInstanceRequestsResult = (
   return contents;
 };
 
+const deserializeAws_ec2CapacityAllocation = (output: any, context: __SerdeContext): CapacityAllocation => {
+  const contents: any = {
+    AllocationType: undefined,
+    Count: undefined,
+  };
+  if (output["allocationType"] !== undefined) {
+    contents.AllocationType = __expectString(output["allocationType"]);
+  }
+  if (output["count"] !== undefined) {
+    contents.Count = __strictParseInt32(output["count"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CapacityAllocations = (output: any, context: __SerdeContext): CapacityAllocation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2CapacityAllocation(entry, context);
+    });
+};
+
 const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeContext): CapacityReservation => {
   const contents: any = {
     CapacityReservationId: undefined,
@@ -54541,6 +54564,7 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
     OutpostArn: undefined,
     CapacityReservationFleetId: undefined,
     PlacementGroupArn: undefined,
+    CapacityAllocations: undefined,
   };
   if (output["capacityReservationId"] !== undefined) {
     contents.CapacityReservationId = __expectString(output["capacityReservationId"]);
@@ -54609,6 +54633,14 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
   }
   if (output["placementGroupArn"] !== undefined) {
     contents.PlacementGroupArn = __expectString(output["placementGroupArn"]);
+  }
+  if (output.capacityAllocationSet === "") {
+    contents.CapacityAllocations = [];
+  } else if (output["capacityAllocationSet"] !== undefined && output["capacityAllocationSet"]["item"] !== undefined) {
+    contents.CapacityAllocations = deserializeAws_ec2CapacityAllocations(
+      __getArrayIfSingleItem(output["capacityAllocationSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
