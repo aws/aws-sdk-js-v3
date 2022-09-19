@@ -143,7 +143,10 @@ export interface AccountAttributesMessage {
   AccountQuotas?: AccountQuota[];
 }
 
-export type ActivityStreamMode = "async" | "sync";
+export enum ActivityStreamMode {
+  async = "async",
+  sync = "sync",
+}
 
 export enum ActivityStreamPolicyStatus {
   locked = "locked",
@@ -152,7 +155,12 @@ export enum ActivityStreamPolicyStatus {
   unlocking_policy = "unlocking-policy",
 }
 
-export type ActivityStreamStatus = "started" | "starting" | "stopped" | "stopping";
+export enum ActivityStreamStatus {
+  started = "started",
+  starting = "starting",
+  stopped = "stopped",
+  stopping = "stopping",
+}
 
 export interface AddRoleToDBClusterMessage {
   /**
@@ -3584,7 +3592,7 @@ export interface CreateDBClusterMessage {
   EnableGlobalWriteForwarding?: boolean;
 
   /**
-   * <p>The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+   * <p>The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6gd.xlarge.
    *             Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.</p>
    *         <p>For the full list of DB instance classes and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB instance class</a> in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>This setting is required to create a Multi-AZ DB cluster.</p>
@@ -5227,7 +5235,7 @@ export interface CreateDBInstanceMessage {
    *                 <p>It must contain 1 to 63 alphanumeric characters.</p>
    *             </li>
    *             <li>
-   *                 <p>It must begin with a letter or an underscore.
+   *                 <p>It must begin with a letter.
    *                   Subsequent characters can be letters, underscores, or digits
    *                   (0 to 9).</p>
    *             </li>
@@ -5612,13 +5620,13 @@ export interface CreateDBInstanceMessage {
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
-   *                 <p>Must be 1 to 255 letters, numbers, or hyphens.</p>
+   *                 <p>It must be 1 to 255 letters, numbers, or hyphens.</p>
    *             </li>
    *             <li>
-   *                 <p>First character must be a letter</p>
+   *                 <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Can't end with a hyphen or contain two consecutive hyphens</p>
+   *                 <p>It can't end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
    */
@@ -8025,6 +8033,7 @@ export enum AuthScheme {
 
 export enum IAMAuthMode {
   DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
   REQUIRED = "REQUIRED",
 }
 
@@ -8054,7 +8063,8 @@ export interface UserAuthConfig {
   SecretArn?: string;
 
   /**
-   * <p>Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy.</p>
+   * <p>Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy.
+   *         The <code>ENABLED</code> value is valid only for proxies with RDS for Microsoft SQL Server.</p>
    */
   IAMAuth?: IAMAuthMode | string;
 }
@@ -8062,6 +8072,7 @@ export interface UserAuthConfig {
 export enum EngineFamily {
   MYSQL = "MYSQL",
   POSTGRESQL = "POSTGRESQL",
+  SQLSERVER = "SQLSERVER",
 }
 
 export interface CreateDBProxyRequest {
@@ -8074,7 +8085,8 @@ export interface CreateDBProxyRequest {
    * <p>The kinds of databases that the proxy can connect to.
    *           This value determines which database network protocol the proxy recognizes when it interprets
    *         network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify <code>MYSQL</code>.
-   *         For Aurora PostgreSQL and RDS for PostgreSQL databases, specify <code>POSTGRESQL</code>.</p>
+   *         For Aurora PostgreSQL and RDS for PostgreSQL databases, specify <code>POSTGRESQL</code>. For RDS for Microsoft SQL Server, specify
+   *         <code>SQLSERVER</code>.</p>
    */
   EngineFamily: EngineFamily | string | undefined;
 
@@ -8152,7 +8164,8 @@ export interface UserAuthConfigInfo {
   SecretArn?: string;
 
   /**
-   * <p>Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy.</p>
+   * <p>Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy.
+   *         The <code>ENABLED</code> value is valid only for proxies with RDS for Microsoft SQL Server.</p>
    */
   IAMAuth?: IAMAuthMode | string;
 }
@@ -8194,7 +8207,8 @@ export interface DBProxy {
   /**
    * <p>The kinds of databases that the proxy can connect to. This value determines which database network protocol
    *         the proxy recognizes when it interprets network traffic to and from the database. <code>MYSQL</code> supports Aurora MySQL,
-   *         RDS for MariaDB, and RDS for MySQL databases. <code>POSTGRESQL</code> supports Aurora PostgreSQL and RDS for PostgreSQL databases.</p>
+   *         RDS for MariaDB, and RDS for MySQL databases. <code>POSTGRESQL</code> supports Aurora PostgreSQL and RDS for PostgreSQL databases.
+   *         <code>SQLSERVER</code> supports RDS for Microsoft SQL Server databases.</p>
    */
   EngineFamily?: string;
 
@@ -8341,7 +8355,8 @@ export interface CreateDBProxyEndpointRequest {
 
   /**
    * <p>A value that indicates whether the DB proxy endpoint can be used for read/write
-   *         or read-only operations. The default is <code>READ_WRITE</code>.</p>
+   *         or read-only operations. The default is <code>READ_WRITE</code>. The only role that proxies for RDS for Microsoft SQL Server
+   *         support is <code>READ_WRITE</code>.</p>
    */
   TargetRole?: DBProxyEndpointTargetRole | string;
 
@@ -10606,7 +10621,10 @@ export interface DescribeDBClusterParameterGroupsMessage {
   Marker?: string;
 }
 
-export type ApplyMethod = "immediate" | "pending-reboot";
+export enum ApplyMethod {
+  immediate = "immediate",
+  pending_reboot = "pending-reboot",
+}
 
 /**
  * <p>This data type is used as a request parameter in the
@@ -11815,8 +11833,8 @@ export interface ConnectionPoolConfigurationInfo {
   /**
    * <p>Each item in the list represents a class of SQL operations that normally cause all later statements
    *         in a session using a proxy to be pinned to the same underlying database connection. Including an item
-   *         in the list exempts that class of SQL operations from the pinning behavior. Currently, the only
-   *         allowed value is <code>EXCLUDE_VARIABLE_SETS</code>.</p>
+   *         in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases.
+   *         Currently, the only allowed value is <code>EXCLUDE_VARIABLE_SETS</code>.</p>
    */
   SessionPinningFilters?: string[];
 

@@ -3791,7 +3791,13 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Returns a list of the source Amazon Web Services Regions where the current Amazon Web Services Region can create a read replica,
-   *          copy a DB snapshot from, or replicate automated backups from. This API action supports pagination.</p>
+   *          copy a DB snapshot from, or replicate automated backups from.</p>
+   *         <p>Use this operation to determine whether cross-Region features are supported between other Regions
+   *             and your current Region. This operation supports pagination.</p>
+   *         <p>To return information about the Regions that are enabled for your account, or all Regions,
+   *             use the EC2 operation <code>DescribeRegions</code>. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRegions.html">
+   *                 DescribeRegions</a> in the <i>Amazon EC2 API Reference</i>.</p>
    */
   public describeSourceRegions(
     args: DescribeSourceRegionsCommandInput,

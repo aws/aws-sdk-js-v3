@@ -652,15 +652,16 @@ export interface EventCategoriesMessage {
   EventCategoriesMapList?: EventCategoriesMap[];
 }
 
-export type SourceType =
-  | "custom-engine-version"
-  | "db-cluster"
-  | "db-cluster-snapshot"
-  | "db-instance"
-  | "db-parameter-group"
-  | "db-proxy"
-  | "db-security-group"
-  | "db-snapshot";
+export enum SourceType {
+  custom_engine_version = "custom-engine-version",
+  db_cluster = "db-cluster",
+  db_cluster_snapshot = "db-cluster-snapshot",
+  db_instance = "db-instance",
+  db_parameter_group = "db-parameter-group",
+  db_proxy = "db-proxy",
+  db_security_group = "db-security-group",
+  db_snapshot = "db-snapshot",
+}
 
 /**
  * <p></p>
@@ -3157,7 +3158,7 @@ export interface ModifyDBClusterMessage {
   EnableGlobalWriteForwarding?: boolean;
 
   /**
-   * <p>The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+   * <p>The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6gd.xlarge.
    *             Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.</p>
    *         <p>For the full list of DB instance classes and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">
    *         DB Instance Class</a> in the <i>Amazon RDS User Guide</i>.</p>
@@ -4392,8 +4393,8 @@ export interface ConnectionPoolConfiguration {
   /**
    * <p>The maximum size of the connection pool for each target in a target group. The value is expressed as a percentage of the
    *         <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.</p>
-   *         <p>Default: 100</p>
-   *         <p>Constraints: between 1 and 100</p>
+   *         <p>Default: 10 for RDS for Microsoft SQL Server, and 100 for all other engines</p>
+   *         <p>Constraints: Must be between 1 and 100.</p>
    */
   MaxConnectionsPercent?: number;
 
@@ -4401,9 +4402,10 @@ export interface ConnectionPoolConfiguration {
    * <p>Controls how actively the proxy closes idle database connections in the connection pool.
    *         The value is expressed as a percentage of the <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.
    *         With a high value, the proxy leaves a high percentage of idle database connections open. A low value causes the proxy to close more idle connections and return them to the database.</p>
-   *         <p>Default: 50</p>
-   *         <p>Constraints: between 0 and <code>MaxConnectionsPercent</code>
-   *          </p>
+   *         <p>Default: The default value is half of the value of <code>MaxConnectionsPercent</code>. For example, if <code>MaxConnectionsPercent</code> is 80, then the default value of
+   *         <code>MaxIdleConnectionsPercent</code> is 40. If the value of <code>MaxConnectionsPercent</code> isn't specified, then for SQL Server, <code>MaxIdleConnectionsPercent</code> is 5, and
+   *         for all other engines, the default is 50.</p>
+   *         <p>Constraints: Must be between 0 and the value of <code>MaxConnectionsPercent</code>.</p>
    */
   MaxIdleConnectionsPercent?: number;
 
@@ -6071,7 +6073,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
   DomainIAMRoleName?: string;
 
   /**
-   * <p>The compute and memory capacity of the each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+   * <p>The compute and memory capacity of the each DB instance in the Multi-AZ DB cluster, for example db.m6gd.xlarge.
    *             Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.</p>
    *         <p>For the full list of DB instance classes, and availability for your engine, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
@@ -6455,7 +6457,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
 
   /**
    * <p>The compute and memory capacity of the each DB instance in the Multi-AZ DB cluster,
-   *             for example db.m6g.xlarge. Not all DB instance classes are available in all Amazon Web Services
+   *             for example db.m6gd.xlarge. Not all DB instance classes are available in all Amazon Web Services
    *             Regions, or for all database engines.</p>
    *         <p>For the full list of DB instance classes, and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB instance class</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
