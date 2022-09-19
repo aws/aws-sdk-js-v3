@@ -1,13 +1,11 @@
 import { EndpointURL, EndpointURLScheme } from "@aws-sdk/types";
 
+import { isIpAddress } from "./isIpAddress";
+
 const DEFAULT_PORTS: Record<EndpointURLScheme, number> = {
   [EndpointURLScheme.HTTP]: 80,
   [EndpointURLScheme.HTTPS]: 443,
 };
-
-const IP_V4_REGEX = new RegExp(
-  `^(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}$`
-);
 
 /**
  * Parses a string into it’s Endpoint URL components.
@@ -36,7 +34,7 @@ export const parseURL = (value: string): EndpointURL | null => {
     return null;
   }
 
-  const isIp = IP_V4_REGEX.test(hostname) || (hostname.startsWith("[") && hostname.endsWith("]"));
+  const isIp = isIpAddress(hostname);
   const authority = `${host}${value.includes(`${host}:${DEFAULT_PORTS[scheme]}`) ? `:${DEFAULT_PORTS[scheme]}` : ``}`;
 
   return {
