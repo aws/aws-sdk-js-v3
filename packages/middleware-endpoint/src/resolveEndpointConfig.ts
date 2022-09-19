@@ -4,8 +4,8 @@ import { normalizeProvider } from "@aws-sdk/util-middleware";
 import { toEndpointV1 } from "./adaptors/toEndpointV1";
 
 /**
- * Endpoint config interfaces and resolver for Endpoints v2. They live in separate package to allow per-service onboarding.
- * When all services onboard the Endpoints v2, the resolver in config-resolver package can be removed.
+ * Endpoint config interfaces and resolver for Endpoint v2. They live in separate package to allow per-service onboarding.
+ * When all services onboard Endpoint v2, the resolver in config-resolver package can be removed.
  * This interface includes all the endpoint parameters with built-in bindings of "AWS::*" and "SDK::*"
  */
 export interface EndpointInputConfig<T extends EndpointParameters = EndpointParameters> {

@@ -13,7 +13,7 @@ import {
   Tag,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
-import { EndpointResolvedConfig, getEndpointFromInstructions, toEndpointV1 } from "@aws-sdk/middleware-endpoint";
+import { getEndpointFromInstructions, toEndpointV1 } from "@aws-sdk/middleware-endpoint";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { extendedEncodeURIComponent } from "@aws-sdk/smithy-client";
 import { Endpoint } from "@aws-sdk/types";

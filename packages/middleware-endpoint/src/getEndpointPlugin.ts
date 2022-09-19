@@ -7,7 +7,7 @@ import { EndpointParameterInstructions } from "./types";
 export const endpointMiddlewareOptions: SerializeHandlerOptions = {
   step: "serialize",
   tags: ["ENDPOINT_PARAMETERS", "ENDPOINT_V2", "ENDPOINT"],
-  name: "endpointsV2Middleware",
+  name: "endpointV2Middleware",
   override: true,
 };
 

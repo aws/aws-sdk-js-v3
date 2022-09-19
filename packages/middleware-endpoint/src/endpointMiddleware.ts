@@ -10,7 +10,7 @@ import {
   SerializeMiddleware,
 } from "@aws-sdk/types";
 
-import { getEndpointFromInstructions } from "./adaptors/getEndpointFromConfig";
+import { getEndpointFromInstructions } from "./adaptors/getEndpointFromInstructions";
 import { EndpointResolvedConfig } from "./resolveEndpointConfig";
 import { EndpointParameterInstructions } from "./types";
 
@@ -29,24 +29,29 @@ export const endpointMiddleware = ({
       context: HandlerExecutionContext
     ): SerializeHandler<any, Output> =>
     async (args: SerializeHandlerArguments<any>): Promise<SerializeHandlerOutput<Output>> => {
-      if (HttpRequest.isInstance(args.request)) {
-        const { request } = args;
-
-        const endpoint: EndpointV2 = await getEndpointFromInstructions(args.input, instructions, config, context);
-
-        context.endpointV2 = endpoint;
-        context.authSchemes = endpoint.properties?.authSchemes;
-
-        request.headers = Object.entries(endpoint.headers || {}).reduce((headers, [name, values]) => {
-          headers[name] = values.join(",");
-          return headers;
-        }, {} as Record<string, string>);
-        request.hostname = endpoint.url.hostname;
-        request.path = endpoint.url.pathname;
-        request.port = parseInt(endpoint.url.port);
-        request.protocol = endpoint.url.protocol;
-        request.query = parseQueryString(endpoint.url.search);
+      if (!HttpRequest.isInstance(args.request)) {
+        return next(args);
       }
+      const { request } = args;
+
+      const endpoint: EndpointV2 = await getEndpointFromInstructions(args.input, instructions, config, context);
+
+      context.endpointV2 = endpoint;
+      context.authSchemes = endpoint.properties?.authSchemes;
+
+      request.headers = Object.entries(endpoint.headers || {}).reduce(
+        (headers, [name, values]) => ({
+          ...headers,
+          [name]: values.join(","),
+        }),
+        {} as Record<string, string>
+      );
+      request.hostname = endpoint.url.hostname;
+      request.path = endpoint.url.pathname;
+      request.port = parseInt(endpoint.url.port);
+      request.protocol = endpoint.url.protocol;
+      request.query = parseQueryString(endpoint.url.search);
+
       return next({
         ...args,
       });

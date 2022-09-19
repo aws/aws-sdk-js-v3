@@ -4,24 +4,23 @@ import { EndpointResolvedConfig } from "../resolveEndpointConfig";
 import { EndpointParameterInstructions } from "../types";
 
 /**
- *
  * This step in the endpoint resolution process is exposed as a function
  * to allow certain packages such as s3 signer, lib-upload to get
  * the V2 Endpoint associated to an instance of some (operation) command.
  *
  * @private
- *
  */
 export const getEndpointFromInstructions = async (
   commandInput: any,
   instructionsSupplier: Partial<{
-    instructions(): EndpointParameterInstructions;
+    getEndpointParameterInstructions(): EndpointParameterInstructions;
   }>,
   clientConfig: Partial<EndpointResolvedConfig>,
   context?: HandlerExecutionContext
 ): Promise<EndpointV2> => {
   const endpointParams: EndpointParameters = {};
-  const instructions: EndpointParameterInstructions = (instructionsSupplier.instructions || (() => null))() || {};
+  const instructions: EndpointParameterInstructions =
+    (instructionsSupplier.getEndpointParameterInstructions || (() => null))() || {};
 
   if (typeof clientConfig.endpointProvider !== "function") {
     throw new Error("config.endpointProvider is not set.");
@@ -52,7 +51,7 @@ export const getEndpointFromInstructions = async (
  * @private
  */
 const createConfigProvider = (configKey: string, config: EndpointResolvedConfig & any) => {
-  return async function configProvider() {
+  const configProvider = async () => {
     if (!(configKey in config)) {
       throw new Error(`The config key ${configKey} was not found in the config object.`);
     }
@@ -62,4 +61,5 @@ const createConfigProvider = (configKey: string, config: EndpointResolvedConfig 
     }
     return configValue;
   };
+  return configProvider;
 };
