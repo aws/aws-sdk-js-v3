@@ -35,6 +35,7 @@ import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "../comm
 import { GetChannelCommandInput, GetChannelCommandOutput } from "../commands/GetChannelCommand";
 import { GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput } from "../commands/GetEventDataStoreCommand";
 import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "../commands/GetEventSelectorsCommand";
+import { GetImportCommandInput, GetImportCommandOutput } from "../commands/GetImportCommand";
 import {
   GetInsightSelectorsCommandInput,
   GetInsightSelectorsCommandOutput,
@@ -47,6 +48,8 @@ import {
   ListEventDataStoresCommandInput,
   ListEventDataStoresCommandOutput,
 } from "../commands/ListEventDataStoresCommand";
+import { ListImportFailuresCommandInput, ListImportFailuresCommandOutput } from "../commands/ListImportFailuresCommand";
+import { ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
 import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "../commands/ListPublicKeysCommand";
 import { ListQueriesCommandInput, ListQueriesCommandOutput } from "../commands/ListQueriesCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
@@ -62,8 +65,10 @@ import {
   RestoreEventDataStoreCommandInput,
   RestoreEventDataStoreCommandOutput,
 } from "../commands/RestoreEventDataStoreCommand";
+import { StartImportCommandInput, StartImportCommandOutput } from "../commands/StartImportCommand";
 import { StartLoggingCommandInput, StartLoggingCommandOutput } from "../commands/StartLoggingCommand";
 import { StartQueryCommandInput, StartQueryCommandOutput } from "../commands/StartQueryCommand";
+import { StopImportCommandInput, StopImportCommandOutput } from "../commands/StopImportCommand";
 import { StopLoggingCommandInput, StopLoggingCommandOutput } from "../commands/StopLoggingCommand";
 import {
   UpdateEventDataStoreCommandInput,
@@ -72,6 +77,7 @@ import {
 import { UpdateTrailCommandInput, UpdateTrailCommandOutput } from "../commands/UpdateTrailCommand";
 import { CloudTrailServiceException as __BaseException } from "../models/CloudTrailServiceException";
 import {
+  AccountHasOngoingImportException,
   AddTagsRequest,
   AddTagsResponse,
   AdvancedEventSelector,
@@ -104,6 +110,7 @@ import {
   EventDataStore,
   EventDataStoreAlreadyExistsException,
   EventDataStoreARNInvalidException,
+  EventDataStoreHasOngoingImportException,
   EventDataStoreMaxLimitExceededException,
   EventDataStoreNotFoundException,
   EventDataStoreTerminationProtectedException,
@@ -114,6 +121,8 @@ import {
   GetEventDataStoreResponse,
   GetEventSelectorsRequest,
   GetEventSelectorsResponse,
+  GetImportRequest,
+  GetImportResponse,
   GetInsightSelectorsRequest,
   GetInsightSelectorsResponse,
   GetQueryResultsRequest,
@@ -122,6 +131,11 @@ import {
   GetTrailResponse,
   GetTrailStatusRequest,
   GetTrailStatusResponse,
+  ImportFailureListItem,
+  ImportNotFoundException,
+  ImportsListItem,
+  ImportSource,
+  ImportStatistics,
   InactiveEventDataStoreException,
   InactiveQueryException,
   InsightNotEnabledException,
@@ -134,9 +148,11 @@ import {
   InvalidCloudWatchLogsRoleArnException,
   InvalidDateRangeException,
   InvalidEventCategoryException,
+  InvalidEventDataStoreCategoryException,
   InvalidEventDataStoreStatusException,
   InvalidEventSelectorsException,
   InvalidHomeRegionException,
+  InvalidImportSourceException,
   InvalidInsightSelectorsException,
   InvalidKmsKeyIdException,
   InvalidLookupAttributesException,
@@ -160,6 +176,10 @@ import {
   ListChannelsResponse,
   ListEventDataStoresRequest,
   ListEventDataStoresResponse,
+  ListImportFailuresRequest,
+  ListImportFailuresResponse,
+  ListImportsRequest,
+  ListImportsResponse,
   ListPublicKeysRequest,
   ListPublicKeysResponse,
   ListQueriesRequest,
@@ -195,11 +215,16 @@ import {
   RestoreEventDataStoreRequest,
   RestoreEventDataStoreResponse,
   S3BucketDoesNotExistException,
+  S3ImportSource,
   SourceConfig,
+  StartImportRequest,
+  StartImportResponse,
   StartLoggingRequest,
   StartLoggingResponse,
   StartQueryRequest,
   StartQueryResponse,
+  StopImportRequest,
+  StopImportResponse,
   StopLoggingRequest,
   StopLoggingResponse,
   Tag,
@@ -359,6 +384,19 @@ export const serializeAws_json1_1GetEventSelectorsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetImportCommand = async (
+  input: GetImportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.GetImport",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetImportRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetInsightSelectorsCommand = async (
   input: GetInsightSelectorsCommandInput,
   context: __SerdeContext
@@ -434,6 +472,32 @@ export const serializeAws_json1_1ListEventDataStoresCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListEventDataStoresRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListImportFailuresCommand = async (
+  input: ListImportFailuresCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.ListImportFailures",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListImportFailuresRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListImportsCommand = async (
+  input: ListImportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.ListImports",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListImportsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -554,6 +618,19 @@ export const serializeAws_json1_1RestoreEventDataStoreCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartImportCommand = async (
+  input: StartImportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.StartImport",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartImportRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StartLoggingCommand = async (
   input: StartLoggingCommandInput,
   context: __SerdeContext
@@ -577,6 +654,19 @@ export const serializeAws_json1_1StartQueryCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartQueryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopImportCommand = async (
+  input: StopImportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CloudTrail_20131101.StopImport",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopImportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -993,6 +1083,9 @@ const deserializeAws_json1_1DeleteEventDataStoreCommandError = async (
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
       throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
+    case "EventDataStoreHasOngoingImportException":
+    case "com.amazonaws.cloudtrail#EventDataStoreHasOngoingImportException":
+      throw await deserializeAws_json1_1EventDataStoreHasOngoingImportExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
       throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
@@ -1352,6 +1445,56 @@ const deserializeAws_json1_1GetEventSelectorsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1GetImportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetImportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetImportResponse(data, context);
+  const response: GetImportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetImportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ImportNotFoundException":
+    case "com.amazonaws.cloudtrail#ImportNotFoundException":
+      throw await deserializeAws_json1_1ImportNotFoundExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1GetInsightSelectorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1650,6 +1793,106 @@ const deserializeAws_json1_1ListEventDataStoresCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.cloudtrail#InvalidNextTokenException":
       throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListImportFailuresCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportFailuresCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListImportFailuresCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListImportFailuresResponse(data, context);
+  const response: ListImportFailuresCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListImportFailuresCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportFailuresCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.cloudtrail#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListImportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListImportsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListImportsResponse(data, context);
+  const response: ListImportsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListImportsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EventDataStoreARNInvalidException":
+    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.cloudtrail#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
@@ -2234,6 +2477,77 @@ const deserializeAws_json1_1RestoreEventDataStoreCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1StartImportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartImportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartImportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartImportResponse(data, context);
+  const response: StartImportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartImportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartImportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccountHasOngoingImportException":
+    case "com.amazonaws.cloudtrail#AccountHasOngoingImportException":
+      throw await deserializeAws_json1_1AccountHasOngoingImportExceptionResponse(parsedOutput, context);
+    case "EventDataStoreARNInvalidException":
+    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
+    case "EventDataStoreNotFoundException":
+    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
+    case "ImportNotFoundException":
+    case "com.amazonaws.cloudtrail#ImportNotFoundException":
+      throw await deserializeAws_json1_1ImportNotFoundExceptionResponse(parsedOutput, context);
+    case "InactiveEventDataStoreException":
+    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
+    case "InvalidEventDataStoreCategoryException":
+    case "com.amazonaws.cloudtrail#InvalidEventDataStoreCategoryException":
+      throw await deserializeAws_json1_1InvalidEventDataStoreCategoryExceptionResponse(parsedOutput, context);
+    case "InvalidEventDataStoreStatusException":
+    case "com.amazonaws.cloudtrail#InvalidEventDataStoreStatusException":
+      throw await deserializeAws_json1_1InvalidEventDataStoreStatusExceptionResponse(parsedOutput, context);
+    case "InvalidImportSourceException":
+    case "com.amazonaws.cloudtrail#InvalidImportSourceException":
+      throw await deserializeAws_json1_1InvalidImportSourceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1StartLoggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2358,6 +2672,56 @@ const deserializeAws_json1_1StartQueryCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1StopImportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopImportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopImportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopImportResponse(data, context);
+  const response: StopImportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopImportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopImportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ImportNotFoundException":
+    case "com.amazonaws.cloudtrail#ImportNotFoundException":
+      throw await deserializeAws_json1_1ImportNotFoundExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1StopLoggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2453,6 +2817,9 @@ const deserializeAws_json1_1UpdateEventDataStoreCommandError = async (
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
       throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
+    case "EventDataStoreHasOngoingImportException":
+    case "com.amazonaws.cloudtrail#EventDataStoreHasOngoingImportException":
+      throw await deserializeAws_json1_1EventDataStoreHasOngoingImportExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
       throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
@@ -2619,6 +2986,19 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
   }
 };
 
+const deserializeAws_json1_1AccountHasOngoingImportExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccountHasOngoingImportException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccountHasOngoingImportException(body, context);
+  const exception = new AccountHasOngoingImportException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1ChannelARNInvalidExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2736,6 +3116,19 @@ const deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1EventDataStoreHasOngoingImportExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EventDataStoreHasOngoingImportException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1EventDataStoreHasOngoingImportException(body, context);
+  const exception = new EventDataStoreHasOngoingImportException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1EventDataStoreMaxLimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2769,6 +3162,19 @@ const deserializeAws_json1_1EventDataStoreTerminationProtectedExceptionResponse 
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1EventDataStoreTerminationProtectedException(body, context);
   const exception = new EventDataStoreTerminationProtectedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ImportNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ImportNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ImportNotFoundException(body, context);
+  const exception = new ImportNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2918,6 +3324,19 @@ const deserializeAws_json1_1InvalidEventCategoryExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1InvalidEventDataStoreCategoryExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidEventDataStoreCategoryException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidEventDataStoreCategoryException(body, context);
+  const exception = new InvalidEventDataStoreCategoryException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1InvalidEventDataStoreStatusExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2951,6 +3370,19 @@ const deserializeAws_json1_1InvalidHomeRegionExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidHomeRegionException(body, context);
   const exception = new InvalidHomeRegionException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1InvalidImportSourceExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidImportSourceException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidImportSourceException(body, context);
+  const exception = new InvalidImportSourceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3596,6 +4028,12 @@ const serializeAws_json1_1GetEventSelectorsRequest = (
   };
 };
 
+const serializeAws_json1_1GetImportRequest = (input: GetImportRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ImportId != null && { ImportId: input.ImportId }),
+  };
+};
+
 const serializeAws_json1_1GetInsightSelectorsRequest = (
   input: GetInsightSelectorsRequest,
   context: __SerdeContext
@@ -3626,6 +4064,20 @@ const serializeAws_json1_1GetTrailStatusRequest = (input: GetTrailStatusRequest,
   };
 };
 
+const serializeAws_json1_1ImportDestinations = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ImportSource = (input: ImportSource, context: __SerdeContext): any => {
+  return {
+    ...(input.S3 != null && { S3: serializeAws_json1_1S3ImportSource(input.S3, context) }),
+  };
+};
+
 const serializeAws_json1_1InsightSelector = (input: InsightSelector, context: __SerdeContext): any => {
   return {
     ...(input.InsightType != null && { InsightType: input.InsightType }),
@@ -3652,6 +4104,26 @@ const serializeAws_json1_1ListEventDataStoresRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListImportFailuresRequest = (
+  input: ListImportFailuresRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ImportId != null && { ImportId: input.ImportId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListImportsRequest = (input: ListImportsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Destination != null && { Destination: input.Destination }),
+    ...(input.ImportStatus != null && { ImportStatus: input.ImportStatus }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
@@ -3778,6 +4250,26 @@ const serializeAws_json1_1RestoreEventDataStoreRequest = (
   };
 };
 
+const serializeAws_json1_1S3ImportSource = (input: S3ImportSource, context: __SerdeContext): any => {
+  return {
+    ...(input.S3BucketAccessRoleArn != null && { S3BucketAccessRoleArn: input.S3BucketAccessRoleArn }),
+    ...(input.S3BucketRegion != null && { S3BucketRegion: input.S3BucketRegion }),
+    ...(input.S3LocationUri != null && { S3LocationUri: input.S3LocationUri }),
+  };
+};
+
+const serializeAws_json1_1StartImportRequest = (input: StartImportRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Destinations != null && {
+      Destinations: serializeAws_json1_1ImportDestinations(input.Destinations, context),
+    }),
+    ...(input.EndEventTime != null && { EndEventTime: Math.round(input.EndEventTime.getTime() / 1000) }),
+    ...(input.ImportId != null && { ImportId: input.ImportId }),
+    ...(input.ImportSource != null && { ImportSource: serializeAws_json1_1ImportSource(input.ImportSource, context) }),
+    ...(input.StartEventTime != null && { StartEventTime: Math.round(input.StartEventTime.getTime() / 1000) }),
+  };
+};
+
 const serializeAws_json1_1StartLoggingRequest = (input: StartLoggingRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
@@ -3787,6 +4279,12 @@ const serializeAws_json1_1StartLoggingRequest = (input: StartLoggingRequest, con
 const serializeAws_json1_1StartQueryRequest = (input: StartQueryRequest, context: __SerdeContext): any => {
   return {
     ...(input.QueryStatement != null && { QueryStatement: input.QueryStatement }),
+  };
+};
+
+const serializeAws_json1_1StopImportRequest = (input: StopImportRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ImportId != null && { ImportId: input.ImportId }),
   };
 };
 
@@ -3852,6 +4350,15 @@ const serializeAws_json1_1UpdateTrailRequest = (input: UpdateTrailRequest, conte
     ...(input.S3KeyPrefix != null && { S3KeyPrefix: input.S3KeyPrefix }),
     ...(input.SnsTopicName != null && { SnsTopicName: input.SnsTopicName }),
   };
+};
+
+const deserializeAws_json1_1AccountHasOngoingImportException = (
+  output: any,
+  context: __SerdeContext
+): AccountHasOngoingImportException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
 };
 
 const deserializeAws_json1_1AddTagsResponse = (output: any, context: __SerdeContext): AddTagsResponse => {
@@ -4180,6 +4687,15 @@ const deserializeAws_json1_1EventDataStoreARNInvalidException = (
   } as any;
 };
 
+const deserializeAws_json1_1EventDataStoreHasOngoingImportException = (
+  output: any,
+  context: __SerdeContext
+): EventDataStoreHasOngoingImportException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1EventDataStoreMaxLimitExceededException = (
   output: any,
   context: __SerdeContext
@@ -4322,6 +4838,37 @@ const deserializeAws_json1_1GetEventSelectorsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1GetImportResponse = (output: any, context: __SerdeContext): GetImportResponse => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
+        : undefined,
+    Destinations:
+      output.Destinations != null ? deserializeAws_json1_1ImportDestinations(output.Destinations, context) : undefined,
+    EndEventTime:
+      output.EndEventTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndEventTime)))
+        : undefined,
+    ImportId: __expectString(output.ImportId),
+    ImportSource:
+      output.ImportSource != null ? deserializeAws_json1_1ImportSource(output.ImportSource, context) : undefined,
+    ImportStatistics:
+      output.ImportStatistics != null
+        ? deserializeAws_json1_1ImportStatistics(output.ImportStatistics, context)
+        : undefined,
+    ImportStatus: __expectString(output.ImportStatus),
+    StartEventTime:
+      output.StartEventTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartEventTime)))
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTimestamp)))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GetInsightSelectorsResponse = (
   output: any,
   context: __SerdeContext
@@ -4397,6 +4944,97 @@ const deserializeAws_json1_1GetTrailStatusResponse = (output: any, context: __Se
         : undefined,
     TimeLoggingStarted: __expectString(output.TimeLoggingStarted),
     TimeLoggingStopped: __expectString(output.TimeLoggingStopped),
+  } as any;
+};
+
+const deserializeAws_json1_1ImportDestinations = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ImportFailureList = (output: any, context: __SerdeContext): ImportFailureListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ImportFailureListItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ImportFailureListItem = (output: any, context: __SerdeContext): ImportFailureListItem => {
+  return {
+    ErrorMessage: __expectString(output.ErrorMessage),
+    ErrorType: __expectString(output.ErrorType),
+    LastUpdatedTime:
+      output.LastUpdatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
+        : undefined,
+    Location: __expectString(output.Location),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1ImportNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ImportNotFoundException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ImportsList = (output: any, context: __SerdeContext): ImportsListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ImportsListItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ImportsListItem = (output: any, context: __SerdeContext): ImportsListItem => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
+        : undefined,
+    Destinations:
+      output.Destinations != null ? deserializeAws_json1_1ImportDestinations(output.Destinations, context) : undefined,
+    ImportId: __expectString(output.ImportId),
+    ImportStatus: __expectString(output.ImportStatus),
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTimestamp)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ImportSource = (output: any, context: __SerdeContext): ImportSource => {
+  return {
+    S3: output.S3 != null ? deserializeAws_json1_1S3ImportSource(output.S3, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ImportStatistics = (output: any, context: __SerdeContext): ImportStatistics => {
+  return {
+    EventsCompleted: __expectLong(output.EventsCompleted),
+    FailedEntries: __expectLong(output.FailedEntries),
+    FilesCompleted: __expectLong(output.FilesCompleted),
+    PrefixesCompleted: __expectLong(output.PrefixesCompleted),
+    PrefixesFound: __expectLong(output.PrefixesFound),
   } as any;
 };
 
@@ -4514,6 +5152,15 @@ const deserializeAws_json1_1InvalidEventCategoryException = (
   } as any;
 };
 
+const deserializeAws_json1_1InvalidEventDataStoreCategoryException = (
+  output: any,
+  context: __SerdeContext
+): InvalidEventDataStoreCategoryException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidEventDataStoreStatusException = (
   output: any,
   context: __SerdeContext
@@ -4536,6 +5183,15 @@ const deserializeAws_json1_1InvalidHomeRegionException = (
   output: any,
   context: __SerdeContext
 ): InvalidHomeRegionException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidImportSourceException = (
+  output: any,
+  context: __SerdeContext
+): InvalidImportSourceException => {
   return {
     Message: __expectString(output.Message),
   } as any;
@@ -4722,6 +5378,23 @@ const deserializeAws_json1_1ListEventDataStoresResponse = (
       output.EventDataStores != null
         ? deserializeAws_json1_1EventDataStores(output.EventDataStores, context)
         : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListImportFailuresResponse = (
+  output: any,
+  context: __SerdeContext
+): ListImportFailuresResponse => {
+  return {
+    Failures: output.Failures != null ? deserializeAws_json1_1ImportFailureList(output.Failures, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListImportsResponse = (output: any, context: __SerdeContext): ListImportsResponse => {
+  return {
+    Imports: output.Imports != null ? deserializeAws_json1_1ImportsList(output.Imports, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -5074,6 +5747,14 @@ const deserializeAws_json1_1S3BucketDoesNotExistException = (
   } as any;
 };
 
+const deserializeAws_json1_1S3ImportSource = (output: any, context: __SerdeContext): S3ImportSource => {
+  return {
+    S3BucketAccessRoleArn: __expectString(output.S3BucketAccessRoleArn),
+    S3BucketRegion: __expectString(output.S3BucketRegion),
+    S3LocationUri: __expectString(output.S3LocationUri),
+  } as any;
+};
+
 const deserializeAws_json1_1SourceConfig = (output: any, context: __SerdeContext): SourceConfig => {
   return {
     AdvancedEventSelectors:
@@ -5084,6 +5765,33 @@ const deserializeAws_json1_1SourceConfig = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_json1_1StartImportResponse = (output: any, context: __SerdeContext): StartImportResponse => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
+        : undefined,
+    Destinations:
+      output.Destinations != null ? deserializeAws_json1_1ImportDestinations(output.Destinations, context) : undefined,
+    EndEventTime:
+      output.EndEventTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndEventTime)))
+        : undefined,
+    ImportId: __expectString(output.ImportId),
+    ImportSource:
+      output.ImportSource != null ? deserializeAws_json1_1ImportSource(output.ImportSource, context) : undefined,
+    ImportStatus: __expectString(output.ImportStatus),
+    StartEventTime:
+      output.StartEventTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartEventTime)))
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTimestamp)))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1StartLoggingResponse = (output: any, context: __SerdeContext): StartLoggingResponse => {
   return {} as any;
 };
@@ -5091,6 +5799,37 @@ const deserializeAws_json1_1StartLoggingResponse = (output: any, context: __Serd
 const deserializeAws_json1_1StartQueryResponse = (output: any, context: __SerdeContext): StartQueryResponse => {
   return {
     QueryId: __expectString(output.QueryId),
+  } as any;
+};
+
+const deserializeAws_json1_1StopImportResponse = (output: any, context: __SerdeContext): StopImportResponse => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
+        : undefined,
+    Destinations:
+      output.Destinations != null ? deserializeAws_json1_1ImportDestinations(output.Destinations, context) : undefined,
+    EndEventTime:
+      output.EndEventTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndEventTime)))
+        : undefined,
+    ImportId: __expectString(output.ImportId),
+    ImportSource:
+      output.ImportSource != null ? deserializeAws_json1_1ImportSource(output.ImportSource, context) : undefined,
+    ImportStatistics:
+      output.ImportStatistics != null
+        ? deserializeAws_json1_1ImportStatistics(output.ImportStatistics, context)
+        : undefined,
+    ImportStatus: __expectString(output.ImportStatus),
+    StartEventTime:
+      output.StartEventTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartEventTime)))
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTimestamp)))
+        : undefined,
   } as any;
 };
 

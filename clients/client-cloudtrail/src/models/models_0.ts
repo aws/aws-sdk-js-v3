@@ -4,6 +4,33 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { CloudTrailServiceException as __BaseException } from "./CloudTrailServiceException";
 
 /**
+ * <p>
+ *          This exception is thrown when you start a new import and a
+ *          previous import is still in progress.
+ *       </p>
+ */
+export class AccountHasOngoingImportException extends __BaseException {
+  readonly name: "AccountHasOngoingImportException" = "AccountHasOngoingImportException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountHasOngoingImportException, __BaseException>) {
+    super({
+      name: "AccountHasOngoingImportException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountHasOngoingImportException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>A custom key-value pair associated with a resource such as a CloudTrail trail.</p>
  */
 export interface Tag {
@@ -1813,6 +1840,32 @@ export interface DeleteEventDataStoreRequest {
 export interface DeleteEventDataStoreResponse {}
 
 /**
+ * <p>
+ *          This exception is thrown when you try to update or delete an event data store that currently has an import in progress.
+ *       </p>
+ */
+export class EventDataStoreHasOngoingImportException extends __BaseException {
+  readonly name: "EventDataStoreHasOngoingImportException" = "EventDataStoreHasOngoingImportException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EventDataStoreHasOngoingImportException, __BaseException>) {
+    super({
+      name: "EventDataStoreHasOngoingImportException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EventDataStoreHasOngoingImportException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The event data store cannot be deleted because termination protection is enabled for it.</p>
  */
 export class EventDataStoreTerminationProtectedException extends __BaseException {
@@ -2433,7 +2486,7 @@ export interface DataResource {
    *          <ul>
    *             <li>
    *                <p>To log data events for all objects in all S3 buckets in your Amazon Web Services account, specify the
-   *          prefix as <code>arn:aws:s3:::</code>.</p>
+   *          prefix as <code>arn:aws:s3</code>.</p>
    *                <note>
    *                   <p>This also enables logging of data event activity performed by any user or role in your Amazon Web Services account,
    *          even if that activity is performed on a bucket that belongs to another Amazon Web Services account.</p>
@@ -2503,7 +2556,7 @@ export interface EventSelector {
   /**
    * <p>Specify if you want your event selector to include management events for your trail.</p>
    *          <p>
-   *          For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events">Management Events</a> in the <i>CloudTrail User Guide</i>.</p>
+   *          For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Management Events</a> in the <i>CloudTrail User Guide</i>.</p>
    *
    *          <p>By default, the value is <code>true</code>.</p>
    *          <p>The first copy of management events is free. You are charged for additional copies of management
@@ -2519,7 +2572,7 @@ export interface EventSelector {
    *          selector, but the total number of data resources cannot exceed 250 across all event
    *          selectors in a trail. This limit does not apply if you configure resource logging for all
    *          data events.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events">Data Events</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Limits in CloudTrail</a>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Data Events</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Limits in CloudTrail</a>
    *          in the <i>CloudTrail User Guide</i>.</p>
    */
   DataResources?: DataResource[];
@@ -2550,6 +2603,198 @@ export interface GetEventSelectorsResponse {
    *       </p>
    */
   AdvancedEventSelectors?: AdvancedEventSelector[];
+}
+
+export interface GetImportRequest {
+  /**
+   * <p>
+   *          The ID for the import.
+   *       </p>
+   */
+  ImportId: string | undefined;
+}
+
+/**
+ * <p>
+ *          The settings for the source S3 bucket.
+ *       </p>
+ */
+export interface S3ImportSource {
+  /**
+   * <p>
+   *          The URI for the source S3 bucket.
+   *       </p>
+   */
+  S3LocationUri: string | undefined;
+
+  /**
+   * <p>
+   *          The region associated with the source S3 bucket.
+   *       </p>
+   */
+  S3BucketRegion: string | undefined;
+
+  /**
+   * <p>
+   *          The IAM ARN role used to access the source S3 bucket.
+   *       </p>
+   */
+  S3BucketAccessRoleArn: string | undefined;
+}
+
+/**
+ * <p>
+ *          The import source.
+ *       </p>
+ */
+export interface ImportSource {
+  /**
+   * <p>
+   *          The source S3 bucket.
+   *       </p>
+   */
+  S3: S3ImportSource | undefined;
+}
+
+/**
+ * <p>
+ *         Provides statistics for the specified <code>ImportID</code>.
+ *       </p>
+ */
+export interface ImportStatistics {
+  /**
+   * <p>
+   *          The number of S3 prefixes found for the import.
+   *       </p>
+   */
+  PrefixesFound?: number;
+
+  /**
+   * <p>
+   *          The number of S3 prefixes that completed import.
+   *       </p>
+   */
+  PrefixesCompleted?: number;
+
+  /**
+   * <p>The number of files that completed import.</p>
+   */
+  FilesCompleted?: number;
+
+  /**
+   * <p>
+   *          The number of trail events imported.
+   *       </p>
+   */
+  EventsCompleted?: number;
+
+  /**
+   * <p>
+   *         The number of failed entries.
+   *       </p>
+   */
+  FailedEntries?: number;
+}
+
+export enum ImportStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  INITIALIZING = "INITIALIZING",
+  IN_PROGRESS = "IN_PROGRESS",
+  STOPPED = "STOPPED",
+}
+
+export interface GetImportResponse {
+  /**
+   * <p>
+   *          The ID of the import.
+   *       </p>
+   */
+  ImportId?: string;
+
+  /**
+   * <p>
+   *          The destination event data store.
+   *       </p>
+   */
+  Destinations?: string[];
+
+  /**
+   * <p>
+   *          The source S3 bucket.
+   *       </p>
+   */
+  ImportSource?: ImportSource;
+
+  /**
+   * <p>
+   *          Used with <code>EndEventTime</code> to bound a <code>StartImport</code> request, and limit imported trail events
+   *          to only those events logged within a specified time period.
+   *       </p>
+   */
+  StartEventTime?: Date;
+
+  /**
+   * <p>
+   *          Used with <code>StartEventTime</code> to bound a <code>StartImport</code> request, and limit imported trail events
+   *          to only those events logged within a specified time period.
+   *       </p>
+   */
+  EndEventTime?: Date;
+
+  /**
+   * <p>
+   *          The status of the import.
+   *       </p>
+   */
+  ImportStatus?: ImportStatus | string;
+
+  /**
+   * <p>
+   *          The timestamp of the import's creation.
+   *       </p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>
+   *          The timestamp of when the import was updated.
+   *       </p>
+   */
+  UpdatedTimestamp?: Date;
+
+  /**
+   * <p>
+   *          Provides statistics for the import.
+   *       </p>
+   */
+  ImportStatistics?: ImportStatistics;
+}
+
+/**
+ * <p>
+ *          The specified import was not found.
+ *       </p>
+ */
+export class ImportNotFoundException extends __BaseException {
+  readonly name: "ImportNotFoundException" = "ImportNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ImportNotFoundException, __BaseException>) {
+    super({
+      name: "ImportNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ImportNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetInsightSelectorsRequest {
@@ -3015,6 +3260,181 @@ export interface ListEventDataStoresResponse {
 
   /**
    * <p>A token you can use to get the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListImportFailuresRequest {
+  /**
+   * <p>
+   *          The ID of the import.
+   *       </p>
+   */
+  ImportId: string | undefined;
+
+  /**
+   * <p>
+   *          The maximum number of failures to display on a single page.
+   *       </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>
+   *          A token you can use to get the next page of import failures.
+   *       </p>
+   */
+  NextToken?: string;
+}
+
+export enum ImportFailureStatus {
+  FAILED = "FAILED",
+  RETRY = "RETRY",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+/**
+ * <p>
+ *          Provides information about an import failure.
+ *       </p>
+ */
+export interface ImportFailureListItem {
+  /**
+   * <p>
+   *          The location of the failure in the S3 bucket.
+   *       </p>
+   */
+  Location?: string;
+
+  /**
+   * <p>
+   *          The status of the import.
+   *       </p>
+   */
+  Status?: ImportFailureStatus | string;
+
+  /**
+   * <p>
+   *          The type of import error.
+   *       </p>
+   */
+  ErrorType?: string;
+
+  /**
+   * <p>
+   *          Provides the reason the import failed.
+   *       </p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>
+   *          When the import was last updated.
+   *       </p>
+   */
+  LastUpdatedTime?: Date;
+}
+
+export interface ListImportFailuresResponse {
+  /**
+   * <p>
+   *         Contains information about the import failures.
+   *       </p>
+   */
+  Failures?: ImportFailureListItem[];
+
+  /**
+   * <p>
+   *          A token you can use to get the next page of results.
+   *       </p>
+   */
+  NextToken?: string;
+}
+
+export interface ListImportsRequest {
+  /**
+   * <p>
+   *          The maximum number of imports to display on a single page.
+   *       </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>
+   *          The destination event data store.
+   *       </p>
+   */
+  Destination?: string;
+
+  /**
+   * <p>
+   *          The status of the import.
+   *       </p>
+   */
+  ImportStatus?: ImportStatus | string;
+
+  /**
+   * <p>
+   *          A token you can use to get the next page of import results.
+   *       </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>
+ *          Contains information about an import that was returned by a lookup request.
+ *       </p>
+ */
+export interface ImportsListItem {
+  /**
+   * <p>
+   *          The ID of the import.
+   *       </p>
+   */
+  ImportId?: string;
+
+  /**
+   * <p>
+   *          The status of the import.
+   *       </p>
+   */
+  ImportStatus?: ImportStatus | string;
+
+  /**
+   * <p>
+   *          The destination event data store.
+   *       </p>
+   */
+  Destinations?: string[];
+
+  /**
+   * <p>
+   *          The timestamp of the import's creation.
+   *       </p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>
+   *          The timestamp of the import's last update.
+   *       </p>
+   */
+  UpdatedTimestamp?: Date;
+}
+
+export interface ListImportsResponse {
+  /**
+   * <p>
+   *          The list of returned imports.
+   *       </p>
+   */
+  Imports?: ImportsListItem[];
+
+  /**
+   * <p>
+   *          A token you can use to get the next page of import results.
+   *       </p>
    */
   NextToken?: string;
 }
@@ -3821,6 +4241,158 @@ export interface RestoreEventDataStoreResponse {
 }
 
 /**
+ * <p>
+ *          This exception is thrown when the event data store category is not valid for the import.
+ *       </p>
+ */
+export class InvalidEventDataStoreCategoryException extends __BaseException {
+  readonly name: "InvalidEventDataStoreCategoryException" = "InvalidEventDataStoreCategoryException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEventDataStoreCategoryException, __BaseException>) {
+    super({
+      name: "InvalidEventDataStoreCategoryException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEventDataStoreCategoryException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>
+ *          This exception is thrown when the provided source S3 bucket is not valid for import.
+ *       </p>
+ */
+export class InvalidImportSourceException extends __BaseException {
+  readonly name: "InvalidImportSourceException" = "InvalidImportSourceException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidImportSourceException, __BaseException>) {
+    super({
+      name: "InvalidImportSourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidImportSourceException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface StartImportRequest {
+  /**
+   * <p>
+   *          The destination event data store. Use this parameter for a new import.
+   *       </p>
+   */
+  Destinations?: string[];
+
+  /**
+   * <p>
+   *          The source S3 bucket for the import. Use this parameter for a new import.
+   *       </p>
+   */
+  ImportSource?: ImportSource;
+
+  /**
+   * <p>
+   *          Use with <code>EndEventTime</code> to bound a <code>StartImport</code> request, and limit imported trail events
+   *          to only those events logged within a specified time period.
+   *       </p>
+   */
+  StartEventTime?: Date;
+
+  /**
+   * <p>
+   *          Use with <code>StartEventTime</code> to bound a <code>StartImport</code> request, and limit imported trail events
+   *          to only those events logged within a specified time period.
+   *       </p>
+   */
+  EndEventTime?: Date;
+
+  /**
+   * <p>
+   *          The ID of the import. Use this parameter when you are retrying an import.
+   *       </p>
+   */
+  ImportId?: string;
+}
+
+export interface StartImportResponse {
+  /**
+   * <p>
+   *          The ID of the import.
+   *       </p>
+   */
+  ImportId?: string;
+
+  /**
+   * <p>
+   *          The destination event data store.
+   *       </p>
+   */
+  Destinations?: string[];
+
+  /**
+   * <p>
+   *          The source S3 bucket.
+   *       </p>
+   */
+  ImportSource?: ImportSource;
+
+  /**
+   * <p>
+   *          Used with <code>EndEventTime</code> to bound a <code>StartImport</code> request, and limit imported trail events
+   *          to only those events logged within a specified time period.
+   *       </p>
+   */
+  StartEventTime?: Date;
+
+  /**
+   * <p>
+   *          Used with <code>StartEventTime</code> to bound a <code>StartImport</code> request, and limit imported trail events
+   *          to only those events logged within a specified time period.
+   *       </p>
+   */
+  EndEventTime?: Date;
+
+  /**
+   * <p>
+   *          Shows the status of the import after a <code>StartImport</code> request. An import finishes with a status of <code>COMPLETED</code> if there were no failures, or <code>FAILED</code>
+   *          if there were failures.
+   *       </p>
+   */
+  ImportStatus?: ImportStatus | string;
+
+  /**
+   * <p>
+   *          The timestamp for the import's creation.
+   *       </p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>
+   *          The timestamp of the import's last update, if applicable.
+   *       </p>
+   */
+  UpdatedTimestamp?: Date;
+}
+
+/**
  * <p>The request to CloudTrail to start logging Amazon Web Services API calls for an account.</p>
  */
 export interface StartLoggingRequest {
@@ -3904,6 +4476,82 @@ export interface StartQueryResponse {
   QueryId?: string;
 }
 
+export interface StopImportRequest {
+  /**
+   * <p>
+   *         The ID of the import.
+   *       </p>
+   */
+  ImportId: string | undefined;
+}
+
+export interface StopImportResponse {
+  /**
+   * <p>
+   *          The ID for the import.
+   *       </p>
+   */
+  ImportId?: string;
+
+  /**
+   * <p>
+   *          The source S3 bucket.
+   *       </p>
+   */
+  ImportSource?: ImportSource;
+
+  /**
+   * <p>
+   *          The destination event data store.
+   *       </p>
+   */
+  Destinations?: string[];
+
+  /**
+   * <p>
+   *          The status of the import.
+   *       </p>
+   */
+  ImportStatus?: ImportStatus | string;
+
+  /**
+   * <p>
+   *          The timestamp of the import's creation.
+   *       </p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>
+   *          The timestamp of the import's last update.
+   *       </p>
+   */
+  UpdatedTimestamp?: Date;
+
+  /**
+   * <p>
+   *          Used with <code>EndEventTime</code> to bound a <code>StartImport</code> request, and limit imported trail events
+   *          to only those events logged within a specified time period.
+   *       </p>
+   */
+  StartEventTime?: Date;
+
+  /**
+   * <p>
+   *          Used with <code>StartEventTime</code> to bound a <code>StartImport</code> request, and limit imported trail events
+   *          to only those events logged within a specified time period.
+   *       </p>
+   */
+  EndEventTime?: Date;
+
+  /**
+   * <p>
+   *         Returns information on the stopped import.
+   *       </p>
+   */
+  ImportStatistics?: ImportStatistics;
+}
+
 /**
  * <p>Passes the request to CloudTrail to stop logging Amazon Web Services API calls for the specified account.</p>
  */
@@ -3935,7 +4583,7 @@ export interface UpdateEventDataStoreRequest {
   Name?: string;
 
   /**
-   * <p>The advanced event selectors used to select events for the event data store.</p>
+   * <p>The advanced event selectors used to select events for the event data store. You can configure up to five advanced event selectors for each event data store.</p>
    */
   AdvancedEventSelectors?: AdvancedEventSelector[];
 
@@ -4441,6 +5089,41 @@ export const GetEventSelectorsResponseFilterSensitiveLog = (obj: GetEventSelecto
 /**
  * @internal
  */
+export const GetImportRequestFilterSensitiveLog = (obj: GetImportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ImportSourceFilterSensitiveLog = (obj: S3ImportSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportSourceFilterSensitiveLog = (obj: ImportSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportStatisticsFilterSensitiveLog = (obj: ImportStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImportResponseFilterSensitiveLog = (obj: GetImportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetInsightSelectorsRequestFilterSensitiveLog = (obj: GetInsightSelectorsRequest): any => ({
   ...obj,
 });
@@ -4540,6 +5223,48 @@ export const EventDataStoreFilterSensitiveLog = (obj: EventDataStore): any => ({
  * @internal
  */
 export const ListEventDataStoresResponseFilterSensitiveLog = (obj: ListEventDataStoresResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportFailuresRequestFilterSensitiveLog = (obj: ListImportFailuresRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportFailureListItemFilterSensitiveLog = (obj: ImportFailureListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportFailuresResponseFilterSensitiveLog = (obj: ListImportFailuresResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportsRequestFilterSensitiveLog = (obj: ListImportsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportsListItemFilterSensitiveLog = (obj: ImportsListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportsResponseFilterSensitiveLog = (obj: ListImportsResponse): any => ({
   ...obj,
 });
 
@@ -4721,6 +5446,20 @@ export const RestoreEventDataStoreResponseFilterSensitiveLog = (obj: RestoreEven
 /**
  * @internal
  */
+export const StartImportRequestFilterSensitiveLog = (obj: StartImportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartImportResponseFilterSensitiveLog = (obj: StartImportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const StartLoggingRequestFilterSensitiveLog = (obj: StartLoggingRequest): any => ({
   ...obj,
 });
@@ -4743,6 +5482,20 @@ export const StartQueryRequestFilterSensitiveLog = (obj: StartQueryRequest): any
  * @internal
  */
 export const StartQueryResponseFilterSensitiveLog = (obj: StartQueryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopImportRequestFilterSensitiveLog = (obj: StopImportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopImportResponseFilterSensitiveLog = (obj: StopImportResponse): any => ({
   ...obj,
 });
 

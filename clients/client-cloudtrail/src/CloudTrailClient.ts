@@ -70,6 +70,7 @@ import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "./comma
 import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import { GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput } from "./commands/GetEventDataStoreCommand";
 import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "./commands/GetEventSelectorsCommand";
+import { GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
 import {
   GetInsightSelectorsCommandInput,
   GetInsightSelectorsCommandOutput,
@@ -82,6 +83,8 @@ import {
   ListEventDataStoresCommandInput,
   ListEventDataStoresCommandOutput,
 } from "./commands/ListEventDataStoresCommand";
+import { ListImportFailuresCommandInput, ListImportFailuresCommandOutput } from "./commands/ListImportFailuresCommand";
+import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand";
 import { ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/ListQueriesCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
@@ -97,8 +100,10 @@ import {
   RestoreEventDataStoreCommandInput,
   RestoreEventDataStoreCommandOutput,
 } from "./commands/RestoreEventDataStoreCommand";
+import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import { StartLoggingCommandInput, StartLoggingCommandOutput } from "./commands/StartLoggingCommand";
 import { StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
+import { StopImportCommandInput, StopImportCommandOutput } from "./commands/StopImportCommand";
 import { StopLoggingCommandInput, StopLoggingCommandOutput } from "./commands/StopLoggingCommand";
 import {
   UpdateEventDataStoreCommandInput,
@@ -119,12 +124,15 @@ export type ServiceInputTypes =
   | GetChannelCommandInput
   | GetEventDataStoreCommandInput
   | GetEventSelectorsCommandInput
+  | GetImportCommandInput
   | GetInsightSelectorsCommandInput
   | GetQueryResultsCommandInput
   | GetTrailCommandInput
   | GetTrailStatusCommandInput
   | ListChannelsCommandInput
   | ListEventDataStoresCommandInput
+  | ListImportFailuresCommandInput
+  | ListImportsCommandInput
   | ListPublicKeysCommandInput
   | ListQueriesCommandInput
   | ListTagsCommandInput
@@ -134,8 +142,10 @@ export type ServiceInputTypes =
   | PutInsightSelectorsCommandInput
   | RemoveTagsCommandInput
   | RestoreEventDataStoreCommandInput
+  | StartImportCommandInput
   | StartLoggingCommandInput
   | StartQueryCommandInput
+  | StopImportCommandInput
   | StopLoggingCommandInput
   | UpdateEventDataStoreCommandInput
   | UpdateTrailCommandInput;
@@ -152,12 +162,15 @@ export type ServiceOutputTypes =
   | GetChannelCommandOutput
   | GetEventDataStoreCommandOutput
   | GetEventSelectorsCommandOutput
+  | GetImportCommandOutput
   | GetInsightSelectorsCommandOutput
   | GetQueryResultsCommandOutput
   | GetTrailCommandOutput
   | GetTrailStatusCommandOutput
   | ListChannelsCommandOutput
   | ListEventDataStoresCommandOutput
+  | ListImportFailuresCommandOutput
+  | ListImportsCommandOutput
   | ListPublicKeysCommandOutput
   | ListQueriesCommandOutput
   | ListTagsCommandOutput
@@ -167,8 +180,10 @@ export type ServiceOutputTypes =
   | PutInsightSelectorsCommandOutput
   | RemoveTagsCommandOutput
   | RestoreEventDataStoreCommandOutput
+  | StartImportCommandOutput
   | StartLoggingCommandOutput
   | StartQueryCommandOutput
+  | StopImportCommandOutput
   | StopLoggingCommandOutput
   | UpdateEventDataStoreCommandOutput
   | UpdateTrailCommandOutput;

@@ -63,8 +63,9 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  *          <p>The <code>PutEventSelectors</code> operation must be called from the region in which
  *          the trail was created; otherwise, an <code>InvalidHomeRegionException</code> exception is
  *          thrown.</p>
- *          <p>You can configure up to five event selectors for each trail. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging data and management events for trails
- *       </a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas in CloudTrail</a>
+ *          <p>You can configure up to five event selectors for each trail. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events for trails
+ *       </a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails
+ *       </a>, and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas in CloudTrail</a>
  *          in the <i>CloudTrail User Guide</i>.</p>
  *          <p>You can add advanced event selectors, and conditions for your advanced
  *          event selectors, up to a maximum of 500 values for all conditions and selectors on a trail.

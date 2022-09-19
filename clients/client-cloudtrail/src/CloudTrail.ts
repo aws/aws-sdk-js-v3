@@ -37,6 +37,7 @@ import {
   GetEventSelectorsCommandInput,
   GetEventSelectorsCommandOutput,
 } from "./commands/GetEventSelectorsCommand";
+import { GetImportCommand, GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
 import {
   GetInsightSelectorsCommand,
   GetInsightSelectorsCommandInput,
@@ -63,6 +64,12 @@ import {
   ListEventDataStoresCommandInput,
   ListEventDataStoresCommandOutput,
 } from "./commands/ListEventDataStoresCommand";
+import {
+  ListImportFailuresCommand,
+  ListImportFailuresCommandInput,
+  ListImportFailuresCommandOutput,
+} from "./commands/ListImportFailuresCommand";
+import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
   ListPublicKeysCommand,
   ListPublicKeysCommandInput,
@@ -92,12 +99,14 @@ import {
   RestoreEventDataStoreCommandInput,
   RestoreEventDataStoreCommandOutput,
 } from "./commands/RestoreEventDataStoreCommand";
+import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import {
   StartLoggingCommand,
   StartLoggingCommandInput,
   StartLoggingCommandOutput,
 } from "./commands/StartLoggingCommand";
 import { StartQueryCommand, StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
+import { StopImportCommand, StopImportCommandInput, StopImportCommandOutput } from "./commands/StopImportCommand";
 import { StopLoggingCommand, StopLoggingCommandInput, StopLoggingCommandOutput } from "./commands/StopLoggingCommand";
 import {
   UpdateEventDataStoreCommand,
@@ -453,8 +462,21 @@ export class CloudTrail extends CloudTrailClient {
    *                events.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging Data and Management Events for Trails
-   *       </a> in the <i>CloudTrail User Guide</i>.</p>
+   *          <p>For more information about logging management and data events, see the following topics in the <i>CloudTrail User Guide</i>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events for trails
+   *             </a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails
+   *             </a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public getEventSelectors(
     args: GetEventSelectorsCommandInput,
@@ -475,6 +497,34 @@ export class CloudTrail extends CloudTrailClient {
     cb?: (err: any, data?: GetEventSelectorsCommandOutput) => void
   ): Promise<GetEventSelectorsCommandOutput> | void {
     const command = new GetEventSelectorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Returns information for the specified import.
+   *       </p>
+   */
+  public getImport(args: GetImportCommandInput, options?: __HttpHandlerOptions): Promise<GetImportCommandOutput>;
+  public getImport(args: GetImportCommandInput, cb: (err: any, data?: GetImportCommandOutput) => void): void;
+  public getImport(
+    args: GetImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImportCommandOutput) => void
+  ): void;
+  public getImport(
+    args: GetImportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImportCommandOutput) => void),
+    cb?: (err: any, data?: GetImportCommandOutput) => void
+  ): Promise<GetImportCommandOutput> | void {
+    const command = new GetImportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -667,6 +717,68 @@ export class CloudTrail extends CloudTrailClient {
     cb?: (err: any, data?: ListEventDataStoresCommandOutput) => void
   ): Promise<ListEventDataStoresCommandOutput> | void {
     const command = new ListEventDataStoresCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Returns a list of failures for the specified import.
+   *       </p>
+   */
+  public listImportFailures(
+    args: ListImportFailuresCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImportFailuresCommandOutput>;
+  public listImportFailures(
+    args: ListImportFailuresCommandInput,
+    cb: (err: any, data?: ListImportFailuresCommandOutput) => void
+  ): void;
+  public listImportFailures(
+    args: ListImportFailuresCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportFailuresCommandOutput) => void
+  ): void;
+  public listImportFailures(
+    args: ListImportFailuresCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportFailuresCommandOutput) => void),
+    cb?: (err: any, data?: ListImportFailuresCommandOutput) => void
+  ): Promise<ListImportFailuresCommandOutput> | void {
+    const command = new ListImportFailuresCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Returns information on all imports, or a select set of imports by <code>ImportStatus</code> or <code>Destination</code>.
+   *       </p>
+   */
+  public listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
+  public listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
+  public listImports(
+    args: ListImportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportsCommandOutput) => void
+  ): void;
+  public listImports(
+    args: ListImportsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportsCommandOutput) => void),
+    cb?: (err: any, data?: ListImportsCommandOutput) => void
+  ): Promise<ListImportsCommandOutput> | void {
+    const command = new ListImportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -908,8 +1020,9 @@ export class CloudTrail extends CloudTrailClient {
    *          <p>The <code>PutEventSelectors</code> operation must be called from the region in which
    *          the trail was created; otherwise, an <code>InvalidHomeRegionException</code> exception is
    *          thrown.</p>
-   *          <p>You can configure up to five event selectors for each trail. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging data and management events for trails
-   *       </a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas in CloudTrail</a>
+   *          <p>You can configure up to five event selectors for each trail. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events for trails
+   *       </a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails
+   *       </a>, and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas in CloudTrail</a>
    *          in the <i>CloudTrail User Guide</i>.</p>
    *          <p>You can add advanced event selectors, and conditions for your advanced
    *          event selectors, up to a maximum of 500 values for all conditions and selectors on a trail.
@@ -1044,6 +1157,42 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * <p>
+   *          Starts an import of logged trail events from a source S3 bucket to a destination event data store.
+   *       </p>
+   *          <p>
+   *          When you start a new import, the <code>Destinations</code> and
+   *          <code>ImportSource</code> parameters are required. Before starting a new import, disable any access control lists (ACLs) attached to the source S3 bucket.
+   *          For more information about disabling ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of objects and disabling ACLs for your bucket</a>.
+   *       </p>
+   *          <p>
+   *          When you retry an import, the <code>ImportID</code> parameter is required.
+   *       </p>
+   */
+  public startImport(args: StartImportCommandInput, options?: __HttpHandlerOptions): Promise<StartImportCommandOutput>;
+  public startImport(args: StartImportCommandInput, cb: (err: any, data?: StartImportCommandOutput) => void): void;
+  public startImport(
+    args: StartImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartImportCommandOutput) => void
+  ): void;
+  public startImport(
+    args: StartImportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartImportCommandOutput) => void),
+    cb?: (err: any, data?: StartImportCommandOutput) => void
+  ): Promise<StartImportCommandOutput> | void {
+    const command = new StartImportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts the recording of Amazon Web Services API calls and log file delivery for a trail. For a trail that is enabled in all regions, this operation must be called from the region in which the trail was created. This operation cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.</p>
    */
   public startLogging(
@@ -1089,6 +1238,34 @@ export class CloudTrail extends CloudTrailClient {
     cb?: (err: any, data?: StartQueryCommandOutput) => void
   ): Promise<StartQueryCommandOutput> | void {
     const command = new StartQueryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Stops a specified import.
+   *       </p>
+   */
+  public stopImport(args: StopImportCommandInput, options?: __HttpHandlerOptions): Promise<StopImportCommandOutput>;
+  public stopImport(args: StopImportCommandInput, cb: (err: any, data?: StopImportCommandOutput) => void): void;
+  public stopImport(
+    args: StopImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopImportCommandOutput) => void
+  ): void;
+  public stopImport(
+    args: StopImportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopImportCommandOutput) => void),
+    cb?: (err: any, data?: StopImportCommandOutput) => void
+  ): Promise<StopImportCommandOutput> | void {
+    const command = new StopImportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
