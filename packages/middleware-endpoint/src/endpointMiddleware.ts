@@ -1,6 +1,7 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { parseQueryString } from "@aws-sdk/querystring-parser";
 import {
+  EndpointParameters,
   EndpointV2,
   HandlerExecutionContext,
   MetadataBearer,
@@ -17,11 +18,11 @@ import { EndpointParameterInstructions } from "./types";
 /**
  * @private
  */
-export const endpointMiddleware = ({
+export const endpointMiddleware = <T extends EndpointParameters>({
   config,
   instructions,
 }: {
-  config: EndpointResolvedConfig;
+  config: EndpointResolvedConfig<T>;
   instructions: EndpointParameterInstructions;
 }): SerializeMiddleware<any, any> => {
   return <Output extends MetadataBearer>(

@@ -1,4 +1,4 @@
-import { Pluggable, SerializeHandlerOptions } from "@aws-sdk/types";
+import { EndpointParameters, Pluggable, SerializeHandlerOptions } from "@aws-sdk/types";
 
 import { endpointMiddleware } from "./endpointMiddleware";
 import { EndpointResolvedConfig } from "./resolveEndpointConfig";
@@ -11,13 +11,13 @@ export const endpointMiddlewareOptions: SerializeHandlerOptions = {
   override: true,
 };
 
-export const getEndpointPlugin = (
-  config: EndpointResolvedConfig,
+export const getEndpointPlugin = <T extends EndpointParameters>(
+  config: EndpointResolvedConfig<T>,
   instructions: EndpointParameterInstructions
 ): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(
-      endpointMiddleware({
+      endpointMiddleware<T>({
         config,
         instructions,
       }),

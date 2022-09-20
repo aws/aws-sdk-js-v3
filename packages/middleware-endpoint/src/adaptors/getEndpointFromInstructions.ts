@@ -10,12 +10,12 @@ import { EndpointParameterInstructions } from "../types";
  *
  * @private
  */
-export const getEndpointFromInstructions = async (
+export const getEndpointFromInstructions = async <T extends EndpointParameters>(
   commandInput: any,
   instructionsSupplier: Partial<{
     getEndpointParameterInstructions(): EndpointParameterInstructions;
   }>,
-  clientConfig: Partial<EndpointResolvedConfig>,
+  clientConfig: Partial<EndpointResolvedConfig<T>>,
   context?: HandlerExecutionContext
 ): Promise<EndpointV2> => {
   const endpointParams: EndpointParameters = {};
@@ -43,7 +43,7 @@ export const getEndpointFromInstructions = async (
     }
   }
 
-  const endpoint: EndpointV2 = clientConfig.endpointProvider!(endpointParams, context);
+  const endpoint: EndpointV2 = clientConfig.endpointProvider!(endpointParams as T, context);
   return endpoint;
 };
 

@@ -5,7 +5,6 @@ import {
   MetadataBearer,
   MiddlewareStack,
   Pluggable,
-  Provider,
   RequestSerializer,
   ResponseDeserializer,
   SerializeHandlerOptions,

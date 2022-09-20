@@ -6,10 +6,11 @@ export type DeprecatedObject = {
 };
 
 export type ParameterObject = {
-  type: "string" | "boolean";
+  type: "String" | "Boolean";
   default?: string | boolean;
   required?: boolean;
   documentation?: string;
+  builtIn?: string;
   deprecated?: DeprecatedObject;
 };
 

@@ -13,7 +13,7 @@ export interface EndpointInputConfig<T extends EndpointParameters = EndpointPara
    * The fully qualified endpoint of the webservice. This is only required when using
    * a custom endpoint (for example, when using a local version of S3).
    */
-  endpoint?: string | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
+  endpoint: string | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
 
   endpointProvider?: (params: T, context?: { logger?: Logger }) => EndpointV2;
 
@@ -50,7 +50,7 @@ export interface EndpointResolvedConfig<T extends EndpointParameters = EndpointP
    * Resolved value for input {@link EndpointsInputConfig.endpoint}
    * @deprecated Use {@link EndpointResolvedConfig.endpointProvider} instead
    */
-  endpoint?: Provider<Endpoint>;
+  endpoint: Provider<Endpoint>;
 
   endpointProvider: (params: T, context?: { logger?: Logger }) => EndpointV2;
 
