@@ -27,6 +27,22 @@ const regionHash: RegionHash = {
       },
     ],
   },
+  "us-gov-east-1": {
+    variants: [
+      {
+        hostname: "rbin-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "rbin-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-west-1": {
     variants: [
       {
@@ -148,7 +164,7 @@ const partitionHash: PartitionHash = {
     ],
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["fips-us-gov-east-1", "fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     variants: [
       {
