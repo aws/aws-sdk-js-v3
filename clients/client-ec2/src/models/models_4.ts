@@ -6,19 +6,15 @@ import {
   AllocationStrategy,
   AllowedPrincipal,
   AlternatePathHint,
-  AnalysisAclRule,
-  AnalysisComponent,
-  AnalysisRouteTableRoute,
-  AnalysisSecurityGroupRule,
   AssociationStatus,
   BatchState,
   CurrencyCodeValues,
+  Explanation,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   InstanceEventWindow,
   IpPermission,
   PathComponent,
-  PortRange,
   ReservedInstancesListing,
   ResourceType,
   SecurityGroupRule,
@@ -34,7 +30,6 @@ import {
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
   TransitGatewayPolicyTableAssociation,
-  TransitGatewayRouteTableRoute,
   TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
   UserIdGroupPair,
@@ -73,20 +68,19 @@ import {
   SpotInstanceType,
   StorageTier,
   TargetCapacityUnitType,
-  TrafficMirrorFilter,
   VolumeType,
 } from "./models_1";
 import {
   ConnectionNotification,
   DnsEntry,
   DnsNameState,
-  Filter,
   IpAddressType,
   PayerResponsibility,
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
   State,
+  TrafficMirrorFilter,
   TrafficMirrorSession,
   TrafficMirrorTarget,
   TransitGateway,
@@ -109,10 +103,101 @@ import {
   FastLaunchSnapshotConfigurationResponse,
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
+  Filter,
   IdFormat,
   PermissionGroup,
   ProductCode,
 } from "./models_3";
+
+/**
+ * <p>Describes a local gateway.</p>
+ */
+export interface LocalGateway {
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the local gateway.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The state of the local gateway.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The tags assigned to the local gateway.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface DescribeLocalGatewaysResult {
+  /**
+   * <p>Information about the local gateways.</p>
+   */
+  LocalGateways?: LocalGateway[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeLocalGatewayVirtualInterfaceGroupsRequest {
+  /**
+   * <p>The IDs of the virtual interface groups.</p>
+   */
+  LocalGatewayVirtualInterfaceGroupIds?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual interface group.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 /**
  * <p>Describes a local gateway virtual interface group.</p>
@@ -804,10 +889,10 @@ export interface DescribeNetworkInsightsAnalysesRequest {
    * <p>The filters. The following are the possible values:</p>
    *          <ul>
    *             <li>
-   *                <p>PathFound - A Boolean value that indicates whether a feasible path is found.</p>
+   *                <p>path-found - A Boolean value that indicates whether a feasible path is found.</p>
    *             </li>
    *             <li>
-   *                <p>Status - The status of the analysis (running | succeeded | failed).</p>
+   *                <p>status - The status of the analysis (running | succeeded | failed).</p>
    *             </li>
    *          </ul>
    */
@@ -830,304 +915,6 @@ export interface DescribeNetworkInsightsAnalysesRequest {
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
-}
-
-/**
- * <p>Describes a load balancer listener.</p>
- */
-export interface AnalysisLoadBalancerListener {
-  /**
-   * <p>The port on which the load balancer is listening.</p>
-   */
-  LoadBalancerPort?: number;
-
-  /**
-   * <p>[Classic Load Balancers] The back-end port for the listener.</p>
-   */
-  InstancePort?: number;
-}
-
-/**
- * <p>Describes a load balancer target.</p>
- */
-export interface AnalysisLoadBalancerTarget {
-  /**
-   * <p>The IP address.</p>
-   */
-  Address?: string;
-
-  /**
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>Information about the instance.</p>
-   */
-  Instance?: AnalysisComponent;
-
-  /**
-   * <p>The port on which the target is listening.</p>
-   */
-  Port?: number;
-}
-
-/**
- * <p>Describes an explanation code for an unreachable path. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
- */
-export interface Explanation {
-  /**
-   * <p>The network ACL.</p>
-   */
-  Acl?: AnalysisComponent;
-
-  /**
-   * <p>The network ACL rule.</p>
-   */
-  AclRule?: AnalysisAclRule;
-
-  /**
-   * <p>The IPv4 address, in CIDR notation.</p>
-   */
-  Address?: string;
-
-  /**
-   * <p>The IPv4 addresses, in CIDR notation.</p>
-   */
-  Addresses?: string[];
-
-  /**
-   * <p>The resource to which the component is attached.</p>
-   */
-  AttachedTo?: AnalysisComponent;
-
-  /**
-   * <p>The Availability Zones.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>The CIDR ranges.</p>
-   */
-  Cidrs?: string[];
-
-  /**
-   * <p>The component.</p>
-   */
-  Component?: AnalysisComponent;
-
-  /**
-   * <p>The customer gateway.</p>
-   */
-  CustomerGateway?: AnalysisComponent;
-
-  /**
-   * <p>The destination.</p>
-   */
-  Destination?: AnalysisComponent;
-
-  /**
-   * <p>The destination VPC.</p>
-   */
-  DestinationVpc?: AnalysisComponent;
-
-  /**
-   * <p>The direction. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>egress</p>
-   *             </li>
-   *             <li>
-   *                <p>ingress</p>
-   *             </li>
-   *          </ul>
-   */
-  Direction?: string;
-
-  /**
-   * <p>The explanation code.</p>
-   */
-  ExplanationCode?: string;
-
-  /**
-   * <p>The route table.</p>
-   */
-  IngressRouteTable?: AnalysisComponent;
-
-  /**
-   * <p>The internet gateway.</p>
-   */
-  InternetGateway?: AnalysisComponent;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
-   */
-  LoadBalancerArn?: string;
-
-  /**
-   * <p>The listener for a Classic Load Balancer.</p>
-   */
-  ClassicLoadBalancerListener?: AnalysisLoadBalancerListener;
-
-  /**
-   * <p>The listener port of the load balancer.</p>
-   */
-  LoadBalancerListenerPort?: number;
-
-  /**
-   * <p>The target.</p>
-   */
-  LoadBalancerTarget?: AnalysisLoadBalancerTarget;
-
-  /**
-   * <p>The target group.</p>
-   */
-  LoadBalancerTargetGroup?: AnalysisComponent;
-
-  /**
-   * <p>The target groups.</p>
-   */
-  LoadBalancerTargetGroups?: AnalysisComponent[];
-
-  /**
-   * <p>The target port.</p>
-   */
-  LoadBalancerTargetPort?: number;
-
-  /**
-   * <p>The load balancer listener.</p>
-   */
-  ElasticLoadBalancerListener?: AnalysisComponent;
-
-  /**
-   * <p>The missing component.</p>
-   */
-  MissingComponent?: string;
-
-  /**
-   * <p>The NAT gateway.</p>
-   */
-  NatGateway?: AnalysisComponent;
-
-  /**
-   * <p>The network interface.</p>
-   */
-  NetworkInterface?: AnalysisComponent;
-
-  /**
-   * <p>The packet field.</p>
-   */
-  PacketField?: string;
-
-  /**
-   * <p>The VPC peering connection.</p>
-   */
-  VpcPeeringConnection?: AnalysisComponent;
-
-  /**
-   * <p>The port.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The port ranges.</p>
-   */
-  PortRanges?: PortRange[];
-
-  /**
-   * <p>The prefix list.</p>
-   */
-  PrefixList?: AnalysisComponent;
-
-  /**
-   * <p>The protocols.</p>
-   */
-  Protocols?: string[];
-
-  /**
-   * <p>The route table route.</p>
-   */
-  RouteTableRoute?: AnalysisRouteTableRoute;
-
-  /**
-   * <p>The route table.</p>
-   */
-  RouteTable?: AnalysisComponent;
-
-  /**
-   * <p>The security group.</p>
-   */
-  SecurityGroup?: AnalysisComponent;
-
-  /**
-   * <p>The security group rule.</p>
-   */
-  SecurityGroupRule?: AnalysisSecurityGroupRule;
-
-  /**
-   * <p>The security groups.</p>
-   */
-  SecurityGroups?: AnalysisComponent[];
-
-  /**
-   * <p>The source VPC.</p>
-   */
-  SourceVpc?: AnalysisComponent;
-
-  /**
-   * <p>The state.</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The subnet.</p>
-   */
-  Subnet?: AnalysisComponent;
-
-  /**
-   * <p>The route table for the subnet.</p>
-   */
-  SubnetRouteTable?: AnalysisComponent;
-
-  /**
-   * <p>The component VPC.</p>
-   */
-  Vpc?: AnalysisComponent;
-
-  /**
-   * <p>The VPC endpoint.</p>
-   */
-  VpcEndpoint?: AnalysisComponent;
-
-  /**
-   * <p>The VPN connection.</p>
-   */
-  VpnConnection?: AnalysisComponent;
-
-  /**
-   * <p>The VPN gateway.</p>
-   */
-  VpnGateway?: AnalysisComponent;
-
-  /**
-   * <p>The transit gateway.</p>
-   */
-  TransitGateway?: AnalysisComponent;
-
-  /**
-   * <p>The transit gateway route table.</p>
-   */
-  TransitGatewayRouteTable?: AnalysisComponent;
-
-  /**
-   * <p>The transit gateway route table route.</p>
-   */
-  TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute;
-
-  /**
-   * <p>The transit gateway attachment.</p>
-   */
-  TransitGatewayAttachment?: AnalysisComponent;
 }
 
 /**
@@ -1227,19 +1014,16 @@ export interface DescribeNetworkInsightsPathsRequest {
    * <p>The filters. The following are the possible values:</p>
    *          <ul>
    *             <li>
-   *                <p>Destination - The ID of the resource.</p>
+   *                <p>destination - The ID of the resource.</p>
    *             </li>
    *             <li>
-   *                <p>DestinationPort - The destination port.</p>
+   *                <p>destination-port - The destination port.</p>
    *             </li>
    *             <li>
-   *                <p>Name - The path name.</p>
+   *                <p>protocol - The protocol.</p>
    *             </li>
    *             <li>
-   *                <p>Protocol - The protocol.</p>
-   *             </li>
-   *             <li>
-   *                <p>Source - The ID of the resource.</p>
+   *                <p>source - The ID of the resource.</p>
    *             </li>
    *          </ul>
    */
@@ -5928,16 +5712,34 @@ export interface DescribeSubnetsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block you
-   *                     specify must exactly match the subnet's CIDR block for information to be
+   *                   <code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block
+   *                     you specify must exactly match the subnet's CIDR block for information to be
    *                     returned for the subnet. You can also use <code>cidr</code> or
-   *                     <code>cidrBlock</code> as the filter names.</p>
+   *                         <code>cidrBlock</code> as the filter names.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>default-for-az</code> - Indicates whether this is the default subnet for the
-   *                     Availability Zone (<code>true</code> | <code>false</code>). You can also use
-   *                     <code>defaultForAz</code> as the filter name.</p>
+   *                   <code>customer-owned-ipv4-pool</code> - The customer-owned IPv4 address pool
+   *                     associated with the subnet.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>default-for-az</code> - Indicates whether this is the default subnet for
+   *                     the Availability Zone (<code>true</code> | <code>false</code>). You can also use
+   *                         <code>defaultForAz</code> as the filter name.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>enable-dns64</code> - Indicates whether DNS queries made to the
+   *                     Amazon-provided DNS Resolver in this subnet should return synthetic IPv6
+   *                     addresses for IPv4-only destinations.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>enable-lni-at-device-index</code> - Indicates the device position for
+   *                     local network interfaces in this subnet. For example, <code>1</code> indicates
+   *                     local network interfaces in this subnet are the secondary network interface
+   *                     (eth1). </p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5956,7 +5758,18 @@ export interface DescribeSubnetsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>ipv6-native</code> - Indicates whether this is an IPv6 only subnet (<code>true</code> | <code>false</code>).</p>
+   *                   <code>ipv6-native</code> - Indicates whether this is an IPv6 only subnet
+   *                         (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>map-customer-owned-ip-on-launch</code> - Indicates whether a network
+   *                     interface created in this subnet (including a network interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>map-public-ip-on-launch</code> - Indicates whether instances launched in
+   *                     this subnet receive a public IPv4 address.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5964,7 +5777,29 @@ export interface DescribeSubnetsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the subnet.</p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the
+   *                     subnet.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>private-dns-name-options-on-launch.hostname-type</code> - The type of
+   *                     hostname to assign to instances in the subnet at launch. For IPv4-only and
+   *                     dual-stack (IPv4 and IPv6) subnets, an instance DNS name can be based on the
+   *                     instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6
+   *                     only subnets, an instance DNS name must be based on the instance ID
+   *                     (resource-name).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>private-dns-name-options-on-launch.enable-resource-name-dns-a-record</code>
+   *                     - Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *                     records.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>private-dns-name-options-on-launch.enable-resource-name-dns-aaaa-record</code>
+   *                     - Indicates whether to respond to DNS queries for instance hostnames with DNS
+   *                     AAAA records.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -9951,6 +9786,29 @@ export interface EnableFastSnapshotRestoreSuccessItem {
 /**
  * @internal
  */
+export const LocalGatewayFilterSensitiveLog = (obj: LocalGateway): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLocalGatewaysResultFilterSensitiveLog = (obj: DescribeLocalGatewaysResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLocalGatewayVirtualInterfaceGroupsRequestFilterSensitiveLog = (
+  obj: DescribeLocalGatewayVirtualInterfaceGroupsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const LocalGatewayVirtualInterfaceGroupFilterSensitiveLog = (obj: LocalGatewayVirtualInterfaceGroup): any => ({
   ...obj,
 });
@@ -10101,27 +9959,6 @@ export const DescribeNetworkInsightsAccessScopesResultFilterSensitiveLog = (
 export const DescribeNetworkInsightsAnalysesRequestFilterSensitiveLog = (
   obj: DescribeNetworkInsightsAnalysesRequest
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisLoadBalancerListenerFilterSensitiveLog = (obj: AnalysisLoadBalancerListener): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisLoadBalancerTargetFilterSensitiveLog = (obj: AnalysisLoadBalancerTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExplanationFilterSensitiveLog = (obj: Explanation): any => ({
   ...obj,
 });
 

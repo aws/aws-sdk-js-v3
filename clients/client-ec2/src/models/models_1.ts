@@ -30,8 +30,50 @@ import {
   TagSpecification,
   Tenancy,
   UnsuccessfulItem,
+  Vpc,
   WeekDay,
 } from "./models_0";
+
+export interface CreateDefaultVpcResult {
+  /**
+   * <p>Information about the VPC.</p>
+   */
+  Vpc?: Vpc;
+}
+
+/**
+ * <p>Describes a DHCP configuration option.</p>
+ */
+export interface NewDhcpConfiguration {
+  /**
+   * <p>The name of a DHCP option.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>One or more values for the DHCP option.</p>
+   */
+  Values?: string[];
+}
+
+export interface CreateDhcpOptionsRequest {
+  /**
+   * <p>A DHCP configuration option.</p>
+   */
+  DhcpConfigurations: NewDhcpConfiguration[] | undefined;
+
+  /**
+   * <p>The tags to assign to the DHCP option.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 /**
  * <p>Describes a value for a resource attribute that is a String.</p>
@@ -8454,56 +8496,26 @@ export interface TrafficMirrorFilterRule {
   Description?: string;
 }
 
-export enum TrafficMirrorNetworkService {
-  amazon_dns = "amazon-dns",
-}
+/**
+ * @internal
+ */
+export const CreateDefaultVpcResultFilterSensitiveLog = (obj: CreateDefaultVpcResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the Traffic Mirror filter.</p>
+ * @internal
  */
-export interface TrafficMirrorFilter {
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   */
-  TrafficMirrorFilterId?: string;
+export const NewDhcpConfigurationFilterSensitiveLog = (obj: NewDhcpConfiguration): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Information about the ingress rules that are associated with the Traffic Mirror filter.</p>
-   */
-  IngressFilterRules?: TrafficMirrorFilterRule[];
-
-  /**
-   * <p>Information about the egress rules that are associated with the Traffic Mirror filter.</p>
-   */
-  EgressFilterRules?: TrafficMirrorFilterRule[];
-
-  /**
-   * <p>The network service traffic that is associated with the Traffic Mirror filter.</p>
-   */
-  NetworkServices?: (TrafficMirrorNetworkService | string)[];
-
-  /**
-   * <p>The description of the Traffic Mirror filter.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The tags assigned to the Traffic Mirror filter.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateTrafficMirrorFilterResult {
-  /**
-   * <p>Information about the Traffic Mirror filter.</p>
-   */
-  TrafficMirrorFilter?: TrafficMirrorFilter;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-}
+/**
+ * @internal
+ */
+export const CreateDhcpOptionsRequestFilterSensitiveLog = (obj: CreateDhcpOptionsRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10189,19 +10201,5 @@ export const TrafficMirrorPortRangeFilterSensitiveLog = (obj: TrafficMirrorPortR
  * @internal
  */
 export const TrafficMirrorFilterRuleFilterSensitiveLog = (obj: TrafficMirrorFilterRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrafficMirrorFilterFilterSensitiveLog = (obj: TrafficMirrorFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrafficMirrorFilterResultFilterSensitiveLog = (obj: CreateTrafficMirrorFilterResult): any => ({
   ...obj,
 });

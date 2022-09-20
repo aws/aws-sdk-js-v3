@@ -3774,6 +3774,14 @@
             "smithy.api#documentation": "<p>The ID of a VPC peering connection.</p>",
             "smithy.api#xmlName": "vpcPeeringConnectionId"
           }
+        },
+        "State": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "State",
+            "smithy.api#documentation": "<p>The state. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>active</p>\n            </li>\n            <li>\n               <p>blackhole</p>\n            </li>\n         </ul>",
+            "smithy.api#xmlName": "state"
+          }
         }
       },
       "traits": {
@@ -10026,6 +10034,18 @@
         "traits": {
           "smithy.api#xmlName": "item"
         }
+      }
+    },
+    "com.amazonaws.ec2#ComponentAccount": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^\\d{12}$"
+      }
+    },
+    "com.amazonaws.ec2#ComponentRegion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-z]{2}-[a-z]+-[1-9]+$"
       }
     },
     "com.amazonaws.ec2#ConfirmProductInstance": {
@@ -27656,7 +27676,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>The filters. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>PathFound - A Boolean value that indicates whether a feasible path is found.</p>\n            </li>\n            <li>\n               <p>Status - The status of the analysis (running | succeeded | failed).</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The filters. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>path-found - A Boolean value that indicates whether a feasible path is found.</p>\n            </li>\n            <li>\n               <p>status - The status of the analysis (running | succeeded | failed).</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -27736,7 +27756,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>The filters. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>Destination - The ID of the resource.</p>\n            </li>\n            <li>\n               <p>DestinationPort - The destination port.</p>\n            </li>\n            <li>\n               <p>Name - The path name.</p>\n            </li>\n            <li>\n               <p>Protocol - The protocol.</p>\n            </li>\n            <li>\n               <p>Source - The ID of the resource.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The filters. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>destination - The ID of the resource.</p>\n            </li>\n            <li>\n               <p>destination-port - The destination port.</p>\n            </li>\n            <li>\n               <p>protocol - The protocol.</p>\n            </li>\n            <li>\n               <p>source - The ID of the resource.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -30630,7 +30650,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>availability-zone</code> - The Availability Zone for the subnet. You can also use\n                    <code>availabilityZone</code> as the filter name.</p>\n            </li>\n            <li>\n                <p>\n                  <code>availability-zone-id</code> - The ID of the Availability Zone for the subnet.\n                    You can also use <code>availabilityZoneId</code> as the filter name.</p>\n            </li>\n            <li>\n                <p>\n                  <code>available-ip-address-count</code> - The number of IPv4 addresses in the\n                    subnet that are available.</p>\n            </li>\n            <li>\n                <p>\n                  <code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block you\n                    specify must exactly match the subnet's CIDR block for information to be\n                    returned for the subnet. You can also use <code>cidr</code> or\n                    <code>cidrBlock</code> as the filter names.</p>\n            </li>\n            <li>\n                <p>\n                  <code>default-for-az</code> - Indicates whether this is the default subnet for the\n                    Availability Zone (<code>true</code> | <code>false</code>). You can also use \n                    <code>defaultForAz</code> as the filter name.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR\n                    block associated with the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-cidr-block-association.association-id</code> - An association ID\n                    for an IPv6 CIDR block associated with the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR\n                    block associated with the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-native</code> - Indicates whether this is an IPv6 only subnet (<code>true</code> | <code>false</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>\n            </li>\n            <li>\n                <p>\n                  <code>owner-id</code> - The ID of the Amazon Web Services account that owns the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>subnet-id</code> - The ID of the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>vpc-id</code> - The ID of the VPC for the subnet.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>availability-zone</code> - The Availability Zone for the subnet. You can also use\n                    <code>availabilityZone</code> as the filter name.</p>\n            </li>\n            <li>\n                <p>\n                  <code>availability-zone-id</code> - The ID of the Availability Zone for the subnet.\n                    You can also use <code>availabilityZoneId</code> as the filter name.</p>\n            </li>\n            <li>\n                <p>\n                  <code>available-ip-address-count</code> - The number of IPv4 addresses in the\n                    subnet that are available.</p>\n            </li>\n            <li>\n                <p>\n                  <code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block\n                    you specify must exactly match the subnet's CIDR block for information to be\n                    returned for the subnet. You can also use <code>cidr</code> or\n                        <code>cidrBlock</code> as the filter names.</p>\n            </li>\n            <li>\n                <p>\n                  <code>customer-owned-ipv4-pool</code> - The customer-owned IPv4 address pool\n                    associated with the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>default-for-az</code> - Indicates whether this is the default subnet for\n                    the Availability Zone (<code>true</code> | <code>false</code>). You can also use\n                        <code>defaultForAz</code> as the filter name.</p>\n            </li>\n            <li>\n                <p>\n                  <code>enable-dns64</code> - Indicates whether DNS queries made to the\n                    Amazon-provided DNS Resolver in this subnet should return synthetic IPv6\n                    addresses for IPv4-only destinations.</p>\n            </li>\n            <li>\n                <p>\n                  <code>enable-lni-at-device-index</code> - Indicates the device position for\n                    local network interfaces in this subnet. For example, <code>1</code> indicates\n                    local network interfaces in this subnet are the secondary network interface\n                    (eth1). </p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR\n                    block associated with the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-cidr-block-association.association-id</code> - An association ID\n                    for an IPv6 CIDR block associated with the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR\n                    block associated with the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-native</code> - Indicates whether this is an IPv6 only subnet\n                        (<code>true</code> | <code>false</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>map-customer-owned-ip-on-launch</code> - Indicates whether a network\n                    interface created in this subnet (including a network interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p>\n            </li>\n            <li>\n                <p>\n                  <code>map-public-ip-on-launch</code> - Indicates whether instances launched in\n                    this subnet receive a public IPv4 address.</p>\n            </li>\n            <li>\n                <p>\n                  <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>\n            </li>\n            <li>\n                <p>\n                  <code>owner-id</code> - The ID of the Amazon Web Services account that owns the\n                    subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>private-dns-name-options-on-launch.hostname-type</code> - The type of\n                    hostname to assign to instances in the subnet at launch. For IPv4-only and\n                    dual-stack (IPv4 and IPv6) subnets, an instance DNS name can be based on the\n                    instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6\n                    only subnets, an instance DNS name must be based on the instance ID\n                    (resource-name).</p>\n            </li>\n            <li>\n                <p>\n                  <code>private-dns-name-options-on-launch.enable-resource-name-dns-a-record</code>\n                    - Indicates whether to respond to DNS queries for instance hostnames with DNS A\n                    records.</p>\n            </li>\n            <li>\n                <p>\n                  <code>private-dns-name-options-on-launch.enable-resource-name-dns-aaaa-record</code>\n                    - Indicates whether to respond to DNS queries for instance hostnames with DNS\n                    AAAA records.</p>\n            </li>\n            <li>\n                <p>\n                  <code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>subnet-id</code> - The ID of the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>vpc-id</code> - The ID of the VPC for the subnet.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -37901,6 +37921,22 @@
             "aws.protocols#ec2QueryName": "TransitGatewayAttachment",
             "smithy.api#documentation": "<p>The transit gateway attachment.</p>",
             "smithy.api#xmlName": "transitGatewayAttachment"
+          }
+        },
+        "ComponentAccount": {
+          "target": "com.amazonaws.ec2#ComponentAccount",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ComponentAccount",
+            "smithy.api#documentation": "<p>The Amazon Web Services account for the component.</p>",
+            "smithy.api#xmlName": "componentAccount"
+          }
+        },
+        "ComponentRegion": {
+          "target": "com.amazonaws.ec2#ComponentRegion",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ComponentRegion",
+            "smithy.api#documentation": "<p>The Region for the component.</p>",
+            "smithy.api#xmlName": "componentRegion"
           }
         }
       },
@@ -66200,6 +66236,22 @@
             "aws.protocols#ec2QueryName": "TransitGatewayRouteTableRoute",
             "smithy.api#documentation": "<p>The route in a transit gateway route table.</p>",
             "smithy.api#xmlName": "transitGatewayRouteTableRoute"
+          }
+        },
+        "Explanations": {
+          "target": "com.amazonaws.ec2#ExplanationList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ExplanationSet",
+            "smithy.api#documentation": "<p>The explanation codes.</p>",
+            "smithy.api#xmlName": "explanationSet"
+          }
+        },
+        "ElasticLoadBalancerListener": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ElasticLoadBalancerListener",
+            "smithy.api#documentation": "<p>The load balancer listener.</p>",
+            "smithy.api#xmlName": "elasticLoadBalancerListener"
           }
         }
       },

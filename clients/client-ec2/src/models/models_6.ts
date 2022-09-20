@@ -37,11 +37,12 @@ import {
   SnapshotState,
   SpotInstanceType,
 } from "./models_1";
-import { Filter, InstanceTagNotificationAttribute, IpamPoolCidr, TransitGatewayRoute } from "./models_2";
+import { InstanceTagNotificationAttribute, IpamPoolCidr, TransitGatewayRoute } from "./models_2";
 import {
   ArchitectureValues,
   BootModeValues,
   ClientVpnConnectionStatus,
+  Filter,
   HttpTokensState,
   InstanceAttributeName,
   InstanceAutoRecoveryState,

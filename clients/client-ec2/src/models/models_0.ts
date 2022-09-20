@@ -822,34 +822,43 @@ export interface AdditionalDetail {
 }
 
 /**
- * <p>Describes a header. Reflects any changes made by a component as traffic passes through.
- *          The fields of an inbound header are null except for the first component of a path.</p>
+ * <p>Describes a load balancer listener.</p>
  */
-export interface AnalysisPacketHeader {
+export interface AnalysisLoadBalancerListener {
   /**
-   * <p>The destination addresses.</p>
+   * <p>The port on which the load balancer is listening.</p>
    */
-  DestinationAddresses?: string[];
+  LoadBalancerPort?: number;
 
   /**
-   * <p>The destination port ranges.</p>
+   * <p>[Classic Load Balancers] The back-end port for the listener.</p>
    */
-  DestinationPortRanges?: PortRange[];
+  InstancePort?: number;
+}
+
+/**
+ * <p>Describes a load balancer target.</p>
+ */
+export interface AnalysisLoadBalancerTarget {
+  /**
+   * <p>The IP address.</p>
+   */
+  Address?: string;
 
   /**
-   * <p>The protocol.</p>
+   * <p>The Availability Zone.</p>
    */
-  Protocol?: string;
+  AvailabilityZone?: string;
 
   /**
-   * <p>The source addresses.</p>
+   * <p>Information about the instance.</p>
    */
-  SourceAddresses?: string[];
+  Instance?: AnalysisComponent;
 
   /**
-   * <p>The source port ranges.</p>
+   * <p>The port on which the target is listening.</p>
    */
-  SourcePortRanges?: PortRange[];
+  Port?: number;
 }
 
 /**
@@ -916,6 +925,19 @@ export interface AnalysisRouteTableRoute {
    * <p>The ID of a VPC peering connection.</p>
    */
   VpcPeeringConnectionId?: string;
+
+  /**
+   * <p>The state. The following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>active</p>
+   *             </li>
+   *             <li>
+   *                <p>blackhole</p>
+   *             </li>
+   *          </ul>
+   */
+  State?: string;
 }
 
 /**
@@ -1010,6 +1032,305 @@ export interface TransitGatewayRouteTableRoute {
 }
 
 /**
+ * <p>Describes an explanation code for an unreachable path. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
+ */
+export interface Explanation {
+  /**
+   * <p>The network ACL.</p>
+   */
+  Acl?: AnalysisComponent;
+
+  /**
+   * <p>The network ACL rule.</p>
+   */
+  AclRule?: AnalysisAclRule;
+
+  /**
+   * <p>The IPv4 address, in CIDR notation.</p>
+   */
+  Address?: string;
+
+  /**
+   * <p>The IPv4 addresses, in CIDR notation.</p>
+   */
+  Addresses?: string[];
+
+  /**
+   * <p>The resource to which the component is attached.</p>
+   */
+  AttachedTo?: AnalysisComponent;
+
+  /**
+   * <p>The Availability Zones.</p>
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * <p>The CIDR ranges.</p>
+   */
+  Cidrs?: string[];
+
+  /**
+   * <p>The component.</p>
+   */
+  Component?: AnalysisComponent;
+
+  /**
+   * <p>The customer gateway.</p>
+   */
+  CustomerGateway?: AnalysisComponent;
+
+  /**
+   * <p>The destination.</p>
+   */
+  Destination?: AnalysisComponent;
+
+  /**
+   * <p>The destination VPC.</p>
+   */
+  DestinationVpc?: AnalysisComponent;
+
+  /**
+   * <p>The direction. The following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>egress</p>
+   *             </li>
+   *             <li>
+   *                <p>ingress</p>
+   *             </li>
+   *          </ul>
+   */
+  Direction?: string;
+
+  /**
+   * <p>The explanation code.</p>
+   */
+  ExplanationCode?: string;
+
+  /**
+   * <p>The route table.</p>
+   */
+  IngressRouteTable?: AnalysisComponent;
+
+  /**
+   * <p>The internet gateway.</p>
+   */
+  InternetGateway?: AnalysisComponent;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   */
+  LoadBalancerArn?: string;
+
+  /**
+   * <p>The listener for a Classic Load Balancer.</p>
+   */
+  ClassicLoadBalancerListener?: AnalysisLoadBalancerListener;
+
+  /**
+   * <p>The listener port of the load balancer.</p>
+   */
+  LoadBalancerListenerPort?: number;
+
+  /**
+   * <p>The target.</p>
+   */
+  LoadBalancerTarget?: AnalysisLoadBalancerTarget;
+
+  /**
+   * <p>The target group.</p>
+   */
+  LoadBalancerTargetGroup?: AnalysisComponent;
+
+  /**
+   * <p>The target groups.</p>
+   */
+  LoadBalancerTargetGroups?: AnalysisComponent[];
+
+  /**
+   * <p>The target port.</p>
+   */
+  LoadBalancerTargetPort?: number;
+
+  /**
+   * <p>The load balancer listener.</p>
+   */
+  ElasticLoadBalancerListener?: AnalysisComponent;
+
+  /**
+   * <p>The missing component.</p>
+   */
+  MissingComponent?: string;
+
+  /**
+   * <p>The NAT gateway.</p>
+   */
+  NatGateway?: AnalysisComponent;
+
+  /**
+   * <p>The network interface.</p>
+   */
+  NetworkInterface?: AnalysisComponent;
+
+  /**
+   * <p>The packet field.</p>
+   */
+  PacketField?: string;
+
+  /**
+   * <p>The VPC peering connection.</p>
+   */
+  VpcPeeringConnection?: AnalysisComponent;
+
+  /**
+   * <p>The port.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The port ranges.</p>
+   */
+  PortRanges?: PortRange[];
+
+  /**
+   * <p>The prefix list.</p>
+   */
+  PrefixList?: AnalysisComponent;
+
+  /**
+   * <p>The protocols.</p>
+   */
+  Protocols?: string[];
+
+  /**
+   * <p>The route table route.</p>
+   */
+  RouteTableRoute?: AnalysisRouteTableRoute;
+
+  /**
+   * <p>The route table.</p>
+   */
+  RouteTable?: AnalysisComponent;
+
+  /**
+   * <p>The security group.</p>
+   */
+  SecurityGroup?: AnalysisComponent;
+
+  /**
+   * <p>The security group rule.</p>
+   */
+  SecurityGroupRule?: AnalysisSecurityGroupRule;
+
+  /**
+   * <p>The security groups.</p>
+   */
+  SecurityGroups?: AnalysisComponent[];
+
+  /**
+   * <p>The source VPC.</p>
+   */
+  SourceVpc?: AnalysisComponent;
+
+  /**
+   * <p>The state.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The subnet.</p>
+   */
+  Subnet?: AnalysisComponent;
+
+  /**
+   * <p>The route table for the subnet.</p>
+   */
+  SubnetRouteTable?: AnalysisComponent;
+
+  /**
+   * <p>The component VPC.</p>
+   */
+  Vpc?: AnalysisComponent;
+
+  /**
+   * <p>The VPC endpoint.</p>
+   */
+  VpcEndpoint?: AnalysisComponent;
+
+  /**
+   * <p>The VPN connection.</p>
+   */
+  VpnConnection?: AnalysisComponent;
+
+  /**
+   * <p>The VPN gateway.</p>
+   */
+  VpnGateway?: AnalysisComponent;
+
+  /**
+   * <p>The transit gateway.</p>
+   */
+  TransitGateway?: AnalysisComponent;
+
+  /**
+   * <p>The transit gateway route table.</p>
+   */
+  TransitGatewayRouteTable?: AnalysisComponent;
+
+  /**
+   * <p>The transit gateway route table route.</p>
+   */
+  TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute;
+
+  /**
+   * <p>The transit gateway attachment.</p>
+   */
+  TransitGatewayAttachment?: AnalysisComponent;
+
+  /**
+   * <p>The Amazon Web Services account for the component.</p>
+   */
+  ComponentAccount?: string;
+
+  /**
+   * <p>The Region for the component.</p>
+   */
+  ComponentRegion?: string;
+}
+
+/**
+ * <p>Describes a header. Reflects any changes made by a component as traffic passes through.
+ *          The fields of an inbound header are null except for the first component of a path.</p>
+ */
+export interface AnalysisPacketHeader {
+  /**
+   * <p>The destination addresses.</p>
+   */
+  DestinationAddresses?: string[];
+
+  /**
+   * <p>The destination port ranges.</p>
+   */
+  DestinationPortRanges?: PortRange[];
+
+  /**
+   * <p>The protocol.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>The source addresses.</p>
+   */
+  SourceAddresses?: string[];
+
+  /**
+   * <p>The source port ranges.</p>
+   */
+  SourcePortRanges?: PortRange[];
+}
+
+/**
  * <p>Describes a path component.</p>
  */
 export interface PathComponent {
@@ -1087,6 +1408,16 @@ export interface PathComponent {
    * <p>The route in a transit gateway route table.</p>
    */
   TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute;
+
+  /**
+   * <p>The explanation codes.</p>
+   */
+  Explanations?: Explanation[];
+
+  /**
+   * <p>The load balancer listener.</p>
+   */
+  ElasticLoadBalancerListener?: AnalysisComponent;
 }
 
 /**
@@ -7061,47 +7392,6 @@ export interface Vpc {
   Tags?: Tag[];
 }
 
-export interface CreateDefaultVpcResult {
-  /**
-   * <p>Information about the VPC.</p>
-   */
-  Vpc?: Vpc;
-}
-
-/**
- * <p>Describes a DHCP configuration option.</p>
- */
-export interface NewDhcpConfiguration {
-  /**
-   * <p>The name of a DHCP option.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>One or more values for the DHCP option.</p>
-   */
-  Values?: string[];
-}
-
-export interface CreateDhcpOptionsRequest {
-  /**
-   * <p>A DHCP configuration option.</p>
-   */
-  DhcpConfigurations: NewDhcpConfiguration[] | undefined;
-
-  /**
-   * <p>The tags to assign to the DHCP option.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
 /**
  * @internal
  */
@@ -7395,7 +7685,14 @@ export const AdditionalDetailFilterSensitiveLog = (obj: AdditionalDetail): any =
 /**
  * @internal
  */
-export const AnalysisPacketHeaderFilterSensitiveLog = (obj: AnalysisPacketHeader): any => ({
+export const AnalysisLoadBalancerListenerFilterSensitiveLog = (obj: AnalysisLoadBalancerListener): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisLoadBalancerTargetFilterSensitiveLog = (obj: AnalysisLoadBalancerTarget): any => ({
   ...obj,
 });
 
@@ -7417,6 +7714,20 @@ export const AnalysisSecurityGroupRuleFilterSensitiveLog = (obj: AnalysisSecurit
  * @internal
  */
 export const TransitGatewayRouteTableRouteFilterSensitiveLog = (obj: TransitGatewayRouteTableRoute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExplanationFilterSensitiveLog = (obj: Explanation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisPacketHeaderFilterSensitiveLog = (obj: AnalysisPacketHeader): any => ({
   ...obj,
 });
 
@@ -8786,26 +9097,5 @@ export const CreateDefaultVpcRequestFilterSensitiveLog = (obj: CreateDefaultVpcR
  * @internal
  */
 export const VpcFilterSensitiveLog = (obj: Vpc): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDefaultVpcResultFilterSensitiveLog = (obj: CreateDefaultVpcResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NewDhcpConfigurationFilterSensitiveLog = (obj: NewDhcpConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDhcpOptionsRequestFilterSensitiveLog = (obj: CreateDhcpOptionsRequest): any => ({
   ...obj,
 });

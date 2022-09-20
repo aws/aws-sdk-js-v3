@@ -13,8 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateDhcpOptionsRequest, CreateDhcpOptionsRequestFilterSensitiveLog } from "../models/models_0";
-import { CreateDhcpOptionsResult, CreateDhcpOptionsResultFilterSensitiveLog } from "../models/models_1";
+import {
+  CreateDhcpOptionsRequest,
+  CreateDhcpOptionsRequestFilterSensitiveLog,
+  CreateDhcpOptionsResult,
+  CreateDhcpOptionsResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_ec2CreateDhcpOptionsCommand,
   serializeAws_ec2CreateDhcpOptionsCommand,

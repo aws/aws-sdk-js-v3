@@ -2,7 +2,6 @@
 import {
   AccountAttribute,
   AccountAttributeName,
-  Address,
   ApplianceModeSupportValue,
   ByoipCidr,
   CarrierGateway,
@@ -44,6 +43,57 @@ import {
   TrafficMirrorRuleAction,
   VolumeType,
 } from "./models_1";
+
+export enum TrafficMirrorNetworkService {
+  amazon_dns = "amazon-dns",
+}
+
+/**
+ * <p>Describes the Traffic Mirror filter.</p>
+ */
+export interface TrafficMirrorFilter {
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   */
+  TrafficMirrorFilterId?: string;
+
+  /**
+   * <p>Information about the ingress rules that are associated with the Traffic Mirror filter.</p>
+   */
+  IngressFilterRules?: TrafficMirrorFilterRule[];
+
+  /**
+   * <p>Information about the egress rules that are associated with the Traffic Mirror filter.</p>
+   */
+  EgressFilterRules?: TrafficMirrorFilterRule[];
+
+  /**
+   * <p>The network service traffic that is associated with the Traffic Mirror filter.</p>
+   */
+  NetworkServices?: (TrafficMirrorNetworkService | string)[];
+
+  /**
+   * <p>The description of the Traffic Mirror filter.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags assigned to the Traffic Mirror filter.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateTrafficMirrorFilterResult {
+  /**
+   * <p>Information about the Traffic Mirror filter.</p>
+   */
+  TrafficMirrorFilter?: TrafficMirrorFilter;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
 
 /**
  * <p>Information about the Traffic Mirror filter rule port range.</p>
@@ -5574,105 +5624,18 @@ export interface DescribeAccountAttributesResult {
 }
 
 /**
- * <p>A filter name and value pair that is used to return a more specific list of results from a describe operation.
- *          Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.</p>
- *          <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and the request returns only
- *            results that match all of the specified filters.</p>
+ * @internal
  */
-export interface Filter {
-  /**
-   * <p>The name of the filter. Filter names are case-sensitive.</p>
-   */
-  Name?: string;
+export const TrafficMirrorFilterFilterSensitiveLog = (obj: TrafficMirrorFilter): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The filter values. Filter values are case-sensitive. If you specify multiple values for a
-   *          filter, the values are joined with an <code>OR</code>, and the request returns all results
-   *          that match any of the specified values.</p>
-   */
-  Values?: string[];
-}
-
-export interface DescribeAddressesRequest {
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>allocation-id</code> - [EC2-VPC] The allocation ID for the address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>association-id</code> - [EC2-VPC] The association ID for the address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>domain</code> - Indicates whether the address is for use in EC2-Classic (<code>standard</code>)
-   *               or in a VPC (<code>vpc</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance the address is associated with, if any.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-border-group</code> -  A unique set of Availability Zones, Local Zones,
-   *            or Wavelength Zones from where Amazon Web Services advertises IP addresses. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that the address is associated with, if any.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface-owner-id</code> - The Amazon Web Services account ID of the owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>private-ip-address</code> - [EC2-VPC] The private IP address associated with the Elastic IP address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>public-ip</code> - The Elastic IP address, or the carrier IP address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>One or more Elastic IP addresses.</p>
-   *          <p>Default: Describes all your Elastic IP addresses.</p>
-   */
-  PublicIps?: string[];
-
-  /**
-   * <p>[EC2-VPC] Information about the allocation IDs.</p>
-   */
-  AllocationIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DescribeAddressesResult {
-  /**
-   * <p>Information about the Elastic IP addresses.</p>
-   */
-  Addresses?: Address[];
-}
+/**
+ * @internal
+ */
+export const CreateTrafficMirrorFilterResultFilterSensitiveLog = (obj: CreateTrafficMirrorFilterResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7628,26 +7591,5 @@ export const DescribeAccountAttributesRequestFilterSensitiveLog = (obj: Describe
  * @internal
  */
 export const DescribeAccountAttributesResultFilterSensitiveLog = (obj: DescribeAccountAttributesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAddressesRequestFilterSensitiveLog = (obj: DescribeAddressesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAddressesResultFilterSensitiveLog = (obj: DescribeAddressesResult): any => ({
   ...obj,
 });

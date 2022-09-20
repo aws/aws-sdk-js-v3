@@ -1876,6 +1876,8 @@ import {
   AlternatePathHint,
   AnalysisAclRule,
   AnalysisComponent,
+  AnalysisLoadBalancerListener,
+  AnalysisLoadBalancerTarget,
   AnalysisPacketHeader,
   AnalysisRouteTableRoute,
   AnalysisSecurityGroupRule,
@@ -1994,10 +1996,9 @@ import {
   CreateDefaultSubnetRequest,
   CreateDefaultSubnetResult,
   CreateDefaultVpcRequest,
-  CreateDefaultVpcResult,
-  CreateDhcpOptionsRequest,
   CustomerGateway,
   DirectoryServiceAuthenticationRequest,
+  Explanation,
   FailedCapacityReservationFleetCancellationResult,
   FederatedAuthenticationRequest,
   FleetCapacityReservation,
@@ -2015,7 +2016,6 @@ import {
   Ipv4PrefixSpecification,
   Ipv6CidrBlock,
   Ipv6Range,
-  NewDhcpConfiguration,
   PacketHeaderStatement,
   PacketHeaderStatementRequest,
   PathComponent,
@@ -2079,6 +2079,8 @@ import {
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
   CpuManufacturer,
+  CreateDefaultVpcResult,
+  CreateDhcpOptionsRequest,
   CreateDhcpOptionsResult,
   CreateEgressOnlyInternetGatewayRequest,
   CreateEgressOnlyInternetGatewayResult,
@@ -2161,7 +2163,6 @@ import {
   CreateSubnetResult,
   CreateTagsRequest,
   CreateTrafficMirrorFilterRequest,
-  CreateTrafficMirrorFilterResult,
   CreditSpecification,
   CreditSpecificationRequest,
   DestinationOptionsRequest,
@@ -2270,6 +2271,7 @@ import {
   NetworkInterfacePermission,
   NetworkInterfacePermissionState,
   NetworkInterfacePrivateIpAddress,
+  NewDhcpConfiguration,
   OnDemandOptionsRequest,
   Placement,
   PlacementGroup,
@@ -2297,9 +2299,7 @@ import {
   TargetCapacitySpecificationRequest,
   TotalLocalStorageGB,
   TotalLocalStorageGBRequest,
-  TrafficMirrorFilter,
   TrafficMirrorFilterRule,
-  TrafficMirrorNetworkService,
   TrafficMirrorPortRange,
   ValidationError,
   ValidationWarning,
@@ -2310,6 +2310,7 @@ import {
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreateTrafficMirrorFilterResult,
   CreateTrafficMirrorFilterRuleRequest,
   CreateTrafficMirrorFilterRuleResult,
   CreateTrafficMirrorSessionRequest,
@@ -2496,13 +2497,10 @@ import {
   DeregisterTransitGatewayMulticastGroupSourcesResult,
   DescribeAccountAttributesRequest,
   DescribeAccountAttributesResult,
-  DescribeAddressesRequest,
-  DescribeAddressesResult,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
   FailedQueuedPurchaseDeletion,
-  Filter,
   IKEVersionsListValue,
   IKEVersionsRequestListValue,
   InstanceEventWindowStateChange,
@@ -2529,6 +2527,8 @@ import {
   ServiceConnectivityType,
   ServiceTypeDetail,
   SuccessfulQueuedPurchaseDeletion,
+  TrafficMirrorFilter,
+  TrafficMirrorNetworkService,
   TrafficMirrorPortRangeRequest,
   TrafficMirrorSession,
   TrafficMirrorTarget,
@@ -2592,6 +2592,8 @@ import {
   CpuOptions,
   DescribeAddressesAttributeRequest,
   DescribeAddressesAttributeResult,
+  DescribeAddressesRequest,
+  DescribeAddressesResult,
   DescribeAggregateIdFormatRequest,
   DescribeAggregateIdFormatResult,
   DescribeAvailabilityZonesRequest,
@@ -2711,8 +2713,6 @@ import {
   DescribeLocalGatewayRouteTableVpcAssociationsRequest,
   DescribeLocalGatewayRouteTableVpcAssociationsResult,
   DescribeLocalGatewaysRequest,
-  DescribeLocalGatewaysResult,
-  DescribeLocalGatewayVirtualInterfaceGroupsRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2733,6 +2733,7 @@ import {
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchSnapshotConfigurationResponse,
   FederatedAuthentication,
+  Filter,
   FleetData,
   FleetLaunchTemplateConfig,
   FleetSpotCapacityRebalance,
@@ -2791,7 +2792,6 @@ import {
   LaunchPermission,
   LicenseConfiguration,
   LoadPermission,
-  LocalGateway,
   MemoryInfo,
   Monitoring,
   NetworkCardInfo,
@@ -2817,12 +2817,12 @@ import {
   VirtualizationType,
 } from "../models/models_3";
 import {
-  AnalysisLoadBalancerListener,
-  AnalysisLoadBalancerTarget,
   ClassicLinkDnsSupport,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeLocalGatewaysResult,
+  DescribeLocalGatewayVirtualInterfaceGroupsRequest,
   DescribeLocalGatewayVirtualInterfaceGroupsResult,
   DescribeLocalGatewayVirtualInterfacesRequest,
   DescribeLocalGatewayVirtualInterfacesResult,
@@ -3025,7 +3025,6 @@ import {
   EnableFastLaunchResult,
   EnableFastSnapshotRestoresRequest,
   EnableFastSnapshotRestoreSuccessItem,
-  Explanation,
   FastLaunchLaunchTemplateSpecificationRequest,
   FastLaunchSnapshotConfigurationRequest,
   HistoryRecord,
@@ -3035,6 +3034,7 @@ import {
   LaunchTemplateConfig,
   LaunchTemplateOverrides,
   LoadBalancersConfig,
+  LocalGateway,
   LocalGatewayVirtualInterface,
   LocalGatewayVirtualInterfaceGroup,
   MovingAddressStatus,
@@ -53370,6 +53370,7 @@ const deserializeAws_ec2AnalysisRouteTableRoute = (output: any, context: __Serde
     Origin: undefined,
     TransitGatewayId: undefined,
     VpcPeeringConnectionId: undefined,
+    State: undefined,
   };
   if (output["destinationCidr"] !== undefined) {
     contents.DestinationCidr = __expectString(output["destinationCidr"]);
@@ -53400,6 +53401,9 @@ const deserializeAws_ec2AnalysisRouteTableRoute = (output: any, context: __Serde
   }
   if (output["vpcPeeringConnectionId"] !== undefined) {
     contents.VpcPeeringConnectionId = __expectString(output["vpcPeeringConnectionId"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
   }
   return contents;
 };
@@ -62448,6 +62452,8 @@ const deserializeAws_ec2Explanation = (output: any, context: __SerdeContext): Ex
     TransitGatewayRouteTable: undefined,
     TransitGatewayRouteTableRoute: undefined,
     TransitGatewayAttachment: undefined,
+    ComponentAccount: undefined,
+    ComponentRegion: undefined,
   };
   if (output["acl"] !== undefined) {
     contents.Acl = deserializeAws_ec2AnalysisComponent(output["acl"], context);
@@ -62639,6 +62645,12 @@ const deserializeAws_ec2Explanation = (output: any, context: __SerdeContext): Ex
       output["transitGatewayAttachment"],
       context
     );
+  }
+  if (output["componentAccount"] !== undefined) {
+    contents.ComponentAccount = __expectString(output["componentAccount"]);
+  }
+  if (output["componentRegion"] !== undefined) {
+    contents.ComponentRegion = __expectString(output["componentRegion"]);
   }
   return contents;
 };
@@ -71589,6 +71601,8 @@ const deserializeAws_ec2PathComponent = (output: any, context: __SerdeContext): 
     AdditionalDetails: undefined,
     TransitGateway: undefined,
     TransitGatewayRouteTableRoute: undefined,
+    Explanations: undefined,
+    ElasticLoadBalancerListener: undefined,
   };
   if (output["sequenceNumber"] !== undefined) {
     contents.SequenceNumber = __strictParseInt32(output["sequenceNumber"]) as number;
@@ -71640,6 +71654,20 @@ const deserializeAws_ec2PathComponent = (output: any, context: __SerdeContext): 
   if (output["transitGatewayRouteTableRoute"] !== undefined) {
     contents.TransitGatewayRouteTableRoute = deserializeAws_ec2TransitGatewayRouteTableRoute(
       output["transitGatewayRouteTableRoute"],
+      context
+    );
+  }
+  if (output.explanationSet === "") {
+    contents.Explanations = [];
+  } else if (output["explanationSet"] !== undefined && output["explanationSet"]["item"] !== undefined) {
+    contents.Explanations = deserializeAws_ec2ExplanationList(
+      __getArrayIfSingleItem(output["explanationSet"]["item"]),
+      context
+    );
+  }
+  if (output["elasticLoadBalancerListener"] !== undefined) {
+    contents.ElasticLoadBalancerListener = deserializeAws_ec2AnalysisComponent(
+      output["elasticLoadBalancerListener"],
       context
     );
   }

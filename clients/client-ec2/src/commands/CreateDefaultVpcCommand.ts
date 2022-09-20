@@ -13,12 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateDefaultVpcRequest,
-  CreateDefaultVpcRequestFilterSensitiveLog,
-  CreateDefaultVpcResult,
-  CreateDefaultVpcResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDefaultVpcRequest, CreateDefaultVpcRequestFilterSensitiveLog } from "../models/models_0";
+import { CreateDefaultVpcResult, CreateDefaultVpcResultFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_ec2CreateDefaultVpcCommand,
   serializeAws_ec2CreateDefaultVpcCommand,
