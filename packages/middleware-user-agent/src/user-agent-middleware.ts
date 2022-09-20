@@ -26,27 +26,31 @@ import { SPACE, UA_ESCAPE_REGEX, USER_AGENT, X_AMZ_USER_AGENT } from "./constant
  * config or middleware setting the `userAgent` context to generate desired user
  * agent.
  */
-export const userAgentMiddleware =
-  (options: UserAgentResolvedConfig) =>
-  <Output extends MetadataBearer>(
-    next: BuildHandler<any, any>,
-    context: HandlerExecutionContext
-  ): BuildHandler<any, any> =>
-  async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
+export const userAgentMiddleware = (options: UserAgentResolvedConfig) => <Output extends MetadataBearer>(
+  next: BuildHandler<any, any>,
+  context: HandlerExecutionContext
+): BuildHandler<any, any> => {
+  let sdkUserAgentValue = "";
+  let normalUAValue = "";
+  let initialized = false;
+  return async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
     const { request } = args;
     if (!HttpRequest.isInstance(request)) return next(args);
     const { headers } = request;
-    const userAgent = context?.userAgent?.map(escapeUserAgent) || [];
-    const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
-    const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
 
-    // Set value to AWS-specific user agent header
-    const sdkUserAgentValue = [...defaultUserAgent, ...userAgent, ...customUserAgent].join(SPACE);
-    // Get value to be sent with non-AWS-specific user agent header.
-    const normalUAValue = [
-      ...defaultUserAgent.filter((section) => section.startsWith("aws-sdk-")),
-      ...customUserAgent,
-    ].join(SPACE);
+    if (!initialized) {
+      const userAgent = context?.userAgent?.map(escapeUserAgent) || [];
+      const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
+      const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
+      // Set value to AWS-specific user agent header
+      sdkUserAgentValue = [...defaultUserAgent, ...userAgent, ...customUserAgent].join(SPACE);
+      // Get value to be sent with non-AWS-specific user agent header.
+      normalUAValue = [
+        ...defaultUserAgent.filter((section) => section.startsWith("aws-sdk-")),
+        ...customUserAgent,
+      ].join(SPACE);
+      initialized = true;
+    }
 
     if (options.runtime !== "browser") {
       if (normalUAValue) {
@@ -64,6 +68,7 @@ export const userAgentMiddleware =
       request,
     });
   };
+};
 
 /**
  * Escape the each pair according to https://tools.ietf.org/html/rfc5234 and join the pair with pattern `name/version`.

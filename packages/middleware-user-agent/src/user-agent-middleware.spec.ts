@@ -70,6 +70,11 @@ describe("userAgentMiddleware", () => {
             expect(mockNextHandler.mock.calls[0][0].request.headers[sdkUserAgentKey]).toEqual(
               expect.stringContaining(expected)
             );
+            // should work when middleware is reused
+            await handler({ input: {}, request: new HttpRequest({ headers: {} }) });
+            expect(mockNextHandler.mock.calls[0][0].request.headers[sdkUserAgentKey]).toEqual(
+              expect.stringContaining(expected)
+            );
           });
         }
       })
