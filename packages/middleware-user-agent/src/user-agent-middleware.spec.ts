@@ -69,8 +69,9 @@ describe("userAgentMiddleware", () => {
       describe(runtime, () => {
         for (const { ua, expected } of cases) {
           it(`should sanitize user agent ${ua} to ${expected}`, async () => {
+            const defaultUserAgentProvider = jest.fn().mockReturnValue([ua]);
             const middleware = userAgentMiddleware({
-              defaultUserAgentProvider: async () => [ua],
+              defaultUserAgentProvider,
               runtime,
             });
             const handler = middleware(mockNextHandler, {});
@@ -78,6 +79,12 @@ describe("userAgentMiddleware", () => {
             expect(mockNextHandler.mock.calls[0][0].request.headers[sdkUserAgentKey]).toEqual(
               expect.stringContaining(expected)
             );
+            // should work when middleware is reused
+            await handler({ input: {}, request: new HttpRequest({ headers: {} }) });
+            expect(mockNextHandler.mock.calls[1][0].request.headers[sdkUserAgentKey]).toEqual(
+              mockNextHandler.mock.calls[0][0].request.headers[sdkUserAgentKey]
+            );
+            expect(defaultUserAgentProvider.mock.calls.length).toEqual(1);
           });
 
           it(`should include internal metadata, user agent ${ua} customization: ${expected}`, async () => {
