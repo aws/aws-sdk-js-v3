@@ -148,6 +148,10 @@ import {
 } from "./commands/GetBucketLifecycleConfigurationCommand";
 import { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "./commands/GetBucketPolicyCommand";
 import { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "./commands/GetBucketTaggingCommand";
+import {
+  GetBucketVersioningCommandInput,
+  GetBucketVersioningCommandOutput,
+} from "./commands/GetBucketVersioningCommand";
 import { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "./commands/GetJobTaggingCommand";
 import {
   GetMultiRegionAccessPointCommandInput,
@@ -209,6 +213,10 @@ import {
 } from "./commands/PutBucketLifecycleConfigurationCommand";
 import { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "./commands/PutBucketPolicyCommand";
 import { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "./commands/PutBucketTaggingCommand";
+import {
+  PutBucketVersioningCommandInput,
+  PutBucketVersioningCommandOutput,
+} from "./commands/PutBucketVersioningCommand";
 import { PutJobTaggingCommandInput, PutJobTaggingCommandOutput } from "./commands/PutJobTaggingCommand";
 import {
   PutMultiRegionAccessPointPolicyCommandInput,
@@ -262,6 +270,7 @@ export type ServiceInputTypes =
   | GetBucketLifecycleConfigurationCommandInput
   | GetBucketPolicyCommandInput
   | GetBucketTaggingCommandInput
+  | GetBucketVersioningCommandInput
   | GetJobTaggingCommandInput
   | GetMultiRegionAccessPointCommandInput
   | GetMultiRegionAccessPointPolicyCommandInput
@@ -281,6 +290,7 @@ export type ServiceInputTypes =
   | PutBucketLifecycleConfigurationCommandInput
   | PutBucketPolicyCommandInput
   | PutBucketTaggingCommandInput
+  | PutBucketVersioningCommandInput
   | PutJobTaggingCommandInput
   | PutMultiRegionAccessPointPolicyCommandInput
   | PutPublicAccessBlockCommandInput
@@ -321,6 +331,7 @@ export type ServiceOutputTypes =
   | GetBucketLifecycleConfigurationCommandOutput
   | GetBucketPolicyCommandOutput
   | GetBucketTaggingCommandOutput
+  | GetBucketVersioningCommandOutput
   | GetJobTaggingCommandOutput
   | GetMultiRegionAccessPointCommandOutput
   | GetMultiRegionAccessPointPolicyCommandOutput
@@ -340,6 +351,7 @@ export type ServiceOutputTypes =
   | PutBucketLifecycleConfigurationCommandOutput
   | PutBucketPolicyCommandOutput
   | PutBucketTaggingCommandOutput
+  | PutBucketVersioningCommandOutput
   | PutJobTaggingCommandOutput
   | PutMultiRegionAccessPointPolicyCommandOutput
   | PutPublicAccessBlockCommandOutput

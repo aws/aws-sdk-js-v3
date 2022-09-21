@@ -172,7 +172,7 @@ export interface AsyncErrorDetails {
   Code?: string;
 
   /**
-   * <p>A generic descritpion of the error condition in English.</p>
+   * <p>A generic description of the error condition in English.</p>
    */
   Message?: string;
 
@@ -621,20 +621,26 @@ export class BucketAlreadyOwnedByYou extends __BaseException {
   }
 }
 
-export type BucketCannedACL = "authenticated-read" | "private" | "public-read" | "public-read-write";
+export enum BucketCannedACL {
+  authenticated_read = "authenticated-read",
+  private = "private",
+  public_read = "public-read",
+  public_read_write = "public-read-write",
+}
 
-export type BucketLocationConstraint =
-  | "EU"
-  | "ap-northeast-1"
-  | "ap-south-1"
-  | "ap-southeast-1"
-  | "ap-southeast-2"
-  | "cn-north-1"
-  | "eu-central-1"
-  | "eu-west-1"
-  | "sa-east-1"
-  | "us-west-1"
-  | "us-west-2";
+export enum BucketLocationConstraint {
+  EU = "EU",
+  ap_northeast_1 = "ap-northeast-1",
+  ap_south_1 = "ap-south-1",
+  ap_southeast_1 = "ap-southeast-1",
+  ap_southeast_2 = "ap-southeast-2",
+  cn_north_1 = "cn-north-1",
+  eu_central_1 = "eu-central-1",
+  eu_west_1 = "eu-west-1",
+  sa_east_1 = "sa-east-1",
+  us_west_1 = "us-west-1",
+  us_west_2 = "us-west-2",
+}
 
 /**
  * <p>The container for the bucket configuration.</p>
@@ -727,7 +733,7 @@ export interface CreateBucketRequest {
   /**
    * <p>The ID of the Outposts where the bucket is being created.</p>
    *          <note>
-   *             <p>This is required by Amazon S3 on Outposts buckets.</p>
+   *             <p>This ID is required by Amazon S3 on Outposts buckets.</p>
    *          </note>
    */
   OutpostId?: string;
@@ -879,7 +885,7 @@ export interface JobManifestGeneratorFilter {
  */
 export interface SSEKMSEncryption {
   /**
-   * <p>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric customer managed
+   * <p>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric encryption customer managed
    *          key to use for encrypting generated manifest objects.</p>
    */
   KeyId: string | undefined;
@@ -2538,7 +2544,13 @@ export interface NoncurrentVersionExpiration {
   NoncurrentDays?: number;
 }
 
-export type TransitionStorageClass = "DEEP_ARCHIVE" | "GLACIER" | "INTELLIGENT_TIERING" | "ONEZONE_IA" | "STANDARD_IA";
+export enum TransitionStorageClass {
+  DEEP_ARCHIVE = "DEEP_ARCHIVE",
+  GLACIER = "GLACIER",
+  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
+  ONEZONE_IA = "ONEZONE_IA",
+  STANDARD_IA = "STANDARD_IA",
+}
 
 /**
  * <p>The container for the noncurrent version transition.</p>
@@ -2558,7 +2570,10 @@ export interface NoncurrentVersionTransition {
   StorageClass?: TransitionStorageClass | string;
 }
 
-export type ExpirationStatus = "Disabled" | "Enabled";
+export enum ExpirationStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
 /**
  * <p>Specifies when an object transitions to a specified storage class. For more information
@@ -2697,6 +2712,42 @@ export interface GetBucketTaggingResult {
   TagSet: S3Tag[] | undefined;
 }
 
+export interface GetBucketVersioningRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the S3 on Outposts bucket.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The S3 on Outposts bucket to return the versioning state for.</p>
+   */
+  Bucket: string | undefined;
+}
+
+export enum MFADeleteStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+export enum BucketVersioningStatus {
+  Enabled = "Enabled",
+  Suspended = "Suspended",
+}
+
+export interface GetBucketVersioningResult {
+  /**
+   * <p>The versioning state of the S3 on Outposts bucket.</p>
+   */
+  Status?: BucketVersioningStatus | string;
+
+  /**
+   * <p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This
+   *          element is returned only if the bucket has been configured with MFA delete. If MFA delete
+   *          has never been configured for the bucket, this element is not returned.</p>
+   */
+  MFADelete?: MFADeleteStatus | string;
+}
+
 export interface GetJobTaggingRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
@@ -2787,7 +2838,7 @@ export interface MultiRegionAccessPointReport {
    * <p>The current status of the Multi-Region Access Point.</p>
    *          <p>
    *             <code>CREATING</code> and <code>DELETING</code> are temporary states that exist while
-   *          the request is propogating and being completed. If a Multi-Region Access Point has a status of
+   *          the request is propagating and being completed. If a Multi-Region Access Point has a status of
    *             <code>PARTIALLY_CREATED</code>, you can retry creation or send a request to delete the
    *          Multi-Region Access Point. If a Multi-Region Access Point has a status of <code>PARTIALLY_DELETED</code>, you can retry a delete
    *          request to finish the deletion of the Multi-Region Access Point.</p>
@@ -3010,9 +3061,14 @@ export interface StorageLensDataExportEncryption {
   SSEKMS?: SSEKMS;
 }
 
-export type Format = "CSV" | "Parquet";
+export enum Format {
+  CSV = "CSV",
+  Parquet = "Parquet",
+}
 
-export type OutputSchemaVersion = "V_1";
+export enum OutputSchemaVersion {
+  V_1 = "V_1",
+}
 
 /**
  * <p>A container for the bucket where the Amazon S3 Storage Lens metrics export files are
@@ -3488,9 +3544,9 @@ export interface ListRegionalBucketsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The ID of the Outposts.</p>
+   * <p>The ID of the Outposts resource.</p>
    *          <note>
-   *             <p>This is required by Amazon S3 on Outposts buckets.</p>
+   *             <p>This ID is required by Amazon S3 on Outposts buckets.</p>
    *          </note>
    */
   OutpostId?: string;
@@ -3734,6 +3790,51 @@ export interface PutBucketTaggingRequest {
    * <p></p>
    */
   Tagging: Tagging | undefined;
+}
+
+export enum MFADelete {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+/**
+ * <p>Describes the versioning state of an Amazon S3 on Outposts bucket. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html">PutBucketVersioning</a>.</p>
+ */
+export interface VersioningConfiguration {
+  /**
+   * <p>Specifies whether MFA delete is enabled or disabled in the bucket versioning configuration
+   *          for the S3 on Outposts bucket.</p>
+   */
+  MFADelete?: MFADelete | string;
+
+  /**
+   * <p>Sets the versioning state of the S3 on Outposts bucket.</p>
+   */
+  Status?: BucketVersioningStatus | string;
+}
+
+export interface PutBucketVersioningRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the S3 on Outposts bucket.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The S3 on Outposts bucket to set the versioning state for.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The concatenation of the authentication device's serial number, a space, and the value
+   *          that is displayed on your authentication device.</p>
+   */
+  MFA?: string;
+
+  /**
+   * <p>The root-level tag for the <code>VersioningConfiguration</code> parameters.</p>
+   */
+  VersioningConfiguration: VersioningConfiguration | undefined;
 }
 
 export interface PutJobTaggingRequest {
@@ -4869,6 +4970,20 @@ export const GetBucketTaggingResultFilterSensitiveLog = (obj: GetBucketTaggingRe
 /**
  * @internal
  */
+export const GetBucketVersioningRequestFilterSensitiveLog = (obj: GetBucketVersioningRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketVersioningResultFilterSensitiveLog = (obj: GetBucketVersioningResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetJobTaggingRequestFilterSensitiveLog = (obj: GetJobTaggingRequest): any => ({
   ...obj,
 });
@@ -5274,6 +5389,20 @@ export const TaggingFilterSensitiveLog = (obj: Tagging): any => ({
  * @internal
  */
 export const PutBucketTaggingRequestFilterSensitiveLog = (obj: PutBucketTaggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VersioningConfigurationFilterSensitiveLog = (obj: VersioningConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketVersioningRequestFilterSensitiveLog = (obj: PutBucketVersioningRequest): any => ({
   ...obj,
 });
 

@@ -120,6 +120,10 @@ import {
 } from "../commands/GetBucketLifecycleConfigurationCommand";
 import { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "../commands/GetBucketPolicyCommand";
 import { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "../commands/GetBucketTaggingCommand";
+import {
+  GetBucketVersioningCommandInput,
+  GetBucketVersioningCommandOutput,
+} from "../commands/GetBucketVersioningCommand";
 import { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "../commands/GetJobTaggingCommand";
 import {
   GetMultiRegionAccessPointCommandInput,
@@ -181,6 +185,10 @@ import {
 } from "../commands/PutBucketLifecycleConfigurationCommand";
 import { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "../commands/PutBucketPolicyCommand";
 import { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "../commands/PutBucketTaggingCommand";
+import {
+  PutBucketVersioningCommandInput,
+  PutBucketVersioningCommandOutput,
+} from "../commands/PutBucketVersioningCommand";
 import { PutJobTaggingCommandInput, PutJobTaggingCommandOutput } from "../commands/PutJobTaggingCommand";
 import {
   PutMultiRegionAccessPointPolicyCommandInput,
@@ -306,6 +314,7 @@ import {
   TooManyRequestsException,
   TooManyTagsException,
   Transition,
+  VersioningConfiguration,
   VpcConfiguration,
 } from "../models/models_0";
 import { S3ControlServiceException as __BaseException } from "../models/S3ControlServiceException";
@@ -1504,6 +1513,40 @@ export const serializeAws_restXmlGetBucketTaggingCommand = async (
   });
 };
 
+export const serializeAws_restXmlGetBucketVersioningCommand = async (
+  input: GetBucketVersioningCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/versioning";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlGetJobTaggingCommand = async (
   input: GetJobTaggingCommandInput,
   context: __SerdeContext
@@ -2212,6 +2255,52 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
   let contents: any;
   if (input.Tagging !== undefined) {
     contents = serializeAws_restXmlTagging(input.Tagging, context);
+    body = '<?xml version="1.0" encoding="UTF-8"?>';
+    contents.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+    body += contents.toString();
+  }
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlPutBucketVersioningCommand = async (
+  input: PutBucketVersioningCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "x-amz-account-id": input.AccountId!,
+    "x-amz-mfa": input.MFA!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/versioning";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  let body: any;
+  if (input.VersioningConfiguration !== undefined) {
+    body = serializeAws_restXmlVersioningConfiguration(input.VersioningConfiguration, context);
+  }
+  let contents: any;
+  if (input.VersioningConfiguration !== undefined) {
+    contents = serializeAws_restXmlVersioningConfiguration(input.VersioningConfiguration, context);
     body = '<?xml version="1.0" encoding="UTF-8"?>';
     contents.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
     body += contents.toString();
@@ -3708,6 +3797,44 @@ const deserializeAws_restXmlGetBucketTaggingCommandError = async (
   });
 };
 
+export const deserializeAws_restXmlGetBucketVersioningCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBucketVersioningCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlGetBucketVersioningCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["MfaDelete"] !== undefined) {
+    contents.MFADelete = __expectString(data["MfaDelete"]);
+  }
+  if (data["Status"] !== undefined) {
+    contents.Status = __expectString(data["Status"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlGetBucketVersioningCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBucketVersioningCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_restXmlGetJobTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4422,6 +4549,38 @@ const deserializeAws_restXmlPutBucketTaggingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketTaggingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_restXmlPutBucketVersioningCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutBucketVersioningCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlPutBucketVersioningCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restXmlPutBucketVersioningCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutBucketVersioningCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6338,6 +6497,19 @@ const serializeAws_restXmlTransitionList = (input: Transition[], context: __Serd
       const node = serializeAws_restXmlTransition(entry, context);
       return node.withName("Transition");
     });
+};
+
+const serializeAws_restXmlVersioningConfiguration = (input: VersioningConfiguration, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("VersioningConfiguration");
+  if (input.MFADelete != null) {
+    const node = __XmlNode.of("MFADelete", input.MFADelete).withName("MfaDelete");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Status != null) {
+    const node = __XmlNode.of("BucketVersioningStatus", input.Status).withName("Status");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
 };
 
 const serializeAws_restXmlVpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
