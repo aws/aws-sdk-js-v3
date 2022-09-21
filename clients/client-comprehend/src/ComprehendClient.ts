@@ -70,6 +70,10 @@ import {
   BatchDetectSentimentCommandOutput,
 } from "./commands/BatchDetectSentimentCommand";
 import { BatchDetectSyntaxCommandInput, BatchDetectSyntaxCommandOutput } from "./commands/BatchDetectSyntaxCommand";
+import {
+  BatchDetectTargetedSentimentCommandInput,
+  BatchDetectTargetedSentimentCommandOutput,
+} from "./commands/BatchDetectTargetedSentimentCommand";
 import { ClassifyDocumentCommandInput, ClassifyDocumentCommandOutput } from "./commands/ClassifyDocumentCommand";
 import {
   ContainsPiiEntitiesCommandInput,
@@ -155,6 +159,10 @@ import { DetectKeyPhrasesCommandInput, DetectKeyPhrasesCommandOutput } from "./c
 import { DetectPiiEntitiesCommandInput, DetectPiiEntitiesCommandOutput } from "./commands/DetectPiiEntitiesCommand";
 import { DetectSentimentCommandInput, DetectSentimentCommandOutput } from "./commands/DetectSentimentCommand";
 import { DetectSyntaxCommandInput, DetectSyntaxCommandOutput } from "./commands/DetectSyntaxCommand";
+import {
+  DetectTargetedSentimentCommandInput,
+  DetectTargetedSentimentCommandOutput,
+} from "./commands/DetectTargetedSentimentCommand";
 import { ImportModelCommandInput, ImportModelCommandOutput } from "./commands/ImportModelCommand";
 import {
   ListDocumentClassificationJobsCommandInput,
@@ -297,6 +305,7 @@ export type ServiceInputTypes =
   | BatchDetectKeyPhrasesCommandInput
   | BatchDetectSentimentCommandInput
   | BatchDetectSyntaxCommandInput
+  | BatchDetectTargetedSentimentCommandInput
   | ClassifyDocumentCommandInput
   | ContainsPiiEntitiesCommandInput
   | CreateDocumentClassifierCommandInput
@@ -325,6 +334,7 @@ export type ServiceInputTypes =
   | DetectPiiEntitiesCommandInput
   | DetectSentimentCommandInput
   | DetectSyntaxCommandInput
+  | DetectTargetedSentimentCommandInput
   | ImportModelCommandInput
   | ListDocumentClassificationJobsCommandInput
   | ListDocumentClassifierSummariesCommandInput
@@ -370,6 +380,7 @@ export type ServiceOutputTypes =
   | BatchDetectKeyPhrasesCommandOutput
   | BatchDetectSentimentCommandOutput
   | BatchDetectSyntaxCommandOutput
+  | BatchDetectTargetedSentimentCommandOutput
   | ClassifyDocumentCommandOutput
   | ContainsPiiEntitiesCommandOutput
   | CreateDocumentClassifierCommandOutput
@@ -398,6 +409,7 @@ export type ServiceOutputTypes =
   | DetectPiiEntitiesCommandOutput
   | DetectSentimentCommandOutput
   | DetectSyntaxCommandOutput
+  | DetectTargetedSentimentCommandOutput
   | ImportModelCommandOutput
   | ListDocumentClassificationJobsCommandOutput
   | ListDocumentClassifierSummariesCommandOutput

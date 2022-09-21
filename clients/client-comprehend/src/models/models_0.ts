@@ -79,9 +79,8 @@ export interface AugmentedManifestsListItem {
 
 export interface BatchDetectDominantLanguageRequest {
   /**
-   * <p>A list containing the text of the input documents. The list can contain a maximum of 25
-   *       documents. Each document should contain at least 20 characters and must contain fewer than
-   *       5,000 bytes of UTF-8 encoded characters.</p>
+   * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
+   *       documents. Each document should contain at least 20 characters. The maximum size of each document is 5 KB.</p>
    */
   TextList: string[] | undefined;
 }
@@ -265,9 +264,8 @@ export enum LanguageCode {
 
 export interface BatchDetectEntitiesRequest {
   /**
-   * <p>A list containing the text of the input documents. The list can contain a maximum of 25
-   *       documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded
-   *       characters.</p>
+   * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
+   *       documents. The maximum size of each document is 5 KB.</p>
    */
   TextList: string[] | undefined;
 
@@ -312,19 +310,14 @@ export interface Entity {
   Text?: string;
 
   /**
-   * <p>A character offset in the input text that shows where the entity begins (the first
-   *       character is at position 0). The offset returns the position of each UTF-8 code point in the
-   *       string. A <i>code point</i> is the abstract character from a particular
-   *       graphical representation. For example, a multi-byte UTF-8 character maps to a single code
-   *       point.</p>
+   * <p>The zero-based offset from the beginning of the source text to the first character in the
+   *       entity.</p>
    */
   BeginOffset?: number;
 
   /**
-   * <p>A character offset in the input text that shows where the entity ends. The offset
-   *       returns the position of each UTF-8 code point in the string. A <i>code point</i>
-   *       is the abstract character from a particular graphical representation. For example, a
-   *       multi-byte UTF-8 character maps to a single code point. </p>
+   * <p>The zero-based offset from the beginning of the source text to the last character in the
+   *       entity.</p>
    */
   EndOffset?: number;
 }
@@ -368,7 +361,9 @@ export interface BatchDetectEntitiesResponse {
 /**
  * <p>Amazon Comprehend can't process the language of the input text. For custom entity
  *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
- *       For a list of supported languages, see <a>supported-languages</a>. </p>
+ *       For a list of supported languages,
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
+ *     </p>
  */
 export class UnsupportedLanguageException extends __BaseException {
   readonly name: "UnsupportedLanguageException" = "UnsupportedLanguageException";
@@ -390,9 +385,8 @@ export class UnsupportedLanguageException extends __BaseException {
 
 export interface BatchDetectKeyPhrasesRequest {
   /**
-   * <p>A list containing the text of the input documents. The list can contain a maximum of 25
-   *       documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded
-   *       characters.</p>
+   * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
+   *       documents. The maximum size of each document is 5 KB.</p>
    */
   TextList: string[] | undefined;
 
@@ -419,19 +413,14 @@ export interface KeyPhrase {
   Text?: string;
 
   /**
-   * <p>A character offset in the input text that shows where the key phrase begins (the first
-   *       character is at position 0). The offset returns the position of each UTF-8 code point in the
-   *       string. A <i>code point</i> is the abstract character from a particular
-   *       graphical representation. For example, a multi-byte UTF-8 character maps to a single code
-   *       point.</p>
+   * <p>The zero-based offset from the beginning of the source text to the first character in the
+   *       key phrase.</p>
    */
   BeginOffset?: number;
 
   /**
-   * <p>A character offset in the input text where the key phrase ends. The offset returns the
-   *       position of each UTF-8 code point in the string. A <code>code point</code> is the abstract
-   *       character from a particular graphical representation. For example, a multi-byte UTF-8
-   *       character maps to a single code point.</p>
+   * <p>The zero-based offset from the beginning of the source text to the last character in the
+   *       key phrase.</p>
    */
   EndOffset?: number;
 }
@@ -474,9 +463,12 @@ export interface BatchDetectKeyPhrasesResponse {
 
 export interface BatchDetectSentimentRequest {
   /**
-   * <p>A list containing the text of the input documents. The list can contain a maximum of 25
-   *       documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded
-   *       characters.</p>
+   * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
+   *       documents. The maximum size of each document is 5 KB. </p>
+   *          <note>
+   *             <p>Amazon Comprehend performs real-time sentiment analysis on the first 500 characters of the input text
+   *     and ignores any additional text in the input.</p>
+   *          </note>
    */
   TextList: string[] | undefined;
 
@@ -576,9 +568,8 @@ export enum SyntaxLanguageCode {
 
 export interface BatchDetectSyntaxRequest {
   /**
-   * <p>A list containing the text of the input documents. The list can contain a maximum of 25
-   *       documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded
-   *       characters.</p>
+   * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
+   *       documents. The maximum size for each document is 5 KB.</p>
    */
   TextList: string[] | undefined;
 
@@ -614,7 +605,9 @@ export enum PartOfSpeechTagType {
 /**
  * <p>Identifies the part of speech represented by the token and gives the confidence that
  *       Amazon Comprehend has that the part of speech was correctly identified. For more information
- *       about the parts of speech that Amazon Comprehend can identify, see <a>how-syntax</a>.</p>
+ *       about the parts of speech that Amazon Comprehend can identify, see
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
+ *        </p>
  */
 export interface PartOfSpeechTag {
   /**
@@ -658,7 +651,9 @@ export interface SyntaxToken {
 
   /**
    * <p>Provides the part of speech label and the confidence level that Amazon Comprehend has that
-   *       the part of speech was correctly identified. For more information, see <a>how-syntax</a>.</p>
+   *       the part of speech was correctly identified. For more information, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
+   *     </p>
    */
   PartOfSpeech?: PartOfSpeechTag;
 }
@@ -693,6 +688,145 @@ export interface BatchDetectSyntaxResponse {
    *       contained an error. The results are sorted in ascending order by the <code>Index</code> field
    *       and match the order of the documents in the input list. If there are no errors in the batch,
    *       the <code>ErrorList</code> is empty.</p>
+   */
+  ErrorList: BatchItemError[] | undefined;
+}
+
+export interface BatchDetectTargetedSentimentRequest {
+  /**
+   * <p>A list containing the UTF-8 encoded text of the input documents.
+   *       The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB.</p>
+   */
+  TextList: string[] | undefined;
+
+  /**
+   * <p>The language of the input documents. Currently, English is the only supported language.</p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
+}
+
+/**
+ * <p>Contains the sentiment and sentiment score for one mention of an entity.</p>
+ *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ */
+export interface MentionSentiment {
+  /**
+   * <p>The sentiment of the mention. </p>
+   */
+  Sentiment?: SentimentType | string;
+
+  /**
+   * <p>Describes the level of confidence that Amazon Comprehend has in the accuracy of its
+   *       detection of sentiments.</p>
+   */
+  SentimentScore?: SentimentScore;
+}
+
+export enum TargetedSentimentEntityType {
+  ATTRIBUTE = "ATTRIBUTE",
+  BOOK = "BOOK",
+  BRAND = "BRAND",
+  COMMERCIAL_ITEM = "COMMERCIAL_ITEM",
+  DATE = "DATE",
+  EVENT = "EVENT",
+  FACILITY = "FACILITY",
+  GAME = "GAME",
+  LOCATION = "LOCATION",
+  MOVIE = "MOVIE",
+  MUSIC = "MUSIC",
+  ORGANIZATION = "ORGANIZATION",
+  OTHER = "OTHER",
+  PERSON = "PERSON",
+  PERSONAL_TITLE = "PERSONAL_TITLE",
+  QUANTITY = "QUANTITY",
+  SOFTWARE = "SOFTWARE",
+}
+
+/**
+ * <p>Information about one mention of an entity. The mention information includes the location of the mention
+ *       in the text and the sentiment of the mention.</p>
+ *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ */
+export interface TargetedSentimentMention {
+  /**
+   * <p>Model confidence that the entity is relevant. Value range is zero to one, where one is highest confidence.</p>
+   */
+  Score?: number;
+
+  /**
+   * <p>The confidence that all the entities mentioned in the group relate to the same entity.</p>
+   */
+  GroupScore?: number;
+
+  /**
+   * <p>The text in the document that identifies the entity.</p>
+   */
+  Text?: string;
+
+  /**
+   * <p>The type of the entity. Amazon Comprehend supports a variety of <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html#how-targeted-sentiment-entities">entity types</a>.</p>
+   */
+  Type?: TargetedSentimentEntityType | string;
+
+  /**
+   * <p>Contains the sentiment and sentiment score for the mention.</p>
+   */
+  MentionSentiment?: MentionSentiment;
+
+  /**
+   * <p>The offset into the document text where the mention begins.</p>
+   */
+  BeginOffset?: number;
+
+  /**
+   * <p>The offset into the document text where the mention ends.</p>
+   */
+  EndOffset?: number;
+}
+
+/**
+ * <p>Information about one of the entities found by targeted sentiment analysis.</p>
+ *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ */
+export interface TargetedSentimentEntity {
+  /**
+   * <p>One or more index into the Mentions array that provides the best name for the entity group.</p>
+   */
+  DescriptiveMentionIndex?: number[];
+
+  /**
+   * <p>An array of mentions of the entity in the document. The array represents a co-reference group.
+   *       See <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html#how-targeted-sentiment-values">
+   *         Co-reference group</a> for an example. </p>
+   */
+  Mentions?: TargetedSentimentMention[];
+}
+
+/**
+ * <p>Analysis results for one of the documents in the batch.</p>
+ */
+export interface BatchDetectTargetedSentimentItemResult {
+  /**
+   * <p>The zero-based index of this result in the input list.</p>
+   */
+  Index?: number;
+
+  /**
+   * <p>An array of targeted sentiment entities.</p>
+   */
+  Entities?: TargetedSentimentEntity[];
+}
+
+export interface BatchDetectTargetedSentimentResponse {
+  /**
+   * <p>A list of objects containing the results of the operation.
+   *       The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list.
+   *       If all of the documents contain an error, the <code>ResultList</code> is empty.</p>
+   */
+  ResultList: BatchDetectTargetedSentimentItemResult[] | undefined;
+
+  /**
+   * <p>List of errors that the operation can return.</p>
    */
   ErrorList: BatchItemError[] | undefined;
 }
@@ -875,8 +1009,7 @@ export class ResourceUnavailableException extends __BaseException {
 
 export interface ContainsPiiEntitiesRequest {
   /**
-   * <p>Creates a new document classification request to analyze a single document in real-time,
-   *       returning personally identifiable information (PII) entity labels.</p>
+   * <p>A UTF-8 text string. The maximum string size is 100 KB.</p>
    */
   Text: string | undefined;
 
@@ -958,7 +1091,9 @@ export enum DocumentClassifierDataFormat {
 
 /**
  * <p>The input properties for training a document classifier. </p>
- *          <p>For more information on how the input file is formatted, see <a>prep-classifier-data</a>. </p>
+ *          <p>For more information on how the input file is formatted, see
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html">Preparing training data</a> in the Comprehend Developer Guide.
+ *     </p>
  */
 export interface DocumentClassifierInputDataConfig {
   /**
@@ -997,9 +1132,9 @@ export interface DocumentClassifierInputDataConfig {
   S3Uri?: string;
 
   /**
-   * <p>The Amazon S3 URI for the input data. The Amazon S3 bucket must be in the same AWS Region
-   *       as the API endpoint that you are calling. The URI can point to a single input file or it can
-   *       provide the prefix for a collection of input files. </p>
+   * <p>This specifies the Amazon S3 location where the test annotations for an entity recognizer
+   *       are located. The URI must be in the same AWS Region as the API endpoint that you are
+   *       calling. </p>
    */
   TestS3Uri?: string;
 
@@ -1439,9 +1574,8 @@ export interface EntityRecognizerAnnotations {
   S3Uri: string | undefined;
 
   /**
-   * <p>This specifies the Amazon S3 location where the test annotations for an entity recognizer
-   *       are located. The URI must be in the same AWS Region as the API endpoint that you are
-   *       calling.</p>
+   * <p> Specifies the Amazon S3 location where the test annotations for an entity recognizer are
+   *       located. The URI must be in the same region as the API endpoint that you are calling.</p>
    */
   TestS3Uri?: string;
 }
@@ -3476,8 +3610,7 @@ export interface DescribeTopicsDetectionJobResponse {
 
 export interface DetectDominantLanguageRequest {
   /**
-   * <p>A UTF-8 text string. Each string should contain at least 20 characters and must contain
-   *       fewer that 5,000 bytes of UTF-8 encoded characters.</p>
+   * <p>A UTF-8 text string. The string must contain at least 20 characters. The maximum string size is 100 KB.</p>
    */
   Text: string | undefined;
 }
@@ -3494,8 +3627,7 @@ export interface DetectDominantLanguageResponse {
 
 export interface DetectEntitiesRequest {
   /**
-   * <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded
-   *       characters.</p>
+   * <p>A UTF-8 text string. The maximum string size is 100 KB.</p>
    */
   Text: string | undefined;
 
@@ -3526,14 +3658,16 @@ export interface DetectEntitiesResponse {
    *       confidence that Amazon Comprehend has in the detection. </p>
    *          <p>If your request uses a custom entity recognition model, Amazon Comprehend detects the
    *       entities that the model is trained to recognize. Otherwise, it detects the default entity
-   *       types. For a list of default entity types, see <a>how-entities</a>.</p>
+   *       types. For a list of default entity types, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.
+   *     </p>
    */
   Entities?: Entity[];
 }
 
 export interface DetectKeyPhrasesRequest {
   /**
-   * <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded
+   * <p>A UTF-8 text string. The string must contain less than 100 KB of UTF-8 encoded
    *       characters.</p>
    */
   Text: string | undefined;
@@ -3557,8 +3691,7 @@ export interface DetectKeyPhrasesResponse {
 
 export interface DetectPiiEntitiesRequest {
   /**
-   * <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded
-   *       characters.</p>
+   * <p>A UTF-8 text string. The maximum string size is 100 KB.</p>
    */
   Text: string | undefined;
 
@@ -3584,19 +3717,14 @@ export interface PiiEntity {
   Type?: PiiEntityType | string;
 
   /**
-   * <p>A character offset in the input text that shows where the PII entity begins (the first
-   *       character is at position 0). The offset returns the position of each UTF-8 code point in the
-   *       string. A <i>code point</i> is the abstract character from a particular
-   *       graphical representation. For example, a multi-byte UTF-8 character maps to a single code
-   *       point.</p>
+   * <p>The zero-based offset from the beginning of the source text to the first character in the
+   *       entity.</p>
    */
   BeginOffset?: number;
 
   /**
-   * <p>A character offset in the input text that shows where the PII entity ends. The offset
-   *       returns the position of each UTF-8 code point in the string. A <i>code point</i>
-   *       is the abstract character from a particular graphical representation. For example, a
-   *       multi-byte UTF-8 character maps to a single code point.</p>
+   * <p>The zero-based offset from the beginning of the source text to the last character in the
+   *       entity.</p>
    */
   EndOffset?: number;
 }
@@ -3612,8 +3740,11 @@ export interface DetectPiiEntitiesResponse {
 
 export interface DetectSentimentRequest {
   /**
-   * <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded
-   *       characters.</p>
+   * <p>A UTF-8 text string. The maximum string size is 5 KB.</p>
+   *          <note>
+   *             <p>Amazon Comprehend performs real-time sentiment analysis on the first 500 characters of the input text
+   *     and ignores any additional text in the input.</p>
+   *          </note>
    */
   Text: string | undefined;
 
@@ -3640,8 +3771,7 @@ export interface DetectSentimentResponse {
 
 export interface DetectSyntaxRequest {
   /**
-   * <p>A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded
-   *       characters.</p>
+   * <p>A UTF-8 string. The maximum string size is 5 KB.</p>
    */
   Text: string | undefined;
 
@@ -3657,9 +3787,30 @@ export interface DetectSyntaxResponse {
   /**
    * <p>A collection of syntax tokens describing the text. For each token, the response provides
    *       the text, the token type, where the text begins and ends, and the level of confidence that
-   *       Amazon Comprehend has that the token is correct. For a list of token types, see <a>how-syntax</a>.</p>
+   *       Amazon Comprehend has that the token is correct. For a list of token types, see
+   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
+   *     </p>
    */
   SyntaxTokens?: SyntaxToken[];
+}
+
+export interface DetectTargetedSentimentRequest {
+  /**
+   * <p>A UTF-8 text string. The maximum string length is 5 KB.</p>
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The language of the input documents. Currently, English is the only supported language.</p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
+}
+
+export interface DetectTargetedSentimentResponse {
+  /**
+   * <p>Targeted sentiment analysis for each of the entities identified in the input text.</p>
+   */
+  Entities?: TargetedSentimentEntity[];
 }
 
 export interface ImportModelRequest {
@@ -5379,7 +5530,7 @@ export interface StartTargetedSentimentDetectionJobRequest {
   JobName?: string;
 
   /**
-   * <p>The language of the input documents. Currently, English is the only valid language.</p>
+   * <p>The language of the input documents. Currently, English is the only supported language.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
 
@@ -6008,6 +6159,55 @@ export const BatchDetectSyntaxItemResultFilterSensitiveLog = (obj: BatchDetectSy
  * @internal
  */
 export const BatchDetectSyntaxResponseFilterSensitiveLog = (obj: BatchDetectSyntaxResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDetectTargetedSentimentRequestFilterSensitiveLog = (
+  obj: BatchDetectTargetedSentimentRequest
+): any => ({
+  ...obj,
+  ...(obj.TextList && { TextList: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MentionSentimentFilterSensitiveLog = (obj: MentionSentiment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetedSentimentMentionFilterSensitiveLog = (obj: TargetedSentimentMention): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetedSentimentEntityFilterSensitiveLog = (obj: TargetedSentimentEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDetectTargetedSentimentItemResultFilterSensitiveLog = (
+  obj: BatchDetectTargetedSentimentItemResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDetectTargetedSentimentResponseFilterSensitiveLog = (
+  obj: BatchDetectTargetedSentimentResponse
+): any => ({
   ...obj,
 });
 
@@ -6702,6 +6902,21 @@ export const DetectSyntaxRequestFilterSensitiveLog = (obj: DetectSyntaxRequest):
  * @internal
  */
 export const DetectSyntaxResponseFilterSensitiveLog = (obj: DetectSyntaxResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectTargetedSentimentRequestFilterSensitiveLog = (obj: DetectTargetedSentimentRequest): any => ({
+  ...obj,
+  ...(obj.Text && { Text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DetectTargetedSentimentResponseFilterSensitiveLog = (obj: DetectTargetedSentimentResponse): any => ({
   ...obj,
 });
 

@@ -29,8 +29,9 @@ export interface BatchDetectEntitiesCommandOutput extends BatchDetectEntitiesRes
 
 /**
  * <p>Inspects the text of a batch of documents for named entities and returns information
- *       about them. For more information about named entities, see <a>how-entities</a>
- *          </p>
+ *       about them. For more information about named entities, see
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

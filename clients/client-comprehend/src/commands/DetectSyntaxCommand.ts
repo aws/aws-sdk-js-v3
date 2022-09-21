@@ -29,7 +29,9 @@ export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __Metad
 
 /**
  * <p>Inspects text for syntax and the part of speech of words in the document. For more
- *       information, <a>how-syntax</a>.</p>
+ *       information, see
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

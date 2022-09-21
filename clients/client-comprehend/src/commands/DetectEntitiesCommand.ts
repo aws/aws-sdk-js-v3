@@ -29,7 +29,8 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
 
 /**
  * <p>Inspects text for named entities, and returns information about them. For more
- *       information, about named entities, see <a>how-entities</a>. </p>
+ *       information, about named entities, see
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
