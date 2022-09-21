@@ -3120,11 +3120,12 @@ export class SageMaker extends SageMakerClient {
    *                     be tuned to optimize this learning process. For a list of hyperparameters for
    *                     each training algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. </p>
    *                 <important>
-   *                   <p>You must not include any security-sensitive information, such as
-   *                     account access IDs, secrets, and tokens, in the dictionary for configuring
-   *                     hyperparameters. SageMaker rejects the training job request and returns an
-   *                     exception error for detected credentials, if such user input is found.</p>
-   *                </important>
+   *                     <p>You must not include any security-sensitive information, such as account
+   *                         access IDs, secrets, and tokens, in the dictionary for configuring
+   *                         hyperparameters. SageMaker rejects the training job request and returns an
+   *                         exception error for detected credentials, if such user input is
+   *                         found.</p>
+   *                 </important>
    *             </li>
    *             <li>
    *                 <p>
@@ -3354,7 +3355,7 @@ export class SageMaker extends SageMakerClient {
    * <p>Creates a user profile. A user profile represents a single user within a domain, and is
    *      the main way to reference a "person" for the purposes of sharing, reporting, and other
    *      user-oriented features. This entity is created when a user onboards to Amazon SageMaker Studio. If an
-   *      administrator invites a person by email or imports them from Amazon Web Services SSO, a user profile is
+   *      administrator invites a person by email or imports them from IAM Identity Center, a user profile is
    *      automatically created. A user profile is the primary holder of settings for an individual
    *      user and has a reference to the user's private Amazon Elastic File System (EFS) home directory.
    *    </p>
@@ -3789,7 +3790,7 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Used to delete a domain.
-   *       If you onboarded with IAM mode, you will need to delete your domain to onboard again using Amazon Web Services SSO.
+   *       If you onboarded with IAM mode, you will need to delete your domain to onboard again using IAM Identity Center.
    *      Use with caution. All of the members of the domain will lose access to their EFS volume,
    *      including data, notebooks, and other artifacts.
    *    </p>

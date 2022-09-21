@@ -4030,9 +4030,28 @@ export interface AutoMLCandidate {
 export interface AutoMLCandidateGenerationConfig {
   /**
    * <p>A URL to the Amazon S3 data source containing selected features from the input data source to
-   *          run an Autopilot job (optional). This file should be in json format as shown below: </p>
+   *          run an Autopilot job. You can input <code>FeatureAttributeNames</code> (optional) in JSON
+   *          format as shown below: </p>
    *          <p>
    *             <code>{ "FeatureAttributeNames":["col1", "col2", ...] }</code>.</p>
+   *          <p>You can also specify the data type of the feature (optional) in the format shown
+   *          below:</p>
+   *          <p>
+   *             <code>{ "FeatureDataTypes":{"col1":"numeric", "col2":"categorical" ... } }</code>
+   *          </p>
+   *          <note>
+   *             <p>These column keys may not include the target column.</p>
+   *          </note>
+   *          <p>In ensembling mode, Autopilot will only support the following data types:
+   *             <code>numeric</code>, <code>categorical</code>, <code>text</code> and
+   *             <code>datetime</code>. In HPO mode, Autopilot can support <code>numeric</code>,
+   *             <code>categorical</code>, <code>text</code>, <code>datetime</code> and
+   *             <code>sequence</code>.</p>
+   *          <p>If only <code>FeatureDataTypes</code> is provided, the column keys (<code>col1</code>,
+   *             <code>col2</code>,..) should be a subset of the column names in the input data. </p>
+   *          <p>If both <code>FeatureDataTypes</code> and <code>FeatureAttributeNames</code> are
+   *          provided, then the column keys should be a subset of the column names provided in
+   *             <code>FeatureAttributeNames</code>. </p>
    *          <p>The key name <code>FeatureAttributeNames</code> is fixed. The values listed in
    *             <code>["col1", "col2", ...]</code> is case sensitive and should be a list of strings
    *          containing unique values that are a subset of the column names in the input data. The list
@@ -4852,6 +4871,43 @@ export enum CandidateSortBy {
   CreationTime = "CreationTime",
   FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
   Status = "Status",
+}
+
+export enum FeatureStatus {
+  Disabled = "DISABLED",
+  Enabled = "ENABLED",
+}
+
+/**
+ * <p>Time series forecast settings for the SageMaker Canvas app.</p>
+ */
+export interface TimeSeriesForecastingSettings {
+  /**
+   * <p>Describes whether time series forecasting is enabled or disabled in the Canvas app.</p>
+   */
+  Status?: FeatureStatus | string;
+
+  /**
+   * <p>The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default,
+   *    Canvas uses the execution role specified in the <code>UserProfile</code> that launches the Canvas app.
+   *    If an execution role is not specified in the <code>UserProfile</code>, Canvas uses the execution
+   *    role specified in the Domain that owns the <code>UserProfile</code>.
+   *    To allow time series forecasting, this IAM role should have the
+   *    <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess">
+   *     AmazonSageMakerCanvasForecastAccess</a> policy attached and <code>forecast.amazonaws.com</code> added
+   *    in the trust relationship as a service principal.</p>
+   */
+  AmazonForecastRoleArn?: string;
+}
+
+/**
+ * <p>The SageMaker Canvas app settings.</p>
+ */
+export interface CanvasAppSettings {
+  /**
+   * <p>Time series forecast settings for the Canvas app.</p>
+   */
+  TimeSeriesForecastingSettings?: TimeSeriesForecastingSettings;
 }
 
 /**
@@ -7885,6 +7941,11 @@ export interface UserSettings {
    * <p>A collection of settings that configure the <code>RSessionGateway</code> app.</p>
    */
   RSessionAppSettings?: RSessionAppSettings;
+
+  /**
+   * <p>The Canvas app settings.</p>
+   */
+  CanvasAppSettings?: CanvasAppSettings;
 }
 
 export enum ExecutionRoleIdentityConfig {
@@ -7938,7 +7999,8 @@ export interface DomainSettings {
   RStudioServerProDomainSettings?: RStudioServerProDomainSettings;
 
   /**
-   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>.</p>
+   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a
+   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>.</p>
    */
   ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig | string;
 }
@@ -8464,25 +8526,22 @@ export interface ProductionVariant {
   ServerlessConfig?: ProductionVariantServerlessConfig;
 
   /**
-   * <p>The size, in GB, of the ML storage volume attached to individual
-   *           inference instance associated with the production variant. Currenly only
-   *           Amazon EBS gp2 storage volumes are supported.</p>
+   * <p>The size, in GB, of the ML storage volume attached to individual inference instance
+   *             associated with the production variant. Currenly only Amazon EBS gp2 storage volumes are
+   *             supported.</p>
    */
   VolumeSizeInGB?: number;
 
   /**
-   * <p>The timeout value, in seconds, to download and extract the
-   *           model that you want to host from Amazon S3 to the individual inference instance associated with
-   *           this production variant.</p>
+   * <p>The timeout value, in seconds, to download and extract the model that you want to host
+   *             from Amazon S3 to the individual inference instance associated with this production
+   *             variant.</p>
    */
   ModelDataDownloadTimeoutInSeconds?: number;
 
   /**
-   * <p>The timeout value, in seconds, for your inference container
-   *           to pass health check by SageMaker Hosting. For more information about health
-   *           check, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests">How
-   *           Your Container Should Respond to Health Check (Ping)
-   *           Requests</a>.</p>
+   * <p>The timeout value, in seconds, for your inference container to pass health check by
+   *             SageMaker Hosting. For more information about health check, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests">How Your Container Should Respond to Health Check (Ping) Requests</a>.</p>
    */
   ContainerStartupHealthCheckTimeoutInSeconds?: number;
 }
@@ -9826,69 +9885,6 @@ export interface IntegerParameterRange {
 }
 
 /**
- * <p>Specifies ranges of integer, continuous, and categorical hyperparameters that a
- *             hyperparameter tuning job searches. The hyperparameter tuning job launches training jobs
- *             with hyperparameter values within these ranges to find the combination of values that
- *             result in the training job with the best performance as measured by the objective metric
- *             of the hyperparameter tuning job.</p>
- *         <note>
- *             <p>The maximum number of items specified for <code>Array Members</code> refers to the
- *                 maximum number of hyperparameters for each range and also the maximum for the
- *                 hyperparameter tuning job itself. That is, the sum of the number of hyperparameters
- *                 for all the ranges can't exceed the maximum number specified.</p>
- *         </note>
- */
-export interface ParameterRanges {
-  /**
-   * <p>The array of <a>IntegerParameterRange</a> objects that specify ranges of
-   *             integer hyperparameters that a hyperparameter tuning job searches.</p>
-   */
-  IntegerParameterRanges?: IntegerParameterRange[];
-
-  /**
-   * <p>The array of <a>ContinuousParameterRange</a> objects that specify ranges of
-   *             continuous hyperparameters that a hyperparameter tuning job searches.</p>
-   */
-  ContinuousParameterRanges?: ContinuousParameterRange[];
-
-  /**
-   * <p>The array of <a>CategoricalParameterRange</a> objects that specify ranges
-   *             of categorical hyperparameters that a hyperparameter tuning job searches.</p>
-   */
-  CategoricalParameterRanges?: CategoricalParameterRange[];
-}
-
-/**
- * <p>Specifies the maximum number of
- *             training
- *             jobs and parallel training jobs that a hyperparameter tuning job can
- *             launch.</p>
- */
-export interface ResourceLimits {
-  /**
-   * <p>The
-   *             maximum
-   *             number of training jobs that a hyperparameter tuning job can
-   *             launch.</p>
-   */
-  MaxNumberOfTrainingJobs: number | undefined;
-
-  /**
-   * <p>The
-   *             maximum
-   *             number of concurrent training jobs that a hyperparameter tuning job can
-   *             launch.</p>
-   */
-  MaxParallelTrainingJobs: number | undefined;
-}
-
-export enum HyperParameterTuningJobStrategyType {
-  BAYESIAN = "Bayesian",
-  HYPERBAND = "Hyperband",
-  RANDOM = "Random",
-}
-
-/**
  * @internal
  */
 export const ActionSourceFilterSensitiveLog = (obj: ActionSource): any => ({
@@ -10510,6 +10506,20 @@ export const OutputParameterFilterSensitiveLog = (obj: OutputParameter): any => 
  * @internal
  */
 export const CallbackStepMetadataFilterSensitiveLog = (obj: CallbackStepMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeSeriesForecastingSettingsFilterSensitiveLog = (obj: TimeSeriesForecastingSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanvasAppSettingsFilterSensitiveLog = (obj: CanvasAppSettings): any => ({
   ...obj,
 });
 
@@ -11374,19 +11384,5 @@ export const CreateHumanTaskUiResponseFilterSensitiveLog = (obj: CreateHumanTask
  * @internal
  */
 export const IntegerParameterRangeFilterSensitiveLog = (obj: IntegerParameterRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterRangesFilterSensitiveLog = (obj: ParameterRanges): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceLimitsFilterSensitiveLog = (obj: ResourceLimits): any => ({
   ...obj,
 });

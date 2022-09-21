@@ -41,7 +41,6 @@ import {
   HumanLoopConfig,
   HumanLoopRequestSource,
   HyperParameterTuningJobObjectiveType,
-  HyperParameterTuningJobStrategyType,
   InferenceSpecification,
   MetadataProperties,
   ModelApprovalStatus,
@@ -57,7 +56,6 @@ import {
   OutputParameter,
   ProductionVariantInstanceType,
   ResourceConfig,
-  ResourceLimits,
   ResourceSpec,
   StoppingCondition,
   Tag,
@@ -86,6 +84,7 @@ import {
   HumanTaskConfig,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
+  HyperParameterTuningJobStrategyType,
   HyperParameterTuningJobWarmStartConfig,
   InferenceExecutionConfig,
   InstanceMetadataServiceConfiguration,
@@ -114,7 +113,6 @@ import {
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
-  OfflineStoreStatus,
   OfflineStoreStatusValue,
   ParallelismConfiguration,
   ProcessingInput,
@@ -127,6 +125,7 @@ import {
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
   RecommendationJobType,
+  ResourceLimits,
   RetryStrategy,
   RootAccess,
   RuleEvaluationStatus,
@@ -140,6 +139,145 @@ import {
   TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
 } from "./models_1";
+
+/**
+ * <p>The status of <code>OfflineStore</code>.</p>
+ */
+export interface OfflineStoreStatus {
+  /**
+   * <p>An <code>OfflineStore</code> status.</p>
+   */
+  Status: OfflineStoreStatusValue | string | undefined;
+
+  /**
+   * <p>The justification for why the OfflineStoreStatus is Blocked (if applicable).</p>
+   */
+  BlockedReason?: string;
+}
+
+export interface DescribeFeatureGroupResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the <code>FeatureGroup</code>.  </p>
+   */
+  FeatureGroupArn: string | undefined;
+
+  /**
+   * <p>he name of the <code>FeatureGroup</code>.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the <code>Feature</code> used for <code>RecordIdentifier</code>, whose value
+   *          uniquely identifies a record stored in the feature store.</p>
+   */
+  RecordIdentifierFeatureName: string | undefined;
+
+  /**
+   * <p>The name of the feature that stores the <code>EventTime</code> of a Record in a
+   *          <code>FeatureGroup</code>.</p>
+   *          <p> An <code>EventTime</code> is a point in time when a new event occurs that
+   *          corresponds to the creation or update of a <code>Record</code> in a
+   *             <code>FeatureGroup</code>. All <code>Records</code> in the <code>FeatureGroup</code>
+   *          have a corresponding <code>EventTime</code>.</p>
+   */
+  EventTimeFeatureName: string | undefined;
+
+  /**
+   * <p>A list of the <code>Features</code> in the <code>FeatureGroup</code>.
+   *          Each feature is defined by a <code>FeatureName</code> and <code>FeatureType</code>.</p>
+   */
+  FeatureDefinitions: FeatureDefinition[] | undefined;
+
+  /**
+   * <p>A timestamp indicating when SageMaker created the <code>FeatureGroup</code>.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp indicating when the feature group was last updated.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The configuration for the <code>OnlineStore</code>.</p>
+   */
+  OnlineStoreConfig?: OnlineStoreConfig;
+
+  /**
+   * <p>The configuration of the <code>OfflineStore</code>, inducing the S3 location of the
+   *          <code>OfflineStore</code>, Amazon Web Services Glue or Amazon Web Services Hive data catalogue configurations, and the
+   *          security configuration.</p>
+   */
+  OfflineStoreConfig?: OfflineStoreConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the
+   *          <code>OfflineStore</code> if an <code>OfflineStoreConfig</code> is provided.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The status of the feature group.</p>
+   */
+  FeatureGroupStatus?: FeatureGroupStatus | string;
+
+  /**
+   * <p>The status of the <code>OfflineStore</code>. Notifies you if replicating data into the
+   *             <code>OfflineStore</code> has failed. Returns either: <code>Active</code> or
+   *             <code>Blocked</code>
+   *          </p>
+   */
+  OfflineStoreStatus?: OfflineStoreStatus;
+
+  /**
+   * <p>A value indicating whether the update made to the feature group was successful.</p>
+   */
+  LastUpdateStatus?: LastUpdateStatus;
+
+  /**
+   * <p>The reason that the <code>FeatureGroup</code> failed to be replicated in the
+   *             <code>OfflineStore</code>. This is failure can occur because:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The <code>FeatureGroup</code> could not be created in the
+   *                   <code>OfflineStore</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>FeatureGroup</code> could not be deleted from the
+   *                   <code>OfflineStore</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>A free form description of the feature group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A token to resume pagination of the list of <code>Features</code>
+   *             (<code>FeatureDefinitions</code>).</p>
+   */
+  NextToken: string | undefined;
+
+  /**
+   * <p>The size of the <code>OnlineStore</code> in bytes.</p>
+   */
+  OnlineStoreTotalSizeBytes?: number;
+}
+
+export interface DescribeFeatureMetadataRequest {
+  /**
+   * <p>The name of the feature group containing the feature.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the feature.</p>
+   */
+  FeatureName: string | undefined;
+}
 
 /**
  * <p>A key-value pair that you specify to describe the feature.</p>
@@ -3772,12 +3910,12 @@ export interface DescribeUserProfileResponse {
   FailureReason?: string;
 
   /**
-   * <p>The Amazon Web Services SSO user identifier.</p>
+   * <p>The IAM Identity Center user identifier.</p>
    */
   SingleSignOnUserIdentifier?: string;
 
   /**
-   * <p>The Amazon Web Services SSO user value.</p>
+   * <p>The IAM Identity Center user value.</p>
    */
   SingleSignOnUserValue?: string;
 
@@ -4341,7 +4479,9 @@ export interface DomainSettingsForUpdate {
   RStudioServerProDomainSettingsForUpdate?: RStudioServerProDomainSettingsForUpdate;
 
   /**
-   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>. This configuration can only be modified if there are no apps in the <code>InService</code> or <code>Pending</code> state.</p>
+   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a
+   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>. This configuration can only be modified if there
+   *             are no apps in the <code>InService</code> or <code>Pending</code> state.</p>
    */
   ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig | string;
 }
@@ -5538,8 +5678,8 @@ export interface HumanTaskUiSummary {
 }
 
 /**
- * <p>An entity having characteristics over which a user can search for a hyperparameter
- *             tuning job.</p>
+ * <p>An entity returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html">SearchRecord</a> API
+ *             containing the properties of a hyperparameter tuning job.</p>
  */
 export interface HyperParameterTuningJobSearchEntity {
   /**
@@ -8790,89 +8930,26 @@ export enum NotebookInstanceLifecycleConfigSortKey {
   NAME = "Name",
 }
 
-export enum NotebookInstanceLifecycleConfigSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
-
-export interface ListNotebookInstanceLifecycleConfigsInput {
-  /**
-   * <p>If the result of a <code>ListNotebookInstanceLifecycleConfigs</code> request was
-   *             truncated, the response includes a <code>NextToken</code>. To get the next set of
-   *             lifecycle configurations, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of lifecycle configurations to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: NotebookInstanceLifecycleConfigSortKey | string;
-
-  /**
-   * <p>The sort order for results.</p>
-   */
-  SortOrder?: NotebookInstanceLifecycleConfigSortOrder | string;
-
-  /**
-   * <p>A string in the lifecycle configuration name. This filter returns only lifecycle
-   *             configurations whose name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only lifecycle configurations that were created before the
-   *             specified time (timestamp).</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only lifecycle configurations that were created after the
-   *             specified time (timestamp).</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only lifecycle configurations that were modified before the
-   *             specified time (timestamp).</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only lifecycle configurations that were modified after the
-   *             specified time (timestamp).</p>
-   */
-  LastModifiedTimeAfter?: Date;
-}
+/**
+ * @internal
+ */
+export const OfflineStoreStatusFilterSensitiveLog = (obj: OfflineStoreStatus): any => ({
+  ...obj,
+});
 
 /**
- * <p>Provides a summary of a notebook instance lifecycle configuration.</p>
+ * @internal
  */
-export interface NotebookInstanceLifecycleConfigSummary {
-  /**
-   * <p>The name of the lifecycle configuration.</p>
-   */
-  NotebookInstanceLifecycleConfigName: string | undefined;
+export const DescribeFeatureGroupResponseFilterSensitiveLog = (obj: DescribeFeatureGroupResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
-   */
-  NotebookInstanceLifecycleConfigArn: string | undefined;
-
-  /**
-   * <p>A timestamp that tells when the lifecycle configuration was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>A timestamp that tells when the lifecycle configuration was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-}
+/**
+ * @internal
+ */
+export const DescribeFeatureMetadataRequestFilterSensitiveLog = (obj: DescribeFeatureMetadataRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10608,23 +10685,5 @@ export const MonitoringScheduleSummaryFilterSensitiveLog = (obj: MonitoringSched
  * @internal
  */
 export const ListMonitoringSchedulesResponseFilterSensitiveLog = (obj: ListMonitoringSchedulesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotebookInstanceLifecycleConfigsInputFilterSensitiveLog = (
-  obj: ListNotebookInstanceLifecycleConfigsInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotebookInstanceLifecycleConfigSummaryFilterSensitiveLog = (
-  obj: NotebookInstanceLifecycleConfigSummary
-): any => ({
   ...obj,
 });

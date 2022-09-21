@@ -750,6 +750,7 @@ import {
   CallbackStepMetadata,
   CandidateArtifactLocations,
   CandidateProperties,
+  CanvasAppSettings,
   CapacitySize,
   CaptureContentTypeHeader,
   CaptureOption,
@@ -875,7 +876,6 @@ import {
   OutputDataConfig,
   OutputParameter,
   ParameterRange,
-  ParameterRanges,
   ProductionVariant,
   ProductionVariantCoreDumpConfig,
   ProductionVariantInstanceType,
@@ -885,7 +885,6 @@ import {
   ResourceConfig,
   ResourceInUse,
   ResourceLimitExceeded,
-  ResourceLimits,
   ResourceNotFound,
   ResourceSpec,
   RSessionAppSettings,
@@ -899,6 +898,7 @@ import {
   Tag,
   TargetPlatform,
   TensorBoardAppSettings,
+  TimeSeriesForecastingSettings,
   TrafficRoutingConfig,
   TrainingInputMode,
   TrainingInstanceType,
@@ -1073,8 +1073,6 @@ import {
   DescribeExperimentRequest,
   DescribeExperimentResponse,
   DescribeFeatureGroupRequest,
-  DescribeFeatureGroupResponse,
-  DescribeFeatureMetadataRequest,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1140,10 +1138,10 @@ import {
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
-  OfflineStoreStatus,
   OidcConfig,
   OidcMemberDefinition,
   ParallelismConfiguration,
+  ParameterRanges,
   ParentHyperParameterTuningJob,
   PendingDeploymentSummary,
   PendingProductionVariantSummary,
@@ -1172,6 +1170,7 @@ import {
   RecommendationJobStoppingConditions,
   RedshiftDatasetDefinition,
   ResolvedAttributes,
+  ResourceLimits,
   RetentionPolicy,
   RetryStrategy,
   ScheduleConfig,
@@ -1189,6 +1188,8 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DescribeFeatureGroupResponse,
+  DescribeFeatureMetadataRequest,
   DescribeFeatureMetadataResponse,
   DescribeFlowDefinitionRequest,
   DescribeFlowDefinitionResponse,
@@ -1392,7 +1393,6 @@ import {
   ListMonitoringExecutionsResponse,
   ListMonitoringSchedulesRequest,
   ListMonitoringSchedulesResponse,
-  ListNotebookInstanceLifecycleConfigsInput,
   MetricData,
   ModelConfiguration,
   ModelMetadataFilter,
@@ -1407,8 +1407,8 @@ import {
   MonitoringJobDefinitionSummary,
   MonitoringSchedule,
   MonitoringScheduleSummary,
-  NotebookInstanceLifecycleConfigSummary,
   ObjectiveStatusCounters,
+  OfflineStoreStatus,
   OidcConfigForResponse,
   PipelineExperimentConfig,
   ProfilerRuleEvaluationStatus,
@@ -1430,6 +1430,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListNotebookInstanceLifecycleConfigsInput,
   ListNotebookInstanceLifecycleConfigsOutput,
   ListNotebookInstancesInput,
   ListNotebookInstancesOutput,
@@ -1473,6 +1474,7 @@ import {
   ModelPackageGroup,
   ModelStepMetadata,
   NestedFilters,
+  NotebookInstanceLifecycleConfigSummary,
   NotebookInstanceSummary,
   Parameter,
   Parent,
@@ -15743,6 +15745,17 @@ const serializeAws_json1_1BlueGreenUpdatePolicy = (input: BlueGreenUpdatePolicy,
   };
 };
 
+const serializeAws_json1_1CanvasAppSettings = (input: CanvasAppSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.TimeSeriesForecastingSettings != null && {
+      TimeSeriesForecastingSettings: serializeAws_json1_1TimeSeriesForecastingSettings(
+        input.TimeSeriesForecastingSettings,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_json1_1CapacitySize = (input: CapacitySize, context: __SerdeContext): any => {
   return {
     ...(input.Type != null && { Type: input.Type }),
@@ -22098,6 +22111,16 @@ const serializeAws_json1_1TensorBoardOutputConfig = (input: TensorBoardOutputCon
   };
 };
 
+const serializeAws_json1_1TimeSeriesForecastingSettings = (
+  input: TimeSeriesForecastingSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AmazonForecastRoleArn != null && { AmazonForecastRoleArn: input.AmazonForecastRoleArn }),
+    ...(input.Status != null && { Status: input.Status }),
+  };
+};
+
 const serializeAws_json1_1TrafficPattern = (input: TrafficPattern, context: __SerdeContext): any => {
   return {
     ...(input.Phases != null && { Phases: serializeAws_json1_1Phases(input.Phases, context) }),
@@ -22786,6 +22809,9 @@ const serializeAws_json1_1USD = (input: USD, context: __SerdeContext): any => {
 
 const serializeAws_json1_1UserSettings = (input: UserSettings, context: __SerdeContext): any => {
   return {
+    ...(input.CanvasAppSettings != null && {
+      CanvasAppSettings: serializeAws_json1_1CanvasAppSettings(input.CanvasAppSettings, context),
+    }),
     ...(input.ExecutionRole != null && { ExecutionRole: input.ExecutionRole }),
     ...(input.JupyterServerAppSettings != null && {
       JupyterServerAppSettings: serializeAws_json1_1JupyterServerAppSettings(input.JupyterServerAppSettings, context),
@@ -23784,6 +23810,15 @@ const deserializeAws_json1_1CandidateSteps = (output: any, context: __SerdeConte
       return deserializeAws_json1_1AutoMLCandidateStep(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1CanvasAppSettings = (output: any, context: __SerdeContext): CanvasAppSettings => {
+  return {
+    TimeSeriesForecastingSettings:
+      output.TimeSeriesForecastingSettings != null
+        ? deserializeAws_json1_1TimeSeriesForecastingSettings(output.TimeSeriesForecastingSettings, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1CapacitySize = (output: any, context: __SerdeContext): CapacitySize => {
@@ -32746,6 +32781,16 @@ const deserializeAws_json1_1TensorBoardOutputConfig = (
   } as any;
 };
 
+const deserializeAws_json1_1TimeSeriesForecastingSettings = (
+  output: any,
+  context: __SerdeContext
+): TimeSeriesForecastingSettings => {
+  return {
+    AmazonForecastRoleArn: __expectString(output.AmazonForecastRoleArn),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
 const deserializeAws_json1_1TrafficPattern = (output: any, context: __SerdeContext): TrafficPattern => {
   return {
     Phases: output.Phases != null ? deserializeAws_json1_1Phases(output.Phases, context) : undefined,
@@ -33750,6 +33795,10 @@ const deserializeAws_json1_1UserProfileList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1UserSettings = (output: any, context: __SerdeContext): UserSettings => {
   return {
+    CanvasAppSettings:
+      output.CanvasAppSettings != null
+        ? deserializeAws_json1_1CanvasAppSettings(output.CanvasAppSettings, context)
+        : undefined,
     ExecutionRole: __expectString(output.ExecutionRole),
     JupyterServerAppSettings:
       output.JupyterServerAppSettings != null

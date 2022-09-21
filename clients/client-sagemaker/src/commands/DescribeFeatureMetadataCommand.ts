@@ -12,8 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeFeatureMetadataRequest, DescribeFeatureMetadataRequestFilterSensitiveLog } from "../models/models_1";
-import { DescribeFeatureMetadataResponse, DescribeFeatureMetadataResponseFilterSensitiveLog } from "../models/models_2";
+import {
+  DescribeFeatureMetadataRequest,
+  DescribeFeatureMetadataRequestFilterSensitiveLog,
+  DescribeFeatureMetadataResponse,
+  DescribeFeatureMetadataResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeFeatureMetadataCommand,
   serializeAws_json1_1DescribeFeatureMetadataCommand,

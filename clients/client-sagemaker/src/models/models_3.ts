@@ -98,7 +98,7 @@ import {
   MetricData,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
-  NotebookInstanceLifecycleConfigSummary,
+  NotebookInstanceLifecycleConfigSortKey,
   NotebookInstanceStatus,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
@@ -121,6 +121,90 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export enum NotebookInstanceLifecycleConfigSortOrder {
+  ASCENDING = "Ascending",
+  DESCENDING = "Descending",
+}
+
+export interface ListNotebookInstanceLifecycleConfigsInput {
+  /**
+   * <p>If the result of a <code>ListNotebookInstanceLifecycleConfigs</code> request was
+   *             truncated, the response includes a <code>NextToken</code>. To get the next set of
+   *             lifecycle configurations, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of lifecycle configurations to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: NotebookInstanceLifecycleConfigSortKey | string;
+
+  /**
+   * <p>The sort order for results.</p>
+   */
+  SortOrder?: NotebookInstanceLifecycleConfigSortOrder | string;
+
+  /**
+   * <p>A string in the lifecycle configuration name. This filter returns only lifecycle
+   *             configurations whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only lifecycle configurations that were created before the
+   *             specified time (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only lifecycle configurations that were created after the
+   *             specified time (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only lifecycle configurations that were modified before the
+   *             specified time (timestamp).</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only lifecycle configurations that were modified after the
+   *             specified time (timestamp).</p>
+   */
+  LastModifiedTimeAfter?: Date;
+}
+
+/**
+ * <p>Provides a summary of a notebook instance lifecycle configuration.</p>
+ */
+export interface NotebookInstanceLifecycleConfigSummary {
+  /**
+   * <p>The name of the lifecycle configuration.</p>
+   */
+  NotebookInstanceLifecycleConfigName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
+   */
+  NotebookInstanceLifecycleConfigArn: string | undefined;
+
+  /**
+   * <p>A timestamp that tells when the lifecycle configuration was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>A timestamp that tells when the lifecycle configuration was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+}
 
 export interface ListNotebookInstanceLifecycleConfigsOutput {
   /**
@@ -5171,6 +5255,24 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const ListNotebookInstanceLifecycleConfigsInputFilterSensitiveLog = (
+  obj: ListNotebookInstanceLifecycleConfigsInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotebookInstanceLifecycleConfigSummaryFilterSensitiveLog = (
+  obj: NotebookInstanceLifecycleConfigSummary
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal

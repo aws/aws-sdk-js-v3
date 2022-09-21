@@ -33,6 +33,7 @@ import {
   Bias,
   CaptureStatus,
   CategoricalParameter,
+  CategoricalParameterRange,
   Channel,
   CheckpointConfig,
   CognitoConfig,
@@ -42,6 +43,7 @@ import {
   ContainerDefinition,
   ContentClassifier,
   ContextSource,
+  ContinuousParameterRange,
   DataCaptureConfig,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
@@ -54,12 +56,11 @@ import {
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   EndpointInput,
-  FeatureDefinition,
   GitConfig,
   HyperParameterTuningJobObjective,
-  HyperParameterTuningJobStrategyType,
   InferenceSpecification,
   InputConfig,
+  IntegerParameterRange,
   KernelGatewayImageConfig,
   MetadataProperties,
   MetricDefinition,
@@ -73,11 +74,8 @@ import {
   MonitoringStatisticsResource,
   MonitoringStoppingCondition,
   NeoVpcConfig,
-  OfflineStoreConfig,
-  OnlineStoreConfig,
   OutputConfig,
   OutputDataConfig,
-  ParameterRanges,
   ProblemType,
   ProcessingInstanceType,
   ProcessingS3DataDistributionType,
@@ -89,7 +87,6 @@ import {
   ProductionVariantServerlessConfig,
   PublicWorkforceTaskPrice,
   ResourceConfig,
-  ResourceLimits,
   ResourceSpec,
   StoppingCondition,
   Tag,
@@ -104,6 +101,69 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Specifies ranges of integer, continuous, and categorical hyperparameters that a
+ *             hyperparameter tuning job searches. The hyperparameter tuning job launches training jobs
+ *             with hyperparameter values within these ranges to find the combination of values that
+ *             result in the training job with the best performance as measured by the objective metric
+ *             of the hyperparameter tuning job.</p>
+ *         <note>
+ *             <p>The maximum number of items specified for <code>Array Members</code> refers to the
+ *                 maximum number of hyperparameters for each range and also the maximum for the
+ *                 hyperparameter tuning job itself. That is, the sum of the number of hyperparameters
+ *                 for all the ranges can't exceed the maximum number specified.</p>
+ *         </note>
+ */
+export interface ParameterRanges {
+  /**
+   * <p>The array of <a>IntegerParameterRange</a> objects that specify ranges of
+   *             integer hyperparameters that a hyperparameter tuning job searches.</p>
+   */
+  IntegerParameterRanges?: IntegerParameterRange[];
+
+  /**
+   * <p>The array of <a>ContinuousParameterRange</a> objects that specify ranges of
+   *             continuous hyperparameters that a hyperparameter tuning job searches.</p>
+   */
+  ContinuousParameterRanges?: ContinuousParameterRange[];
+
+  /**
+   * <p>The array of <a>CategoricalParameterRange</a> objects that specify ranges
+   *             of categorical hyperparameters that a hyperparameter tuning job searches.</p>
+   */
+  CategoricalParameterRanges?: CategoricalParameterRange[];
+}
+
+/**
+ * <p>Specifies the maximum number of
+ *             training
+ *             jobs and parallel training jobs that a hyperparameter tuning job can
+ *             launch.</p>
+ */
+export interface ResourceLimits {
+  /**
+   * <p>The
+   *             maximum
+   *             number of training jobs that a hyperparameter tuning job can
+   *             launch.</p>
+   */
+  MaxNumberOfTrainingJobs: number | undefined;
+
+  /**
+   * <p>The
+   *             maximum
+   *             number of concurrent training jobs that a hyperparameter tuning job can
+   *             launch.</p>
+   */
+  MaxParallelTrainingJobs: number | undefined;
+}
+
+export enum HyperParameterTuningJobStrategyType {
+  BAYESIAN = "Bayesian",
+  HYPERBAND = "Hyperband",
+  RANDOM = "Random",
+}
 
 /**
  * <p>The configuration for <code>Hyperband</code>, a multi-fidelity based hyperparameter
@@ -5746,11 +5806,11 @@ export interface CreateTrainingJobRequest {
    *             key-value pair. Each key and value is limited to 256 characters, as specified by the
    *                 <code>Length Constraint</code>. </p>
    *         <important>
-   *             <p>You must not include any security-sensitive information, such as
-   *             account access IDs, secrets, and tokens, in the dictionary for configuring
-   *             hyperparameters. SageMaker rejects the training job request and returns an
-   *             exception error for detected credentials, if such user input is found.</p>
-   *          </important>
+   *             <p>You must not include any security-sensitive information, such as account access
+   *                 IDs, secrets, and tokens, in the dictionary for configuring hyperparameters. SageMaker
+   *                 rejects the training job request and returns an exception error for detected
+   *                 credentials, if such user input is found.</p>
+   *         </important>
    */
   HyperParameters?: Record<string, string>;
 
@@ -6388,14 +6448,14 @@ export interface CreateUserProfileRequest {
 
   /**
    * <p>A specifier for the type of value specified in SingleSignOnUserValue.  Currently, the only supported value is "UserName".
-   *           If the Domain's AuthMode is Amazon Web Services SSO, this field is required.  If the Domain's AuthMode is not Amazon Web Services SSO, this field cannot be specified.
+   *           If the Domain's AuthMode is IAM Identity Center, this field is required.  If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified.
    *        </p>
    */
   SingleSignOnUserIdentifier?: string;
 
   /**
-   * <p>The username of the associated Amazon Web Services Single Sign-On User for this UserProfile.  If the Domain's AuthMode is Amazon Web Services SSO, this field is
-   *           required, and must match a valid username of a user in your directory.  If the Domain's AuthMode is not Amazon Web Services SSO, this field cannot be specified.
+   * <p>The username of the associated Amazon Web Services Single Sign-On User for this UserProfile.  If the Domain's AuthMode is IAM Identity Center, this field is
+   *           required, and must match a valid username of a user in your directory.  If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified.
    *        </p>
    */
   SingleSignOnUserValue?: string;
@@ -8250,7 +8310,7 @@ export interface DescribeDomainResponse {
   HomeEfsFileSystemId?: string;
 
   /**
-   * <p>The Amazon Web Services SSO managed application instance ID.</p>
+   * <p>The IAM Identity Center managed application instance ID.</p>
    */
   SingleSignOnManagedApplicationInstanceId?: string;
 
@@ -9063,143 +9123,18 @@ export enum OfflineStoreStatusValue {
 }
 
 /**
- * <p>The status of <code>OfflineStore</code>.</p>
+ * @internal
  */
-export interface OfflineStoreStatus {
-  /**
-   * <p>An <code>OfflineStore</code> status.</p>
-   */
-  Status: OfflineStoreStatusValue | string | undefined;
+export const ParameterRangesFilterSensitiveLog = (obj: ParameterRanges): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The justification for why the OfflineStoreStatus is Blocked (if applicable).</p>
-   */
-  BlockedReason?: string;
-}
-
-export interface DescribeFeatureGroupResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the <code>FeatureGroup</code>.  </p>
-   */
-  FeatureGroupArn: string | undefined;
-
-  /**
-   * <p>he name of the <code>FeatureGroup</code>.</p>
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>The name of the <code>Feature</code> used for <code>RecordIdentifier</code>, whose value
-   *          uniquely identifies a record stored in the feature store.</p>
-   */
-  RecordIdentifierFeatureName: string | undefined;
-
-  /**
-   * <p>The name of the feature that stores the <code>EventTime</code> of a Record in a
-   *          <code>FeatureGroup</code>.</p>
-   *          <p> An <code>EventTime</code> is a point in time when a new event occurs that
-   *          corresponds to the creation or update of a <code>Record</code> in a
-   *             <code>FeatureGroup</code>. All <code>Records</code> in the <code>FeatureGroup</code>
-   *          have a corresponding <code>EventTime</code>.</p>
-   */
-  EventTimeFeatureName: string | undefined;
-
-  /**
-   * <p>A list of the <code>Features</code> in the <code>FeatureGroup</code>.
-   *          Each feature is defined by a <code>FeatureName</code> and <code>FeatureType</code>.</p>
-   */
-  FeatureDefinitions: FeatureDefinition[] | undefined;
-
-  /**
-   * <p>A timestamp indicating when SageMaker created the <code>FeatureGroup</code>.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp indicating when the feature group was last updated.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The configuration for the <code>OnlineStore</code>.</p>
-   */
-  OnlineStoreConfig?: OnlineStoreConfig;
-
-  /**
-   * <p>The configuration of the <code>OfflineStore</code>, inducing the S3 location of the
-   *          <code>OfflineStore</code>, Amazon Web Services Glue or Amazon Web Services Hive data catalogue configurations, and the
-   *          security configuration.</p>
-   */
-  OfflineStoreConfig?: OfflineStoreConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the
-   *          <code>OfflineStore</code> if an <code>OfflineStoreConfig</code> is provided.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The status of the feature group.</p>
-   */
-  FeatureGroupStatus?: FeatureGroupStatus | string;
-
-  /**
-   * <p>The status of the <code>OfflineStore</code>. Notifies you if replicating data into the
-   *             <code>OfflineStore</code> has failed. Returns either: <code>Active</code> or
-   *             <code>Blocked</code>
-   *          </p>
-   */
-  OfflineStoreStatus?: OfflineStoreStatus;
-
-  /**
-   * <p>A value indicating whether the update made to the feature group was successful.</p>
-   */
-  LastUpdateStatus?: LastUpdateStatus;
-
-  /**
-   * <p>The reason that the <code>FeatureGroup</code> failed to be replicated in the
-   *             <code>OfflineStore</code>. This is failure can occur because:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The <code>FeatureGroup</code> could not be created in the
-   *                   <code>OfflineStore</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>The <code>FeatureGroup</code> could not be deleted from the
-   *                   <code>OfflineStore</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>A free form description of the feature group.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A token to resume pagination of the list of <code>Features</code>
-   *             (<code>FeatureDefinitions</code>).</p>
-   */
-  NextToken: string | undefined;
-
-  /**
-   * <p>The size of the <code>OnlineStore</code> in bytes.</p>
-   */
-  OnlineStoreTotalSizeBytes?: number;
-}
-
-export interface DescribeFeatureMetadataRequest {
-  /**
-   * <p>The name of the feature group containing the feature.</p>
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>The name of the feature.</p>
-   */
-  FeatureName: string | undefined;
-}
+/**
+ * @internal
+ */
+export const ResourceLimitsFilterSensitiveLog = (obj: ResourceLimits): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11128,26 +11063,5 @@ export const DescribeFeatureGroupRequestFilterSensitiveLog = (obj: DescribeFeatu
  * @internal
  */
 export const LastUpdateStatusFilterSensitiveLog = (obj: LastUpdateStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OfflineStoreStatusFilterSensitiveLog = (obj: OfflineStoreStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFeatureGroupResponseFilterSensitiveLog = (obj: DescribeFeatureGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFeatureMetadataRequestFilterSensitiveLog = (obj: DescribeFeatureMetadataRequest): any => ({
   ...obj,
 });

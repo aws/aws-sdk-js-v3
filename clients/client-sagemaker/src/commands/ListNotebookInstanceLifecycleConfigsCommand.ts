@@ -15,8 +15,6 @@ import {
 import {
   ListNotebookInstanceLifecycleConfigsInput,
   ListNotebookInstanceLifecycleConfigsInputFilterSensitiveLog,
-} from "../models/models_2";
-import {
   ListNotebookInstanceLifecycleConfigsOutput,
   ListNotebookInstanceLifecycleConfigsOutputFilterSensitiveLog,
 } from "../models/models_3";
