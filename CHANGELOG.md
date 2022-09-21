@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.176.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.175.0...v3.176.0) (2022-09-21)
+
+
+### Features
+
+* **client-comprehend:** Amazon Comprehend now supports synchronous mode for targeted sentiment API operations. ([b2f16fd](https://github.com/aws/aws-sdk-js-v3/commit/b2f16fd29edc9a3fd73893b82d72147fc1dbac34))
+* **client-s3-control:** S3 on Outposts launches support for object versioning for Outposts buckets. With S3 Versioning, you can preserve, retrieve, and restore every version of every object stored in your buckets. You can recover from both unintended user actions and application failures. ([20cd3c1](https://github.com/aws/aws-sdk-js-v3/commit/20cd3c183c533aa6d68eefa0cb0e8a3c5e0b8b32))
+* **client-sagemaker:** SageMaker now allows customization on Canvas Application settings, including enabling/disabling time-series forecasting and specifying an Amazon Forecast execution role at both the Domain and UserProfile levels. ([e2afd65](https://github.com/aws/aws-sdk-js-v3/commit/e2afd655d7e760d7643dfa1ee3a2487cbba4ecec))
+* **clients:** update client endpoints as of 2022-09-21 ([34ec10a](https://github.com/aws/aws-sdk-js-v3/commit/34ec10a839a6567b465c27f4412e5c5b57cf6e7b))
+
+
+
+
+
 # [3.175.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.174.0...v3.175.0) (2022-09-20)
 
 

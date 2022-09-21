@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.176.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.175.0...v3.176.0) (2022-09-21)
+
+
+### Features
+
+* **client-s3-control:** S3 on Outposts launches support for object versioning for Outposts buckets. With S3 Versioning, you can preserve, retrieve, and restore every version of every object stored in your buckets. You can recover from both unintended user actions and application failures. ([20cd3c1](https://github.com/aws/aws-sdk-js-v3/commit/20cd3c183c533aa6d68eefa0cb0e8a3c5e0b8b32))
+
+
+
+
+
 # [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
 
 **Note:** Version bump only for package @aws-sdk/client-s3-control

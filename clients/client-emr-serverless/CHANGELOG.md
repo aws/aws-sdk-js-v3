@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.176.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.175.0...v3.176.0) (2022-09-21)
+
+
+### Features
+
+* **clients:** update client endpoints as of 2022-09-21 ([34ec10a](https://github.com/aws/aws-sdk-js-v3/commit/34ec10a839a6567b465c27f4412e5c5b57cf6e7b))
+
+
+
+
+
 # [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
 
 **Note:** Version bump only for package @aws-sdk/client-emr-serverless

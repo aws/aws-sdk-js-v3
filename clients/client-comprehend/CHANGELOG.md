@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.176.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.175.0...v3.176.0) (2022-09-21)
+
+
+### Features
+
+* **client-comprehend:** Amazon Comprehend now supports synchronous mode for targeted sentiment API operations. ([b2f16fd](https://github.com/aws/aws-sdk-js-v3/commit/b2f16fd29edc9a3fd73893b82d72147fc1dbac34))
+
+
+
+
+
 # [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
 
 **Note:** Version bump only for package @aws-sdk/client-comprehend
