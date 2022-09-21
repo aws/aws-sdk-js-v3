@@ -44,6 +44,7 @@ export const getEndpointFromInstructions = async <T extends EndpointParameters>(
   }
 
   const endpoint: EndpointV2 = clientConfig.endpointProvider!(endpointParams as T, context);
+
   return endpoint;
 };
 
@@ -52,9 +53,6 @@ export const getEndpointFromInstructions = async <T extends EndpointParameters>(
  */
 const createConfigProvider = (configKey: string, config: EndpointResolvedConfig & any) => {
   const configProvider = async () => {
-    if (!(configKey in config)) {
-      throw new Error(`The config key ${configKey} was not found in the config object.`);
-    }
     const configValue = config[configKey];
     if (typeof configValue === "function") {
       return configValue();

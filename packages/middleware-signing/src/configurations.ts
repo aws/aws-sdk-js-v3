@@ -173,8 +173,8 @@ export const resolveAwsAuthConfig = <T>(
       if (!authScheme) {
         throw new Error("Unexpected empty auth scheme config");
       }
-      const signingRegion = authScheme.properties!["signingScope"] as string;
-      const signingService = authScheme.properties!["signingName"] as string;
+      const signingRegion = authScheme.signingScope;
+      const signingService = authScheme.signingName;
       // update client's singing region and signing service config if they are resolved.
       // signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
       input.signingRegion = input.signingRegion || signingRegion;

@@ -1,5 +1,8 @@
+import { HttpRequest } from "@aws-sdk/protocol-http";
+import { parseQueryString } from "@aws-sdk/querystring-parser";
 import {
   EndpointBearer,
+  EndpointV2,
   HandlerExecutionContext,
   RequestSerializer,
   SerializeHandler,
@@ -23,10 +26,10 @@ export const serializerMiddleware =
         : options.endpoint;
 
     if (!endpoint) {
-      throw new Error("No valid endpoint provider available");
+      throw new Error("No valid endpoint provider available.");
     }
 
-    const request = await serializer(args.input, { ...options, endpoint });
+    const request: HttpRequest = await serializer(args.input, { ...options, endpoint });
 
     return next({
       ...args,

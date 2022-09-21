@@ -13,7 +13,7 @@ export interface EndpointInputConfig<T extends EndpointParameters = EndpointPara
    * The fully qualified endpoint of the webservice. This is only required when using
    * a custom endpoint (for example, when using a local version of S3).
    */
-  endpoint: string | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
+  endpoint?: string | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
 
   endpointProvider?: (params: T, context?: { logger?: Logger }) => EndpointV2;
 
@@ -85,13 +85,7 @@ export const resolveEndpointConfig = <T, P extends EndpointParameters = Endpoint
   const { endpoint } = input;
 
   const customEndpointProvider =
-    endpoint != null
-      ? typeof endpoint === "function"
-        ? async () => {
-            return toEndpointV1(await endpoint());
-          }
-        : normalizeProvider(toEndpointV1(endpoint))
-      : undefined;
+    endpoint != null ? async () => toEndpointV1(await normalizeProvider(endpoint)()) : undefined;
 
   const isCustomEndpoint = !!endpoint;
 
@@ -102,5 +96,5 @@ export const resolveEndpointConfig = <T, P extends EndpointParameters = Endpoint
     isCustomEndpoint,
     useDualstackEndpoint: normalizeProvider(input.useDualstackEndpoint ?? false),
     useFipsEndpoint: normalizeProvider(input.useFipsEndpoint ?? false),
-  };
+  } as T & EndpointResolvedConfig<P>;
 };
