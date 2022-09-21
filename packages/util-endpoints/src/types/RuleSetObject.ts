@@ -16,7 +16,7 @@ export type ParameterObject = {
 
 export type RuleSetObject = {
   version: string;
-  serviceId: string;
+  serviceId?: string;
   parameters: Record<string, ParameterObject>;
   rules: RuleSetRules;
 };

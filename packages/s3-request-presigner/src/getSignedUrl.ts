@@ -1,6 +1,7 @@
+import { getEndpointFromInstructions } from "@aws-sdk/middleware-endpoint";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { Client, Command } from "@aws-sdk/smithy-client";
-import { BuildMiddleware, MetadataBearer, RequestPresigningArguments } from "@aws-sdk/types";
+import { BuildMiddleware, EndpointV2, MetadataBearer, RequestPresigningArguments } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 
 import { S3RequestPresigner } from "./presigner";
@@ -14,7 +15,24 @@ export const getSignedUrl = async <
   command: Command<InputType, OutputType, any, InputTypesUnion, MetadataBearer>,
   options: RequestPresigningArguments = {}
 ): Promise<string> => {
-  const s3Presigner = new S3RequestPresigner({ ...client.config });
+  let s3Presigner: S3RequestPresigner;
+
+  if (typeof client.config.endpointProvider === "function") {
+    const endpointV2: EndpointV2 = await getEndpointFromInstructions(
+      command.input,
+      command.constructor as any,
+      client.config
+    );
+    const authScheme = endpointV2.properties?.authSchemes?.[0];
+    s3Presigner = new S3RequestPresigner({
+      ...client.config,
+      service: authScheme.signingName,
+      region: authScheme.signingScope
+    });
+  } else {
+    s3Presigner = new S3RequestPresigner(client.config);
+  }
+
   const presignInterceptMiddleware: BuildMiddleware<InputTypesUnion, MetadataBearer> =
     (next, context) => async (args) => {
       const { request } = args;

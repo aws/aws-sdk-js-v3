@@ -82,12 +82,14 @@ export const createPresignedPost = async (
   const signature = await hmac(sha256, signingKey, encodedPolicy);
 
   let endpoint = await client.config?.endpoint?.();
+  let isEndpointV2 = false;
 
   if (!endpoint) {
-    endpoint = toEndpointV1(await getEndpointFromInstructions({ Bucket, Key }, PutObjectCommand, client.config));
+    isEndpointV2 = true;
+    endpoint = toEndpointV1(await getEndpointFromInstructions({ Bucket, Key }, PutObjectCommand as any, client.config));
   }
 
-  if (endpoint && !client.config.isCustomEndpoint) {
+  if (endpoint && !client.config.isCustomEndpoint && !isEndpointV2) {
     endpoint.path = `/${Bucket}`;
   }
 

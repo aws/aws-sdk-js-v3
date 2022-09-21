@@ -1,8 +1,6 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { parseQueryString } from "@aws-sdk/querystring-parser";
 import {
   EndpointBearer,
-  EndpointV2,
   HandlerExecutionContext,
   RequestSerializer,
   SerializeHandler,
