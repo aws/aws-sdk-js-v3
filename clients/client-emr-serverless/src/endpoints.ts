@@ -11,6 +11,14 @@ const regionHash: RegionHash = {
       },
     ],
   },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "emr-serverless-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-west-2": {
     variants: [
       {
@@ -41,6 +49,7 @@ const partitionHash: PartitionHash = {
       "eu-west-2",
       "eu-west-3",
       "fips-us-east-1",
+      "fips-us-east-2",
       "fips-us-west-2",
       "me-central-1",
       "me-south-1",
