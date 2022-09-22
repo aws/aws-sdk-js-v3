@@ -11,15 +11,21 @@ export interface S3InputConfig {
    * Whether to use the S3 Transfer Acceleration endpoint by default
    */
   useAccelerateEndpoint?: boolean;
+  /**
+   * Whether multi-region access points (MRAP) should be disabled.
+   */
+  disableMultiregionAccessPoints?: boolean;
 }
 
 export interface S3ResolvedConfig {
   forcePathStyle: boolean;
   useAccelerateEndpoint: boolean;
+  disableMultiregionAccessPoints: boolean;
 }
 
 export const resolveS3Config = <T>(input: T & S3InputConfig): T & S3ResolvedConfig => ({
   ...input,
   forcePathStyle: input.forcePathStyle ?? false,
   useAccelerateEndpoint: input.useAccelerateEndpoint ?? false,
+  disableMultiregionAccessPoints: input.disableMultiregionAccessPoints ?? false,
 });

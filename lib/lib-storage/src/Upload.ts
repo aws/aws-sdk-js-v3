@@ -128,13 +128,7 @@ export class Upload extends EventEmitter {
     let endpoint: Endpoint = resolved[1];
 
     if (!endpoint) {
-      endpoint = toEndpointV1(
-        await getEndpointFromInstructions(
-          params,
-          PutObjectCommand,
-          clientConfig
-        )
-      );
+      endpoint = toEndpointV1(await getEndpointFromInstructions(params, PutObjectCommand as any, clientConfig));
     }
 
     if (!endpoint) {
