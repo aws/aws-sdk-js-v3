@@ -3,18 +3,30 @@ import { EndpointParameters, EndpointV2, HandlerExecutionContext } from "@aws-sd
 import { EndpointResolvedConfig } from "../resolveEndpointConfig";
 import { EndpointParameterInstructions } from "../types";
 
+export type EndpointParameterInstructionsSupplier = Partial<{
+  getEndpointParameterInstructions(): EndpointParameterInstructions;
+}>;
+
 /**
  * This step in the endpoint resolution process is exposed as a function
- * to allow certain packages such as s3 signer, lib-upload to get
- * the V2 Endpoint associated to an instance of some (operation) command.
+ * to allow packages such as signers, lib-upload, etc. to get
+ * the V2 Endpoint associated to an instance of some api operation command
+ * without needing to send it or resolve its middleware stack.
  *
  * @private
+ * @param commandInput         - the input of the Command in question.
+ * @param instructionsSupplier - this is typically a Command constructor. A static function supplying the
+ *                               endpoint parameter instructions will exist for commands in services
+ *                               having an endpoints ruleset trait.
+ * @param clientConfig         - config of the service client.
+ * @param context              - optional context.
  */
-export const getEndpointFromInstructions = async <T extends EndpointParameters>(
-  commandInput: any,
-  instructionsSupplier: Partial<{
-    getEndpointParameterInstructions(): EndpointParameterInstructions;
-  }>,
+export const getEndpointFromInstructions = async <
+  T extends EndpointParameters,
+  CommandInput extends Record<string, unknown>
+>(
+  commandInput: CommandInput,
+  instructionsSupplier: EndpointParameterInstructionsSupplier,
   clientConfig: Partial<EndpointResolvedConfig<T>>,
   context?: HandlerExecutionContext
 ): Promise<EndpointV2> => {
@@ -32,7 +44,7 @@ export const getEndpointFromInstructions = async <T extends EndpointParameters>(
         endpointParams[name] = instruction.value;
         break;
       case "contextParams":
-        endpointParams[name] = commandInput[instruction.name];
+        endpointParams[name] = commandInput[instruction.name] as string | boolean;
         break;
       case "clientContextParams":
       case "builtInParams":
@@ -49,6 +61,7 @@ export const getEndpointFromInstructions = async <T extends EndpointParameters>(
 };
 
 /**
+ * Normalize some key of the client config to an async provider.
  * @private
  */
 const createConfigProvider = (configKey: string, config: EndpointResolvedConfig & any) => {

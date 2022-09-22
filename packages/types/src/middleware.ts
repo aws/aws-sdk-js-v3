@@ -1,3 +1,4 @@
+import { EndpointV2 } from "./endpoint";
 import { Logger } from "./logger";
 import { UserAgent } from "./util";
 
@@ -393,6 +394,12 @@ export interface HandlerExecutionContext {
    * config in clients.
    */
   userAgent?: UserAgent;
+
+  /**
+   * Resolved by the endpointMiddleware function of @aws-sdk/middleware-endpoint
+   * in the serialization stage.
+   */
+  endpointV2?: EndpointV2;
 
   [key: string]: any;
 }

@@ -1,4 +1,3 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   EndpointBearer,
   HandlerExecutionContext,
@@ -20,14 +19,14 @@ export const serializerMiddleware =
   async (args: SerializeHandlerArguments<Input>): Promise<SerializeHandlerOutput<Output>> => {
     const endpoint =
       context.endpointV2?.url && options.urlParser
-        ? async () => options.urlParser!(context.endpointV2.url as URL)
+        ? async () => options.urlParser!(context.endpointV2!.url as URL)
         : options.endpoint;
 
     if (!endpoint) {
       throw new Error("No valid endpoint provider available.");
     }
 
-    const request: HttpRequest = await serializer(args.input, { ...options, endpoint });
+    const request = await serializer(args.input, { ...options, endpoint });
 
     return next({
       ...args,

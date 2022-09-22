@@ -1,5 +1,9 @@
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
-import { getEndpointFromInstructions, toEndpointV1 } from "@aws-sdk/middleware-endpoint";
+import {
+  EndpointParameterInstructionsSupplier,
+  getEndpointFromInstructions,
+  toEndpointV1,
+} from "@aws-sdk/middleware-endpoint";
 import { createScope, getSigningKey } from "@aws-sdk/signature-v4";
 import { HashConstructor, SourceData } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
@@ -86,7 +90,13 @@ export const createPresignedPost = async (
 
   if (!endpoint) {
     isEndpointV2 = true;
-    endpoint = toEndpointV1(await getEndpointFromInstructions({ Bucket, Key }, PutObjectCommand as any, client.config));
+    endpoint = toEndpointV1(
+      await getEndpointFromInstructions(
+        { Bucket, Key },
+        PutObjectCommand as EndpointParameterInstructionsSupplier,
+        client.config
+      )
+    );
   }
 
   if (endpoint && !client.config.isCustomEndpoint && !isEndpointV2) {

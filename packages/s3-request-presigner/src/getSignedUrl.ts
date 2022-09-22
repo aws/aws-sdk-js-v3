@@ -1,4 +1,4 @@
-import { getEndpointFromInstructions } from "@aws-sdk/middleware-endpoint";
+import { EndpointParameterInstructionsSupplier, getEndpointFromInstructions } from "@aws-sdk/middleware-endpoint";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { Client, Command } from "@aws-sdk/smithy-client";
 import { BuildMiddleware, EndpointV2, MetadataBearer, RequestPresigningArguments } from "@aws-sdk/types";
@@ -19,8 +19,8 @@ export const getSignedUrl = async <
 
   if (typeof client.config.endpointProvider === "function") {
     const endpointV2: EndpointV2 = await getEndpointFromInstructions(
-      command.input,
-      command.constructor as any,
+      command.input as Record<string, unknown>,
+      command.constructor as EndpointParameterInstructionsSupplier,
       client.config
     );
     const authScheme = endpointV2.properties?.authSchemes?.[0];
