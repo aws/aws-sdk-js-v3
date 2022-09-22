@@ -127,8 +127,10 @@ public final class AddS3Config implements TypeScriptIntegration {
     }
 
     @Override
-    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(TypeScriptSettings settings, Model model,
-                                                                           SymbolProvider symbolProvider, LanguageTarget target) {
+    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
+        TypeScriptSettings settings, Model model,
+        SymbolProvider symbolProvider, LanguageTarget target
+    ) {
         if (!isS3(settings.getService(model))) {
             return Collections.emptyMap();
         }
