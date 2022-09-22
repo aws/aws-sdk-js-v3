@@ -25,10 +25,8 @@ export interface ListUsersCommandInput extends ListUsersRequest {}
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the attribute name and value of the user that you specified in the search. We only
- *          support <code>UserName</code> as a valid filter attribute path currently, and filter is
- *          required. This API returns minimum attributes, including <code>UserId</code> and
- *             <code>UserName</code> in the response.</p>
+ * <p>Lists all users in the identity store. Returns a paginated list of complete <code>User</code> objects.
+ *          Filtering for a <code>User</code> by the <code>UserName</code> attribute is deprecated. Instead, use the <code>GetUserId</code> API action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
