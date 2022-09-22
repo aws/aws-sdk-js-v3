@@ -23,11 +23,12 @@ export type EndpointParameterInstructionsSupplier = Partial<{
  */
 export const getEndpointFromInstructions = async <
   T extends EndpointParameters,
-  CommandInput extends Record<string, unknown>
+  CommandInput extends Record<string, unknown>,
+  Config extends Record<string, unknown>
 >(
   commandInput: CommandInput,
   instructionsSupplier: EndpointParameterInstructionsSupplier,
-  clientConfig: Partial<EndpointResolvedConfig<T>>,
+  clientConfig: Partial<EndpointResolvedConfig<T>> & Config,
   context?: HandlerExecutionContext
 ): Promise<EndpointV2> => {
   const endpointParams: EndpointParameters = {};
@@ -48,7 +49,7 @@ export const getEndpointFromInstructions = async <
         break;
       case "clientContextParams":
       case "builtInParams":
-        endpointParams[name] = await createConfigProvider(instruction.name, clientConfig)();
+        endpointParams[name] = await createConfigProvider<Config>(instruction.name, clientConfig)();
         break;
       default:
         throw new Error("Unrecognized endpoint parameter instruction: " + JSON.stringify(instruction));
@@ -64,9 +65,9 @@ export const getEndpointFromInstructions = async <
  * Normalize some key of the client config to an async provider.
  * @private
  */
-const createConfigProvider = (configKey: string, config: EndpointResolvedConfig & any) => {
+const createConfigProvider = <Config extends Record<string, unknown>>(configKey: string, config: Config) => {
   const configProvider = async () => {
-    const configValue = config[configKey];
+    const configValue: unknown = config[configKey];
     if (typeof configValue === "function") {
       return configValue();
     }

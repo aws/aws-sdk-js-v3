@@ -1,10 +1,9 @@
-import { serializerMiddlewareOption } from '@aws-sdk/middleware-serde';
+import { serializerMiddlewareOption } from "@aws-sdk/middleware-serde";
 import { EndpointParameters, Pluggable, RelativeMiddlewareOptions, SerializeHandlerOptions } from "@aws-sdk/types";
 
-import { endpointMiddleware } from "./endpointMiddleware";
+import { endpointMiddleware, PreviouslyResolvedServiceId } from "./endpointMiddleware";
 import { EndpointResolvedConfig } from "./resolveEndpointConfig";
 import { EndpointParameterInstructions } from "./types";
-
 
 export const endpointMiddlewareOptions: SerializeHandlerOptions & RelativeMiddlewareOptions = {
   step: "serialize",
@@ -16,7 +15,7 @@ export const endpointMiddlewareOptions: SerializeHandlerOptions & RelativeMiddle
 };
 
 export const getEndpointPlugin = <T extends EndpointParameters>(
-  config: EndpointResolvedConfig<T>,
+  config: EndpointResolvedConfig<T> & PreviouslyResolvedServiceId,
   instructions: EndpointParameterInstructions
 ): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {

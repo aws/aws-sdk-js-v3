@@ -1,5 +1,3 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { parseQueryString } from "@aws-sdk/querystring-parser";
 import {
   AuthScheme,
   EndpointParameters,
@@ -14,7 +12,12 @@ import {
 
 import { getEndpointFromInstructions } from "./adaptors/getEndpointFromInstructions";
 import { EndpointResolvedConfig } from "./resolveEndpointConfig";
+import { s3Customizations } from "./service-customizations";
 import { EndpointParameterInstructions } from "./types";
+
+export type PreviouslyResolvedServiceId = {
+  serviceId?: string;
+};
 
 /**
  * @private
@@ -23,7 +26,7 @@ export const endpointMiddleware = <T extends EndpointParameters>({
   config,
   instructions,
 }: {
-  config: EndpointResolvedConfig<T>;
+  config: EndpointResolvedConfig<T> & PreviouslyResolvedServiceId;
   instructions: EndpointParameterInstructions;
 }): SerializeMiddleware<any, any> => {
   return <Output extends MetadataBearer>(
@@ -38,7 +41,7 @@ export const endpointMiddleware = <T extends EndpointParameters>({
             return instructions;
           },
         },
-        config,
+        { ...config },
         context
       );
 
@@ -49,6 +52,10 @@ export const endpointMiddleware = <T extends EndpointParameters>({
       if (authScheme) {
         context["signing_region"] = authScheme.signingScope;
         context["signing_service"] = authScheme.signingName;
+      }
+
+      if (config.serviceId === "S3") {
+        await s3Customizations(config, instructions, args, context);
       }
 
       return next({
