@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.177.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.176.0...v3.177.0) (2022-09-22)
+
+
+### Features
+
+* **client-device-farm:** This release adds the support for VPC-ENI based connectivity for private devices on AWS Device Farm. ([d48cc66](https://github.com/aws/aws-sdk-js-v3/commit/d48cc66228f661f5ce89dbe71d7747fdd3835104))
+
+
+
+
+
 # [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
 
 **Note:** Version bump only for package @aws-sdk/client-device-farm

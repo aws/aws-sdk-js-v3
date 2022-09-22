@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.177.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.176.0...v3.177.0) (2022-09-22)
+
+
+### Features
+
+* **client-backup-gateway:** Changes include: new GetVirtualMachineApi to fetch a single user's VM, improving ListVirtualMachines to fetch filtered VMs as well as all VMs, and improving GetGatewayApi to now also return the gateway's MaintenanceStartTime. ([45d84e0](https://github.com/aws/aws-sdk-js-v3/commit/45d84e06bac5fd5d39506c607095772b1dd2135e))
+* **client-device-farm:** This release adds the support for VPC-ENI based connectivity for private devices on AWS Device Farm. ([d48cc66](https://github.com/aws/aws-sdk-js-v3/commit/d48cc66228f661f5ce89dbe71d7747fdd3835104))
+* **client-ec2:** Documentation updates for Amazon EC2. ([36ac02c](https://github.com/aws/aws-sdk-js-v3/commit/36ac02ce71f727af23452bc3e024707d1840f6b4))
+* **client-glue:** Added support for S3 Event Notifications for Catalog Target Crawlers. ([61a70d7](https://github.com/aws/aws-sdk-js-v3/commit/61a70d7965617d6b461f92a2acf1707dc0ea1813))
+* **clients:** update client endpoints as of 2022-09-22 ([4f39f83](https://github.com/aws/aws-sdk-js-v3/commit/4f39f834477b219b9a220522defae5b4dcfbdd4d))
+
+
+
+
+
 # [3.176.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.175.0...v3.176.0) (2022-09-21)
 
 
