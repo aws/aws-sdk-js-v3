@@ -20,17 +20,17 @@ describe(resolveEndpoint.name, () => {
   const mockRules = [];
   const mockRuleSetParameters: Record<string, ParameterObject> = {
     [boolParamKey]: {
-      type: "boolean",
+      type: "Boolean",
     },
     [stringParamKey]: {
-      type: "string",
+      type: "String",
     },
     [requiredParamKey]: {
-      type: "string",
+      type: "String",
       required: true,
     },
     [paramWithDefaultKey]: {
-      type: "string",
+      type: "String",
       default: "paramWithDefaultValue",
     },
   };

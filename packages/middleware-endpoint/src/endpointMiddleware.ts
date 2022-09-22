@@ -1,6 +1,7 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { parseQueryString } from "@aws-sdk/querystring-parser";
 import {
+  AuthScheme,
   EndpointParameters,
   EndpointV2,
   HandlerExecutionContext,
@@ -43,6 +44,12 @@ export const endpointMiddleware = <T extends EndpointParameters>({
 
       context.endpointV2 = endpoint;
       context.authSchemes = endpoint.properties?.authSchemes;
+
+      const authScheme: AuthScheme = context.authSchemes?.[0];
+      if (authScheme) {
+        context["signing_region"] = authScheme.signingScope;
+        context["signing_service"] = authScheme.signingName;
+      }
 
       return next({
         ...args,

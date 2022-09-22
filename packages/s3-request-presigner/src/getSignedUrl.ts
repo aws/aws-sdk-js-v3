@@ -26,8 +26,8 @@ export const getSignedUrl = async <
     const authScheme = endpointV2.properties?.authSchemes?.[0];
     s3Presigner = new S3RequestPresigner({
       ...client.config,
-      service: authScheme.signingName,
-      region: authScheme.signingScope
+      signingName: authScheme?.signingName,
+      region: async () => authScheme?.signingScope,
     });
   } else {
     s3Presigner = new S3RequestPresigner(client.config);
@@ -49,6 +49,7 @@ export const getSignedUrl = async <
         signingRegion: options.signingRegion ?? context["signing_region"],
         signingService: options.signingService ?? context["signing_service"],
       });
+
       return {
         // Intercept the middleware stack by returning fake response
         response: {},
