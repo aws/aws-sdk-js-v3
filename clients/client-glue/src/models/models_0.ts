@@ -1210,6 +1210,16 @@ export interface CatalogTarget {
    * <p>The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a <code>Catalog</code> connection type paired with a <code>NETWORK</code> Connection type.</p>
    */
   ConnectionName?: string;
+
+  /**
+   * <p>A valid Amazon SQS ARN. For example, <code>arn:aws:sqs:region:account:sqs</code>.</p>
+   */
+  EventQueueArn?: string;
+
+  /**
+   * <p>A valid Amazon dead-letter SQS ARN. For example, <code>arn:aws:sqs:region:account:deadLetterQueue</code>.</p>
+   */
+  DlqEventQueueArn?: string;
 }
 
 /**
@@ -1545,7 +1555,12 @@ export interface BatchGetDevEndpointsRequest {
   DevEndpointNames: string[] | undefined;
 }
 
-export type WorkerType = "G.025X" | "G.1X" | "G.2X" | "Standard";
+export enum WorkerType {
+  G_025X = "G.025X",
+  G_1X = "G.1X",
+  G_2X = "G.2X",
+  Standard = "Standard",
+}
 
 /**
  * <p>A development endpoint where a developer can remotely debug extract, transform, and load

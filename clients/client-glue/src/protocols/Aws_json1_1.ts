@@ -13756,6 +13756,8 @@ const serializeAws_json1_1CatalogTarget = (input: CatalogTarget, context: __Serd
   return {
     ...(input.ConnectionName != null && { ConnectionName: input.ConnectionName }),
     ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.DlqEventQueueArn != null && { DlqEventQueueArn: input.DlqEventQueueArn }),
+    ...(input.EventQueueArn != null && { EventQueueArn: input.EventQueueArn }),
     ...(input.Tables != null && { Tables: serializeAws_json1_1CatalogTablesList(input.Tables, context) }),
   };
 };
@@ -18607,6 +18609,8 @@ const deserializeAws_json1_1CatalogTarget = (output: any, context: __SerdeContex
   return {
     ConnectionName: __expectString(output.ConnectionName),
     DatabaseName: __expectString(output.DatabaseName),
+    DlqEventQueueArn: __expectString(output.DlqEventQueueArn),
+    EventQueueArn: __expectString(output.EventQueueArn),
     Tables: output.Tables != null ? deserializeAws_json1_1CatalogTablesList(output.Tables, context) : undefined,
   } as any;
 };
