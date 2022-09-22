@@ -13,7 +13,11 @@ import {
   Tag,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
-import { getEndpointFromInstructions, toEndpointV1 } from "@aws-sdk/middleware-endpoint";
+import {
+  EndpointParameterInstructionsSupplier,
+  getEndpointFromInstructions,
+  toEndpointV1,
+} from "@aws-sdk/middleware-endpoint";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { extendedEncodeURIComponent } from "@aws-sdk/smithy-client";
 import { Endpoint } from "@aws-sdk/types";
@@ -128,7 +132,11 @@ export class Upload extends EventEmitter {
     let endpoint: Endpoint = resolved[1];
 
     if (!endpoint) {
-      endpoint = toEndpointV1(await getEndpointFromInstructions(params, PutObjectCommand as any, clientConfig));
+      endpoint = toEndpointV1(
+        await getEndpointFromInstructions(params, PutObjectCommand as EndpointParameterInstructionsSupplier, {
+          ...clientConfig,
+        })
+      );
     }
 
     if (!endpoint) {
