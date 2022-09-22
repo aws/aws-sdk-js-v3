@@ -2330,7 +2330,7 @@ export interface AllocateIpamPoolCidrRequest {
   PreviewNextCidr?: boolean;
 
   /**
-   * <p>Exclude a particular CIDR range from being returned by the pool.</p>
+   * <p>Exclude a particular CIDR range from being returned by the pool. Disallowed CIDRs are only allowed if using netmask length for allocation.</p>
    */
   DisallowedCidrs?: string[];
 }
@@ -2501,7 +2501,7 @@ export interface AssignIpv6AddressesRequest {
   Ipv6AddressCount?: number;
 
   /**
-   * <p>One or more specific IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.</p>
+   * <p>The IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.</p>
    */
   Ipv6Addresses?: string[];
 
@@ -2556,7 +2556,7 @@ export interface AssignPrivateIpAddressesRequest {
   NetworkInterfaceId: string | undefined;
 
   /**
-   * <p>One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.</p>
+   * <p>The IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.</p>
    *         <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.</p>
    */
   PrivateIpAddresses?: string[];
@@ -3893,7 +3893,7 @@ export interface PrefixListId {
 /**
  * <p>Describes a security group and Amazon Web Services account ID pair.</p>
  *          <note>
- *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
  */
 export interface UserIdGroupPair {
@@ -4195,7 +4195,8 @@ export interface AuthorizeSecurityGroupIngressRequest {
 
   /**
    * <p>[EC2-Classic, default VPC] The name of the security group. You must specify either the
-   * 			security group ID or the security group name in the request.</p>
+   *             security group ID or the security group name in the request. For security groups in a
+   *             nondefault VPC, you must specify the security group ID.</p>
    */
   GroupName?: string;
 

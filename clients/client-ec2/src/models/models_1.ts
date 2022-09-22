@@ -666,7 +666,7 @@ export interface InstanceRequirementsRequest {
    *                <p>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For instance types with Amazon Web Services Inferentia GPUs, specify <code>inferentia</code>.</p>
+   *                <p>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</p>
    *             </li>
    *             <li>
    *                <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p>
@@ -1684,7 +1684,7 @@ export interface InstanceRequirements {
    *                <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For instance types with Amazon Web Services Inferentia GPUs, specify <code>inferentia</code>.</p>
+   *                <p>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</p>
    *             </li>
    *             <li>
    *                <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p>
@@ -3796,7 +3796,7 @@ export interface PrivateIpAddressSpecification {
   Primary?: boolean;
 
   /**
-   * <p>The private IPv4 addresses.</p>
+   * <p>The private IPv4 address.</p>
    */
   PrivateIpAddress?: string;
 }
@@ -4066,7 +4066,7 @@ export interface RequestLaunchTemplateData {
   /**
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *         <p>If you specify <code>InstanceTypes</code>, you can't specify
+   *         <p>If you specify <code>InstanceType</code>, you can't specify
    *                 <code>InstanceRequirements</code>.</p>
    */
   InstanceType?: _InstanceType | string;
@@ -4804,7 +4804,7 @@ export interface LaunchTemplatesMonitoring {
  */
 export interface Ipv4PrefixSpecificationResponse {
   /**
-   * <p>One or more IPv4 delegated prefixes assigned to the network interface.</p>
+   * <p>The IPv4 delegated prefixes assigned to the network interface.</p>
    */
   Ipv4Prefix?: string;
 }
@@ -4825,7 +4825,7 @@ export interface InstanceIpv6Address {
  */
 export interface Ipv6PrefixSpecificationResponse {
   /**
-   * <p>One or more IPv6 delegated prefixes assigned to the network interface.</p>
+   * <p>The IPv6 delegated prefixes assigned to the network interface.</p>
    */
   Ipv6Prefix?: string;
 }
@@ -6472,9 +6472,6 @@ export enum NetworkInterfaceCreationType {
   trunk = "trunk",
 }
 
-/**
- * <p>Contains the parameters for CreateNetworkInterface.</p>
- */
 export interface CreateNetworkInterfaceRequest {
   /**
    * <p>A description for the network interface.</p>
@@ -6495,15 +6492,18 @@ export interface CreateNetworkInterfaceRequest {
 
   /**
    * <p>The number of IPv6 addresses to assign to a network interface. Amazon EC2
-   *             automatically selects the IPv6 addresses from the subnet range. You can't use this
-   *             option if specifying specific IPv6 addresses. If your subnet has the <code>AssignIpv6AddressOnCreation</code> attribute set
-   *             to <code>true</code>, you can specify <code>0</code> to override this setting.</p>
+   *             automatically selects the IPv6 addresses from the subnet range.</p>
+   *         <p>You can't specify a count of IPv6 addresses using this parameter if you've specified
+   *             one of the following: specific IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</p>
+   *         <p>If your subnet has the <code>AssignIpv6AddressOnCreation</code> attribute set, you can
+   *             override that setting by specifying 0 as the IPv6 address count.</p>
    */
   Ipv6AddressCount?: number;
 
   /**
-   * <p>One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
-   *             You can't use this option if you're specifying a number of IPv6 addresses.</p>
+   * <p>The IPv6 addresses from the IPv6 CIDR block range of your subnet.</p>
+   *         <p>You can't specify IPv6 addresses using this parameter if you've specified one of the
+   *             following: a count of IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</p>
    */
   Ipv6Addresses?: InstanceIpv6Address[];
 
@@ -6517,7 +6517,9 @@ export interface CreateNetworkInterfaceRequest {
   PrivateIpAddress?: string;
 
   /**
-   * <p>One or more private IPv4 addresses.</p>
+   * <p>The private IPv4 addresses.</p>
+   *         <p>You can't specify private IPv4 addresses if you've specified one of the following:
+   *             a count of private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4 prefixes.</p>
    */
   PrivateIpAddresses?: PrivateIpAddressSpecification[];
 
@@ -6526,35 +6528,43 @@ export interface CreateNetworkInterfaceRequest {
    *             you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses
    *             within the subnet's IPv4 CIDR range. You can't specify this option and specify more than
    *             one private IP address using <code>privateIpAddresses</code>.</p>
-   *         <p>The number of IP addresses you can assign to a network interface varies by instance
-   *             type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP Addresses Per ENI Per
-   *                 Instance Type</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *         <p>You can't specify a count of private IPv4 addresses if you've specified one of the following:
+   *             specific private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4 prefixes.</p>
    */
   SecondaryPrivateIpAddressCount?: number;
 
   /**
-   * <p>One or more IPv4 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
+   * <p>The IPv4 prefixes assigned to the network interface.</p>
+   *         <p>You can't specify IPv4 prefixes if you've specified one of the following:
+   *             a count of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.</p>
    */
   Ipv4Prefixes?: Ipv4PrefixSpecificationRequest[];
 
   /**
-   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code> option.</p>
+   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the network interface.</p>
+   *         <p>You can't specify a count of IPv4 prefixes if you've specified one of the following:
+   *             specific IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4
+   *             addresses.</p>
    */
   Ipv4PrefixCount?: number;
 
   /**
-   * <p>One or more IPv6 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
+   * <p>The IPv6 prefixes assigned to the network interface.</p>
+   *         <p>You can't specify IPv6 prefixes if you've specified one of the following:
+   *             a count of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.</p>
    */
   Ipv6Prefixes?: Ipv6PrefixSpecificationRequest[];
 
   /**
-   * <p>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv6Prefixes</code> option.</p>
+   * <p>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the network interface.</p>
+   *         <p>You can't specify a count of IPv6 prefixes if you've specified one of the following:
+   *             specific IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.</p>
    */
   Ipv6PrefixCount?: number;
 
   /**
    * <p>The type of network interface. The default is <code>interface</code>.</p>
-   * 	        <p>The only supported values are <code>efa</code> and <code>trunk</code>.</p>
+   *         <p>The only supported values are <code>efa</code> and <code>trunk</code>.</p>
    */
   InterfaceType?: NetworkInterfaceCreationType | string;
 
@@ -6890,9 +6900,6 @@ export interface NetworkInterface {
   Ipv6Address?: string;
 }
 
-/**
- * <p>Contains the output of CreateNetworkInterface.</p>
- */
 export interface CreateNetworkInterfaceResult {
   /**
    * <p>Information about the network interface.</p>
@@ -7921,6 +7928,12 @@ export interface InstanceSpecification {
    */
   ExcludeBootVolume?: boolean;
 
+  /**
+   * <p>The IDs of the data (non-root) volumes to exclude from the multi-volume snapshot set.
+   *       If you specify the ID of the root volume, the request fails. To exclude the root volume,
+   *       use <b>ExcludeBootVolume</b>.</p>
+   *          <p>You can specify up to 40 volume IDs per request.</p>
+   */
   ExcludeDataVolumeIds?: string[];
 }
 

@@ -36,7 +36,7 @@ export interface AssociateEnclaveCertificateIamRoleCommandOutput
  * 					User Guide</i>.</p>
  *
  * 		       <p>When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted
- * 			private key are placed in an Amazon S3 bucket that only the associated IAM role can access. The private key of the certificate
+ * 			private key are placed in an Amazon S3 location that only the associated IAM role can access. The private key of the certificate
  * 			is encrypted with an Amazon Web Services managed key that has an attached attestation-based key policy.</p>
  *
  * 		       <p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code>

@@ -2940,7 +2940,7 @@ export class EC2 extends EC2Client {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>You can allocate a carrier IP address which is a public IP address from a telecommunication carrier, to a network interface which resides in a subnet in a Wavelength Zone (for example an EC2 instance). </p>
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public allocateAddress(
@@ -3191,7 +3191,7 @@ export class EC2 extends EC2Client {
    *          </important>
    *
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public associateAddress(
@@ -3298,7 +3298,7 @@ export class EC2 extends EC2Client {
    * 					User Guide</i>.</p>
    *
    * 		       <p>When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted
-   * 			private key are placed in an Amazon S3 bucket that only the associated IAM role can access. The private key of the certificate
+   * 			private key are placed in an Amazon S3 location that only the associated IAM role can access. The private key of the certificate
    * 			is encrypted with an Amazon Web Services managed key that has an attached attestation-based key policy.</p>
    *
    * 		       <p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code>
@@ -3941,7 +3941,7 @@ export class EC2 extends EC2Client {
    *          <p>For more information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p>
    *
    *          <note>
-   *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public authorizeSecurityGroupIngress(
@@ -5860,8 +5860,11 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a network interface in the specified subnet.</p>
-   *         <p>For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic Network Interfaces</a>
-   *             in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *         <p>The number of IP addresses you can assign to a network interface varies by instance
+   *             type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP Addresses Per ENI Per
+   *                 Instance Type</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *         <p>For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic network interfaces</a>
+   *             in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createNetworkInterface(
     args: CreateNetworkInterfaceCommandInput,
@@ -6217,7 +6220,7 @@ export class EC2 extends EC2Client {
    *          <p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
    *
    *          <note>
-   *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public createSecurityGroup(
@@ -6311,8 +6314,10 @@ export class EC2 extends EC2Client {
   /**
    * <p>Creates crash-consistent snapshots of multiple EBS volumes and stores the data in S3.
    *     Volumes are chosen by specifying an instance. Any attached volumes will produce one snapshot
-   *     each that is crash-consistent across the instance. Boot volumes can be excluded by changing the
-   *     parameters. </p>
+   *     each that is crash-consistent across the instance.</p>
+   *
+   *          <p>You can include all of the volumes currently attached to the instance, or you can exclude
+   *     the root volume or specific data (non-root) volumes from the multi-volume snapshot set.</p>
    *
    *          <p>You can create multi-volume snapshots of instances in a Region and instances on an
    *   	Outpost. If you create snapshots from an instance in a Region, the snapshots must be stored
@@ -8705,7 +8710,7 @@ export class EC2 extends EC2Client {
    * 				<code>DependencyViolation</code> in EC2-VPC.</p>
    *
    *          <note>
-   *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public deleteSecurityGroup(
@@ -10048,7 +10053,7 @@ export class EC2 extends EC2Client {
    *          <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.
    * 				For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public describeAddresses(
@@ -13162,7 +13167,7 @@ export class EC2 extends EC2Client {
    * 				<a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security groups for your VPC</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <note>
-   *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public describeSecurityGroups(
@@ -15318,7 +15323,7 @@ export class EC2 extends EC2Client {
    * 				Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    *          <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p>
    */
@@ -17624,6 +17629,12 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).</p>
+   *          <important>
+   *             <p>Amazon Web Services VM Import/Export strongly recommends specifying a value for either the
+   *      <code>--license-type</code> or <code>--usage-operation</code> parameter when you create a new
+   *     VM Import task. This ensures your operating system is licensed appropriately and your billing is
+   *     optimized.</p>
+   *          </important>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing a
    *    VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
    */
@@ -20051,7 +20062,7 @@ export class EC2 extends EC2Client {
    *         <a>RestoreAddressToClassic</a> request. You cannot move an Elastic IP address that was
    *       originally allocated for use in the EC2-VPC platform to the EC2-Classic platform.</p>
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public moveAddressToVpc(
@@ -20758,7 +20769,7 @@ export class EC2 extends EC2Client {
    * 				from any instance that it's associated with. To disassociate an Elastic IP address without
    * 				releasing it, use <a>DisassociateAddress</a>.</p>
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    *          <p>[Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic IP address
    * 			  before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).</p>
@@ -21461,7 +21472,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Restores an Elastic IP address that was previously moved to the EC2-VPC platform back to the EC2-Classic platform. You cannot move an Elastic IP address that was originally allocated for use in EC2-VPC. The Elastic IP address must not be associated with an instance or network interface.</p>
    *          <note>
-   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public restoreAddressToClassic(
@@ -21723,7 +21734,7 @@ export class EC2 extends EC2Client {
    *          <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
    *
    *          <note>
-   *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
    */
   public revokeSecurityGroupIngress(

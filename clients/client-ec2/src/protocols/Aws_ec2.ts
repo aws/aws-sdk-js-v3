@@ -61750,8 +61750,8 @@ const deserializeAws_ec2EbsBlockDevice = (output: any, context: __SerdeContext):
   if (output["volumeType"] !== undefined) {
     contents.VolumeType = __expectString(output["volumeType"]);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output["kmsKeyId"] !== undefined) {
+    contents.KmsKeyId = __expectString(output["kmsKeyId"]);
   }
   if (output["throughput"] !== undefined) {
     contents.Throughput = __strictParseInt32(output["throughput"]) as number;

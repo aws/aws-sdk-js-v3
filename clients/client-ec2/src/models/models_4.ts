@@ -472,7 +472,7 @@ export enum MoveStatus {
 /**
  * <p>Describes the status of a moving Elastic IP address.</p>
  *          <note>
- *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
  */
 export interface MovingAddressStatus {
@@ -1124,7 +1124,7 @@ export interface DescribeNetworkInterfaceAttributeResult {
  */
 export interface DescribeNetworkInterfacePermissionsRequest {
   /**
-   * <p>One or more network interface permission IDs.</p>
+   * <p>The network interface permission IDs.</p>
    */
   NetworkInterfacePermissionIds?: string[];
 
@@ -1366,7 +1366,7 @@ export interface DescribeNetworkInterfacesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more network interface IDs.</p>
+   * <p>The network interface IDs.</p>
    * 		       <p>Default: Describes all your network interfaces.</p>
    */
   NetworkInterfaceIds?: string[];
@@ -4098,7 +4098,7 @@ export interface InstanceNetworkInterfaceSpecification {
   Ipv6AddressCount?: number;
 
   /**
-   * <p>One or more IPv6 addresses to assign to the network interface. You cannot specify
+   * <p>The IPv6 addresses to assign to the network interface. You cannot specify
    *             this option and the option to assign a number of IPv6 addresses in the same request. You
    *             cannot specify this option if you've specified a minimum number of instances to
    *             launch.</p>
@@ -4118,7 +4118,7 @@ export interface InstanceNetworkInterfaceSpecification {
   PrivateIpAddress?: string;
 
   /**
-   * <p>One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're
+   * <p>The private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're
    *         	launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
    */
   PrivateIpAddresses?: PrivateIpAddressSpecification[];
@@ -4160,7 +4160,7 @@ export interface InstanceNetworkInterfaceSpecification {
   NetworkCardIndex?: number;
 
   /**
-   * <p>One or more IPv4 delegated prefixes to be assigned to the network interface. You cannot
+   * <p>The IPv4 delegated prefixes to be assigned to the network interface. You cannot
    *             use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
    */
   Ipv4Prefixes?: Ipv4PrefixSpecificationRequest[];
@@ -4172,7 +4172,7 @@ export interface InstanceNetworkInterfaceSpecification {
   Ipv4PrefixCount?: number;
 
   /**
-   * <p>One or more IPv6 delegated prefixes to be assigned to the network interface. You cannot
+   * <p>The IPv6 delegated prefixes to be assigned to the network interface. You cannot
    *             use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
    */
   Ipv6Prefixes?: Ipv6PrefixSpecificationRequest[];

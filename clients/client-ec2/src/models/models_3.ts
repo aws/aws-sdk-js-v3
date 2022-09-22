@@ -5233,11 +5233,11 @@ export interface DescribeImagesRequest {
   Owners?: string[];
 
   /**
-   * <p>If <code>true</code>, all deprecated AMIs are included in the response. If
-   *         <code>false</code>, no deprecated AMIs are included in the response. If no value is
-   *       specified, the default value is <code>false</code>.</p>
+   * <p>Specifies whether to include deprecated AMIs.</p>
+   *          <p>Default: No deprecated AMIs are included in the response.</p>
    *          <note>
-   *             <p>If you are the AMI owner, all deprecated AMIs appear in the response regardless of the value (<code>true</code> or <code>false</code>) that you set for this parameter.</p>
+   *             <p>If you are the AMI owner, all deprecated AMIs appear in the response regardless of what
+   *         you specify for this parameter.</p>
    *          </note>
    */
   IncludeDeprecated?: boolean;
@@ -7094,12 +7094,12 @@ export interface InstanceNetworkInterface {
   Description?: string;
 
   /**
-   * <p>One or more security groups.</p>
+   * <p>The security groups.</p>
    */
   Groups?: GroupIdentifier[];
 
   /**
-   * <p>One or more IPv6 addresses associated with the network interface.</p>
+   * <p>The IPv6 addresses associated with the network interface.</p>
    */
   Ipv6Addresses?: InstanceIpv6Address[];
 
@@ -7129,7 +7129,7 @@ export interface InstanceNetworkInterface {
   PrivateIpAddress?: string;
 
   /**
-   * <p>One or more private IPv4 addresses associated with the network interface.</p>
+   * <p>The private IPv4 addresses associated with the network interface.</p>
    */
   PrivateIpAddresses?: InstancePrivateIpAddress[];
 

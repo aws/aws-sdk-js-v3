@@ -2071,7 +2071,8 @@ export interface RevokeSecurityGroupIngressRequest {
 
   /**
    * <p>[EC2-Classic, default VPC] The name of the security group. You must specify either the
-   *            security group ID or the security group name in the request.</p>
+   *             security group ID or the security group name in the request. For security groups in a
+   *             nondefault VPC, you must specify the security group ID.</p>
    */
   GroupName?: string;
 
@@ -3652,7 +3653,7 @@ export interface UnassignIpv6AddressesRequest {
   Ipv6Addresses?: string[];
 
   /**
-   * <p>One or more IPv6 prefixes to unassign from the network interface.</p>
+   * <p>The IPv6 prefixes to unassign from the network interface.</p>
    */
   Ipv6Prefixes?: string[];
 
@@ -3794,7 +3795,8 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
 
   /**
    * <p>[EC2-Classic, default VPC] The name of the security group. You must specify either the
-   * 			security group ID or the security group name in the request.</p>
+   *             security group ID or the security group name in the request. For security groups in a
+   *             nondefault VPC, you must specify the security group ID.</p>
    */
   GroupName?: string;
 

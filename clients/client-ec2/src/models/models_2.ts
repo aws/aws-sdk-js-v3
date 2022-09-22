@@ -4701,7 +4701,9 @@ export interface DeleteSecurityGroupRequest {
   GroupId?: string;
 
   /**
-   * <p>[EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID.</p>
+   * <p>[EC2-Classic, default VPC] The name of the security group. You can specify either the
+   *             security group name or the security group ID. For security groups in a nondefault VPC,
+   *             you must specify the security group ID.</p>
    */
   GroupName?: string;
 
