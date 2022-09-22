@@ -91,11 +91,9 @@ export const createPresignedPost = async (
   if (!endpoint) {
     isEndpointV2 = true;
     endpoint = toEndpointV1(
-      await getEndpointFromInstructions(
-        { Bucket, Key },
-        PutObjectCommand as EndpointParameterInstructionsSupplier,
-        client.config
-      )
+      await getEndpointFromInstructions({ Bucket, Key }, PutObjectCommand as EndpointParameterInstructionsSupplier, {
+        ...client.config,
+      })
     );
   }
 
