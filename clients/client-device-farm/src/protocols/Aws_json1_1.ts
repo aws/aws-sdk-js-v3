@@ -411,6 +411,7 @@ import {
   UpdateVPCEConfigurationRequest,
   UpdateVPCEConfigurationResult,
   Upload,
+  VpcConfig,
   VPCEConfiguration,
 } from "../models/models_0";
 
@@ -5468,6 +5469,7 @@ const serializeAws_json1_1CreateProjectRequest = (input: CreateProjectRequest, c
   return {
     ...(input.defaultJobTimeoutMinutes != null && { defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes }),
     ...(input.name != null && { name: input.name }),
+    ...(input.vpcConfig != null && { vpcConfig: serializeAws_json1_1VpcConfig(input.vpcConfig, context) }),
   };
 };
 
@@ -6338,6 +6340,7 @@ const serializeAws_json1_1UpdateProjectRequest = (input: UpdateProjectRequest, c
     ...(input.arn != null && { arn: input.arn }),
     ...(input.defaultJobTimeoutMinutes != null && { defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes }),
     ...(input.name != null && { name: input.name }),
+    ...(input.vpcConfig != null && { vpcConfig: serializeAws_json1_1VpcConfig(input.vpcConfig, context) }),
   };
 };
 
@@ -6375,6 +6378,32 @@ const serializeAws_json1_1UpdateVPCEConfigurationRequest = (
     ...(input.vpceConfigurationName != null && { vpceConfigurationName: input.vpceConfigurationName }),
     ...(input.vpceServiceName != null && { vpceServiceName: input.vpceServiceName }),
   };
+};
+
+const serializeAws_json1_1VpcConfig = (input: VpcConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.securityGroupIds != null && {
+      securityGroupIds: serializeAws_json1_1VpcSecurityGroupIds(input.securityGroupIds, context),
+    }),
+    ...(input.subnetIds != null && { subnetIds: serializeAws_json1_1VpcSubnetIds(input.subnetIds, context) }),
+    ...(input.vpcId != null && { vpcId: input.vpcId }),
+  };
+};
+
+const serializeAws_json1_1VpcSecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1VpcSubnetIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1AccountSettings = (output: any, context: __SerdeContext): AccountSettings => {
@@ -7554,6 +7583,7 @@ const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Pr
       output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     defaultJobTimeoutMinutes: __expectInt32(output.defaultJobTimeoutMinutes),
     name: __expectString(output.name),
+    vpcConfig: output.vpcConfig != null ? deserializeAws_json1_1VpcConfig(output.vpcConfig, context) : undefined,
   } as any;
 };
 
@@ -7645,6 +7675,7 @@ const deserializeAws_json1_1RemoteAccessSession = (output: any, context: __Serde
     status: __expectString(output.status),
     stopped:
       output.stopped != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped))) : undefined,
+    vpcConfig: output.vpcConfig != null ? deserializeAws_json1_1VpcConfig(output.vpcConfig, context) : undefined,
   } as any;
 };
 
@@ -7739,6 +7770,7 @@ const deserializeAws_json1_1Run = (output: any, context: __SerdeContext): Run =>
     testSpecArn: __expectString(output.testSpecArn),
     totalJobs: __expectInt32(output.totalJobs),
     type: __expectString(output.type),
+    vpcConfig: output.vpcConfig != null ? deserializeAws_json1_1VpcConfig(output.vpcConfig, context) : undefined,
     webUrl: __expectString(output.webUrl),
   } as any;
 };
@@ -8207,6 +8239,17 @@ const deserializeAws_json1_1Uploads = (output: any, context: __SerdeContext): Up
   return retVal;
 };
 
+const deserializeAws_json1_1VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
+  return {
+    securityGroupIds:
+      output.securityGroupIds != null
+        ? deserializeAws_json1_1VpcSecurityGroupIds(output.securityGroupIds, context)
+        : undefined,
+    subnetIds: output.subnetIds != null ? deserializeAws_json1_1VpcSubnetIds(output.subnetIds, context) : undefined,
+    vpcId: __expectString(output.vpcId),
+  } as any;
+};
+
 const deserializeAws_json1_1VPCEConfiguration = (output: any, context: __SerdeContext): VPCEConfiguration => {
   return {
     arn: __expectString(output.arn),
@@ -8225,6 +8268,30 @@ const deserializeAws_json1_1VPCEConfigurations = (output: any, context: __SerdeC
         return null as any;
       }
       return deserializeAws_json1_1VPCEConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1VpcSecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1VpcSubnetIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };

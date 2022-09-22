@@ -72,7 +72,7 @@ export interface AccountSettings {
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
    *             devices, Device Farm always signs your apps again.</p>
-   *         <p>For more information about how Device Farm re-signs your apps, see <a href="https://aws.amazon.com/device-farm/faq/">Do you modify my app?</a> in the <i>AWS Device
+   *         <p>For more information about how Device Farm re-signs your apps, see <a href="http://aws.amazon.com/device-farm/faqs/">Do you modify my app?</a> in the <i>AWS Device
    *                 Farm FAQs</i>.</p>
    */
   skipAppResign?: boolean;
@@ -466,8 +466,8 @@ export interface Rule {
    *                         TRUE or FALSE.</p>
    *                     <p>Supported operators: <code>EQUALS</code>
    *                </p>
-   *                     <p>Because remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no longer
-   *                             supported</a>, this filter is ignored.</p>
+   *                     <p>Because remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+   *                         longer supported</a>, this filter is ignored.</p>
    *                 </dd>
    *          </dl>
    */
@@ -879,6 +879,26 @@ export interface CreateNetworkProfileResult {
 }
 
 /**
+ * <p>Contains the VPC configuration data necessary to interface with AWS Device Farm's services.</p>
+ */
+export interface VpcConfig {
+  /**
+   * <p>An array of one or more security groups IDs in your Amazon VPC.</p>
+   */
+  securityGroupIds: string[] | undefined;
+
+  /**
+   * <p>An array of one or more subnet IDs in your Amazon VPC.</p>
+   */
+  subnetIds: string[] | undefined;
+
+  /**
+   * <p>The ID of the Amazon VPC.</p>
+   */
+  vpcId: string | undefined;
+}
+
+/**
  * <p>Represents a request to the create project operation.</p>
  */
 export interface CreateProjectRequest {
@@ -892,6 +912,11 @@ export interface CreateProjectRequest {
    *             specified execution timeout value unless overridden when scheduling a run.</p>
    */
   defaultJobTimeoutMinutes?: number;
+
+  /**
+   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   */
+  vpcConfig?: VpcConfig;
 }
 
 /**
@@ -919,6 +944,11 @@ export interface Project {
    * <p>When the project was created.</p>
    */
   created?: Date;
+
+  /**
+   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   */
+  vpcConfig?: VpcConfig;
 }
 
 /**
@@ -1000,7 +1030,7 @@ export interface CreateRemoteAccessSessionRequest {
    *             devices in your remote debugging session. This key is required only if <code>remoteDebugEnabled</code> is
    *             set to <code>true</code>.</p>
    *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
+   *             longer supported</a>.</p>
    */
   sshPublicKey?: string;
 
@@ -1008,7 +1038,7 @@ export interface CreateRemoteAccessSessionRequest {
    * <p>Set to <code>true</code> if you want to access devices remotely for debugging in
    *             your remote access session.</p>
    *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
+   *             longer supported</a>.</p>
    */
   remoteDebugEnabled?: boolean;
 
@@ -1034,7 +1064,7 @@ export interface CreateRemoteAccessSessionRequest {
    *             pass the same <code>clientId</code> value in each call to <code>CreateRemoteAccessSession</code>. This
    *             identifier is required only if <code>remoteDebugEnabled</code> is set to <code>true</code>.</p>
    *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
+   *             longer supported</a>.</p>
    */
   clientId?: string;
 
@@ -1067,7 +1097,7 @@ export interface CreateRemoteAccessSessionRequest {
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
    *             devices, Device Farm always signs your apps again.</p>
-   *         <p>For more information on how Device Farm modifies your uploads during tests, see <a href="https://aws.amazon.com/device-farm/faq/">Do you modify my app?</a>
+   *         <p>For more information on how Device Farm modifies your uploads during tests, see <a href="http://aws.amazon.com/device-farm/faqs/">Do you modify my app?</a>
    *          </p>
    */
   skipAppResign?: boolean;
@@ -1250,7 +1280,7 @@ export interface Device {
    * <p>This flag is set to <code>true</code> if remote debugging is enabled for the
    *             device.</p>
    *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
+   *             longer supported</a>.</p>
    */
   remoteDebugEnabled?: boolean;
 
@@ -1431,7 +1461,7 @@ export interface RemoteAccessSession {
    * <p>This flag is set to <code>true</code> if remote debugging is enabled for the remote
    *             access session.</p>
    *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
+   *             longer supported</a>.</p>
    */
   remoteDebugEnabled?: boolean;
 
@@ -1450,7 +1480,7 @@ export interface RemoteAccessSession {
    * <p>IP address of the EC2 host where you need to connect to remotely debug devices.
    *             Only returned if remote debugging is enabled for the remote access session.</p>
    *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
+   *             longer supported</a>.</p>
    */
   hostAddress?: string;
 
@@ -1458,7 +1488,7 @@ export interface RemoteAccessSession {
    * <p>Unique identifier of your client for the remote access session. Only returned if
    *             remote debugging is enabled for the remote access session.</p>
    *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
+   *             longer supported</a>.</p>
    */
   clientId?: string;
 
@@ -1484,7 +1514,7 @@ export interface RemoteAccessSession {
    * <p>Unique device identifier for the remote device. Only returned if remote debugging
    *             is enabled for the remote access session.</p>
    *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
+   *             longer supported</a>.</p>
    */
   deviceUdid?: string;
 
@@ -1512,10 +1542,15 @@ export interface RemoteAccessSession {
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
    *             devices, Device Farm always signs your apps again.</p>
-   *         <p>For more information about how Device Farm re-signs your apps, see <a href="https://aws.amazon.com/device-farm/faq/">Do you modify my app?</a> in the <i>AWS Device
+   *         <p>For more information about how Device Farm re-signs your apps, see <a href="http://aws.amazon.com/device-farm/faqs/">Do you modify my app?</a> in the <i>AWS Device
    *                 Farm FAQs</i>.</p>
    */
   skipAppResign?: boolean;
+
+  /**
+   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   */
+  vpcConfig?: VpcConfig;
 }
 
 /**
@@ -3362,8 +3397,8 @@ export interface DeviceFilter {
    *                     <p>Whether the device is enabled for remote debugging. Valid values are TRUE or FALSE.</p>
    *                     <p>Supported operators: <code>EQUALS</code>
    *                </p>
-   *                     <p>Because remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no longer
-   *                             supported</a>, this filter is ignored.</p>
+   *                     <p>Because remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+   *                         longer supported</a>, this filter is ignored.</p>
    *                 </dd>
    *             <dt>INSTANCE_ARN</dt>
    *             <dd>
@@ -3740,7 +3775,7 @@ export interface Run {
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
    *             devices, Device Farm always signs your apps again.</p>
-   *         <p>For more information about how Device Farm re-signs your apps, see <a href="https://aws.amazon.com/device-farm/faq/">Do you modify my app?</a> in the <i>AWS Device
+   *         <p>For more information about how Device Farm re-signs your apps, see <a href="http://aws.amazon.com/device-farm/faqs/">Do you modify my app?</a> in the <i>AWS Device
    *                 Farm FAQs</i>.</p>
    */
   skipAppResign?: boolean;
@@ -3754,6 +3789,11 @@ export interface Run {
    * <p>The results of a device filter used to select the devices for a test run.</p>
    */
   deviceSelectionResult?: DeviceSelectionResult;
+
+  /**
+   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   */
+  vpcConfig?: VpcConfig;
 }
 
 /**
@@ -5870,7 +5910,7 @@ export interface ExecutionConfiguration {
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
    *             devices, Device Farm always signs your apps again.</p>
-   *         <p>For more information about how Device Farm re-signs your apps, see <a href="https://aws.amazon.com/device-farm/faq/">Do you modify my app?</a> in the <i>AWS Device
+   *         <p>For more information about how Device Farm re-signs your apps, see <a href="http://aws.amazon.com/device-farm/faqs/">Do you modify my app?</a> in the <i>AWS Device
    *                 Farm FAQs</i>.</p>
    */
   skipAppResign?: boolean;
@@ -6300,6 +6340,11 @@ export interface UpdateProjectRequest {
    * <p>The number of minutes a test run in the project executes before it times out.</p>
    */
   defaultJobTimeoutMinutes?: number;
+
+  /**
+   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   */
+  vpcConfig?: VpcConfig;
 }
 
 /**
@@ -6510,6 +6555,13 @@ export const NetworkProfileFilterSensitiveLog = (obj: NetworkProfile): any => ({
  * @internal
  */
 export const CreateNetworkProfileResultFilterSensitiveLog = (obj: CreateNetworkProfileResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConfigFilterSensitiveLog = (obj: VpcConfig): any => ({
   ...obj,
 });
 
