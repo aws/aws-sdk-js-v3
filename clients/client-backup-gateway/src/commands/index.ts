@@ -5,6 +5,7 @@ export * from "./DeleteGatewayCommand";
 export * from "./DeleteHypervisorCommand";
 export * from "./DisassociateGatewayFromServerCommand";
 export * from "./GetGatewayCommand";
+export * from "./GetVirtualMachineCommand";
 export * from "./ImportHypervisorConfigurationCommand";
 export * from "./ListGatewaysCommand";
 export * from "./ListHypervisorsCommand";

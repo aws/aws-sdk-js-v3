@@ -2,6 +2,7 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
@@ -27,6 +28,7 @@ import {
   DisassociateGatewayFromServerCommandOutput,
 } from "../commands/DisassociateGatewayFromServerCommand";
 import { GetGatewayCommandInput, GetGatewayCommandOutput } from "../commands/GetGatewayCommand";
+import { GetVirtualMachineCommandInput, GetVirtualMachineCommandOutput } from "../commands/GetVirtualMachineCommand";
 import {
   ImportHypervisorConfigurationCommandInput,
   ImportHypervisorConfigurationCommandOutput,
@@ -78,6 +80,8 @@ import {
   GatewayDetails,
   GetGatewayInput,
   GetGatewayOutput,
+  GetVirtualMachineInput,
+  GetVirtualMachineOutput,
   Hypervisor,
   ImportHypervisorConfigurationInput,
   ImportHypervisorConfigurationOutput,
@@ -90,6 +94,7 @@ import {
   ListTagsForResourceOutput,
   ListVirtualMachinesInput,
   ListVirtualMachinesOutput,
+  MaintenanceStartTime,
   PutMaintenanceStartTimeInput,
   PutMaintenanceStartTimeOutput,
   ResourceNotFoundException,
@@ -98,6 +103,7 @@ import {
   TagResourceOutput,
   TestHypervisorConfigurationInput,
   TestHypervisorConfigurationOutput,
+  ThrottlingException,
   UntagResourceInput,
   UntagResourceOutput,
   UpdateGatewayInformationInput,
@@ -108,6 +114,7 @@ import {
   UpdateHypervisorOutput,
   ValidationException,
   VirtualMachine,
+  VirtualMachineDetails,
 } from "../models/models_0";
 
 export const serializeAws_json1_0AssociateGatewayToServerCommand = async (
@@ -185,6 +192,19 @@ export const serializeAws_json1_0GetGatewayCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetGatewayInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0GetVirtualMachineCommand = async (
+  input: GetVirtualMachineCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "BackupOnPremises_v20210101.GetVirtualMachine",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetVirtualMachineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -377,6 +397,9 @@ const deserializeAws_json1_0AssociateGatewayToServerCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.backupgateway#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -421,6 +444,9 @@ const deserializeAws_json1_0CreateGatewayCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.backupgateway#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -468,6 +494,9 @@ const deserializeAws_json1_0DeleteGatewayCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.backupgateway#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -518,6 +547,9 @@ const deserializeAws_json1_0DeleteHypervisorCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.backupgateway#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -568,6 +600,9 @@ const deserializeAws_json1_0DisassociateGatewayFromServerCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.backupgateway#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -615,6 +650,59 @@ const deserializeAws_json1_0GetGatewayCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.backupgateway#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.backupgateway#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0GetVirtualMachineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVirtualMachineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0GetVirtualMachineCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetVirtualMachineOutput(data, context);
+  const response: GetVirtualMachineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetVirtualMachineCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVirtualMachineCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.backupgateway#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backupgateway#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -662,6 +750,9 @@ const deserializeAws_json1_0ImportHypervisorConfigurationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.backupgateway#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -706,6 +797,9 @@ const deserializeAws_json1_0ListGatewaysCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.backupgateway#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -750,6 +844,9 @@ const deserializeAws_json1_0ListHypervisorsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.backupgateway#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -797,6 +894,9 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.backupgateway#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -841,6 +941,9 @@ const deserializeAws_json1_0ListVirtualMachinesCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.backupgateway#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -891,6 +994,9 @@ const deserializeAws_json1_0PutMaintenanceStartTimeCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.backupgateway#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -938,6 +1044,9 @@ const deserializeAws_json1_0TagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.backupgateway#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -988,6 +1097,9 @@ const deserializeAws_json1_0TestHypervisorConfigurationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.backupgateway#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -1035,6 +1147,9 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.backupgateway#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -1085,6 +1200,9 @@ const deserializeAws_json1_0UpdateGatewayInformationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.backupgateway#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -1132,6 +1250,9 @@ const deserializeAws_json1_0UpdateGatewaySoftwareNowCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.backupgateway#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -1182,6 +1303,9 @@ const deserializeAws_json1_0UpdateHypervisorCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.backupgateway#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.backupgateway#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -1248,6 +1372,19 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_0ThrottlingExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0ThrottlingException(body, context);
+  const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_0ValidationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1307,6 +1444,12 @@ const serializeAws_json1_0GetGatewayInput = (input: GetGatewayInput, context: __
   };
 };
 
+const serializeAws_json1_0GetVirtualMachineInput = (input: GetVirtualMachineInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+  };
+};
+
 const serializeAws_json1_0ImportHypervisorConfigurationInput = (
   input: ImportHypervisorConfigurationInput,
   context: __SerdeContext
@@ -1349,6 +1492,7 @@ const serializeAws_json1_0ListVirtualMachinesInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.HypervisorArn != null && { HypervisorArn: input.HypervisorArn }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
@@ -1518,6 +1662,10 @@ const deserializeAws_json1_0GatewayDetails = (output: any, context: __SerdeConte
       output.LastSeenTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSeenTime)))
         : undefined,
+    MaintenanceStartTime:
+      output.MaintenanceStartTime != null
+        ? deserializeAws_json1_0MaintenanceStartTime(output.MaintenanceStartTime, context)
+        : undefined,
     NextUpdateAvailabilityTime:
       output.NextUpdateAvailabilityTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NextUpdateAvailabilityTime)))
@@ -1541,6 +1689,18 @@ const deserializeAws_json1_0Gateways = (output: any, context: __SerdeContext): G
 const deserializeAws_json1_0GetGatewayOutput = (output: any, context: __SerdeContext): GetGatewayOutput => {
   return {
     Gateway: output.Gateway != null ? deserializeAws_json1_0GatewayDetails(output.Gateway, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0GetVirtualMachineOutput = (
+  output: any,
+  context: __SerdeContext
+): GetVirtualMachineOutput => {
+  return {
+    VirtualMachine:
+      output.VirtualMachine != null
+        ? deserializeAws_json1_0VirtualMachineDetails(output.VirtualMachine, context)
+        : undefined,
   } as any;
 };
 
@@ -1623,6 +1783,15 @@ const deserializeAws_json1_0ListVirtualMachinesOutput = (
   } as any;
 };
 
+const deserializeAws_json1_0MaintenanceStartTime = (output: any, context: __SerdeContext): MaintenanceStartTime => {
+  return {
+    DayOfMonth: __expectInt32(output.DayOfMonth),
+    DayOfWeek: __expectInt32(output.DayOfWeek),
+    HourOfDay: __expectInt32(output.HourOfDay),
+    MinuteOfHour: __expectInt32(output.MinuteOfHour),
+  } as any;
+};
+
 const deserializeAws_json1_0PutMaintenanceStartTimeOutput = (
   output: any,
   context: __SerdeContext
@@ -1674,6 +1843,13 @@ const deserializeAws_json1_0TestHypervisorConfigurationOutput = (
   return {} as any;
 };
 
+const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_0UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
   return {
     ResourceARN: __expectString(output.ResourceARN),
@@ -1712,6 +1888,20 @@ const deserializeAws_json1_0ValidationException = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_0VirtualMachine = (output: any, context: __SerdeContext): VirtualMachine => {
+  return {
+    HostName: __expectString(output.HostName),
+    HypervisorId: __expectString(output.HypervisorId),
+    LastBackupDate:
+      output.LastBackupDate != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastBackupDate)))
+        : undefined,
+    Name: __expectString(output.Name),
+    Path: __expectString(output.Path),
+    ResourceArn: __expectString(output.ResourceArn),
+  } as any;
+};
+
+const deserializeAws_json1_0VirtualMachineDetails = (output: any, context: __SerdeContext): VirtualMachineDetails => {
   return {
     HostName: __expectString(output.HostName),
     HypervisorId: __expectString(output.HypervisorId),

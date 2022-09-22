@@ -105,6 +105,35 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * <p>TPS has been limited to protect against intentional or unintentional
+ *     high request volumes.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Error: TPS has been limited to protect against intentional or unintentional
+   *       high request volumes.</p>
+   */
+  ErrorCode: string | undefined;
+
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The operation did not succeed because a validation error occurred.</p>
  */
 export class ValidationException extends __BaseException {
@@ -244,6 +273,36 @@ export interface GetGatewayInput {
 }
 
 /**
+ * <p>This is your gateway's weekly maintenance start time including the day and time of the week.
+ *       Note that values are in terms of the gateway's time zone. Can be weekly or monthly.</p>
+ */
+export interface MaintenanceStartTime {
+  /**
+   * <p>The day of the month component of the maintenance start time represented as an ordinal number from
+   *       1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.</p>
+   */
+  DayOfMonth?: number;
+
+  /**
+   * <p>An ordinal number between 0 and 6 that represents the day of the week, where 0 represents Sunday
+   *       and 6 represents Saturday. The day of week is in the time zone of the gateway.</p>
+   */
+  DayOfWeek?: number;
+
+  /**
+   * <p>The hour component of the maintenance start time represented as <i>hh</i>,
+   *       where <i>hh</i> is the hour (0 to 23). The hour of the day is in the time zone of the gateway.</p>
+   */
+  HourOfDay: number | undefined;
+
+  /**
+   * <p>The minute component of the maintenance start time represented as <i>mm</i>, where
+   *       <i>mm</i> is the minute (0 to 59). The minute of the hour is in the time zone of the gateway.</p>
+   */
+  MinuteOfHour: number | undefined;
+}
+
+/**
  * <p>The details of gateway.</p>
  */
 export interface GatewayDetails {
@@ -275,6 +334,12 @@ export interface GatewayDetails {
    *       with the cloud, in Unix format and UTC time.</p>
    */
   LastSeenTime?: Date;
+
+  /**
+   * <p>Returns your gateway's weekly maintenance start time including the day and time of the week.
+   *       Note that values are in terms of the gateway's time zone. Can be weekly or monthly.</p>
+   */
+  MaintenanceStartTime?: MaintenanceStartTime;
 
   /**
    * <p>Details showing the next update availability time of the
@@ -637,7 +702,102 @@ export interface ListTagsForResourceOutput {
   Tags?: Tag[];
 }
 
+export interface TagResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>A list of tags to assign to the resource.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export interface TagResourceOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource you tagged.</p>
+   */
+  ResourceARN?: string;
+}
+
+export interface UntagResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource from which to remove tags.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>The list of tag keys specifying which tags to remove.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export interface UntagResourceOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource from which you removed tags.</p>
+   */
+  ResourceARN?: string;
+}
+
+export interface GetVirtualMachineInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the virtual machine.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * <p>Your <code>VirtualMachine</code> objects, ordered by their Amazon Resource Names (ARNs).</p>
+ */
+export interface VirtualMachineDetails {
+  /**
+   * <p>The host name of the virtual machine.</p>
+   */
+  HostName?: string;
+
+  /**
+   * <p>The ID of the virtual machine's hypervisor.</p>
+   */
+  HypervisorId?: string;
+
+  /**
+   * <p>The name of the virtual machine.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The path of the virtual machine.</p>
+   */
+  Path?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the virtual machine. For example,
+   *       <code>arn:aws:backup-gateway:us-west-1:0000000000000:vm/vm-0000ABCDEFGIJKL</code>.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The most recent date a virtual machine was backed up, in Unix format and UTC time.</p>
+   */
+  LastBackupDate?: Date;
+}
+
+export interface GetVirtualMachineOutput {
+  /**
+   * <p>This object contains the basic attributes of <code>VirtualMachine</code> contained by the output of
+   *       <code>GetVirtualMachine</code>
+   *          </p>
+   */
+  VirtualMachine?: VirtualMachineDetails;
+}
+
 export interface ListVirtualMachinesInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hypervisor connected to your virtual machine.</p>
+   */
+  HypervisorArn?: string;
+
   /**
    * <p>The maximum number of virtual machines to list.</p>
    */
@@ -702,44 +862,6 @@ export interface ListVirtualMachinesOutput {
    *       token.</p>
    */
   NextToken?: string;
-}
-
-export interface TagResourceInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
-   * <p>A list of tags to assign to the resource.</p>
-   */
-  Tags: Tag[] | undefined;
-}
-
-export interface TagResourceOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource you tagged.</p>
-   */
-  ResourceARN?: string;
-}
-
-export interface UntagResourceInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which to remove tags.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
-   * <p>The list of tag keys specifying which tags to remove.</p>
-   */
-  TagKeys: string[] | undefined;
-}
-
-export interface UntagResourceOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which you removed tags.</p>
-   */
-  ResourceARN?: string;
 }
 
 /**
@@ -811,6 +933,13 @@ export const DisassociateGatewayFromServerOutputFilterSensitiveLog = (
  * @internal
  */
 export const GetGatewayInputFilterSensitiveLog = (obj: GetGatewayInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MaintenanceStartTimeFilterSensitiveLog = (obj: MaintenanceStartTime): any => ({
   ...obj,
 });
 
@@ -993,27 +1122,6 @@ export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForReso
 /**
  * @internal
  */
-export const ListVirtualMachinesInputFilterSensitiveLog = (obj: ListVirtualMachinesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualMachineFilterSensitiveLog = (obj: VirtualMachine): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVirtualMachinesOutputFilterSensitiveLog = (obj: ListVirtualMachinesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
   ...obj,
 });
@@ -1036,5 +1144,47 @@ export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): a
  * @internal
  */
 export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVirtualMachineInputFilterSensitiveLog = (obj: GetVirtualMachineInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VirtualMachineDetailsFilterSensitiveLog = (obj: VirtualMachineDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVirtualMachineOutputFilterSensitiveLog = (obj: GetVirtualMachineOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVirtualMachinesInputFilterSensitiveLog = (obj: ListVirtualMachinesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VirtualMachineFilterSensitiveLog = (obj: VirtualMachine): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVirtualMachinesOutputFilterSensitiveLog = (obj: ListVirtualMachinesOutput): any => ({
   ...obj,
 });

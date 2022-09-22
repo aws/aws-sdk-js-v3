@@ -65,6 +65,7 @@ import {
   DisassociateGatewayFromServerCommandOutput,
 } from "./commands/DisassociateGatewayFromServerCommand";
 import { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
+import { GetVirtualMachineCommandInput, GetVirtualMachineCommandOutput } from "./commands/GetVirtualMachineCommand";
 import {
   ImportHypervisorConfigurationCommandInput,
   ImportHypervisorConfigurationCommandOutput,
@@ -107,6 +108,7 @@ export type ServiceInputTypes =
   | DeleteHypervisorCommandInput
   | DisassociateGatewayFromServerCommandInput
   | GetGatewayCommandInput
+  | GetVirtualMachineCommandInput
   | ImportHypervisorConfigurationCommandInput
   | ListGatewaysCommandInput
   | ListHypervisorsCommandInput
@@ -127,6 +129,7 @@ export type ServiceOutputTypes =
   | DeleteHypervisorCommandOutput
   | DisassociateGatewayFromServerCommandOutput
   | GetGatewayCommandOutput
+  | GetVirtualMachineCommandOutput
   | ImportHypervisorConfigurationCommandOutput
   | ListGatewaysCommandOutput
   | ListHypervisorsCommandOutput

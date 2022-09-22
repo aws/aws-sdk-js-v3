@@ -29,6 +29,11 @@ import {
 } from "./commands/DisassociateGatewayFromServerCommand";
 import { GetGatewayCommand, GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
 import {
+  GetVirtualMachineCommand,
+  GetVirtualMachineCommandInput,
+  GetVirtualMachineCommandOutput,
+} from "./commands/GetVirtualMachineCommand";
+import {
   ImportHypervisorConfigurationCommand,
   ImportHypervisorConfigurationCommandInput,
   ImportHypervisorConfigurationCommandOutput,
@@ -277,6 +282,38 @@ export class BackupGateway extends BackupGatewayClient {
     cb?: (err: any, data?: GetGatewayCommandOutput) => void
   ): Promise<GetGatewayCommandOutput> | void {
     const command = new GetGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>By providing the ARN (Amazon Resource Name), this API returns the virtual machine.</p>
+   */
+  public getVirtualMachine(
+    args: GetVirtualMachineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVirtualMachineCommandOutput>;
+  public getVirtualMachine(
+    args: GetVirtualMachineCommandInput,
+    cb: (err: any, data?: GetVirtualMachineCommandOutput) => void
+  ): void;
+  public getVirtualMachine(
+    args: GetVirtualMachineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVirtualMachineCommandOutput) => void
+  ): void;
+  public getVirtualMachine(
+    args: GetVirtualMachineCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVirtualMachineCommandOutput) => void),
+    cb?: (err: any, data?: GetVirtualMachineCommandOutput) => void
+  ): Promise<GetVirtualMachineCommandOutput> | void {
+    const command = new GetVirtualMachineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
