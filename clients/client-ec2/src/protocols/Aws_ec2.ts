@@ -41856,6 +41856,9 @@ const serializeAws_ec2FleetLaunchTemplateOverridesRequest = (
       entries[loc] = value;
     });
   }
+  if (input.ImageId != null) {
+    entries["ImageId"] = input.ImageId;
+  }
   return entries;
 };
 
@@ -63209,6 +63212,7 @@ const deserializeAws_ec2FleetLaunchTemplateOverrides = (
     Priority: undefined,
     Placement: undefined,
     InstanceRequirements: undefined,
+    ImageId: undefined,
   };
   if (output["instanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["instanceType"]);
@@ -63233,6 +63237,9 @@ const deserializeAws_ec2FleetLaunchTemplateOverrides = (
   }
   if (output["instanceRequirements"] !== undefined) {
     contents.InstanceRequirements = deserializeAws_ec2InstanceRequirements(output["instanceRequirements"], context);
+  }
+  if (output["imageId"] !== undefined) {
+    contents.ImageId = __expectString(output["imageId"]);
   }
   return contents;
 };

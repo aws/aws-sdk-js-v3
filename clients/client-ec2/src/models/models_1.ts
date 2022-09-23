@@ -816,6 +816,11 @@ export interface FleetLaunchTemplateOverridesRequest {
    *          </note>
    */
   InstanceRequirements?: InstanceRequirementsRequest;
+
+  /**
+   * <p>The ID of the AMI. An AMI is required to launch an instance. The AMI ID must be specified here or in the launch template.</p>
+   */
+  ImageId?: string;
 }
 
 /**
@@ -1778,6 +1783,11 @@ export interface FleetLaunchTemplateOverrides {
    *          </note>
    */
   InstanceRequirements?: InstanceRequirements;
+
+  /**
+   * <p>The ID of the AMI. An AMI is required to launch an instance. The AMI ID must be specified here or in the launch template.</p>
+   */
+  ImageId?: string;
 }
 
 /**

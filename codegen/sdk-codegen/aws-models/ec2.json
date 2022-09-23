@@ -39525,6 +39525,14 @@
             "smithy.api#documentation": "<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will\n         identify instance types with those attributes.</p>\n         <note>\n            <p>If you specify <code>InstanceRequirements</code>, you can't specify\n            <code>InstanceType</code>.</p>\n         </note>",
             "smithy.api#xmlName": "instanceRequirements"
           }
+        },
+        "ImageId": {
+          "target": "com.amazonaws.ec2#ImageId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ImageId",
+            "smithy.api#documentation": "<p>The ID of the AMI. An AMI is required to launch an instance. The AMI ID must be specified here or in the launch template.</p>",
+            "smithy.api#xmlName": "imageId"
+          }
         }
       },
       "traits": {
@@ -39602,6 +39610,12 @@
           "target": "com.amazonaws.ec2#InstanceRequirementsRequest",
           "traits": {
             "smithy.api#documentation": "<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will\n         identify instance types with those attributes.</p>\n         <note>\n            <p>If you specify <code>InstanceRequirements</code>, you can't specify\n               <code>InstanceType</code>.</p>\n         </note>"
+          }
+        },
+        "ImageId": {
+          "target": "com.amazonaws.ec2#ImageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the AMI. An AMI is required to launch an instance. The AMI ID must be specified here or in the launch template.</p>"
           }
         }
       },
