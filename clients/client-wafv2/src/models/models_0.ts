@@ -1796,7 +1796,10 @@ export class WAFInvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>WAF couldn’t perform the operation because your resource doesn’t exist. </p>
+ * <p>WAF couldn’t perform the operation because your resource doesn't exist.
+ *        If you've just created a resource that you're using in this operation, you might
+ *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
+ *        for changes to propagate. </p>
  */
 export class WAFNonexistentItemException extends __BaseException {
   readonly name: "WAFNonexistentItemException" = "WAFNonexistentItemException";
@@ -1817,9 +1820,11 @@ export class WAFNonexistentItemException extends __BaseException {
 }
 
 /**
- * <p>WAF couldn’t retrieve a resource that you specified for this operation. Verify the
- *          resources that you are specifying in your request parameters and then retry the
- *          operation.</p>
+ * <p>WAF couldn’t retrieve a resource that you specified for this operation.
+ *        If you've just created a resource that you're using in this operation, you might
+ *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
+ *        for changes to propagate. Verify the resources that you are specifying in your request
+ *        parameters and then retry the operation.</p>
  */
 export class WAFUnavailableEntityException extends __BaseException {
   readonly name: "WAFUnavailableEntityException" = "WAFUnavailableEntityException";
@@ -1954,7 +1959,7 @@ export interface RuleAction {
   Allow?: AllowAction;
 
   /**
-   * <p>Instructs WAF to count the web request and allow it.</p>
+   * <p>Instructs WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.</p>
    */
   Count?: CountAction;
 
@@ -2226,7 +2231,7 @@ export interface CreateIPSetRequest {
   IPAddressVersion: IPAddressVersion | string | undefined;
 
   /**
-   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for /0. </p>
+   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </p>
    *          <p>Example address strings: </p>
    *          <ul>
    *             <li>
@@ -2547,7 +2552,7 @@ export interface CreateRuleGroupResponse {
 /**
  * <p>In a <a>WebACL</a>, this is the action that you want WAF to perform
  *          when a web request doesn't match any of the rules in the <code>WebACL</code>. The default
- *          action must be a terminating action, so you can't use count.</p>
+ *          action must be a terminating action.</p>
  */
 export interface DefaultAction {
   /**
@@ -3071,7 +3076,7 @@ export interface IPSet {
   IPAddressVersion: IPAddressVersion | string | undefined;
 
   /**
-   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for /0. </p>
+   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </p>
    *          <p>Example address strings: </p>
    *          <ul>
    *             <li>
@@ -4444,6 +4449,11 @@ export interface ListResourcesForWebACLRequest {
   /**
    * <p>Used for web ACLs that are scoped for regional applications.
    *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, or an Amazon Cognito user pool. </p>
+   *          <note>
+   *             <p>If you don't provide a resource type, the call uses the resource type <code>APPLICATION_LOAD_BALANCER</code>. </p>
+   *          </note>
+   *          <p>Default: <code>APPLICATION_LOAD_BALANCER</code>
+   *          </p>
    */
   ResourceType?: ResourceType | string;
 }
@@ -4881,7 +4891,7 @@ export interface UpdateIPSetRequest {
   Description?: string;
 
   /**
-   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for /0. </p>
+   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </p>
    *          <p>Example address strings: </p>
    *          <ul>
    *             <li>
@@ -5146,6 +5156,9 @@ export interface Statement {
   /**
    * <p>A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.</p>
    *          <p>You cannot nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+   *          <note>
+   *             <p>You are charged additional fees when you use the WAF Bot Control managed rule group <code>AWSManagedRulesBotControlRuleSet</code> or the WAF Fraud Control account takeover prevention (ATP) managed rule group <code>AWSManagedRulesATPRuleSet</code>. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
+   *          </note>
    */
   ManagedRuleGroupStatement?: ManagedRuleGroupStatement;
 
@@ -5164,6 +5177,9 @@ export interface Statement {
 /**
  * <p>A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.</p>
  *          <p>You cannot nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+ *          <note>
+ *             <p>You are charged additional fees when you use the WAF Bot Control managed rule group <code>AWSManagedRulesBotControlRuleSet</code> or the WAF Fraud Control account takeover prevention (ATP) managed rule group <code>AWSManagedRulesATPRuleSet</code>. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
+ *          </note>
  */
 export interface ManagedRuleGroupStatement {
   /**
@@ -5403,6 +5419,9 @@ export interface FirewallManagerStatement {
   /**
    * <p>A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.</p>
    *          <p>You cannot nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+   *          <note>
+   *             <p>You are charged additional fees when you use the WAF Bot Control managed rule group <code>AWSManagedRulesBotControlRuleSet</code> or the WAF Fraud Control account takeover prevention (ATP) managed rule group <code>AWSManagedRulesATPRuleSet</code>. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
+   *          </note>
    */
   ManagedRuleGroupStatement?: ManagedRuleGroupStatement;
 
