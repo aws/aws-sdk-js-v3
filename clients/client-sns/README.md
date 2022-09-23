@@ -39,16 +39,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SNSClient` and
-the commands you need, for example `PublishCommand`:
+the commands you need, for example `AddPermissionCommand`:
 
 ```js
 // ES5 example
-const { SNSClient, PublishCommand } = require("@aws-sdk/client-sns");
+const { SNSClient, AddPermissionCommand } = require("@aws-sdk/client-sns");
 ```
 
 ```ts
 // ES6+ example
-import { SNSClient, PublishCommand } from "@aws-sdk/client-sns";
+import { SNSClient, AddPermissionCommand } from "@aws-sdk/client-sns";
 ```
 
 ### Usage
@@ -62,18 +62,12 @@ To send a request, you:
 
 ```js
 // a client can be shared by different commands.
-const client = new SNSClient({ region: "<YOUR_REGION>" });
-
-const message = {
-  hello":"world"
-}
+const client = new SNSClient({ region: "REGION" });
 
 const params = {
-  Message: JSON.stringify(message),
-  TopicArn: 'arn:aws:sns:<YOUR_REGION>:<YOUR_ACCOUNT_ID>:<YOUR_TOPIC_NAME>'
+  /** input parameters */
 };
-
-const command = new PublishCommand(params);
+const command = new AddPermissionCommand(params);
 ```
 
 #### Async/await

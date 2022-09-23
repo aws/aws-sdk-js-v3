@@ -6017,6 +6017,8 @@
         "emr-serverless": {
           "endpoints": {
             "ap-northeast-1": {},
+            "ap-northeast-2": {},
+            "ap-south-1": {},
             "ap-southeast-1": {},
             "eu-central-1": {},
             "eu-west-1": {},
@@ -6041,6 +6043,7 @@
               "deprecated": true,
               "hostname": "emr-serverless-fips.us-west-2.amazonaws.com"
             },
+            "sa-east-1": {},
             "us-east-1": {
               "variants": [
                 {
@@ -8187,6 +8190,10 @@
         },
         "ivschat": {
           "endpoints": {
+            "ap-northeast-1": {},
+            "ap-northeast-2": {},
+            "ap-south-1": {},
+            "eu-central-1": {},
             "eu-west-1": {},
             "us-east-1": {},
             "us-west-2": {}
