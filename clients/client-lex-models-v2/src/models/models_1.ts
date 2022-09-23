@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import {
-  ConditionalSpecification,
+  CompositeSlotTypeSetting,
+  Condition,
+  DialogAction,
   DialogCodeHookSettings,
-  DialogState,
   ElicitationCodeHookInvocationSetting,
+  ExternalSourceSetting,
   FulfillmentUpdatesSpecification,
   InputContext,
   KendraConfiguration,
@@ -16,9 +18,228 @@ import {
   SlotConstraint,
   SlotDefaultValueSpecification,
   SlotPriority,
+  SlotShape,
+  SlotTypeValue,
+  SlotValue,
+  SlotValueSelectionSetting,
   SubSlotSetting,
   WaitAndContinueSpecification,
 } from "./models_0";
+
+export interface UpdateSlotTypeResponse {
+  /**
+   * <p>The unique identifier of the updated slot type.</p>
+   */
+  slotTypeId?: string;
+
+  /**
+   * <p>The updated name of the slot type.</p>
+   */
+  slotTypeName?: string;
+
+  /**
+   * <p>The updated description of the slot type.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The updated values that the slot type provides.</p>
+   */
+  slotTypeValues?: SlotTypeValue[];
+
+  /**
+   * <p>The updated strategy that Amazon Lex uses to determine which value to
+   *          select from the slot type.</p>
+   */
+  valueSelectionSetting?: SlotValueSelectionSetting;
+
+  /**
+   * <p>The updated signature of the built-in slot type that is the parent
+   *          of this slot type.</p>
+   */
+  parentSlotTypeSignature?: string;
+
+  /**
+   * <p>The identifier of the bot that contains the slot type.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot that contains the slot type. This is always
+   *             <code>DRAFT</code>.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The language and locale of the updated slot type.</p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The timestamp of the date and time that the slot type was
+   *          created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>A timestamp of the date and time that the slot type was last
+   *          updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Provides information about the external source of the slot type's
+   *          definition.</p>
+   */
+  externalSourceSetting?: ExternalSourceSetting;
+
+  /**
+   * <p>Specifications for a composite slot type.</p>
+   */
+  compositeSlotTypeSetting?: CompositeSlotTypeSetting;
+}
+
+/**
+ * <p>The slot values that Amazon Lex uses when it sets slot
+ *          values in a dialog step.</p>
+ */
+export interface SlotValueOverride {
+  /**
+   * <p>When the shape value is <code>List</code>, it indicates that the
+   *             <code>values</code> field contains a list of slot values. When the
+   *          value is <code>Scalar</code>, it indicates that the <code>value</code>
+   *          field contains a single value.</p>
+   */
+  shape?: SlotShape | string;
+
+  /**
+   * <p>The current value of the slot.</p>
+   */
+  value?: SlotValue;
+
+  /**
+   * <p>A list of one or more values that the user provided for the slot.
+   *          For example, for a slot that elicits pizza toppings, the values
+   *          might be "pepperoni" and "pineapple."</p>
+   */
+  values?: SlotValueOverride[];
+}
+
+/**
+ * <p>Override settings to configure the intent state.</p>
+ */
+export interface IntentOverride {
+  /**
+   * <p>The name of the intent. Only required when you're switching
+   *          intents.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>A map of all of the slot value overrides for the intent. The name of
+   *          the slot maps to the value of the slot. Slots that are not included in
+   *          the map aren't overridden.,</p>
+   */
+  slots?: Record<string, SlotValueOverride>;
+}
+
+/**
+ * <p>The current state of the conversation with the user.</p>
+ */
+export interface DialogState {
+  /**
+   * <p> Defines the action that the bot executes at runtime when the
+   *          conversation reaches this step.</p>
+   */
+  dialogAction?: DialogAction;
+
+  /**
+   * <p>Override settings to configure the intent state.</p>
+   */
+  intent?: IntentOverride;
+
+  /**
+   * <p>Map of key/value pairs representing session-specific context
+   *          information. It contains application information passed between Amazon Lex and a client application.</p>
+   */
+  sessionAttributes?: Record<string, string>;
+}
+
+/**
+ * <p>A set of actions that Amazon Lex should run if the condition
+ *          is matched.</p>
+ */
+export interface ConditionalBranch {
+  /**
+   * <p>The name of the branch. </p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Contains the expression to evaluate. If the condition is true, the
+   *          branch's actions are taken.</p>
+   */
+  condition: Condition | undefined;
+
+  /**
+   * <p>The next step in the conversation.</p>
+   */
+  nextStep: DialogState | undefined;
+
+  /**
+   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+   *          user input.</p>
+   */
+  response?: ResponseSpecification;
+}
+
+/**
+ * <p>A set of actions that Amazon Lex should run if none of the
+ *          other conditions are met.</p>
+ */
+export interface DefaultConditionalBranch {
+  /**
+   * <p>The next step in the conversation.</p>
+   */
+  nextStep?: DialogState;
+
+  /**
+   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+   *          user input.</p>
+   */
+  response?: ResponseSpecification;
+}
+
+/**
+ * <p>Provides a list of conditional branches. Branches are evaluated in
+ *          the order that they are entered in the list. The first branch with a
+ *          condition that evaluates to true is executed. The last branch in the
+ *          list is the default branch. The default branch should not have any condition
+ *          expression. The default branch is executed if no other branch has a
+ *          matching condition.</p>
+ */
+export interface ConditionalSpecification {
+  /**
+   * <p>Determines whether a conditional branch is active. When
+   *             <code>active</code> is false, the conditions are not
+   *          evaluated.</p>
+   */
+  active: boolean | undefined;
+
+  /**
+   * <p>A list of conditional branches. A conditional branch is made up of a
+   *          condition, a response and a next step. The response and next step are
+   *          executed when the condition is true.</p>
+   */
+  conditionalBranches: ConditionalBranch[] | undefined;
+
+  /**
+   * <p>The conditional branch that should be followed when the conditions
+   *          for other branches are not satisfied. A conditional branch is made up
+   *          of a condition, a response and a next step.</p>
+   */
+  defaultBranch: DefaultConditionalBranch | undefined;
+}
 
 /**
  * <p>Provides a statement the Amazon Lex conveys to the user when the intent
@@ -1384,6 +1605,55 @@ export interface UpdateIntentResponse {
    */
   initialResponseSetting?: InitialResponseSetting;
 }
+
+/**
+ * @internal
+ */
+export const UpdateSlotTypeResponseFilterSensitiveLog = (obj: UpdateSlotTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotValueOverrideFilterSensitiveLog = (obj: SlotValueOverride): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntentOverrideFilterSensitiveLog = (obj: IntentOverride): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DialogStateFilterSensitiveLog = (obj: DialogState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConditionalBranchFilterSensitiveLog = (obj: ConditionalBranch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefaultConditionalBranchFilterSensitiveLog = (obj: DefaultConditionalBranch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConditionalSpecificationFilterSensitiveLog = (obj: ConditionalSpecification): any => ({
+  ...obj,
+});
 
 /**
  * @internal

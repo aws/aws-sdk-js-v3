@@ -150,10 +150,13 @@ import {
   AggregatedUtterancesFilter,
   AggregatedUtterancesSortBy,
   AggregatedUtterancesSummary,
+  AllowedInputTypes,
   AssociatedTranscript,
   AssociatedTranscriptFilter,
+  AudioAndDTMFInputSpecification,
   AudioLogDestination,
   AudioLogSetting,
+  AudioSpecification,
   BotAliasHistoryEvent,
   BotAliasLocaleSettings,
   BotAliasSummary,
@@ -183,8 +186,6 @@ import {
   CodeHookSpecification,
   CompositeSlotTypeSetting,
   Condition,
-  ConditionalBranch,
-  ConditionalSpecification,
   ConflictException,
   ConversationLogSettings,
   CustomPayload,
@@ -192,10 +193,9 @@ import {
   CustomVocabularyImportSpecification,
   DataPrivacy,
   DateRangeFilter,
-  DefaultConditionalBranch,
   DialogAction,
   DialogCodeHookSettings,
-  DialogState,
+  DTMFSpecification,
   ElicitationCodeHookInvocationSetting,
   EncryptionSetting,
   ExportFilter,
@@ -215,7 +215,6 @@ import {
   ImportSummary,
   InputContext,
   IntentFilter,
-  IntentOverride,
   IntentSortBy,
   IntentStatistics,
   IntentSummary,
@@ -232,6 +231,8 @@ import {
   PlainTextMessage,
   PreconditionFailedException,
   Principal,
+  PromptAttempt,
+  PromptAttemptSpecification,
   PromptSpecification,
   RecommendedIntentSummary,
   RelativeAggregationDuration,
@@ -255,7 +256,6 @@ import {
   SlotTypeSummary,
   SlotTypeValue,
   SlotValue,
-  SlotValueOverride,
   SlotValueRegexFilter,
   SlotValueSelectionSetting,
   Specifications,
@@ -264,6 +264,7 @@ import {
   SubSlotSetting,
   SubSlotTypeComposition,
   SubSlotValueElicitationSetting,
+  TextInputSpecification,
   TextLogDestination,
   TextLogSetting,
   ThrottlingException,
@@ -275,15 +276,21 @@ import {
   WaitAndContinueSpecification,
 } from "../models/models_0";
 import {
+  ConditionalBranch,
+  ConditionalSpecification,
+  DefaultConditionalBranch,
   DialogCodeHookInvocationSetting,
+  DialogState,
   FulfillmentCodeHookSettings,
   InitialResponseSetting,
   IntentClosingSetting,
   IntentConfirmationSetting,
+  IntentOverride,
   PostDialogCodeHookInvocationSpecification,
   PostFulfillmentStatusSpecification,
   SlotCaptureSetting,
   SlotValueElicitationSetting,
+  SlotValueOverride,
 } from "../models/models_1";
 
 export const serializeAws_restJson1BuildBotLocaleCommand = async (
@@ -7292,6 +7299,13 @@ const serializeAws_restJson1AggregatedUtterancesSortBy = (
   };
 };
 
+const serializeAws_restJson1AllowedInputTypes = (input: AllowedInputTypes, context: __SerdeContext): any => {
+  return {
+    ...(input.allowAudioInput != null && { allowAudioInput: input.allowAudioInput }),
+    ...(input.allowDTMFInput != null && { allowDTMFInput: input.allowDTMFInput }),
+  };
+};
+
 const serializeAws_restJson1AssociatedTranscriptFilter = (
   input: AssociatedTranscriptFilter,
   context: __SerdeContext
@@ -7311,6 +7325,21 @@ const serializeAws_restJson1AssociatedTranscriptFilters = (
     .map((entry) => {
       return serializeAws_restJson1AssociatedTranscriptFilter(entry, context);
     });
+};
+
+const serializeAws_restJson1AudioAndDTMFInputSpecification = (
+  input: AudioAndDTMFInputSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.audioSpecification != null && {
+      audioSpecification: serializeAws_restJson1AudioSpecification(input.audioSpecification, context),
+    }),
+    ...(input.dtmfSpecification != null && {
+      dtmfSpecification: serializeAws_restJson1DTMFSpecification(input.dtmfSpecification, context),
+    }),
+    ...(input.startTimeoutMs != null && { startTimeoutMs: input.startTimeoutMs }),
+  };
 };
 
 const serializeAws_restJson1AudioLogDestination = (input: AudioLogDestination, context: __SerdeContext): any => {
@@ -7334,6 +7363,13 @@ const serializeAws_restJson1AudioLogSettingsList = (input: AudioLogSetting[], co
     .map((entry) => {
       return serializeAws_restJson1AudioLogSetting(entry, context);
     });
+};
+
+const serializeAws_restJson1AudioSpecification = (input: AudioSpecification, context: __SerdeContext): any => {
+  return {
+    ...(input.endTimeoutMs != null && { endTimeoutMs: input.endTimeoutMs }),
+    ...(input.maxLengthMs != null && { maxLengthMs: input.maxLengthMs }),
+  };
 };
 
 const serializeAws_restJson1BotAliasLocaleSettings = (input: BotAliasLocaleSettings, context: __SerdeContext): any => {
@@ -7711,6 +7747,15 @@ const serializeAws_restJson1DialogState = (input: DialogState, context: __SerdeC
     ...(input.sessionAttributes != null && {
       sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
     }),
+  };
+};
+
+const serializeAws_restJson1DTMFSpecification = (input: DTMFSpecification, context: __SerdeContext): any => {
+  return {
+    ...(input.deletionCharacter != null && { deletionCharacter: input.deletionCharacter }),
+    ...(input.endCharacter != null && { endCharacter: input.endCharacter }),
+    ...(input.endTimeoutMs != null && { endTimeoutMs: input.endTimeoutMs }),
+    ...(input.maxLength != null && { maxLength: input.maxLength }),
   };
 };
 
@@ -8255,6 +8300,42 @@ const serializeAws_restJson1PrincipalList = (input: Principal[], context: __Serd
     });
 };
 
+const serializeAws_restJson1PromptAttemptSpecification = (
+  input: PromptAttemptSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.allowInterrupt != null && { allowInterrupt: input.allowInterrupt }),
+    ...(input.allowedInputTypes != null && {
+      allowedInputTypes: serializeAws_restJson1AllowedInputTypes(input.allowedInputTypes, context),
+    }),
+    ...(input.audioAndDTMFInputSpecification != null && {
+      audioAndDTMFInputSpecification: serializeAws_restJson1AudioAndDTMFInputSpecification(
+        input.audioAndDTMFInputSpecification,
+        context
+      ),
+    }),
+    ...(input.textInputSpecification != null && {
+      textInputSpecification: serializeAws_restJson1TextInputSpecification(input.textInputSpecification, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1PromptAttemptsSpecificationMap = (
+  input: Record<string, PromptAttemptSpecification>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [PromptAttempt | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1PromptAttemptSpecification(value, context),
+    };
+  }, {});
+};
+
 const serializeAws_restJson1PromptSpecification = (input: PromptSpecification, context: __SerdeContext): any => {
   return {
     ...(input.allowInterrupt != null && { allowInterrupt: input.allowInterrupt }),
@@ -8263,6 +8344,12 @@ const serializeAws_restJson1PromptSpecification = (input: PromptSpecification, c
       messageGroups: serializeAws_restJson1MessageGroupsList(input.messageGroups, context),
     }),
     ...(input.messageSelectionStrategy != null && { messageSelectionStrategy: input.messageSelectionStrategy }),
+    ...(input.promptAttemptsSpecification != null && {
+      promptAttemptsSpecification: serializeAws_restJson1PromptAttemptsSpecificationMap(
+        input.promptAttemptsSpecification,
+        context
+      ),
+    }),
   };
 };
 
@@ -8690,6 +8777,12 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
   }, {});
 };
 
+const serializeAws_restJson1TextInputSpecification = (input: TextInputSpecification, context: __SerdeContext): any => {
+  return {
+    ...(input.startTimeoutMs != null && { startTimeoutMs: input.startTimeoutMs }),
+  };
+};
+
 const serializeAws_restJson1TextLogDestination = (input: TextLogDestination, context: __SerdeContext): any => {
   return {
     ...(input.cloudWatch != null && {
@@ -8820,6 +8913,13 @@ const deserializeAws_restJson1AggregatedUtterancesSummaryList = (
   return retVal;
 };
 
+const deserializeAws_restJson1AllowedInputTypes = (output: any, context: __SerdeContext): AllowedInputTypes => {
+  return {
+    allowAudioInput: __expectBoolean(output.allowAudioInput),
+    allowDTMFInput: __expectBoolean(output.allowDTMFInput),
+  } as any;
+};
+
 const deserializeAws_restJson1AssociatedTranscript = (output: any, context: __SerdeContext): AssociatedTranscript => {
   return {
     transcript: __expectString(output.transcript),
@@ -8839,6 +8939,23 @@ const deserializeAws_restJson1AssociatedTranscriptList = (
       return deserializeAws_restJson1AssociatedTranscript(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1AudioAndDTMFInputSpecification = (
+  output: any,
+  context: __SerdeContext
+): AudioAndDTMFInputSpecification => {
+  return {
+    audioSpecification:
+      output.audioSpecification != null
+        ? deserializeAws_restJson1AudioSpecification(output.audioSpecification, context)
+        : undefined,
+    dtmfSpecification:
+      output.dtmfSpecification != null
+        ? deserializeAws_restJson1DTMFSpecification(output.dtmfSpecification, context)
+        : undefined,
+    startTimeoutMs: __expectInt32(output.startTimeoutMs),
+  } as any;
 };
 
 const deserializeAws_restJson1AudioLogDestination = (output: any, context: __SerdeContext): AudioLogDestination => {
@@ -8866,6 +8983,13 @@ const deserializeAws_restJson1AudioLogSettingsList = (output: any, context: __Se
       return deserializeAws_restJson1AudioLogSetting(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1AudioSpecification = (output: any, context: __SerdeContext): AudioSpecification => {
+  return {
+    endTimeoutMs: __expectInt32(output.endTimeoutMs),
+    maxLengthMs: __expectInt32(output.maxLengthMs),
+  } as any;
 };
 
 const deserializeAws_restJson1BotAliasHistoryEvent = (output: any, context: __SerdeContext): BotAliasHistoryEvent => {
@@ -9441,6 +9565,15 @@ const deserializeAws_restJson1DialogState = (output: any, context: __SerdeContex
       output.sessionAttributes != null
         ? deserializeAws_restJson1StringMap(output.sessionAttributes, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DTMFSpecification = (output: any, context: __SerdeContext): DTMFSpecification => {
+  return {
+    deletionCharacter: __expectString(output.deletionCharacter),
+    endCharacter: __expectString(output.endCharacter),
+    endTimeoutMs: __expectInt32(output.endTimeoutMs),
+    maxLength: __expectInt32(output.maxLength),
   } as any;
 };
 
@@ -10045,6 +10178,45 @@ const deserializeAws_restJson1PostFulfillmentStatusSpecification = (
   } as any;
 };
 
+const deserializeAws_restJson1PromptAttemptSpecification = (
+  output: any,
+  context: __SerdeContext
+): PromptAttemptSpecification => {
+  return {
+    allowInterrupt: __expectBoolean(output.allowInterrupt),
+    allowedInputTypes:
+      output.allowedInputTypes != null
+        ? deserializeAws_restJson1AllowedInputTypes(output.allowedInputTypes, context)
+        : undefined,
+    audioAndDTMFInputSpecification:
+      output.audioAndDTMFInputSpecification != null
+        ? deserializeAws_restJson1AudioAndDTMFInputSpecification(output.audioAndDTMFInputSpecification, context)
+        : undefined,
+    textInputSpecification:
+      output.textInputSpecification != null
+        ? deserializeAws_restJson1TextInputSpecification(output.textInputSpecification, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PromptAttemptsSpecificationMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, PromptAttemptSpecification> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, PromptAttemptSpecification>, [key, value]: [PromptAttempt | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1PromptAttemptSpecification(value, context),
+      };
+    },
+    {}
+  );
+};
+
 const deserializeAws_restJson1PromptSpecification = (output: any, context: __SerdeContext): PromptSpecification => {
   return {
     allowInterrupt: __expectBoolean(output.allowInterrupt),
@@ -10054,6 +10226,10 @@ const deserializeAws_restJson1PromptSpecification = (output: any, context: __Ser
         ? deserializeAws_restJson1MessageGroupsList(output.messageGroups, context)
         : undefined,
     messageSelectionStrategy: __expectString(output.messageSelectionStrategy),
+    promptAttemptsSpecification:
+      output.promptAttemptsSpecification != null
+        ? deserializeAws_restJson1PromptAttemptsSpecificationMap(output.promptAttemptsSpecification, context)
+        : undefined,
   } as any;
 };
 
@@ -10568,6 +10744,15 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1TextInputSpecification = (
+  output: any,
+  context: __SerdeContext
+): TextInputSpecification => {
+  return {
+    startTimeoutMs: __expectInt32(output.startTimeoutMs),
+  } as any;
 };
 
 const deserializeAws_restJson1TextLogDestination = (output: any, context: __SerdeContext): TextLogDestination => {

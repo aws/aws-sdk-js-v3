@@ -128,6 +128,21 @@ export interface AggregatedUtterancesSummary {
 }
 
 /**
+ * <p>Specifies the allowed input types.</p>
+ */
+export interface AllowedInputTypes {
+  /**
+   * <p>Indicates whether audio input is allowed.</p>
+   */
+  allowAudioInput: boolean | undefined;
+
+  /**
+   * <p>Indicates whether DTMF input is allowed.</p>
+   */
+  allowDTMFInput: boolean | undefined;
+}
+
+/**
  * <p>The object containing information that associates the recommended
  *          intent/slot type with a conversation.</p>
  */
@@ -159,6 +174,72 @@ export interface AssociatedTranscriptFilter {
    * <p>The values to use to filter the transcript.</p>
    */
   values: string[] | undefined;
+}
+
+/**
+ * <p>Specifies the audio input specifications.</p>
+ */
+export interface AudioSpecification {
+  /**
+   * <p>Time for how long Amazon Lex waits before speech input is truncated and the speech
+   *          is returned to application.</p>
+   */
+  maxLengthMs: number | undefined;
+
+  /**
+   * <p>Time for which a bot waits after the customer stops speaking to assume the
+   *          utterance is finished.</p>
+   */
+  endTimeoutMs: number | undefined;
+}
+
+/**
+ * <p>Specifies the DTMF input specifications.</p>
+ */
+export interface DTMFSpecification {
+  /**
+   * <p>The maximum number of DTMF digits allowed in an utterance.</p>
+   */
+  maxLength: number | undefined;
+
+  /**
+   * <p>How long the bot should wait after the last DTMF character input before assuming
+   *          that the input has concluded.</p>
+   */
+  endTimeoutMs: number | undefined;
+
+  /**
+   * <p>The DTMF character that clears the accumulated DTMF digits and immediately ends
+   *          the input.</p>
+   */
+  deletionCharacter: string | undefined;
+
+  /**
+   * <p>The DTMF character that immediately ends input. If the user does not press this
+   *          character, the input ends after the end timeout.</p>
+   */
+  endCharacter: string | undefined;
+}
+
+/**
+ * <p>Specifies the audio and DTMF input specification.</p>
+ */
+export interface AudioAndDTMFInputSpecification {
+  /**
+   * <p>Time for which a bot waits before assuming that the customer isn't going to speak or press
+   *          a key. This timeout is shared between Audio and DTMF inputs.</p>
+   */
+  startTimeoutMs: number | undefined;
+
+  /**
+   * <p>Specifies the settings on audio input.</p>
+   */
+  audioSpecification?: AudioSpecification;
+
+  /**
+   * <p>Specifies the settings on DTMF input.</p>
+   */
+  dtmfSpecification?: DTMFSpecification;
 }
 
 /**
@@ -2173,6 +2254,50 @@ export enum MessageSelectionStrategy {
   Random = "Random",
 }
 
+export enum PromptAttempt {
+  Initial = "Initial",
+  Retry1 = "Retry1",
+  Retry2 = "Retry2",
+  Retry3 = "Retry3",
+  Retry4 = "Retry4",
+  Retry5 = "Retry5",
+}
+
+/**
+ * <p>Specifies the text input specifications.</p>
+ */
+export interface TextInputSpecification {
+  /**
+   * <p>Time for which a bot waits before re-prompting a customer for text input.</p>
+   */
+  startTimeoutMs: number | undefined;
+}
+
+/**
+ * <p>Specifies the settings on a prompt attempt.</p>
+ */
+export interface PromptAttemptSpecification {
+  /**
+   * <p>Indicates whether the user can interrupt a speech prompt attempt from the bot.</p>
+   */
+  allowInterrupt?: boolean;
+
+  /**
+   * <p>Indicates the allowed input types of the prompt attempt.</p>
+   */
+  allowedInputTypes: AllowedInputTypes | undefined;
+
+  /**
+   * <p>Specifies the settings on audio and DTMF input.</p>
+   */
+  audioAndDTMFInputSpecification?: AudioAndDTMFInputSpecification;
+
+  /**
+   * <p>Specifies the settings on text input.</p>
+   */
+  textInputSpecification?: TextInputSpecification;
+}
+
 /**
  * <p>Specifies a list of message groups that Amazon Lex sends to a user to
  *          elicit a response.</p>
@@ -2200,6 +2325,11 @@ export interface PromptSpecification {
    * <p>Indicates how a message is selected from a message group among retries.</p>
    */
   messageSelectionStrategy?: MessageSelectionStrategy | string;
+
+  /**
+   * <p>Specifies the advanced settings on each attempt of the prompt.</p>
+   */
+  promptAttemptsSpecification?: Record<string, PromptAttemptSpecification>;
 }
 
 /**
@@ -6951,221 +7081,6 @@ export interface UpdateSlotTypeRequest {
   compositeSlotTypeSetting?: CompositeSlotTypeSetting;
 }
 
-export interface UpdateSlotTypeResponse {
-  /**
-   * <p>The unique identifier of the updated slot type.</p>
-   */
-  slotTypeId?: string;
-
-  /**
-   * <p>The updated name of the slot type.</p>
-   */
-  slotTypeName?: string;
-
-  /**
-   * <p>The updated description of the slot type.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The updated values that the slot type provides.</p>
-   */
-  slotTypeValues?: SlotTypeValue[];
-
-  /**
-   * <p>The updated strategy that Amazon Lex uses to determine which value to
-   *          select from the slot type.</p>
-   */
-  valueSelectionSetting?: SlotValueSelectionSetting;
-
-  /**
-   * <p>The updated signature of the built-in slot type that is the parent
-   *          of this slot type.</p>
-   */
-  parentSlotTypeSignature?: string;
-
-  /**
-   * <p>The identifier of the bot that contains the slot type.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot that contains the slot type. This is always
-   *             <code>DRAFT</code>.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The language and locale of the updated slot type.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>The timestamp of the date and time that the slot type was
-   *          created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>A timestamp of the date and time that the slot type was last
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>Provides information about the external source of the slot type's
-   *          definition.</p>
-   */
-  externalSourceSetting?: ExternalSourceSetting;
-
-  /**
-   * <p>Specifications for a composite slot type.</p>
-   */
-  compositeSlotTypeSetting?: CompositeSlotTypeSetting;
-}
-
-/**
- * <p>The slot values that Amazon Lex uses when it sets slot
- *          values in a dialog step.</p>
- */
-export interface SlotValueOverride {
-  /**
-   * <p>When the shape value is <code>List</code>, it indicates that the
-   *             <code>values</code> field contains a list of slot values. When the
-   *          value is <code>Scalar</code>, it indicates that the <code>value</code>
-   *          field contains a single value.</p>
-   */
-  shape?: SlotShape | string;
-
-  /**
-   * <p>The current value of the slot.</p>
-   */
-  value?: SlotValue;
-
-  /**
-   * <p>A list of one or more values that the user provided for the slot.
-   *          For example, for a slot that elicits pizza toppings, the values
-   *          might be "pepperoni" and "pineapple."</p>
-   */
-  values?: SlotValueOverride[];
-}
-
-/**
- * <p>Override settings to configure the intent state.</p>
- */
-export interface IntentOverride {
-  /**
-   * <p>The name of the intent. Only required when you're switching
-   *          intents.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>A map of all of the slot value overrides for the intent. The name of
-   *          the slot maps to the value of the slot. Slots that are not included in
-   *          the map aren't overridden.,</p>
-   */
-  slots?: Record<string, SlotValueOverride>;
-}
-
-/**
- * <p>The current state of the conversation with the user.</p>
- */
-export interface DialogState {
-  /**
-   * <p> Defines the action that the bot executes at runtime when the
-   *          conversation reaches this step.</p>
-   */
-  dialogAction?: DialogAction;
-
-  /**
-   * <p>Override settings to configure the intent state.</p>
-   */
-  intent?: IntentOverride;
-
-  /**
-   * <p>Map of key/value pairs representing session-specific context
-   *          information. It contains application information passed between Amazon Lex and a client application.</p>
-   */
-  sessionAttributes?: Record<string, string>;
-}
-
-/**
- * <p>A set of actions that Amazon Lex should run if the condition
- *          is matched.</p>
- */
-export interface ConditionalBranch {
-  /**
-   * <p>The name of the branch. </p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>Contains the expression to evaluate. If the condition is true, the
-   *          branch's actions are taken.</p>
-   */
-  condition: Condition | undefined;
-
-  /**
-   * <p>The next step in the conversation.</p>
-   */
-  nextStep: DialogState | undefined;
-
-  /**
-   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
-   *          user input.</p>
-   */
-  response?: ResponseSpecification;
-}
-
-/**
- * <p>A set of actions that Amazon Lex should run if none of the
- *          other conditions are met.</p>
- */
-export interface DefaultConditionalBranch {
-  /**
-   * <p>The next step in the conversation.</p>
-   */
-  nextStep?: DialogState;
-
-  /**
-   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
-   *          user input.</p>
-   */
-  response?: ResponseSpecification;
-}
-
-/**
- * <p>Provides a list of conditional branches. Branches are evaluated in
- *          the order that they are entered in the list. The first branch with a
- *          condition that evaluates to true is executed. The last branch in the
- *          list is the default branch. The default branch should not have any condition
- *          expression. The default branch is executed if no other branch has a
- *          matching condition.</p>
- */
-export interface ConditionalSpecification {
-  /**
-   * <p>Determines whether a conditional branch is active. When
-   *             <code>active</code> is false, the conditions are not
-   *          evaluated.</p>
-   */
-  active: boolean | undefined;
-
-  /**
-   * <p>A list of conditional branches. A conditional branch is made up of a
-   *          condition, a response and a next step. The response and next step are
-   *          executed when the condition is true.</p>
-   */
-  conditionalBranches: ConditionalBranch[] | undefined;
-
-  /**
-   * <p>The conditional branch that should be followed when the conditions
-   *          for other branches are not satisfied. A conditional branch is made up
-   *          of a condition, a response and a next step.</p>
-   */
-  defaultBranch: DefaultConditionalBranch | undefined;
-}
-
 /**
  * @internal
  */
@@ -7197,6 +7112,13 @@ export const AggregatedUtterancesSummaryFilterSensitiveLog = (obj: AggregatedUtt
 /**
  * @internal
  */
+export const AllowedInputTypesFilterSensitiveLog = (obj: AllowedInputTypes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const AssociatedTranscriptFilterSensitiveLog = (obj: AssociatedTranscript): any => ({
   ...obj,
 });
@@ -7205,6 +7127,27 @@ export const AssociatedTranscriptFilterSensitiveLog = (obj: AssociatedTranscript
  * @internal
  */
 export const AssociatedTranscriptFilterFilterSensitiveLog = (obj: AssociatedTranscriptFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioSpecificationFilterSensitiveLog = (obj: AudioSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DTMFSpecificationFilterSensitiveLog = (obj: DTMFSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioAndDTMFInputSpecificationFilterSensitiveLog = (obj: AudioAndDTMFInputSpecification): any => ({
   ...obj,
 });
 
@@ -7711,6 +7654,20 @@ export const InputContextFilterSensitiveLog = (obj: InputContext): any => ({
 export const ElicitationCodeHookInvocationSettingFilterSensitiveLog = (
   obj: ElicitationCodeHookInvocationSetting
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextInputSpecificationFilterSensitiveLog = (obj: TextInputSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PromptAttemptSpecificationFilterSensitiveLog = (obj: PromptAttemptSpecification): any => ({
   ...obj,
 });
 
@@ -8835,54 +8792,5 @@ export const UpdateResourcePolicyResponseFilterSensitiveLog = (obj: UpdateResour
  * @internal
  */
 export const UpdateSlotTypeRequestFilterSensitiveLog = (obj: UpdateSlotTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSlotTypeResponseFilterSensitiveLog = (obj: UpdateSlotTypeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SlotValueOverrideFilterSensitiveLog = (obj: SlotValueOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IntentOverrideFilterSensitiveLog = (obj: IntentOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DialogStateFilterSensitiveLog = (obj: DialogState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConditionalBranchFilterSensitiveLog = (obj: ConditionalBranch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultConditionalBranchFilterSensitiveLog = (obj: DefaultConditionalBranch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConditionalSpecificationFilterSensitiveLog = (obj: ConditionalSpecification): any => ({
   ...obj,
 });
