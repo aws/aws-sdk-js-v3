@@ -1664,7 +1664,11 @@ export interface CreateAssociationBatchRequest {
   Entries: CreateAssociationBatchRequestEntry[] | undefined;
 }
 
-export type Fault = "Client" | "Server" | "Unknown";
+export enum Fault {
+  Client = "Client",
+  Server = "Server",
+  Unknown = "Unknown",
+}
 
 /**
  * <p>Describes a failed association.</p>
@@ -1771,7 +1775,9 @@ export enum DocumentType {
   Automation = "Automation",
   ChangeCalendar = "ChangeCalendar",
   ChangeTemplate = "Automation.ChangeTemplate",
+  CloudFormation = "CloudFormation",
   Command = "Command",
+  ConformancePackTemplate = "ConformancePackTemplate",
   DeploymentStrategy = "DeploymentStrategy",
   Package = "Package",
   Policy = "Policy",
@@ -1942,7 +1948,10 @@ export enum DocumentHashType {
   SHA256 = "Sha256",
 }
 
-export type DocumentParameterType = "String" | "StringList";
+export enum DocumentParameterType {
+  String = "String",
+  StringList = "StringList",
+}
 
 /**
  * <p>Parameters specified in a System Manager document that run on the server when the command is
