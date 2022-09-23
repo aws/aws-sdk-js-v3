@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.177.0...v3.178.0) (2022-09-23)
+
+
+### Features
+
+* **client-apprunner:** AWS App Runner adds a Node.js 16 runtime. ([b34b261](https://github.com/aws/aws-sdk-js-v3/commit/b34b26168d427ea7f45e4b694c3c4bca9328136f))
+* **client-ec2:** Letting external AWS customers provide ImageId as a Launch Template override in FleetLaunchTemplateOverridesRequest ([8c58db8](https://github.com/aws/aws-sdk-js-v3/commit/8c58db801d6687226d6462c491f42af303f554bb))
+* **client-lex-models-v2:** This release introduces additional optional parameters promptAttemptsSpecification to PromptSpecification, which enables the users to configure interrupt setting and Audio, DTMF and Text input configuration for the initial and retry prompt played by the Bot ([b798090](https://github.com/aws/aws-sdk-js-v3/commit/b7980906fb816fa0d0c1035cc1946bfab50a2c82))
+* **client-lightsail:** This release adds Instance Metadata Service (IMDS) support for Lightsail instances. ([890a980](https://github.com/aws/aws-sdk-js-v3/commit/890a980fdcd852c345482993e52ccf5f59607fa3))
+* **client-nimble:** Amazon Nimble Studio adds support for on-demand Amazon Elastic Compute Cloud (EC2) G3 and G5 instances, allowing customers to utilize additional GPU instance types for their creative projects. ([8f5334a](https://github.com/aws/aws-sdk-js-v3/commit/8f5334a5ffa75b5d228d175c810944ba9ba90f4e))
+* **client-ssm:** This release adds new SSM document types ConformancePackTemplate and CloudFormation ([75acad4](https://github.com/aws/aws-sdk-js-v3/commit/75acad4e69df0519deda2fe33e01cc01b9abae3e))
+* **clients:** update client endpoints as of 2022-09-23 ([126c20e](https://github.com/aws/aws-sdk-js-v3/commit/126c20e3e54097202e72072bcd03824e2c111f1a))
+* **endpoint:** endpoints 2.0 existing package changes ([#3947](https://github.com/aws/aws-sdk-js-v3/issues/3947)) ([df99fc3](https://github.com/aws/aws-sdk-js-v3/commit/df99fc33a43982e1c59000721a535f6fe77a3c23))
+
+
+
+
+
 # [3.177.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.176.0...v3.177.0) (2022-09-22)
 
 
