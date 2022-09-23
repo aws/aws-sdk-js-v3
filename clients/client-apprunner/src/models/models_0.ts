@@ -673,6 +673,7 @@ export enum Runtime {
   CORRETTO_8 = "CORRETTO_8",
   NODEJS_12 = "NODEJS_12",
   NODEJS_14 = "NODEJS_14",
+  NODEJS_16 = "NODEJS_16",
   PYTHON_3 = "PYTHON_3",
 }
 
