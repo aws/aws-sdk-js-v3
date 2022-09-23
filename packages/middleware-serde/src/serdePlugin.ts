@@ -1,5 +1,6 @@
 import {
   DeserializeHandlerOptions,
+  Endpoint,
   EndpointBearer,
   MetadataBearer,
   MiddlewareStack,
@@ -7,6 +8,7 @@ import {
   RequestSerializer,
   ResponseDeserializer,
   SerializeHandlerOptions,
+  UrlParser,
 } from "@aws-sdk/types";
 
 import { deserializerMiddleware } from "./deserializerMiddleware";
@@ -26,12 +28,18 @@ export const serializerMiddlewareOption: SerializeHandlerOptions = {
   override: true,
 };
 
+// Type the modifies the EndpointBearer to make it compatible with Endpoints 2.0 change.
+// Must be removed after all clients has been onboard the Endpoints 2.0
+export type V1OrV2Endpoint<T extends EndpointBearer> = T & {
+  urlParser?: UrlParser;
+};
+
 export function getSerdePlugin<
   InputType extends object,
   SerDeContext extends EndpointBearer,
   OutputType extends MetadataBearer
 >(
-  config: SerDeContext,
+  config: V1OrV2Endpoint<SerDeContext>,
   serializer: RequestSerializer<any, SerDeContext>,
   deserializer: ResponseDeserializer<OutputType, any, SerDeContext>
 ): Pluggable<InputType, OutputType> {

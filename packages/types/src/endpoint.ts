@@ -1,3 +1,5 @@
+import { AuthScheme } from "./auth";
+
 export interface EndpointPartition {
   name: string;
   dnsSuffix: string;
@@ -56,7 +58,9 @@ export type EndpointObjectProperty =
 
 export interface EndpointV2 {
   url: URL;
-  properties?: Record<string, EndpointObjectProperty>;
+  properties?: {
+    authSchemes?: AuthScheme[];
+  } & Record<string, EndpointObjectProperty>;
   headers?: Record<string, string[]>;
 }
 

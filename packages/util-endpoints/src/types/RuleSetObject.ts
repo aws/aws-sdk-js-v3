@@ -6,16 +6,17 @@ export type DeprecatedObject = {
 };
 
 export type ParameterObject = {
-  type: "string" | "boolean";
+  type: "String" | "Boolean";
   default?: string | boolean;
   required?: boolean;
   documentation?: string;
+  builtIn?: string;
   deprecated?: DeprecatedObject;
 };
 
 export type RuleSetObject = {
   version: string;
-  serviceId: string;
+  serviceId?: string;
   parameters: Record<string, ParameterObject>;
   rules: RuleSetRules;
 };

@@ -1,5 +1,7 @@
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  AuthScheme,
+  EndpointV2,
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
@@ -20,7 +22,12 @@ export const awsAuthMiddleware =
   (next: FinalizeHandler<Input, Output>, context: HandlerExecutionContext): FinalizeHandler<Input, Output> =>
     async function (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>> {
       if (!HttpRequest.isInstance(args.request)) return next(args);
-      const signer = await options.signer();
+
+      // TODO(identityandauth): call authScheme resolver
+      const authScheme: AuthScheme | undefined = (context.endpointV2)?.properties?.authSchemes?.[0];
+
+      const signer = await options.signer(authScheme);
+
       const output = await next({
         ...args,
         request: await signer.sign(args.request, {

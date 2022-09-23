@@ -3,6 +3,13 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import { resolveAwsAuthConfig, resolveSigV4AuthConfig } from "./configurations";
 
 describe("AuthConfig", () => {
+  const authScheme = {
+    name: "sigv4",
+    signingScope: "UNIT_TEST_REGION",
+    signingName: "UNIT_TEST_SERVICE_NAME",
+    properties: {},
+  };
+
   describe("resolveAwsAuthConfig", () => {
     const inputParams = {
       credentialDefaultProvider: () => () => Promise.resolve({ accessKeyId: "key", secretAccessKey: "secret" }),
@@ -24,7 +31,7 @@ describe("AuthConfig", () => {
 
     it("should memoize custom credential provider", async () => {
       const { signer: signerProvider } = resolveAwsAuthConfig(inputParams);
-      const signer = await signerProvider();
+      const signer = await signerProvider(authScheme);
       const request = new HttpRequest({});
       const repeats = 10;
       for (let i = 0; i < repeats; i++) {
@@ -47,7 +54,7 @@ describe("AuthConfig", () => {
           .mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
       };
       const { signer: signerProvider } = resolveAwsAuthConfig(input);
-      const signer = await signerProvider();
+      const signer = await signerProvider(authScheme);
       const request = new HttpRequest({});
       const repeats = 10;
       for (let i = 0; i < repeats; i++) {
@@ -75,7 +82,7 @@ describe("AuthConfig", () => {
 
     it("should memoize custom credential provider", async () => {
       const { signer: signerProvider } = resolveSigV4AuthConfig(inputParams);
-      const signer = await signerProvider();
+      const signer = await signerProvider(authScheme);
       const request = new HttpRequest({});
       const repeats = 10;
       for (let i = 0; i < repeats; i++) {
@@ -98,7 +105,7 @@ describe("AuthConfig", () => {
           .mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
       };
       const { signer: signerProvider } = resolveSigV4AuthConfig(input);
-      const signer = await signerProvider();
+      const signer = await signerProvider(authScheme);
       const request = new HttpRequest({});
       const repeats = 10;
       for (let i = 0; i < repeats; i++) {

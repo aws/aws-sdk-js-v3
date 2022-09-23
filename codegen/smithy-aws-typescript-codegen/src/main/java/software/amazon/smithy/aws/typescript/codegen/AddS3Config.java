@@ -72,8 +72,8 @@ public final class AddS3Config implements TypeScriptIntegration {
     );
 
     private static final String CRT_NOTIFICATION = "<p>Note: To supply the Multi-region Access Point (MRAP) to Bucket,"
-            + " you need to install the \"@aws-sdk/signature-v4-crt\" package to your project dependencies. \n"
-            + "For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>";
+        + " you need to install the \"@aws-sdk/signature-v4-crt\" package to your project dependencies. \n"
+        + "For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>";
 
     @Override
     public Model preprocessModel(Model model, TypeScriptSettings settings) {
@@ -118,17 +118,19 @@ public final class AddS3Config implements TypeScriptIntegration {
             return;
         }
         writer.writeDocs("Whether to escape request path when signing the request.")
-                .write("signingEscapePath?: boolean;\n");
+            .write("signingEscapePath?: boolean;\n");
         writer.writeDocs(
                 "Whether to override the request region with the region inferred from requested resource's ARN."
-                        + " Defaults to false.")
-                .addImport("Provider", "Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName)
-                .write("useArnRegion?: boolean | Provider<boolean>;");
+                    + " Defaults to false.")
+            .addImport("Provider", "Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName)
+            .write("useArnRegion?: boolean | Provider<boolean>;");
     }
 
     @Override
-    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(TypeScriptSettings settings, Model model,
-            SymbolProvider symbolProvider, LanguageTarget target) {
+    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
+        TypeScriptSettings settings, Model model,
+        SymbolProvider symbolProvider, LanguageTarget target
+    ) {
         if (!isS3(settings.getService(model))) {
             return Collections.emptyMap();
         }
@@ -140,18 +142,18 @@ public final class AddS3Config implements TypeScriptIntegration {
                     writer.write("false");
                 }, "signerConstructor", writer -> {
                     writer.addDependency(AwsDependency.SIGNATURE_V4_MULTIREGION)
-                            .addImport("SignatureV4MultiRegion", "SignatureV4MultiRegion",
-                                    AwsDependency.SIGNATURE_V4_MULTIREGION.packageName)
-                            .write("SignatureV4MultiRegion");
+                        .addImport("SignatureV4MultiRegion", "SignatureV4MultiRegion",
+                            AwsDependency.SIGNATURE_V4_MULTIREGION.packageName)
+                        .write("SignatureV4MultiRegion");
                 });
             case NODE:
                 return MapUtils.of("useArnRegion", writer -> {
                     writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER)
-                            .addImport("loadConfig", "loadNodeConfig", AwsDependency.NODE_CONFIG_PROVIDER.packageName)
-                            .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
-                            .addImport("NODE_USE_ARN_REGION_CONFIG_OPTIONS", "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
-                                    AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.packageName)
-                            .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS)");
+                        .addImport("loadConfig", "loadNodeConfig", AwsDependency.NODE_CONFIG_PROVIDER.packageName)
+                        .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
+                        .addImport("NODE_USE_ARN_REGION_CONFIG_OPTIONS", "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
+                            AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.packageName)
+                        .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS)");
                 });
             default:
                 return Collections.emptyMap();
@@ -161,67 +163,67 @@ public final class AddS3Config implements TypeScriptIntegration {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "ValidateBucketName",
-                             HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> isS3(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "CheckContentLengthHeader",
-                                HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> isS3(s) && o.getId().getName(s).equals("PutObject"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "throw200Exceptions",
-                                HAS_MIDDLEWARE)
-                        .operationPredicate(
-                                (m, s, o) -> EXCEPTIONS_OF_200_OPERATIONS.contains(o.getId().getName(s))
-                                        && isS3(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.S3_MIDDLEWARE.dependency,
-                                "WriteGetObjectResponseEndpoint", HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> isS3(s)
-                                            && o.getId().getName(s).equals("WriteGetObjectResponse"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.ADD_EXPECT_CONTINUE.dependency, "AddExpectContinue",
-                                        HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> isS3(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.SSEC_MIDDLEWARE.dependency, "Ssec", HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> containsInputMembers(m, o, SSEC_INPUT_KEYS)
-                                            && isS3(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.LOCATION_CONSTRAINT.dependency, "LocationConstraint",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("CreateBucket")
-                                && isS3(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                    .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3",
-                        HAS_CONFIG)
-                    .servicePredicate((m, s) -> isS3(s) && isEndpointsV2Service(s))
-                    .build(),
-                 /*
-                 * BUCKET_ENDPOINT_MIDDLEWARE needs two separate plugins. The first resolves the config in the client.
-                 * The second applies the middleware to bucket endpoint operations.
-                 */
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
-                                         HAS_CONFIG)
-                        .servicePredicate((m, s) -> isS3(s) && !isEndpointsV2Service(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName(s))
-                                            && isS3(s)
-                                            && !isEndpointsV2Service(s)
-                                            && containsInputMembers(m, o, BUCKET_ENDPOINT_INPUT_KEYS))
-                        .build()
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "ValidateBucketName",
+                    HAS_MIDDLEWARE)
+                .servicePredicate((m, s) -> isS3(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "CheckContentLengthHeader",
+                    HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> isS3(s) && o.getId().getName(s).equals("PutObject"))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "throw200Exceptions",
+                    HAS_MIDDLEWARE)
+                .operationPredicate(
+                    (m, s, o) -> EXCEPTIONS_OF_200_OPERATIONS.contains(o.getId().getName(s))
+                        && isS3(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency,
+                    "WriteGetObjectResponseEndpoint", HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> isS3(s)
+                    && o.getId().getName(s).equals("WriteGetObjectResponse"))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.ADD_EXPECT_CONTINUE.dependency, "AddExpectContinue",
+                    HAS_MIDDLEWARE)
+                .servicePredicate((m, s) -> isS3(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.SSEC_MIDDLEWARE.dependency, "Ssec", HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> containsInputMembers(m, o, SSEC_INPUT_KEYS)
+                    && isS3(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.LOCATION_CONSTRAINT.dependency, "LocationConstraint",
+                    HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("CreateBucket")
+                    && isS3(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3",
+                    HAS_CONFIG)
+                .servicePredicate((m, s) -> isS3(s) && isEndpointsV2Service(s))
+                .build(),
+            /*
+             * BUCKET_ENDPOINT_MIDDLEWARE needs two separate plugins. The first resolves the config in the client.
+             * The second applies the middleware to bucket endpoint operations.
+             */
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
+                    HAS_CONFIG)
+                .servicePredicate((m, s) -> isS3(s) && !isEndpointsV2Service(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
+                    HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName(s))
+                    && isS3(s)
+                    && !isEndpointsV2Service(s)
+                    && containsInputMembers(m, o, BUCKET_ENDPOINT_INPUT_KEYS))
+                .build()
         );
     }
 
@@ -232,8 +234,8 @@ public final class AddS3Config implements TypeScriptIntegration {
     ) {
         OperationIndex operationIndex = OperationIndex.of(model);
         return operationIndex.getInput(operationShape)
-                .filter(input -> input.getMemberNames().stream().anyMatch(expectedMemberNames::contains))
-                .isPresent();
+            .filter(input -> input.getMemberNames().stream().anyMatch(expectedMemberNames::contains))
+            .isPresent();
     }
 
     private static boolean isS3(Shape serviceShape) {

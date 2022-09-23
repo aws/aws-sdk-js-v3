@@ -158,7 +158,10 @@ describe("getSignedUrl", () => {
   it("should throw if presign request with MRAP ARN and disableMultiregionAccessPoints option", () => {
     const mockPresigned = "a presigned url";
     mockPresign.mockReturnValue(mockPresigned);
-    const client = new S3Client({ ...clientParams, disableMultiregionAccessPoints: true });
+    const client = new S3Client({
+      ...clientParams,
+      disableMultiregionAccessPoints: true,
+    });
     const command = new GetObjectCommand({
       Bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap",
       Key: "Key",

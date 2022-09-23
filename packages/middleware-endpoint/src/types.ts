@@ -1,4 +1,4 @@
-export interface EndpointParameterInstruction {
+export interface EndpointParameterInstructions {
   [name: string]:
     | BuiltInParamInstruction
     | ClientContextParamInstruction

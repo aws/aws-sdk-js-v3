@@ -1,4 +1,9 @@
-import { S3Client } from "@aws-sdk/client-s3";
+import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import {
+  EndpointParameterInstructionsSupplier,
+  getEndpointFromInstructions,
+  toEndpointV1,
+} from "@aws-sdk/middleware-endpoint";
 import { createScope, getSigningKey } from "@aws-sdk/signature-v4";
 import { HashConstructor, SourceData } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
@@ -80,8 +85,19 @@ export const createPresignedPost = async (
   const signingKey = await getSigningKey(sha256, clientCredentials, shortDate, clientRegion, "s3");
   const signature = await hmac(sha256, signingKey, encodedPolicy);
 
-  const endpoint = await client.config.endpoint();
-  if (!client.config.bucketEndpoint) {
+  let endpoint = await client.config?.endpoint?.();
+  let isEndpointV2 = false;
+
+  if (!endpoint) {
+    isEndpointV2 = true;
+    endpoint = toEndpointV1(
+      await getEndpointFromInstructions({ Bucket, Key }, PutObjectCommand as EndpointParameterInstructionsSupplier, {
+        ...client.config,
+      })
+    );
+  }
+
+  if (endpoint && !client.config.isCustomEndpoint && !isEndpointV2) {
     endpoint.path = `/${Bucket}`;
   }
 
