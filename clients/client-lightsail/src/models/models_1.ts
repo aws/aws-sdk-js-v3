@@ -91,6 +91,92 @@ export interface InstanceHardware {
   ramSizeInGb?: number;
 }
 
+export enum HttpEndpoint {
+  disabled = "disabled",
+  enabled = "enabled",
+}
+
+export enum HttpProtocolIpv6 {
+  disabled = "disabled",
+  enabled = "enabled",
+}
+
+export enum HttpTokens {
+  optional = "optional",
+  required = "required",
+}
+
+export enum InstanceMetadataState {
+  applied = "applied",
+  pending = "pending",
+}
+
+/**
+ * <p>The metadata options for the instance.</p>
+ */
+export interface InstanceMetadataOptions {
+  /**
+   * <p>The state of the metadata option changes.</p>
+   *          <p>The following states are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - The metadata options are being updated. The instance is not yet
+   *           ready to process metadata traffic with the new selection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>applied</code> - The metadata options have been successfully applied to the
+   *           instance.</p>
+   *             </li>
+   *          </ul>
+   */
+  state?: InstanceMetadataState | string;
+
+  /**
+   * <p>The state of token usage for your instance metadata requests.</p>
+   *
+   *          <p>If the state is <code>optional</code>, you can choose whether to retrieve instance
+   *       metadata with a signed token header on your request. If you retrieve the IAM role credentials
+   *       without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role
+   *       credentials by using a valid signed token, the version 2.0 role credentials are
+   *       returned.</p>
+   *
+   *          <p>If the state is <code>required</code>, you must send a signed token header with all
+   *       instance metadata retrieval requests. In this state, retrieving the IAM role credential always
+   *       returns the version 2.0 credentials. The version 1.0 credentials are not available.</p>
+   *
+   *
+   *          <important>
+   *             <p>Not all instance blueprints in Lightsail support version 2.0 credentials.
+   *         Use the <code>MetadataNoToken</code> instance metric to track the number of calls to the
+   *         instance metadata service that are using version 1.0 credentials. For more information, see
+   *           <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-health-metrics">Viewing instance metrics in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+   *          </important>
+   */
+  httpTokens?: HttpTokens | string;
+
+  /**
+   * <p>Indicates whether the HTTP metadata endpoint on your instances is enabled or
+   *       disabled.</p>
+   *
+   *          <p>If the value is <code>disabled</code>, you cannot access your instance metadata.</p>
+   */
+  httpEndpoint?: HttpEndpoint | string;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. A larger number
+   *       means that the instance metadata requests can travel farther.</p>
+   */
+  httpPutResponseHopLimit?: number;
+
+  /**
+   * <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or
+   *       disabled.</p>
+   */
+  httpProtocolIpv6?: HttpProtocolIpv6 | string;
+}
+
 /**
  * <p>Describes the monthly data transfer in and out of your virtual private server (or
  *         <i>instance</i>).</p>
@@ -402,6 +488,11 @@ export interface Instance {
    *         <code>LightsailDefaultKeyPair</code>).</p>
    */
   sshKeyName?: string;
+
+  /**
+   * <p>The metadata options for the Amazon Lightsail instance.</p>
+   */
+  metadataOptions?: InstanceMetadataOptions;
 }
 
 export interface GetInstanceResult {
@@ -615,6 +706,7 @@ export enum InstanceMetricName {
   BurstCapacityPercentage = "BurstCapacityPercentage",
   BurstCapacityTime = "BurstCapacityTime",
   CPUUtilization = "CPUUtilization",
+  MetadataNoToken = "MetadataNoToken",
   NetworkIn = "NetworkIn",
   NetworkOut = "NetworkOut",
   StatusCheckFailed = "StatusCheckFailed",
@@ -745,6 +837,21 @@ export interface GetInstanceMetricDataRequest {
    *           whether the instance passed or failed the system status check. This metric can be either 0
    *           (passed) or 1 (failed). This metric data is available in 1-minute (60 seconds)
    *           granularity.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *             <li>
+   *
+   *                <p>
+   *                   <b>
+   *                      <code>MetadataNoToken</code>
+   *                   </b> - Reports the number of
+   *           times that the instance metadata service was successfully accessed without a token. This
+   *           metric determines if there are any processes accessing instance metadata by using Instance
+   *           Metadata Service Version 1, which doesn't use a token. If all requests use token-backed
+   *           sessions, such as Instance Metadata Service Version 2, then the value is 0.</p>
    *                <p>
    *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
    *                <p>
@@ -4529,6 +4636,62 @@ export interface UpdateDomainEntryResult {
   operations?: Operation[];
 }
 
+export interface UpdateInstanceMetadataOptionsRequest {
+  /**
+   * <p>The name of the instance for which to update metadata parameters.</p>
+   */
+  instanceName: string | undefined;
+
+  /**
+   * <p>The state of token usage for your instance metadata requests. If the parameter is not
+   *       specified in the request, the default state is <code>optional</code>.</p>
+   *
+   *          <p>If the state is <code>optional</code>, you can choose whether to retrieve instance
+   *       metadata with a signed token header on your request. If you retrieve the IAM role credentials
+   *       without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role
+   *       credentials by using a valid signed token, the version 2.0 role credentials are
+   *       returned.</p>
+   *
+   *          <p>If the state is <code>required</code>, you must send a signed token header with all
+   *       instance metadata retrieval requests. In this state, retrieving the IAM role credential always
+   *       returns the version 2.0 credentials. The version 1.0 credentials are not available.</p>
+   */
+  httpTokens?: HttpTokens | string;
+
+  /**
+   * <p>Enables or disables the HTTP metadata endpoint on your instances. If this parameter is not
+   *       specified, the existing state is maintained.</p>
+   *
+   *          <p>If you specify a value of <code>disabled</code>, you cannot access your instance
+   *       metadata.</p>
+   */
+  httpEndpoint?: HttpEndpoint | string;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. A larger number
+   *       means that the instance metadata requests can travel farther. If no parameter is specified,
+   *       the existing state is maintained.</p>
+   */
+  httpPutResponseHopLimit?: number;
+
+  /**
+   * <p>Enables or disables the IPv6 endpoint for the instance metadata service. This setting
+   *       applies only when the HTTP metadata endpoint is enabled.</p>
+   *
+   *          <note>
+   *             <p>This parameter is available only for instances in the Europe (Stockholm) Amazon Web Services Region (<code>eu-north-1</code>).</p>
+   *          </note>
+   */
+  httpProtocolIpv6?: HttpProtocolIpv6 | string;
+}
+
+export interface UpdateInstanceMetadataOptionsResult {
+  /**
+   * <p>Describes the API operation.</p>
+   */
+  operation?: Operation;
+}
+
 export interface UpdateLoadBalancerAttributeRequest {
   /**
    * <p>The name of the load balancer that you want to modify (e.g.,
@@ -4757,6 +4920,13 @@ export const GetInstanceRequestFilterSensitiveLog = (obj: GetInstanceRequest): a
  * @internal
  */
 export const InstanceHardwareFilterSensitiveLog = (obj: InstanceHardware): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceMetadataOptionsFilterSensitiveLog = (obj: InstanceMetadataOptions): any => ({
   ...obj,
 });
 
@@ -5872,6 +6042,24 @@ export const UpdateDomainEntryRequestFilterSensitiveLog = (obj: UpdateDomainEntr
  * @internal
  */
 export const UpdateDomainEntryResultFilterSensitiveLog = (obj: UpdateDomainEntryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInstanceMetadataOptionsRequestFilterSensitiveLog = (
+  obj: UpdateInstanceMetadataOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInstanceMetadataOptionsResultFilterSensitiveLog = (
+  obj: UpdateInstanceMetadataOptionsResult
+): any => ({
   ...obj,
 });
 

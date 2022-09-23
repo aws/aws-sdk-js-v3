@@ -424,6 +424,10 @@ import {
 import { UpdateDistributionCommandInput, UpdateDistributionCommandOutput } from "./commands/UpdateDistributionCommand";
 import { UpdateDomainEntryCommandInput, UpdateDomainEntryCommandOutput } from "./commands/UpdateDomainEntryCommand";
 import {
+  UpdateInstanceMetadataOptionsCommandInput,
+  UpdateInstanceMetadataOptionsCommandOutput,
+} from "./commands/UpdateInstanceMetadataOptionsCommand";
+import {
   UpdateLoadBalancerAttributeCommandInput,
   UpdateLoadBalancerAttributeCommandOutput,
 } from "./commands/UpdateLoadBalancerAttributeCommand";
@@ -589,6 +593,7 @@ export type ServiceInputTypes =
   | UpdateDistributionBundleCommandInput
   | UpdateDistributionCommandInput
   | UpdateDomainEntryCommandInput
+  | UpdateInstanceMetadataOptionsCommandInput
   | UpdateLoadBalancerAttributeCommandInput
   | UpdateRelationalDatabaseCommandInput
   | UpdateRelationalDatabaseParametersCommandInput;
@@ -745,6 +750,7 @@ export type ServiceOutputTypes =
   | UpdateDistributionBundleCommandOutput
   | UpdateDistributionCommandOutput
   | UpdateDomainEntryCommandOutput
+  | UpdateInstanceMetadataOptionsCommandOutput
   | UpdateLoadBalancerAttributeCommandOutput
   | UpdateRelationalDatabaseCommandOutput
   | UpdateRelationalDatabaseParametersCommandOutput;

@@ -150,6 +150,7 @@ export * from "./UpdateContainerServiceCommand";
 export * from "./UpdateDistributionBundleCommand";
 export * from "./UpdateDistributionCommand";
 export * from "./UpdateDomainEntryCommand";
+export * from "./UpdateInstanceMetadataOptionsCommand";
 export * from "./UpdateLoadBalancerAttributeCommand";
 export * from "./UpdateRelationalDatabaseCommand";
 export * from "./UpdateRelationalDatabaseParametersCommand";

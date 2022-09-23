@@ -661,6 +661,11 @@ import {
   UpdateDomainEntryCommandOutput,
 } from "./commands/UpdateDomainEntryCommand";
 import {
+  UpdateInstanceMetadataOptionsCommand,
+  UpdateInstanceMetadataOptionsCommandInput,
+  UpdateInstanceMetadataOptionsCommandOutput,
+} from "./commands/UpdateInstanceMetadataOptionsCommand";
+import {
   UpdateLoadBalancerAttributeCommand,
   UpdateLoadBalancerAttributeCommandInput,
   UpdateLoadBalancerAttributeCommandOutput,
@@ -5938,6 +5943,43 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: UpdateDomainEntryCommandOutput) => void
   ): Promise<UpdateDomainEntryCommandOutput> | void {
     const command = new UpdateDomainEntryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the Amazon Lightsail instance metadata parameters on a running or stopped
+   *       instance. When you modify the parameters on a running instance, the <code>GetInstance</code>
+   *       or <code>GetInstances</code> API operation initially responds with a state of
+   *         <code>pending</code>. After the parameter modifications are successfully applied, the state
+   *       changes to <code>applied</code> in subsequent <code>GetInstance</code> or
+   *         <code>GetInstances</code> API calls. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-instance-metadata-service">Use IMDSv2 with an Amazon Lightsail instance</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+   */
+  public updateInstanceMetadataOptions(
+    args: UpdateInstanceMetadataOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInstanceMetadataOptionsCommandOutput>;
+  public updateInstanceMetadataOptions(
+    args: UpdateInstanceMetadataOptionsCommandInput,
+    cb: (err: any, data?: UpdateInstanceMetadataOptionsCommandOutput) => void
+  ): void;
+  public updateInstanceMetadataOptions(
+    args: UpdateInstanceMetadataOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInstanceMetadataOptionsCommandOutput) => void
+  ): void;
+  public updateInstanceMetadataOptions(
+    args: UpdateInstanceMetadataOptionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInstanceMetadataOptionsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateInstanceMetadataOptionsCommandOutput) => void
+  ): Promise<UpdateInstanceMetadataOptionsCommandOutput> | void {
+    const command = new UpdateInstanceMetadataOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

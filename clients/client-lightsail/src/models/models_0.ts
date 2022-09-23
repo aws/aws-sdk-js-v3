@@ -887,6 +887,7 @@ export enum OperationType {
   UpdateDistribution = "UpdateDistribution",
   UpdateDistributionBundle = "UpdateDistributionBundle",
   UpdateDomainEntry = "UpdateDomainEntry",
+  UpdateInstanceMetadataOptions = "UpdateInstanceMetadataOptions",
   UpdateLoadBalancerAttribute = "UpdateLoadBalancerAttribute",
   UpdateRelationalDatabase = "UpdateRelationalDatabase",
   UpdateRelationalDatabaseParameters = "UpdateRelationalDatabaseParameters",

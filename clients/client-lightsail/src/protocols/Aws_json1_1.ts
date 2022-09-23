@@ -392,6 +392,10 @@ import {
 import { UpdateDistributionCommandInput, UpdateDistributionCommandOutput } from "../commands/UpdateDistributionCommand";
 import { UpdateDomainEntryCommandInput, UpdateDomainEntryCommandOutput } from "../commands/UpdateDomainEntryCommand";
 import {
+  UpdateInstanceMetadataOptionsCommandInput,
+  UpdateInstanceMetadataOptionsCommandOutput,
+} from "../commands/UpdateInstanceMetadataOptionsCommand";
+import {
   UpdateLoadBalancerAttributeCommandInput,
   UpdateLoadBalancerAttributeCommandOutput,
 } from "../commands/UpdateLoadBalancerAttributeCommand";
@@ -745,6 +749,7 @@ import {
   InstanceAccessDetails,
   InstanceHardware,
   InstanceHealthSummary,
+  InstanceMetadataOptions,
   InstanceNetworking,
   InstancePortInfo,
   InstancePortState,
@@ -827,6 +832,8 @@ import {
   UpdateDistributionResult,
   UpdateDomainEntryRequest,
   UpdateDomainEntryResult,
+  UpdateInstanceMetadataOptionsRequest,
+  UpdateInstanceMetadataOptionsResult,
   UpdateLoadBalancerAttributeRequest,
   UpdateLoadBalancerAttributeResult,
   UpdateRelationalDatabaseParametersRequest,
@@ -2795,6 +2802,19 @@ export const serializeAws_json1_1UpdateDomainEntryCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDomainEntryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateInstanceMetadataOptionsCommand = async (
+  input: UpdateInstanceMetadataOptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Lightsail_20161128.UpdateInstanceMetadataOptions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateInstanceMetadataOptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -11491,6 +11511,65 @@ const deserializeAws_json1_1UpdateDomainEntryCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateInstanceMetadataOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInstanceMetadataOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateInstanceMetadataOptionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateInstanceMetadataOptionsResult(data, context);
+  const response: UpdateInstanceMetadataOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateInstanceMetadataOptionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInstanceMetadataOptionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "AccountSetupInProgressException":
+    case "com.amazonaws.lightsail#AccountSetupInProgressException":
+      throw await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      throw await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      throw await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1UpdateLoadBalancerAttributeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -13682,6 +13761,19 @@ const serializeAws_json1_1UpdateDomainEntryRequest = (
   return {
     ...(input.domainEntry != null && { domainEntry: serializeAws_json1_1DomainEntry(input.domainEntry, context) }),
     ...(input.domainName != null && { domainName: input.domainName }),
+  };
+};
+
+const serializeAws_json1_1UpdateInstanceMetadataOptionsRequest = (
+  input: UpdateInstanceMetadataOptionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.httpEndpoint != null && { httpEndpoint: input.httpEndpoint }),
+    ...(input.httpProtocolIpv6 != null && { httpProtocolIpv6: input.httpProtocolIpv6 }),
+    ...(input.httpPutResponseHopLimit != null && { httpPutResponseHopLimit: input.httpPutResponseHopLimit }),
+    ...(input.httpTokens != null && { httpTokens: input.httpTokens }),
+    ...(input.instanceName != null && { instanceName: input.instanceName }),
   };
 };
 
@@ -16082,6 +16174,10 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
       output.ipv6Addresses != null ? deserializeAws_json1_1Ipv6AddressList(output.ipv6Addresses, context) : undefined,
     isStaticIp: __expectBoolean(output.isStaticIp),
     location: output.location != null ? deserializeAws_json1_1ResourceLocation(output.location, context) : undefined,
+    metadataOptions:
+      output.metadataOptions != null
+        ? deserializeAws_json1_1InstanceMetadataOptions(output.metadataOptions, context)
+        : undefined,
     name: __expectString(output.name),
     networking:
       output.networking != null ? deserializeAws_json1_1InstanceNetworking(output.networking, context) : undefined,
@@ -16154,6 +16250,19 @@ const deserializeAws_json1_1InstanceList = (output: any, context: __SerdeContext
       return deserializeAws_json1_1Instance(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1InstanceMetadataOptions = (
+  output: any,
+  context: __SerdeContext
+): InstanceMetadataOptions => {
+  return {
+    httpEndpoint: __expectString(output.httpEndpoint),
+    httpProtocolIpv6: __expectString(output.httpProtocolIpv6),
+    httpPutResponseHopLimit: __expectInt32(output.httpPutResponseHopLimit),
+    httpTokens: __expectString(output.httpTokens),
+    state: __expectString(output.state),
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceNetworking = (output: any, context: __SerdeContext): InstanceNetworking => {
@@ -17468,6 +17577,15 @@ const deserializeAws_json1_1UpdateDomainEntryResult = (
 ): UpdateDomainEntryResult => {
   return {
     operations: output.operations != null ? deserializeAws_json1_1OperationList(output.operations, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateInstanceMetadataOptionsResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateInstanceMetadataOptionsResult => {
+  return {
+    operation: output.operation != null ? deserializeAws_json1_1Operation(output.operation, context) : undefined,
   } as any;
 };
 
