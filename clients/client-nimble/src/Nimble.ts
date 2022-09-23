@@ -1453,13 +1453,13 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Repairs the Amazon Web Services SSO configuration for a given studio.</p>
-   *         <p>If the studio has a valid Amazon Web Services SSO configuration currently associated with
+   * <p>Repairs the IAM Identity Center configuration for a given studio.</p>
+   *         <p>If the studio has a valid IAM Identity Center configuration currently associated with
    *             it, this operation will fail with a validation error.</p>
-   *         <p>If the studio does not have a valid Amazon Web Services SSO configuration currently
-   *             associated with it, then a new Amazon Web Services SSO application is created for the studio
+   *         <p>If the studio does not have a valid IAM Identity Center configuration currently
+   *             associated with it, then a new IAM Identity Center application is created for the studio
    *             and the studio is changed to the READY state.</p>
-   *         <p>After the Amazon Web Services SSO application is repaired, you must use the Amazon Nimble Studio console to add administrators and users to your studio.</p>
+   *         <p>After the IAM Identity Center application is repaired, you must use the Amazon Nimble Studio console to add administrators and users to your studio.</p>
    */
   public startStudioSSOConfigurationRepair(
     args: StartStudioSSOConfigurationRepairCommandInput,

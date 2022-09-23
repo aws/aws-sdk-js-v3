@@ -17,7 +17,7 @@ export interface AcceptEulasRequest {
   eulaIds?: string[];
 
   /**
-   * <p>A collection of EULA IDs.</p>
+   * <p>The studio ID.</p>
    */
   studioId: string | undefined;
 }
@@ -343,12 +343,19 @@ export enum StreamingClipboardMode {
 }
 
 export enum StreamingInstanceType {
+  g3_4xlarge = "g3.4xlarge",
+  g3s_xlarge = "g3s.xlarge",
   g4dn_12xlarge = "g4dn.12xlarge",
   g4dn_16xlarge = "g4dn.16xlarge",
   g4dn_2xlarge = "g4dn.2xlarge",
   g4dn_4xlarge = "g4dn.4xlarge",
   g4dn_8xlarge = "g4dn.8xlarge",
   g4dn_xlarge = "g4dn.xlarge",
+  g5_16xlarge = "g5.16xlarge",
+  g5_2xlarge = "g5.2xlarge",
+  g5_4xlarge = "g5.4xlarge",
+  g5_8xlarge = "g5.8xlarge",
+  g5_xlarge = "g5.xlarge",
 }
 
 export enum StreamingSessionStorageMode {
@@ -507,6 +514,8 @@ export enum LaunchProfileStatusCode {
   ENCRYPTION_KEY_ACCESS_DENIED = "ENCRYPTION_KEY_ACCESS_DENIED",
   ENCRYPTION_KEY_NOT_FOUND = "ENCRYPTION_KEY_NOT_FOUND",
   INTERNAL_ERROR = "INTERNAL_ERROR",
+  INVALID_INSTANCE_TYPES_PROVIDED = "INVALID_INSTANCE_TYPES_PROVIDED",
+  INVALID_SUBNETS_COMBINATION = "INVALID_SUBNETS_COMBINATION",
   INVALID_SUBNETS_PROVIDED = "INVALID_SUBNETS_PROVIDED",
   LAUNCH_PROFILE_CREATED = "LAUNCH_PROFILE_CREATED",
   LAUNCH_PROFILE_CREATE_IN_PROGRESS = "LAUNCH_PROFILE_CREATE_IN_PROGRESS",
@@ -1285,7 +1294,7 @@ export enum StudioStatusCode {
  *             first, before any other resource type can be created. All other resources you create and
  *             manage in Nimble Studio are contained within a studio.</p>
  *         <p>When creating a studio, you must provides two IAM roles for use with the Nimble Studio portal. These roles are assumed by your users when they log in to the
- *                 Nimble Studio portal via Amazon Web Services SSO and your identity source.</p>
+ *                 Nimble Studio portal via IAM Identity Center and your identity source.</p>
  *         <p>The user role must have the AmazonNimbleStudio-StudioUser managed policy attached for
  *             the portal to function properly.</p>
  *         <p>The admin role must have the AmazonNimbleStudio-StudioAdmin managed policy attached
@@ -1322,8 +1331,8 @@ export interface Studio {
   homeRegion?: string;
 
   /**
-   * <p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO
-   *             to enable Amazon Web Services SSO users to log in to Nimble Studio portal.</p>
+   * <p>The IAM Identity Center application client ID used to integrate with IAM Identity Center
+   *             to enable IAM Identity Center users to log in to Nimble Studio portal.</p>
    */
   ssoClientId?: string;
 
@@ -1781,7 +1790,7 @@ export interface DeleteLaunchProfileMemberRequest {
   launchProfileId: string | undefined;
 
   /**
-   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
+   * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
@@ -1901,7 +1910,7 @@ export interface DeleteStudioMemberRequest {
   clientToken?: string;
 
   /**
-   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
+   * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
@@ -2276,7 +2285,7 @@ export interface GetLaunchProfileMemberRequest {
   launchProfileId: string | undefined;
 
   /**
-   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
+   * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
@@ -2444,7 +2453,7 @@ export interface GetStudioComponentResponse {
 
 export interface GetStudioMemberRequest {
   /**
-   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
+   * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
@@ -2462,7 +2471,7 @@ export enum StudioPersona {
  * <p>A studio member is an association of a user from your studio identity source to
  *             elevated permissions that they are granted in the studio.</p>
  *         <p>When you add a user to your studio using the Nimble Studio console, they are
- *             given access to the studio's AWS SSO application and are given access to log in to the
+ *             given access to the studio's IAM Identity Center application and are given access to log in to the
  *                 Nimble Studio portal. These users have the permissions provided by the studio's
  *             user IAM role and do not appear in the studio membership collection. Only studio admins
  *             appear in studio membership.</p>
@@ -2545,7 +2554,7 @@ export interface ListLaunchProfilesRequest {
   nextToken?: string;
 
   /**
-   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
+   * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId?: string;
 
@@ -2690,7 +2699,7 @@ export interface UpdateLaunchProfileMemberRequest {
   persona: LaunchProfilePersona | string | undefined;
 
   /**
-   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
+   * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
