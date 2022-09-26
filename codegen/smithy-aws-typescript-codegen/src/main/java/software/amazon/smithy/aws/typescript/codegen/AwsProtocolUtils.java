@@ -131,12 +131,14 @@ final class AwsProtocolUtils {
         writer.addImport("getValueFromTextNode", "__getValueFromTextNode", "@aws-sdk/smithy-client");
         writer.addDependency(AwsDependency.XML_PARSER);
         writer.addDependency(AwsDependency.HTML_ENTITIES);
-        writer.addImport("parse", "xmlParse", "fast-xml-parser");
+        writer.addImport("XMLParser", null, "fast-xml-parser");
         writer.addImport("decodeHTML", "decodeHTML", "entities");
         writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
                 + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
                     writer.openBlock("if (encoded.length) {", "}", () -> {
-                        writer.write("const parsedObj = xmlParse(encoded, { attributeNamePrefix: '', "
+                        // Temporararily creating parser inside the function.
+                        // Parser would be moved to runtime config in https://github.com/aws/aws-sdk-js-v3/issues/3979
+                        writer.write("const parsedObj = new XMLParser().parse(encoded, { attributeNamePrefix: '', "
                                 + "ignoreAttributes: false, parseNodeValue: false, trimValues: false, "
                                 + "tagValueProcessor: (val) => (val.trim() === '' && val.includes('\\n'))"
                                 + " ? '': decodeHTML(val) });");
