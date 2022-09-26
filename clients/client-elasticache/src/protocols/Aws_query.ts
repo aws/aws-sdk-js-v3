@@ -20,7 +20,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 
 import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "../commands/AddTagsToResourceCommand";
 import {
@@ -12498,13 +12498,13 @@ const buildHttpRpcRequest = async (
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded, {
+      const parsedObj = new XMLParser({
         attributeNamePrefix: "",
         ignoreAttributes: false,
-        parseNodeValue: false,
+        parseTagValue: false,
         trimValues: false,
         tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
-      });
+      }).parse(encoded);
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];

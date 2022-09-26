@@ -4,7 +4,7 @@ import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { Encoder as __Encoder } from "@aws-sdk/types";
 import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
 import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 import { Readable } from "stream";
 
 import { AllQueryStringTypesCommand } from "../../src/commands/AllQueryStringTypesCommand";
@@ -6754,13 +6754,13 @@ const compareEquivalentXmlBodies = (expectedBody: string, generatedBody: string)
   const parseConfig = {
     attributeNamePrefix: "",
     ignoreAttributes: false,
-    parseNodeValue: false,
+    parseTagValue: false,
     trimValues: false,
     tagValueProcessor: (val: any, tagName: any) => (val.trim() === "" ? "" : decodeHTML(val)),
   };
 
   const parseXmlBody = (body: string) => {
-    const parsedObj = xmlParse(body, parseConfig);
+    const parsedObj = new XMLParser(parseConfig).parse(body);
     const textNodeName = "#text";
     const key = Object.keys(parsedObj)[0];
     const parsedObjToReturn = parsedObj[key];
