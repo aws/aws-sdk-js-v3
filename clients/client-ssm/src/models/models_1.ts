@@ -2,6 +2,8 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
+  AlarmConfiguration,
+  AlarmStateInformation,
   AssociationComplianceSeverity,
   AssociationDescription,
   AssociationDescriptionFilterSensitiveLog,
@@ -31,7 +33,6 @@ import {
   OpsItemDataValue,
   OpsItemNotification,
   OpsItemStatus,
-  ParameterStringFilter,
   PatchAction,
   PatchComplianceLevel,
   PatchFilterGroup,
@@ -53,6 +54,88 @@ import {
   TargetLocation,
 } from "./models_0";
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+export enum ParametersFilterKey {
+  KEY_ID = "KeyId",
+  NAME = "Name",
+  TYPE = "Type",
+}
+
+/**
+ * <p>This data type is deprecated. Instead, use <a>ParameterStringFilter</a>.</p>
+ */
+export interface ParametersFilter {
+  /**
+   * <p>The name of the filter.</p>
+   */
+  Key: ParametersFilterKey | string | undefined;
+
+  /**
+   * <p>The filter values.</p>
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * <p>One or more filters. Use a filter to return a more specific list of results.</p>
+ */
+export interface ParameterStringFilter {
+  /**
+   * <p>The name of the filter.</p>
+   *          <p>The <code>ParameterStringFilter</code> object is used by the <a>DescribeParameters</a> and <a>GetParametersByPath</a> API operations.
+   *    However, not all of the pattern values listed for <code>Key</code> can be used with both
+   *    operations.</p>
+   *          <p>For <code>DescribeParameters</code>, all of the listed patterns are valid except
+   *     <code>Label</code>.</p>
+   *          <p>For <code>GetParametersByPath</code>, the following patterns listed for <code>Key</code>
+   *    aren't valid: <code>tag</code>, <code>DataType</code>, <code>Name</code>, <code>Path</code>, and
+   *     <code>Tier</code>.</p>
+   *          <p>For examples of Amazon Web Services CLI commands demonstrating valid parameter filter constructions, see
+   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-search.html">Searching for Systems Manager parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>For all filters used with <a>DescribeParameters</a>, valid options include
+   *     <code>Equals</code> and <code>BeginsWith</code>. The <code>Name</code> filter additionally
+   *    supports the <code>Contains</code> option. (Exception: For filters using the key
+   *     <code>Path</code>, valid options include <code>Recursive</code> and
+   *    <code>OneLevel</code>.)</p>
+   *          <p>For filters used with <a>GetParametersByPath</a>, valid options include
+   *     <code>Equals</code> and <code>BeginsWith</code>. (Exception: For filters using
+   *     <code>Label</code> as the Key name, the only valid option is <code>Equals</code>.)</p>
+   */
+  Option?: string;
+
+  /**
+   * <p>The value you want to search for.</p>
+   */
+  Values?: string[];
+}
+
+export interface DescribeParametersRequest {
+  /**
+   * <p>This data type is deprecated. Instead, use <code>ParameterFilters</code>.</p>
+   */
+  Filters?: ParametersFilter[];
+
+  /**
+   * <p>Filters to limit the request results.</p>
+   */
+  ParameterFilters?: ParameterStringFilter[];
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * <p>One or more policies assigned to a parameter.</p>
@@ -914,6 +997,16 @@ export interface AutomationExecution {
    *    multi-Region and multi-account Automation execution.</p>
    */
   ProgressCounters?: ProgressCounters;
+
+  /**
+   * <p>The details for the CloudWatch alarm applied to your automation.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The CloudWatch alarm that was invoked by the automation.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 
   /**
    * <p>The subtype of the Automation operation. Currently, the only supported value is
@@ -2134,6 +2227,16 @@ export interface GetMaintenanceWindowExecutionTaskResult {
    * <p>The time the task execution completed.</p>
    */
   EndTime?: Date;
+
+  /**
+   * <p>The details for the CloudWatch alarm you applied to your maintenance window task.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The CloudWatch alarms that were invoked by the maintenance window task.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 }
 
 export interface GetMaintenanceWindowExecutionTaskInvocationRequest {
@@ -2610,6 +2713,11 @@ export interface GetMaintenanceWindowTaskResult {
    *     <code>CancelCommand</code> operation.</p>
    */
   CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+
+  /**
+   * <p>The details for the CloudWatch alarm you applied to your maintenance window task.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface GetOpsItemRequest {
@@ -4662,6 +4770,16 @@ export interface Command {
    * <p>The <code>TimeoutSeconds</code> value specified for a command.</p>
    */
   TimeoutSeconds?: number;
+
+  /**
+   * <p>The details for the CloudWatch alarm applied to your command.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The CloudWatch alarm that was invoked by the command.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 }
 
 export interface ListCommandsResult {
@@ -7403,6 +7521,11 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
    *          </ul>
    */
   CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+
+  /**
+   * <p>The CloudWatch alarm you want to apply to your maintenance window task.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface RegisterTaskWithMaintenanceWindowResult {
@@ -7835,6 +7958,11 @@ export interface SendCommandRequest {
    *    capability of Amazon Web Services Systems Manager.</p>
    */
   CloudWatchOutputConfig?: CloudWatchOutputConfig;
+
+  /**
+   * <p>The CloudWatch alarm you want to apply to your command.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface SendCommandResult {
@@ -8064,6 +8192,11 @@ export interface StartAutomationExecutionRequest {
    *          </note>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The CloudWatch alarm you want to apply to your automation.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface StartAutomationExecutionResult {
@@ -8586,6 +8719,11 @@ export interface UpdateAssociationRequest {
    *    can't be specified together.</p>
    */
   TargetMaps?: Record<string, string[]>[];
+
+  /**
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface UpdateAssociationResult {
@@ -8765,51 +8903,26 @@ export interface UpdateDocumentResult {
   DocumentDescription?: DocumentDescription;
 }
 
-export interface UpdateDocumentDefaultVersionRequest {
-  /**
-   * <p>The name of a custom document that you want to set as the default version.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The version of a custom document that you want to set as the default version.</p>
-   */
-  DocumentVersion: string | undefined;
-}
+/**
+ * @internal
+ */
+export const ParametersFilterFilterSensitiveLog = (obj: ParametersFilter): any => ({
+  ...obj,
+});
 
 /**
- * <p>A default version of a document.</p>
+ * @internal
  */
-export interface DocumentDefaultVersionDescription {
-  /**
-   * <p>The name of the document.</p>
-   */
-  Name?: string;
+export const ParameterStringFilterFilterSensitiveLog = (obj: ParameterStringFilter): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The default version of the document.</p>
-   */
-  DefaultVersion?: string;
-
-  /**
-   * <p>The default version of the artifact associated with the document.</p>
-   */
-  DefaultVersionName?: string;
-}
-
-export interface UpdateDocumentDefaultVersionResult {
-  /**
-   * <p>The description of a custom document that you want to set as the default version.</p>
-   */
-  Description?: DocumentDefaultVersionDescription;
-}
-
-export enum DocumentReviewAction {
-  Approve = "Approve",
-  Reject = "Reject",
-  SendForReview = "SendForReview",
-  UpdateReview = "UpdateReview",
-}
+/**
+ * @internal
+ */
+export const DescribeParametersRequestFilterSensitiveLog = (obj: DescribeParametersRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10343,28 +10456,5 @@ export const UpdateDocumentRequestFilterSensitiveLog = (obj: UpdateDocumentReque
  * @internal
  */
 export const UpdateDocumentResultFilterSensitiveLog = (obj: UpdateDocumentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentDefaultVersionRequestFilterSensitiveLog = (
-  obj: UpdateDocumentDefaultVersionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentDefaultVersionDescriptionFilterSensitiveLog = (obj: DocumentDefaultVersionDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentDefaultVersionResultFilterSensitiveLog = (obj: UpdateDocumentDefaultVersionResult): any => ({
   ...obj,
 });

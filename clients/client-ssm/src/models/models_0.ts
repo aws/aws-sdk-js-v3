@@ -267,6 +267,51 @@ export class TooManyUpdates extends __BaseException {
 }
 
 /**
+ * <p>A CloudWatch alarm you apply to an automation or command.</p>
+ */
+export interface Alarm {
+  /**
+   * <p>The name of your CloudWatch alarm.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+ */
+export interface AlarmConfiguration {
+  /**
+   * <p>If you specify <code>true</code> for this value, your automation or command continue to run even if we can't gather information about the state of your CloudWatch alarm. The default value is <code>false</code>.</p>
+   */
+  IgnorePollAlarmFailure?: boolean;
+
+  /**
+   * <p>The name of the CloudWatch alarm specified in the configuration.</p>
+   */
+  Alarms: Alarm[] | undefined;
+}
+
+export enum ExternalAlarmState {
+  ALARM = "ALARM",
+  UNKNOWN = "UNKNOWN",
+}
+
+/**
+ * <p>The details about the state of your CloudWatch alarm.</p>
+ */
+export interface AlarmStateInformation {
+  /**
+   * <p>The name of your CloudWatch alarm.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The state of your CloudWatch alarm.</p>
+   */
+  State: ExternalAlarmState | string | undefined;
+}
+
+/**
  * <p>Error returned if an attempt is made to register a patch group with a patch baseline that is
  *    already registered with a different patch baseline.</p>
  */
@@ -1091,12 +1136,15 @@ export interface CreateAssociationRequest {
   TargetMaps?: Record<string, string[]>[];
 
   /**
-   * <p>Adds or overwrites one or more tags for a State Manager association. <i>Tags</i>
-   *    are metadata that you can assign to your Amazon Web Services resources. Tags enable you to categorize your
-   *    resources in different ways, for example, by purpose, owner, or environment. Each tag consists of
-   *    a key and an optional value, both of which you define. </p>
+   * <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in
+   *         different ways, such as by purpose, owner, or environment. For example, you might want to tag an association to identify the type of resource to which it applies, the environment, or the purpose of the association.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 /**
@@ -1320,6 +1368,16 @@ export interface AssociationDescription {
    *    can't be specified together.</p>
    */
   TargetMaps?: Record<string, string[]>[];
+
+  /**
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The CloudWatch alarm that was invoked during the association.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 }
 
 export interface CreateAssociationResult {
@@ -1416,7 +1474,7 @@ export class InvalidSchedule extends __BaseException {
 }
 
 /**
- * <p>The specified tag key or value is not valid.</p>
+ * <p>The tag key or value isn't valid.</p>
  */
 export class InvalidTag extends __BaseException {
   readonly name: "InvalidTag" = "InvalidTag";
@@ -1655,6 +1713,11 @@ export interface CreateAssociationBatchRequestEntry {
    *    can't be specified together.</p>
    */
   TargetMaps?: Record<string, string[]>[];
+
+  /**
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface CreateAssociationBatchRequest {
@@ -4187,6 +4250,16 @@ export interface AssociationExecution {
    * <p>An aggregate status of the resources in the execution based on the status type.</p>
    */
   ResourceCountByStatus?: string;
+
+  /**
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The CloudWatch alarms that were invoked by the association.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 }
 
 export interface DescribeAssociationExecutionsResult {
@@ -4635,6 +4708,16 @@ export interface AutomationExecutionMetadata {
    *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
    */
   AutomationType?: AutomationType | string;
+
+  /**
+   * <p>The details for the CloudWatch alarm applied to your automation.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The CloudWatch alarm that was invoked by the automation.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 
   /**
    * <p>The subtype of the Automation operation. Currently, the only supported value is
@@ -6967,6 +7050,16 @@ export interface MaintenanceWindowExecutionTaskIdentity {
    * <p>The type of task that ran.</p>
    */
   TaskType?: MaintenanceWindowTaskType | string;
+
+  /**
+   * <p>The details for the CloudWatch alarm applied to your maintenance window task.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+
+  /**
+   * <p>The CloudWatch alarm that was invoked by the maintenance window task.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 }
 
 export interface DescribeMaintenanceWindowExecutionTasksResult {
@@ -7483,6 +7576,11 @@ export interface MaintenanceWindowTask {
    *    in the maintenance windows is reached. </p>
    */
   CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+
+  /**
+   * <p>The details for the CloudWatch alarm applied to your maintenance window task.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface DescribeMaintenanceWindowTasksResult {
@@ -7766,88 +7864,6 @@ export interface DescribeOpsItemsResponse {
   OpsItemSummaries?: OpsItemSummary[];
 }
 
-export enum ParametersFilterKey {
-  KEY_ID = "KeyId",
-  NAME = "Name",
-  TYPE = "Type",
-}
-
-/**
- * <p>This data type is deprecated. Instead, use <a>ParameterStringFilter</a>.</p>
- */
-export interface ParametersFilter {
-  /**
-   * <p>The name of the filter.</p>
-   */
-  Key: ParametersFilterKey | string | undefined;
-
-  /**
-   * <p>The filter values.</p>
-   */
-  Values: string[] | undefined;
-}
-
-/**
- * <p>One or more filters. Use a filter to return a more specific list of results.</p>
- */
-export interface ParameterStringFilter {
-  /**
-   * <p>The name of the filter.</p>
-   *          <p>The <code>ParameterStringFilter</code> object is used by the <a>DescribeParameters</a> and <a>GetParametersByPath</a> API operations.
-   *    However, not all of the pattern values listed for <code>Key</code> can be used with both
-   *    operations.</p>
-   *          <p>For <code>DescribeParameters</code>, all of the listed patterns are valid except
-   *     <code>Label</code>.</p>
-   *          <p>For <code>GetParametersByPath</code>, the following patterns listed for <code>Key</code>
-   *    aren't valid: <code>tag</code>, <code>DataType</code>, <code>Name</code>, <code>Path</code>, and
-   *     <code>Tier</code>.</p>
-   *          <p>For examples of Amazon Web Services CLI commands demonstrating valid parameter filter constructions, see
-   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-search.html">Searching for Systems Manager parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>For all filters used with <a>DescribeParameters</a>, valid options include
-   *     <code>Equals</code> and <code>BeginsWith</code>. The <code>Name</code> filter additionally
-   *    supports the <code>Contains</code> option. (Exception: For filters using the key
-   *     <code>Path</code>, valid options include <code>Recursive</code> and
-   *    <code>OneLevel</code>.)</p>
-   *          <p>For filters used with <a>GetParametersByPath</a>, valid options include
-   *     <code>Equals</code> and <code>BeginsWith</code>. (Exception: For filters using
-   *     <code>Label</code> as the Key name, the only valid option is <code>Equals</code>.)</p>
-   */
-  Option?: string;
-
-  /**
-   * <p>The value you want to search for.</p>
-   */
-  Values?: string[];
-}
-
-export interface DescribeParametersRequest {
-  /**
-   * <p>This data type is deprecated. Instead, use <code>ParameterFilters</code>.</p>
-   */
-  Filters?: ParametersFilter[];
-
-  /**
-   * <p>Filters to limit the request results.</p>
-   */
-  ParameterFilters?: ParameterStringFilter[];
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-}
-
 /**
  * @internal
  */
@@ -7880,6 +7896,27 @@ export const AddTagsToResourceRequestFilterSensitiveLog = (obj: AddTagsToResourc
  * @internal
  */
 export const AddTagsToResourceResultFilterSensitiveLog = (obj: AddTagsToResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmFilterSensitiveLog = (obj: Alarm): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmConfigurationFilterSensitiveLog = (obj: AlarmConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmStateInformationFilterSensitiveLog = (obj: AlarmStateInformation): any => ({
   ...obj,
 });
 
@@ -9257,26 +9294,5 @@ export const OpsItemSummaryFilterSensitiveLog = (obj: OpsItemSummary): any => ({
  * @internal
  */
 export const DescribeOpsItemsResponseFilterSensitiveLog = (obj: DescribeOpsItemsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParametersFilterFilterSensitiveLog = (obj: ParametersFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterStringFilterFilterSensitiveLog = (obj: ParameterStringFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeParametersRequestFilterSensitiveLog = (obj: DescribeParametersRequest): any => ({
   ...obj,
 });

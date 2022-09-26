@@ -429,6 +429,9 @@ import {
   Activation,
   AddTagsToResourceRequest,
   AddTagsToResourceResult,
+  Alarm,
+  AlarmConfiguration,
+  AlarmStateInformation,
   AlreadyExistsException,
   AssociatedInstances,
   AssociateOpsItemRelatedItemRequest,
@@ -553,7 +556,6 @@ import {
   DescribeMaintenanceWindowTasksResult,
   DescribeOpsItemsRequest,
   DescribeOpsItemsResponse,
-  DescribeParametersRequest,
   DocumentAlreadyExists,
   DocumentDescription,
   DocumentLimitExceeded,
@@ -636,8 +638,6 @@ import {
   OpsMetadataTooManyUpdatesException,
   OutputSource,
   ParameterNotFound,
-  ParametersFilter,
-  ParameterStringFilter,
   Patch,
   PatchComplianceData,
   PatchFilter,
@@ -704,6 +704,7 @@ import {
   ComplianceTypeCountLimitExceededException,
   CompliantSummary,
   CustomSchemaCountLimitExceededException,
+  DescribeParametersRequest,
   DescribeParametersResult,
   DescribePatchBaselinesRequest,
   DescribePatchBaselinesResult,
@@ -717,7 +718,6 @@ import {
   DescribeSessionsResponse,
   DisassociateOpsItemRelatedItemRequest,
   DisassociateOpsItemRelatedItemResponse,
-  DocumentDefaultVersionDescription,
   DocumentFilter,
   DocumentIdentifier,
   DocumentKeyValuesFilter,
@@ -874,6 +874,8 @@ import {
   ParameterMaxVersionLimitExceeded,
   ParameterMetadata,
   ParameterPatternMismatchException,
+  ParametersFilter,
+  ParameterStringFilter,
   ParameterVersionLabelLimitExceeded,
   ParameterVersionNotFound,
   PatchBaselineIdentity,
@@ -941,12 +943,11 @@ import {
   UpdateAssociationResult,
   UpdateAssociationStatusRequest,
   UpdateAssociationStatusResult,
-  UpdateDocumentDefaultVersionRequest,
-  UpdateDocumentDefaultVersionResult,
   UpdateDocumentRequest,
   UpdateDocumentResult,
 } from "../models/models_1";
 import {
+  DocumentDefaultVersionDescription,
   DocumentReviews,
   GetInventoryRequest,
   GetOpsSummaryRequest,
@@ -954,6 +955,8 @@ import {
   OpsAggregator,
   OpsMetadataKeyLimitExceededException,
   ResourceDataSyncConflictException,
+  UpdateDocumentDefaultVersionRequest,
+  UpdateDocumentDefaultVersionResult,
   UpdateDocumentMetadataRequest,
   UpdateDocumentMetadataResponse,
   UpdateMaintenanceWindowRequest,
@@ -11004,6 +11007,27 @@ const serializeAws_json1_1AddTagsToResourceRequest = (
   };
 };
 
+const serializeAws_json1_1Alarm = (input: Alarm, context: __SerdeContext): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1AlarmConfiguration = (input: AlarmConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Alarms != null && { Alarms: serializeAws_json1_1AlarmList(input.Alarms, context) }),
+    ...(input.IgnorePollAlarmFailure != null && { IgnorePollAlarmFailure: input.IgnorePollAlarmFailure }),
+  };
+};
+
+const serializeAws_json1_1AlarmList = (input: Alarm[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1Alarm(entry, context);
+    });
+};
+
 const serializeAws_json1_1AssociateOpsItemRelatedItemRequest = (
   input: AssociateOpsItemRelatedItemRequest,
   context: __SerdeContext
@@ -11363,6 +11387,9 @@ const serializeAws_json1_1CreateAssociationBatchRequestEntry = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AlarmConfiguration != null && {
+      AlarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.AlarmConfiguration, context),
+    }),
     ...(input.ApplyOnlyAtCronInterval != null && { ApplyOnlyAtCronInterval: input.ApplyOnlyAtCronInterval }),
     ...(input.AssociationName != null && { AssociationName: input.AssociationName }),
     ...(input.AutomationTargetParameterName != null && {
@@ -11397,6 +11424,9 @@ const serializeAws_json1_1CreateAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AlarmConfiguration != null && {
+      AlarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.AlarmConfiguration, context),
+    }),
     ...(input.ApplyOnlyAtCronInterval != null && { ApplyOnlyAtCronInterval: input.ApplyOnlyAtCronInterval }),
     ...(input.AssociationName != null && { AssociationName: input.AssociationName }),
     ...(input.AutomationTargetParameterName != null && {
@@ -13541,6 +13571,9 @@ const serializeAws_json1_1RegisterTaskWithMaintenanceWindowRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AlarmConfiguration != null && {
+      AlarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.AlarmConfiguration, context),
+    }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.CutoffBehavior != null && { CutoffBehavior: input.CutoffBehavior }),
     ...(input.Description != null && { Description: input.Description }),
@@ -13776,6 +13809,9 @@ const serializeAws_json1_1SendAutomationSignalRequest = (
 
 const serializeAws_json1_1SendCommandRequest = (input: SendCommandRequest, context: __SerdeContext): any => {
   return {
+    ...(input.AlarmConfiguration != null && {
+      AlarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.AlarmConfiguration, context),
+    }),
     ...(input.CloudWatchOutputConfig != null && {
       CloudWatchOutputConfig: serializeAws_json1_1CloudWatchOutputConfig(input.CloudWatchOutputConfig, context),
     }),
@@ -13854,6 +13890,9 @@ const serializeAws_json1_1StartAutomationExecutionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AlarmConfiguration != null && {
+      AlarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.AlarmConfiguration, context),
+    }),
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
     ...(input.DocumentName != null && { DocumentName: input.DocumentName }),
     ...(input.DocumentVersion != null && { DocumentVersion: input.DocumentVersion }),
@@ -14054,6 +14093,9 @@ const serializeAws_json1_1UpdateAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AlarmConfiguration != null && {
+      AlarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.AlarmConfiguration, context),
+    }),
     ...(input.ApplyOnlyAtCronInterval != null && { ApplyOnlyAtCronInterval: input.ApplyOnlyAtCronInterval }),
     ...(input.AssociationId != null && { AssociationId: input.AssociationId }),
     ...(input.AssociationName != null && { AssociationName: input.AssociationName }),
@@ -14176,6 +14218,9 @@ const serializeAws_json1_1UpdateMaintenanceWindowTaskRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AlarmConfiguration != null && {
+      AlarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.AlarmConfiguration, context),
+    }),
     ...(input.CutoffBehavior != null && { CutoffBehavior: input.CutoffBehavior }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.LoggingInfo != null && { LoggingInfo: serializeAws_json1_1LoggingInfo(input.LoggingInfo, context) }),
@@ -14392,6 +14437,53 @@ const deserializeAws_json1_1AddTagsToResourceResult = (
   return {} as any;
 };
 
+const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alarm => {
+  return {
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1AlarmConfiguration = (output: any, context: __SerdeContext): AlarmConfiguration => {
+  return {
+    Alarms: output.Alarms != null ? deserializeAws_json1_1AlarmList(output.Alarms, context) : undefined,
+    IgnorePollAlarmFailure: __expectBoolean(output.IgnorePollAlarmFailure),
+  } as any;
+};
+
+const deserializeAws_json1_1AlarmList = (output: any, context: __SerdeContext): Alarm[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Alarm(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1AlarmStateInformation = (output: any, context: __SerdeContext): AlarmStateInformation => {
+  return {
+    Name: __expectString(output.Name),
+    State: __expectString(output.State),
+  } as any;
+};
+
+const deserializeAws_json1_1AlarmStateInformationList = (
+  output: any,
+  context: __SerdeContext
+): AlarmStateInformation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AlarmStateInformation(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1AlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
   return {
     Message: __expectString(output.Message),
@@ -14440,6 +14532,10 @@ const deserializeAws_json1_1AssociationAlreadyExists = (
 
 const deserializeAws_json1_1AssociationDescription = (output: any, context: __SerdeContext): AssociationDescription => {
   return {
+    AlarmConfiguration:
+      output.AlarmConfiguration != null
+        ? deserializeAws_json1_1AlarmConfiguration(output.AlarmConfiguration, context)
+        : undefined,
     ApplyOnlyAtCronInterval: __expectBoolean(output.ApplyOnlyAtCronInterval),
     AssociationId: __expectString(output.AssociationId),
     AssociationName: __expectString(output.AssociationName),
@@ -14484,6 +14580,10 @@ const deserializeAws_json1_1AssociationDescription = (output: any, context: __Se
         : undefined,
     TargetMaps: output.TargetMaps != null ? deserializeAws_json1_1TargetMaps(output.TargetMaps, context) : undefined,
     Targets: output.Targets != null ? deserializeAws_json1_1Targets(output.Targets, context) : undefined,
+    TriggeredAlarms:
+      output.TriggeredAlarms != null
+        ? deserializeAws_json1_1AlarmStateInformationList(output.TriggeredAlarms, context)
+        : undefined,
   } as any;
 };
 
@@ -14513,6 +14613,10 @@ const deserializeAws_json1_1AssociationDoesNotExist = (
 
 const deserializeAws_json1_1AssociationExecution = (output: any, context: __SerdeContext): AssociationExecution => {
   return {
+    AlarmConfiguration:
+      output.AlarmConfiguration != null
+        ? deserializeAws_json1_1AlarmConfiguration(output.AlarmConfiguration, context)
+        : undefined,
     AssociationId: __expectString(output.AssociationId),
     AssociationVersion: __expectString(output.AssociationVersion),
     CreatedTime:
@@ -14527,6 +14631,10 @@ const deserializeAws_json1_1AssociationExecution = (output: any, context: __Serd
         : undefined,
     ResourceCountByStatus: __expectString(output.ResourceCountByStatus),
     Status: __expectString(output.Status),
+    TriggeredAlarms:
+      output.TriggeredAlarms != null
+        ? deserializeAws_json1_1AlarmStateInformationList(output.TriggeredAlarms, context)
+        : undefined,
   } as any;
 };
 
@@ -14776,6 +14884,10 @@ const deserializeAws_json1_1AutomationDefinitionVersionNotFoundException = (
 
 const deserializeAws_json1_1AutomationExecution = (output: any, context: __SerdeContext): AutomationExecution => {
   return {
+    AlarmConfiguration:
+      output.AlarmConfiguration != null
+        ? deserializeAws_json1_1AlarmConfiguration(output.AlarmConfiguration, context)
+        : undefined,
     AssociationId: __expectString(output.AssociationId),
     AutomationExecutionId: __expectString(output.AutomationExecutionId),
     AutomationExecutionStatus: __expectString(output.AutomationExecutionStatus),
@@ -14829,6 +14941,10 @@ const deserializeAws_json1_1AutomationExecution = (output: any, context: __Serde
     TargetMaps: output.TargetMaps != null ? deserializeAws_json1_1TargetMaps(output.TargetMaps, context) : undefined,
     TargetParameterName: __expectString(output.TargetParameterName),
     Targets: output.Targets != null ? deserializeAws_json1_1Targets(output.Targets, context) : undefined,
+    TriggeredAlarms:
+      output.TriggeredAlarms != null
+        ? deserializeAws_json1_1AlarmStateInformationList(output.TriggeredAlarms, context)
+        : undefined,
   } as any;
 };
 
@@ -14846,6 +14962,10 @@ const deserializeAws_json1_1AutomationExecutionMetadata = (
   context: __SerdeContext
 ): AutomationExecutionMetadata => {
   return {
+    AlarmConfiguration:
+      output.AlarmConfiguration != null
+        ? deserializeAws_json1_1AlarmConfiguration(output.AlarmConfiguration, context)
+        : undefined,
     AssociationId: __expectString(output.AssociationId),
     AutomationExecutionId: __expectString(output.AutomationExecutionId),
     AutomationExecutionStatus: __expectString(output.AutomationExecutionStatus),
@@ -14886,6 +15006,10 @@ const deserializeAws_json1_1AutomationExecutionMetadata = (
     TargetMaps: output.TargetMaps != null ? deserializeAws_json1_1TargetMaps(output.TargetMaps, context) : undefined,
     TargetParameterName: __expectString(output.TargetParameterName),
     Targets: output.Targets != null ? deserializeAws_json1_1Targets(output.Targets, context) : undefined,
+    TriggeredAlarms:
+      output.TriggeredAlarms != null
+        ? deserializeAws_json1_1AlarmStateInformationList(output.TriggeredAlarms, context)
+        : undefined,
   } as any;
 };
 
@@ -15007,6 +15131,10 @@ const deserializeAws_json1_1CloudWatchOutputConfig = (output: any, context: __Se
 
 const deserializeAws_json1_1Command = (output: any, context: __SerdeContext): Command => {
   return {
+    AlarmConfiguration:
+      output.AlarmConfiguration != null
+        ? deserializeAws_json1_1AlarmConfiguration(output.AlarmConfiguration, context)
+        : undefined,
     CloudWatchOutputConfig:
       output.CloudWatchOutputConfig != null
         ? deserializeAws_json1_1CloudWatchOutputConfig(output.CloudWatchOutputConfig, context)
@@ -15044,6 +15172,10 @@ const deserializeAws_json1_1Command = (output: any, context: __SerdeContext): Co
     TargetCount: __expectInt32(output.TargetCount),
     Targets: output.Targets != null ? deserializeAws_json1_1Targets(output.Targets, context) : undefined,
     TimeoutSeconds: __expectInt32(output.TimeoutSeconds),
+    TriggeredAlarms:
+      output.TriggeredAlarms != null
+        ? deserializeAws_json1_1AlarmStateInformationList(output.TriggeredAlarms, context)
+        : undefined,
   } as any;
 };
 
@@ -15254,6 +15386,10 @@ const deserializeAws_json1_1CreateAssociationBatchRequestEntry = (
   context: __SerdeContext
 ): CreateAssociationBatchRequestEntry => {
   return {
+    AlarmConfiguration:
+      output.AlarmConfiguration != null
+        ? deserializeAws_json1_1AlarmConfiguration(output.AlarmConfiguration, context)
+        : undefined,
     ApplyOnlyAtCronInterval: __expectBoolean(output.ApplyOnlyAtCronInterval),
     AssociationName: __expectString(output.AssociationName),
     AutomationTargetParameterName: __expectString(output.AutomationTargetParameterName),
@@ -16423,6 +16559,10 @@ const deserializeAws_json1_1GetMaintenanceWindowExecutionTaskResult = (
   context: __SerdeContext
 ): GetMaintenanceWindowExecutionTaskResult => {
   return {
+    AlarmConfiguration:
+      output.AlarmConfiguration != null
+        ? deserializeAws_json1_1AlarmConfiguration(output.AlarmConfiguration, context)
+        : undefined,
     EndTime:
       output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     MaxConcurrency: __expectString(output.MaxConcurrency),
@@ -16438,6 +16578,10 @@ const deserializeAws_json1_1GetMaintenanceWindowExecutionTaskResult = (
     TaskParameters:
       output.TaskParameters != null
         ? deserializeAws_json1_1MaintenanceWindowTaskParametersList(output.TaskParameters, context)
+        : undefined,
+    TriggeredAlarms:
+      output.TriggeredAlarms != null
+        ? deserializeAws_json1_1AlarmStateInformationList(output.TriggeredAlarms, context)
         : undefined,
     Type: __expectString(output.Type),
     WindowExecutionId: __expectString(output.WindowExecutionId),
@@ -16478,6 +16622,10 @@ const deserializeAws_json1_1GetMaintenanceWindowTaskResult = (
   context: __SerdeContext
 ): GetMaintenanceWindowTaskResult => {
   return {
+    AlarmConfiguration:
+      output.AlarmConfiguration != null
+        ? deserializeAws_json1_1AlarmConfiguration(output.AlarmConfiguration, context)
+        : undefined,
     CutoffBehavior: __expectString(output.CutoffBehavior),
     Description: __expectString(output.Description),
     LoggingInfo:
@@ -17717,6 +17865,10 @@ const deserializeAws_json1_1MaintenanceWindowExecutionTaskIdentity = (
   context: __SerdeContext
 ): MaintenanceWindowExecutionTaskIdentity => {
   return {
+    AlarmConfiguration:
+      output.AlarmConfiguration != null
+        ? deserializeAws_json1_1AlarmConfiguration(output.AlarmConfiguration, context)
+        : undefined,
     EndTime:
       output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     StartTime:
@@ -17726,6 +17878,10 @@ const deserializeAws_json1_1MaintenanceWindowExecutionTaskIdentity = (
     TaskArn: __expectString(output.TaskArn),
     TaskExecutionId: __expectString(output.TaskExecutionId),
     TaskType: __expectString(output.TaskType),
+    TriggeredAlarms:
+      output.TriggeredAlarms != null
+        ? deserializeAws_json1_1AlarmStateInformationList(output.TriggeredAlarms, context)
+        : undefined,
     WindowExecutionId: __expectString(output.WindowExecutionId),
   } as any;
 };
@@ -17932,6 +18088,10 @@ const deserializeAws_json1_1MaintenanceWindowTargetList = (
 
 const deserializeAws_json1_1MaintenanceWindowTask = (output: any, context: __SerdeContext): MaintenanceWindowTask => {
   return {
+    AlarmConfiguration:
+      output.AlarmConfiguration != null
+        ? deserializeAws_json1_1AlarmConfiguration(output.AlarmConfiguration, context)
+        : undefined,
     CutoffBehavior: __expectString(output.CutoffBehavior),
     Description: __expectString(output.Description),
     LoggingInfo:
@@ -20140,6 +20300,10 @@ const deserializeAws_json1_1UpdateMaintenanceWindowTaskResult = (
   context: __SerdeContext
 ): UpdateMaintenanceWindowTaskResult => {
   return {
+    AlarmConfiguration:
+      output.AlarmConfiguration != null
+        ? deserializeAws_json1_1AlarmConfiguration(output.AlarmConfiguration, context)
+        : undefined,
     CutoffBehavior: __expectString(output.CutoffBehavior),
     Description: __expectString(output.Description),
     LoggingInfo:

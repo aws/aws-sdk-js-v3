@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
+  AlarmConfiguration,
   LoggingInfo,
   MaintenanceWindowTaskCutoffBehavior,
   MaintenanceWindowTaskParameterValueExpression,
@@ -21,7 +22,6 @@ import {
   Target,
 } from "./models_0";
 import {
-  DocumentReviewAction,
   DocumentReviewCommentSource,
   InventoryFilter,
   InventoryGroup,
@@ -32,6 +32,52 @@ import {
   ResultAttribute,
 } from "./models_1";
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+export interface UpdateDocumentDefaultVersionRequest {
+  /**
+   * <p>The name of a custom document that you want to set as the default version.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The version of a custom document that you want to set as the default version.</p>
+   */
+  DocumentVersion: string | undefined;
+}
+
+/**
+ * <p>A default version of a document.</p>
+ */
+export interface DocumentDefaultVersionDescription {
+  /**
+   * <p>The name of the document.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The default version of the document.</p>
+   */
+  DefaultVersion?: string;
+
+  /**
+   * <p>The default version of the artifact associated with the document.</p>
+   */
+  DefaultVersionName?: string;
+}
+
+export interface UpdateDocumentDefaultVersionResult {
+  /**
+   * <p>The description of a custom document that you want to set as the default version.</p>
+   */
+  Description?: DocumentDefaultVersionDescription;
+}
+
+export enum DocumentReviewAction {
+  Approve = "Approve",
+  Reject = "Reject",
+  SendForReview = "SendForReview",
+  UpdateReview = "UpdateReview",
+}
 
 /**
  * <p>Information about a document approval review.</p>
@@ -469,6 +515,11 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *          </ul>
    */
   CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+
+  /**
+   * <p>The CloudWatch alarm you want to apply to your maintenance window task.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface UpdateMaintenanceWindowTaskResult {
@@ -557,6 +608,11 @@ export interface UpdateMaintenanceWindowTaskResult {
    *    in the maintenance windows is reached. </p>
    */
   CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+
+  /**
+   * <p>The details for the CloudWatch alarm you applied to your maintenance window task.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
 }
 
 export interface UpdateManagedInstanceRoleRequest {
@@ -1162,6 +1218,29 @@ export interface GetOpsSummaryRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const UpdateDocumentDefaultVersionRequestFilterSensitiveLog = (
+  obj: UpdateDocumentDefaultVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentDefaultVersionDescriptionFilterSensitiveLog = (obj: DocumentDefaultVersionDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDocumentDefaultVersionResultFilterSensitiveLog = (obj: UpdateDocumentDefaultVersionResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal
