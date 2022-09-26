@@ -68,6 +68,7 @@ import { CompleteMultipartUploadCommandOutput, S3, S3Client } from "@aws-sdk/cli
 import { createHash } from "crypto";
 
 import { Progress, Upload } from "./index";
+import { AbortController } from "@aws-sdk/abort-controller";
 
 const DEFAULT_PART_SIZE = 1024 * 1024 * 5;
 
@@ -637,5 +638,23 @@ describe(Upload.name, () => {
     expect(received.length).toBe(2);
     expect(mockAddListener).toHaveBeenCalledWith("xhr.upload.progress", expect.any(Function));
     expect(mockRemoveListener).toHaveBeenCalledWith("xhr.upload.progress", expect.any(Function));
+  });
+
+  it("should respect external abort signal", async () => {
+    const abortController = new AbortController();
+
+    try {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+        abortController,
+      });
+
+      abortController.abort();
+
+      await upload.done();
+    } catch (error) {
+      expect(error).toBeDefined();
+    }
   });
 });
