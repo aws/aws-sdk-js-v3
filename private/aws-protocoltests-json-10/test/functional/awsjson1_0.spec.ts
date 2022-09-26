@@ -279,7 +279,7 @@ it("AwsJson10EndpointTraitWithHostLabel:Request", async () => {
 /**
  * @awsQueryCompatible trait is applied to service
  */
-it("Json10WithQueryCompatibleGreetingError:Error:GreetingWithErrors", async () => {
+it.skip("Json10WithQueryCompatibleGreetingError:Error:GreetingWithErrors", async () => {
   const client = new JSONRPC10Client({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
