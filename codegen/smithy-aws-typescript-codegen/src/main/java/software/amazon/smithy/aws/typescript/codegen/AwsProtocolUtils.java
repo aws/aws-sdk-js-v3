@@ -138,10 +138,10 @@ final class AwsProtocolUtils {
                     writer.openBlock("if (encoded.length) {", "}", () -> {
                         // Temporararily creating parser inside the function.
                         // Parser would be moved to runtime config in https://github.com/aws/aws-sdk-js-v3/issues/3979
-                        writer.write("const parsedObj = new XMLParser().parse(encoded, { attributeNamePrefix: '', "
-                                + "ignoreAttributes: false, parseNodeValue: false, trimValues: false, "
-                                + "tagValueProcessor: (val) => (val.trim() === '' && val.includes('\\n'))"
-                                + " ? '': decodeHTML(val) });");
+                        writer.write("const parsedObj = new XMLParser({ attributeNamePrefix: '', "
+                            + "ignoreAttributes: false, parseTagValue: false, trimValues: false, "
+                            + "tagValueProcessor: (val) => (val.trim() === '' && val.includes('\\n'))"
+                            + " ? '': decodeHTML(val) }).parse(encoded);");
                         writer.write("const textNodeName = '#text';");
                         writer.write("const key = Object.keys(parsedObj)[0];");
                         writer.write("const parsedObjToReturn = parsedObj[key];");
