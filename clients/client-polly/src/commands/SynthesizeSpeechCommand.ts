@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -27,17 +28,9 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface SynthesizeSpeechCommandInput extends SynthesizeSpeechInput {}
-type SynthesizeSpeechCommandOutputType = __MetadataBearer &
-  Omit<SynthesizeSpeechOutput, "AudioStream"> & {
-    /**
-     * For *`SynthesizeSpeechOutput["AudioStream"]`*, see {@link SynthesizeSpeechOutput.AudioStream}.
-     */
-    AudioStream?: __SdkStream<Required<SynthesizeSpeechOutput>["AudioStream"]>;
-  };
-/**
- * This interface extends from `SynthesizeSpeechOutput` interface. There are more parameters than `AudioStream` defined in {@link SynthesizeSpeechOutput}
- */
-export interface SynthesizeSpeechCommandOutput extends SynthesizeSpeechCommandOutputType {}
+export interface SynthesizeSpeechCommandOutput
+  extends __WithSdkStreamMixin<SynthesizeSpeechOutput, "AudioStream">,
+    __MetadataBearer {}
 
 /**
  * <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.

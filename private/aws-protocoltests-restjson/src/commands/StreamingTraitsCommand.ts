@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { StreamingTraitsInputOutput, StreamingTraitsInputOutputFilterSensitiveLog } from "../models/models_0";
@@ -31,17 +32,9 @@ type StreamingTraitsCommandInputType = Omit<StreamingTraitsInputOutput, "blob"> 
  * This interface extends from `StreamingTraitsInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsInputOutput}
  */
 export interface StreamingTraitsCommandInput extends StreamingTraitsCommandInputType {}
-type StreamingTraitsCommandOutputType = __MetadataBearer &
-  Omit<StreamingTraitsInputOutput, "blob"> & {
-    /**
-     * For *`StreamingTraitsInputOutput["blob"]`*, see {@link StreamingTraitsInputOutput.blob}.
-     */
-    blob?: __SdkStream<Required<StreamingTraitsInputOutput>["blob"]>;
-  };
-/**
- * This interface extends from `StreamingTraitsInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsInputOutput}
- */
-export interface StreamingTraitsCommandOutput extends StreamingTraitsCommandOutputType {}
+export interface StreamingTraitsCommandOutput
+  extends __WithSdkStreamMixin<StreamingTraitsInputOutput, "blob">,
+    __MetadataBearer {}
 
 /**
  * This examples serializes a streaming blob shape in the request body.

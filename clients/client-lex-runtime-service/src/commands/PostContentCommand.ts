@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -40,17 +41,9 @@ type PostContentCommandInputType = Omit<PostContentRequest, "inputStream"> & {
  * This interface extends from `PostContentRequest` interface. There are more parameters than `inputStream` defined in {@link PostContentRequest}
  */
 export interface PostContentCommandInput extends PostContentCommandInputType {}
-type PostContentCommandOutputType = __MetadataBearer &
-  Omit<PostContentResponse, "audioStream"> & {
-    /**
-     * For *`PostContentResponse["audioStream"]`*, see {@link PostContentResponse.audioStream}.
-     */
-    audioStream?: __SdkStream<Required<PostContentResponse>["audioStream"]>;
-  };
-/**
- * This interface extends from `PostContentResponse` interface. There are more parameters than `audioStream` defined in {@link PostContentResponse}
- */
-export interface PostContentCommandOutput extends PostContentCommandOutputType {}
+export interface PostContentCommandOutput
+  extends __WithSdkStreamMixin<PostContentResponse, "audioStream">,
+    __MetadataBearer {}
 
 /**
  * <p> Sends user input (text or speech) to Amazon Lex. Clients use this API to

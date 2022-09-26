@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
@@ -27,17 +28,9 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetPackageVersionAssetCommandInput extends GetPackageVersionAssetRequest {}
-type GetPackageVersionAssetCommandOutputType = __MetadataBearer &
-  Omit<GetPackageVersionAssetResult, "asset"> & {
-    /**
-     * For *`GetPackageVersionAssetResult["asset"]`*, see {@link GetPackageVersionAssetResult.asset}.
-     */
-    asset?: __SdkStream<Required<GetPackageVersionAssetResult>["asset"]>;
-  };
-/**
- * This interface extends from `GetPackageVersionAssetResult` interface. There are more parameters than `asset` defined in {@link GetPackageVersionAssetResult}
- */
-export interface GetPackageVersionAssetCommandOutput extends GetPackageVersionAssetCommandOutputType {}
+export interface GetPackageVersionAssetCommandOutput
+  extends __WithSdkStreamMixin<GetPackageVersionAssetResult, "asset">,
+    __MetadataBearer {}
 
 /**
  * <p>

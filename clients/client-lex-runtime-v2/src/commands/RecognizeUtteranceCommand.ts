@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
@@ -36,17 +37,9 @@ type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "input
  * This interface extends from `RecognizeUtteranceRequest` interface. There are more parameters than `inputStream` defined in {@link RecognizeUtteranceRequest}
  */
 export interface RecognizeUtteranceCommandInput extends RecognizeUtteranceCommandInputType {}
-type RecognizeUtteranceCommandOutputType = __MetadataBearer &
-  Omit<RecognizeUtteranceResponse, "audioStream"> & {
-    /**
-     * For *`RecognizeUtteranceResponse["audioStream"]`*, see {@link RecognizeUtteranceResponse.audioStream}.
-     */
-    audioStream?: __SdkStream<Required<RecognizeUtteranceResponse>["audioStream"]>;
-  };
-/**
- * This interface extends from `RecognizeUtteranceResponse` interface. There are more parameters than `audioStream` defined in {@link RecognizeUtteranceResponse}
- */
-export interface RecognizeUtteranceCommandOutput extends RecognizeUtteranceCommandOutputType {}
+export interface RecognizeUtteranceCommandOutput
+  extends __WithSdkStreamMixin<RecognizeUtteranceResponse, "audioStream">,
+    __MetadataBearer {}
 
 /**
  * <p>Sends user input to Amazon Lex V2. You can send text or speech. Clients use

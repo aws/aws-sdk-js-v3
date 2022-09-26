@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
@@ -27,17 +28,9 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface DescribeInputDeviceThumbnailCommandInput extends DescribeInputDeviceThumbnailRequest {}
-type DescribeInputDeviceThumbnailCommandOutputType = __MetadataBearer &
-  Omit<DescribeInputDeviceThumbnailResponse, "Body"> & {
-    /**
-     * For *`DescribeInputDeviceThumbnailResponse["Body"]`*, see {@link DescribeInputDeviceThumbnailResponse.Body}.
-     */
-    Body?: __SdkStream<Required<DescribeInputDeviceThumbnailResponse>["Body"]>;
-  };
-/**
- * This interface extends from `DescribeInputDeviceThumbnailResponse` interface. There are more parameters than `Body` defined in {@link DescribeInputDeviceThumbnailResponse}
- */
-export interface DescribeInputDeviceThumbnailCommandOutput extends DescribeInputDeviceThumbnailCommandOutputType {}
+export interface DescribeInputDeviceThumbnailCommandOutput
+  extends __WithSdkStreamMixin<DescribeInputDeviceThumbnailResponse, "Body">,
+    __MetadataBearer {}
 
 /**
  * Get the latest thumbnail data for the input device.

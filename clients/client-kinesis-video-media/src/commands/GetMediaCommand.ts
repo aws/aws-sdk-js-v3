@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -31,17 +32,7 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetMediaCommandInput extends GetMediaInput {}
-type GetMediaCommandOutputType = __MetadataBearer &
-  Omit<GetMediaOutput, "Payload"> & {
-    /**
-     * For *`GetMediaOutput["Payload"]`*, see {@link GetMediaOutput.Payload}.
-     */
-    Payload?: __SdkStream<Required<GetMediaOutput>["Payload"]>;
-  };
-/**
- * This interface extends from `GetMediaOutput` interface. There are more parameters than `Payload` defined in {@link GetMediaOutput}
- */
-export interface GetMediaCommandOutput extends GetMediaCommandOutputType {}
+export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutput, "Payload">, __MetadataBearer {}
 
 /**
  * <p> Use this API to retrieve media content from a Kinesis video stream. In the request,

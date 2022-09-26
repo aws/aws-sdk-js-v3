@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
@@ -27,17 +28,9 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetWorkUnitResultsCommandInput extends GetWorkUnitResultsRequest {}
-type GetWorkUnitResultsCommandOutputType = __MetadataBearer &
-  Omit<GetWorkUnitResultsResponse, "ResultStream"> & {
-    /**
-     * For *`GetWorkUnitResultsResponse["ResultStream"]`*, see {@link GetWorkUnitResultsResponse.ResultStream}.
-     */
-    ResultStream?: __SdkStream<Required<GetWorkUnitResultsResponse>["ResultStream"]>;
-  };
-/**
- * This interface extends from `GetWorkUnitResultsResponse` interface. There are more parameters than `ResultStream` defined in {@link GetWorkUnitResultsResponse}
- */
-export interface GetWorkUnitResultsCommandOutput extends GetWorkUnitResultsCommandOutputType {}
+export interface GetWorkUnitResultsCommandOutput
+  extends __WithSdkStreamMixin<GetWorkUnitResultsResponse, "ResultStream">,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the work units resulting from the query. Work units can be executed in any order and in parallel. </p>

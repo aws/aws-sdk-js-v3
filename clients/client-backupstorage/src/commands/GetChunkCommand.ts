@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
@@ -27,17 +28,7 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetChunkCommandInput extends GetChunkInput {}
-type GetChunkCommandOutputType = __MetadataBearer &
-  Omit<GetChunkOutput, "Data"> & {
-    /**
-     * For *`GetChunkOutput["Data"]`*, see {@link GetChunkOutput.Data}.
-     */
-    Data: __SdkStream<Required<GetChunkOutput>["Data"]>;
-  };
-/**
- * This interface extends from `GetChunkOutput` interface. There are more parameters than `Data` defined in {@link GetChunkOutput}
- */
-export interface GetChunkCommandOutput extends GetChunkCommandOutputType {}
+export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutput, "Data">, __MetadataBearer {}
 
 /**
  * Gets the specified object's chunk.

@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
@@ -27,17 +28,9 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface PutSessionCommandInput extends PutSessionRequest {}
-type PutSessionCommandOutputType = __MetadataBearer &
-  Omit<PutSessionResponse, "audioStream"> & {
-    /**
-     * For *`PutSessionResponse["audioStream"]`*, see {@link PutSessionResponse.audioStream}.
-     */
-    audioStream?: __SdkStream<Required<PutSessionResponse>["audioStream"]>;
-  };
-/**
- * This interface extends from `PutSessionResponse` interface. There are more parameters than `audioStream` defined in {@link PutSessionResponse}
- */
-export interface PutSessionCommandOutput extends PutSessionCommandOutputType {}
+export interface PutSessionCommandOutput
+  extends __WithSdkStreamMixin<PutSessionResponse, "audioStream">,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a new session or modifies an existing session with an Amazon Lex V2

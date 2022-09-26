@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -31,17 +32,9 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetMediaForFragmentListCommandInput extends GetMediaForFragmentListInput {}
-type GetMediaForFragmentListCommandOutputType = __MetadataBearer &
-  Omit<GetMediaForFragmentListOutput, "Payload"> & {
-    /**
-     * For *`GetMediaForFragmentListOutput["Payload"]`*, see {@link GetMediaForFragmentListOutput.Payload}.
-     */
-    Payload?: __SdkStream<Required<GetMediaForFragmentListOutput>["Payload"]>;
-  };
-/**
- * This interface extends from `GetMediaForFragmentListOutput` interface. There are more parameters than `Payload` defined in {@link GetMediaForFragmentListOutput}
- */
-export interface GetMediaForFragmentListCommandOutput extends GetMediaForFragmentListCommandOutputType {}
+export interface GetMediaForFragmentListCommandOutput
+  extends __WithSdkStreamMixin<GetMediaForFragmentListOutput, "Payload">,
+    __MetadataBearer {}
 
 /**
  * <p>Gets media for a list of fragments (specified by fragment number) from the archived

@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
@@ -27,17 +28,7 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetObjectCommandInput extends GetObjectRequest {}
-type GetObjectCommandOutputType = __MetadataBearer &
-  Omit<GetObjectResponse, "Body"> & {
-    /**
-     * For *`GetObjectResponse["Body"]`*, see {@link GetObjectResponse.Body}.
-     */
-    Body?: __SdkStream<Required<GetObjectResponse>["Body"]>;
-  };
-/**
- * This interface extends from `GetObjectResponse` interface. There are more parameters than `Body` defined in {@link GetObjectResponse}
- */
-export interface GetObjectCommandOutput extends GetObjectCommandOutputType {}
+export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectResponse, "Body">, __MetadataBearer {}
 
 /**
  * <p>Downloads the object at the specified path. If the object’s upload availability is set to <code>streaming</code>, AWS Elemental MediaStore downloads the object even if it’s still uploading the object.</p>

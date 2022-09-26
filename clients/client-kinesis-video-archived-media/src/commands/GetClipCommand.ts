@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -31,17 +32,7 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetClipCommandInput extends GetClipInput {}
-type GetClipCommandOutputType = __MetadataBearer &
-  Omit<GetClipOutput, "Payload"> & {
-    /**
-     * For *`GetClipOutput["Payload"]`*, see {@link GetClipOutput.Payload}.
-     */
-    Payload?: __SdkStream<Required<GetClipOutput>["Payload"]>;
-  };
-/**
- * This interface extends from `GetClipOutput` interface. There are more parameters than `Payload` defined in {@link GetClipOutput}
- */
-export interface GetClipCommandOutput extends GetClipCommandOutputType {}
+export interface GetClipCommandOutput extends __WithSdkStreamMixin<GetClipOutput, "Payload">, __MetadataBearer {}
 
 /**
  * <p>Downloads an MP4 file (clip) containing the archived, on-demand media from the

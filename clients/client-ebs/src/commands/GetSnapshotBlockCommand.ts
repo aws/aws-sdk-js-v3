@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
@@ -27,17 +28,9 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetSnapshotBlockCommandInput extends GetSnapshotBlockRequest {}
-type GetSnapshotBlockCommandOutputType = __MetadataBearer &
-  Omit<GetSnapshotBlockResponse, "BlockData"> & {
-    /**
-     * For *`GetSnapshotBlockResponse["BlockData"]`*, see {@link GetSnapshotBlockResponse.BlockData}.
-     */
-    BlockData?: __SdkStream<Required<GetSnapshotBlockResponse>["BlockData"]>;
-  };
-/**
- * This interface extends from `GetSnapshotBlockResponse` interface. There are more parameters than `BlockData` defined in {@link GetSnapshotBlockResponse}
- */
-export interface GetSnapshotBlockCommandOutput extends GetSnapshotBlockCommandOutputType {}
+export interface GetSnapshotBlockCommandOutput
+  extends __WithSdkStreamMixin<GetSnapshotBlockResponse, "BlockData">,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the data in a block in an Amazon Elastic Block Store snapshot.</p>

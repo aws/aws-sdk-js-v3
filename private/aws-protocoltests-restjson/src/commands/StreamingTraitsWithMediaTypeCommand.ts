@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -34,17 +35,9 @@ type StreamingTraitsWithMediaTypeCommandInputType = Omit<StreamingTraitsWithMedi
  * This interface extends from `StreamingTraitsWithMediaTypeInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsWithMediaTypeInputOutput}
  */
 export interface StreamingTraitsWithMediaTypeCommandInput extends StreamingTraitsWithMediaTypeCommandInputType {}
-type StreamingTraitsWithMediaTypeCommandOutputType = __MetadataBearer &
-  Omit<StreamingTraitsWithMediaTypeInputOutput, "blob"> & {
-    /**
-     * For *`StreamingTraitsWithMediaTypeInputOutput["blob"]`*, see {@link StreamingTraitsWithMediaTypeInputOutput.blob}.
-     */
-    blob?: __SdkStream<Required<StreamingTraitsWithMediaTypeInputOutput>["blob"]>;
-  };
-/**
- * This interface extends from `StreamingTraitsWithMediaTypeInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsWithMediaTypeInputOutput}
- */
-export interface StreamingTraitsWithMediaTypeCommandOutput extends StreamingTraitsWithMediaTypeCommandOutputType {}
+export interface StreamingTraitsWithMediaTypeCommandOutput
+  extends __WithSdkStreamMixin<StreamingTraitsWithMediaTypeInputOutput, "blob">,
+    __MetadataBearer {}
 
 /**
  * This examples serializes a streaming media-typed blob shape in the request body.

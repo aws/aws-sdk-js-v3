@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
@@ -27,17 +28,9 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetObjectMetadataCommandInput extends GetObjectMetadataInput {}
-type GetObjectMetadataCommandOutputType = __MetadataBearer &
-  Omit<GetObjectMetadataOutput, "MetadataBlob"> & {
-    /**
-     * For *`GetObjectMetadataOutput["MetadataBlob"]`*, see {@link GetObjectMetadataOutput.MetadataBlob}.
-     */
-    MetadataBlob?: __SdkStream<Required<GetObjectMetadataOutput>["MetadataBlob"]>;
-  };
-/**
- * This interface extends from `GetObjectMetadataOutput` interface. There are more parameters than `MetadataBlob` defined in {@link GetObjectMetadataOutput}
- */
-export interface GetObjectMetadataCommandOutput extends GetObjectMetadataCommandOutputType {}
+export interface GetObjectMetadataCommandOutput
+  extends __WithSdkStreamMixin<GetObjectMetadataOutput, "MetadataBlob">,
+    __MetadataBearer {}
 
 /**
  * Get metadata associated with an Object.

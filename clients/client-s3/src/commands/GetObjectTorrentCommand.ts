@@ -13,6 +13,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -28,17 +29,9 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface GetObjectTorrentCommandInput extends GetObjectTorrentRequest {}
-type GetObjectTorrentCommandOutputType = __MetadataBearer &
-  Omit<GetObjectTorrentOutput, "Body"> & {
-    /**
-     * For *`GetObjectTorrentOutput["Body"]`*, see {@link GetObjectTorrentOutput.Body}.
-     */
-    Body?: __SdkStream<Required<GetObjectTorrentOutput>["Body"]>;
-  };
-/**
- * This interface extends from `GetObjectTorrentOutput` interface. There are more parameters than `Body` defined in {@link GetObjectTorrentOutput}
- */
-export interface GetObjectTorrentCommandOutput extends GetObjectTorrentCommandOutputType {}
+export interface GetObjectTorrentCommandOutput
+  extends __WithSdkStreamMixin<GetObjectTorrentOutput, "Body">,
+    __MetadataBearer {}
 
 /**
  * <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're

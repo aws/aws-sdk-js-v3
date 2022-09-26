@@ -12,6 +12,7 @@ import {
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -31,17 +32,9 @@ import {
 } from "../WorkMailMessageFlowClient";
 
 export interface GetRawMessageContentCommandInput extends GetRawMessageContentRequest {}
-type GetRawMessageContentCommandOutputType = __MetadataBearer &
-  Omit<GetRawMessageContentResponse, "messageContent"> & {
-    /**
-     * For *`GetRawMessageContentResponse["messageContent"]`*, see {@link GetRawMessageContentResponse.messageContent}.
-     */
-    messageContent: __SdkStream<Required<GetRawMessageContentResponse>["messageContent"]>;
-  };
-/**
- * This interface extends from `GetRawMessageContentResponse` interface. There are more parameters than `messageContent` defined in {@link GetRawMessageContentResponse}
- */
-export interface GetRawMessageContentCommandOutput extends GetRawMessageContentCommandOutputType {}
+export interface GetRawMessageContentCommandOutput
+  extends __WithSdkStreamMixin<GetRawMessageContentResponse, "messageContent">,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the raw content of an in-transit email message, in MIME format.</p>
