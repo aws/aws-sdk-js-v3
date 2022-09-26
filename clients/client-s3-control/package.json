@@ -59,7 +59,7 @@
     "@aws-sdk/util-utf8-node": "*",
     "@aws-sdk/xml-builder": "*",
     "entities": "2.2.0",
-    "fast-xml-parser": "3.19.0",
+    "fast-xml-parser": "4.0.10",
     "tslib": "^2.3.1",
     "uuid": "^8.3.2"
   },
