@@ -120,6 +120,7 @@ export enum AWSRegion {
   FRANKFURT = "eu-central-1",
   HONG_KONG = "ap-east-1",
   IRELAND = "eu-west-1",
+  JAKARTA = "ap-southeast-3",
   LONDON = "eu-west-2",
   MILANO = "eu-south-1",
   MUMBAI = "ap-south-1",
@@ -132,9 +133,11 @@ export enum AWSRegion {
   SAO_PAULO = "sa-east-1",
   SEOUL = "ap-northeast-2",
   SINGAPORE = "ap-southeast-1",
+  SPAIN = "eu-south-2",
   STOCKHOLM = "eu-north-1",
   SYDNEY = "ap-southeast-2",
   TOKYO = "ap-northeast-1",
+  UAE = "me-central-1",
   US_STANDARD = "us-east-1",
 }
 
