@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.178.0...v3.179.0) (2022-09-26)
+
+
+### Features
+
+* **client-ssm:** This release includes support for applying a CloudWatch alarm to Systems Manager capabilities like Automation, Run Command, State Manager, and Maintenance Windows. ([0a4f5fd](https://github.com/aws/aws-sdk-js-v3/commit/0a4f5fdfb5f8ad1e96a3fddafa35824faa1522b3))
+
+
+
+
+
 # [3.178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.177.0...v3.178.0) (2022-09-23)
 
 

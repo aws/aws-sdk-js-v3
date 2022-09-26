@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.178.0...v3.179.0) (2022-09-26)
+
+
+### Bug Fixes
+
+* **middleware-signing:** add missing dependency ([#3987](https://github.com/aws/aws-sdk-js-v3/issues/3987)) ([7e7ae42](https://github.com/aws/aws-sdk-js-v3/commit/7e7ae42ccd4c9978a23236a66e497ef618e2be1a))
+
+
+
+
+
 # [3.178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.177.0...v3.178.0) (2022-09-23)
 
 

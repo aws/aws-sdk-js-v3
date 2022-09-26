@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.178.0...v3.179.0) (2022-09-26)
+
+
+### Bug Fixes
+
+* **endpoint:** add package dependencies for middleware-endpoint ([#3988](https://github.com/aws/aws-sdk-js-v3/issues/3988)) ([4877469](https://github.com/aws/aws-sdk-js-v3/commit/4877469dea3ad91c2cbd7e7697bd8ba9b430a2b1))
+* **middleware-signing:** add missing dependency ([#3987](https://github.com/aws/aws-sdk-js-v3/issues/3987)) ([7e7ae42](https://github.com/aws/aws-sdk-js-v3/commit/7e7ae42ccd4c9978a23236a66e497ef618e2be1a))
+
+
+### Features
+
+* **client-cost-and-usage-report-service:** This release adds two new support regions(me-central-1/eu-south-2) for OSG. ([48d1751](https://github.com/aws/aws-sdk-js-v3/commit/48d1751acce27a850ba595632c4249cf554362d5))
+* **client-iotfleetwise:** General availability (GA) for AWS IoT Fleetwise. It adds AWS IoT Fleetwise to AWS SDK. For more information, see https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/Welcome.html. ([b1aac0b](https://github.com/aws/aws-sdk-js-v3/commit/b1aac0b31de5c9242f07853b542ffe16effd8e37))
+* **client-ssm:** This release includes support for applying a CloudWatch alarm to Systems Manager capabilities like Automation, Run Command, State Manager, and Maintenance Windows. ([0a4f5fd](https://github.com/aws/aws-sdk-js-v3/commit/0a4f5fdfb5f8ad1e96a3fddafa35824faa1522b3))
+* **clients:** update client endpoints as of 2022-09-26 ([d96d3ab](https://github.com/aws/aws-sdk-js-v3/commit/d96d3abb8ed598760cf0929063f54b028e009691))
+
+
+
+
+
 # [3.178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.177.0...v3.178.0) (2022-09-23)
 
 

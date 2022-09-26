@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.178.0...v3.179.0) (2022-09-26)
+
+
+### Features
+
+* **client-cost-and-usage-report-service:** This release adds two new support regions(me-central-1/eu-south-2) for OSG. ([48d1751](https://github.com/aws/aws-sdk-js-v3/commit/48d1751acce27a850ba595632c4249cf554362d5))
+
+
+
+
+
 # [3.178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.177.0...v3.178.0) (2022-09-23)
 
 **Note:** Version bump only for package @aws-sdk/client-cost-and-usage-report-service
