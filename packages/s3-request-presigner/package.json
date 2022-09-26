@@ -20,6 +20,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/middleware-endpoint": "*",
     "@aws-sdk/middleware-sdk-s3": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/signature-v4-multi-region": "*",

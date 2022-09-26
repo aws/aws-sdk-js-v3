@@ -20,15 +20,16 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/middleware-serde": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/signature-v4": "*",
     "@aws-sdk/types": "*",
+    "@aws-sdk/url-parser": "*",
     "@aws-sdk/util-config-provider": "*",
     "@aws-sdk/util-middleware": "*",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@aws-sdk/node-config-provider": "*",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
