@@ -2706,6 +2706,7 @@ const serializeAws_json1_1CreateCostCategoryDefinitionRequest = (
 ): any => {
   return {
     ...(input.DefaultValue != null && { DefaultValue: input.DefaultValue }),
+    ...(input.EffectiveStart != null && { EffectiveStart: input.EffectiveStart }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ResourceTags != null && {
       ResourceTags: serializeAws_json1_1ResourceTagList(input.ResourceTags, context),
@@ -3295,6 +3296,7 @@ const serializeAws_json1_1UpdateCostCategoryDefinitionRequest = (
   return {
     ...(input.CostCategoryArn != null && { CostCategoryArn: input.CostCategoryArn }),
     ...(input.DefaultValue != null && { DefaultValue: input.DefaultValue }),
+    ...(input.EffectiveStart != null && { EffectiveStart: input.EffectiveStart }),
     ...(input.RuleVersion != null && { RuleVersion: input.RuleVersion }),
     ...(input.Rules != null && { Rules: serializeAws_json1_1CostCategoryRulesList(input.Rules, context) }),
     ...(input.SplitChargeRules != null && {

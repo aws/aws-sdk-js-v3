@@ -224,7 +224,7 @@ export enum Dimension {
 export interface DimensionValues {
   /**
    * <p>The names of the metadata types that you can use to filter and group your results. For
-   *             example, <code>AZ</code> returns a list of Availability Zones.</p>
+   *             example, <code>AZ</code> returns a list of Availability Zones. <code>LINK_ACCOUNT_NAME</code> and <code>SERVICE_CODE</code> can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html">CostCategoryRule</a>.</p>
    */
   Key?: Dimension | string;
 
@@ -248,7 +248,7 @@ export interface DimensionValues {
  *         <p>If <code>Values</code> and <code>Key</code> aren't specified, the <code>ABSENT</code>
  *             <code>MatchOption</code> is applied to all tags. That is, it's filtered on resources
  *             with no tags.</p>
- *         <p>If <code>Values</code> is provided and <code>Key</code> isn't specified, the
+ *         <p>If <code>Key</code> is provided and <code>Values</code> isn't specified, the
  *                 <code>ABSENT</code>
  *             <code>MatchOption</code> is applied to the tag <code>Key</code> only. That is, it's
  *             filtered on resources without the given tag key.</p>
@@ -586,7 +586,7 @@ export interface CreateCostCategoryDefinitionResponse {
   CostCategoryArn?: string;
 
   /**
-   * <p>The Cost Category's effective start date. </p>
+   * <p>The Cost Category's effective start date. It can only be a billing start date (first day of the month).</p>
    */
   EffectiveStart?: string;
 }
@@ -1271,7 +1271,7 @@ export interface GetDimensionValuesResponse {
    *                <p>RECORD_TYPE - The different types of charges such as RI fees, usage costs, tax refunds, and credits.</p>
    *             </li>
    *             <li>
-   *                <p>RESOURCE_ID - The unique identifier of the resource. ResourceId is an opt-in feature only available for last 14 days for EC2-Compute Service.</p>
+   *                <p>RESOURCE_ID - The unique identifier of the resource. ResourceId is an opt-in feature only available for last 14 days for EC2-Compute Service. You can opt-in by enabling <code>Hourly</code> and <code>Resource Level Data</code> in Cost Management Console preferences.</p>
    *             </li>
    *          </ul>
    *          <p>If you set the context to <code>RESERVATIONS</code>, you can use the following
@@ -3652,7 +3652,7 @@ export interface UpdateCostCategoryDefinitionResponse {
   CostCategoryArn?: string;
 
   /**
-   * <p>The Cost Category's effective start date. </p>
+   * <p>The Cost Category's effective start date. It can only be a billing start date (first day of the month).</p>
    */
   EffectiveStart?: string;
 }
@@ -4347,8 +4347,7 @@ export interface GetDimensionValuesRequest {
 
   /**
    * <p>The name of the dimension. Each <code>Dimension</code> is available for a different <code>Context</code>.
-   * 			For more information, see <code>Context</code>.
-   *
+   * 		  For more information, see <code>Context</code>. <code>LINK_ACCOUNT_NAME</code> and <code>SERVICE_CODE</code> can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html">CostCategoryRule</a>.
    * 		</p>
    */
   Dimension: Dimension | string | undefined;
@@ -4442,9 +4441,8 @@ export interface GetDimensionValuesRequest {
    *                <p>REGION - The Amazon Web Services Region.</p>
    *             </li>
    *             <li>
-   *                <p>RECORD_TYPE - The different types of charges such as
-   *           Reserved
-   *           Instance (RI) fees, usage costs, tax refunds, and credits.</p>
+   *                <p>RECORD_TYPE - The different types of charges such as Reserved Instance (RI) fees, usage
+   *           costs, tax refunds, and credits.</p>
    *             </li>
    *             <li>
    *                <p>RESOURCE_ID - The unique identifier of the resource. ResourceId is an opt-in feature only available for last 14 days for EC2-Compute Service.</p>
@@ -5899,12 +5897,12 @@ export interface CostCategory {
   CostCategoryArn: string | undefined;
 
   /**
-   * <p>The effective state data of your Cost Category.</p>
+   * <p>The effective start date of your Cost Category.</p>
    */
   EffectiveStart: string | undefined;
 
   /**
-   * <p>The effective end data of your Cost Category.</p>
+   * <p>The effective end date of your Cost Category.</p>
    */
   EffectiveEnd?: string;
 
@@ -5949,6 +5947,11 @@ export interface CreateCostCategoryDefinitionRequest {
    * <p>The unique name of the Cost Category.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future.</p>
+   */
+  EffectiveStart?: string;
 
   /**
    * <p>The rule schema version in this particular Cost Category.</p>
@@ -6026,6 +6029,11 @@ export interface UpdateCostCategoryDefinitionRequest {
    * <p>The unique identifier for your Cost Category.</p>
    */
   CostCategoryArn: string | undefined;
+
+  /**
+   * <p>The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future.</p>
+   */
+  EffectiveStart?: string;
 
   /**
    * <p>The rule schema version in this particular Cost Category.</p>
