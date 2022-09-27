@@ -3309,7 +3309,7 @@ export interface GetMapSpritesRequest {
    *                   <code>sprites@2x.png</code> for high pixel density displays</p>
    *             </li>
    *          </ul>
-   *         <p>For the JSON document contain image offsets. Use the following ﬁle names:</p>
+   *         <p>For the JSON document containing image offsets. Use the following ﬁle names:</p>
    *         <ul>
    *             <li>
    *                <p>
@@ -3392,6 +3392,182 @@ export interface GetMapTileResponse {
    *                 <code>application/vnd.mapbox-vector-tile</code>.</p>
    */
   ContentType?: string;
+}
+
+export interface GetPlaceRequest {
+  /**
+   * <p>The name of the place index resource that you want to use for the search.</p>
+   */
+  IndexName: string | undefined;
+
+  /**
+   * <p>The identifier of the place to find.</p>
+   */
+  PlaceId: string | undefined;
+
+  /**
+   * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
+   *                 <code>en</code> for English.</p>
+   *         <p>This setting affects the languages used in the results, but not the results
+   *             themselves. If no language is specified, or not supported for a particular result, the
+   *             partner automatically chooses a language for the result.</p>
+   *         <p>For an example, we'll use the Greek language. You search for a location around Athens,
+   *             Greece, with the <code>language</code> parameter set to <code>en</code>. The
+   *                 <code>city</code> in the results will most likely be returned as
+   *             <code>Athens</code>.</p>
+   *         <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the
+   *                 <code>city</code> in the results will more likely be returned as
+   *             <code>Αθήνα</code>.</p>
+   *         <p>If the data provider does not have a value for Greek, the result will be in a language
+   *             that the provider does support.</p>
+   */
+  Language?: string;
+}
+
+/**
+ * <p>Places uses a point geometry to specify a location or a Place.</p>
+ */
+export interface PlaceGeometry {
+  /**
+   * <p>A single point geometry specifies a location for a Place using <a href="https://gisgeography.com/wgs84-world-geodetic-system/">WGS 84</a>
+   *             coordinates:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <i>x</i> — Specifies the x coordinate or longitude. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <i>y</i> — Specifies the y coordinate or latitude. </p>
+   *             </li>
+   *          </ul>
+   */
+  Point?: number[];
+}
+
+/**
+ * <p>Information about a time zone. Includes the name of the time zone and the offset from
+ *             UTC in seconds.</p>
+ */
+export interface TimeZone {
+  /**
+   * <p>The name of the time zone, following the <a href="https://www.iana.org/time-zones">
+   *                 IANA time zone standard</a>. For example,
+   *             <code>America/Los_Angeles</code>.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The time zone's offset, in seconds, from UTC.</p>
+   */
+  Offset?: number;
+}
+
+/**
+ * <p>Contains details about addresses or points of interest that match the search
+ *             criteria.</p>
+ *         <p>Not all details are included with all responses. Some details may only be returned by
+ *             specific data partners.</p>
+ */
+export interface Place {
+  /**
+   * <p>The full name and address of the point of interest such as a city, region, or country.
+   *             For example, <code>123 Any Street, Any Town, USA</code>.</p>
+   */
+  Label?: string;
+
+  /**
+   * <p>Places uses a point geometry to specify a location or a Place.</p>
+   */
+  Geometry: PlaceGeometry | undefined;
+
+  /**
+   * <p>The numerical portion of an address, such as a building number. </p>
+   */
+  AddressNumber?: string;
+
+  /**
+   * <p>The name for a street or a road to identify a location. For example, <code>Main
+   *                 Street</code>.</p>
+   */
+  Street?: string;
+
+  /**
+   * <p>The name of a community district. For example, <code>Downtown</code>.</p>
+   */
+  Neighborhood?: string;
+
+  /**
+   * <p>A name for a local area, such as a city or town name. For example,
+   *                 <code>Toronto</code>.</p>
+   */
+  Municipality?: string;
+
+  /**
+   * <p>A country, or an area that's part of a larger region. For example, <code>Metro
+   *                 Vancouver</code>.</p>
+   */
+  SubRegion?: string;
+
+  /**
+   * <p>A name for an area or geographical division, such as a province or state name. For
+   *             example, <code>British Columbia</code>.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>A country/region specified using <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a> 3-digit
+   *             country/region code. For example, <code>CAN</code>.</p>
+   */
+  Country?: string;
+
+  /**
+   * <p>A group of numbers and letters in a country-specific format, which accompanies the
+   *             address for the purpose of identifying a location. </p>
+   */
+  PostalCode?: string;
+
+  /**
+   * <p>
+   *             <code>True</code> if the result is interpolated from other known places.</p>
+   *         <p>
+   *             <code>False</code> if the Place is a known place.</p>
+   *         <p>Not returned when the partner does not provide the information.</p>
+   *         <p>For example, returns <code>False</code> for an address location that is found in the
+   *             partner data, but returns <code>True</code> if an address does not exist in the partner
+   *             data and its location is calculated by interpolating between other known addresses.
+   *         </p>
+   */
+  Interpolated?: boolean;
+
+  /**
+   * <p>The time zone in which the <code>Place</code> is located. Returned only when using
+   *             Here as the selected partner.</p>
+   */
+  TimeZone?: TimeZone;
+
+  /**
+   * <p>For addresses with a <code>UnitNumber</code>, the type of unit. For example,
+   *                 <code>Apartment</code>.</p>
+   */
+  UnitType?: string;
+
+  /**
+   * <p>For addresses with multiple units, the unit identifier. Can include numbers and
+   *             letters, for example <code>3B</code> or <code>Unit 123</code>.</p>
+   *         <note>
+   *             <p>Returned only for a place index that uses Esri as a data provider. Is not returned
+   *                 for <code>SearchPlaceIndexForPosition</code>.</p>
+   *         </note>
+   */
+  UnitNumber?: string;
+}
+
+export interface GetPlaceResponse {
+  /**
+   * <p>Details about the result, such as its address and position.</p>
+   */
+  Place: Place | undefined;
 }
 
 export interface ListDevicePositionsRequest {
@@ -3901,129 +4077,6 @@ export interface SearchPlaceIndexForPositionRequest {
 }
 
 /**
- * <p>Places uses a point geometry to specify a location or a Place.</p>
- */
-export interface PlaceGeometry {
-  /**
-   * <p>A single point geometry specifies a location for a Place using <a href="https://gisgeography.com/wgs84-world-geodetic-system/">WGS 84</a>
-   *             coordinates:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <i>x</i> — Specifies the x coordinate or longitude. </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <i>y</i> — Specifies the y coordinate or latitude. </p>
-   *             </li>
-   *          </ul>
-   */
-  Point?: number[];
-}
-
-/**
- * <p>Information about a time zone. Includes the name of the time zone and the offset from
- *             UTC in seconds.</p>
- */
-export interface TimeZone {
-  /**
-   * <p>The name of the time zone, following the <a href="https://www.iana.org/time-zones">
-   *                 IANA time zone standard</a>. For example,
-   *             <code>America/Los_Angeles</code>.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The time zone's offset, in seconds, from UTC.</p>
-   */
-  Offset?: number;
-}
-
-/**
- * <p>Contains details about addresses or points of interest that match the search
- *             criteria.</p>
- *         <p>Not all details are included with all responses. Some details may only be returned
- *             by specific data partners.</p>
- */
-export interface Place {
-  /**
-   * <p>The full name and address of the point of interest such as a city, region, or country.
-   *             For example, <code>123 Any Street, Any Town, USA</code>.</p>
-   */
-  Label?: string;
-
-  /**
-   * <p>Places uses a point geometry to specify a location or a Place.</p>
-   */
-  Geometry: PlaceGeometry | undefined;
-
-  /**
-   * <p>The numerical portion of an address, such as a building number. </p>
-   */
-  AddressNumber?: string;
-
-  /**
-   * <p>The name for a street or a road to identify a location. For example, <code>Main
-   *                 Street</code>.</p>
-   */
-  Street?: string;
-
-  /**
-   * <p>The name of a community district. For example, <code>Downtown</code>.</p>
-   */
-  Neighborhood?: string;
-
-  /**
-   * <p>A name for a local area, such as a city or town name. For example,
-   *                 <code>Toronto</code>.</p>
-   */
-  Municipality?: string;
-
-  /**
-   * <p>A country, or an area that's part of a larger region. For example, <code>Metro
-   *                 Vancouver</code>.</p>
-   */
-  SubRegion?: string;
-
-  /**
-   * <p>A name for an area or geographical division, such as a province or state name. For
-   *             example, <code>British Columbia</code>.</p>
-   */
-  Region?: string;
-
-  /**
-   * <p>A country/region specified using <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a> 3-digit
-   *             country/region code. For example, <code>CAN</code>.</p>
-   */
-  Country?: string;
-
-  /**
-   * <p>A group of numbers and letters in a country-specific format, which accompanies the
-   *             address for the purpose of identifying a location. </p>
-   */
-  PostalCode?: string;
-
-  /**
-   * <p>
-   *             <code>True</code> if the result is interpolated from other known places.</p>
-   *         <p>
-   *             <code>False</code> if the Place is a known place.</p>
-   *         <p>Not returned when the partner does not provide the information.</p>
-   *         <p>For example, returns <code>False</code> for an address location that is found in the
-   *             partner data, but returns <code>True</code> if an address does not exist in the partner
-   *             data and its location is calculated by interpolating between other known addresses.
-   *         </p>
-   */
-  Interpolated?: boolean;
-
-  /**
-   * <p>The time zone in which the <code>Place</code> is located. Returned only when using
-   *             Here as the selected partner.</p>
-   */
-  TimeZone?: TimeZone;
-}
-
-/**
  * <p>Contains a search result from a position search query that is run on a place index
  *             resource.</p>
  */
@@ -4042,6 +4095,16 @@ export interface SearchForPositionResult {
    *         </note>
    */
   Distance: number | undefined;
+
+  /**
+   * <p>The unique identifier of the place. You can use this with the <code>GetPlace</code>
+   *             operation to find the place again later.</p>
+   *         <note>
+   *             <p>For <code>SearchPlaceIndexForPosition</code> operations, the <code>PlaceId</code>
+   *                 is returned only by place indexes that use HERE as a data provider.</p>
+   *         </note>
+   */
+  PlaceId?: string;
 }
 
 /**
@@ -4193,6 +4256,18 @@ export interface SearchForSuggestionsResult {
    * <p>The text of the place suggestion, typically formatted as an address string.</p>
    */
   Text: string | undefined;
+
+  /**
+   * <p>The unique identifier of the place. You can use this with the <code>GetPlace</code>
+   *             operation to find the place again later.</p>
+   *         <note>
+   *             <p>For <code>SearchPlaceIndexForSuggestions</code> operations, the
+   *                     <code>PlaceId</code> is
+   *                 returned
+   *                 by place indexes that use HERE or Esri as data providers.</p>
+   *         </note>
+   */
+  PlaceId?: string;
 }
 
 /**
@@ -4383,6 +4458,16 @@ export interface SearchForTextResult {
    *         <p>Returned only when the partner selected is Esri.</p>
    */
   Relevance?: number;
+
+  /**
+   * <p>The unique identifier of the place. You can use this with the <code>GetPlace</code>
+   *             operation to find the place again later.</p>
+   *         <note>
+   *             <p>For <code>SearchPlaceIndexForText</code> operations, the <code>PlaceId</code> is
+   *                 returned only by place indexes that use HERE as a data provider.</p>
+   *         </note>
+   */
+  PlaceId?: string;
 }
 
 /**
@@ -4466,8 +4551,8 @@ export interface SearchPlaceIndexForTextResponse {
   /**
    * <p>A list of Places matching the input text. Each result contains additional information
    *             about the specific point of interest. </p>
-   *         <p>Not all response properties are included with all responses. Some properties may
-   *             only be returned by specific data partners.</p>
+   *         <p>Not all response properties are included with all responses. Some properties may only
+   *             be returned by specific data partners.</p>
    */
   Results: SearchForTextResult[] | undefined;
 }
@@ -5466,6 +5551,44 @@ export const GetMapTileResponseFilterSensitiveLog = (obj: GetMapTileResponse): a
 /**
  * @internal
  */
+export const GetPlaceRequestFilterSensitiveLog = (obj: GetPlaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlaceGeometryFilterSensitiveLog = (obj: PlaceGeometry): any => ({
+  ...obj,
+  ...(obj.Point && { Point: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TimeZoneFilterSensitiveLog = (obj: TimeZone): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlaceFilterSensitiveLog = (obj: Place): any => ({
+  ...obj,
+  ...(obj.Geometry && { Geometry: PlaceGeometryFilterSensitiveLog(obj.Geometry) }),
+});
+
+/**
+ * @internal
+ */
+export const GetPlaceResponseFilterSensitiveLog = (obj: GetPlaceResponse): any => ({
+  ...obj,
+  ...(obj.Place && { Place: PlaceFilterSensitiveLog(obj.Place) }),
+});
+
+/**
+ * @internal
+ */
 export const ListDevicePositionsRequestFilterSensitiveLog = (obj: ListDevicePositionsRequest): any => ({
   ...obj,
 });
@@ -5605,29 +5728,6 @@ export const UpdateMapResponseFilterSensitiveLog = (obj: UpdateMapResponse): any
 export const SearchPlaceIndexForPositionRequestFilterSensitiveLog = (obj: SearchPlaceIndexForPositionRequest): any => ({
   ...obj,
   ...(obj.Position && { Position: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PlaceGeometryFilterSensitiveLog = (obj: PlaceGeometry): any => ({
-  ...obj,
-  ...(obj.Point && { Point: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TimeZoneFilterSensitiveLog = (obj: TimeZone): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlaceFilterSensitiveLog = (obj: Place): any => ({
-  ...obj,
-  ...(obj.Geometry && { Geometry: PlaceGeometryFilterSensitiveLog(obj.Geometry) }),
 });
 
 /**

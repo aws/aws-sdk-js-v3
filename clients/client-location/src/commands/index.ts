@@ -31,6 +31,7 @@ export * from "./GetMapGlyphsCommand";
 export * from "./GetMapSpritesCommand";
 export * from "./GetMapStyleDescriptorCommand";
 export * from "./GetMapTileCommand";
+export * from "./GetPlaceCommand";
 export * from "./ListDevicePositionsCommand";
 export * from "./ListGeofenceCollectionsCommand";
 export * from "./ListGeofencesCommand";

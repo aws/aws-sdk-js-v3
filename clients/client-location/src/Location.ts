@@ -141,6 +141,7 @@ import {
   GetMapStyleDescriptorCommandOutput,
 } from "./commands/GetMapStyleDescriptorCommand";
 import { GetMapTileCommand, GetMapTileCommandInput, GetMapTileCommandOutput } from "./commands/GetMapTileCommand";
+import { GetPlaceCommand, GetPlaceCommandInput, GetPlaceCommandOutput } from "./commands/GetPlaceCommand";
 import {
   ListDevicePositionsCommand,
   ListDevicePositionsCommandInput,
@@ -1409,6 +1410,48 @@ export class Location extends LocationClient {
     cb?: (err: any, data?: GetMapTileCommandOutput) => void
   ): Promise<GetMapTileCommandOutput> | void {
     const command = new GetMapTileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search
+   *             operations.</p>
+   *         <note>
+   *             <p>A PlaceId is valid only if all of the following are the same in the original
+   *                 search request and the call to <code>GetPlace</code>.</p>
+   *             <ul>
+   *                <li>
+   *                     <p>Customer AWS account</p>
+   *                 </li>
+   *                <li>
+   *                     <p>AWS Region</p>
+   *                 </li>
+   *                <li>
+   *                     <p>Data provider specified in the place index resource</p>
+   *                 </li>
+   *             </ul>
+   *         </note>
+   */
+  public getPlace(args: GetPlaceCommandInput, options?: __HttpHandlerOptions): Promise<GetPlaceCommandOutput>;
+  public getPlace(args: GetPlaceCommandInput, cb: (err: any, data?: GetPlaceCommandOutput) => void): void;
+  public getPlace(
+    args: GetPlaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPlaceCommandOutput) => void
+  ): void;
+  public getPlace(
+    args: GetPlaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPlaceCommandOutput) => void),
+    cb?: (err: any, data?: GetPlaceCommandOutput) => void
+  ): Promise<GetPlaceCommandOutput> | void {
+    const command = new GetPlaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -105,6 +105,7 @@ import {
   GetMapStyleDescriptorCommandOutput,
 } from "../commands/GetMapStyleDescriptorCommand";
 import { GetMapTileCommandInput, GetMapTileCommandOutput } from "../commands/GetMapTileCommand";
+import { GetPlaceCommandInput, GetPlaceCommandOutput } from "../commands/GetPlaceCommand";
 import {
   ListDevicePositionsCommandInput,
   ListDevicePositionsCommandOutput,
@@ -1343,6 +1344,40 @@ export const serializeAws_restJson1GetMapTileCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetPlaceCommand = async (
+  input: GetPlaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/places/v0/indexes/{IndexName}/places/{PlaceId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "IndexName", () => input.IndexName!, "{IndexName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "PlaceId", () => input.PlaceId!, "{PlaceId}", false);
+  const query: any = map({
+    language: [, input.Language!],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "places." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -3944,6 +3979,59 @@ const deserializeAws_restJson1GetMapTileCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetPlaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPlaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetPlaceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Place != null) {
+    contents.Place = deserializeAws_restJson1Place(data.Place, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetPlaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPlaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.location#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.location#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.location#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.location#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.location#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListDevicePositionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5963,6 +6051,8 @@ const deserializeAws_restJson1Place = (output: any, context: __SerdeContext): Pl
     Street: __expectString(output.Street),
     SubRegion: __expectString(output.SubRegion),
     TimeZone: output.TimeZone != null ? deserializeAws_restJson1TimeZone(output.TimeZone, context) : undefined,
+    UnitNumber: __expectString(output.UnitNumber),
+    UnitType: __expectString(output.UnitType),
   } as any;
 };
 
@@ -6060,6 +6150,7 @@ const deserializeAws_restJson1SearchForPositionResult = (
   return {
     Distance: __limitedParseDouble(output.Distance),
     Place: output.Place != null ? deserializeAws_restJson1Place(output.Place, context) : undefined,
+    PlaceId: __expectString(output.PlaceId),
   } as any;
 };
 
@@ -6083,6 +6174,7 @@ const deserializeAws_restJson1SearchForSuggestionsResult = (
   context: __SerdeContext
 ): SearchForSuggestionsResult => {
   return {
+    PlaceId: __expectString(output.PlaceId),
     Text: __expectString(output.Text),
   } as any;
 };
@@ -6106,6 +6198,7 @@ const deserializeAws_restJson1SearchForTextResult = (output: any, context: __Ser
   return {
     Distance: __limitedParseDouble(output.Distance),
     Place: output.Place != null ? deserializeAws_restJson1Place(output.Place, context) : undefined,
+    PlaceId: __expectString(output.PlaceId),
     Relevance: __limitedParseDouble(output.Relevance),
   } as any;
 };

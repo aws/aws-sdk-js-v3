@@ -133,6 +133,7 @@ import {
   GetMapStyleDescriptorCommandOutput,
 } from "./commands/GetMapStyleDescriptorCommand";
 import { GetMapTileCommandInput, GetMapTileCommandOutput } from "./commands/GetMapTileCommand";
+import { GetPlaceCommandInput, GetPlaceCommandOutput } from "./commands/GetPlaceCommand";
 import {
   ListDevicePositionsCommandInput,
   ListDevicePositionsCommandOutput,
@@ -218,6 +219,7 @@ export type ServiceInputTypes =
   | GetMapSpritesCommandInput
   | GetMapStyleDescriptorCommandInput
   | GetMapTileCommandInput
+  | GetPlaceCommandInput
   | ListDevicePositionsCommandInput
   | ListGeofenceCollectionsCommandInput
   | ListGeofencesCommandInput
@@ -272,6 +274,7 @@ export type ServiceOutputTypes =
   | GetMapSpritesCommandOutput
   | GetMapStyleDescriptorCommandOutput
   | GetMapTileCommandOutput
+  | GetPlaceCommandOutput
   | ListDevicePositionsCommandOutput
   | ListGeofenceCollectionsCommandOutput
   | ListGeofencesCommandOutput
