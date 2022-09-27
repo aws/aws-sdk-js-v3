@@ -78,6 +78,14 @@ const regionHash: RegionHash = {
   "ca-central-1": {
     variants: [
       {
+        hostname: "appmesh-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "appmesh-fips.ca-central-1.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
         hostname: "appmesh.ca-central-1.api.aws",
         tags: ["dualstack"],
       },
@@ -166,6 +174,14 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
+        hostname: "appmesh-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "appmesh-fips.us-east-1.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
         hostname: "appmesh.us-east-1.api.aws",
         tags: ["dualstack"],
       },
@@ -173,6 +189,14 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
+      {
+        hostname: "appmesh-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "appmesh-fips.us-east-2.api.aws",
+        tags: ["dualstack", "fips"],
+      },
       {
         hostname: "appmesh.us-east-2.api.aws",
         tags: ["dualstack"],
@@ -182,6 +206,14 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
+        hostname: "appmesh-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "appmesh-fips.us-west-1.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
         hostname: "appmesh.us-west-1.api.aws",
         tags: ["dualstack"],
       },
@@ -189,6 +221,14 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
+      {
+        hostname: "appmesh-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "appmesh-fips.us-west-2.api.aws",
+        tags: ["dualstack", "fips"],
+      },
       {
         hostname: "appmesh.us-west-2.api.aws",
         tags: ["dualstack"],
@@ -210,6 +250,7 @@ const partitionHash: PartitionHash = {
       "ap-southeast-2",
       "ap-southeast-3",
       "ca-central-1",
+      "ca-central-1-fips",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -220,9 +261,13 @@ const partitionHash: PartitionHash = {
       "me-south-1",
       "sa-east-1",
       "us-east-1",
+      "us-east-1-fips",
       "us-east-2",
+      "us-east-2-fips",
       "us-west-1",
+      "us-west-1-fips",
       "us-west-2",
+      "us-west-2-fips",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     variants: [

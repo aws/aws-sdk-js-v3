@@ -1538,10 +1538,25 @@
             "ca-central-1": {
               "variants": [
                 {
+                  "hostname": "appmesh-fips.ca-central-1.amazonaws.com",
+                  "tags": ["fips"]
+                },
+                {
+                  "hostname": "appmesh-fips.ca-central-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
                   "hostname": "appmesh.ca-central-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
+            },
+            "ca-central-1-fips": {
+              "credentialScope": {
+                "region": "ca-central-1"
+              },
+              "deprecated": true,
+              "hostname": "appmesh-fips.ca-central-1.amazonaws.com"
             },
             "eu-central-1": {
               "variants": [
@@ -1610,34 +1625,94 @@
             "us-east-1": {
               "variants": [
                 {
+                  "hostname": "appmesh-fips.us-east-1.amazonaws.com",
+                  "tags": ["fips"]
+                },
+                {
+                  "hostname": "appmesh-fips.us-east-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
                   "hostname": "appmesh.us-east-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
             },
+            "us-east-1-fips": {
+              "credentialScope": {
+                "region": "us-east-1"
+              },
+              "deprecated": true,
+              "hostname": "appmesh-fips.us-east-1.amazonaws.com"
+            },
             "us-east-2": {
               "variants": [
+                {
+                  "hostname": "appmesh-fips.us-east-2.amazonaws.com",
+                  "tags": ["fips"]
+                },
+                {
+                  "hostname": "appmesh-fips.us-east-2.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
                 {
                   "hostname": "appmesh.us-east-2.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
             },
+            "us-east-2-fips": {
+              "credentialScope": {
+                "region": "us-east-2"
+              },
+              "deprecated": true,
+              "hostname": "appmesh-fips.us-east-2.amazonaws.com"
+            },
             "us-west-1": {
               "variants": [
+                {
+                  "hostname": "appmesh-fips.us-west-1.amazonaws.com",
+                  "tags": ["fips"]
+                },
+                {
+                  "hostname": "appmesh-fips.us-west-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
                 {
                   "hostname": "appmesh.us-west-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
             },
+            "us-west-1-fips": {
+              "credentialScope": {
+                "region": "us-west-1"
+              },
+              "deprecated": true,
+              "hostname": "appmesh-fips.us-west-1.amazonaws.com"
+            },
             "us-west-2": {
               "variants": [
+                {
+                  "hostname": "appmesh-fips.us-west-2.amazonaws.com",
+                  "tags": ["fips"]
+                },
+                {
+                  "hostname": "appmesh-fips.us-west-2.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
                 {
                   "hostname": "appmesh.us-west-2.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
+            },
+            "us-west-2-fips": {
+              "credentialScope": {
+                "region": "us-west-2"
+              },
+              "deprecated": true,
+              "hostname": "appmesh-fips.us-west-2.amazonaws.com"
             }
           }
         },
@@ -6020,8 +6095,27 @@
             "ap-northeast-2": {},
             "ap-south-1": {},
             "ap-southeast-1": {},
+            "ap-southeast-2": {},
+            "ca-central-1": {
+              "variants": [
+                {
+                  "hostname": "emr-serverless-fips.ca-central-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
             "eu-central-1": {},
+            "eu-north-1": {},
             "eu-west-1": {},
+            "eu-west-2": {},
+            "eu-west-3": {},
+            "fips-ca-central-1": {
+              "credentialScope": {
+                "region": "ca-central-1"
+              },
+              "deprecated": true,
+              "hostname": "emr-serverless-fips.ca-central-1.amazonaws.com"
+            },
             "fips-us-east-1": {
               "credentialScope": {
                 "region": "us-east-1"
@@ -6035,6 +6129,13 @@
               },
               "deprecated": true,
               "hostname": "emr-serverless-fips.us-east-2.amazonaws.com"
+            },
+            "fips-us-west-1": {
+              "credentialScope": {
+                "region": "us-west-1"
+              },
+              "deprecated": true,
+              "hostname": "emr-serverless-fips.us-west-1.amazonaws.com"
             },
             "fips-us-west-2": {
               "credentialScope": {
@@ -6056,6 +6157,14 @@
               "variants": [
                 {
                   "hostname": "emr-serverless-fips.us-east-2.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-west-1": {
+              "variants": [
+                {
+                  "hostname": "emr-serverless-fips.us-west-1.amazonaws.com",
                   "tags": ["fips"]
                 }
               ]
