@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.180.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.179.0...v3.180.0) (2022-09-27)
+
+
+### Features
+
+* **upload-abort-controller:** add optional abortController param for Upload ([#3873](https://github.com/aws/aws-sdk-js-v3/issues/3873)) ([90c6b11](https://github.com/aws/aws-sdk-js-v3/commit/90c6b118ea176ca5ed0d5c32c383da4d6848d9f8))
+
+
+
+
+
 # [3.179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.178.0...v3.179.0) (2022-09-26)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage

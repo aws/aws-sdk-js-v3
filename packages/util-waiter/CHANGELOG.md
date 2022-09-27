@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.180.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.179.0...v3.180.0) (2022-09-27)
+
+
+### Features
+
+* **util-waiter:** include reason on waiter result ([#3534](https://github.com/aws/aws-sdk-js-v3/issues/3534)) ([7f19c17](https://github.com/aws/aws-sdk-js-v3/commit/7f19c174b52ed7cc92c70374a5ff4c67f7d953c5))
+
+
+
+
+
 # [3.178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.177.0...v3.178.0) (2022-09-23)
 
 **Note:** Version bump only for package @aws-sdk/util-waiter

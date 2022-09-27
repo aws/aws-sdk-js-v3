@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.180.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.179.0...v3.180.0) (2022-09-27)
+
+
+### Bug Fixes
+
+* **smithy-client:** exception option missing message property ([#3424](https://github.com/aws/aws-sdk-js-v3/issues/3424)) ([6fc39be](https://github.com/aws/aws-sdk-js-v3/commit/6fc39be4c79ee9d353c2af54252df936776c2bf3))
+
+
+### Features
+
+* **client-cost-explorer:** This release is to support retroactive Cost Categories. The new field will enable you to retroactively apply new and existing cost category rules to previous months. ([a4bfd1f](https://github.com/aws/aws-sdk-js-v3/commit/a4bfd1f64567a535c9327ef7012daf301469e4e0))
+* **client-kendra:** My AWS Service (placeholder) - Amazon Kendra now provides a data source connector for DropBox. For more information, see https://docs.aws.amazon.com/kendra/latest/dg/data-source-dropbox.html ([192b01b](https://github.com/aws/aws-sdk-js-v3/commit/192b01b885da6cc963f9dfe7d3746e29012a14e3))
+* **client-location:** This release adds place IDs, which are unique identifiers of places, along with a new GetPlace operation, which can be used with place IDs to find a place again later. UnitNumber and UnitType are also added as new properties of places. ([df2b1a5](https://github.com/aws/aws-sdk-js-v3/commit/df2b1a586de3456b3a092b863ddca010bb755605))
+* **clients:** update client endpoints as of 2022-09-27 ([28c0b1d](https://github.com/aws/aws-sdk-js-v3/commit/28c0b1d199de1381700c786e3d02a47d1e5bfde2))
+* **upload-abort-controller:** add optional abortController param for Upload ([#3873](https://github.com/aws/aws-sdk-js-v3/issues/3873)) ([90c6b11](https://github.com/aws/aws-sdk-js-v3/commit/90c6b118ea176ca5ed0d5c32c383da4d6848d9f8))
+* **util-waiter:** include reason on waiter result ([#3534](https://github.com/aws/aws-sdk-js-v3/issues/3534)) ([7f19c17](https://github.com/aws/aws-sdk-js-v3/commit/7f19c174b52ed7cc92c70374a5ff4c67f7d953c5))
+
+
+
+
+
 # [3.179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.178.0...v3.179.0) (2022-09-26)
 
 

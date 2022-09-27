@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.180.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.179.0...v3.180.0) (2022-09-27)
+
+
+### Features
+
+* **client-kendra:** My AWS Service (placeholder) - Amazon Kendra now provides a data source connector for DropBox. For more information, see https://docs.aws.amazon.com/kendra/latest/dg/data-source-dropbox.html ([192b01b](https://github.com/aws/aws-sdk-js-v3/commit/192b01b885da6cc963f9dfe7d3746e29012a14e3))
+
+
+
+
+
 # [3.179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.178.0...v3.179.0) (2022-09-26)
 
 **Note:** Version bump only for package @aws-sdk/client-kendra

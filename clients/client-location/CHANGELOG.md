@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.180.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.179.0...v3.180.0) (2022-09-27)
+
+
+### Features
+
+* **client-location:** This release adds place IDs, which are unique identifiers of places, along with a new GetPlace operation, which can be used with place IDs to find a place again later. UnitNumber and UnitType are also added as new properties of places. ([df2b1a5](https://github.com/aws/aws-sdk-js-v3/commit/df2b1a586de3456b3a092b863ddca010bb755605))
+
+
+
+
+
 # [3.179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.178.0...v3.179.0) (2022-09-26)
 
 **Note:** Version bump only for package @aws-sdk/client-location

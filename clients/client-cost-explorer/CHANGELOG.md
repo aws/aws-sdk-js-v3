@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.180.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.179.0...v3.180.0) (2022-09-27)
+
+
+### Features
+
+* **client-cost-explorer:** This release is to support retroactive Cost Categories. The new field will enable you to retroactively apply new and existing cost category rules to previous months. ([a4bfd1f](https://github.com/aws/aws-sdk-js-v3/commit/a4bfd1f64567a535c9327ef7012daf301469e4e0))
+
+
+
+
+
 # [3.179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.178.0...v3.179.0) (2022-09-26)
 
 **Note:** Version bump only for package @aws-sdk/client-cost-explorer
