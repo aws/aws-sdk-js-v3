@@ -268,7 +268,7 @@ import { KendraClient } from "./KendraClient";
  */
 export class Kendra extends KendraClient {
   /**
-   * <p>Grants users or groups in your Amazon Web Services SSO identity source access
+   * <p>Grants users or groups in your IAM Identity Center identity source access
    *             to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a
    *             search application. For more information on creating a search application
    *             experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
@@ -304,7 +304,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Defines the specific permissions of users or groups in your Amazon Web Services SSO
+   * <p>Defines the specific permissions of users or groups in your IAM Identity Center
    *             identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra
    *             experience such as a search application. For more information on creating a
    *             search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
@@ -558,20 +558,19 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Creates a data source connector that you want to use with an Amazon Kendra index.</p>
-   *          <p>You specify a name, data source connector type and description for
-   *       your data source. You also specify configuration information for the
-   *       data source connector.</p>
+   * <p>Creates a data source connector that you want to use with an Amazon Kendra
+   *       index.</p>
+   *          <p>You specify a name, data source connector type and description for your data source. You
+   *       also specify configuration information for the data source connector.</p>
    *          <p>
-   *             <code>CreateDataSource</code> is a synchronous operation. The
-   *       operation returns 200 if the data source was successfully created.
-   *       Otherwise, an exception is raised.</p>
-   *          <p>Amazon S3 and <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html">custom</a> data sources are
-   *       the only supported data sources in the Amazon Web Services GovCloud (US-West) region.</p>
-   *          <p>For an example of creating an index and data source using the Python SDK,
-   *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting
-   *         started with Python SDK</a>. For an example of creating an index and data
-   *       source using the Java SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java SDK</a>.</p>
+   *             <code>CreateDataSource</code> is a synchronous operation. The operation returns 200 if the
+   *       data source was successfully created. Otherwise, an exception is raised.</p>
+   *          <p>Amazon S3 and <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html">custom</a> data sources are the only
+   *       supported data sources in the Amazon Web Services GovCloud (US-West) region.</p>
+   *          <p>For an example of creating an index and data source using the Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting started with Python
+   *         SDK</a>. For an example of creating an index and data source using the Java SDK, see
+   *         <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java
+   *         SDK</a>.</p>
    */
   public createDataSource(
     args: CreateDataSourceCommandInput,
@@ -823,10 +822,9 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Deletes an Amazon Kendra data source connector. An exception is not thrown if the
-   *       data source is already being deleted. While the data source is being
-   *       deleted, the <code>Status</code> field returned by a call to the
-   *         <code>DescribeDataSource</code> API is set to
-   *         <code>DELETING</code>. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html">Deleting Data Sources</a>.</p>
+   *       data source is already being deleted. While the data source is being deleted, the
+   *         <code>Status</code> field returned by a call to the <code>DescribeDataSource</code> API is
+   *       set to <code>DELETING</code>. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html">Deleting Data Sources</a>.</p>
    */
   public deleteDataSource(
     args: DeleteDataSourceCommandInput,
@@ -1372,7 +1370,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Prevents users or groups in your Amazon Web Services SSO identity source
+   * <p>Prevents users or groups in your IAM Identity Center identity source
    *             from accessing your Amazon Kendra experience. You can create an Amazon Kendra experience
    *             such as a search application. For more information on creating a search
    *             application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
@@ -1408,7 +1406,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Removes the specific permissions of users or groups in your Amazon Web Services SSO
+   * <p>Removes the specific permissions of users or groups in your IAM Identity Center
    *             identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra
    *             experience such as a search application. For more information on creating a
    *             search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
@@ -1577,8 +1575,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Gets statistics about synchronizing a data
-   *       source connector.</p>
+   * <p>Gets statistics about synchronizing a data source connector.</p>
    */
   public listDataSourceSyncJobs(
     args: ListDataSourceSyncJobsCommandInput,
@@ -1643,7 +1640,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Lists users or groups in your Amazon Web Services SSO identity source that are
+   * <p>Lists users or groups in your IAM Identity Center identity source that are
    *             granted access to your Amazon Kendra experience. You can create an Amazon Kendra experience
    *             such as a search application. For more information on creating a search
    *             application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
@@ -1999,9 +1996,9 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Starts a synchronization job for a data source connector. If a synchronization
-   *       job is already in progress, Amazon Kendra returns a
-   *         <code>ResourceInUseException</code> exception.</p>
+   * <p>Starts a synchronization job for a data source connector. If a synchronization job is
+   *       already in progress, Amazon Kendra returns a <code>ResourceInUseException</code>
+   *       exception.</p>
    */
   public startDataSourceSyncJob(
     args: StartDataSourceSyncJobCommandInput,
@@ -2033,8 +2030,8 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Stops a synchronization job that is currently running.
-   *       You can't stop a scheduled synchronization job.</p>
+   * <p>Stops a synchronization job that is currently running. You can't stop a scheduled
+   *       synchronization job.</p>
    */
   public stopDataSourceSyncJob(
     args: StopDataSourceSyncJobCommandInput,

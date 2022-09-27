@@ -23,8 +23,8 @@ export interface StopDataSourceSyncJobCommandInput extends StopDataSourceSyncJob
 export interface StopDataSourceSyncJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Stops a synchronization job that is currently running.
- *       You can't stop a scheduled synchronization job.</p>
+ * <p>Stops a synchronization job that is currently running. You can't stop a scheduled
+ *       synchronization job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
