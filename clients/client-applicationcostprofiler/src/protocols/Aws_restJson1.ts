@@ -692,10 +692,14 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any =>
+const parseBody = (streamBody: any, context: __SerdeContext & { $isError?: boolean }): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      return JSON.parse(encoded);
+      const value = JSON.parse(encoded);
+      if (context.$isError && value.Message !== undefined) {
+        value.message = value.Message;
+      }
+      return value;
     }
     return {};
   });

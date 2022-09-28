@@ -5996,10 +5996,14 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any =>
+const parseBody = (streamBody: any, context: __SerdeContext & { $isError?: boolean }): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      return JSON.parse(encoded);
+      const value = JSON.parse(encoded);
+      if (context.$isError && value.Message !== undefined) {
+        value.message = value.Message;
+      }
+      return value;
     }
     return {};
   });
