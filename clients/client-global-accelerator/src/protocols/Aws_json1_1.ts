@@ -928,7 +928,7 @@ const deserializeAws_json1_1AddCustomRoutingEndpointsCommandError = async (
 ): Promise<AddCustomRoutingEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -987,7 +987,7 @@ const deserializeAws_json1_1AdvertiseByoipCidrCommandError = async (
 ): Promise<AdvertiseByoipCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1037,7 +1037,7 @@ const deserializeAws_json1_1AllowCustomRoutingTrafficCommandError = async (
 ): Promise<AllowCustomRoutingTrafficCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1084,7 +1084,7 @@ const deserializeAws_json1_1CreateAcceleratorCommandError = async (
 ): Promise<CreateAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1131,7 +1131,7 @@ const deserializeAws_json1_1CreateCustomRoutingAcceleratorCommandError = async (
 ): Promise<CreateCustomRoutingAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1181,7 +1181,7 @@ const deserializeAws_json1_1CreateCustomRoutingEndpointGroupCommandError = async
 ): Promise<CreateCustomRoutingEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1243,7 +1243,7 @@ const deserializeAws_json1_1CreateCustomRoutingListenerCommandError = async (
 ): Promise<CreateCustomRoutingListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1296,7 +1296,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
 ): Promise<CreateEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1355,7 +1355,7 @@ const deserializeAws_json1_1CreateListenerCommandError = async (
 ): Promise<CreateListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1405,7 +1405,7 @@ const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
 ): Promise<DeleteAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1455,7 +1455,7 @@ const deserializeAws_json1_1DeleteCustomRoutingAcceleratorCommandError = async (
 ): Promise<DeleteCustomRoutingAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1505,7 +1505,7 @@ const deserializeAws_json1_1DeleteCustomRoutingEndpointGroupCommandError = async
 ): Promise<DeleteCustomRoutingEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1549,7 +1549,7 @@ const deserializeAws_json1_1DeleteCustomRoutingListenerCommandError = async (
 ): Promise<DeleteCustomRoutingListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1596,7 +1596,7 @@ const deserializeAws_json1_1DeleteEndpointGroupCommandError = async (
 ): Promise<DeleteEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1640,7 +1640,7 @@ const deserializeAws_json1_1DeleteListenerCommandError = async (
 ): Promise<DeleteListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1687,7 +1687,7 @@ const deserializeAws_json1_1DenyCustomRoutingTrafficCommandError = async (
 ): Promise<DenyCustomRoutingTrafficCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1734,7 +1734,7 @@ const deserializeAws_json1_1DeprovisionByoipCidrCommandError = async (
 ): Promise<DeprovisionByoipCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1787,7 +1787,7 @@ const deserializeAws_json1_1DescribeAcceleratorCommandError = async (
 ): Promise<DescribeAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1834,7 +1834,7 @@ const deserializeAws_json1_1DescribeAcceleratorAttributesCommandError = async (
 ): Promise<DescribeAcceleratorAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1881,7 +1881,7 @@ const deserializeAws_json1_1DescribeCustomRoutingAcceleratorCommandError = async
 ): Promise<DescribeCustomRoutingAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1928,7 +1928,7 @@ const deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommandErr
 ): Promise<DescribeCustomRoutingAcceleratorAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1975,7 +1975,7 @@ const deserializeAws_json1_1DescribeCustomRoutingEndpointGroupCommandError = asy
 ): Promise<DescribeCustomRoutingEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2022,7 +2022,7 @@ const deserializeAws_json1_1DescribeCustomRoutingListenerCommandError = async (
 ): Promise<DescribeCustomRoutingListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2069,7 +2069,7 @@ const deserializeAws_json1_1DescribeEndpointGroupCommandError = async (
 ): Promise<DescribeEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2116,7 +2116,7 @@ const deserializeAws_json1_1DescribeListenerCommandError = async (
 ): Promise<DescribeListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2163,7 +2163,7 @@ const deserializeAws_json1_1ListAcceleratorsCommandError = async (
 ): Promise<ListAcceleratorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2210,7 +2210,7 @@ const deserializeAws_json1_1ListByoipCidrsCommandError = async (
 ): Promise<ListByoipCidrsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2260,7 +2260,7 @@ const deserializeAws_json1_1ListCustomRoutingAcceleratorsCommandError = async (
 ): Promise<ListCustomRoutingAcceleratorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2307,7 +2307,7 @@ const deserializeAws_json1_1ListCustomRoutingEndpointGroupsCommandError = async 
 ): Promise<ListCustomRoutingEndpointGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2357,7 +2357,7 @@ const deserializeAws_json1_1ListCustomRoutingListenersCommandError = async (
 ): Promise<ListCustomRoutingListenersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2407,7 +2407,7 @@ const deserializeAws_json1_1ListCustomRoutingPortMappingsCommandError = async (
 ): Promise<ListCustomRoutingPortMappingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2460,7 +2460,7 @@ const deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommandErr
 ): Promise<ListCustomRoutingPortMappingsByDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2510,7 +2510,7 @@ const deserializeAws_json1_1ListEndpointGroupsCommandError = async (
 ): Promise<ListEndpointGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2560,7 +2560,7 @@ const deserializeAws_json1_1ListListenersCommandError = async (
 ): Promise<ListListenersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2610,7 +2610,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2657,7 +2657,7 @@ const deserializeAws_json1_1ProvisionByoipCidrCommandError = async (
 ): Promise<ProvisionByoipCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2707,7 +2707,7 @@ const deserializeAws_json1_1RemoveCustomRoutingEndpointsCommandError = async (
 ): Promise<RemoveCustomRoutingEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2763,7 +2763,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2810,7 +2810,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2857,7 +2857,7 @@ const deserializeAws_json1_1UpdateAcceleratorCommandError = async (
 ): Promise<UpdateAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2907,7 +2907,7 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesCommandError = async (
 ): Promise<UpdateAcceleratorAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2957,7 +2957,7 @@ const deserializeAws_json1_1UpdateCustomRoutingAcceleratorCommandError = async (
 ): Promise<UpdateCustomRoutingAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3004,7 +3004,7 @@ const deserializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesCommandError
 ): Promise<UpdateCustomRoutingAcceleratorAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3054,7 +3054,7 @@ const deserializeAws_json1_1UpdateCustomRoutingListenerCommandError = async (
 ): Promise<UpdateCustomRoutingListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3107,7 +3107,7 @@ const deserializeAws_json1_1UpdateEndpointGroupCommandError = async (
 ): Promise<UpdateEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3160,7 +3160,7 @@ const deserializeAws_json1_1UpdateListenerCommandError = async (
 ): Promise<UpdateListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3213,7 +3213,7 @@ const deserializeAws_json1_1WithdrawByoipCidrCommandError = async (
 ): Promise<WithdrawByoipCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5267,6 +5267,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+const parseErrorBody = (errorBody: any, context: __SerdeContext): any => {
+  const value = parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

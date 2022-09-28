@@ -3099,7 +3099,7 @@ const deserializeAws_restJson1AssociateAwsAccountWithPartnerAccountCommandError 
 ): Promise<AssociateAwsAccountWithPartnerAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3152,7 +3152,7 @@ const deserializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommandError =
 ): Promise<AssociateMulticastGroupWithFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3205,7 +3205,7 @@ const deserializeAws_restJson1AssociateWirelessDeviceWithFuotaTaskCommandError =
 ): Promise<AssociateWirelessDeviceWithFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3258,7 +3258,7 @@ const deserializeAws_restJson1AssociateWirelessDeviceWithMulticastGroupCommandEr
 ): Promise<AssociateWirelessDeviceWithMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3311,7 +3311,7 @@ const deserializeAws_restJson1AssociateWirelessDeviceWithThingCommandError = asy
 ): Promise<AssociateWirelessDeviceWithThingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3367,7 +3367,7 @@ const deserializeAws_restJson1AssociateWirelessGatewayWithCertificateCommandErro
 ): Promise<AssociateWirelessGatewayWithCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3420,7 +3420,7 @@ const deserializeAws_restJson1AssociateWirelessGatewayWithThingCommandError = as
 ): Promise<AssociateWirelessGatewayWithThingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3473,7 +3473,7 @@ const deserializeAws_restJson1CancelMulticastGroupSessionCommandError = async (
 ): Promise<CancelMulticastGroupSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3532,7 +3532,7 @@ const deserializeAws_restJson1CreateDestinationCommandError = async (
 ): Promise<CreateDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3591,7 +3591,7 @@ const deserializeAws_restJson1CreateDeviceProfileCommandError = async (
 ): Promise<CreateDeviceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3647,7 +3647,7 @@ const deserializeAws_restJson1CreateFuotaTaskCommandError = async (
 ): Promise<CreateFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3706,7 +3706,7 @@ const deserializeAws_restJson1CreateMulticastGroupCommandError = async (
 ): Promise<CreateMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3765,7 +3765,7 @@ const deserializeAws_restJson1CreateNetworkAnalyzerConfigurationCommandError = a
 ): Promise<CreateNetworkAnalyzerConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3824,7 +3824,7 @@ const deserializeAws_restJson1CreateServiceProfileCommandError = async (
 ): Promise<CreateServiceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3880,7 +3880,7 @@ const deserializeAws_restJson1CreateWirelessDeviceCommandError = async (
 ): Promise<CreateWirelessDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3939,7 +3939,7 @@ const deserializeAws_restJson1CreateWirelessGatewayCommandError = async (
 ): Promise<CreateWirelessGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3995,7 +3995,7 @@ const deserializeAws_restJson1CreateWirelessGatewayTaskCommandError = async (
 ): Promise<CreateWirelessGatewayTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4054,7 +4054,7 @@ const deserializeAws_restJson1CreateWirelessGatewayTaskDefinitionCommandError = 
 ): Promise<CreateWirelessGatewayTaskDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4107,7 +4107,7 @@ const deserializeAws_restJson1DeleteDestinationCommandError = async (
 ): Promise<DeleteDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4160,7 +4160,7 @@ const deserializeAws_restJson1DeleteDeviceProfileCommandError = async (
 ): Promise<DeleteDeviceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4213,7 +4213,7 @@ const deserializeAws_restJson1DeleteFuotaTaskCommandError = async (
 ): Promise<DeleteFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4263,7 +4263,7 @@ const deserializeAws_restJson1DeleteMulticastGroupCommandError = async (
 ): Promise<DeleteMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4316,7 +4316,7 @@ const deserializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommandError = a
 ): Promise<DeleteNetworkAnalyzerConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4369,7 +4369,7 @@ const deserializeAws_restJson1DeleteQueuedMessagesCommandError = async (
 ): Promise<DeleteQueuedMessagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4419,7 +4419,7 @@ const deserializeAws_restJson1DeleteServiceProfileCommandError = async (
 ): Promise<DeleteServiceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4472,7 +4472,7 @@ const deserializeAws_restJson1DeleteWirelessDeviceCommandError = async (
 ): Promise<DeleteWirelessDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4522,7 +4522,7 @@ const deserializeAws_restJson1DeleteWirelessGatewayCommandError = async (
 ): Promise<DeleteWirelessGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4572,7 +4572,7 @@ const deserializeAws_restJson1DeleteWirelessGatewayTaskCommandError = async (
 ): Promise<DeleteWirelessGatewayTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4622,7 +4622,7 @@ const deserializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommandError = 
 ): Promise<DeleteWirelessGatewayTaskDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4672,7 +4672,7 @@ const deserializeAws_restJson1DisassociateAwsAccountFromPartnerAccountCommandErr
 ): Promise<DisassociateAwsAccountFromPartnerAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4719,7 +4719,7 @@ const deserializeAws_restJson1DisassociateMulticastGroupFromFuotaTaskCommandErro
 ): Promise<DisassociateMulticastGroupFromFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4769,7 +4769,7 @@ const deserializeAws_restJson1DisassociateWirelessDeviceFromFuotaTaskCommandErro
 ): Promise<DisassociateWirelessDeviceFromFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4822,7 +4822,7 @@ const deserializeAws_restJson1DisassociateWirelessDeviceFromMulticastGroupComman
 ): Promise<DisassociateWirelessDeviceFromMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4872,7 +4872,7 @@ const deserializeAws_restJson1DisassociateWirelessDeviceFromThingCommandError = 
 ): Promise<DisassociateWirelessDeviceFromThingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4925,7 +4925,7 @@ const deserializeAws_restJson1DisassociateWirelessGatewayFromCertificateCommandE
 ): Promise<DisassociateWirelessGatewayFromCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4975,7 +4975,7 @@ const deserializeAws_restJson1DisassociateWirelessGatewayFromThingCommandError =
 ): Promise<DisassociateWirelessGatewayFromThingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5046,7 +5046,7 @@ const deserializeAws_restJson1GetDestinationCommandError = async (
 ): Promise<GetDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5108,7 +5108,7 @@ const deserializeAws_restJson1GetDeviceProfileCommandError = async (
 ): Promise<GetDeviceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5182,7 +5182,7 @@ const deserializeAws_restJson1GetEventConfigurationByResourceTypesCommandError =
 ): Promise<GetEventConfigurationByResourceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5253,7 +5253,7 @@ const deserializeAws_restJson1GetFuotaTaskCommandError = async (
 ): Promise<GetFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5318,7 +5318,7 @@ const deserializeAws_restJson1GetLogLevelsByResourceTypesCommandError = async (
 ): Promise<GetLogLevelsByResourceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5389,7 +5389,7 @@ const deserializeAws_restJson1GetMulticastGroupCommandError = async (
 ): Promise<GetMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5442,7 +5442,7 @@ const deserializeAws_restJson1GetMulticastGroupSessionCommandError = async (
 ): Promise<GetMulticastGroupSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5510,7 +5510,7 @@ const deserializeAws_restJson1GetNetworkAnalyzerConfigurationCommandError = asyn
 ): Promise<GetNetworkAnalyzerConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5566,7 +5566,7 @@ const deserializeAws_restJson1GetPartnerAccountCommandError = async (
 ): Promise<GetPartnerAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5631,7 +5631,7 @@ const deserializeAws_restJson1GetPositionCommandError = async (
 ): Promise<GetPositionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5687,7 +5687,7 @@ const deserializeAws_restJson1GetPositionConfigurationCommandError = async (
 ): Promise<GetPositionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5761,7 +5761,7 @@ const deserializeAws_restJson1GetResourceEventConfigurationCommandError = async 
 ): Promise<GetResourceEventConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5814,7 +5814,7 @@ const deserializeAws_restJson1GetResourceLogLevelCommandError = async (
 ): Promise<GetResourceLogLevelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5873,7 +5873,7 @@ const deserializeAws_restJson1GetServiceEndpointCommandError = async (
 ): Promise<GetServiceEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5932,7 +5932,7 @@ const deserializeAws_restJson1GetServiceProfileCommandError = async (
 ): Promise<GetServiceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6012,7 +6012,7 @@ const deserializeAws_restJson1GetWirelessDeviceCommandError = async (
 ): Promise<GetWirelessDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6074,7 +6074,7 @@ const deserializeAws_restJson1GetWirelessDeviceStatisticsCommandError = async (
 ): Promise<GetWirelessDeviceStatisticsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6145,7 +6145,7 @@ const deserializeAws_restJson1GetWirelessGatewayCommandError = async (
 ): Promise<GetWirelessGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6201,7 +6201,7 @@ const deserializeAws_restJson1GetWirelessGatewayCertificateCommandError = async 
 ): Promise<GetWirelessGatewayCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6254,7 +6254,7 @@ const deserializeAws_restJson1GetWirelessGatewayFirmwareInformationCommandError 
 ): Promise<GetWirelessGatewayFirmwareInformationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6313,7 +6313,7 @@ const deserializeAws_restJson1GetWirelessGatewayStatisticsCommandError = async (
 ): Promise<GetWirelessGatewayStatisticsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6378,7 +6378,7 @@ const deserializeAws_restJson1GetWirelessGatewayTaskCommandError = async (
 ): Promise<GetWirelessGatewayTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6440,7 +6440,7 @@ const deserializeAws_restJson1GetWirelessGatewayTaskDefinitionCommandError = asy
 ): Promise<GetWirelessGatewayTaskDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6496,7 +6496,7 @@ const deserializeAws_restJson1ListDestinationsCommandError = async (
 ): Promise<ListDestinationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6549,7 +6549,7 @@ const deserializeAws_restJson1ListDeviceProfilesCommandError = async (
 ): Promise<ListDeviceProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6605,7 +6605,7 @@ const deserializeAws_restJson1ListEventConfigurationsCommandError = async (
 ): Promise<ListEventConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6658,7 +6658,7 @@ const deserializeAws_restJson1ListFuotaTasksCommandError = async (
 ): Promise<ListFuotaTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6711,7 +6711,7 @@ const deserializeAws_restJson1ListMulticastGroupsCommandError = async (
 ): Promise<ListMulticastGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6767,7 +6767,7 @@ const deserializeAws_restJson1ListMulticastGroupsByFuotaTaskCommandError = async
 ): Promise<ListMulticastGroupsByFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6826,7 +6826,7 @@ const deserializeAws_restJson1ListNetworkAnalyzerConfigurationsCommandError = as
 ): Promise<ListNetworkAnalyzerConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6879,7 +6879,7 @@ const deserializeAws_restJson1ListPartnerAccountsCommandError = async (
 ): Promise<ListPartnerAccountsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6935,7 +6935,7 @@ const deserializeAws_restJson1ListPositionConfigurationsCommandError = async (
 ): Promise<ListPositionConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6991,7 +6991,7 @@ const deserializeAws_restJson1ListQueuedMessagesCommandError = async (
 ): Promise<ListQueuedMessagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7047,7 +7047,7 @@ const deserializeAws_restJson1ListServiceProfilesCommandError = async (
 ): Promise<ListServiceProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7097,7 +7097,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7156,7 +7156,7 @@ const deserializeAws_restJson1ListWirelessDevicesCommandError = async (
 ): Promise<ListWirelessDevicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7212,7 +7212,7 @@ const deserializeAws_restJson1ListWirelessGatewaysCommandError = async (
 ): Promise<ListWirelessGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7265,7 +7265,7 @@ const deserializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommandError = a
 ): Promise<ListWirelessGatewayTaskDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7312,7 +7312,7 @@ const deserializeAws_restJson1PutPositionConfigurationCommandError = async (
 ): Promise<PutPositionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7362,7 +7362,7 @@ const deserializeAws_restJson1PutResourceLogLevelCommandError = async (
 ): Promise<PutResourceLogLevelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7412,7 +7412,7 @@ const deserializeAws_restJson1ResetAllResourceLogLevelsCommandError = async (
 ): Promise<ResetAllResourceLogLevelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7462,7 +7462,7 @@ const deserializeAws_restJson1ResetResourceLogLevelCommandError = async (
 ): Promise<ResetResourceLogLevelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7515,7 +7515,7 @@ const deserializeAws_restJson1SendDataToMulticastGroupCommandError = async (
 ): Promise<SendDataToMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7571,7 +7571,7 @@ const deserializeAws_restJson1SendDataToWirelessDeviceCommandError = async (
 ): Promise<SendDataToWirelessDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7618,7 +7618,7 @@ const deserializeAws_restJson1StartBulkAssociateWirelessDeviceWithMulticastGroup
 ): Promise<StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7668,7 +7668,7 @@ const deserializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGr
 ): Promise<StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7718,7 +7718,7 @@ const deserializeAws_restJson1StartFuotaTaskCommandError = async (
 ): Promise<StartFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7771,7 +7771,7 @@ const deserializeAws_restJson1StartMulticastGroupSessionCommandError = async (
 ): Promise<StartMulticastGroupSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7824,7 +7824,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7880,7 +7880,7 @@ const deserializeAws_restJson1TestWirelessDeviceCommandError = async (
 ): Promise<TestWirelessDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7927,7 +7927,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7977,7 +7977,7 @@ const deserializeAws_restJson1UpdateDestinationCommandError = async (
 ): Promise<UpdateDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8027,7 +8027,7 @@ const deserializeAws_restJson1UpdateEventConfigurationByResourceTypesCommandErro
 ): Promise<UpdateEventConfigurationByResourceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8074,7 +8074,7 @@ const deserializeAws_restJson1UpdateFuotaTaskCommandError = async (
 ): Promise<UpdateFuotaTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8127,7 +8127,7 @@ const deserializeAws_restJson1UpdateLogLevelsByResourceTypesCommandError = async
 ): Promise<UpdateLogLevelsByResourceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8180,7 +8180,7 @@ const deserializeAws_restJson1UpdateMulticastGroupCommandError = async (
 ): Promise<UpdateMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8233,7 +8233,7 @@ const deserializeAws_restJson1UpdateNetworkAnalyzerConfigurationCommandError = a
 ): Promise<UpdateNetworkAnalyzerConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8283,7 +8283,7 @@ const deserializeAws_restJson1UpdatePartnerAccountCommandError = async (
 ): Promise<UpdatePartnerAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8330,7 +8330,7 @@ const deserializeAws_restJson1UpdatePositionCommandError = async (
 ): Promise<UpdatePositionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8380,7 +8380,7 @@ const deserializeAws_restJson1UpdateResourceEventConfigurationCommandError = asy
 ): Promise<UpdateResourceEventConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8433,7 +8433,7 @@ const deserializeAws_restJson1UpdateWirelessDeviceCommandError = async (
 ): Promise<UpdateWirelessDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8483,7 +8483,7 @@ const deserializeAws_restJson1UpdateWirelessGatewayCommandError = async (
 ): Promise<UpdateWirelessGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -10605,6 +10605,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+const parseErrorBody = (errorBody: any, context: __SerdeContext): any => {
+  const value = parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

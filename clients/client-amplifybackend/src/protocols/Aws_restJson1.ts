@@ -1140,7 +1140,7 @@ const deserializeAws_restJson1CloneBackendCommandError = async (
 ): Promise<CloneBackendCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1205,7 +1205,7 @@ const deserializeAws_restJson1CreateBackendCommandError = async (
 ): Promise<CreateBackendCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1270,7 +1270,7 @@ const deserializeAws_restJson1CreateBackendAPICommandError = async (
 ): Promise<CreateBackendAPICommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1335,7 +1335,7 @@ const deserializeAws_restJson1CreateBackendAuthCommandError = async (
 ): Promise<CreateBackendAuthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1394,7 +1394,7 @@ const deserializeAws_restJson1CreateBackendConfigCommandError = async (
 ): Promise<CreateBackendConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1453,7 +1453,7 @@ const deserializeAws_restJson1CreateBackendStorageCommandError = async (
 ): Promise<CreateBackendStorageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1512,7 +1512,7 @@ const deserializeAws_restJson1CreateTokenCommandError = async (
 ): Promise<CreateTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1577,7 +1577,7 @@ const deserializeAws_restJson1DeleteBackendCommandError = async (
 ): Promise<DeleteBackendCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1642,7 +1642,7 @@ const deserializeAws_restJson1DeleteBackendAPICommandError = async (
 ): Promise<DeleteBackendAPICommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1707,7 +1707,7 @@ const deserializeAws_restJson1DeleteBackendAuthCommandError = async (
 ): Promise<DeleteBackendAuthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1766,7 +1766,7 @@ const deserializeAws_restJson1DeleteBackendStorageCommandError = async (
 ): Promise<DeleteBackendStorageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1816,7 +1816,7 @@ const deserializeAws_restJson1DeleteTokenCommandError = async (
 ): Promise<DeleteTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1881,7 +1881,7 @@ const deserializeAws_restJson1GenerateBackendAPIModelsCommandError = async (
 ): Promise<GenerateBackendAPIModelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1949,7 +1949,7 @@ const deserializeAws_restJson1GetBackendCommandError = async (
 ): Promise<GetBackendCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2011,7 +2011,7 @@ const deserializeAws_restJson1GetBackendAPICommandError = async (
 ): Promise<GetBackendAPICommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2064,7 +2064,7 @@ const deserializeAws_restJson1GetBackendAPIModelsCommandError = async (
 ): Promise<GetBackendAPIModelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2126,7 +2126,7 @@ const deserializeAws_restJson1GetBackendAuthCommandError = async (
 ): Promise<GetBackendAuthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2197,7 +2197,7 @@ const deserializeAws_restJson1GetBackendJobCommandError = async (
 ): Promise<GetBackendJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2256,7 +2256,7 @@ const deserializeAws_restJson1GetBackendStorageCommandError = async (
 ): Promise<GetBackendStorageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2315,7 +2315,7 @@ const deserializeAws_restJson1GetTokenCommandError = async (
 ): Promise<GetTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2380,7 +2380,7 @@ const deserializeAws_restJson1ImportBackendAuthCommandError = async (
 ): Promise<ImportBackendAuthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2439,7 +2439,7 @@ const deserializeAws_restJson1ImportBackendStorageCommandError = async (
 ): Promise<ImportBackendStorageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2492,7 +2492,7 @@ const deserializeAws_restJson1ListBackendJobsCommandError = async (
 ): Promise<ListBackendJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2545,7 +2545,7 @@ const deserializeAws_restJson1ListS3BucketsCommandError = async (
 ): Promise<ListS3BucketsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2607,7 +2607,7 @@ const deserializeAws_restJson1RemoveAllBackendsCommandError = async (
 ): Promise<RemoveAllBackendsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2657,7 +2657,7 @@ const deserializeAws_restJson1RemoveBackendConfigCommandError = async (
 ): Promise<RemoveBackendConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2722,7 +2722,7 @@ const deserializeAws_restJson1UpdateBackendAPICommandError = async (
 ): Promise<UpdateBackendAPICommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2787,7 +2787,7 @@ const deserializeAws_restJson1UpdateBackendAuthCommandError = async (
 ): Promise<UpdateBackendAuthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2846,7 +2846,7 @@ const deserializeAws_restJson1UpdateBackendConfigCommandError = async (
 ): Promise<UpdateBackendConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2917,7 +2917,7 @@ const deserializeAws_restJson1UpdateBackendJobCommandError = async (
 ): Promise<UpdateBackendJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2976,7 +2976,7 @@ const deserializeAws_restJson1UpdateBackendStorageCommandError = async (
 ): Promise<UpdateBackendStorageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4067,6 +4067,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+const parseErrorBody = (errorBody: any, context: __SerdeContext): any => {
+  const value = parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
