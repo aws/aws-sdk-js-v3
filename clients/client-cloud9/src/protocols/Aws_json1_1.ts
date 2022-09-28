@@ -288,7 +288,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
 ): Promise<CreateEnvironmentEC2CommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -347,7 +347,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
 ): Promise<CreateEnvironmentMembershipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -406,7 +406,7 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
 ): Promise<DeleteEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -465,7 +465,7 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
 ): Promise<DeleteEnvironmentMembershipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -524,7 +524,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
 ): Promise<DescribeEnvironmentMembershipsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -583,7 +583,7 @@ const deserializeAws_json1_1DescribeEnvironmentsCommandError = async (
 ): Promise<DescribeEnvironmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -642,7 +642,7 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
 ): Promise<DescribeEnvironmentStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -701,7 +701,7 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
 ): Promise<ListEnvironmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -760,7 +760,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -807,7 +807,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -857,7 +857,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -907,7 +907,7 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
 ): Promise<UpdateEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -966,7 +966,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
 ): Promise<UpdateEnvironmentMembershipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

@@ -137,7 +137,7 @@ const deserializeAws_restJson1DeleteConnectionCommandError = async (
 ): Promise<DeleteConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -190,7 +190,7 @@ const deserializeAws_restJson1GetConnectionCommandError = async (
 ): Promise<GetConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -234,7 +234,7 @@ const deserializeAws_restJson1PostToConnectionCommandError = async (
 ): Promise<PostToConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

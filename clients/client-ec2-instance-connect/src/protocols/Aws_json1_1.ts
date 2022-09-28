@@ -86,7 +86,7 @@ const deserializeAws_json1_1SendSerialConsoleSSHPublicKeyCommandError = async (
 ): Promise<SendSerialConsoleSSHPublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -157,7 +157,7 @@ const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
 ): Promise<SendSSHPublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

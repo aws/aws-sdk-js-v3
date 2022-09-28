@@ -1237,7 +1237,7 @@ const deserializeAws_json1_1AssociateFirewallRuleGroupCommandError = async (
 ): Promise<AssociateFirewallRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1296,7 +1296,7 @@ const deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandError = asy
 ): Promise<AssociateResolverEndpointIpAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1355,7 +1355,7 @@ const deserializeAws_json1_1AssociateResolverQueryLogConfigCommandError = async 
 ): Promise<AssociateResolverQueryLogConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1417,7 +1417,7 @@ const deserializeAws_json1_1AssociateResolverRuleCommandError = async (
 ): Promise<AssociateResolverRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1479,7 +1479,7 @@ const deserializeAws_json1_1CreateFirewallDomainListCommandError = async (
 ): Promise<CreateFirewallDomainListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1532,7 +1532,7 @@ const deserializeAws_json1_1CreateFirewallRuleCommandError = async (
 ): Promise<CreateFirewallRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1588,7 +1588,7 @@ const deserializeAws_json1_1CreateFirewallRuleGroupCommandError = async (
 ): Promise<CreateFirewallRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1641,7 +1641,7 @@ const deserializeAws_json1_1CreateResolverEndpointCommandError = async (
 ): Promise<CreateResolverEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1700,7 +1700,7 @@ const deserializeAws_json1_1CreateResolverQueryLogConfigCommandError = async (
 ): Promise<CreateResolverQueryLogConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1762,7 +1762,7 @@ const deserializeAws_json1_1CreateResolverRuleCommandError = async (
 ): Promise<CreateResolverRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1824,7 +1824,7 @@ const deserializeAws_json1_1DeleteFirewallDomainListCommandError = async (
 ): Promise<DeleteFirewallDomainListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1877,7 +1877,7 @@ const deserializeAws_json1_1DeleteFirewallRuleCommandError = async (
 ): Promise<DeleteFirewallRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1927,7 +1927,7 @@ const deserializeAws_json1_1DeleteFirewallRuleGroupCommandError = async (
 ): Promise<DeleteFirewallRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1983,7 +1983,7 @@ const deserializeAws_json1_1DeleteResolverEndpointCommandError = async (
 ): Promise<DeleteResolverEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2036,7 +2036,7 @@ const deserializeAws_json1_1DeleteResolverQueryLogConfigCommandError = async (
 ): Promise<DeleteResolverQueryLogConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2092,7 +2092,7 @@ const deserializeAws_json1_1DeleteResolverRuleCommandError = async (
 ): Promise<DeleteResolverRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2145,7 +2145,7 @@ const deserializeAws_json1_1DisassociateFirewallRuleGroupCommandError = async (
 ): Promise<DisassociateFirewallRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2201,7 +2201,7 @@ const deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommandError = 
 ): Promise<DisassociateResolverEndpointIpAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2257,7 +2257,7 @@ const deserializeAws_json1_1DisassociateResolverQueryLogConfigCommandError = asy
 ): Promise<DisassociateResolverQueryLogConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2313,7 +2313,7 @@ const deserializeAws_json1_1DisassociateResolverRuleCommandError = async (
 ): Promise<DisassociateResolverRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2363,7 +2363,7 @@ const deserializeAws_json1_1GetFirewallConfigCommandError = async (
 ): Promise<GetFirewallConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2416,7 +2416,7 @@ const deserializeAws_json1_1GetFirewallDomainListCommandError = async (
 ): Promise<GetFirewallDomainListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2466,7 +2466,7 @@ const deserializeAws_json1_1GetFirewallRuleGroupCommandError = async (
 ): Promise<GetFirewallRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2516,7 +2516,7 @@ const deserializeAws_json1_1GetFirewallRuleGroupAssociationCommandError = async 
 ): Promise<GetFirewallRuleGroupAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2566,7 +2566,7 @@ const deserializeAws_json1_1GetFirewallRuleGroupPolicyCommandError = async (
 ): Promise<GetFirewallRuleGroupPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2619,7 +2619,7 @@ const deserializeAws_json1_1GetResolverConfigCommandError = async (
 ): Promise<GetResolverConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2672,7 +2672,7 @@ const deserializeAws_json1_1GetResolverDnssecConfigCommandError = async (
 ): Promise<GetResolverDnssecConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2728,7 +2728,7 @@ const deserializeAws_json1_1GetResolverEndpointCommandError = async (
 ): Promise<GetResolverEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2778,7 +2778,7 @@ const deserializeAws_json1_1GetResolverQueryLogConfigCommandError = async (
 ): Promise<GetResolverQueryLogConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2834,7 +2834,7 @@ const deserializeAws_json1_1GetResolverQueryLogConfigAssociationCommandError = a
 ): Promise<GetResolverQueryLogConfigAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2890,7 +2890,7 @@ const deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommandError = async 
 ): Promise<GetResolverQueryLogConfigPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2943,7 +2943,7 @@ const deserializeAws_json1_1GetResolverRuleCommandError = async (
 ): Promise<GetResolverRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2993,7 +2993,7 @@ const deserializeAws_json1_1GetResolverRuleAssociationCommandError = async (
 ): Promise<GetResolverRuleAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3043,7 +3043,7 @@ const deserializeAws_json1_1GetResolverRulePolicyCommandError = async (
 ): Promise<GetResolverRulePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3090,7 +3090,7 @@ const deserializeAws_json1_1ImportFirewallDomainsCommandError = async (
 ): Promise<ImportFirewallDomainsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3149,7 +3149,7 @@ const deserializeAws_json1_1ListFirewallConfigsCommandError = async (
 ): Promise<ListFirewallConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3199,7 +3199,7 @@ const deserializeAws_json1_1ListFirewallDomainListsCommandError = async (
 ): Promise<ListFirewallDomainListsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3249,7 +3249,7 @@ const deserializeAws_json1_1ListFirewallDomainsCommandError = async (
 ): Promise<ListFirewallDomainsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3302,7 +3302,7 @@ const deserializeAws_json1_1ListFirewallRuleGroupAssociationsCommandError = asyn
 ): Promise<ListFirewallRuleGroupAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3352,7 +3352,7 @@ const deserializeAws_json1_1ListFirewallRuleGroupsCommandError = async (
 ): Promise<ListFirewallRuleGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3402,7 +3402,7 @@ const deserializeAws_json1_1ListFirewallRulesCommandError = async (
 ): Promise<ListFirewallRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3455,7 +3455,7 @@ const deserializeAws_json1_1ListResolverConfigsCommandError = async (
 ): Promise<ListResolverConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3511,7 +3511,7 @@ const deserializeAws_json1_1ListResolverDnssecConfigsCommandError = async (
 ): Promise<ListResolverDnssecConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3567,7 +3567,7 @@ const deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError = async 
 ): Promise<ListResolverEndpointIpAddressesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3620,7 +3620,7 @@ const deserializeAws_json1_1ListResolverEndpointsCommandError = async (
 ): Promise<ListResolverEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3673,7 +3673,7 @@ const deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommandError =
 ): Promise<ListResolverQueryLogConfigAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3729,7 +3729,7 @@ const deserializeAws_json1_1ListResolverQueryLogConfigsCommandError = async (
 ): Promise<ListResolverQueryLogConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3785,7 +3785,7 @@ const deserializeAws_json1_1ListResolverRuleAssociationsCommandError = async (
 ): Promise<ListResolverRuleAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3838,7 +3838,7 @@ const deserializeAws_json1_1ListResolverRulesCommandError = async (
 ): Promise<ListResolverRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3891,7 +3891,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3947,7 +3947,7 @@ const deserializeAws_json1_1PutFirewallRuleGroupPolicyCommandError = async (
 ): Promise<PutFirewallRuleGroupPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4000,7 +4000,7 @@ const deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommandError = async 
 ): Promise<PutResolverQueryLogConfigPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4056,7 +4056,7 @@ const deserializeAws_json1_1PutResolverRulePolicyCommandError = async (
 ): Promise<PutResolverRulePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4106,7 +4106,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4165,7 +4165,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4218,7 +4218,7 @@ const deserializeAws_json1_1UpdateFirewallConfigCommandError = async (
 ): Promise<UpdateFirewallConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4271,7 +4271,7 @@ const deserializeAws_json1_1UpdateFirewallDomainsCommandError = async (
 ): Promise<UpdateFirewallDomainsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4330,7 +4330,7 @@ const deserializeAws_json1_1UpdateFirewallRuleCommandError = async (
 ): Promise<UpdateFirewallRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4386,7 +4386,7 @@ const deserializeAws_json1_1UpdateFirewallRuleGroupAssociationCommandError = asy
 ): Promise<UpdateFirewallRuleGroupAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4442,7 +4442,7 @@ const deserializeAws_json1_1UpdateResolverConfigCommandError = async (
 ): Promise<UpdateResolverConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4504,7 +4504,7 @@ const deserializeAws_json1_1UpdateResolverDnssecConfigCommandError = async (
 ): Promise<UpdateResolverDnssecConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4560,7 +4560,7 @@ const deserializeAws_json1_1UpdateResolverEndpointCommandError = async (
 ): Promise<UpdateResolverEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4613,7 +4613,7 @@ const deserializeAws_json1_1UpdateResolverRuleCommandError = async (
 ): Promise<UpdateResolverRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

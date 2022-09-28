@@ -2118,7 +2118,7 @@ const deserializeAws_restJson1AssociateTrackerConsumerCommandError = async (
 ): Promise<AssociateTrackerConsumerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2177,7 +2177,7 @@ const deserializeAws_restJson1BatchDeleteDevicePositionHistoryCommandError = asy
 ): Promise<BatchDeleteDevicePositionHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2230,7 +2230,7 @@ const deserializeAws_restJson1BatchDeleteGeofenceCommandError = async (
 ): Promise<BatchDeleteGeofenceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2283,7 +2283,7 @@ const deserializeAws_restJson1BatchEvaluateGeofencesCommandError = async (
 ): Promise<BatchEvaluateGeofencesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2339,7 +2339,7 @@ const deserializeAws_restJson1BatchGetDevicePositionCommandError = async (
 ): Promise<BatchGetDevicePositionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2395,7 +2395,7 @@ const deserializeAws_restJson1BatchPutGeofenceCommandError = async (
 ): Promise<BatchPutGeofenceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2448,7 +2448,7 @@ const deserializeAws_restJson1BatchUpdateDevicePositionCommandError = async (
 ): Promise<BatchUpdateDevicePositionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2504,7 +2504,7 @@ const deserializeAws_restJson1CalculateRouteCommandError = async (
 ): Promise<CalculateRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2569,7 +2569,7 @@ const deserializeAws_restJson1CalculateRouteMatrixCommandError = async (
 ): Promise<CalculateRouteMatrixCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2628,7 +2628,7 @@ const deserializeAws_restJson1CreateGeofenceCollectionCommandError = async (
 ): Promise<CreateGeofenceCollectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2687,7 +2687,7 @@ const deserializeAws_restJson1CreateMapCommandError = async (
 ): Promise<CreateMapCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2746,7 +2746,7 @@ const deserializeAws_restJson1CreatePlaceIndexCommandError = async (
 ): Promise<CreatePlaceIndexCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2805,7 +2805,7 @@ const deserializeAws_restJson1CreateRouteCalculatorCommandError = async (
 ): Promise<CreateRouteCalculatorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2864,7 +2864,7 @@ const deserializeAws_restJson1CreateTrackerCommandError = async (
 ): Promise<CreateTrackerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2914,7 +2914,7 @@ const deserializeAws_restJson1DeleteGeofenceCollectionCommandError = async (
 ): Promise<DeleteGeofenceCollectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2964,7 +2964,7 @@ const deserializeAws_restJson1DeleteMapCommandError = async (
 ): Promise<DeleteMapCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3014,7 +3014,7 @@ const deserializeAws_restJson1DeletePlaceIndexCommandError = async (
 ): Promise<DeletePlaceIndexCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3064,7 +3064,7 @@ const deserializeAws_restJson1DeleteRouteCalculatorCommandError = async (
 ): Promise<DeleteRouteCalculatorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3114,7 +3114,7 @@ const deserializeAws_restJson1DeleteTrackerCommandError = async (
 ): Promise<DeleteTrackerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3191,7 +3191,7 @@ const deserializeAws_restJson1DescribeGeofenceCollectionCommandError = async (
 ): Promise<DescribeGeofenceCollectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3268,7 +3268,7 @@ const deserializeAws_restJson1DescribeMapCommandError = async (
 ): Promise<DescribeMapCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3348,7 +3348,7 @@ const deserializeAws_restJson1DescribePlaceIndexCommandError = async (
 ): Promise<DescribePlaceIndexCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3422,7 +3422,7 @@ const deserializeAws_restJson1DescribeRouteCalculatorCommandError = async (
 ): Promise<DescribeRouteCalculatorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3502,7 +3502,7 @@ const deserializeAws_restJson1DescribeTrackerCommandError = async (
 ): Promise<DescribeTrackerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3552,7 +3552,7 @@ const deserializeAws_restJson1DisassociateTrackerConsumerCommandError = async (
 ): Promise<DisassociateTrackerConsumerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3620,7 +3620,7 @@ const deserializeAws_restJson1GetDevicePositionCommandError = async (
 ): Promise<GetDevicePositionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3676,7 +3676,7 @@ const deserializeAws_restJson1GetDevicePositionHistoryCommandError = async (
 ): Promise<GetDevicePositionHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3741,7 +3741,7 @@ const deserializeAws_restJson1GetGeofenceCommandError = async (
 ): Promise<GetGeofenceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3793,7 +3793,7 @@ const deserializeAws_restJson1GetMapGlyphsCommandError = async (
 ): Promise<GetMapGlyphsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3845,7 +3845,7 @@ const deserializeAws_restJson1GetMapSpritesCommandError = async (
 ): Promise<GetMapSpritesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3897,7 +3897,7 @@ const deserializeAws_restJson1GetMapStyleDescriptorCommandError = async (
 ): Promise<GetMapStyleDescriptorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3949,7 +3949,7 @@ const deserializeAws_restJson1GetMapTileCommandError = async (
 ): Promise<GetMapTileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4002,7 +4002,7 @@ const deserializeAws_restJson1GetPlaceCommandError = async (
 ): Promise<GetPlaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4058,7 +4058,7 @@ const deserializeAws_restJson1ListDevicePositionsCommandError = async (
 ): Promise<ListDevicePositionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4111,7 +4111,7 @@ const deserializeAws_restJson1ListGeofenceCollectionsCommandError = async (
 ): Promise<ListGeofenceCollectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4164,7 +4164,7 @@ const deserializeAws_restJson1ListGeofencesCommandError = async (
 ): Promise<ListGeofencesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4220,7 +4220,7 @@ const deserializeAws_restJson1ListMapsCommandError = async (
 ): Promise<ListMapsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4273,7 +4273,7 @@ const deserializeAws_restJson1ListPlaceIndexesCommandError = async (
 ): Promise<ListPlaceIndexesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4326,7 +4326,7 @@ const deserializeAws_restJson1ListRouteCalculatorsCommandError = async (
 ): Promise<ListRouteCalculatorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4376,7 +4376,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4432,7 +4432,7 @@ const deserializeAws_restJson1ListTrackerConsumersCommandError = async (
 ): Promise<ListTrackerConsumersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4488,7 +4488,7 @@ const deserializeAws_restJson1ListTrackersCommandError = async (
 ): Promise<ListTrackersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4544,7 +4544,7 @@ const deserializeAws_restJson1PutGeofenceCommandError = async (
 ): Promise<PutGeofenceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4603,7 +4603,7 @@ const deserializeAws_restJson1SearchPlaceIndexForPositionCommandError = async (
 ): Promise<SearchPlaceIndexForPositionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4659,7 +4659,7 @@ const deserializeAws_restJson1SearchPlaceIndexForSuggestionsCommandError = async
 ): Promise<SearchPlaceIndexForSuggestionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4715,7 +4715,7 @@ const deserializeAws_restJson1SearchPlaceIndexForTextCommandError = async (
 ): Promise<SearchPlaceIndexForTextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4765,7 +4765,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4815,7 +4815,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4874,7 +4874,7 @@ const deserializeAws_restJson1UpdateGeofenceCollectionCommandError = async (
 ): Promise<UpdateGeofenceCollectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4933,7 +4933,7 @@ const deserializeAws_restJson1UpdateMapCommandError = async (
 ): Promise<UpdateMapCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4992,7 +4992,7 @@ const deserializeAws_restJson1UpdatePlaceIndexCommandError = async (
 ): Promise<UpdatePlaceIndexCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5051,7 +5051,7 @@ const deserializeAws_restJson1UpdateRouteCalculatorCommandError = async (
 ): Promise<UpdateRouteCalculatorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5110,7 +5110,7 @@ const deserializeAws_restJson1UpdateTrackerCommandError = async (
 ): Promise<UpdateTrackerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

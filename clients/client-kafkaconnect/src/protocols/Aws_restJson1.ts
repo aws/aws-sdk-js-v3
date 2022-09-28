@@ -499,7 +499,7 @@ const deserializeAws_restJson1CreateConnectorCommandError = async (
 ): Promise<CreateConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -570,7 +570,7 @@ const deserializeAws_restJson1CreateCustomPluginCommandError = async (
 ): Promise<CreateCustomPluginCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -641,7 +641,7 @@ const deserializeAws_restJson1CreateWorkerConfigurationCommandError = async (
 ): Promise<CreateWorkerConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -706,7 +706,7 @@ const deserializeAws_restJson1DeleteConnectorCommandError = async (
 ): Promise<DeleteConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -768,7 +768,7 @@ const deserializeAws_restJson1DeleteCustomPluginCommandError = async (
 ): Promise<DeleteCustomPluginCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -887,7 +887,7 @@ const deserializeAws_restJson1DescribeConnectorCommandError = async (
 ): Promise<DescribeConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -964,7 +964,7 @@ const deserializeAws_restJson1DescribeCustomPluginCommandError = async (
 ): Promise<DescribeCustomPluginCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1038,7 +1038,7 @@ const deserializeAws_restJson1DescribeWorkerConfigurationCommandError = async (
 ): Promise<DescribeWorkerConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1100,7 +1100,7 @@ const deserializeAws_restJson1ListConnectorsCommandError = async (
 ): Promise<ListConnectorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1162,7 +1162,7 @@ const deserializeAws_restJson1ListCustomPluginsCommandError = async (
 ): Promise<ListCustomPluginsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1227,7 +1227,7 @@ const deserializeAws_restJson1ListWorkerConfigurationsCommandError = async (
 ): Promise<ListWorkerConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1289,7 +1289,7 @@ const deserializeAws_restJson1UpdateConnectorCommandError = async (
 ): Promise<UpdateConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

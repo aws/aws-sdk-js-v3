@@ -254,7 +254,7 @@ const deserializeAws_restJson1BatchExecuteStatementCommandError = async (
 ): Promise<BatchExecuteStatementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -310,7 +310,7 @@ const deserializeAws_restJson1BeginTransactionCommandError = async (
 ): Promise<BeginTransactionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -366,7 +366,7 @@ const deserializeAws_restJson1CommitTransactionCommandError = async (
 ): Promise<CommitTransactionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -425,7 +425,7 @@ const deserializeAws_restJson1ExecuteSqlCommandError = async (
 ): Promise<ExecuteSqlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -490,7 +490,7 @@ const deserializeAws_restJson1ExecuteStatementCommandError = async (
 ): Promise<ExecuteStatementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -546,7 +546,7 @@ const deserializeAws_restJson1RollbackTransactionCommandError = async (
 ): Promise<RollbackTransactionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

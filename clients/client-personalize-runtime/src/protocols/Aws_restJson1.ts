@@ -114,7 +114,7 @@ const deserializeAws_restJson1GetPersonalizedRankingCommandError = async (
 ): Promise<GetPersonalizedRankingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -161,7 +161,7 @@ const deserializeAws_restJson1GetRecommendationsCommandError = async (
 ): Promise<GetRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

@@ -472,7 +472,7 @@ const deserializeAws_json1_1CreateBudgetCommandError = async (
 ): Promise<CreateBudgetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -528,7 +528,7 @@ const deserializeAws_json1_1CreateBudgetActionCommandError = async (
 ): Promise<CreateBudgetActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -587,7 +587,7 @@ const deserializeAws_json1_1CreateNotificationCommandError = async (
 ): Promise<CreateNotificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -646,7 +646,7 @@ const deserializeAws_json1_1CreateSubscriberCommandError = async (
 ): Promise<CreateSubscriberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -705,7 +705,7 @@ const deserializeAws_json1_1DeleteBudgetCommandError = async (
 ): Promise<DeleteBudgetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -758,7 +758,7 @@ const deserializeAws_json1_1DeleteBudgetActionCommandError = async (
 ): Promise<DeleteBudgetActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -814,7 +814,7 @@ const deserializeAws_json1_1DeleteNotificationCommandError = async (
 ): Promise<DeleteNotificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -867,7 +867,7 @@ const deserializeAws_json1_1DeleteSubscriberCommandError = async (
 ): Promise<DeleteSubscriberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -920,7 +920,7 @@ const deserializeAws_json1_1DescribeBudgetCommandError = async (
 ): Promise<DescribeBudgetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -973,7 +973,7 @@ const deserializeAws_json1_1DescribeBudgetActionCommandError = async (
 ): Promise<DescribeBudgetActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1026,7 +1026,7 @@ const deserializeAws_json1_1DescribeBudgetActionHistoriesCommandError = async (
 ): Promise<DescribeBudgetActionHistoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1082,7 +1082,7 @@ const deserializeAws_json1_1DescribeBudgetActionsForAccountCommandError = async 
 ): Promise<DescribeBudgetActionsForAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1135,7 +1135,7 @@ const deserializeAws_json1_1DescribeBudgetActionsForBudgetCommandError = async (
 ): Promise<DescribeBudgetActionsForBudgetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1191,7 +1191,7 @@ const deserializeAws_json1_1DescribeBudgetNotificationsForAccountCommandError = 
 ): Promise<DescribeBudgetNotificationsForAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1250,7 +1250,7 @@ const deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandError = async
 ): Promise<DescribeBudgetPerformanceHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1309,7 +1309,7 @@ const deserializeAws_json1_1DescribeBudgetsCommandError = async (
 ): Promise<DescribeBudgetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1368,7 +1368,7 @@ const deserializeAws_json1_1DescribeNotificationsForBudgetCommandError = async (
 ): Promise<DescribeNotificationsForBudgetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1427,7 +1427,7 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationCommandError = asy
 ): Promise<DescribeSubscribersForNotificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1486,7 +1486,7 @@ const deserializeAws_json1_1ExecuteBudgetActionCommandError = async (
 ): Promise<ExecuteBudgetActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1542,7 +1542,7 @@ const deserializeAws_json1_1UpdateBudgetCommandError = async (
 ): Promise<UpdateBudgetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1595,7 +1595,7 @@ const deserializeAws_json1_1UpdateBudgetActionCommandError = async (
 ): Promise<UpdateBudgetActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1651,7 +1651,7 @@ const deserializeAws_json1_1UpdateNotificationCommandError = async (
 ): Promise<UpdateNotificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1707,7 +1707,7 @@ const deserializeAws_json1_1UpdateSubscriberCommandError = async (
 ): Promise<UpdateSubscriberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

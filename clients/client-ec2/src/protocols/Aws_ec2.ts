@@ -12233,7 +12233,7 @@ const deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommandError = async
 ): Promise<AcceptReservedInstancesExchangeQuoteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12268,7 +12268,7 @@ const deserializeAws_ec2AcceptTransitGatewayMulticastDomainAssociationsCommandEr
 ): Promise<AcceptTransitGatewayMulticastDomainAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12303,7 +12303,7 @@ const deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommandError = asyn
 ): Promise<AcceptTransitGatewayPeeringAttachmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12338,7 +12338,7 @@ const deserializeAws_ec2AcceptTransitGatewayVpcAttachmentCommandError = async (
 ): Promise<AcceptTransitGatewayVpcAttachmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12373,7 +12373,7 @@ const deserializeAws_ec2AcceptVpcEndpointConnectionsCommandError = async (
 ): Promise<AcceptVpcEndpointConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12408,7 +12408,7 @@ const deserializeAws_ec2AcceptVpcPeeringConnectionCommandError = async (
 ): Promise<AcceptVpcPeeringConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12443,7 +12443,7 @@ const deserializeAws_ec2AdvertiseByoipCidrCommandError = async (
 ): Promise<AdvertiseByoipCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12478,7 +12478,7 @@ const deserializeAws_ec2AllocateAddressCommandError = async (
 ): Promise<AllocateAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12513,7 +12513,7 @@ const deserializeAws_ec2AllocateHostsCommandError = async (
 ): Promise<AllocateHostsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12548,7 +12548,7 @@ const deserializeAws_ec2AllocateIpamPoolCidrCommandError = async (
 ): Promise<AllocateIpamPoolCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12583,7 +12583,7 @@ const deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommandError 
 ): Promise<ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12618,7 +12618,7 @@ const deserializeAws_ec2AssignIpv6AddressesCommandError = async (
 ): Promise<AssignIpv6AddressesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12653,7 +12653,7 @@ const deserializeAws_ec2AssignPrivateIpAddressesCommandError = async (
 ): Promise<AssignPrivateIpAddressesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12688,7 +12688,7 @@ const deserializeAws_ec2AssociateAddressCommandError = async (
 ): Promise<AssociateAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12723,7 +12723,7 @@ const deserializeAws_ec2AssociateClientVpnTargetNetworkCommandError = async (
 ): Promise<AssociateClientVpnTargetNetworkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12755,7 +12755,7 @@ const deserializeAws_ec2AssociateDhcpOptionsCommandError = async (
 ): Promise<AssociateDhcpOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12790,7 +12790,7 @@ const deserializeAws_ec2AssociateEnclaveCertificateIamRoleCommandError = async (
 ): Promise<AssociateEnclaveCertificateIamRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12825,7 +12825,7 @@ const deserializeAws_ec2AssociateIamInstanceProfileCommandError = async (
 ): Promise<AssociateIamInstanceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12860,7 +12860,7 @@ const deserializeAws_ec2AssociateInstanceEventWindowCommandError = async (
 ): Promise<AssociateInstanceEventWindowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12895,7 +12895,7 @@ const deserializeAws_ec2AssociateRouteTableCommandError = async (
 ): Promise<AssociateRouteTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12930,7 +12930,7 @@ const deserializeAws_ec2AssociateSubnetCidrBlockCommandError = async (
 ): Promise<AssociateSubnetCidrBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -12965,7 +12965,7 @@ const deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommandError = asy
 ): Promise<AssociateTransitGatewayMulticastDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13000,7 +13000,7 @@ const deserializeAws_ec2AssociateTransitGatewayPolicyTableCommandError = async (
 ): Promise<AssociateTransitGatewayPolicyTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13035,7 +13035,7 @@ const deserializeAws_ec2AssociateTransitGatewayRouteTableCommandError = async (
 ): Promise<AssociateTransitGatewayRouteTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13070,7 +13070,7 @@ const deserializeAws_ec2AssociateTrunkInterfaceCommandError = async (
 ): Promise<AssociateTrunkInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13105,7 +13105,7 @@ const deserializeAws_ec2AssociateVpcCidrBlockCommandError = async (
 ): Promise<AssociateVpcCidrBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13140,7 +13140,7 @@ const deserializeAws_ec2AttachClassicLinkVpcCommandError = async (
 ): Promise<AttachClassicLinkVpcCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13172,7 +13172,7 @@ const deserializeAws_ec2AttachInternetGatewayCommandError = async (
 ): Promise<AttachInternetGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13207,7 +13207,7 @@ const deserializeAws_ec2AttachNetworkInterfaceCommandError = async (
 ): Promise<AttachNetworkInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13242,7 +13242,7 @@ const deserializeAws_ec2AttachVolumeCommandError = async (
 ): Promise<AttachVolumeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13277,7 +13277,7 @@ const deserializeAws_ec2AttachVpnGatewayCommandError = async (
 ): Promise<AttachVpnGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13312,7 +13312,7 @@ const deserializeAws_ec2AuthorizeClientVpnIngressCommandError = async (
 ): Promise<AuthorizeClientVpnIngressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13347,7 +13347,7 @@ const deserializeAws_ec2AuthorizeSecurityGroupEgressCommandError = async (
 ): Promise<AuthorizeSecurityGroupEgressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13382,7 +13382,7 @@ const deserializeAws_ec2AuthorizeSecurityGroupIngressCommandError = async (
 ): Promise<AuthorizeSecurityGroupIngressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13417,7 +13417,7 @@ const deserializeAws_ec2BundleInstanceCommandError = async (
 ): Promise<BundleInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13452,7 +13452,7 @@ const deserializeAws_ec2CancelBundleTaskCommandError = async (
 ): Promise<CancelBundleTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13487,7 +13487,7 @@ const deserializeAws_ec2CancelCapacityReservationCommandError = async (
 ): Promise<CancelCapacityReservationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13522,7 +13522,7 @@ const deserializeAws_ec2CancelCapacityReservationFleetsCommandError = async (
 ): Promise<CancelCapacityReservationFleetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13554,7 +13554,7 @@ const deserializeAws_ec2CancelConversionTaskCommandError = async (
 ): Promise<CancelConversionTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13586,7 +13586,7 @@ const deserializeAws_ec2CancelExportTaskCommandError = async (
 ): Promise<CancelExportTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13621,7 +13621,7 @@ const deserializeAws_ec2CancelImportTaskCommandError = async (
 ): Promise<CancelImportTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13656,7 +13656,7 @@ const deserializeAws_ec2CancelReservedInstancesListingCommandError = async (
 ): Promise<CancelReservedInstancesListingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13691,7 +13691,7 @@ const deserializeAws_ec2CancelSpotFleetRequestsCommandError = async (
 ): Promise<CancelSpotFleetRequestsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13726,7 +13726,7 @@ const deserializeAws_ec2CancelSpotInstanceRequestsCommandError = async (
 ): Promise<CancelSpotInstanceRequestsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13761,7 +13761,7 @@ const deserializeAws_ec2ConfirmProductInstanceCommandError = async (
 ): Promise<ConfirmProductInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13796,7 +13796,7 @@ const deserializeAws_ec2CopyFpgaImageCommandError = async (
 ): Promise<CopyFpgaImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13831,7 +13831,7 @@ const deserializeAws_ec2CopyImageCommandError = async (
 ): Promise<CopyImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13866,7 +13866,7 @@ const deserializeAws_ec2CopySnapshotCommandError = async (
 ): Promise<CopySnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13901,7 +13901,7 @@ const deserializeAws_ec2CreateCapacityReservationCommandError = async (
 ): Promise<CreateCapacityReservationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13936,7 +13936,7 @@ const deserializeAws_ec2CreateCapacityReservationFleetCommandError = async (
 ): Promise<CreateCapacityReservationFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -13971,7 +13971,7 @@ const deserializeAws_ec2CreateCarrierGatewayCommandError = async (
 ): Promise<CreateCarrierGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14006,7 +14006,7 @@ const deserializeAws_ec2CreateClientVpnEndpointCommandError = async (
 ): Promise<CreateClientVpnEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14041,7 +14041,7 @@ const deserializeAws_ec2CreateClientVpnRouteCommandError = async (
 ): Promise<CreateClientVpnRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14076,7 +14076,7 @@ const deserializeAws_ec2CreateCoipCidrCommandError = async (
 ): Promise<CreateCoipCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14111,7 +14111,7 @@ const deserializeAws_ec2CreateCoipPoolCommandError = async (
 ): Promise<CreateCoipPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14146,7 +14146,7 @@ const deserializeAws_ec2CreateCustomerGatewayCommandError = async (
 ): Promise<CreateCustomerGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14181,7 +14181,7 @@ const deserializeAws_ec2CreateDefaultSubnetCommandError = async (
 ): Promise<CreateDefaultSubnetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14216,7 +14216,7 @@ const deserializeAws_ec2CreateDefaultVpcCommandError = async (
 ): Promise<CreateDefaultVpcCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14251,7 +14251,7 @@ const deserializeAws_ec2CreateDhcpOptionsCommandError = async (
 ): Promise<CreateDhcpOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14286,7 +14286,7 @@ const deserializeAws_ec2CreateEgressOnlyInternetGatewayCommandError = async (
 ): Promise<CreateEgressOnlyInternetGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14321,7 +14321,7 @@ const deserializeAws_ec2CreateFleetCommandError = async (
 ): Promise<CreateFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14356,7 +14356,7 @@ const deserializeAws_ec2CreateFlowLogsCommandError = async (
 ): Promise<CreateFlowLogsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14391,7 +14391,7 @@ const deserializeAws_ec2CreateFpgaImageCommandError = async (
 ): Promise<CreateFpgaImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14426,7 +14426,7 @@ const deserializeAws_ec2CreateImageCommandError = async (
 ): Promise<CreateImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14461,7 +14461,7 @@ const deserializeAws_ec2CreateInstanceEventWindowCommandError = async (
 ): Promise<CreateInstanceEventWindowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14496,7 +14496,7 @@ const deserializeAws_ec2CreateInstanceExportTaskCommandError = async (
 ): Promise<CreateInstanceExportTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14531,7 +14531,7 @@ const deserializeAws_ec2CreateInternetGatewayCommandError = async (
 ): Promise<CreateInternetGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14566,7 +14566,7 @@ const deserializeAws_ec2CreateIpamCommandError = async (
 ): Promise<CreateIpamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14601,7 +14601,7 @@ const deserializeAws_ec2CreateIpamPoolCommandError = async (
 ): Promise<CreateIpamPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14636,7 +14636,7 @@ const deserializeAws_ec2CreateIpamScopeCommandError = async (
 ): Promise<CreateIpamScopeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14671,7 +14671,7 @@ const deserializeAws_ec2CreateKeyPairCommandError = async (
 ): Promise<CreateKeyPairCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14706,7 +14706,7 @@ const deserializeAws_ec2CreateLaunchTemplateCommandError = async (
 ): Promise<CreateLaunchTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14741,7 +14741,7 @@ const deserializeAws_ec2CreateLaunchTemplateVersionCommandError = async (
 ): Promise<CreateLaunchTemplateVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14776,7 +14776,7 @@ const deserializeAws_ec2CreateLocalGatewayRouteCommandError = async (
 ): Promise<CreateLocalGatewayRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14811,7 +14811,7 @@ const deserializeAws_ec2CreateLocalGatewayRouteTableCommandError = async (
 ): Promise<CreateLocalGatewayRouteTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14846,7 +14846,7 @@ const deserializeAws_ec2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssocia
 ): Promise<CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14881,7 +14881,7 @@ const deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommandError =
 ): Promise<CreateLocalGatewayRouteTableVpcAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14916,7 +14916,7 @@ const deserializeAws_ec2CreateManagedPrefixListCommandError = async (
 ): Promise<CreateManagedPrefixListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14951,7 +14951,7 @@ const deserializeAws_ec2CreateNatGatewayCommandError = async (
 ): Promise<CreateNatGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -14986,7 +14986,7 @@ const deserializeAws_ec2CreateNetworkAclCommandError = async (
 ): Promise<CreateNetworkAclCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15018,7 +15018,7 @@ const deserializeAws_ec2CreateNetworkAclEntryCommandError = async (
 ): Promise<CreateNetworkAclEntryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15053,7 +15053,7 @@ const deserializeAws_ec2CreateNetworkInsightsAccessScopeCommandError = async (
 ): Promise<CreateNetworkInsightsAccessScopeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15088,7 +15088,7 @@ const deserializeAws_ec2CreateNetworkInsightsPathCommandError = async (
 ): Promise<CreateNetworkInsightsPathCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15123,7 +15123,7 @@ const deserializeAws_ec2CreateNetworkInterfaceCommandError = async (
 ): Promise<CreateNetworkInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15158,7 +15158,7 @@ const deserializeAws_ec2CreateNetworkInterfacePermissionCommandError = async (
 ): Promise<CreateNetworkInterfacePermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15193,7 +15193,7 @@ const deserializeAws_ec2CreatePlacementGroupCommandError = async (
 ): Promise<CreatePlacementGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15228,7 +15228,7 @@ const deserializeAws_ec2CreatePublicIpv4PoolCommandError = async (
 ): Promise<CreatePublicIpv4PoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15263,7 +15263,7 @@ const deserializeAws_ec2CreateReplaceRootVolumeTaskCommandError = async (
 ): Promise<CreateReplaceRootVolumeTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15298,7 +15298,7 @@ const deserializeAws_ec2CreateReservedInstancesListingCommandError = async (
 ): Promise<CreateReservedInstancesListingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15333,7 +15333,7 @@ const deserializeAws_ec2CreateRestoreImageTaskCommandError = async (
 ): Promise<CreateRestoreImageTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15368,7 +15368,7 @@ const deserializeAws_ec2CreateRouteCommandError = async (
 ): Promise<CreateRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15403,7 +15403,7 @@ const deserializeAws_ec2CreateRouteTableCommandError = async (
 ): Promise<CreateRouteTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15438,7 +15438,7 @@ const deserializeAws_ec2CreateSecurityGroupCommandError = async (
 ): Promise<CreateSecurityGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15473,7 +15473,7 @@ const deserializeAws_ec2CreateSnapshotCommandError = async (
 ): Promise<CreateSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15508,7 +15508,7 @@ const deserializeAws_ec2CreateSnapshotsCommandError = async (
 ): Promise<CreateSnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15543,7 +15543,7 @@ const deserializeAws_ec2CreateSpotDatafeedSubscriptionCommandError = async (
 ): Promise<CreateSpotDatafeedSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15578,7 +15578,7 @@ const deserializeAws_ec2CreateStoreImageTaskCommandError = async (
 ): Promise<CreateStoreImageTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15613,7 +15613,7 @@ const deserializeAws_ec2CreateSubnetCommandError = async (
 ): Promise<CreateSubnetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15648,7 +15648,7 @@ const deserializeAws_ec2CreateSubnetCidrReservationCommandError = async (
 ): Promise<CreateSubnetCidrReservationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15680,7 +15680,7 @@ const deserializeAws_ec2CreateTagsCommandError = async (
 ): Promise<CreateTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15715,7 +15715,7 @@ const deserializeAws_ec2CreateTrafficMirrorFilterCommandError = async (
 ): Promise<CreateTrafficMirrorFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15750,7 +15750,7 @@ const deserializeAws_ec2CreateTrafficMirrorFilterRuleCommandError = async (
 ): Promise<CreateTrafficMirrorFilterRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15785,7 +15785,7 @@ const deserializeAws_ec2CreateTrafficMirrorSessionCommandError = async (
 ): Promise<CreateTrafficMirrorSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15820,7 +15820,7 @@ const deserializeAws_ec2CreateTrafficMirrorTargetCommandError = async (
 ): Promise<CreateTrafficMirrorTargetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15855,7 +15855,7 @@ const deserializeAws_ec2CreateTransitGatewayCommandError = async (
 ): Promise<CreateTransitGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15890,7 +15890,7 @@ const deserializeAws_ec2CreateTransitGatewayConnectCommandError = async (
 ): Promise<CreateTransitGatewayConnectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15925,7 +15925,7 @@ const deserializeAws_ec2CreateTransitGatewayConnectPeerCommandError = async (
 ): Promise<CreateTransitGatewayConnectPeerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15960,7 +15960,7 @@ const deserializeAws_ec2CreateTransitGatewayMulticastDomainCommandError = async 
 ): Promise<CreateTransitGatewayMulticastDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -15995,7 +15995,7 @@ const deserializeAws_ec2CreateTransitGatewayPeeringAttachmentCommandError = asyn
 ): Promise<CreateTransitGatewayPeeringAttachmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16030,7 +16030,7 @@ const deserializeAws_ec2CreateTransitGatewayPolicyTableCommandError = async (
 ): Promise<CreateTransitGatewayPolicyTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16065,7 +16065,7 @@ const deserializeAws_ec2CreateTransitGatewayPrefixListReferenceCommandError = as
 ): Promise<CreateTransitGatewayPrefixListReferenceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16100,7 +16100,7 @@ const deserializeAws_ec2CreateTransitGatewayRouteCommandError = async (
 ): Promise<CreateTransitGatewayRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16135,7 +16135,7 @@ const deserializeAws_ec2CreateTransitGatewayRouteTableCommandError = async (
 ): Promise<CreateTransitGatewayRouteTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16170,7 +16170,7 @@ const deserializeAws_ec2CreateTransitGatewayRouteTableAnnouncementCommandError =
 ): Promise<CreateTransitGatewayRouteTableAnnouncementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16205,7 +16205,7 @@ const deserializeAws_ec2CreateTransitGatewayVpcAttachmentCommandError = async (
 ): Promise<CreateTransitGatewayVpcAttachmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16240,7 +16240,7 @@ const deserializeAws_ec2CreateVolumeCommandError = async (
 ): Promise<CreateVolumeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16275,7 +16275,7 @@ const deserializeAws_ec2CreateVpcCommandError = async (
 ): Promise<CreateVpcCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16310,7 +16310,7 @@ const deserializeAws_ec2CreateVpcEndpointCommandError = async (
 ): Promise<CreateVpcEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16345,7 +16345,7 @@ const deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommandError = as
 ): Promise<CreateVpcEndpointConnectionNotificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16380,7 +16380,7 @@ const deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommandError = asyn
 ): Promise<CreateVpcEndpointServiceConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16415,7 +16415,7 @@ const deserializeAws_ec2CreateVpcPeeringConnectionCommandError = async (
 ): Promise<CreateVpcPeeringConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16450,7 +16450,7 @@ const deserializeAws_ec2CreateVpnConnectionCommandError = async (
 ): Promise<CreateVpnConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16482,7 +16482,7 @@ const deserializeAws_ec2CreateVpnConnectionRouteCommandError = async (
 ): Promise<CreateVpnConnectionRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16517,7 +16517,7 @@ const deserializeAws_ec2CreateVpnGatewayCommandError = async (
 ): Promise<CreateVpnGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16552,7 +16552,7 @@ const deserializeAws_ec2DeleteCarrierGatewayCommandError = async (
 ): Promise<DeleteCarrierGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16587,7 +16587,7 @@ const deserializeAws_ec2DeleteClientVpnEndpointCommandError = async (
 ): Promise<DeleteClientVpnEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16622,7 +16622,7 @@ const deserializeAws_ec2DeleteClientVpnRouteCommandError = async (
 ): Promise<DeleteClientVpnRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16657,7 +16657,7 @@ const deserializeAws_ec2DeleteCoipCidrCommandError = async (
 ): Promise<DeleteCoipCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16692,7 +16692,7 @@ const deserializeAws_ec2DeleteCoipPoolCommandError = async (
 ): Promise<DeleteCoipPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16724,7 +16724,7 @@ const deserializeAws_ec2DeleteCustomerGatewayCommandError = async (
 ): Promise<DeleteCustomerGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16756,7 +16756,7 @@ const deserializeAws_ec2DeleteDhcpOptionsCommandError = async (
 ): Promise<DeleteDhcpOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16791,7 +16791,7 @@ const deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommandError = async (
 ): Promise<DeleteEgressOnlyInternetGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16826,7 +16826,7 @@ const deserializeAws_ec2DeleteFleetsCommandError = async (
 ): Promise<DeleteFleetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16861,7 +16861,7 @@ const deserializeAws_ec2DeleteFlowLogsCommandError = async (
 ): Promise<DeleteFlowLogsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16896,7 +16896,7 @@ const deserializeAws_ec2DeleteFpgaImageCommandError = async (
 ): Promise<DeleteFpgaImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16931,7 +16931,7 @@ const deserializeAws_ec2DeleteInstanceEventWindowCommandError = async (
 ): Promise<DeleteInstanceEventWindowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16963,7 +16963,7 @@ const deserializeAws_ec2DeleteInternetGatewayCommandError = async (
 ): Promise<DeleteInternetGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -16998,7 +16998,7 @@ const deserializeAws_ec2DeleteIpamCommandError = async (
 ): Promise<DeleteIpamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17033,7 +17033,7 @@ const deserializeAws_ec2DeleteIpamPoolCommandError = async (
 ): Promise<DeleteIpamPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17068,7 +17068,7 @@ const deserializeAws_ec2DeleteIpamScopeCommandError = async (
 ): Promise<DeleteIpamScopeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17100,7 +17100,7 @@ const deserializeAws_ec2DeleteKeyPairCommandError = async (
 ): Promise<DeleteKeyPairCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17135,7 +17135,7 @@ const deserializeAws_ec2DeleteLaunchTemplateCommandError = async (
 ): Promise<DeleteLaunchTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17170,7 +17170,7 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsCommandError = async (
 ): Promise<DeleteLaunchTemplateVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17205,7 +17205,7 @@ const deserializeAws_ec2DeleteLocalGatewayRouteCommandError = async (
 ): Promise<DeleteLocalGatewayRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17240,7 +17240,7 @@ const deserializeAws_ec2DeleteLocalGatewayRouteTableCommandError = async (
 ): Promise<DeleteLocalGatewayRouteTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17275,7 +17275,7 @@ const deserializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssocia
 ): Promise<DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17310,7 +17310,7 @@ const deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommandError =
 ): Promise<DeleteLocalGatewayRouteTableVpcAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17345,7 +17345,7 @@ const deserializeAws_ec2DeleteManagedPrefixListCommandError = async (
 ): Promise<DeleteManagedPrefixListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17380,7 +17380,7 @@ const deserializeAws_ec2DeleteNatGatewayCommandError = async (
 ): Promise<DeleteNatGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17412,7 +17412,7 @@ const deserializeAws_ec2DeleteNetworkAclCommandError = async (
 ): Promise<DeleteNetworkAclCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17444,7 +17444,7 @@ const deserializeAws_ec2DeleteNetworkAclEntryCommandError = async (
 ): Promise<DeleteNetworkAclEntryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17479,7 +17479,7 @@ const deserializeAws_ec2DeleteNetworkInsightsAccessScopeCommandError = async (
 ): Promise<DeleteNetworkInsightsAccessScopeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17514,7 +17514,7 @@ const deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommandError = a
 ): Promise<DeleteNetworkInsightsAccessScopeAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17549,7 +17549,7 @@ const deserializeAws_ec2DeleteNetworkInsightsAnalysisCommandError = async (
 ): Promise<DeleteNetworkInsightsAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17584,7 +17584,7 @@ const deserializeAws_ec2DeleteNetworkInsightsPathCommandError = async (
 ): Promise<DeleteNetworkInsightsPathCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17616,7 +17616,7 @@ const deserializeAws_ec2DeleteNetworkInterfaceCommandError = async (
 ): Promise<DeleteNetworkInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17651,7 +17651,7 @@ const deserializeAws_ec2DeleteNetworkInterfacePermissionCommandError = async (
 ): Promise<DeleteNetworkInterfacePermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17683,7 +17683,7 @@ const deserializeAws_ec2DeletePlacementGroupCommandError = async (
 ): Promise<DeletePlacementGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17718,7 +17718,7 @@ const deserializeAws_ec2DeletePublicIpv4PoolCommandError = async (
 ): Promise<DeletePublicIpv4PoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17753,7 +17753,7 @@ const deserializeAws_ec2DeleteQueuedReservedInstancesCommandError = async (
 ): Promise<DeleteQueuedReservedInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17785,7 +17785,7 @@ const deserializeAws_ec2DeleteRouteCommandError = async (
 ): Promise<DeleteRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17817,7 +17817,7 @@ const deserializeAws_ec2DeleteRouteTableCommandError = async (
 ): Promise<DeleteRouteTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17849,7 +17849,7 @@ const deserializeAws_ec2DeleteSecurityGroupCommandError = async (
 ): Promise<DeleteSecurityGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17881,7 +17881,7 @@ const deserializeAws_ec2DeleteSnapshotCommandError = async (
 ): Promise<DeleteSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17913,7 +17913,7 @@ const deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommandError = async (
 ): Promise<DeleteSpotDatafeedSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17945,7 +17945,7 @@ const deserializeAws_ec2DeleteSubnetCommandError = async (
 ): Promise<DeleteSubnetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -17980,7 +17980,7 @@ const deserializeAws_ec2DeleteSubnetCidrReservationCommandError = async (
 ): Promise<DeleteSubnetCidrReservationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18012,7 +18012,7 @@ const deserializeAws_ec2DeleteTagsCommandError = async (
 ): Promise<DeleteTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18047,7 +18047,7 @@ const deserializeAws_ec2DeleteTrafficMirrorFilterCommandError = async (
 ): Promise<DeleteTrafficMirrorFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18082,7 +18082,7 @@ const deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommandError = async (
 ): Promise<DeleteTrafficMirrorFilterRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18117,7 +18117,7 @@ const deserializeAws_ec2DeleteTrafficMirrorSessionCommandError = async (
 ): Promise<DeleteTrafficMirrorSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18152,7 +18152,7 @@ const deserializeAws_ec2DeleteTrafficMirrorTargetCommandError = async (
 ): Promise<DeleteTrafficMirrorTargetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18187,7 +18187,7 @@ const deserializeAws_ec2DeleteTransitGatewayCommandError = async (
 ): Promise<DeleteTransitGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18222,7 +18222,7 @@ const deserializeAws_ec2DeleteTransitGatewayConnectCommandError = async (
 ): Promise<DeleteTransitGatewayConnectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18257,7 +18257,7 @@ const deserializeAws_ec2DeleteTransitGatewayConnectPeerCommandError = async (
 ): Promise<DeleteTransitGatewayConnectPeerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18292,7 +18292,7 @@ const deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommandError = async 
 ): Promise<DeleteTransitGatewayMulticastDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18327,7 +18327,7 @@ const deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommandError = asyn
 ): Promise<DeleteTransitGatewayPeeringAttachmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18362,7 +18362,7 @@ const deserializeAws_ec2DeleteTransitGatewayPolicyTableCommandError = async (
 ): Promise<DeleteTransitGatewayPolicyTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18397,7 +18397,7 @@ const deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommandError = as
 ): Promise<DeleteTransitGatewayPrefixListReferenceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18432,7 +18432,7 @@ const deserializeAws_ec2DeleteTransitGatewayRouteCommandError = async (
 ): Promise<DeleteTransitGatewayRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18467,7 +18467,7 @@ const deserializeAws_ec2DeleteTransitGatewayRouteTableCommandError = async (
 ): Promise<DeleteTransitGatewayRouteTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18502,7 +18502,7 @@ const deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommandError =
 ): Promise<DeleteTransitGatewayRouteTableAnnouncementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18537,7 +18537,7 @@ const deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommandError = async (
 ): Promise<DeleteTransitGatewayVpcAttachmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18569,7 +18569,7 @@ const deserializeAws_ec2DeleteVolumeCommandError = async (
 ): Promise<DeleteVolumeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18601,7 +18601,7 @@ const deserializeAws_ec2DeleteVpcCommandError = async (
 ): Promise<DeleteVpcCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18636,7 +18636,7 @@ const deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommandError = a
 ): Promise<DeleteVpcEndpointConnectionNotificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18671,7 +18671,7 @@ const deserializeAws_ec2DeleteVpcEndpointsCommandError = async (
 ): Promise<DeleteVpcEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18706,7 +18706,7 @@ const deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommandError = asy
 ): Promise<DeleteVpcEndpointServiceConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18741,7 +18741,7 @@ const deserializeAws_ec2DeleteVpcPeeringConnectionCommandError = async (
 ): Promise<DeleteVpcPeeringConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18773,7 +18773,7 @@ const deserializeAws_ec2DeleteVpnConnectionCommandError = async (
 ): Promise<DeleteVpnConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18805,7 +18805,7 @@ const deserializeAws_ec2DeleteVpnConnectionRouteCommandError = async (
 ): Promise<DeleteVpnConnectionRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18837,7 +18837,7 @@ const deserializeAws_ec2DeleteVpnGatewayCommandError = async (
 ): Promise<DeleteVpnGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18872,7 +18872,7 @@ const deserializeAws_ec2DeprovisionByoipCidrCommandError = async (
 ): Promise<DeprovisionByoipCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18907,7 +18907,7 @@ const deserializeAws_ec2DeprovisionIpamPoolCidrCommandError = async (
 ): Promise<DeprovisionIpamPoolCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18942,7 +18942,7 @@ const deserializeAws_ec2DeprovisionPublicIpv4PoolCidrCommandError = async (
 ): Promise<DeprovisionPublicIpv4PoolCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -18974,7 +18974,7 @@ const deserializeAws_ec2DeregisterImageCommandError = async (
 ): Promise<DeregisterImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19009,7 +19009,7 @@ const deserializeAws_ec2DeregisterInstanceEventNotificationAttributesCommandErro
 ): Promise<DeregisterInstanceEventNotificationAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19044,7 +19044,7 @@ const deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommandErro
 ): Promise<DeregisterTransitGatewayMulticastGroupMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19079,7 +19079,7 @@ const deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommandErro
 ): Promise<DeregisterTransitGatewayMulticastGroupSourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19114,7 +19114,7 @@ const deserializeAws_ec2DescribeAccountAttributesCommandError = async (
 ): Promise<DescribeAccountAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19149,7 +19149,7 @@ const deserializeAws_ec2DescribeAddressesCommandError = async (
 ): Promise<DescribeAddressesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19184,7 +19184,7 @@ const deserializeAws_ec2DescribeAddressesAttributeCommandError = async (
 ): Promise<DescribeAddressesAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19219,7 +19219,7 @@ const deserializeAws_ec2DescribeAggregateIdFormatCommandError = async (
 ): Promise<DescribeAggregateIdFormatCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19254,7 +19254,7 @@ const deserializeAws_ec2DescribeAvailabilityZonesCommandError = async (
 ): Promise<DescribeAvailabilityZonesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19289,7 +19289,7 @@ const deserializeAws_ec2DescribeBundleTasksCommandError = async (
 ): Promise<DescribeBundleTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19324,7 +19324,7 @@ const deserializeAws_ec2DescribeByoipCidrsCommandError = async (
 ): Promise<DescribeByoipCidrsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19359,7 +19359,7 @@ const deserializeAws_ec2DescribeCapacityReservationFleetsCommandError = async (
 ): Promise<DescribeCapacityReservationFleetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19394,7 +19394,7 @@ const deserializeAws_ec2DescribeCapacityReservationsCommandError = async (
 ): Promise<DescribeCapacityReservationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19429,7 +19429,7 @@ const deserializeAws_ec2DescribeCarrierGatewaysCommandError = async (
 ): Promise<DescribeCarrierGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19464,7 +19464,7 @@ const deserializeAws_ec2DescribeClassicLinkInstancesCommandError = async (
 ): Promise<DescribeClassicLinkInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19499,7 +19499,7 @@ const deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommandError = async 
 ): Promise<DescribeClientVpnAuthorizationRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19534,7 +19534,7 @@ const deserializeAws_ec2DescribeClientVpnConnectionsCommandError = async (
 ): Promise<DescribeClientVpnConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19569,7 +19569,7 @@ const deserializeAws_ec2DescribeClientVpnEndpointsCommandError = async (
 ): Promise<DescribeClientVpnEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19604,7 +19604,7 @@ const deserializeAws_ec2DescribeClientVpnRoutesCommandError = async (
 ): Promise<DescribeClientVpnRoutesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19639,7 +19639,7 @@ const deserializeAws_ec2DescribeClientVpnTargetNetworksCommandError = async (
 ): Promise<DescribeClientVpnTargetNetworksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19674,7 +19674,7 @@ const deserializeAws_ec2DescribeCoipPoolsCommandError = async (
 ): Promise<DescribeCoipPoolsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19709,7 +19709,7 @@ const deserializeAws_ec2DescribeConversionTasksCommandError = async (
 ): Promise<DescribeConversionTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19744,7 +19744,7 @@ const deserializeAws_ec2DescribeCustomerGatewaysCommandError = async (
 ): Promise<DescribeCustomerGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19779,7 +19779,7 @@ const deserializeAws_ec2DescribeDhcpOptionsCommandError = async (
 ): Promise<DescribeDhcpOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19814,7 +19814,7 @@ const deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommandError = async (
 ): Promise<DescribeEgressOnlyInternetGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19849,7 +19849,7 @@ const deserializeAws_ec2DescribeElasticGpusCommandError = async (
 ): Promise<DescribeElasticGpusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19884,7 +19884,7 @@ const deserializeAws_ec2DescribeExportImageTasksCommandError = async (
 ): Promise<DescribeExportImageTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19919,7 +19919,7 @@ const deserializeAws_ec2DescribeExportTasksCommandError = async (
 ): Promise<DescribeExportTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19954,7 +19954,7 @@ const deserializeAws_ec2DescribeFastLaunchImagesCommandError = async (
 ): Promise<DescribeFastLaunchImagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -19989,7 +19989,7 @@ const deserializeAws_ec2DescribeFastSnapshotRestoresCommandError = async (
 ): Promise<DescribeFastSnapshotRestoresCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20024,7 +20024,7 @@ const deserializeAws_ec2DescribeFleetHistoryCommandError = async (
 ): Promise<DescribeFleetHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20059,7 +20059,7 @@ const deserializeAws_ec2DescribeFleetInstancesCommandError = async (
 ): Promise<DescribeFleetInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20094,7 +20094,7 @@ const deserializeAws_ec2DescribeFleetsCommandError = async (
 ): Promise<DescribeFleetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20129,7 +20129,7 @@ const deserializeAws_ec2DescribeFlowLogsCommandError = async (
 ): Promise<DescribeFlowLogsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20164,7 +20164,7 @@ const deserializeAws_ec2DescribeFpgaImageAttributeCommandError = async (
 ): Promise<DescribeFpgaImageAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20199,7 +20199,7 @@ const deserializeAws_ec2DescribeFpgaImagesCommandError = async (
 ): Promise<DescribeFpgaImagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20234,7 +20234,7 @@ const deserializeAws_ec2DescribeHostReservationOfferingsCommandError = async (
 ): Promise<DescribeHostReservationOfferingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20269,7 +20269,7 @@ const deserializeAws_ec2DescribeHostReservationsCommandError = async (
 ): Promise<DescribeHostReservationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20304,7 +20304,7 @@ const deserializeAws_ec2DescribeHostsCommandError = async (
 ): Promise<DescribeHostsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20339,7 +20339,7 @@ const deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommandError = asy
 ): Promise<DescribeIamInstanceProfileAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20374,7 +20374,7 @@ const deserializeAws_ec2DescribeIdentityIdFormatCommandError = async (
 ): Promise<DescribeIdentityIdFormatCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20409,7 +20409,7 @@ const deserializeAws_ec2DescribeIdFormatCommandError = async (
 ): Promise<DescribeIdFormatCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20444,7 +20444,7 @@ const deserializeAws_ec2DescribeImageAttributeCommandError = async (
 ): Promise<DescribeImageAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20479,7 +20479,7 @@ const deserializeAws_ec2DescribeImagesCommandError = async (
 ): Promise<DescribeImagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20514,7 +20514,7 @@ const deserializeAws_ec2DescribeImportImageTasksCommandError = async (
 ): Promise<DescribeImportImageTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20549,7 +20549,7 @@ const deserializeAws_ec2DescribeImportSnapshotTasksCommandError = async (
 ): Promise<DescribeImportSnapshotTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20584,7 +20584,7 @@ const deserializeAws_ec2DescribeInstanceAttributeCommandError = async (
 ): Promise<DescribeInstanceAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20619,7 +20619,7 @@ const deserializeAws_ec2DescribeInstanceCreditSpecificationsCommandError = async
 ): Promise<DescribeInstanceCreditSpecificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20654,7 +20654,7 @@ const deserializeAws_ec2DescribeInstanceEventNotificationAttributesCommandError 
 ): Promise<DescribeInstanceEventNotificationAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20689,7 +20689,7 @@ const deserializeAws_ec2DescribeInstanceEventWindowsCommandError = async (
 ): Promise<DescribeInstanceEventWindowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20724,7 +20724,7 @@ const deserializeAws_ec2DescribeInstancesCommandError = async (
 ): Promise<DescribeInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20759,7 +20759,7 @@ const deserializeAws_ec2DescribeInstanceStatusCommandError = async (
 ): Promise<DescribeInstanceStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20794,7 +20794,7 @@ const deserializeAws_ec2DescribeInstanceTypeOfferingsCommandError = async (
 ): Promise<DescribeInstanceTypeOfferingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20829,7 +20829,7 @@ const deserializeAws_ec2DescribeInstanceTypesCommandError = async (
 ): Promise<DescribeInstanceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20864,7 +20864,7 @@ const deserializeAws_ec2DescribeInternetGatewaysCommandError = async (
 ): Promise<DescribeInternetGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20899,7 +20899,7 @@ const deserializeAws_ec2DescribeIpamPoolsCommandError = async (
 ): Promise<DescribeIpamPoolsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20934,7 +20934,7 @@ const deserializeAws_ec2DescribeIpamsCommandError = async (
 ): Promise<DescribeIpamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -20969,7 +20969,7 @@ const deserializeAws_ec2DescribeIpamScopesCommandError = async (
 ): Promise<DescribeIpamScopesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21004,7 +21004,7 @@ const deserializeAws_ec2DescribeIpv6PoolsCommandError = async (
 ): Promise<DescribeIpv6PoolsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21039,7 +21039,7 @@ const deserializeAws_ec2DescribeKeyPairsCommandError = async (
 ): Promise<DescribeKeyPairsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21074,7 +21074,7 @@ const deserializeAws_ec2DescribeLaunchTemplatesCommandError = async (
 ): Promise<DescribeLaunchTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21109,7 +21109,7 @@ const deserializeAws_ec2DescribeLaunchTemplateVersionsCommandError = async (
 ): Promise<DescribeLaunchTemplateVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21144,7 +21144,7 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTablesCommandError = async (
 ): Promise<DescribeLocalGatewayRouteTablesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21182,7 +21182,7 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssoc
 ): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21217,7 +21217,7 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommandErro
 ): Promise<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21252,7 +21252,7 @@ const deserializeAws_ec2DescribeLocalGatewaysCommandError = async (
 ): Promise<DescribeLocalGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21287,7 +21287,7 @@ const deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommandError =
 ): Promise<DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21322,7 +21322,7 @@ const deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommandError = asyn
 ): Promise<DescribeLocalGatewayVirtualInterfacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21357,7 +21357,7 @@ const deserializeAws_ec2DescribeManagedPrefixListsCommandError = async (
 ): Promise<DescribeManagedPrefixListsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21392,7 +21392,7 @@ const deserializeAws_ec2DescribeMovingAddressesCommandError = async (
 ): Promise<DescribeMovingAddressesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21427,7 +21427,7 @@ const deserializeAws_ec2DescribeNatGatewaysCommandError = async (
 ): Promise<DescribeNatGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21462,7 +21462,7 @@ const deserializeAws_ec2DescribeNetworkAclsCommandError = async (
 ): Promise<DescribeNetworkAclsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21497,7 +21497,7 @@ const deserializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesCommandError =
 ): Promise<DescribeNetworkInsightsAccessScopeAnalysesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21532,7 +21532,7 @@ const deserializeAws_ec2DescribeNetworkInsightsAccessScopesCommandError = async 
 ): Promise<DescribeNetworkInsightsAccessScopesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21567,7 +21567,7 @@ const deserializeAws_ec2DescribeNetworkInsightsAnalysesCommandError = async (
 ): Promise<DescribeNetworkInsightsAnalysesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21602,7 +21602,7 @@ const deserializeAws_ec2DescribeNetworkInsightsPathsCommandError = async (
 ): Promise<DescribeNetworkInsightsPathsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21637,7 +21637,7 @@ const deserializeAws_ec2DescribeNetworkInterfaceAttributeCommandError = async (
 ): Promise<DescribeNetworkInterfaceAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21672,7 +21672,7 @@ const deserializeAws_ec2DescribeNetworkInterfacePermissionsCommandError = async 
 ): Promise<DescribeNetworkInterfacePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21707,7 +21707,7 @@ const deserializeAws_ec2DescribeNetworkInterfacesCommandError = async (
 ): Promise<DescribeNetworkInterfacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21742,7 +21742,7 @@ const deserializeAws_ec2DescribePlacementGroupsCommandError = async (
 ): Promise<DescribePlacementGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21777,7 +21777,7 @@ const deserializeAws_ec2DescribePrefixListsCommandError = async (
 ): Promise<DescribePrefixListsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21812,7 +21812,7 @@ const deserializeAws_ec2DescribePrincipalIdFormatCommandError = async (
 ): Promise<DescribePrincipalIdFormatCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21847,7 +21847,7 @@ const deserializeAws_ec2DescribePublicIpv4PoolsCommandError = async (
 ): Promise<DescribePublicIpv4PoolsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21882,7 +21882,7 @@ const deserializeAws_ec2DescribeRegionsCommandError = async (
 ): Promise<DescribeRegionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21917,7 +21917,7 @@ const deserializeAws_ec2DescribeReplaceRootVolumeTasksCommandError = async (
 ): Promise<DescribeReplaceRootVolumeTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21952,7 +21952,7 @@ const deserializeAws_ec2DescribeReservedInstancesCommandError = async (
 ): Promise<DescribeReservedInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -21987,7 +21987,7 @@ const deserializeAws_ec2DescribeReservedInstancesListingsCommandError = async (
 ): Promise<DescribeReservedInstancesListingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22022,7 +22022,7 @@ const deserializeAws_ec2DescribeReservedInstancesModificationsCommandError = asy
 ): Promise<DescribeReservedInstancesModificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22057,7 +22057,7 @@ const deserializeAws_ec2DescribeReservedInstancesOfferingsCommandError = async (
 ): Promise<DescribeReservedInstancesOfferingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22092,7 +22092,7 @@ const deserializeAws_ec2DescribeRouteTablesCommandError = async (
 ): Promise<DescribeRouteTablesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22127,7 +22127,7 @@ const deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommandError = asyn
 ): Promise<DescribeScheduledInstanceAvailabilityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22162,7 +22162,7 @@ const deserializeAws_ec2DescribeScheduledInstancesCommandError = async (
 ): Promise<DescribeScheduledInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22197,7 +22197,7 @@ const deserializeAws_ec2DescribeSecurityGroupReferencesCommandError = async (
 ): Promise<DescribeSecurityGroupReferencesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22232,7 +22232,7 @@ const deserializeAws_ec2DescribeSecurityGroupRulesCommandError = async (
 ): Promise<DescribeSecurityGroupRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22267,7 +22267,7 @@ const deserializeAws_ec2DescribeSecurityGroupsCommandError = async (
 ): Promise<DescribeSecurityGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22302,7 +22302,7 @@ const deserializeAws_ec2DescribeSnapshotAttributeCommandError = async (
 ): Promise<DescribeSnapshotAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22337,7 +22337,7 @@ const deserializeAws_ec2DescribeSnapshotsCommandError = async (
 ): Promise<DescribeSnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22372,7 +22372,7 @@ const deserializeAws_ec2DescribeSnapshotTierStatusCommandError = async (
 ): Promise<DescribeSnapshotTierStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22407,7 +22407,7 @@ const deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommandError = async (
 ): Promise<DescribeSpotDatafeedSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22442,7 +22442,7 @@ const deserializeAws_ec2DescribeSpotFleetInstancesCommandError = async (
 ): Promise<DescribeSpotFleetInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22477,7 +22477,7 @@ const deserializeAws_ec2DescribeSpotFleetRequestHistoryCommandError = async (
 ): Promise<DescribeSpotFleetRequestHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22512,7 +22512,7 @@ const deserializeAws_ec2DescribeSpotFleetRequestsCommandError = async (
 ): Promise<DescribeSpotFleetRequestsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22547,7 +22547,7 @@ const deserializeAws_ec2DescribeSpotInstanceRequestsCommandError = async (
 ): Promise<DescribeSpotInstanceRequestsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22582,7 +22582,7 @@ const deserializeAws_ec2DescribeSpotPriceHistoryCommandError = async (
 ): Promise<DescribeSpotPriceHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22617,7 +22617,7 @@ const deserializeAws_ec2DescribeStaleSecurityGroupsCommandError = async (
 ): Promise<DescribeStaleSecurityGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22652,7 +22652,7 @@ const deserializeAws_ec2DescribeStoreImageTasksCommandError = async (
 ): Promise<DescribeStoreImageTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22687,7 +22687,7 @@ const deserializeAws_ec2DescribeSubnetsCommandError = async (
 ): Promise<DescribeSubnetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22722,7 +22722,7 @@ const deserializeAws_ec2DescribeTagsCommandError = async (
 ): Promise<DescribeTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22757,7 +22757,7 @@ const deserializeAws_ec2DescribeTrafficMirrorFiltersCommandError = async (
 ): Promise<DescribeTrafficMirrorFiltersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22792,7 +22792,7 @@ const deserializeAws_ec2DescribeTrafficMirrorSessionsCommandError = async (
 ): Promise<DescribeTrafficMirrorSessionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22827,7 +22827,7 @@ const deserializeAws_ec2DescribeTrafficMirrorTargetsCommandError = async (
 ): Promise<DescribeTrafficMirrorTargetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22862,7 +22862,7 @@ const deserializeAws_ec2DescribeTransitGatewayAttachmentsCommandError = async (
 ): Promise<DescribeTransitGatewayAttachmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22897,7 +22897,7 @@ const deserializeAws_ec2DescribeTransitGatewayConnectPeersCommandError = async (
 ): Promise<DescribeTransitGatewayConnectPeersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22932,7 +22932,7 @@ const deserializeAws_ec2DescribeTransitGatewayConnectsCommandError = async (
 ): Promise<DescribeTransitGatewayConnectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -22967,7 +22967,7 @@ const deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommandError = asy
 ): Promise<DescribeTransitGatewayMulticastDomainsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23002,7 +23002,7 @@ const deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommandError = a
 ): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23037,7 +23037,7 @@ const deserializeAws_ec2DescribeTransitGatewayPolicyTablesCommandError = async (
 ): Promise<DescribeTransitGatewayPolicyTablesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23072,7 +23072,7 @@ const deserializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommandErro
 ): Promise<DescribeTransitGatewayRouteTableAnnouncementsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23107,7 +23107,7 @@ const deserializeAws_ec2DescribeTransitGatewayRouteTablesCommandError = async (
 ): Promise<DescribeTransitGatewayRouteTablesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23142,7 +23142,7 @@ const deserializeAws_ec2DescribeTransitGatewaysCommandError = async (
 ): Promise<DescribeTransitGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23177,7 +23177,7 @@ const deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommandError = async
 ): Promise<DescribeTransitGatewayVpcAttachmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23212,7 +23212,7 @@ const deserializeAws_ec2DescribeTrunkInterfaceAssociationsCommandError = async (
 ): Promise<DescribeTrunkInterfaceAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23247,7 +23247,7 @@ const deserializeAws_ec2DescribeVolumeAttributeCommandError = async (
 ): Promise<DescribeVolumeAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23282,7 +23282,7 @@ const deserializeAws_ec2DescribeVolumesCommandError = async (
 ): Promise<DescribeVolumesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23317,7 +23317,7 @@ const deserializeAws_ec2DescribeVolumesModificationsCommandError = async (
 ): Promise<DescribeVolumesModificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23352,7 +23352,7 @@ const deserializeAws_ec2DescribeVolumeStatusCommandError = async (
 ): Promise<DescribeVolumeStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23387,7 +23387,7 @@ const deserializeAws_ec2DescribeVpcAttributeCommandError = async (
 ): Promise<DescribeVpcAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23422,7 +23422,7 @@ const deserializeAws_ec2DescribeVpcClassicLinkCommandError = async (
 ): Promise<DescribeVpcClassicLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23457,7 +23457,7 @@ const deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommandError = async (
 ): Promise<DescribeVpcClassicLinkDnsSupportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23492,7 +23492,7 @@ const deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommandError =
 ): Promise<DescribeVpcEndpointConnectionNotificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23527,7 +23527,7 @@ const deserializeAws_ec2DescribeVpcEndpointConnectionsCommandError = async (
 ): Promise<DescribeVpcEndpointConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23562,7 +23562,7 @@ const deserializeAws_ec2DescribeVpcEndpointsCommandError = async (
 ): Promise<DescribeVpcEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23597,7 +23597,7 @@ const deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommandError = a
 ): Promise<DescribeVpcEndpointServiceConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23632,7 +23632,7 @@ const deserializeAws_ec2DescribeVpcEndpointServicePermissionsCommandError = asyn
 ): Promise<DescribeVpcEndpointServicePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23667,7 +23667,7 @@ const deserializeAws_ec2DescribeVpcEndpointServicesCommandError = async (
 ): Promise<DescribeVpcEndpointServicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23702,7 +23702,7 @@ const deserializeAws_ec2DescribeVpcPeeringConnectionsCommandError = async (
 ): Promise<DescribeVpcPeeringConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23737,7 +23737,7 @@ const deserializeAws_ec2DescribeVpcsCommandError = async (
 ): Promise<DescribeVpcsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23772,7 +23772,7 @@ const deserializeAws_ec2DescribeVpnConnectionsCommandError = async (
 ): Promise<DescribeVpnConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23807,7 +23807,7 @@ const deserializeAws_ec2DescribeVpnGatewaysCommandError = async (
 ): Promise<DescribeVpnGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23842,7 +23842,7 @@ const deserializeAws_ec2DetachClassicLinkVpcCommandError = async (
 ): Promise<DetachClassicLinkVpcCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23874,7 +23874,7 @@ const deserializeAws_ec2DetachInternetGatewayCommandError = async (
 ): Promise<DetachInternetGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23906,7 +23906,7 @@ const deserializeAws_ec2DetachNetworkInterfaceCommandError = async (
 ): Promise<DetachNetworkInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23941,7 +23941,7 @@ const deserializeAws_ec2DetachVolumeCommandError = async (
 ): Promise<DetachVolumeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -23973,7 +23973,7 @@ const deserializeAws_ec2DetachVpnGatewayCommandError = async (
 ): Promise<DetachVpnGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24008,7 +24008,7 @@ const deserializeAws_ec2DisableEbsEncryptionByDefaultCommandError = async (
 ): Promise<DisableEbsEncryptionByDefaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24043,7 +24043,7 @@ const deserializeAws_ec2DisableFastLaunchCommandError = async (
 ): Promise<DisableFastLaunchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24078,7 +24078,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoresCommandError = async (
 ): Promise<DisableFastSnapshotRestoresCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24113,7 +24113,7 @@ const deserializeAws_ec2DisableImageDeprecationCommandError = async (
 ): Promise<DisableImageDeprecationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24148,7 +24148,7 @@ const deserializeAws_ec2DisableIpamOrganizationAdminAccountCommandError = async 
 ): Promise<DisableIpamOrganizationAdminAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24183,7 +24183,7 @@ const deserializeAws_ec2DisableSerialConsoleAccessCommandError = async (
 ): Promise<DisableSerialConsoleAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24218,7 +24218,7 @@ const deserializeAws_ec2DisableTransitGatewayRouteTablePropagationCommandError =
 ): Promise<DisableTransitGatewayRouteTablePropagationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24250,7 +24250,7 @@ const deserializeAws_ec2DisableVgwRoutePropagationCommandError = async (
 ): Promise<DisableVgwRoutePropagationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24285,7 +24285,7 @@ const deserializeAws_ec2DisableVpcClassicLinkCommandError = async (
 ): Promise<DisableVpcClassicLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24320,7 +24320,7 @@ const deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommandError = async (
 ): Promise<DisableVpcClassicLinkDnsSupportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24352,7 +24352,7 @@ const deserializeAws_ec2DisassociateAddressCommandError = async (
 ): Promise<DisassociateAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24387,7 +24387,7 @@ const deserializeAws_ec2DisassociateClientVpnTargetNetworkCommandError = async (
 ): Promise<DisassociateClientVpnTargetNetworkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24422,7 +24422,7 @@ const deserializeAws_ec2DisassociateEnclaveCertificateIamRoleCommandError = asyn
 ): Promise<DisassociateEnclaveCertificateIamRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24457,7 +24457,7 @@ const deserializeAws_ec2DisassociateIamInstanceProfileCommandError = async (
 ): Promise<DisassociateIamInstanceProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24492,7 +24492,7 @@ const deserializeAws_ec2DisassociateInstanceEventWindowCommandError = async (
 ): Promise<DisassociateInstanceEventWindowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24524,7 +24524,7 @@ const deserializeAws_ec2DisassociateRouteTableCommandError = async (
 ): Promise<DisassociateRouteTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24559,7 +24559,7 @@ const deserializeAws_ec2DisassociateSubnetCidrBlockCommandError = async (
 ): Promise<DisassociateSubnetCidrBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24594,7 +24594,7 @@ const deserializeAws_ec2DisassociateTransitGatewayMulticastDomainCommandError = 
 ): Promise<DisassociateTransitGatewayMulticastDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24629,7 +24629,7 @@ const deserializeAws_ec2DisassociateTransitGatewayPolicyTableCommandError = asyn
 ): Promise<DisassociateTransitGatewayPolicyTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24664,7 +24664,7 @@ const deserializeAws_ec2DisassociateTransitGatewayRouteTableCommandError = async
 ): Promise<DisassociateTransitGatewayRouteTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24699,7 +24699,7 @@ const deserializeAws_ec2DisassociateTrunkInterfaceCommandError = async (
 ): Promise<DisassociateTrunkInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24734,7 +24734,7 @@ const deserializeAws_ec2DisassociateVpcCidrBlockCommandError = async (
 ): Promise<DisassociateVpcCidrBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24769,7 +24769,7 @@ const deserializeAws_ec2EnableEbsEncryptionByDefaultCommandError = async (
 ): Promise<EnableEbsEncryptionByDefaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24804,7 +24804,7 @@ const deserializeAws_ec2EnableFastLaunchCommandError = async (
 ): Promise<EnableFastLaunchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24839,7 +24839,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoresCommandError = async (
 ): Promise<EnableFastSnapshotRestoresCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24874,7 +24874,7 @@ const deserializeAws_ec2EnableImageDeprecationCommandError = async (
 ): Promise<EnableImageDeprecationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24909,7 +24909,7 @@ const deserializeAws_ec2EnableIpamOrganizationAdminAccountCommandError = async (
 ): Promise<EnableIpamOrganizationAdminAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24944,7 +24944,7 @@ const deserializeAws_ec2EnableSerialConsoleAccessCommandError = async (
 ): Promise<EnableSerialConsoleAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -24979,7 +24979,7 @@ const deserializeAws_ec2EnableTransitGatewayRouteTablePropagationCommandError = 
 ): Promise<EnableTransitGatewayRouteTablePropagationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25011,7 +25011,7 @@ const deserializeAws_ec2EnableVgwRoutePropagationCommandError = async (
 ): Promise<EnableVgwRoutePropagationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25043,7 +25043,7 @@ const deserializeAws_ec2EnableVolumeIOCommandError = async (
 ): Promise<EnableVolumeIOCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25078,7 +25078,7 @@ const deserializeAws_ec2EnableVpcClassicLinkCommandError = async (
 ): Promise<EnableVpcClassicLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25113,7 +25113,7 @@ const deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommandError = async (
 ): Promise<EnableVpcClassicLinkDnsSupportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25148,7 +25148,7 @@ const deserializeAws_ec2ExportClientVpnClientCertificateRevocationListCommandErr
 ): Promise<ExportClientVpnClientCertificateRevocationListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25183,7 +25183,7 @@ const deserializeAws_ec2ExportClientVpnClientConfigurationCommandError = async (
 ): Promise<ExportClientVpnClientConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25218,7 +25218,7 @@ const deserializeAws_ec2ExportImageCommandError = async (
 ): Promise<ExportImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25253,7 +25253,7 @@ const deserializeAws_ec2ExportTransitGatewayRoutesCommandError = async (
 ): Promise<ExportTransitGatewayRoutesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25288,7 +25288,7 @@ const deserializeAws_ec2GetAssociatedEnclaveCertificateIamRolesCommandError = as
 ): Promise<GetAssociatedEnclaveCertificateIamRolesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25323,7 +25323,7 @@ const deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommandError = async (
 ): Promise<GetAssociatedIpv6PoolCidrsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25358,7 +25358,7 @@ const deserializeAws_ec2GetCapacityReservationUsageCommandError = async (
 ): Promise<GetCapacityReservationUsageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25393,7 +25393,7 @@ const deserializeAws_ec2GetCoipPoolUsageCommandError = async (
 ): Promise<GetCoipPoolUsageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25428,7 +25428,7 @@ const deserializeAws_ec2GetConsoleOutputCommandError = async (
 ): Promise<GetConsoleOutputCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25463,7 +25463,7 @@ const deserializeAws_ec2GetConsoleScreenshotCommandError = async (
 ): Promise<GetConsoleScreenshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25498,7 +25498,7 @@ const deserializeAws_ec2GetDefaultCreditSpecificationCommandError = async (
 ): Promise<GetDefaultCreditSpecificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25533,7 +25533,7 @@ const deserializeAws_ec2GetEbsDefaultKmsKeyIdCommandError = async (
 ): Promise<GetEbsDefaultKmsKeyIdCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25568,7 +25568,7 @@ const deserializeAws_ec2GetEbsEncryptionByDefaultCommandError = async (
 ): Promise<GetEbsEncryptionByDefaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25603,7 +25603,7 @@ const deserializeAws_ec2GetFlowLogsIntegrationTemplateCommandError = async (
 ): Promise<GetFlowLogsIntegrationTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25638,7 +25638,7 @@ const deserializeAws_ec2GetGroupsForCapacityReservationCommandError = async (
 ): Promise<GetGroupsForCapacityReservationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25673,7 +25673,7 @@ const deserializeAws_ec2GetHostReservationPurchasePreviewCommandError = async (
 ): Promise<GetHostReservationPurchasePreviewCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25708,7 +25708,7 @@ const deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommandError = a
 ): Promise<GetInstanceTypesFromInstanceRequirementsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25743,7 +25743,7 @@ const deserializeAws_ec2GetInstanceUefiDataCommandError = async (
 ): Promise<GetInstanceUefiDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25778,7 +25778,7 @@ const deserializeAws_ec2GetIpamAddressHistoryCommandError = async (
 ): Promise<GetIpamAddressHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25813,7 +25813,7 @@ const deserializeAws_ec2GetIpamPoolAllocationsCommandError = async (
 ): Promise<GetIpamPoolAllocationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25848,7 +25848,7 @@ const deserializeAws_ec2GetIpamPoolCidrsCommandError = async (
 ): Promise<GetIpamPoolCidrsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25883,7 +25883,7 @@ const deserializeAws_ec2GetIpamResourceCidrsCommandError = async (
 ): Promise<GetIpamResourceCidrsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25918,7 +25918,7 @@ const deserializeAws_ec2GetLaunchTemplateDataCommandError = async (
 ): Promise<GetLaunchTemplateDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25953,7 +25953,7 @@ const deserializeAws_ec2GetManagedPrefixListAssociationsCommandError = async (
 ): Promise<GetManagedPrefixListAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -25988,7 +25988,7 @@ const deserializeAws_ec2GetManagedPrefixListEntriesCommandError = async (
 ): Promise<GetManagedPrefixListEntriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26023,7 +26023,7 @@ const deserializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommandErro
 ): Promise<GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26058,7 +26058,7 @@ const deserializeAws_ec2GetNetworkInsightsAccessScopeContentCommandError = async
 ): Promise<GetNetworkInsightsAccessScopeContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26093,7 +26093,7 @@ const deserializeAws_ec2GetPasswordDataCommandError = async (
 ): Promise<GetPasswordDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26128,7 +26128,7 @@ const deserializeAws_ec2GetReservedInstancesExchangeQuoteCommandError = async (
 ): Promise<GetReservedInstancesExchangeQuoteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26163,7 +26163,7 @@ const deserializeAws_ec2GetSerialConsoleAccessStatusCommandError = async (
 ): Promise<GetSerialConsoleAccessStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26198,7 +26198,7 @@ const deserializeAws_ec2GetSpotPlacementScoresCommandError = async (
 ): Promise<GetSpotPlacementScoresCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26233,7 +26233,7 @@ const deserializeAws_ec2GetSubnetCidrReservationsCommandError = async (
 ): Promise<GetSubnetCidrReservationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26268,7 +26268,7 @@ const deserializeAws_ec2GetTransitGatewayAttachmentPropagationsCommandError = as
 ): Promise<GetTransitGatewayAttachmentPropagationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26303,7 +26303,7 @@ const deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommandError
 ): Promise<GetTransitGatewayMulticastDomainAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26338,7 +26338,7 @@ const deserializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommandError = a
 ): Promise<GetTransitGatewayPolicyTableAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26373,7 +26373,7 @@ const deserializeAws_ec2GetTransitGatewayPolicyTableEntriesCommandError = async 
 ): Promise<GetTransitGatewayPolicyTableEntriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26408,7 +26408,7 @@ const deserializeAws_ec2GetTransitGatewayPrefixListReferencesCommandError = asyn
 ): Promise<GetTransitGatewayPrefixListReferencesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26443,7 +26443,7 @@ const deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommandError = as
 ): Promise<GetTransitGatewayRouteTableAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26478,7 +26478,7 @@ const deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommandError = as
 ): Promise<GetTransitGatewayRouteTablePropagationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26513,7 +26513,7 @@ const deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommandError = 
 ): Promise<GetVpnConnectionDeviceSampleConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26548,7 +26548,7 @@ const deserializeAws_ec2GetVpnConnectionDeviceTypesCommandError = async (
 ): Promise<GetVpnConnectionDeviceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26583,7 +26583,7 @@ const deserializeAws_ec2ImportClientVpnClientCertificateRevocationListCommandErr
 ): Promise<ImportClientVpnClientCertificateRevocationListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26618,7 +26618,7 @@ const deserializeAws_ec2ImportImageCommandError = async (
 ): Promise<ImportImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26653,7 +26653,7 @@ const deserializeAws_ec2ImportInstanceCommandError = async (
 ): Promise<ImportInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26688,7 +26688,7 @@ const deserializeAws_ec2ImportKeyPairCommandError = async (
 ): Promise<ImportKeyPairCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26723,7 +26723,7 @@ const deserializeAws_ec2ImportSnapshotCommandError = async (
 ): Promise<ImportSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26758,7 +26758,7 @@ const deserializeAws_ec2ImportVolumeCommandError = async (
 ): Promise<ImportVolumeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26793,7 +26793,7 @@ const deserializeAws_ec2ListImagesInRecycleBinCommandError = async (
 ): Promise<ListImagesInRecycleBinCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26828,7 +26828,7 @@ const deserializeAws_ec2ListSnapshotsInRecycleBinCommandError = async (
 ): Promise<ListSnapshotsInRecycleBinCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26863,7 +26863,7 @@ const deserializeAws_ec2ModifyAddressAttributeCommandError = async (
 ): Promise<ModifyAddressAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26898,7 +26898,7 @@ const deserializeAws_ec2ModifyAvailabilityZoneGroupCommandError = async (
 ): Promise<ModifyAvailabilityZoneGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26933,7 +26933,7 @@ const deserializeAws_ec2ModifyCapacityReservationCommandError = async (
 ): Promise<ModifyCapacityReservationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -26968,7 +26968,7 @@ const deserializeAws_ec2ModifyCapacityReservationFleetCommandError = async (
 ): Promise<ModifyCapacityReservationFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27003,7 +27003,7 @@ const deserializeAws_ec2ModifyClientVpnEndpointCommandError = async (
 ): Promise<ModifyClientVpnEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27038,7 +27038,7 @@ const deserializeAws_ec2ModifyDefaultCreditSpecificationCommandError = async (
 ): Promise<ModifyDefaultCreditSpecificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27073,7 +27073,7 @@ const deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommandError = async (
 ): Promise<ModifyEbsDefaultKmsKeyIdCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27108,7 +27108,7 @@ const deserializeAws_ec2ModifyFleetCommandError = async (
 ): Promise<ModifyFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27143,7 +27143,7 @@ const deserializeAws_ec2ModifyFpgaImageAttributeCommandError = async (
 ): Promise<ModifyFpgaImageAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27178,7 +27178,7 @@ const deserializeAws_ec2ModifyHostsCommandError = async (
 ): Promise<ModifyHostsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27210,7 +27210,7 @@ const deserializeAws_ec2ModifyIdentityIdFormatCommandError = async (
 ): Promise<ModifyIdentityIdFormatCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27242,7 +27242,7 @@ const deserializeAws_ec2ModifyIdFormatCommandError = async (
 ): Promise<ModifyIdFormatCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27274,7 +27274,7 @@ const deserializeAws_ec2ModifyImageAttributeCommandError = async (
 ): Promise<ModifyImageAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27306,7 +27306,7 @@ const deserializeAws_ec2ModifyInstanceAttributeCommandError = async (
 ): Promise<ModifyInstanceAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27341,7 +27341,7 @@ const deserializeAws_ec2ModifyInstanceCapacityReservationAttributesCommandError 
 ): Promise<ModifyInstanceCapacityReservationAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27376,7 +27376,7 @@ const deserializeAws_ec2ModifyInstanceCreditSpecificationCommandError = async (
 ): Promise<ModifyInstanceCreditSpecificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27411,7 +27411,7 @@ const deserializeAws_ec2ModifyInstanceEventStartTimeCommandError = async (
 ): Promise<ModifyInstanceEventStartTimeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27446,7 +27446,7 @@ const deserializeAws_ec2ModifyInstanceEventWindowCommandError = async (
 ): Promise<ModifyInstanceEventWindowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27481,7 +27481,7 @@ const deserializeAws_ec2ModifyInstanceMaintenanceOptionsCommandError = async (
 ): Promise<ModifyInstanceMaintenanceOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27516,7 +27516,7 @@ const deserializeAws_ec2ModifyInstanceMetadataOptionsCommandError = async (
 ): Promise<ModifyInstanceMetadataOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27551,7 +27551,7 @@ const deserializeAws_ec2ModifyInstancePlacementCommandError = async (
 ): Promise<ModifyInstancePlacementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27586,7 +27586,7 @@ const deserializeAws_ec2ModifyIpamCommandError = async (
 ): Promise<ModifyIpamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27621,7 +27621,7 @@ const deserializeAws_ec2ModifyIpamPoolCommandError = async (
 ): Promise<ModifyIpamPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27656,7 +27656,7 @@ const deserializeAws_ec2ModifyIpamResourceCidrCommandError = async (
 ): Promise<ModifyIpamResourceCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27691,7 +27691,7 @@ const deserializeAws_ec2ModifyIpamScopeCommandError = async (
 ): Promise<ModifyIpamScopeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27726,7 +27726,7 @@ const deserializeAws_ec2ModifyLaunchTemplateCommandError = async (
 ): Promise<ModifyLaunchTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27761,7 +27761,7 @@ const deserializeAws_ec2ModifyLocalGatewayRouteCommandError = async (
 ): Promise<ModifyLocalGatewayRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27796,7 +27796,7 @@ const deserializeAws_ec2ModifyManagedPrefixListCommandError = async (
 ): Promise<ModifyManagedPrefixListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27828,7 +27828,7 @@ const deserializeAws_ec2ModifyNetworkInterfaceAttributeCommandError = async (
 ): Promise<ModifyNetworkInterfaceAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27863,7 +27863,7 @@ const deserializeAws_ec2ModifyPrivateDnsNameOptionsCommandError = async (
 ): Promise<ModifyPrivateDnsNameOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27898,7 +27898,7 @@ const deserializeAws_ec2ModifyReservedInstancesCommandError = async (
 ): Promise<ModifyReservedInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27933,7 +27933,7 @@ const deserializeAws_ec2ModifySecurityGroupRulesCommandError = async (
 ): Promise<ModifySecurityGroupRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -27965,7 +27965,7 @@ const deserializeAws_ec2ModifySnapshotAttributeCommandError = async (
 ): Promise<ModifySnapshotAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28000,7 +28000,7 @@ const deserializeAws_ec2ModifySnapshotTierCommandError = async (
 ): Promise<ModifySnapshotTierCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28035,7 +28035,7 @@ const deserializeAws_ec2ModifySpotFleetRequestCommandError = async (
 ): Promise<ModifySpotFleetRequestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28067,7 +28067,7 @@ const deserializeAws_ec2ModifySubnetAttributeCommandError = async (
 ): Promise<ModifySubnetAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28102,7 +28102,7 @@ const deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommandError = a
 ): Promise<ModifyTrafficMirrorFilterNetworkServicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28137,7 +28137,7 @@ const deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommandError = async (
 ): Promise<ModifyTrafficMirrorFilterRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28172,7 +28172,7 @@ const deserializeAws_ec2ModifyTrafficMirrorSessionCommandError = async (
 ): Promise<ModifyTrafficMirrorSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28207,7 +28207,7 @@ const deserializeAws_ec2ModifyTransitGatewayCommandError = async (
 ): Promise<ModifyTransitGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28242,7 +28242,7 @@ const deserializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommandError = as
 ): Promise<ModifyTransitGatewayPrefixListReferenceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28277,7 +28277,7 @@ const deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommandError = async (
 ): Promise<ModifyTransitGatewayVpcAttachmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28312,7 +28312,7 @@ const deserializeAws_ec2ModifyVolumeCommandError = async (
 ): Promise<ModifyVolumeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28344,7 +28344,7 @@ const deserializeAws_ec2ModifyVolumeAttributeCommandError = async (
 ): Promise<ModifyVolumeAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28376,7 +28376,7 @@ const deserializeAws_ec2ModifyVpcAttributeCommandError = async (
 ): Promise<ModifyVpcAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28411,7 +28411,7 @@ const deserializeAws_ec2ModifyVpcEndpointCommandError = async (
 ): Promise<ModifyVpcEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28446,7 +28446,7 @@ const deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommandError = as
 ): Promise<ModifyVpcEndpointConnectionNotificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28481,7 +28481,7 @@ const deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommandError = asyn
 ): Promise<ModifyVpcEndpointServiceConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28516,7 +28516,7 @@ const deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommandError 
 ): Promise<ModifyVpcEndpointServicePayerResponsibilityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28551,7 +28551,7 @@ const deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommandError = async 
 ): Promise<ModifyVpcEndpointServicePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28586,7 +28586,7 @@ const deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommandError = async (
 ): Promise<ModifyVpcPeeringConnectionOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28621,7 +28621,7 @@ const deserializeAws_ec2ModifyVpcTenancyCommandError = async (
 ): Promise<ModifyVpcTenancyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28656,7 +28656,7 @@ const deserializeAws_ec2ModifyVpnConnectionCommandError = async (
 ): Promise<ModifyVpnConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28691,7 +28691,7 @@ const deserializeAws_ec2ModifyVpnConnectionOptionsCommandError = async (
 ): Promise<ModifyVpnConnectionOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28726,7 +28726,7 @@ const deserializeAws_ec2ModifyVpnTunnelCertificateCommandError = async (
 ): Promise<ModifyVpnTunnelCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28761,7 +28761,7 @@ const deserializeAws_ec2ModifyVpnTunnelOptionsCommandError = async (
 ): Promise<ModifyVpnTunnelOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28796,7 +28796,7 @@ const deserializeAws_ec2MonitorInstancesCommandError = async (
 ): Promise<MonitorInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28831,7 +28831,7 @@ const deserializeAws_ec2MoveAddressToVpcCommandError = async (
 ): Promise<MoveAddressToVpcCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28866,7 +28866,7 @@ const deserializeAws_ec2MoveByoipCidrToIpamCommandError = async (
 ): Promise<MoveByoipCidrToIpamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28901,7 +28901,7 @@ const deserializeAws_ec2ProvisionByoipCidrCommandError = async (
 ): Promise<ProvisionByoipCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28936,7 +28936,7 @@ const deserializeAws_ec2ProvisionIpamPoolCidrCommandError = async (
 ): Promise<ProvisionIpamPoolCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -28971,7 +28971,7 @@ const deserializeAws_ec2ProvisionPublicIpv4PoolCidrCommandError = async (
 ): Promise<ProvisionPublicIpv4PoolCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29006,7 +29006,7 @@ const deserializeAws_ec2PurchaseHostReservationCommandError = async (
 ): Promise<PurchaseHostReservationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29041,7 +29041,7 @@ const deserializeAws_ec2PurchaseReservedInstancesOfferingCommandError = async (
 ): Promise<PurchaseReservedInstancesOfferingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29076,7 +29076,7 @@ const deserializeAws_ec2PurchaseScheduledInstancesCommandError = async (
 ): Promise<PurchaseScheduledInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29108,7 +29108,7 @@ const deserializeAws_ec2RebootInstancesCommandError = async (
 ): Promise<RebootInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29143,7 +29143,7 @@ const deserializeAws_ec2RegisterImageCommandError = async (
 ): Promise<RegisterImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29178,7 +29178,7 @@ const deserializeAws_ec2RegisterInstanceEventNotificationAttributesCommandError 
 ): Promise<RegisterInstanceEventNotificationAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29213,7 +29213,7 @@ const deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommandError 
 ): Promise<RegisterTransitGatewayMulticastGroupMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29248,7 +29248,7 @@ const deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommandError 
 ): Promise<RegisterTransitGatewayMulticastGroupSourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29283,7 +29283,7 @@ const deserializeAws_ec2RejectTransitGatewayMulticastDomainAssociationsCommandEr
 ): Promise<RejectTransitGatewayMulticastDomainAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29318,7 +29318,7 @@ const deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommandError = asyn
 ): Promise<RejectTransitGatewayPeeringAttachmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29353,7 +29353,7 @@ const deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommandError = async (
 ): Promise<RejectTransitGatewayVpcAttachmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29388,7 +29388,7 @@ const deserializeAws_ec2RejectVpcEndpointConnectionsCommandError = async (
 ): Promise<RejectVpcEndpointConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29423,7 +29423,7 @@ const deserializeAws_ec2RejectVpcPeeringConnectionCommandError = async (
 ): Promise<RejectVpcPeeringConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29455,7 +29455,7 @@ const deserializeAws_ec2ReleaseAddressCommandError = async (
 ): Promise<ReleaseAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29490,7 +29490,7 @@ const deserializeAws_ec2ReleaseHostsCommandError = async (
 ): Promise<ReleaseHostsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29525,7 +29525,7 @@ const deserializeAws_ec2ReleaseIpamPoolAllocationCommandError = async (
 ): Promise<ReleaseIpamPoolAllocationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29560,7 +29560,7 @@ const deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommandError = async
 ): Promise<ReplaceIamInstanceProfileAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29595,7 +29595,7 @@ const deserializeAws_ec2ReplaceNetworkAclAssociationCommandError = async (
 ): Promise<ReplaceNetworkAclAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29627,7 +29627,7 @@ const deserializeAws_ec2ReplaceNetworkAclEntryCommandError = async (
 ): Promise<ReplaceNetworkAclEntryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29659,7 +29659,7 @@ const deserializeAws_ec2ReplaceRouteCommandError = async (
 ): Promise<ReplaceRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29694,7 +29694,7 @@ const deserializeAws_ec2ReplaceRouteTableAssociationCommandError = async (
 ): Promise<ReplaceRouteTableAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29729,7 +29729,7 @@ const deserializeAws_ec2ReplaceTransitGatewayRouteCommandError = async (
 ): Promise<ReplaceTransitGatewayRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29761,7 +29761,7 @@ const deserializeAws_ec2ReportInstanceStatusCommandError = async (
 ): Promise<ReportInstanceStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29796,7 +29796,7 @@ const deserializeAws_ec2RequestSpotFleetCommandError = async (
 ): Promise<RequestSpotFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29831,7 +29831,7 @@ const deserializeAws_ec2RequestSpotInstancesCommandError = async (
 ): Promise<RequestSpotInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29866,7 +29866,7 @@ const deserializeAws_ec2ResetAddressAttributeCommandError = async (
 ): Promise<ResetAddressAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29901,7 +29901,7 @@ const deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommandError = async (
 ): Promise<ResetEbsDefaultKmsKeyIdCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29936,7 +29936,7 @@ const deserializeAws_ec2ResetFpgaImageAttributeCommandError = async (
 ): Promise<ResetFpgaImageAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -29968,7 +29968,7 @@ const deserializeAws_ec2ResetImageAttributeCommandError = async (
 ): Promise<ResetImageAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30000,7 +30000,7 @@ const deserializeAws_ec2ResetInstanceAttributeCommandError = async (
 ): Promise<ResetInstanceAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30032,7 +30032,7 @@ const deserializeAws_ec2ResetNetworkInterfaceAttributeCommandError = async (
 ): Promise<ResetNetworkInterfaceAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30064,7 +30064,7 @@ const deserializeAws_ec2ResetSnapshotAttributeCommandError = async (
 ): Promise<ResetSnapshotAttributeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30099,7 +30099,7 @@ const deserializeAws_ec2RestoreAddressToClassicCommandError = async (
 ): Promise<RestoreAddressToClassicCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30134,7 +30134,7 @@ const deserializeAws_ec2RestoreImageFromRecycleBinCommandError = async (
 ): Promise<RestoreImageFromRecycleBinCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30169,7 +30169,7 @@ const deserializeAws_ec2RestoreManagedPrefixListVersionCommandError = async (
 ): Promise<RestoreManagedPrefixListVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30204,7 +30204,7 @@ const deserializeAws_ec2RestoreSnapshotFromRecycleBinCommandError = async (
 ): Promise<RestoreSnapshotFromRecycleBinCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30239,7 +30239,7 @@ const deserializeAws_ec2RestoreSnapshotTierCommandError = async (
 ): Promise<RestoreSnapshotTierCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30274,7 +30274,7 @@ const deserializeAws_ec2RevokeClientVpnIngressCommandError = async (
 ): Promise<RevokeClientVpnIngressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30309,7 +30309,7 @@ const deserializeAws_ec2RevokeSecurityGroupEgressCommandError = async (
 ): Promise<RevokeSecurityGroupEgressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30344,7 +30344,7 @@ const deserializeAws_ec2RevokeSecurityGroupIngressCommandError = async (
 ): Promise<RevokeSecurityGroupIngressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30379,7 +30379,7 @@ const deserializeAws_ec2RunInstancesCommandError = async (
 ): Promise<RunInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30414,7 +30414,7 @@ const deserializeAws_ec2RunScheduledInstancesCommandError = async (
 ): Promise<RunScheduledInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30449,7 +30449,7 @@ const deserializeAws_ec2SearchLocalGatewayRoutesCommandError = async (
 ): Promise<SearchLocalGatewayRoutesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30484,7 +30484,7 @@ const deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommandError = async 
 ): Promise<SearchTransitGatewayMulticastGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30519,7 +30519,7 @@ const deserializeAws_ec2SearchTransitGatewayRoutesCommandError = async (
 ): Promise<SearchTransitGatewayRoutesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30551,7 +30551,7 @@ const deserializeAws_ec2SendDiagnosticInterruptCommandError = async (
 ): Promise<SendDiagnosticInterruptCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30586,7 +30586,7 @@ const deserializeAws_ec2StartInstancesCommandError = async (
 ): Promise<StartInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30621,7 +30621,7 @@ const deserializeAws_ec2StartNetworkInsightsAccessScopeAnalysisCommandError = as
 ): Promise<StartNetworkInsightsAccessScopeAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30656,7 +30656,7 @@ const deserializeAws_ec2StartNetworkInsightsAnalysisCommandError = async (
 ): Promise<StartNetworkInsightsAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30691,7 +30691,7 @@ const deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommandErro
 ): Promise<StartVpcEndpointServicePrivateDnsVerificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30726,7 +30726,7 @@ const deserializeAws_ec2StopInstancesCommandError = async (
 ): Promise<StopInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30761,7 +30761,7 @@ const deserializeAws_ec2TerminateClientVpnConnectionsCommandError = async (
 ): Promise<TerminateClientVpnConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30796,7 +30796,7 @@ const deserializeAws_ec2TerminateInstancesCommandError = async (
 ): Promise<TerminateInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30831,7 +30831,7 @@ const deserializeAws_ec2UnassignIpv6AddressesCommandError = async (
 ): Promise<UnassignIpv6AddressesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30863,7 +30863,7 @@ const deserializeAws_ec2UnassignPrivateIpAddressesCommandError = async (
 ): Promise<UnassignPrivateIpAddressesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30898,7 +30898,7 @@ const deserializeAws_ec2UnmonitorInstancesCommandError = async (
 ): Promise<UnmonitorInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30933,7 +30933,7 @@ const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommandError = 
 ): Promise<UpdateSecurityGroupRuleDescriptionsEgressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -30968,7 +30968,7 @@ const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommandError =
 ): Promise<UpdateSecurityGroupRuleDescriptionsIngressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -31003,7 +31003,7 @@ const deserializeAws_ec2WithdrawByoipCidrCommandError = async (
 ): Promise<WithdrawByoipCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -80324,7 +80324,7 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any =>
+const parseBody = (streamBody: any, context: __SerdeContext & { $isError?: boolean }): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
@@ -80341,7 +80341,11 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
         delete parsedObjToReturn[textNodeName];
       }
-      return __getValueFromTextNode(parsedObjToReturn);
+      const value = __getValueFromTextNode(parsedObjToReturn);
+      if (context.$isError && value.Message !== undefined) {
+        value.message = value.Message;
+      }
+      return value;
     }
     return {};
   });

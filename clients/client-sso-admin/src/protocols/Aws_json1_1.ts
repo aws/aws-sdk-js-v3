@@ -757,7 +757,7 @@ const deserializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetC
 ): Promise<AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -816,7 +816,7 @@ const deserializeAws_json1_1AttachManagedPolicyToPermissionSetCommandError = asy
 ): Promise<AttachManagedPolicyToPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -875,7 +875,7 @@ const deserializeAws_json1_1CreateAccountAssignmentCommandError = async (
 ): Promise<CreateAccountAssignmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -934,7 +934,7 @@ const deserializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationCom
 ): Promise<CreateInstanceAccessControlAttributeConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -990,7 +990,7 @@ const deserializeAws_json1_1CreatePermissionSetCommandError = async (
 ): Promise<CreatePermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1049,7 +1049,7 @@ const deserializeAws_json1_1DeleteAccountAssignmentCommandError = async (
 ): Promise<DeleteAccountAssignmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1105,7 +1105,7 @@ const deserializeAws_json1_1DeleteInlinePolicyFromPermissionSetCommandError = as
 ): Promise<DeleteInlinePolicyFromPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1161,7 +1161,7 @@ const deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCom
 ): Promise<DeleteInstanceAccessControlAttributeConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1217,7 +1217,7 @@ const deserializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommandErr
 ): Promise<DeletePermissionsBoundaryFromPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1270,7 +1270,7 @@ const deserializeAws_json1_1DeletePermissionSetCommandError = async (
 ): Promise<DeletePermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1326,7 +1326,7 @@ const deserializeAws_json1_1DescribeAccountAssignmentCreationStatusCommandError 
 ): Promise<DescribeAccountAssignmentCreationStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1379,7 +1379,7 @@ const deserializeAws_json1_1DescribeAccountAssignmentDeletionStatusCommandError 
 ): Promise<DescribeAccountAssignmentDeletionStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1432,7 +1432,7 @@ const deserializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationC
 ): Promise<DescribeInstanceAccessControlAttributeConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1485,7 +1485,7 @@ const deserializeAws_json1_1DescribePermissionSetCommandError = async (
 ): Promise<DescribePermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1538,7 +1538,7 @@ const deserializeAws_json1_1DescribePermissionSetProvisioningStatusCommandError 
 ): Promise<DescribePermissionSetProvisioningStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1591,7 +1591,7 @@ const deserializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSe
 ): Promise<DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1647,7 +1647,7 @@ const deserializeAws_json1_1DetachManagedPolicyFromPermissionSetCommandError = a
 ): Promise<DetachManagedPolicyFromPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1703,7 +1703,7 @@ const deserializeAws_json1_1GetInlinePolicyForPermissionSetCommandError = async 
 ): Promise<GetInlinePolicyForPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1756,7 +1756,7 @@ const deserializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommandError =
 ): Promise<GetPermissionsBoundaryForPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1809,7 +1809,7 @@ const deserializeAws_json1_1ListAccountAssignmentCreationStatusCommandError = as
 ): Promise<ListAccountAssignmentCreationStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1862,7 +1862,7 @@ const deserializeAws_json1_1ListAccountAssignmentDeletionStatusCommandError = as
 ): Promise<ListAccountAssignmentDeletionStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1915,7 +1915,7 @@ const deserializeAws_json1_1ListAccountAssignmentsCommandError = async (
 ): Promise<ListAccountAssignmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1968,7 +1968,7 @@ const deserializeAws_json1_1ListAccountsForProvisionedPermissionSetCommandError 
 ): Promise<ListAccountsForProvisionedPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2021,7 +2021,7 @@ const deserializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetCo
 ): Promise<ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2074,7 +2074,7 @@ const deserializeAws_json1_1ListInstancesCommandError = async (
 ): Promise<ListInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2124,7 +2124,7 @@ const deserializeAws_json1_1ListManagedPoliciesInPermissionSetCommandError = asy
 ): Promise<ListManagedPoliciesInPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2177,7 +2177,7 @@ const deserializeAws_json1_1ListPermissionSetProvisioningStatusCommandError = as
 ): Promise<ListPermissionSetProvisioningStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2230,7 +2230,7 @@ const deserializeAws_json1_1ListPermissionSetsCommandError = async (
 ): Promise<ListPermissionSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2283,7 +2283,7 @@ const deserializeAws_json1_1ListPermissionSetsProvisionedToAccountCommandError =
 ): Promise<ListPermissionSetsProvisionedToAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2336,7 +2336,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2389,7 +2389,7 @@ const deserializeAws_json1_1ProvisionPermissionSetCommandError = async (
 ): Promise<ProvisionPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2445,7 +2445,7 @@ const deserializeAws_json1_1PutInlinePolicyToPermissionSetCommandError = async (
 ): Promise<PutInlinePolicyToPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2504,7 +2504,7 @@ const deserializeAws_json1_1PutPermissionsBoundaryToPermissionSetCommandError = 
 ): Promise<PutPermissionsBoundaryToPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2560,7 +2560,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2619,7 +2619,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2675,7 +2675,7 @@ const deserializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationCom
 ): Promise<UpdateInstanceAccessControlAttributeConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2731,7 +2731,7 @@ const deserializeAws_json1_1UpdatePermissionSetCommandError = async (
 ): Promise<UpdatePermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

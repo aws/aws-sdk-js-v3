@@ -127,7 +127,7 @@ const deserializeAws_json1_0GetRoutingControlStateCommandError = async (
 ): Promise<GetRoutingControlStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -183,7 +183,7 @@ const deserializeAws_json1_0ListRoutingControlsCommandError = async (
 ): Promise<ListRoutingControlsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -239,7 +239,7 @@ const deserializeAws_json1_0UpdateRoutingControlStateCommandError = async (
 ): Promise<UpdateRoutingControlStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -298,7 +298,7 @@ const deserializeAws_json1_0UpdateRoutingControlStatesCommandError = async (
 ): Promise<UpdateRoutingControlStatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

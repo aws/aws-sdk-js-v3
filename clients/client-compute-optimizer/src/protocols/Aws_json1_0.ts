@@ -445,7 +445,7 @@ const deserializeAws_json1_0DeleteRecommendationPreferencesCommandError = async 
 ): Promise<DeleteRecommendationPreferencesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -507,7 +507,7 @@ const deserializeAws_json1_0DescribeRecommendationExportJobsCommandError = async
 ): Promise<DescribeRecommendationExportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -569,7 +569,7 @@ const deserializeAws_json1_0ExportAutoScalingGroupRecommendationsCommandError = 
 ): Promise<ExportAutoScalingGroupRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -631,7 +631,7 @@ const deserializeAws_json1_0ExportEBSVolumeRecommendationsCommandError = async (
 ): Promise<ExportEBSVolumeRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -693,7 +693,7 @@ const deserializeAws_json1_0ExportEC2InstanceRecommendationsCommandError = async
 ): Promise<ExportEC2InstanceRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -755,7 +755,7 @@ const deserializeAws_json1_0ExportLambdaFunctionRecommendationsCommandError = as
 ): Promise<ExportLambdaFunctionRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -817,7 +817,7 @@ const deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommandError = asy
 ): Promise<GetAutoScalingGroupRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -879,7 +879,7 @@ const deserializeAws_json1_0GetEBSVolumeRecommendationsCommandError = async (
 ): Promise<GetEBSVolumeRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -941,7 +941,7 @@ const deserializeAws_json1_0GetEC2InstanceRecommendationsCommandError = async (
 ): Promise<GetEC2InstanceRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1003,7 +1003,7 @@ const deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommandError = a
 ): Promise<GetEC2RecommendationProjectedMetricsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1065,7 +1065,7 @@ const deserializeAws_json1_0GetEffectiveRecommendationPreferencesCommandError = 
 ): Promise<GetEffectiveRecommendationPreferencesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1127,7 +1127,7 @@ const deserializeAws_json1_0GetEnrollmentStatusCommandError = async (
 ): Promise<GetEnrollmentStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1183,7 +1183,7 @@ const deserializeAws_json1_0GetEnrollmentStatusesForOrganizationCommandError = a
 ): Promise<GetEnrollmentStatusesForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1239,7 +1239,7 @@ const deserializeAws_json1_0GetLambdaFunctionRecommendationsCommandError = async
 ): Promise<GetLambdaFunctionRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1301,7 +1301,7 @@ const deserializeAws_json1_0GetRecommendationPreferencesCommandError = async (
 ): Promise<GetRecommendationPreferencesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1363,7 +1363,7 @@ const deserializeAws_json1_0GetRecommendationSummariesCommandError = async (
 ): Promise<GetRecommendationSummariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1422,7 +1422,7 @@ const deserializeAws_json1_0PutRecommendationPreferencesCommandError = async (
 ): Promise<PutRecommendationPreferencesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1484,7 +1484,7 @@ const deserializeAws_json1_0UpdateEnrollmentStatusCommandError = async (
 ): Promise<UpdateEnrollmentStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

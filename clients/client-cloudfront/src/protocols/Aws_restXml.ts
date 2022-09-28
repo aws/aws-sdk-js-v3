@@ -3429,7 +3429,7 @@ const deserializeAws_restXmlAssociateAliasCommandError = async (
 ): Promise<AssociateAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3482,7 +3482,7 @@ const deserializeAws_restXmlCreateCachePolicyCommandError = async (
 ): Promise<CreateCachePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3544,7 +3544,7 @@ const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = a
 ): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3597,7 +3597,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
 ): Promise<CreateDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3839,7 +3839,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
 ): Promise<CreateDistributionWithTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4075,7 +4075,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async
 ): Promise<CreateFieldLevelEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4137,7 +4137,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = asyn
 ): Promise<CreateFieldLevelEncryptionProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4199,7 +4199,7 @@ const deserializeAws_restXmlCreateFunctionCommandError = async (
 ): Promise<CreateFunctionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4251,7 +4251,7 @@ const deserializeAws_restXmlCreateInvalidationCommandError = async (
 ): Promise<CreateInvalidationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4310,7 +4310,7 @@ const deserializeAws_restXmlCreateKeyGroupCommandError = async (
 ): Promise<CreateKeyGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4358,7 +4358,7 @@ const deserializeAws_restXmlCreateMonitoringSubscriptionCommandError = async (
 ): Promise<CreateMonitoringSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4408,7 +4408,7 @@ const deserializeAws_restXmlCreateOriginAccessControlCommandError = async (
 ): Promise<CreateOriginAccessControlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4455,7 +4455,7 @@ const deserializeAws_restXmlCreateOriginRequestPolicyCommandError = async (
 ): Promise<CreateOriginRequestPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4517,7 +4517,7 @@ const deserializeAws_restXmlCreatePublicKeyCommandError = async (
 ): Promise<CreatePublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4564,7 +4564,7 @@ const deserializeAws_restXmlCreateRealtimeLogConfigCommandError = async (
 ): Promise<CreateRealtimeLogConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4614,7 +4614,7 @@ const deserializeAws_restXmlCreateResponseHeadersPolicyCommandError = async (
 ): Promise<CreateResponseHeadersPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4673,7 +4673,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
 ): Promise<CreateStreamingDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4750,7 +4750,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
 ): Promise<CreateStreamingDistributionWithTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4827,7 +4827,7 @@ const deserializeAws_restXmlDeleteCachePolicyCommandError = async (
 ): Promise<DeleteCachePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4880,7 +4880,7 @@ const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = a
 ): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4930,7 +4930,7 @@ const deserializeAws_restXmlDeleteDistributionCommandError = async (
 ): Promise<DeleteDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4980,7 +4980,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError = async
 ): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5030,7 +5030,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError = asyn
 ): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5080,7 +5080,7 @@ const deserializeAws_restXmlDeleteFunctionCommandError = async (
 ): Promise<DeleteFunctionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5130,7 +5130,7 @@ const deserializeAws_restXmlDeleteKeyGroupCommandError = async (
 ): Promise<DeleteKeyGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5177,7 +5177,7 @@ const deserializeAws_restXmlDeleteMonitoringSubscriptionCommandError = async (
 ): Promise<DeleteMonitoringSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5224,7 +5224,7 @@ const deserializeAws_restXmlDeleteOriginAccessControlCommandError = async (
 ): Promise<DeleteOriginAccessControlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5274,7 +5274,7 @@ const deserializeAws_restXmlDeleteOriginRequestPolicyCommandError = async (
 ): Promise<DeleteOriginRequestPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5327,7 +5327,7 @@ const deserializeAws_restXmlDeletePublicKeyCommandError = async (
 ): Promise<DeletePublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5377,7 +5377,7 @@ const deserializeAws_restXmlDeleteRealtimeLogConfigCommandError = async (
 ): Promise<DeleteRealtimeLogConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5424,7 +5424,7 @@ const deserializeAws_restXmlDeleteResponseHeadersPolicyCommandError = async (
 ): Promise<DeleteResponseHeadersPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5477,7 +5477,7 @@ const deserializeAws_restXmlDeleteStreamingDistributionCommandError = async (
 ): Promise<DeleteStreamingDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5529,7 +5529,7 @@ const deserializeAws_restXmlDescribeFunctionCommandError = async (
 ): Promise<DescribeFunctionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5572,7 +5572,7 @@ const deserializeAws_restXmlGetCachePolicyCommandError = async (
 ): Promise<GetCachePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5615,7 +5615,7 @@ const deserializeAws_restXmlGetCachePolicyConfigCommandError = async (
 ): Promise<GetCachePolicyConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5658,7 +5658,7 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError = asyn
 ): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5704,7 +5704,7 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError 
 ): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5747,7 +5747,7 @@ const deserializeAws_restXmlGetDistributionCommandError = async (
 ): Promise<GetDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5790,7 +5790,7 @@ const deserializeAws_restXmlGetDistributionConfigCommandError = async (
 ): Promise<GetDistributionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5833,7 +5833,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionCommandError = async (
 ): Promise<GetFieldLevelEncryptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5876,7 +5876,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError = async (
 ): Promise<GetFieldLevelEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5919,7 +5919,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError = async (
 ): Promise<GetFieldLevelEncryptionProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5962,7 +5962,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError = a
 ): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6006,7 +6006,7 @@ const deserializeAws_restXmlGetFunctionCommandError = async (
 ): Promise<GetFunctionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6048,7 +6048,7 @@ const deserializeAws_restXmlGetInvalidationCommandError = async (
 ): Promise<GetInvalidationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6094,7 +6094,7 @@ const deserializeAws_restXmlGetKeyGroupCommandError = async (
 ): Promise<GetKeyGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6134,7 +6134,7 @@ const deserializeAws_restXmlGetKeyGroupConfigCommandError = async (
 ): Promise<GetKeyGroupConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6173,7 +6173,7 @@ const deserializeAws_restXmlGetMonitoringSubscriptionCommandError = async (
 ): Promise<GetMonitoringSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6222,7 +6222,7 @@ const deserializeAws_restXmlGetOriginAccessControlCommandError = async (
 ): Promise<GetOriginAccessControlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6265,7 +6265,7 @@ const deserializeAws_restXmlGetOriginAccessControlConfigCommandError = async (
 ): Promise<GetOriginAccessControlConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6308,7 +6308,7 @@ const deserializeAws_restXmlGetOriginRequestPolicyCommandError = async (
 ): Promise<GetOriginRequestPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6351,7 +6351,7 @@ const deserializeAws_restXmlGetOriginRequestPolicyConfigCommandError = async (
 ): Promise<GetOriginRequestPolicyConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6394,7 +6394,7 @@ const deserializeAws_restXmlGetPublicKeyCommandError = async (
 ): Promise<GetPublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6437,7 +6437,7 @@ const deserializeAws_restXmlGetPublicKeyConfigCommandError = async (
 ): Promise<GetPublicKeyConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6481,7 +6481,7 @@ const deserializeAws_restXmlGetRealtimeLogConfigCommandError = async (
 ): Promise<GetRealtimeLogConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6527,7 +6527,7 @@ const deserializeAws_restXmlGetResponseHeadersPolicyCommandError = async (
 ): Promise<GetResponseHeadersPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6570,7 +6570,7 @@ const deserializeAws_restXmlGetResponseHeadersPolicyConfigCommandError = async (
 ): Promise<GetResponseHeadersPolicyConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6613,7 +6613,7 @@ const deserializeAws_restXmlGetStreamingDistributionCommandError = async (
 ): Promise<GetStreamingDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6656,7 +6656,7 @@ const deserializeAws_restXmlGetStreamingDistributionConfigCommandError = async (
 ): Promise<GetStreamingDistributionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6698,7 +6698,7 @@ const deserializeAws_restXmlListCachePoliciesCommandError = async (
 ): Promise<ListCachePoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6743,7 +6743,7 @@ const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError = a
 ): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6782,7 +6782,7 @@ const deserializeAws_restXmlListConflictingAliasesCommandError = async (
 ): Promise<ListConflictingAliasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6824,7 +6824,7 @@ const deserializeAws_restXmlListDistributionsCommandError = async (
 ): Promise<ListDistributionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6863,7 +6863,7 @@ const deserializeAws_restXmlListDistributionsByCachePolicyIdCommandError = async
 ): Promise<ListDistributionsByCachePolicyIdCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6908,7 +6908,7 @@ const deserializeAws_restXmlListDistributionsByKeyGroupCommandError = async (
 ): Promise<ListDistributionsByKeyGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6950,7 +6950,7 @@ const deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommandError
 ): Promise<ListDistributionsByOriginRequestPolicyIdCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6995,7 +6995,7 @@ const deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommandError = a
 ): Promise<ListDistributionsByRealtimeLogConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7034,7 +7034,7 @@ const deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommandErr
 ): Promise<ListDistributionsByResponseHeadersPolicyIdCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7079,7 +7079,7 @@ const deserializeAws_restXmlListDistributionsByWebACLIdCommandError = async (
 ): Promise<ListDistributionsByWebACLIdCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7121,7 +7121,7 @@ const deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError = async 
 ): Promise<ListFieldLevelEncryptionConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7160,7 +7160,7 @@ const deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError = async
 ): Promise<ListFieldLevelEncryptionProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7199,7 +7199,7 @@ const deserializeAws_restXmlListFunctionsCommandError = async (
 ): Promise<ListFunctionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7241,7 +7241,7 @@ const deserializeAws_restXmlListInvalidationsCommandError = async (
 ): Promise<ListInvalidationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7286,7 +7286,7 @@ const deserializeAws_restXmlListKeyGroupsCommandError = async (
 ): Promise<ListKeyGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7325,7 +7325,7 @@ const deserializeAws_restXmlListOriginAccessControlsCommandError = async (
 ): Promise<ListOriginAccessControlsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7364,7 +7364,7 @@ const deserializeAws_restXmlListOriginRequestPoliciesCommandError = async (
 ): Promise<ListOriginRequestPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7409,7 +7409,7 @@ const deserializeAws_restXmlListPublicKeysCommandError = async (
 ): Promise<ListPublicKeysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7448,7 +7448,7 @@ const deserializeAws_restXmlListRealtimeLogConfigsCommandError = async (
 ): Promise<ListRealtimeLogConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7493,7 +7493,7 @@ const deserializeAws_restXmlListResponseHeadersPoliciesCommandError = async (
 ): Promise<ListResponseHeadersPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7538,7 +7538,7 @@ const deserializeAws_restXmlListStreamingDistributionsCommandError = async (
 ): Promise<ListStreamingDistributionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7577,7 +7577,7 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7625,7 +7625,7 @@ const deserializeAws_restXmlPublishFunctionCommandError = async (
 ): Promise<PublishFunctionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7675,7 +7675,7 @@ const deserializeAws_restXmlTagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7723,7 +7723,7 @@ const deserializeAws_restXmlTestFunctionCommandError = async (
 ): Promise<TestFunctionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7773,7 +7773,7 @@ const deserializeAws_restXmlUntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7822,7 +7822,7 @@ const deserializeAws_restXmlUpdateCachePolicyCommandError = async (
 ): Promise<UpdateCachePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7892,7 +7892,7 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
 ): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7953,7 +7953,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
 ): Promise<UpdateDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8188,7 +8188,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
 ): Promise<UpdateFieldLevelEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8258,7 +8258,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
 ): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8331,7 +8331,7 @@ const deserializeAws_restXmlUpdateFunctionCommandError = async (
 ): Promise<UpdateFunctionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8386,7 +8386,7 @@ const deserializeAws_restXmlUpdateKeyGroupCommandError = async (
 ): Promise<UpdateKeyGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8441,7 +8441,7 @@ const deserializeAws_restXmlUpdateOriginAccessControlCommandError = async (
 ): Promise<UpdateOriginAccessControlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8499,7 +8499,7 @@ const deserializeAws_restXmlUpdateOriginRequestPolicyCommandError = async (
 ): Promise<UpdateOriginRequestPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8569,7 +8569,7 @@ const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
 ): Promise<UpdatePublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8628,7 +8628,7 @@ const deserializeAws_restXmlUpdateRealtimeLogConfigCommandError = async (
 ): Promise<UpdateRealtimeLogConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8674,7 +8674,7 @@ const deserializeAws_restXmlUpdateResponseHeadersPolicyCommandError = async (
 ): Promise<UpdateResponseHeadersPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8741,7 +8741,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
 ): Promise<UpdateStreamingDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -17266,7 +17266,7 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any =>
+const parseBody = (streamBody: any, context: __SerdeContext & { $isError?: boolean }): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
@@ -17283,7 +17283,11 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
         delete parsedObjToReturn[textNodeName];
       }
-      return __getValueFromTextNode(parsedObjToReturn);
+      const value = __getValueFromTextNode(parsedObjToReturn);
+      if (context.$isError && value.Message !== undefined) {
+        value.message = value.Message;
+      }
+      return value;
     }
     return {};
   });

@@ -80,7 +80,7 @@ const deserializeAws_json1_0SendCommandCommandError = async (
 ): Promise<SendCommandCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

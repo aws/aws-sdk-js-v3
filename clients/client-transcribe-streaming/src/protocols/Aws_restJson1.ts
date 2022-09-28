@@ -207,7 +207,7 @@ const deserializeAws_restJson1StartMedicalStreamTranscriptionCommandError = asyn
 ): Promise<StartMedicalStreamTranscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -298,7 +298,7 @@ const deserializeAws_restJson1StartStreamTranscriptionCommandError = async (
 ): Promise<StartStreamTranscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

@@ -202,7 +202,7 @@ const deserializeAws_restJson1DeleteHumanLoopCommandError = async (
 ): Promise<DeleteHumanLoopCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -273,7 +273,7 @@ const deserializeAws_restJson1DescribeHumanLoopCommandError = async (
 ): Promise<DescribeHumanLoopCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -326,7 +326,7 @@ const deserializeAws_restJson1ListHumanLoopsCommandError = async (
 ): Promise<ListHumanLoopsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -376,7 +376,7 @@ const deserializeAws_restJson1StartHumanLoopCommandError = async (
 ): Promise<StartHumanLoopCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -426,7 +426,7 @@ const deserializeAws_restJson1StopHumanLoopCommandError = async (
 ): Promise<StopHumanLoopCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

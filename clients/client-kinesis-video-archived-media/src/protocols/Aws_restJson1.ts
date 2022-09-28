@@ -271,7 +271,7 @@ const deserializeAws_restJson1GetClipCommandError = async (
 ): Promise<GetClipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -336,7 +336,7 @@ const deserializeAws_restJson1GetDASHStreamingSessionURLCommandError = async (
 ): Promise<GetDASHStreamingSessionURLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -398,7 +398,7 @@ const deserializeAws_restJson1GetHLSStreamingSessionURLCommandError = async (
 ): Promise<GetHLSStreamingSessionURLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -463,7 +463,7 @@ const deserializeAws_restJson1GetImagesCommandError = async (
 ): Promise<GetImagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -512,7 +512,7 @@ const deserializeAws_restJson1GetMediaForFragmentListCommandError = async (
 ): Promise<GetMediaForFragmentListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -565,7 +565,7 @@ const deserializeAws_restJson1ListFragmentsCommandError = async (
 ): Promise<ListFragmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

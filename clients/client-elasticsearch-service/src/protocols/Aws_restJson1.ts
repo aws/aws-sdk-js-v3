@@ -1434,7 +1434,7 @@ const deserializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommandEr
 ): Promise<AcceptInboundCrossClusterSearchConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1478,7 +1478,7 @@ const deserializeAws_restJson1AddTagsCommandError = async (
 ): Promise<AddTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1528,7 +1528,7 @@ const deserializeAws_restJson1AssociatePackageCommandError = async (
 ): Promise<AssociatePackageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1587,7 +1587,7 @@ const deserializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommandErr
 ): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1637,7 +1637,7 @@ const deserializeAws_restJson1CreateElasticsearchDomainCommandError = async (
 ): Promise<CreateElasticsearchDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1711,7 +1711,7 @@ const deserializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCommandE
 ): Promise<CreateOutboundCrossClusterSearchConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1761,7 +1761,7 @@ const deserializeAws_restJson1CreatePackageCommandError = async (
 ): Promise<CreatePackageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1820,7 +1820,7 @@ const deserializeAws_restJson1DeleteElasticsearchDomainCommandError = async (
 ): Promise<DeleteElasticsearchDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1867,7 +1867,7 @@ const deserializeAws_restJson1DeleteElasticsearchServiceRoleCommandError = async
 ): Promise<DeleteElasticsearchServiceRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1917,7 +1917,7 @@ const deserializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommandEr
 ): Promise<DeleteInboundCrossClusterSearchConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1964,7 +1964,7 @@ const deserializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionCommandE
 ): Promise<DeleteOutboundCrossClusterSearchConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2008,7 +2008,7 @@ const deserializeAws_restJson1DeletePackageCommandError = async (
 ): Promise<DeletePackageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2067,7 +2067,7 @@ const deserializeAws_restJson1DescribeDomainAutoTunesCommandError = async (
 ): Promise<DescribeDomainAutoTunesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2120,7 +2120,7 @@ const deserializeAws_restJson1DescribeDomainChangeProgressCommandError = async (
 ): Promise<DescribeDomainChangeProgressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2170,7 +2170,7 @@ const deserializeAws_restJson1DescribeElasticsearchDomainCommandError = async (
 ): Promise<DescribeElasticsearchDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2220,7 +2220,7 @@ const deserializeAws_restJson1DescribeElasticsearchDomainConfigCommandError = as
 ): Promise<DescribeElasticsearchDomainConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2270,7 +2270,7 @@ const deserializeAws_restJson1DescribeElasticsearchDomainsCommandError = async (
 ): Promise<DescribeElasticsearchDomainsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2317,7 +2317,7 @@ const deserializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommandErro
 ): Promise<DescribeElasticsearchInstanceTypeLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2379,7 +2379,7 @@ const deserializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsComman
 ): Promise<DescribeInboundCrossClusterSearchConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2429,7 +2429,7 @@ const deserializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsComma
 ): Promise<DescribeOutboundCrossClusterSearchConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2476,7 +2476,7 @@ const deserializeAws_restJson1DescribePackagesCommandError = async (
 ): Promise<DescribePackagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2535,7 +2535,7 @@ const deserializeAws_restJson1DescribeReservedElasticsearchInstanceOfferingsComm
 ): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2591,7 +2591,7 @@ const deserializeAws_restJson1DescribeReservedElasticsearchInstancesCommandError
 ): Promise<DescribeReservedElasticsearchInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2641,7 +2641,7 @@ const deserializeAws_restJson1DissociatePackageCommandError = async (
 ): Promise<DissociatePackageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2700,7 +2700,7 @@ const deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommandError = a
 ): Promise<GetCompatibleElasticsearchVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2762,7 +2762,7 @@ const deserializeAws_restJson1GetPackageVersionHistoryCommandError = async (
 ): Promise<GetPackageVersionHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2818,7 +2818,7 @@ const deserializeAws_restJson1GetUpgradeHistoryCommandError = async (
 ): Promise<GetUpgradeHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2877,7 +2877,7 @@ const deserializeAws_restJson1GetUpgradeStatusCommandError = async (
 ): Promise<GetUpgradeStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2930,7 +2930,7 @@ const deserializeAws_restJson1ListDomainNamesCommandError = async (
 ): Promise<ListDomainNamesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2980,7 +2980,7 @@ const deserializeAws_restJson1ListDomainsForPackageCommandError = async (
 ): Promise<ListDomainsForPackageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3039,7 +3039,7 @@ const deserializeAws_restJson1ListElasticsearchInstanceTypesCommandError = async
 ): Promise<ListElasticsearchInstanceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3095,7 +3095,7 @@ const deserializeAws_restJson1ListElasticsearchVersionsCommandError = async (
 ): Promise<ListElasticsearchVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3151,7 +3151,7 @@ const deserializeAws_restJson1ListPackagesForDomainCommandError = async (
 ): Promise<ListPackagesForDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3204,7 +3204,7 @@ const deserializeAws_restJson1ListTagsCommandError = async (
 ): Promise<ListTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3257,7 +3257,7 @@ const deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingComma
 ): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3316,7 +3316,7 @@ const deserializeAws_restJson1RejectInboundCrossClusterSearchConnectionCommandEr
 ): Promise<RejectInboundCrossClusterSearchConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3357,7 +3357,7 @@ const deserializeAws_restJson1RemoveTagsCommandError = async (
 ): Promise<RemoveTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3407,7 +3407,7 @@ const deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommandErro
 ): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3460,7 +3460,7 @@ const deserializeAws_restJson1UpdateElasticsearchDomainConfigCommandError = asyn
 ): Promise<UpdateElasticsearchDomainConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3516,7 +3516,7 @@ const deserializeAws_restJson1UpdatePackageCommandError = async (
 ): Promise<UpdatePackageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3581,7 +3581,7 @@ const deserializeAws_restJson1UpgradeElasticsearchDomainCommandError = async (
 ): Promise<UpgradeElasticsearchDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

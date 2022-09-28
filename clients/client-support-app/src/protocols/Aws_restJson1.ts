@@ -320,7 +320,7 @@ const deserializeAws_restJson1CreateSlackChannelConfigurationCommandError = asyn
 ): Promise<CreateSlackChannelConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -370,7 +370,7 @@ const deserializeAws_restJson1DeleteAccountAliasCommandError = async (
 ): Promise<DeleteAccountAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -414,7 +414,7 @@ const deserializeAws_restJson1DeleteSlackChannelConfigurationCommandError = asyn
 ): Promise<DeleteSlackChannelConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -464,7 +464,7 @@ const deserializeAws_restJson1DeleteSlackWorkspaceConfigurationCommandError = as
 ): Promise<DeleteSlackWorkspaceConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -517,7 +517,7 @@ const deserializeAws_restJson1GetAccountAliasCommandError = async (
 ): Promise<GetAccountAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -564,7 +564,7 @@ const deserializeAws_restJson1ListSlackChannelConfigurationsCommandError = async
 ): Promise<ListSlackChannelConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -614,7 +614,7 @@ const deserializeAws_restJson1ListSlackWorkspaceConfigurationsCommandError = asy
 ): Promise<ListSlackWorkspaceConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -655,7 +655,7 @@ const deserializeAws_restJson1PutAccountAliasCommandError = async (
 ): Promise<PutAccountAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -723,7 +723,7 @@ const deserializeAws_restJson1UpdateSlackChannelConfigurationCommandError = asyn
 ): Promise<UpdateSlackChannelConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

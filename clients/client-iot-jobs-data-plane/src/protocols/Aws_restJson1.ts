@@ -178,7 +178,7 @@ const deserializeAws_restJson1DescribeJobExecutionCommandError = async (
 ): Promise<DescribeJobExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -237,7 +237,7 @@ const deserializeAws_restJson1GetPendingJobExecutionsCommandError = async (
 ): Promise<GetPendingJobExecutionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -290,7 +290,7 @@ const deserializeAws_restJson1StartNextPendingJobExecutionCommandError = async (
 ): Promise<StartNextPendingJobExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -346,7 +346,7 @@ const deserializeAws_restJson1UpdateJobExecutionCommandError = async (
 ): Promise<UpdateJobExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

@@ -105,7 +105,7 @@ const deserializeAws_json1_1CreateHomeRegionControlCommandError = async (
 ): Promise<CreateHomeRegionControlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -161,7 +161,7 @@ const deserializeAws_json1_1DescribeHomeRegionControlsCommandError = async (
 ): Promise<DescribeHomeRegionControlsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -214,7 +214,7 @@ const deserializeAws_json1_1GetHomeRegionCommandError = async (
 ): Promise<GetHomeRegionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

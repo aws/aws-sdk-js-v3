@@ -109,7 +109,7 @@ const deserializeAws_restJson1GetIceServerConfigCommandError = async (
 ): Promise<GetIceServerConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -165,7 +165,7 @@ const deserializeAws_restJson1SendAlexaOfferToMasterCommandError = async (
 ): Promise<SendAlexaOfferToMasterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {

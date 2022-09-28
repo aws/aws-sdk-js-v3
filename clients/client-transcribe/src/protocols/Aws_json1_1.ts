@@ -800,7 +800,7 @@ const deserializeAws_json1_1CreateCallAnalyticsCategoryCommandError = async (
 ): Promise<CreateCallAnalyticsCategoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -850,7 +850,7 @@ const deserializeAws_json1_1CreateLanguageModelCommandError = async (
 ): Promise<CreateLanguageModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -900,7 +900,7 @@ const deserializeAws_json1_1CreateMedicalVocabularyCommandError = async (
 ): Promise<CreateMedicalVocabularyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -950,7 +950,7 @@ const deserializeAws_json1_1CreateVocabularyCommandError = async (
 ): Promise<CreateVocabularyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1000,7 +1000,7 @@ const deserializeAws_json1_1CreateVocabularyFilterCommandError = async (
 ): Promise<CreateVocabularyFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1050,7 +1050,7 @@ const deserializeAws_json1_1DeleteCallAnalyticsCategoryCommandError = async (
 ): Promise<DeleteCallAnalyticsCategoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1100,7 +1100,7 @@ const deserializeAws_json1_1DeleteCallAnalyticsJobCommandError = async (
 ): Promise<DeleteCallAnalyticsJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1144,7 +1144,7 @@ const deserializeAws_json1_1DeleteLanguageModelCommandError = async (
 ): Promise<DeleteLanguageModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1188,7 +1188,7 @@ const deserializeAws_json1_1DeleteMedicalTranscriptionJobCommandError = async (
 ): Promise<DeleteMedicalTranscriptionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1232,7 +1232,7 @@ const deserializeAws_json1_1DeleteMedicalVocabularyCommandError = async (
 ): Promise<DeleteMedicalVocabularyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1279,7 +1279,7 @@ const deserializeAws_json1_1DeleteTranscriptionJobCommandError = async (
 ): Promise<DeleteTranscriptionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1323,7 +1323,7 @@ const deserializeAws_json1_1DeleteVocabularyCommandError = async (
 ): Promise<DeleteVocabularyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1370,7 +1370,7 @@ const deserializeAws_json1_1DeleteVocabularyFilterCommandError = async (
 ): Promise<DeleteVocabularyFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1420,7 +1420,7 @@ const deserializeAws_json1_1DescribeLanguageModelCommandError = async (
 ): Promise<DescribeLanguageModelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1470,7 +1470,7 @@ const deserializeAws_json1_1GetCallAnalyticsCategoryCommandError = async (
 ): Promise<GetCallAnalyticsCategoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1520,7 +1520,7 @@ const deserializeAws_json1_1GetCallAnalyticsJobCommandError = async (
 ): Promise<GetCallAnalyticsJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1570,7 +1570,7 @@ const deserializeAws_json1_1GetMedicalTranscriptionJobCommandError = async (
 ): Promise<GetMedicalTranscriptionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1620,7 +1620,7 @@ const deserializeAws_json1_1GetMedicalVocabularyCommandError = async (
 ): Promise<GetMedicalVocabularyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1670,7 +1670,7 @@ const deserializeAws_json1_1GetTranscriptionJobCommandError = async (
 ): Promise<GetTranscriptionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1720,7 +1720,7 @@ const deserializeAws_json1_1GetVocabularyCommandError = async (
 ): Promise<GetVocabularyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1770,7 +1770,7 @@ const deserializeAws_json1_1GetVocabularyFilterCommandError = async (
 ): Promise<GetVocabularyFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1820,7 +1820,7 @@ const deserializeAws_json1_1ListCallAnalyticsCategoriesCommandError = async (
 ): Promise<ListCallAnalyticsCategoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1867,7 +1867,7 @@ const deserializeAws_json1_1ListCallAnalyticsJobsCommandError = async (
 ): Promise<ListCallAnalyticsJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1914,7 +1914,7 @@ const deserializeAws_json1_1ListLanguageModelsCommandError = async (
 ): Promise<ListLanguageModelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1961,7 +1961,7 @@ const deserializeAws_json1_1ListMedicalTranscriptionJobsCommandError = async (
 ): Promise<ListMedicalTranscriptionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2008,7 +2008,7 @@ const deserializeAws_json1_1ListMedicalVocabulariesCommandError = async (
 ): Promise<ListMedicalVocabulariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2055,7 +2055,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2105,7 +2105,7 @@ const deserializeAws_json1_1ListTranscriptionJobsCommandError = async (
 ): Promise<ListTranscriptionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2152,7 +2152,7 @@ const deserializeAws_json1_1ListVocabulariesCommandError = async (
 ): Promise<ListVocabulariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2199,7 +2199,7 @@ const deserializeAws_json1_1ListVocabularyFiltersCommandError = async (
 ): Promise<ListVocabularyFiltersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2246,7 +2246,7 @@ const deserializeAws_json1_1StartCallAnalyticsJobCommandError = async (
 ): Promise<StartCallAnalyticsJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2296,7 +2296,7 @@ const deserializeAws_json1_1StartMedicalTranscriptionJobCommandError = async (
 ): Promise<StartMedicalTranscriptionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2346,7 +2346,7 @@ const deserializeAws_json1_1StartTranscriptionJobCommandError = async (
 ): Promise<StartTranscriptionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2396,7 +2396,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2449,7 +2449,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2502,7 +2502,7 @@ const deserializeAws_json1_1UpdateCallAnalyticsCategoryCommandError = async (
 ): Promise<UpdateCallAnalyticsCategoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2555,7 +2555,7 @@ const deserializeAws_json1_1UpdateMedicalVocabularyCommandError = async (
 ): Promise<UpdateMedicalVocabularyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2608,7 +2608,7 @@ const deserializeAws_json1_1UpdateVocabularyCommandError = async (
 ): Promise<UpdateVocabularyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2661,7 +2661,7 @@ const deserializeAws_json1_1UpdateVocabularyFilterCommandError = async (
 ): Promise<UpdateVocabularyFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseBody(output.body, { ...context, $isError: true }),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
