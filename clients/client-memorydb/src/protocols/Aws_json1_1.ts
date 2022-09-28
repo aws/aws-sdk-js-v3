@@ -2435,15 +2435,15 @@ const deserializeAws_json1_1UpdateClusterCommandError = async (
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.memorydb#InvalidVPCNetworkStateFault":
       throw await deserializeAws_json1_1InvalidVPCNetworkStateFaultResponse(parsedOutput, context);
+    case "NoOperationFault":
+    case "com.amazonaws.memorydb#NoOperationFault":
+      throw await deserializeAws_json1_1NoOperationFaultResponse(parsedOutput, context);
     case "NodeQuotaForClusterExceededFault":
     case "com.amazonaws.memorydb#NodeQuotaForClusterExceededFault":
       throw await deserializeAws_json1_1NodeQuotaForClusterExceededFaultResponse(parsedOutput, context);
     case "NodeQuotaForCustomerExceededFault":
     case "com.amazonaws.memorydb#NodeQuotaForCustomerExceededFault":
       throw await deserializeAws_json1_1NodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
-    case "NoOperationFault":
-    case "com.amazonaws.memorydb#NoOperationFault":
-      throw await deserializeAws_json1_1NoOperationFaultResponse(parsedOutput, context);
     case "ParameterGroupNotFoundFault":
     case "com.amazonaws.memorydb#ParameterGroupNotFoundFault":
       throw await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(parsedOutput, context);

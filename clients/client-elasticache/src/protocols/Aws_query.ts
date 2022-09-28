@@ -1539,28 +1539,28 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
       throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
       throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "CacheSecurityGroupNotFoundFault":
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
       throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
       throw await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidARNFault":
+    case "InvalidARN":
     case "com.amazonaws.elasticache#InvalidARNFault":
       throw await deserializeAws_queryInvalidARNFaultResponse(parsedOutput, context);
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
       throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
-    case "ReservedCacheNodeNotFoundFault":
+    case "ReservedCacheNodeNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
       throw await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context);
     case "SnapshotNotFoundFault":
@@ -1569,10 +1569,10 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
       throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
-    case "UserGroupNotFoundFault":
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
       throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
-    case "UserNotFoundFault":
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
       throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -1616,19 +1616,19 @@ const deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandError = async
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationAlreadyExistsFault":
+    case "AuthorizationAlreadyExists":
     case "com.amazonaws.elasticache#AuthorizationAlreadyExistsFault":
       throw await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(parsedOutput, context);
-    case "CacheSecurityGroupNotFoundFault":
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
       throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidCacheSecurityGroupStateFault":
+    case "InvalidCacheSecurityGroupState":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -1669,7 +1669,7 @@ const deserializeAws_queryBatchApplyUpdateActionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUpdateNotFoundFault":
@@ -1713,7 +1713,7 @@ const deserializeAws_queryBatchStopUpdateActionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUpdateNotFoundFault":
@@ -1757,7 +1757,7 @@ const deserializeAws_queryCompleteMigrationCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
@@ -1804,13 +1804,13 @@ const deserializeAws_queryCopySnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidSnapshotStateFault":
+    case "InvalidSnapshotState":
     case "com.amazonaws.elasticache#InvalidSnapshotStateFault":
       throw await deserializeAws_queryInvalidSnapshotStateFaultResponse(parsedOutput, context);
     case "SnapshotAlreadyExistsFault":
@@ -1863,40 +1863,40 @@ const deserializeAws_queryCreateCacheClusterCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterAlreadyExistsFault":
+    case "CacheClusterAlreadyExists":
     case "com.amazonaws.elasticache#CacheClusterAlreadyExistsFault":
       throw await deserializeAws_queryCacheClusterAlreadyExistsFaultResponse(parsedOutput, context);
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
       throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "CacheSecurityGroupNotFoundFault":
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
       throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
       throw await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterQuotaForCustomerExceededFault":
+    case "ClusterQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
       throw await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context);
-    case "InsufficientCacheClusterCapacityFault":
+    case "InsufficientCacheClusterCapacity":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
       throw await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
       throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
-    case "NodeQuotaForClusterExceededFault":
+    case "NodeQuotaForClusterExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
       throw await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context);
-    case "NodeQuotaForCustomerExceededFault":
+    case "NodeQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
       throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
@@ -1943,19 +1943,19 @@ const deserializeAws_queryCreateCacheParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheParameterGroupAlreadyExistsFault":
+    case "CacheParameterGroupAlreadyExists":
     case "com.amazonaws.elasticache#CacheParameterGroupAlreadyExistsFault":
       throw await deserializeAws_queryCacheParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "CacheParameterGroupQuotaExceededFault":
+    case "CacheParameterGroupQuotaExceeded":
     case "com.amazonaws.elasticache#CacheParameterGroupQuotaExceededFault":
       throw await deserializeAws_queryCacheParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
-    case "InvalidCacheParameterGroupStateFault":
+    case "InvalidCacheParameterGroupState":
     case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
       throw await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
@@ -1999,18 +1999,18 @@ const deserializeAws_queryCreateCacheSecurityGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheSecurityGroupAlreadyExistsFault":
+    case "CacheSecurityGroupAlreadyExists":
     case "com.amazonaws.elasticache#CacheSecurityGroupAlreadyExistsFault":
       throw await deserializeAws_queryCacheSecurityGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "CacheSecurityGroupQuotaExceededFault":
-    case "com.amazonaws.elasticache#CacheSecurityGroupQuotaExceededFault":
-      throw await deserializeAws_queryCacheSecurityGroupQuotaExceededFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "QuotaExceeded.CacheSecurityGroup":
+    case "com.amazonaws.elasticache#CacheSecurityGroupQuotaExceededFault":
+      throw await deserializeAws_queryCacheSecurityGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
       throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
@@ -2052,10 +2052,10 @@ const deserializeAws_queryCreateCacheSubnetGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheSubnetGroupAlreadyExistsFault":
+    case "CacheSubnetGroupAlreadyExists":
     case "com.amazonaws.elasticache#CacheSubnetGroupAlreadyExistsFault":
       throw await deserializeAws_queryCacheSubnetGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "CacheSubnetGroupQuotaExceededFault":
+    case "CacheSubnetGroupQuotaExceeded":
     case "com.amazonaws.elasticache#CacheSubnetGroupQuotaExceededFault":
       throw await deserializeAws_queryCacheSubnetGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "CacheSubnetQuotaExceededFault":
@@ -2111,10 +2111,10 @@ const deserializeAws_queryCreateGlobalReplicationGroupCommandError = async (
     case "GlobalReplicationGroupAlreadyExistsFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupAlreadyExistsFault":
       throw await deserializeAws_queryGlobalReplicationGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
@@ -2161,61 +2161,61 @@ const deserializeAws_queryCreateReplicationGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
       throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
       throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "CacheSecurityGroupNotFoundFault":
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
       throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
       throw await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterQuotaForCustomerExceededFault":
+    case "ClusterQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
       throw await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
       throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientCacheClusterCapacityFault":
+    case "InsufficientCacheClusterCapacity":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
       throw await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context);
-    case "InvalidCacheClusterStateFault":
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
       throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupStateFault":
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidUserGroupStateFault":
+    case "InvalidUserGroupState":
     case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
       throw await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
       throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
-    case "NodeGroupsPerReplicationGroupQuotaExceededFault":
+    case "NodeGroupsPerReplicationGroupQuotaExceeded":
     case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
       throw await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context);
-    case "NodeQuotaForClusterExceededFault":
+    case "NodeQuotaForClusterExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
       throw await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context);
-    case "NodeQuotaForCustomerExceededFault":
+    case "NodeQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
       throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
-    case "ReplicationGroupAlreadyExistsFault":
+    case "ReplicationGroupAlreadyExists":
     case "com.amazonaws.elasticache#ReplicationGroupAlreadyExistsFault":
       throw await deserializeAws_queryReplicationGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
       throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
-    case "UserGroupNotFoundFault":
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
       throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -2256,19 +2256,19 @@ const deserializeAws_queryCreateSnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
       throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidCacheClusterStateFault":
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
       throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
@@ -2324,13 +2324,13 @@ const deserializeAws_queryCreateUserCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DuplicateUserNameFault":
+    case "DuplicateUserName":
     case "com.amazonaws.elasticache#DuplicateUserNameFault":
       throw await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
@@ -2339,10 +2339,10 @@ const deserializeAws_queryCreateUserCommandError = async (
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
       throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
-    case "UserAlreadyExistsFault":
+    case "UserAlreadyExists":
     case "com.amazonaws.elasticache#UserAlreadyExistsFault":
       throw await deserializeAws_queryUserAlreadyExistsFaultResponse(parsedOutput, context);
-    case "UserQuotaExceededFault":
+    case "UserQuotaExceeded":
     case "com.amazonaws.elasticache#UserQuotaExceededFault":
       throw await deserializeAws_queryUserQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -2386,10 +2386,10 @@ const deserializeAws_queryCreateUserGroupCommandError = async (
     case "DefaultUserRequired":
     case "com.amazonaws.elasticache#DefaultUserRequired":
       throw await deserializeAws_queryDefaultUserRequiredResponse(parsedOutput, context);
-    case "DuplicateUserNameFault":
+    case "DuplicateUserName":
     case "com.amazonaws.elasticache#DuplicateUserNameFault":
       throw await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
@@ -2398,13 +2398,13 @@ const deserializeAws_queryCreateUserGroupCommandError = async (
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
       throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
-    case "UserGroupAlreadyExistsFault":
+    case "UserGroupAlreadyExists":
     case "com.amazonaws.elasticache#UserGroupAlreadyExistsFault":
       throw await deserializeAws_queryUserGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "UserGroupQuotaExceededFault":
+    case "UserGroupQuotaExceeded":
     case "com.amazonaws.elasticache#UserGroupQuotaExceededFault":
       throw await deserializeAws_queryUserGroupQuotaExceededFaultResponse(parsedOutput, context);
-    case "UserNotFoundFault":
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
       throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -2451,13 +2451,13 @@ const deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommandError
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
       throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupStateFault":
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -2498,36 +2498,36 @@ const deserializeAws_queryDecreaseReplicaCountCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterQuotaForCustomerExceededFault":
+    case "ClusterQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
       throw await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context);
-    case "InsufficientCacheClusterCapacityFault":
+    case "InsufficientCacheClusterCapacity":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
       throw await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context);
-    case "InvalidCacheClusterStateFault":
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
       throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
       throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
-    case "NodeGroupsPerReplicationGroupQuotaExceededFault":
-    case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      throw await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context);
-    case "NodeQuotaForCustomerExceededFault":
-    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "NoOperationFault":
     case "com.amazonaws.elasticache#NoOperationFault":
       throw await deserializeAws_queryNoOperationFaultResponse(parsedOutput, context);
+    case "NodeGroupsPerReplicationGroupQuotaExceeded":
+    case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
+      throw await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context);
+    case "NodeQuotaForCustomerExceeded":
+    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
+      throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
       throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
@@ -2572,16 +2572,16 @@ const deserializeAws_queryDeleteCacheClusterCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
       throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidCacheClusterStateFault":
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
       throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "SnapshotAlreadyExistsFault":
@@ -2628,16 +2628,16 @@ const deserializeAws_queryDeleteCacheParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
       throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidCacheParameterGroupStateFault":
+    case "InvalidCacheParameterGroupState":
     case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
       throw await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -2675,16 +2675,16 @@ const deserializeAws_queryDeleteCacheSecurityGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheSecurityGroupNotFoundFault":
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
       throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidCacheSecurityGroupStateFault":
+    case "InvalidCacheSecurityGroupState":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -2769,10 +2769,10 @@ const deserializeAws_queryDeleteGlobalReplicationGroupCommandError = async (
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
       throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupStateFault":
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -2813,13 +2813,13 @@ const deserializeAws_queryDeleteReplicationGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
@@ -2872,13 +2872,13 @@ const deserializeAws_queryDeleteSnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidSnapshotStateFault":
+    case "InvalidSnapshotState":
     case "com.amazonaws.elasticache#InvalidSnapshotStateFault":
       throw await deserializeAws_queryInvalidSnapshotStateFaultResponse(parsedOutput, context);
     case "SnapshotNotFoundFault":
@@ -2922,19 +2922,19 @@ const deserializeAws_queryDeleteUserCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DefaultUserAssociatedToUserGroupFault":
+    case "DefaultUserAssociatedToUserGroup":
     case "com.amazonaws.elasticache#DefaultUserAssociatedToUserGroupFault":
       throw await deserializeAws_queryDefaultUserAssociatedToUserGroupFaultResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidUserStateFault":
+    case "InvalidUserState":
     case "com.amazonaws.elasticache#InvalidUserStateFault":
       throw await deserializeAws_queryInvalidUserStateFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
       throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
-    case "UserNotFoundFault":
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
       throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -2975,16 +2975,16 @@ const deserializeAws_queryDeleteUserGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidUserGroupStateFault":
+    case "InvalidUserGroupState":
     case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
       throw await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
       throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
-    case "UserGroupNotFoundFault":
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
       throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -3025,13 +3025,13 @@ const deserializeAws_queryDescribeCacheClustersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
       throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -3107,13 +3107,13 @@ const deserializeAws_queryDescribeCacheParameterGroupsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
       throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -3154,13 +3154,13 @@ const deserializeAws_queryDescribeCacheParametersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
       throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -3201,13 +3201,13 @@ const deserializeAws_queryDescribeCacheSecurityGroupsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheSecurityGroupNotFoundFault":
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
       throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -3292,10 +3292,10 @@ const deserializeAws_queryDescribeEngineDefaultParametersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -3336,10 +3336,10 @@ const deserializeAws_queryDescribeEventsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -3386,10 +3386,10 @@ const deserializeAws_queryDescribeGlobalReplicationGroupsCommandError = async (
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
       throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -3430,10 +3430,10 @@ const deserializeAws_queryDescribeReplicationGroupsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
@@ -3477,13 +3477,13 @@ const deserializeAws_queryDescribeReservedCacheNodesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "ReservedCacheNodeNotFoundFault":
+    case "ReservedCacheNodeNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
       throw await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -3527,13 +3527,13 @@ const deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandError = asyn
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "ReservedCacheNodesOfferingNotFoundFault":
+    case "ReservedCacheNodesOfferingNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodesOfferingNotFoundFault":
       throw await deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -3574,10 +3574,10 @@ const deserializeAws_queryDescribeServiceUpdatesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUpdateNotFoundFault":
@@ -3621,13 +3621,13 @@ const deserializeAws_queryDescribeSnapshotsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
       throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "SnapshotNotFoundFault":
@@ -3671,10 +3671,10 @@ const deserializeAws_queryDescribeUpdateActionsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -3715,13 +3715,13 @@ const deserializeAws_queryDescribeUserGroupsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
       throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
-    case "UserGroupNotFoundFault":
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
       throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -3762,13 +3762,13 @@ const deserializeAws_queryDescribeUsersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
       throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
-    case "UserNotFoundFault":
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
       throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -3815,13 +3815,13 @@ const deserializeAws_queryDisassociateGlobalReplicationGroupCommandError = async
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
       throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupStateFault":
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -3868,13 +3868,13 @@ const deserializeAws_queryFailoverGlobalReplicationGroupCommandError = async (
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
       throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupStateFault":
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -3921,10 +3921,10 @@ const deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommandError
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
       throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupStateFault":
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -3965,39 +3965,39 @@ const deserializeAws_queryIncreaseReplicaCountCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterQuotaForCustomerExceededFault":
+    case "ClusterQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
       throw await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context);
-    case "InsufficientCacheClusterCapacityFault":
+    case "InsufficientCacheClusterCapacity":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
       throw await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context);
-    case "InvalidCacheClusterStateFault":
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
       throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
     case "InvalidKMSKeyFault":
     case "com.amazonaws.elasticache#InvalidKMSKeyFault":
       throw await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
       throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
-    case "NodeGroupsPerReplicationGroupQuotaExceededFault":
-    case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      throw await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context);
-    case "NodeQuotaForCustomerExceededFault":
-    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "NoOperationFault":
     case "com.amazonaws.elasticache#NoOperationFault":
       throw await deserializeAws_queryNoOperationFaultResponse(parsedOutput, context);
+    case "NodeGroupsPerReplicationGroupQuotaExceeded":
+    case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
+      throw await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context);
+    case "NodeQuotaForCustomerExceeded":
+    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
+      throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
       throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
@@ -4042,13 +4042,13 @@ const deserializeAws_queryListAllowedNodeTypeModificationsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
       throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
@@ -4092,37 +4092,37 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
       throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
       throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "CacheSecurityGroupNotFoundFault":
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
       throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
       throw await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidARNFault":
+    case "InvalidARN":
     case "com.amazonaws.elasticache#InvalidARNFault":
       throw await deserializeAws_queryInvalidARNFaultResponse(parsedOutput, context);
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
       throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
-    case "ReservedCacheNodeNotFoundFault":
+    case "ReservedCacheNodeNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
       throw await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
       throw await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "UserGroupNotFoundFault":
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
       throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
-    case "UserNotFoundFault":
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
       throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -4163,37 +4163,37 @@ const deserializeAws_queryModifyCacheClusterCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
       throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
       throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "CacheSecurityGroupNotFoundFault":
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
       throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientCacheClusterCapacityFault":
+    case "InsufficientCacheClusterCapacity":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
       throw await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context);
-    case "InvalidCacheClusterStateFault":
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
       throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidCacheSecurityGroupStateFault":
+    case "InvalidCacheSecurityGroupState":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
       throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
-    case "NodeQuotaForClusterExceededFault":
+    case "NodeQuotaForClusterExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
       throw await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context);
-    case "NodeQuotaForCustomerExceededFault":
+    case "NodeQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
       throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     default:
@@ -4234,19 +4234,19 @@ const deserializeAws_queryModifyCacheParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
       throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidCacheParameterGroupStateFault":
+    case "InvalidCacheParameterGroupState":
     case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
       throw await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupStateFault":
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -4343,10 +4343,10 @@ const deserializeAws_queryModifyGlobalReplicationGroupCommandError = async (
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
       throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupStateFault":
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -4387,52 +4387,52 @@ const deserializeAws_queryModifyReplicationGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
       throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
       throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "CacheSecurityGroupNotFoundFault":
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
       throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientCacheClusterCapacityFault":
+    case "InsufficientCacheClusterCapacity":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
       throw await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context);
-    case "InvalidCacheClusterStateFault":
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
       throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidCacheSecurityGroupStateFault":
+    case "InvalidCacheSecurityGroupState":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context);
     case "InvalidKMSKeyFault":
     case "com.amazonaws.elasticache#InvalidKMSKeyFault":
       throw await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidUserGroupStateFault":
+    case "InvalidUserGroupState":
     case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
       throw await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
       throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
-    case "NodeQuotaForClusterExceededFault":
+    case "NodeQuotaForClusterExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
       throw await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context);
-    case "NodeQuotaForCustomerExceededFault":
+    case "NodeQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
       throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
       throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
-    case "UserGroupNotFoundFault":
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
       throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -4476,31 +4476,31 @@ const deserializeAws_queryModifyReplicationGroupShardConfigurationCommandError =
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InsufficientCacheClusterCapacityFault":
+    case "InsufficientCacheClusterCapacity":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
       throw await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context);
-    case "InvalidCacheClusterStateFault":
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
       throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
     case "InvalidKMSKeyFault":
     case "com.amazonaws.elasticache#InvalidKMSKeyFault":
       throw await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
       throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
-    case "NodeGroupsPerReplicationGroupQuotaExceededFault":
+    case "NodeGroupsPerReplicationGroupQuotaExceeded":
     case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
       throw await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context);
-    case "NodeQuotaForCustomerExceededFault":
+    case "NodeQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
       throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
@@ -4544,19 +4544,19 @@ const deserializeAws_queryModifyUserCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidUserStateFault":
+    case "InvalidUserState":
     case "com.amazonaws.elasticache#InvalidUserStateFault":
       throw await deserializeAws_queryInvalidUserStateFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
       throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
-    case "UserNotFoundFault":
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
       throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -4600,25 +4600,25 @@ const deserializeAws_queryModifyUserGroupCommandError = async (
     case "DefaultUserRequired":
     case "com.amazonaws.elasticache#DefaultUserRequired":
       throw await deserializeAws_queryDefaultUserRequiredResponse(parsedOutput, context);
-    case "DuplicateUserNameFault":
+    case "DuplicateUserName":
     case "com.amazonaws.elasticache#DuplicateUserNameFault":
       throw await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidUserGroupStateFault":
+    case "InvalidUserGroupState":
     case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
       throw await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
       throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
-    case "UserGroupNotFoundFault":
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
       throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
-    case "UserNotFoundFault":
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
       throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -4662,19 +4662,19 @@ const deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandError = async
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "ReservedCacheNodeAlreadyExistsFault":
+    case "ReservedCacheNodeAlreadyExists":
     case "com.amazonaws.elasticache#ReservedCacheNodeAlreadyExistsFault":
       throw await deserializeAws_queryReservedCacheNodeAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ReservedCacheNodeQuotaExceededFault":
+    case "ReservedCacheNodeQuotaExceeded":
     case "com.amazonaws.elasticache#ReservedCacheNodeQuotaExceededFault":
       throw await deserializeAws_queryReservedCacheNodeQuotaExceededFaultResponse(parsedOutput, context);
-    case "ReservedCacheNodesOfferingNotFoundFault":
+    case "ReservedCacheNodesOfferingNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodesOfferingNotFoundFault":
       throw await deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
@@ -4724,10 +4724,10 @@ const deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommandError = a
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
       throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupStateFault":
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -4768,10 +4768,10 @@ const deserializeAws_queryRebootCacheClusterCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
       throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidCacheClusterStateFault":
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
       throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
     default:
@@ -4812,40 +4812,40 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
       throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
       throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "CacheSecurityGroupNotFoundFault":
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
       throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
       throw await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidARNFault":
+    case "InvalidARN":
     case "com.amazonaws.elasticache#InvalidARNFault":
       throw await deserializeAws_queryInvalidARNFaultResponse(parsedOutput, context);
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
       throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
-    case "ReservedCacheNodeNotFoundFault":
+    case "ReservedCacheNodeNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
       throw await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
       throw await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "TagNotFoundFault":
+    case "TagNotFound":
     case "com.amazonaws.elasticache#TagNotFoundFault":
       throw await deserializeAws_queryTagNotFoundFaultResponse(parsedOutput, context);
-    case "UserGroupNotFoundFault":
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
       throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
-    case "UserNotFoundFault":
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
       throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -4886,19 +4886,19 @@ const deserializeAws_queryResetCacheParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
       throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidCacheParameterGroupStateFault":
+    case "InvalidCacheParameterGroupState":
     case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
       throw await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupStateFault":
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -4942,19 +4942,19 @@ const deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.elasticache#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
-    case "CacheSecurityGroupNotFoundFault":
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
       throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidCacheSecurityGroupStateFault":
+    case "InvalidCacheSecurityGroupState":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
@@ -4995,10 +4995,10 @@ const deserializeAws_queryStartMigrationCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupAlreadyUnderMigrationFault":
@@ -5045,22 +5045,22 @@ const deserializeAws_queryTestFailoverCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "APICallRateForCustomerExceededFault":
+    case "APICallRateForCustomerExceeded":
     case "com.amazonaws.elasticache#APICallRateForCustomerExceededFault":
       throw await deserializeAws_queryAPICallRateForCustomerExceededFaultResponse(parsedOutput, context);
-    case "InvalidCacheClusterStateFault":
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
       throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
     case "InvalidKMSKeyFault":
     case "com.amazonaws.elasticache#InvalidKMSKeyFault":
       throw await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context);
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
       throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "NodeGroupNotFoundFault":

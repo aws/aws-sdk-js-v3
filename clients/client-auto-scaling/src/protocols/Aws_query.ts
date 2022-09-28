@@ -1377,7 +1377,7 @@ const deserializeAws_queryAttachInstancesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleFailure":
@@ -1421,7 +1421,7 @@ const deserializeAws_queryAttachLoadBalancersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleFailure":
@@ -1468,7 +1468,7 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleFailure":
@@ -1512,7 +1512,7 @@ const deserializeAws_queryBatchDeleteScheduledActionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -1556,13 +1556,13 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsFault":
+    case "AlreadyExists":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
       throw await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context);
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -1603,13 +1603,13 @@ const deserializeAws_queryCancelInstanceRefreshCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ActiveInstanceRefreshNotFoundFault":
+    case "ActiveInstanceRefreshNotFound":
     case "com.amazonaws.autoscaling#ActiveInstanceRefreshNotFoundFault":
       throw await deserializeAws_queryActiveInstanceRefreshNotFoundFaultResponse(parsedOutput, context);
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -1650,7 +1650,7 @@ const deserializeAws_queryCompleteLifecycleActionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -1688,13 +1688,13 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsFault":
+    case "AlreadyExists":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
       throw await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context);
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleFailure":
@@ -1735,13 +1735,13 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsFault":
+    case "AlreadyExists":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
       throw await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context);
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -1779,16 +1779,16 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsFault":
+    case "AlreadyExists":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
       throw await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context);
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
-    case "ResourceInUseFault":
+    case "ResourceInUse":
     case "com.amazonaws.autoscaling#ResourceInUseFault":
       throw await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context);
     default:
@@ -1826,13 +1826,13 @@ const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
-    case "ResourceInUseFault":
+    case "ResourceInUse":
     case "com.amazonaws.autoscaling#ResourceInUseFault":
       throw await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context);
-    case "ScalingActivityInProgressFault":
+    case "ScalingActivityInProgress":
     case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       throw await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context);
     default:
@@ -1870,10 +1870,10 @@ const deserializeAws_queryDeleteLaunchConfigurationCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
-    case "ResourceInUseFault":
+    case "ResourceInUse":
     case "com.amazonaws.autoscaling#ResourceInUseFault":
       throw await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context);
     default:
@@ -1914,7 +1914,7 @@ const deserializeAws_queryDeleteLifecycleHookCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -1952,7 +1952,7 @@ const deserializeAws_queryDeleteNotificationConfigurationCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -1990,7 +1990,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleFailure":
@@ -2031,7 +2031,7 @@ const deserializeAws_queryDeleteScheduledActionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2069,10 +2069,10 @@ const deserializeAws_queryDeleteTagsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
-    case "ResourceInUseFault":
+    case "ResourceInUse":
     case "com.amazonaws.autoscaling#ResourceInUseFault":
       throw await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context);
     default:
@@ -2113,16 +2113,16 @@ const deserializeAws_queryDeleteWarmPoolCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
-    case "ResourceInUseFault":
+    case "ResourceInUse":
     case "com.amazonaws.autoscaling#ResourceInUseFault":
       throw await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context);
-    case "ScalingActivityInProgressFault":
+    case "ScalingActivityInProgress":
     case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       throw await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context);
     default:
@@ -2163,7 +2163,7 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2204,7 +2204,7 @@ const deserializeAws_queryDescribeAdjustmentTypesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2248,7 +2248,7 @@ const deserializeAws_queryDescribeAutoScalingGroupsCommandError = async (
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
       throw await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2292,7 +2292,7 @@ const deserializeAws_queryDescribeAutoScalingInstancesCommandError = async (
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
       throw await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2336,7 +2336,7 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError = asy
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2380,7 +2380,7 @@ const deserializeAws_queryDescribeInstanceRefreshesCommandError = async (
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
       throw await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2424,7 +2424,7 @@ const deserializeAws_queryDescribeLaunchConfigurationsCommandError = async (
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
       throw await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2465,7 +2465,7 @@ const deserializeAws_queryDescribeLifecycleHooksCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2506,7 +2506,7 @@ const deserializeAws_queryDescribeLifecycleHookTypesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2550,7 +2550,7 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
       throw await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2597,7 +2597,7 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError = async (
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
       throw await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2638,7 +2638,7 @@ const deserializeAws_queryDescribeMetricCollectionTypesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2685,7 +2685,7 @@ const deserializeAws_queryDescribeNotificationConfigurationsCommandError = async
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
       throw await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2729,7 +2729,7 @@ const deserializeAws_queryDescribePoliciesCommandError = async (
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
       throw await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleFailure":
@@ -2776,7 +2776,7 @@ const deserializeAws_queryDescribeScalingActivitiesCommandError = async (
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
       throw await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2817,7 +2817,7 @@ const deserializeAws_queryDescribeScalingProcessTypesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2861,7 +2861,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
       throw await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2905,7 +2905,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
       throw await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2949,7 +2949,7 @@ const deserializeAws_queryDescribeTerminationPolicyTypesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -2993,10 +2993,10 @@ const deserializeAws_queryDescribeWarmPoolCommandError = async (
     case "InvalidNextToken":
     case "com.amazonaws.autoscaling#InvalidNextToken":
       throw await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context);
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3037,7 +3037,7 @@ const deserializeAws_queryDetachInstancesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3078,7 +3078,7 @@ const deserializeAws_queryDetachLoadBalancersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3122,7 +3122,7 @@ const deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3160,7 +3160,7 @@ const deserializeAws_queryDisableMetricsCollectionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3198,7 +3198,7 @@ const deserializeAws_queryEnableMetricsCollectionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3239,7 +3239,7 @@ const deserializeAws_queryEnterStandbyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3277,10 +3277,10 @@ const deserializeAws_queryExecutePolicyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
-    case "ScalingActivityInProgressFault":
+    case "ScalingActivityInProgress":
     case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       throw await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context);
     default:
@@ -3321,7 +3321,7 @@ const deserializeAws_queryExitStandbyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3362,7 +3362,7 @@ const deserializeAws_queryGetPredictiveScalingForecastCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3403,10 +3403,10 @@ const deserializeAws_queryPutLifecycleHookCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3444,10 +3444,10 @@ const deserializeAws_queryPutNotificationConfigurationCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleFailure":
@@ -3491,10 +3491,10 @@ const deserializeAws_queryPutScalingPolicyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleFailure":
@@ -3535,13 +3535,13 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsFault":
+    case "AlreadyExists":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
       throw await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context);
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3582,10 +3582,10 @@ const deserializeAws_queryPutWarmPoolCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3629,7 +3629,7 @@ const deserializeAws_queryRecordLifecycleActionHeartbeatCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3667,10 +3667,10 @@ const deserializeAws_queryResumeProcessesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
-    case "ResourceInUseFault":
+    case "ResourceInUse":
     case "com.amazonaws.autoscaling#ResourceInUseFault":
       throw await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context);
     default:
@@ -3708,10 +3708,10 @@ const deserializeAws_querySetDesiredCapacityCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
-    case "ScalingActivityInProgressFault":
+    case "ScalingActivityInProgress":
     case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       throw await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context);
     default:
@@ -3749,7 +3749,7 @@ const deserializeAws_querySetInstanceHealthCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3790,10 +3790,10 @@ const deserializeAws_querySetInstanceProtectionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3834,13 +3834,13 @@ const deserializeAws_queryStartInstanceRefreshCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InstanceRefreshInProgressFault":
+    case "InstanceRefreshInProgress":
     case "com.amazonaws.autoscaling#InstanceRefreshInProgressFault":
       throw await deserializeAws_queryInstanceRefreshInProgressFaultResponse(parsedOutput, context);
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
     default:
@@ -3878,10 +3878,10 @@ const deserializeAws_querySuspendProcessesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
-    case "ResourceInUseFault":
+    case "ResourceInUse":
     case "com.amazonaws.autoscaling#ResourceInUseFault":
       throw await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context);
     default:
@@ -3922,10 +3922,10 @@ const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError = asyn
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
-    case "ScalingActivityInProgressFault":
+    case "ScalingActivityInProgress":
     case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       throw await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context);
     default:
@@ -3963,10 +3963,10 @@ const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
-    case "ScalingActivityInProgressFault":
+    case "ScalingActivityInProgress":
     case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       throw await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleFailure":

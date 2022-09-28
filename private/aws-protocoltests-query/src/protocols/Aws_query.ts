@@ -807,7 +807,7 @@ const deserializeAws_queryGreetingWithErrorsCommandError = async (
     case "ComplexError":
     case "aws.protocoltests.query#ComplexError":
       throw await deserializeAws_queryComplexErrorResponse(parsedOutput, context);
-    case "CustomCodeError":
+    case "Customized":
     case "aws.protocoltests.query#CustomCodeError":
       throw await deserializeAws_queryCustomCodeErrorResponse(parsedOutput, context);
     case "InvalidGreeting":

@@ -2576,12 +2576,12 @@ const deserializeAws_restXmlActivateKeySigningKeyCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
       throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
-    case "InvalidKeySigningKeyStatus":
-    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
     case "InvalidKMSArn":
     case "com.amazonaws.route53#InvalidKMSArn":
       throw await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context);
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
     case "InvalidSigningStatus":
     case "com.amazonaws.route53#InvalidSigningStatus":
       throw await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context);
@@ -3034,15 +3034,15 @@ const deserializeAws_restXmlCreateKeySigningKeyCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
       throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
+    case "InvalidKMSArn":
+    case "com.amazonaws.route53#InvalidKMSArn":
+      throw await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context);
     case "InvalidKeySigningKeyName":
     case "com.amazonaws.route53#InvalidKeySigningKeyName":
       throw await deserializeAws_restXmlInvalidKeySigningKeyNameResponse(parsedOutput, context);
     case "InvalidKeySigningKeyStatus":
     case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
       throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
-    case "InvalidKMSArn":
-    case "com.amazonaws.route53#InvalidKMSArn":
-      throw await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context);
     case "InvalidSigningStatus":
     case "com.amazonaws.route53#InvalidSigningStatus":
       throw await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context);
@@ -3637,12 +3637,12 @@ const deserializeAws_restXmlDeleteKeySigningKeyCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
       throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
-    case "InvalidKeySigningKeyStatus":
-    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
     case "InvalidKMSArn":
     case "com.amazonaws.route53#InvalidKMSArn":
       throw await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context);
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
     case "InvalidSigningStatus":
     case "com.amazonaws.route53#InvalidSigningStatus":
       throw await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context);
@@ -3931,12 +3931,12 @@ const deserializeAws_restXmlDisableHostedZoneDNSSECCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
       throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
-    case "InvalidKeySigningKeyStatus":
-    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
     case "InvalidKMSArn":
     case "com.amazonaws.route53#InvalidKMSArn":
       throw await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context);
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
     case "KeySigningKeyInParentDSRecord":
     case "com.amazonaws.route53#KeySigningKeyInParentDSRecord":
       throw await deserializeAws_restXmlKeySigningKeyInParentDSRecordResponse(parsedOutput, context);
@@ -4049,12 +4049,12 @@ const deserializeAws_restXmlEnableHostedZoneDNSSECCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
       throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
-    case "InvalidKeySigningKeyStatus":
-    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
     case "InvalidKMSArn":
     case "com.amazonaws.route53#InvalidKMSArn":
       throw await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context);
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
     case "KeySigningKeyWithActiveStatusNotFound":
     case "com.amazonaws.route53#KeySigningKeyWithActiveStatusNotFound":
       throw await deserializeAws_restXmlKeySigningKeyWithActiveStatusNotFoundResponse(parsedOutput, context);

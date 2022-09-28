@@ -3148,10 +3148,10 @@ const deserializeAws_queryAddRoleToDBClusterCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBClusterRoleAlreadyExistsFault":
+    case "DBClusterRoleAlreadyExists":
     case "com.amazonaws.rds#DBClusterRoleAlreadyExistsFault":
       throw await deserializeAws_queryDBClusterRoleAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBClusterRoleQuotaExceededFault":
+    case "DBClusterRoleQuotaExceeded":
     case "com.amazonaws.rds#DBClusterRoleQuotaExceededFault":
       throw await deserializeAws_queryDBClusterRoleQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
@@ -3192,16 +3192,16 @@ const deserializeAws_queryAddRoleToDBInstanceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceRoleAlreadyExistsFault":
+    case "DBInstanceRoleAlreadyExists":
     case "com.amazonaws.rds#DBInstanceRoleAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceRoleAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBInstanceRoleQuotaExceededFault":
+    case "DBInstanceRoleQuotaExceeded":
     case "com.amazonaws.rds#DBInstanceRoleQuotaExceededFault":
       throw await deserializeAws_queryDBInstanceRoleQuotaExceededFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -3245,10 +3245,10 @@ const deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError = async 
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "SourceNotFoundFault":
+    case "SourceNotFound":
     case "com.amazonaws.rds#SourceNotFoundFault":
       throw await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -3289,7 +3289,7 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
@@ -3298,7 +3298,7 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
     case "DBProxyTargetGroupNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
       throw await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -3342,7 +3342,7 @@ const deserializeAws_queryApplyPendingMaintenanceActionCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "ResourceNotFoundFault":
@@ -3389,16 +3389,16 @@ const deserializeAws_queryAuthorizeDBSecurityGroupIngressCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationAlreadyExistsFault":
+    case "AuthorizationAlreadyExists":
     case "com.amazonaws.rds#AuthorizationAlreadyExistsFault":
       throw await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(parsedOutput, context);
-    case "AuthorizationQuotaExceededFault":
+    case "AuthorizationQuotaExceeded":
     case "com.amazonaws.rds#AuthorizationQuotaExceededFault":
       throw await deserializeAws_queryAuthorizationQuotaExceededFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBSecurityGroupStateFault":
+    case "InvalidDBSecurityGroupState":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -3483,7 +3483,7 @@ const deserializeAws_queryCancelExportTaskCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ExportTaskNotFoundFault":
+    case "ExportTaskNotFound":
     case "com.amazonaws.rds#ExportTaskNotFoundFault":
       throw await deserializeAws_queryExportTaskNotFoundFaultResponse(parsedOutput, context);
     case "InvalidExportTaskStateFault":
@@ -3527,13 +3527,13 @@ const deserializeAws_queryCopyDBClusterParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupAlreadyExistsFault":
+    case "DBParameterGroupAlreadyExists":
     case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
       throw await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBParameterGroupQuotaExceededFault":
+    case "DBParameterGroupQuotaExceeded":
     case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
       throw await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -3589,7 +3589,7 @@ const deserializeAws_queryCopyDBClusterSnapshotCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -3630,13 +3630,13 @@ const deserializeAws_queryCopyDBParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupAlreadyExistsFault":
+    case "DBParameterGroupAlreadyExists":
     case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
       throw await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBParameterGroupQuotaExceededFault":
+    case "DBParameterGroupQuotaExceeded":
     case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
       throw await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -3677,22 +3677,22 @@ const deserializeAws_queryCopyDBSnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CustomAvailabilityZoneNotFoundFault":
+    case "CustomAvailabilityZoneNotFound":
     case "com.amazonaws.rds#CustomAvailabilityZoneNotFoundFault":
       throw await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotAlreadyExistsFault":
+    case "DBSnapshotAlreadyExists":
     case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
       throw await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBSnapshotStateFault":
+    case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -3833,13 +3833,13 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBClusterParameterGroupNotFoundFault":
+    case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterQuotaExceededFault":
     case "com.amazonaws.rds#DBClusterQuotaExceededFault":
       throw await deserializeAws_queryDBClusterQuotaExceededFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -3854,13 +3854,13 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
     case "GlobalClusterNotFoundFault":
     case "com.amazonaws.rds#GlobalClusterNotFoundFault":
       throw await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientStorageClusterCapacityFault":
+    case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
       throw await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidDBSubnetGroupStateFault":
@@ -3878,7 +3878,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -3928,13 +3928,13 @@ const deserializeAws_queryCreateDBClusterEndpointCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -3975,10 +3975,10 @@ const deserializeAws_queryCreateDBClusterParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupAlreadyExistsFault":
+    case "DBParameterGroupAlreadyExists":
     case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
       throw await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBParameterGroupQuotaExceededFault":
+    case "DBParameterGroupQuotaExceeded":
     case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
       throw await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -4031,7 +4031,7 @@ const deserializeAws_queryCreateDBClusterSnapshotCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -4072,7 +4072,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
@@ -4081,13 +4081,13 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceAlreadyExistsFault":
+    case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -4099,10 +4099,10 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
       throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
-    case "InstanceQuotaExceededFault":
+    case "InstanceQuotaExceeded":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
       throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
@@ -4126,10 +4126,10 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
       throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
@@ -4170,16 +4170,16 @@ const deserializeAws_queryCreateDBInstanceReadReplicaCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceAlreadyExistsFault":
+    case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -4194,13 +4194,13 @@ const deserializeAws_queryCreateDBInstanceReadReplicaCommandError = async (
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
       throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
-    case "InstanceQuotaExceededFault":
+    case "InstanceQuotaExceeded":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
       throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidDBSubnetGroupFault":
@@ -4224,10 +4224,10 @@ const deserializeAws_queryCreateDBInstanceReadReplicaCommandError = async (
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
       throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
@@ -4268,10 +4268,10 @@ const deserializeAws_queryCreateDBParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupAlreadyExistsFault":
+    case "DBParameterGroupAlreadyExists":
     case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
       throw await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBParameterGroupQuotaExceededFault":
+    case "DBParameterGroupQuotaExceeded":
     case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
       throw await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -4412,13 +4412,13 @@ const deserializeAws_queryCreateDBSecurityGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSecurityGroupAlreadyExistsFault":
+    case "DBSecurityGroupAlreadyExists":
     case "com.amazonaws.rds#DBSecurityGroupAlreadyExistsFault":
       throw await deserializeAws_queryDBSecurityGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotSupportedFault":
+    case "DBSecurityGroupNotSupported":
     case "com.amazonaws.rds#DBSecurityGroupNotSupportedFault":
       throw await deserializeAws_queryDBSecurityGroupNotSupportedFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupQuotaExceededFault":
+    case "QuotaExceeded.DBSecurityGroup":
     case "com.amazonaws.rds#DBSecurityGroupQuotaExceededFault":
       throw await deserializeAws_queryDBSecurityGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -4459,16 +4459,16 @@ const deserializeAws_queryCreateDBSnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotAlreadyExistsFault":
+    case "DBSnapshotAlreadyExists":
     case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
       throw await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -4509,13 +4509,13 @@ const deserializeAws_queryCreateDBSubnetGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSubnetGroupAlreadyExistsFault":
+    case "DBSubnetGroupAlreadyExists":
     case "com.amazonaws.rds#DBSubnetGroupAlreadyExistsFault":
       throw await deserializeAws_queryDBSubnetGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
       throw await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context);
-    case "DBSubnetGroupQuotaExceededFault":
+    case "DBSubnetGroupQuotaExceeded":
     case "com.amazonaws.rds#DBSubnetGroupQuotaExceededFault":
       throw await deserializeAws_queryDBSubnetGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "DBSubnetQuotaExceededFault":
@@ -4562,25 +4562,25 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EventSubscriptionQuotaExceededFault":
+    case "EventSubscriptionQuotaExceeded":
     case "com.amazonaws.rds#EventSubscriptionQuotaExceededFault":
       throw await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(parsedOutput, context);
-    case "SNSInvalidTopicFault":
+    case "SNSInvalidTopic":
     case "com.amazonaws.rds#SNSInvalidTopicFault":
       throw await deserializeAws_querySNSInvalidTopicFaultResponse(parsedOutput, context);
-    case "SNSNoAuthorizationFault":
+    case "SNSNoAuthorization":
     case "com.amazonaws.rds#SNSNoAuthorizationFault":
       throw await deserializeAws_querySNSNoAuthorizationFaultResponse(parsedOutput, context);
-    case "SNSTopicArnNotFoundFault":
+    case "SNSTopicArnNotFound":
     case "com.amazonaws.rds#SNSTopicArnNotFoundFault":
       throw await deserializeAws_querySNSTopicArnNotFoundFaultResponse(parsedOutput, context);
-    case "SourceNotFoundFault":
+    case "SourceNotFound":
     case "com.amazonaws.rds#SourceNotFoundFault":
       throw await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionAlreadyExistFault":
+    case "SubscriptionAlreadyExist":
     case "com.amazonaws.rds#SubscriptionAlreadyExistFault":
       throw await deserializeAws_querySubscriptionAlreadyExistFaultResponse(parsedOutput, context);
-    case "SubscriptionCategoryNotFoundFault":
+    case "SubscriptionCategoryNotFound":
     case "com.amazonaws.rds#SubscriptionCategoryNotFoundFault":
       throw await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -4771,7 +4771,7 @@ const deserializeAws_queryDeleteDBClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -4856,10 +4856,10 @@ const deserializeAws_queryDeleteDBClusterParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
       throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -4944,22 +4944,22 @@ const deserializeAws_queryDeleteDBInstanceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceAutomatedBackupQuotaExceededFault":
+    case "DBInstanceAutomatedBackupQuotaExceeded":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupQuotaExceededFault":
       throw await deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotAlreadyExistsFault":
+    case "DBSnapshotAlreadyExists":
     case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
       throw await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -5003,10 +5003,10 @@ const deserializeAws_queryDeleteDBInstanceAutomatedBackupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceAutomatedBackupNotFoundFault":
+    case "DBInstanceAutomatedBackupNotFound":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupNotFoundFault":
       throw await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceAutomatedBackupStateFault":
+    case "InvalidDBInstanceAutomatedBackupState":
     case "com.amazonaws.rds#InvalidDBInstanceAutomatedBackupStateFault":
       throw await deserializeAws_queryInvalidDBInstanceAutomatedBackupStateFaultResponse(parsedOutput, context);
     default:
@@ -5044,10 +5044,10 @@ const deserializeAws_queryDeleteDBParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
       throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -5173,10 +5173,10 @@ const deserializeAws_queryDeleteDBSecurityGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBSecurityGroupStateFault":
+    case "InvalidDBSecurityGroupState":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -5217,10 +5217,10 @@ const deserializeAws_queryDeleteDBSnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBSnapshotStateFault":
+    case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     default:
@@ -5305,10 +5305,10 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidEventSubscriptionStateFault":
+    case "InvalidEventSubscriptionState":
     case "com.amazonaws.rds#InvalidEventSubscriptionStateFault":
       throw await deserializeAws_queryInvalidEventSubscriptionStateFaultResponse(parsedOutput, context);
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5519,7 +5519,7 @@ const deserializeAws_queryDescribeCertificatesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CertificateNotFoundFault":
+    case "CertificateNotFound":
     case "com.amazonaws.rds#CertificateNotFoundFault":
       throw await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5645,7 +5645,7 @@ const deserializeAws_queryDescribeDBClusterParameterGroupsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5686,7 +5686,7 @@ const deserializeAws_queryDescribeDBClusterParametersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5891,7 +5891,7 @@ const deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommandError = async
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceAutomatedBackupNotFoundFault":
+    case "DBInstanceAutomatedBackupNotFound":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupNotFoundFault":
       throw await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5932,7 +5932,7 @@ const deserializeAws_queryDescribeDBInstancesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5973,7 +5973,7 @@ const deserializeAws_queryDescribeDBLogFilesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6014,7 +6014,7 @@ const deserializeAws_queryDescribeDBParameterGroupsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6055,7 +6055,7 @@ const deserializeAws_queryDescribeDBParametersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6278,7 +6278,7 @@ const deserializeAws_queryDescribeDBSecurityGroupsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6319,7 +6319,7 @@ const deserializeAws_queryDescribeDBSnapshotAttributesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6360,7 +6360,7 @@ const deserializeAws_queryDescribeDBSnapshotsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6588,7 +6588,7 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6629,7 +6629,7 @@ const deserializeAws_queryDescribeExportTasksCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ExportTaskNotFoundFault":
+    case "ExportTaskNotFound":
     case "com.amazonaws.rds#ExportTaskNotFoundFault":
       throw await deserializeAws_queryExportTaskNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6869,7 +6869,7 @@ const deserializeAws_queryDescribeReservedDBInstancesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ReservedDBInstanceNotFoundFault":
+    case "ReservedDBInstanceNotFound":
     case "com.amazonaws.rds#ReservedDBInstanceNotFoundFault":
       throw await deserializeAws_queryReservedDBInstanceNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6913,7 +6913,7 @@ const deserializeAws_queryDescribeReservedDBInstancesOfferingsCommandError = asy
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ReservedDBInstancesOfferingNotFoundFault":
+    case "ReservedDBInstancesOfferingNotFound":
     case "com.amazonaws.rds#ReservedDBInstancesOfferingNotFoundFault":
       throw await deserializeAws_queryReservedDBInstancesOfferingNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6992,10 +6992,10 @@ const deserializeAws_queryDescribeValidDBInstanceModificationsCommandError = asy
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -7036,7 +7036,7 @@ const deserializeAws_queryDownloadDBLogFilePortionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBLogFileNotFoundFault":
@@ -7086,7 +7086,7 @@ const deserializeAws_queryFailoverDBClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -7180,7 +7180,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
@@ -7189,7 +7189,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
     case "DBProxyTargetGroupNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
       throw await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -7230,10 +7230,10 @@ const deserializeAws_queryModifyActivityStreamCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "ResourceNotFoundFault":
@@ -7277,7 +7277,7 @@ const deserializeAws_queryModifyCertificatesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CertificateNotFoundFault":
+    case "CertificateNotFound":
     case "com.amazonaws.rds#CertificateNotFoundFault":
       throw await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -7415,7 +7415,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBClusterParameterGroupNotFoundFault":
+    case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
@@ -7427,10 +7427,10 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
-    case "InvalidDBSecurityGroupStateFault":
+    case "InvalidDBSecurityGroupState":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     case "InvalidDBSubnetGroupStateFault":
@@ -7442,7 +7442,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
       throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -7486,7 +7486,7 @@ const deserializeAws_queryModifyDBClusterEndpointCommandError = async (
     case "DBClusterEndpointNotFoundFault":
     case "com.amazonaws.rds#DBClusterEndpointNotFoundFault":
       throw await deserializeAws_queryDBClusterEndpointNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterEndpointStateFault":
@@ -7495,7 +7495,7 @@ const deserializeAws_queryModifyDBClusterEndpointCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -7536,10 +7536,10 @@ const deserializeAws_queryModifyDBClusterParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
       throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -7589,7 +7589,7 @@ const deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError = async (
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context);
-    case "SharedSnapshotQuotaExceededFault":
+    case "SharedSnapshotQuotaExceeded":
     case "com.amazonaws.rds#SharedSnapshotQuotaExceededFault":
       throw await deserializeAws_querySharedSnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -7630,43 +7630,43 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
       throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
-    case "CertificateNotFoundFault":
+    case "CertificateNotFound":
     case "com.amazonaws.rds#CertificateNotFoundFault":
       throw await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceAlreadyExistsFault":
+    case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBUpgradeDependencyFailureFault":
+    case "DBUpgradeDependencyFailure":
     case "com.amazonaws.rds#DBUpgradeDependencyFailureFault":
       throw await deserializeAws_queryDBUpgradeDependencyFailureFaultResponse(parsedOutput, context);
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
       throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
-    case "InvalidDBSecurityGroupStateFault":
+    case "InvalidDBSecurityGroupState":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
@@ -7684,10 +7684,10 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
       throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
@@ -7728,10 +7728,10 @@ const deserializeAws_queryModifyDBParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
       throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -7916,7 +7916,7 @@ const deserializeAws_queryModifyDBSnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -7957,13 +7957,13 @@ const deserializeAws_queryModifyDBSnapshotAttributeCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBSnapshotStateFault":
+    case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
-    case "SharedSnapshotQuotaExceededFault":
+    case "SharedSnapshotQuotaExceeded":
     case "com.amazonaws.rds#SharedSnapshotQuotaExceededFault":
       throw await deserializeAws_querySharedSnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -8057,22 +8057,22 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EventSubscriptionQuotaExceededFault":
+    case "EventSubscriptionQuotaExceeded":
     case "com.amazonaws.rds#EventSubscriptionQuotaExceededFault":
       throw await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(parsedOutput, context);
-    case "SNSInvalidTopicFault":
+    case "SNSInvalidTopic":
     case "com.amazonaws.rds#SNSInvalidTopicFault":
       throw await deserializeAws_querySNSInvalidTopicFaultResponse(parsedOutput, context);
-    case "SNSNoAuthorizationFault":
+    case "SNSNoAuthorization":
     case "com.amazonaws.rds#SNSNoAuthorizationFault":
       throw await deserializeAws_querySNSNoAuthorizationFaultResponse(parsedOutput, context);
-    case "SNSTopicArnNotFoundFault":
+    case "SNSTopicArnNotFound":
     case "com.amazonaws.rds#SNSTopicArnNotFoundFault":
       throw await deserializeAws_querySNSTopicArnNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionCategoryNotFoundFault":
+    case "SubscriptionCategoryNotFound":
     case "com.amazonaws.rds#SubscriptionCategoryNotFoundFault":
       throw await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -8119,7 +8119,7 @@ const deserializeAws_queryModifyGlobalClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidGlobalClusterStateFault":
@@ -8207,10 +8207,10 @@ const deserializeAws_queryPromoteReadReplicaCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -8298,13 +8298,13 @@ const deserializeAws_queryPurchaseReservedDBInstancesOfferingCommandError = asyn
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ReservedDBInstanceAlreadyExistsFault":
+    case "ReservedDBInstanceAlreadyExists":
     case "com.amazonaws.rds#ReservedDBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryReservedDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ReservedDBInstanceQuotaExceededFault":
+    case "ReservedDBInstanceQuotaExceeded":
     case "com.amazonaws.rds#ReservedDBInstanceQuotaExceededFault":
       throw await deserializeAws_queryReservedDBInstanceQuotaExceededFaultResponse(parsedOutput, context);
-    case "ReservedDBInstancesOfferingNotFoundFault":
+    case "ReservedDBInstancesOfferingNotFound":
     case "com.amazonaws.rds#ReservedDBInstancesOfferingNotFoundFault":
       throw await deserializeAws_queryReservedDBInstancesOfferingNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -8351,7 +8351,7 @@ const deserializeAws_queryRebootDBClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -8392,10 +8392,10 @@ const deserializeAws_queryRebootDBInstanceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -8439,7 +8439,7 @@ const deserializeAws_queryRegisterDBProxyTargetsCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
@@ -8457,7 +8457,7 @@ const deserializeAws_queryRegisterDBProxyTargetsCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidDBProxyStateFault":
@@ -8548,7 +8548,7 @@ const deserializeAws_queryRemoveRoleFromDBClusterCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBClusterRoleNotFoundFault":
+    case "DBClusterRoleNotFound":
     case "com.amazonaws.rds#DBClusterRoleNotFoundFault":
       throw await deserializeAws_queryDBClusterRoleNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
@@ -8589,13 +8589,13 @@ const deserializeAws_queryRemoveRoleFromDBInstanceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceRoleNotFoundFault":
+    case "DBInstanceRoleNotFound":
     case "com.amazonaws.rds#DBInstanceRoleNotFoundFault":
       throw await deserializeAws_queryDBInstanceRoleNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -8639,10 +8639,10 @@ const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommandError = a
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "SourceNotFoundFault":
+    case "SourceNotFound":
     case "com.amazonaws.rds#SourceNotFoundFault":
       throw await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -8683,7 +8683,7 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
@@ -8692,7 +8692,7 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
     case "DBProxyTargetGroupNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
       throw await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -8733,10 +8733,10 @@ const deserializeAws_queryResetDBClusterParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
       throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -8777,10 +8777,10 @@ const deserializeAws_queryResetDBParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
       throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -8827,7 +8827,7 @@ const deserializeAws_queryRestoreDBClusterFromS3CommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBClusterParameterGroupNotFoundFault":
+    case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterQuotaExceededFault":
@@ -8839,7 +8839,7 @@ const deserializeAws_queryRestoreDBClusterFromS3CommandError = async (
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
       throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientStorageClusterCapacityFault":
+    case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
       throw await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
@@ -8860,7 +8860,7 @@ const deserializeAws_queryRestoreDBClusterFromS3CommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -8904,7 +8904,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
     case "DBClusterAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterAlreadyExistsFault":
       throw await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBClusterParameterGroupNotFoundFault":
+    case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterQuotaExceededFault":
@@ -8913,7 +8913,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
     case "DBClusterSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
@@ -8925,13 +8925,13 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
     case "InsufficientDBClusterCapacityFault":
     case "com.amazonaws.rds#InsufficientDBClusterCapacityFault":
       throw await deserializeAws_queryInsufficientDBClusterCapacityFaultResponse(parsedOutput, context);
-    case "InsufficientStorageClusterCapacityFault":
+    case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
       throw await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context);
-    case "InvalidDBSnapshotStateFault":
+    case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidRestoreFault":
@@ -8949,7 +8949,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -8996,7 +8996,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBClusterParameterGroupNotFoundFault":
+    case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterQuotaExceededFault":
@@ -9014,7 +9014,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
     case "InsufficientDBClusterCapacityFault":
     case "com.amazonaws.rds#InsufficientDBClusterCapacityFault":
       throw await deserializeAws_queryInsufficientDBClusterCapacityFaultResponse(parsedOutput, context);
-    case "InsufficientStorageClusterCapacityFault":
+    case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
       throw await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterSnapshotStateFault":
@@ -9023,7 +9023,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBSnapshotStateFault":
+    case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidRestoreFault":
@@ -9041,7 +9041,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -9085,22 +9085,22 @@ const deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
       throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceAlreadyExistsFault":
+    case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -9112,13 +9112,13 @@ const deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError = async (
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
       throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
-    case "InstanceQuotaExceededFault":
+    case "InstanceQuotaExceeded":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
       throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
-    case "InvalidDBSnapshotStateFault":
+    case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidRestoreFault":
@@ -9142,10 +9142,10 @@ const deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError = async (
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
       throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
@@ -9186,19 +9186,19 @@ const deserializeAws_queryRestoreDBInstanceFromS3CommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
       throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceAlreadyExistsFault":
+    case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -9207,10 +9207,10 @@ const deserializeAws_queryRestoreDBInstanceFromS3CommandError = async (
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
       throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InstanceQuotaExceededFault":
+    case "InstanceQuotaExceeded":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
       throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidS3BucketFault":
@@ -9234,10 +9234,10 @@ const deserializeAws_queryRestoreDBInstanceFromS3CommandError = async (
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
       throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
@@ -9281,25 +9281,25 @@ const deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
       throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceAlreadyExistsFault":
+    case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
-    case "DBInstanceAutomatedBackupNotFoundFault":
+    case "DBInstanceAutomatedBackupNotFound":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupNotFoundFault":
       throw await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
       throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -9311,13 +9311,13 @@ const deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError = async (
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
       throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
-    case "InstanceQuotaExceededFault":
+    case "InstanceQuotaExceeded":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
       throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidRestoreFault":
@@ -9338,16 +9338,16 @@ const deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError = async (
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
-    case "PointInTimeRestoreNotEnabledFault":
+    case "PointInTimeRestoreNotEnabled":
     case "com.amazonaws.rds#PointInTimeRestoreNotEnabledFault":
       throw await deserializeAws_queryPointInTimeRestoreNotEnabledFaultResponse(parsedOutput, context);
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
       throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
@@ -9388,13 +9388,13 @@ const deserializeAws_queryRevokeDBSecurityGroupIngressCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBSecurityGroupStateFault":
+    case "InvalidDBSecurityGroupState":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -9438,13 +9438,13 @@ const deserializeAws_queryStartActivityStreamCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
@@ -9497,7 +9497,7 @@ const deserializeAws_queryStartDBClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -9538,13 +9538,13 @@ const deserializeAws_queryStartDBInstanceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -9553,13 +9553,13 @@ const deserializeAws_queryStartDBInstanceCommandError = async (
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
       throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
@@ -9612,19 +9612,19 @@ const deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommandError
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceAutomatedBackupQuotaExceededFault":
+    case "DBInstanceAutomatedBackupQuotaExceeded":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupQuotaExceededFault":
       throw await deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
@@ -9668,22 +9668,22 @@ const deserializeAws_queryStartExportTaskCommandError = async (
     case "DBClusterSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "ExportTaskAlreadyExistsFault":
+    case "ExportTaskAlreadyExists":
     case "com.amazonaws.rds#ExportTaskAlreadyExistsFault":
       throw await deserializeAws_queryExportTaskAlreadyExistsFaultResponse(parsedOutput, context);
-    case "IamRoleMissingPermissionsFault":
+    case "IamRoleMissingPermissions":
     case "com.amazonaws.rds#IamRoleMissingPermissionsFault":
       throw await deserializeAws_queryIamRoleMissingPermissionsFaultResponse(parsedOutput, context);
-    case "IamRoleNotFoundFault":
+    case "IamRoleNotFound":
     case "com.amazonaws.rds#IamRoleNotFoundFault":
       throw await deserializeAws_queryIamRoleNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidExportOnlyFault":
+    case "InvalidExportOnly":
     case "com.amazonaws.rds#InvalidExportOnlyFault":
       throw await deserializeAws_queryInvalidExportOnlyFaultResponse(parsedOutput, context);
-    case "InvalidExportSourceStateFault":
+    case "InvalidExportSourceState":
     case "com.amazonaws.rds#InvalidExportSourceStateFault":
       throw await deserializeAws_queryInvalidExportSourceStateFaultResponse(parsedOutput, context);
     case "InvalidS3BucketFault":
@@ -9733,13 +9733,13 @@ const deserializeAws_queryStopActivityStreamCommandError = async (
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "ResourceNotFoundFault":
@@ -9789,7 +9789,7 @@ const deserializeAws_queryStopDBClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -9830,19 +9830,19 @@ const deserializeAws_queryStopDBInstanceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "DBSnapshotAlreadyExistsFault":
+    case "DBSnapshotAlreadyExists":
     case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
       throw await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
@@ -9886,10 +9886,10 @@ const deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommandError 
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
@@ -9930,10 +9930,10 @@ const deserializeAws_querySwitchoverReadReplicaCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:

@@ -1000,15 +1000,15 @@ const deserializeAws_json1_1AcceptHandshakeCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccessDeniedForDependencyException":
     case "com.amazonaws.organizations#AccessDeniedForDependencyException":
       throw await deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse(parsedOutput, context);
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -1068,12 +1068,12 @@ const deserializeAws_json1_1AttachPolicyCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -1204,6 +1204,9 @@ const deserializeAws_json1_1CloseAccountCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
@@ -1213,9 +1216,6 @@ const deserializeAws_json1_1CloseAccountCommandError = async (
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
       throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -1275,12 +1275,12 @@ const deserializeAws_json1_1CreateAccountCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -1340,12 +1340,12 @@ const deserializeAws_json1_1CreateGovCloudAccountCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -1467,12 +1467,12 @@ const deserializeAws_json1_1CreateOrganizationalUnitCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -1532,12 +1532,12 @@ const deserializeAws_json1_1CreatePolicyCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -1662,12 +1662,12 @@ const deserializeAws_json1_1DeleteOrganizationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -1718,12 +1718,12 @@ const deserializeAws_json1_1DeleteOrganizationalUnitCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -1777,12 +1777,12 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -1839,6 +1839,9 @@ const deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError = async
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
@@ -1848,9 +1851,6 @@ const deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError = async
     case "AccountNotRegisteredException":
     case "com.amazonaws.organizations#AccountNotRegisteredException":
       throw await deserializeAws_json1_1AccountNotRegisteredExceptionResponse(parsedOutput, context);
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -1907,15 +1907,15 @@ const deserializeAws_json1_1DescribeAccountCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
       throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
@@ -1963,12 +1963,12 @@ const deserializeAws_json1_1DescribeCreateAccountStatusCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "CreateAccountStatusNotFoundException":
     case "com.amazonaws.organizations#CreateAccountStatusNotFoundException":
       throw await deserializeAws_json1_1CreateAccountStatusNotFoundExceptionResponse(parsedOutput, context);
@@ -2022,12 +2022,12 @@ const deserializeAws_json1_1DescribeEffectivePolicyCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
       throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
@@ -2143,12 +2143,12 @@ const deserializeAws_json1_1DescribeOrganizationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -2196,12 +2196,12 @@ const deserializeAws_json1_1DescribeOrganizationalUnitCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
@@ -2252,12 +2252,12 @@ const deserializeAws_json1_1DescribePolicyCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
@@ -2308,12 +2308,12 @@ const deserializeAws_json1_1DetachPolicyCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -2379,12 +2379,12 @@ const deserializeAws_json1_1DisableAWSServiceAccessCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -2441,12 +2441,12 @@ const deserializeAws_json1_1DisablePolicyTypeCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -2512,12 +2512,12 @@ const deserializeAws_json1_1EnableAllFeaturesCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -2568,12 +2568,12 @@ const deserializeAws_json1_1EnableAWSServiceAccessCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -2630,12 +2630,12 @@ const deserializeAws_json1_1EnablePolicyTypeCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -2704,15 +2704,15 @@ const deserializeAws_json1_1InviteAccountToOrganizationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccountOwnerNotVerifiedException":
     case "com.amazonaws.organizations#AccountOwnerNotVerifiedException":
       throw await deserializeAws_json1_1AccountOwnerNotVerifiedExceptionResponse(parsedOutput, context);
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -2772,15 +2772,15 @@ const deserializeAws_json1_1LeaveOrganizationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
       throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -2837,12 +2837,12 @@ const deserializeAws_json1_1ListAccountsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
@@ -2890,12 +2890,12 @@ const deserializeAws_json1_1ListAccountsForParentCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
@@ -2946,12 +2946,12 @@ const deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandError = as
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
       throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
@@ -3005,12 +3005,12 @@ const deserializeAws_json1_1ListChildrenCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
@@ -3061,12 +3061,12 @@ const deserializeAws_json1_1ListCreateAccountStatusCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
@@ -3117,12 +3117,12 @@ const deserializeAws_json1_1ListDelegatedAdministratorsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
       throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
@@ -3176,6 +3176,9 @@ const deserializeAws_json1_1ListDelegatedServicesForAccountCommandError = async 
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
@@ -3185,9 +3188,6 @@ const deserializeAws_json1_1ListDelegatedServicesForAccountCommandError = async 
     case "AccountNotRegisteredException":
     case "com.amazonaws.organizations#AccountNotRegisteredException":
       throw await deserializeAws_json1_1AccountNotRegisteredExceptionResponse(parsedOutput, context);
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
       throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
@@ -3294,12 +3294,12 @@ const deserializeAws_json1_1ListHandshakesForOrganizationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -3350,12 +3350,12 @@ const deserializeAws_json1_1ListOrganizationalUnitsForParentCommandError = async
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
@@ -3406,12 +3406,12 @@ const deserializeAws_json1_1ListParentsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ChildNotFoundException":
     case "com.amazonaws.organizations#ChildNotFoundException":
       throw await deserializeAws_json1_1ChildNotFoundExceptionResponse(parsedOutput, context);
@@ -3462,12 +3462,12 @@ const deserializeAws_json1_1ListPoliciesCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
@@ -3518,12 +3518,12 @@ const deserializeAws_json1_1ListPoliciesForTargetCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
@@ -3577,12 +3577,12 @@ const deserializeAws_json1_1ListRootsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
@@ -3630,12 +3630,12 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
@@ -3686,12 +3686,12 @@ const deserializeAws_json1_1ListTargetsForPolicyCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
@@ -3742,15 +3742,15 @@ const deserializeAws_json1_1MoveAccountCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
       throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -3807,6 +3807,9 @@ const deserializeAws_json1_1RegisterDelegatedAdministratorCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
@@ -3816,9 +3819,6 @@ const deserializeAws_json1_1RegisterDelegatedAdministratorCommandError = async (
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
       throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -3872,15 +3872,15 @@ const deserializeAws_json1_1RemoveAccountFromOrganizationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
       throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -3934,12 +3934,12 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -3993,12 +3993,12 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -4055,12 +4055,12 @@ const deserializeAws_json1_1UpdateOrganizationalUnitCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
@@ -4117,12 +4117,12 @@ const deserializeAws_json1_1UpdatePolicyCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);

@@ -724,13 +724,13 @@ const deserializeAws_queryAddTagsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "DuplicateTagKeysException":
+    case "DuplicateTagKeys":
     case "com.amazonaws.elasticloadbalancing#DuplicateTagKeysException":
       throw await deserializeAws_queryDuplicateTagKeysExceptionResponse(parsedOutput, context);
-    case "TooManyTagsException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTags":
     case "com.amazonaws.elasticloadbalancing#TooManyTagsException":
       throw await deserializeAws_queryTooManyTagsExceptionResponse(parsedOutput, context);
     default:
@@ -774,15 +774,15 @@ const deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError = async 
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityGroupException":
+    case "InvalidSecurityGroup":
     case "com.amazonaws.elasticloadbalancing#InvalidSecurityGroupException":
       throw await deserializeAws_queryInvalidSecurityGroupExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -821,16 +821,16 @@ const deserializeAws_queryAttachLoadBalancerToSubnetsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "InvalidSubnetException":
+    case "InvalidSubnet":
     case "com.amazonaws.elasticloadbalancing#InvalidSubnetException":
       throw await deserializeAws_queryInvalidSubnetExceptionResponse(parsedOutput, context);
-    case "SubnetNotFoundException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "SubnetNotFound":
     case "com.amazonaws.elasticloadbalancing#SubnetNotFoundException":
       throw await deserializeAws_querySubnetNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -871,7 +871,7 @@ const deserializeAws_queryConfigureHealthCheckCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -915,16 +915,16 @@ const deserializeAws_queryCreateAppCookieStickinessPolicyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "DuplicatePolicyNameException":
+    case "DuplicatePolicyName":
     case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
       throw await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "TooManyPoliciesException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyPolicies":
     case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
       throw await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context);
     default:
@@ -968,16 +968,16 @@ const deserializeAws_queryCreateLBCookieStickinessPolicyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "DuplicatePolicyNameException":
+    case "DuplicatePolicyName":
     case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
       throw await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "TooManyPoliciesException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyPolicies":
     case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
       throw await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context);
     default:
@@ -1018,40 +1018,40 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CertificateNotFoundException":
+    case "CertificateNotFound":
     case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
       throw await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context);
-    case "DuplicateAccessPointNameException":
+    case "DuplicateLoadBalancerName":
     case "com.amazonaws.elasticloadbalancing#DuplicateAccessPointNameException":
       throw await deserializeAws_queryDuplicateAccessPointNameExceptionResponse(parsedOutput, context);
-    case "DuplicateTagKeysException":
+    case "DuplicateTagKeys":
     case "com.amazonaws.elasticloadbalancing#DuplicateTagKeysException":
       throw await deserializeAws_queryDuplicateTagKeysExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "InvalidSchemeException":
+    case "InvalidScheme":
     case "com.amazonaws.elasticloadbalancing#InvalidSchemeException":
       throw await deserializeAws_queryInvalidSchemeExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityGroupException":
+    case "InvalidSecurityGroup":
     case "com.amazonaws.elasticloadbalancing#InvalidSecurityGroupException":
       throw await deserializeAws_queryInvalidSecurityGroupExceptionResponse(parsedOutput, context);
-    case "InvalidSubnetException":
+    case "InvalidSubnet":
     case "com.amazonaws.elasticloadbalancing#InvalidSubnetException":
       throw await deserializeAws_queryInvalidSubnetExceptionResponse(parsedOutput, context);
-    case "OperationNotPermittedException":
+    case "OperationNotPermitted":
     case "com.amazonaws.elasticloadbalancing#OperationNotPermittedException":
       throw await deserializeAws_queryOperationNotPermittedExceptionResponse(parsedOutput, context);
-    case "SubnetNotFoundException":
+    case "SubnetNotFound":
     case "com.amazonaws.elasticloadbalancing#SubnetNotFoundException":
       throw await deserializeAws_querySubnetNotFoundExceptionResponse(parsedOutput, context);
-    case "TooManyAccessPointsException":
+    case "TooManyLoadBalancers":
     case "com.amazonaws.elasticloadbalancing#TooManyAccessPointsException":
       throw await deserializeAws_queryTooManyAccessPointsExceptionResponse(parsedOutput, context);
-    case "TooManyTagsException":
+    case "TooManyTags":
     case "com.amazonaws.elasticloadbalancing#TooManyTagsException":
       throw await deserializeAws_queryTooManyTagsExceptionResponse(parsedOutput, context);
-    case "UnsupportedProtocolException":
+    case "UnsupportedProtocol":
     case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
       throw await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context);
     default:
@@ -1092,19 +1092,19 @@ const deserializeAws_queryCreateLoadBalancerListenersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "CertificateNotFoundException":
+    case "CertificateNotFound":
     case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
       throw await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context);
-    case "DuplicateListenerException":
+    case "DuplicateListener":
     case "com.amazonaws.elasticloadbalancing#DuplicateListenerException":
       throw await deserializeAws_queryDuplicateListenerExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "UnsupportedProtocolException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedProtocol":
     case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
       throw await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context);
     default:
@@ -1145,19 +1145,19 @@ const deserializeAws_queryCreateLoadBalancerPolicyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "DuplicatePolicyNameException":
+    case "DuplicatePolicyName":
     case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
       throw await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "PolicyTypeNotFoundException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "PolicyTypeNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyTypeNotFoundException":
       throw await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(parsedOutput, context);
-    case "TooManyPoliciesException":
+    case "TooManyPolicies":
     case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
       throw await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context);
     default:
@@ -1233,7 +1233,7 @@ const deserializeAws_queryDeleteLoadBalancerListenersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1274,12 +1274,12 @@ const deserializeAws_queryDeleteLoadBalancerPolicyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1318,12 +1318,12 @@ const deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError = asyn
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidEndPointException":
+    case "InvalidInstance":
     case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
       throw await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1397,12 +1397,12 @@ const deserializeAws_queryDescribeInstanceHealthCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidEndPointException":
+    case "InvalidInstance":
     case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
       throw await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1444,12 +1444,12 @@ const deserializeAws_queryDescribeLoadBalancerAttributesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "LoadBalancerAttributeNotFoundException":
+    case "LoadBalancerAttributeNotFound":
     case "com.amazonaws.elasticloadbalancing#LoadBalancerAttributeNotFoundException":
       throw await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1488,10 +1488,10 @@ const deserializeAws_queryDescribeLoadBalancerPoliciesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "PolicyNotFoundException":
+    case "PolicyNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
       throw await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1535,7 +1535,7 @@ const deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "PolicyTypeNotFoundException":
+    case "PolicyTypeNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyTypeNotFoundException":
       throw await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1576,12 +1576,12 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "DependencyThrottleException":
+    case "DependencyThrottle":
     case "com.amazonaws.elasticloadbalancing#DependencyThrottleException":
       throw await deserializeAws_queryDependencyThrottleExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1620,7 +1620,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1661,12 +1661,12 @@ const deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1708,12 +1708,12 @@ const deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError = 
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1752,7 +1752,7 @@ const deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommandError = a
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1793,15 +1793,15 @@ const deserializeAws_queryModifyLoadBalancerAttributesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "LoadBalancerAttributeNotFoundException":
+    case "LoadBalancerAttributeNotFound":
     case "com.amazonaws.elasticloadbalancing#LoadBalancerAttributeNotFoundException":
       throw await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1840,12 +1840,12 @@ const deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError = async 
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidEndPointException":
+    case "InvalidInstance":
     case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
       throw await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1884,7 +1884,7 @@ const deserializeAws_queryRemoveTagsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1928,19 +1928,19 @@ const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError = as
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "CertificateNotFoundException":
+    case "CertificateNotFound":
     case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
       throw await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "ListenerNotFoundException":
+    case "ListenerNotFound":
     case "com.amazonaws.elasticloadbalancing#ListenerNotFoundException":
       throw await deserializeAws_queryListenerNotFoundExceptionResponse(parsedOutput, context);
-    case "UnsupportedProtocolException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "UnsupportedProtocol":
     case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
       throw await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context);
     default:
@@ -1984,13 +1984,13 @@ const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError = 
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "PolicyNotFoundException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "PolicyNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
       throw await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2034,16 +2034,16 @@ const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError = async 
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
       throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
-    case "ListenerNotFoundException":
+    case "ListenerNotFound":
     case "com.amazonaws.elasticloadbalancing#ListenerNotFoundException":
       throw await deserializeAws_queryListenerNotFoundExceptionResponse(parsedOutput, context);
-    case "PolicyNotFoundException":
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
+    case "PolicyNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
       throw await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context);
     default:

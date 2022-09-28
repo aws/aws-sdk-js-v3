@@ -1882,7 +1882,7 @@ const deserializeAws_queryDeleteChangeSetCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidChangeSetStatusException":
+    case "InvalidChangeSetStatus":
     case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
       throw await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(parsedOutput, context);
     default:
@@ -2137,7 +2137,7 @@ const deserializeAws_queryDescribeChangeSetCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ChangeSetNotFoundException":
+    case "ChangeSetNotFound":
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2178,7 +2178,7 @@ const deserializeAws_queryDescribeChangeSetHooksCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ChangeSetNotFoundException":
+    case "ChangeSetNotFound":
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2839,13 +2839,13 @@ const deserializeAws_queryExecuteChangeSetCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ChangeSetNotFoundException":
+    case "ChangeSetNotFound":
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
     case "InsufficientCapabilitiesException":
     case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
       throw await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(parsedOutput, context);
-    case "InvalidChangeSetStatusException":
+    case "InvalidChangeSetStatus":
     case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
       throw await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(parsedOutput, context);
     case "TokenAlreadyExistsException":
@@ -2924,7 +2924,7 @@ const deserializeAws_queryGetTemplateCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ChangeSetNotFoundException":
+    case "ChangeSetNotFound":
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -3568,12 +3568,12 @@ const deserializeAws_queryRecordHandlerProgressCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidStateTransitionException":
-    case "com.amazonaws.cloudformation#InvalidStateTransitionException":
-      throw await deserializeAws_queryInvalidStateTransitionExceptionResponse(parsedOutput, context);
-    case "OperationStatusCheckFailedException":
+    case "ConditionalCheckFailed":
     case "com.amazonaws.cloudformation#OperationStatusCheckFailedException":
       throw await deserializeAws_queryOperationStatusCheckFailedExceptionResponse(parsedOutput, context);
+    case "InvalidStateTransition":
+    case "com.amazonaws.cloudformation#InvalidStateTransitionException":
+      throw await deserializeAws_queryInvalidStateTransitionExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
