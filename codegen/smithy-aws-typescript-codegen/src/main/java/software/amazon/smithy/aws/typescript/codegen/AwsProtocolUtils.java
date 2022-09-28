@@ -317,9 +317,8 @@ final class AwsProtocolUtils {
             HttpMessageTestCase testCase,
             TypeScriptSettings settings
     ) {
-        // TODO: Consume AWSQueryError trait as a follow-up in JS-2681.
-        if (testCase.getId().equals("QueryCustomizedError")
-            || testCase.getId().equals("Json10WithQueryCompatibleGreetingError")) {
+        // TODO: Consume AWSQueryError trait as a follow-up.
+        if (testCase.getId().equals("QueryCustomizedError")) {
             return true;
         }
 
