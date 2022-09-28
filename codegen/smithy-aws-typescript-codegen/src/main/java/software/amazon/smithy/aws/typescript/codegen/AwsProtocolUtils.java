@@ -118,6 +118,27 @@ final class AwsProtocolUtils {
     }
 
     /**
+     * Writes a response body parser function for errors. This
+     * will populate message field in parsed object, if it's not present.
+     *
+     * @param context The generation context.
+     */
+    static void generateParseErrorBody(GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+
+        // Include a JSON body parser used to deserialize documents from HTTP responses.
+        writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
+        writer.openBlock("const parseErrorBody = (errorBody: any, context: __SerdeContext): "
+            + "any => {", "}", () -> {
+                writer.write("const value = parseBody(errorBody, context);");
+                writer.write("value.message = value.message ?? value.Message;");
+                writer.write("return value;");
+            });
+
+        writer.write("");
+    }
+
+    /**
      * Writes a response body parser function for XML protocols. This
      * will parse a present body after converting it to utf-8.
      *
