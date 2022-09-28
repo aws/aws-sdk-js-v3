@@ -106,10 +106,14 @@ final class AwsProtocolUtils {
 
         // Include a JSON body parser used to deserialize documents from HTTP responses.
         writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
-        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
+        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext & { $$isError?: boolean }): "
                 + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
                     writer.openBlock("if (encoded.length) {", "}", () -> {
-                        writer.write("return JSON.parse(encoded);");
+                        writer.write("const value = JSON.parse(encoded);");
+                        writer.openBlock("if (context.$$isError && value.Message !== undefined) {", "}", () -> {
+                            writer.write("value.message = value.Message;");
+                        });
+                        writer.write("return value;");
                     });
                     writer.write("return {};");
                 });
