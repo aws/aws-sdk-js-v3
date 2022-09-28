@@ -133,7 +133,7 @@ final class AwsProtocolUtils {
         writer.addDependency(AwsDependency.HTML_ENTITIES);
         writer.addImport("parse", "xmlParse", "fast-xml-parser");
         writer.addImport("decodeHTML", "decodeHTML", "entities");
-        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
+        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext & { $$isError?: boolean }): "
                 + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
                     writer.openBlock("if (encoded.length) {", "}", () -> {
                         writer.write("const parsedObj = xmlParse(encoded, { attributeNamePrefix: '', "
@@ -147,7 +147,11 @@ final class AwsProtocolUtils {
                             writer.write("parsedObjToReturn[key] = parsedObjToReturn[textNodeName];");
                             writer.write("delete parsedObjToReturn[textNodeName];");
                         });
-                        writer.write("return __getValueFromTextNode(parsedObjToReturn);");
+                        writer.write("const value = __getValueFromTextNode(parsedObjToReturn);");
+                        writer.openBlock("if (context.$$isError && value.Message !== undefined) {", "}", () -> {
+                            writer.write("value.message = value.Message;");
+                        });
+                        writer.write("return value;");
                     });
                     writer.write("return {};");
                 });
