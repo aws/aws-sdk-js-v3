@@ -906,7 +906,7 @@ const deserializeAws_restJson1CreateComponentCommandError = async (
 ): Promise<CreateComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -954,7 +954,7 @@ const deserializeAws_restJson1CreateFormCommandError = async (
 ): Promise<CreateFormCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1002,7 +1002,7 @@ const deserializeAws_restJson1CreateThemeCommandError = async (
 ): Promise<CreateThemeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1049,7 +1049,7 @@ const deserializeAws_restJson1DeleteComponentCommandError = async (
 ): Promise<DeleteComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1093,7 +1093,7 @@ const deserializeAws_restJson1DeleteFormCommandError = async (
 ): Promise<DeleteFormCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1137,7 +1137,7 @@ const deserializeAws_restJson1DeleteThemeCommandError = async (
 ): Promise<DeleteThemeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1190,7 +1190,7 @@ const deserializeAws_restJson1ExchangeCodeForTokenCommandError = async (
 ): Promise<ExchangeCodeForTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1234,7 +1234,7 @@ const deserializeAws_restJson1ExportComponentsCommandError = async (
 ): Promise<ExportComponentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1281,7 +1281,7 @@ const deserializeAws_restJson1ExportFormsCommandError = async (
 ): Promise<ExportFormsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1328,7 +1328,7 @@ const deserializeAws_restJson1ExportThemesCommandError = async (
 ): Promise<ExportThemesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1370,7 +1370,7 @@ const deserializeAws_restJson1GetComponentCommandError = async (
 ): Promise<GetComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1415,7 +1415,7 @@ const deserializeAws_restJson1GetFormCommandError = async (
 ): Promise<GetFormCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1462,7 +1462,7 @@ const deserializeAws_restJson1GetMetadataCommandError = async (
 ): Promise<GetMetadataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1504,7 +1504,7 @@ const deserializeAws_restJson1GetThemeCommandError = async (
 ): Promise<GetThemeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1554,7 +1554,7 @@ const deserializeAws_restJson1ListComponentsCommandError = async (
 ): Promise<ListComponentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1601,7 +1601,7 @@ const deserializeAws_restJson1ListFormsCommandError = async (
 ): Promise<ListFormsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1648,7 +1648,7 @@ const deserializeAws_restJson1ListThemesCommandError = async (
 ): Promise<ListThemesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1689,7 +1689,7 @@ const deserializeAws_restJson1PutMetadataFlagCommandError = async (
 ): Promise<PutMetadataFlagCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1736,7 +1736,7 @@ const deserializeAws_restJson1RefreshTokenCommandError = async (
 ): Promise<RefreshTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1775,7 +1775,7 @@ const deserializeAws_restJson1UpdateComponentCommandError = async (
 ): Promise<UpdateComponentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1820,7 +1820,7 @@ const deserializeAws_restJson1UpdateFormCommandError = async (
 ): Promise<UpdateFormCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1865,7 +1865,7 @@ const deserializeAws_restJson1UpdateThemeCommandError = async (
 ): Promise<UpdateThemeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3528,6 +3528,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+const parseErrorBody = (errorBody: any, context: __SerdeContext): any => {
+  const value = parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

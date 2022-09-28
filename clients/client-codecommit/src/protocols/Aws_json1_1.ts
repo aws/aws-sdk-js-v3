@@ -1653,7 +1653,7 @@ const deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommandEr
 ): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1730,7 +1730,7 @@ const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCo
 ): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1798,7 +1798,7 @@ const deserializeAws_json1_1BatchDescribeMergeConflictsCommandError = async (
 ): Promise<BatchDescribeMergeConflictsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1899,7 +1899,7 @@ const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositorie
 ): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1967,7 +1967,7 @@ const deserializeAws_json1_1BatchGetCommitsCommandError = async (
 ): Promise<BatchGetCommitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2035,7 +2035,7 @@ const deserializeAws_json1_1BatchGetRepositoriesCommandError = async (
 ): Promise<BatchGetRepositoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2097,7 +2097,7 @@ const deserializeAws_json1_1CreateApprovalRuleTemplateCommandError = async (
 ): Promise<CreateApprovalRuleTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2153,7 +2153,7 @@ const deserializeAws_json1_1CreateBranchCommandError = async (
 ): Promise<CreateBranchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2233,7 +2233,7 @@ const deserializeAws_json1_1CreateCommitCommandError = async (
 ): Promise<CreateCommitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2385,7 +2385,7 @@ const deserializeAws_json1_1CreatePullRequestCommandError = async (
 ): Promise<CreatePullRequestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2498,7 +2498,7 @@ const deserializeAws_json1_1CreatePullRequestApprovalRuleCommandError = async (
 ): Promise<CreatePullRequestApprovalRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2581,7 +2581,7 @@ const deserializeAws_json1_1CreateRepositoryCommandError = async (
 ): Promise<CreateRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2661,7 +2661,7 @@ const deserializeAws_json1_1CreateUnreferencedMergeCommitCommandError = async (
 ): Promise<CreateUnreferencedMergeCommitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2810,7 +2810,7 @@ const deserializeAws_json1_1DeleteApprovalRuleTemplateCommandError = async (
 ): Promise<DeleteApprovalRuleTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2857,7 +2857,7 @@ const deserializeAws_json1_1DeleteBranchCommandError = async (
 ): Promise<DeleteBranchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2928,7 +2928,7 @@ const deserializeAws_json1_1DeleteCommentContentCommandError = async (
 ): Promise<DeleteCommentContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2978,7 +2978,7 @@ const deserializeAws_json1_1DeleteFileCommandError = async (
 ): Promise<DeleteFileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3082,7 +3082,7 @@ const deserializeAws_json1_1DeletePullRequestApprovalRuleCommandError = async (
 ): Promise<DeletePullRequestApprovalRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3156,7 +3156,7 @@ const deserializeAws_json1_1DeleteRepositoryCommandError = async (
 ): Promise<DeleteRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3215,7 +3215,7 @@ const deserializeAws_json1_1DescribeMergeConflictsCommandError = async (
 ): Promise<DescribeMergeConflictsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3322,7 +3322,7 @@ const deserializeAws_json1_1DescribePullRequestEventsCommandError = async (
 ): Promise<DescribePullRequestEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3396,7 +3396,7 @@ const deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryComman
 ): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3467,7 +3467,7 @@ const deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommandError = async
 ): Promise<EvaluatePullRequestApprovalRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3538,7 +3538,7 @@ const deserializeAws_json1_1GetApprovalRuleTemplateCommandError = async (
 ): Promise<GetApprovalRuleTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3585,7 +3585,7 @@ const deserializeAws_json1_1GetBlobCommandError = async (
 ): Promise<GetBlobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3659,7 +3659,7 @@ const deserializeAws_json1_1GetBranchCommandError = async (
 ): Promise<GetBranchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3730,7 +3730,7 @@ const deserializeAws_json1_1GetCommentCommandError = async (
 ): Promise<GetCommentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3795,7 +3795,7 @@ const deserializeAws_json1_1GetCommentReactionsCommandError = async (
 ): Promise<GetCommentReactionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3854,7 +3854,7 @@ const deserializeAws_json1_1GetCommentsForComparedCommitCommandError = async (
 ): Promise<GetCommentsForComparedCommitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3931,7 +3931,7 @@ const deserializeAws_json1_1GetCommentsForPullRequestCommandError = async (
 ): Promise<GetCommentsForPullRequestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4020,7 +4020,7 @@ const deserializeAws_json1_1GetCommitCommandError = async (
 ): Promise<GetCommitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4091,7 +4091,7 @@ const deserializeAws_json1_1GetDifferencesCommandError = async (
 ): Promise<GetDifferencesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4177,7 +4177,7 @@ const deserializeAws_json1_1GetFileCommandError = async (
 ): Promise<GetFileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4257,7 +4257,7 @@ const deserializeAws_json1_1GetFolderCommandError = async (
 ): Promise<GetFolderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4334,7 +4334,7 @@ const deserializeAws_json1_1GetMergeCommitCommandError = async (
 ): Promise<GetMergeCommitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4411,7 +4411,7 @@ const deserializeAws_json1_1GetMergeConflictsCommandError = async (
 ): Promise<GetMergeConflictsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4515,7 +4515,7 @@ const deserializeAws_json1_1GetMergeOptionsCommandError = async (
 ): Promise<GetMergeOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4601,7 +4601,7 @@ const deserializeAws_json1_1GetPullRequestCommandError = async (
 ): Promise<GetPullRequestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4663,7 +4663,7 @@ const deserializeAws_json1_1GetPullRequestApprovalStatesCommandError = async (
 ): Promise<GetPullRequestApprovalStatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4731,7 +4731,7 @@ const deserializeAws_json1_1GetPullRequestOverrideStateCommandError = async (
 ): Promise<GetPullRequestOverrideStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4799,7 +4799,7 @@ const deserializeAws_json1_1GetRepositoryCommandError = async (
 ): Promise<GetRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4861,7 +4861,7 @@ const deserializeAws_json1_1GetRepositoryTriggersCommandError = async (
 ): Promise<GetRepositoryTriggersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4923,7 +4923,7 @@ const deserializeAws_json1_1ListApprovalRuleTemplatesCommandError = async (
 ): Promise<ListApprovalRuleTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4967,7 +4967,7 @@ const deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryComm
 ): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5035,7 +5035,7 @@ const deserializeAws_json1_1ListBranchesCommandError = async (
 ): Promise<ListBranchesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5100,7 +5100,7 @@ const deserializeAws_json1_1ListPullRequestsCommandError = async (
 ): Promise<ListPullRequestsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5177,7 +5177,7 @@ const deserializeAws_json1_1ListRepositoriesCommandError = async (
 ): Promise<ListRepositoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5224,7 +5224,7 @@ const deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommandError 
 ): Promise<ListRepositoriesForApprovalRuleTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5292,7 +5292,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5342,7 +5342,7 @@ const deserializeAws_json1_1MergeBranchesByFastForwardCommandError = async (
 ): Promise<MergeBranchesByFastForwardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5437,7 +5437,7 @@ const deserializeAws_json1_1MergeBranchesBySquashCommandError = async (
 ): Promise<MergeBranchesBySquashCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5595,7 +5595,7 @@ const deserializeAws_json1_1MergeBranchesByThreeWayCommandError = async (
 ): Promise<MergeBranchesByThreeWayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5753,7 +5753,7 @@ const deserializeAws_json1_1MergePullRequestByFastForwardCommandError = async (
 ): Promise<MergePullRequestByFastForwardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5848,7 +5848,7 @@ const deserializeAws_json1_1MergePullRequestBySquashCommandError = async (
 ): Promise<MergePullRequestBySquashCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6003,7 +6003,7 @@ const deserializeAws_json1_1MergePullRequestByThreeWayCommandError = async (
 ): Promise<MergePullRequestByThreeWayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6155,7 +6155,7 @@ const deserializeAws_json1_1OverridePullRequestApprovalRulesCommandError = async
 ): Promise<OverridePullRequestApprovalRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6238,7 +6238,7 @@ const deserializeAws_json1_1PostCommentForComparedCommitCommandError = async (
 ): Promise<PostCommentForComparedCommitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6345,7 +6345,7 @@ const deserializeAws_json1_1PostCommentForPullRequestCommandError = async (
 ): Promise<PostCommentForPullRequestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6464,7 +6464,7 @@ const deserializeAws_json1_1PostCommentReplyCommandError = async (
 ): Promise<PostCommentReplyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6523,7 +6523,7 @@ const deserializeAws_json1_1PutCommentReactionCommandError = async (
 ): Promise<PutCommentReactionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6582,7 +6582,7 @@ const deserializeAws_json1_1PutFileCommandError = async (
 ): Promise<PutFileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6710,7 +6710,7 @@ const deserializeAws_json1_1PutRepositoryTriggersCommandError = async (
 ): Promise<PutRepositoryTriggersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6808,7 +6808,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6873,7 +6873,7 @@ const deserializeAws_json1_1TestRepositoryTriggersCommandError = async (
 ): Promise<TestRepositoryTriggersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6971,7 +6971,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7036,7 +7036,7 @@ const deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommandError = asyn
 ): Promise<UpdateApprovalRuleTemplateContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7092,7 +7092,7 @@ const deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommandError = 
 ): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7142,7 +7142,7 @@ const deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommandError = async (
 ): Promise<UpdateApprovalRuleTemplateNameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7192,7 +7192,7 @@ const deserializeAws_json1_1UpdateCommentCommandError = async (
 ): Promise<UpdateCommentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7248,7 +7248,7 @@ const deserializeAws_json1_1UpdateDefaultBranchCommandError = async (
 ): Promise<UpdateDefaultBranchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7319,7 +7319,7 @@ const deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommandError = a
 ): Promise<UpdatePullRequestApprovalRuleContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7402,7 +7402,7 @@ const deserializeAws_json1_1UpdatePullRequestApprovalStateCommandError = async (
 ): Promise<UpdatePullRequestApprovalStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7488,7 +7488,7 @@ const deserializeAws_json1_1UpdatePullRequestDescriptionCommandError = async (
 ): Promise<UpdatePullRequestDescriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7541,7 +7541,7 @@ const deserializeAws_json1_1UpdatePullRequestStatusCommandError = async (
 ): Promise<UpdatePullRequestStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7612,7 +7612,7 @@ const deserializeAws_json1_1UpdatePullRequestTitleCommandError = async (
 ): Promise<UpdatePullRequestTitleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7665,7 +7665,7 @@ const deserializeAws_json1_1UpdateRepositoryDescriptionCommandError = async (
 ): Promise<UpdateRepositoryDescriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7727,7 +7727,7 @@ const deserializeAws_json1_1UpdateRepositoryNameCommandError = async (
 ): Promise<UpdateRepositoryNameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -14672,6 +14672,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+const parseErrorBody = (errorBody: any, context: __SerdeContext): any => {
+  const value = parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

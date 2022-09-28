@@ -454,7 +454,7 @@ const deserializeAws_ec2EmptyInputAndEmptyOutputCommandError = async (
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -486,7 +486,7 @@ const deserializeAws_ec2EndpointOperationCommandError = async (
 ): Promise<EndpointOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -518,7 +518,7 @@ const deserializeAws_ec2EndpointWithHostLabelOperationCommandError = async (
 ): Promise<EndpointWithHostLabelOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -553,7 +553,7 @@ const deserializeAws_ec2GreetingWithErrorsCommandError = async (
 ): Promise<GreetingWithErrorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -594,7 +594,7 @@ const deserializeAws_ec2HostWithPathOperationCommandError = async (
 ): Promise<HostWithPathOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -629,7 +629,7 @@ const deserializeAws_ec2IgnoresWrappingXmlNameCommandError = async (
 ): Promise<IgnoresWrappingXmlNameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -661,7 +661,7 @@ const deserializeAws_ec2NestedStructuresCommandError = async (
 ): Promise<NestedStructuresCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -696,7 +696,7 @@ const deserializeAws_ec2NoInputAndOutputCommandError = async (
 ): Promise<NoInputAndOutputCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -728,7 +728,7 @@ const deserializeAws_ec2QueryIdempotencyTokenAutoFillCommandError = async (
 ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -760,7 +760,7 @@ const deserializeAws_ec2QueryListsCommandError = async (
 ): Promise<QueryListsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -792,7 +792,7 @@ const deserializeAws_ec2QueryTimestampsCommandError = async (
 ): Promise<QueryTimestampsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -827,7 +827,7 @@ const deserializeAws_ec2RecursiveXmlShapesCommandError = async (
 ): Promise<RecursiveXmlShapesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -859,7 +859,7 @@ const deserializeAws_ec2SimpleInputParamsCommandError = async (
 ): Promise<SimpleInputParamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -894,7 +894,7 @@ const deserializeAws_ec2SimpleScalarXmlPropertiesCommandError = async (
 ): Promise<SimpleScalarXmlPropertiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -929,7 +929,7 @@ const deserializeAws_ec2XmlBlobsCommandError = async (
 ): Promise<XmlBlobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -964,7 +964,7 @@ const deserializeAws_ec2XmlEmptyBlobsCommandError = async (
 ): Promise<XmlEmptyBlobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -999,7 +999,7 @@ const deserializeAws_ec2XmlEmptyListsCommandError = async (
 ): Promise<XmlEmptyListsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1034,7 +1034,7 @@ const deserializeAws_ec2XmlEnumsCommandError = async (
 ): Promise<XmlEnumsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1069,7 +1069,7 @@ const deserializeAws_ec2XmlListsCommandError = async (
 ): Promise<XmlListsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1104,7 +1104,7 @@ const deserializeAws_ec2XmlNamespacesCommandError = async (
 ): Promise<XmlNamespacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1139,7 +1139,7 @@ const deserializeAws_ec2XmlTimestampsCommandError = async (
 ): Promise<XmlTimestampsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -1960,6 +1960,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+const parseErrorBody = (errorBody: any, context: __SerdeContext): any => {
+  const value = parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
 
 const buildFormUrlencodedString = (formEntries: Record<string, string>): string =>
   Object.entries(formEntries)

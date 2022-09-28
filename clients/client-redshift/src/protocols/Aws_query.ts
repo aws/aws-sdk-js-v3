@@ -2750,7 +2750,7 @@ const deserializeAws_queryAcceptReservedNodeExchangeCommandError = async (
 ): Promise<AcceptReservedNodeExchangeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2809,7 +2809,7 @@ const deserializeAws_queryAddPartnerCommandError = async (
 ): Promise<AddPartnerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2856,7 +2856,7 @@ const deserializeAws_queryAssociateDataShareConsumerCommandError = async (
 ): Promise<AssociateDataShareConsumerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2903,7 +2903,7 @@ const deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommandError = asy
 ): Promise<AuthorizeClusterSecurityGroupIngressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2953,7 +2953,7 @@ const deserializeAws_queryAuthorizeDataShareCommandError = async (
 ): Promise<AuthorizeDataShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2994,7 +2994,7 @@ const deserializeAws_queryAuthorizeEndpointAccessCommandError = async (
 ): Promise<AuthorizeEndpointAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3050,7 +3050,7 @@ const deserializeAws_queryAuthorizeSnapshotAccessCommandError = async (
 ): Promise<AuthorizeSnapshotAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3109,7 +3109,7 @@ const deserializeAws_queryBatchDeleteClusterSnapshotsCommandError = async (
 ): Promise<BatchDeleteClusterSnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3153,7 +3153,7 @@ const deserializeAws_queryBatchModifyClusterSnapshotsCommandError = async (
 ): Promise<BatchModifyClusterSnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3197,7 +3197,7 @@ const deserializeAws_queryCancelResizeCommandError = async (
 ): Promise<CancelResizeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3247,7 +3247,7 @@ const deserializeAws_queryCopyClusterSnapshotCommandError = async (
 ): Promise<CopyClusterSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3300,7 +3300,7 @@ const deserializeAws_queryCreateAuthenticationProfileCommandError = async (
 ): Promise<CreateAuthenticationProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3347,7 +3347,7 @@ const deserializeAws_queryCreateClusterCommandError = async (
 ): Promise<CreateClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3451,7 +3451,7 @@ const deserializeAws_queryCreateClusterParameterGroupCommandError = async (
 ): Promise<CreateClusterParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3501,7 +3501,7 @@ const deserializeAws_queryCreateClusterSecurityGroupCommandError = async (
 ): Promise<CreateClusterSecurityGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3551,7 +3551,7 @@ const deserializeAws_queryCreateClusterSnapshotCommandError = async (
 ): Promise<CreateClusterSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3610,7 +3610,7 @@ const deserializeAws_queryCreateClusterSubnetGroupCommandError = async (
 ): Promise<CreateClusterSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3672,7 +3672,7 @@ const deserializeAws_queryCreateEndpointAccessCommandError = async (
 ): Promise<CreateEndpointAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3740,7 +3740,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
 ): Promise<CreateEventSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3811,7 +3811,7 @@ const deserializeAws_queryCreateHsmClientCertificateCommandError = async (
 ): Promise<CreateHsmClientCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3861,7 +3861,7 @@ const deserializeAws_queryCreateHsmConfigurationCommandError = async (
 ): Promise<CreateHsmConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3911,7 +3911,7 @@ const deserializeAws_queryCreateScheduledActionCommandError = async (
 ): Promise<CreateScheduledActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -3967,7 +3967,7 @@ const deserializeAws_queryCreateSnapshotCopyGrantCommandError = async (
 ): Promise<CreateSnapshotCopyGrantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4023,7 +4023,7 @@ const deserializeAws_queryCreateSnapshotScheduleCommandError = async (
 ): Promise<CreateSnapshotScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4076,7 +4076,7 @@ const deserializeAws_queryCreateTagsCommandError = async (
 ): Promise<CreateTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4126,7 +4126,7 @@ const deserializeAws_queryCreateUsageLimitCommandError = async (
 ): Promise<CreateUsageLimitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4185,7 +4185,7 @@ const deserializeAws_queryDeauthorizeDataShareCommandError = async (
 ): Promise<DeauthorizeDataShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4226,7 +4226,7 @@ const deserializeAws_queryDeleteAuthenticationProfileCommandError = async (
 ): Promise<DeleteAuthenticationProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4270,7 +4270,7 @@ const deserializeAws_queryDeleteClusterCommandError = async (
 ): Promise<DeleteClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4320,7 +4320,7 @@ const deserializeAws_queryDeleteClusterParameterGroupCommandError = async (
 ): Promise<DeleteClusterParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4361,7 +4361,7 @@ const deserializeAws_queryDeleteClusterSecurityGroupCommandError = async (
 ): Promise<DeleteClusterSecurityGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4405,7 +4405,7 @@ const deserializeAws_queryDeleteClusterSnapshotCommandError = async (
 ): Promise<DeleteClusterSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4446,7 +4446,7 @@ const deserializeAws_queryDeleteClusterSubnetGroupCommandError = async (
 ): Promise<DeleteClusterSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4493,7 +4493,7 @@ const deserializeAws_queryDeleteEndpointAccessCommandError = async (
 ): Promise<DeleteEndpointAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4543,7 +4543,7 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
 ): Promise<DeleteEventSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4584,7 +4584,7 @@ const deserializeAws_queryDeleteHsmClientCertificateCommandError = async (
 ): Promise<DeleteHsmClientCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4625,7 +4625,7 @@ const deserializeAws_queryDeleteHsmConfigurationCommandError = async (
 ): Promise<DeleteHsmConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4669,7 +4669,7 @@ const deserializeAws_queryDeletePartnerCommandError = async (
 ): Promise<DeletePartnerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4713,7 +4713,7 @@ const deserializeAws_queryDeleteScheduledActionCommandError = async (
 ): Promise<DeleteScheduledActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4754,7 +4754,7 @@ const deserializeAws_queryDeleteSnapshotCopyGrantCommandError = async (
 ): Promise<DeleteSnapshotCopyGrantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4795,7 +4795,7 @@ const deserializeAws_queryDeleteSnapshotScheduleCommandError = async (
 ): Promise<DeleteSnapshotScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4836,7 +4836,7 @@ const deserializeAws_queryDeleteTagsCommandError = async (
 ): Promise<DeleteTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4877,7 +4877,7 @@ const deserializeAws_queryDeleteUsageLimitCommandError = async (
 ): Promise<DeleteUsageLimitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -4921,7 +4921,7 @@ const deserializeAws_queryDescribeAccountAttributesCommandError = async (
 ): Promise<DescribeAccountAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -4959,7 +4959,7 @@ const deserializeAws_queryDescribeAuthenticationProfilesCommandError = async (
 ): Promise<DescribeAuthenticationProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5003,7 +5003,7 @@ const deserializeAws_queryDescribeClusterDbRevisionsCommandError = async (
 ): Promise<DescribeClusterDbRevisionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5047,7 +5047,7 @@ const deserializeAws_queryDescribeClusterParameterGroupsCommandError = async (
 ): Promise<DescribeClusterParameterGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5091,7 +5091,7 @@ const deserializeAws_queryDescribeClusterParametersCommandError = async (
 ): Promise<DescribeClusterParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5132,7 +5132,7 @@ const deserializeAws_queryDescribeClustersCommandError = async (
 ): Promise<DescribeClustersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5176,7 +5176,7 @@ const deserializeAws_queryDescribeClusterSecurityGroupsCommandError = async (
 ): Promise<DescribeClusterSecurityGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5220,7 +5220,7 @@ const deserializeAws_queryDescribeClusterSnapshotsCommandError = async (
 ): Promise<DescribeClusterSnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5270,7 +5270,7 @@ const deserializeAws_queryDescribeClusterSubnetGroupsCommandError = async (
 ): Promise<DescribeClusterSubnetGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5314,7 +5314,7 @@ const deserializeAws_queryDescribeClusterTracksCommandError = async (
 ): Promise<DescribeClusterTracksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5358,7 +5358,7 @@ const deserializeAws_queryDescribeClusterVersionsCommandError = async (
 ): Promise<DescribeClusterVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5393,7 +5393,7 @@ const deserializeAws_queryDescribeDataSharesCommandError = async (
 ): Promise<DescribeDataSharesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5434,7 +5434,7 @@ const deserializeAws_queryDescribeDataSharesForConsumerCommandError = async (
 ): Promise<DescribeDataSharesForConsumerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5475,7 +5475,7 @@ const deserializeAws_queryDescribeDataSharesForProducerCommandError = async (
 ): Promise<DescribeDataSharesForProducerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5519,7 +5519,7 @@ const deserializeAws_queryDescribeDefaultClusterParametersCommandError = async (
 ): Promise<DescribeDefaultClusterParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5554,7 +5554,7 @@ const deserializeAws_queryDescribeEndpointAccessCommandError = async (
 ): Promise<DescribeEndpointAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5601,7 +5601,7 @@ const deserializeAws_queryDescribeEndpointAuthorizationCommandError = async (
 ): Promise<DescribeEndpointAuthorizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5645,7 +5645,7 @@ const deserializeAws_queryDescribeEventCategoriesCommandError = async (
 ): Promise<DescribeEventCategoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5680,7 +5680,7 @@ const deserializeAws_queryDescribeEventsCommandError = async (
 ): Promise<DescribeEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5715,7 +5715,7 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
 ): Promise<DescribeEventSubscriptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5759,7 +5759,7 @@ const deserializeAws_queryDescribeHsmClientCertificatesCommandError = async (
 ): Promise<DescribeHsmClientCertificatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5803,7 +5803,7 @@ const deserializeAws_queryDescribeHsmConfigurationsCommandError = async (
 ): Promise<DescribeHsmConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5847,7 +5847,7 @@ const deserializeAws_queryDescribeLoggingStatusCommandError = async (
 ): Promise<DescribeLoggingStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5888,7 +5888,7 @@ const deserializeAws_queryDescribeNodeConfigurationOptionsCommandError = async (
 ): Promise<DescribeNodeConfigurationOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -5941,7 +5941,7 @@ const deserializeAws_queryDescribeOrderableClusterOptionsCommandError = async (
 ): Promise<DescribeOrderableClusterOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -5976,7 +5976,7 @@ const deserializeAws_queryDescribePartnersCommandError = async (
 ): Promise<DescribePartnersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6023,7 +6023,7 @@ const deserializeAws_queryDescribeReservedNodeExchangeStatusCommandError = async
 ): Promise<DescribeReservedNodeExchangeStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6070,7 +6070,7 @@ const deserializeAws_queryDescribeReservedNodeOfferingsCommandError = async (
 ): Promise<DescribeReservedNodeOfferingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6117,7 +6117,7 @@ const deserializeAws_queryDescribeReservedNodesCommandError = async (
 ): Promise<DescribeReservedNodesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6161,7 +6161,7 @@ const deserializeAws_queryDescribeResizeCommandError = async (
 ): Promise<DescribeResizeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6205,7 +6205,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
 ): Promise<DescribeScheduledActionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6249,7 +6249,7 @@ const deserializeAws_queryDescribeSnapshotCopyGrantsCommandError = async (
 ): Promise<DescribeSnapshotCopyGrantsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6293,7 +6293,7 @@ const deserializeAws_queryDescribeSnapshotSchedulesCommandError = async (
 ): Promise<DescribeSnapshotSchedulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6328,7 +6328,7 @@ const deserializeAws_queryDescribeStorageCommandError = async (
 ): Promise<DescribeStorageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
@@ -6363,7 +6363,7 @@ const deserializeAws_queryDescribeTableRestoreStatusCommandError = async (
 ): Promise<DescribeTableRestoreStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6407,7 +6407,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
 ): Promise<DescribeTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6451,7 +6451,7 @@ const deserializeAws_queryDescribeUsageLimitsCommandError = async (
 ): Promise<DescribeUsageLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6495,7 +6495,7 @@ const deserializeAws_queryDisableLoggingCommandError = async (
 ): Promise<DisableLoggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6539,7 +6539,7 @@ const deserializeAws_queryDisableSnapshotCopyCommandError = async (
 ): Promise<DisableSnapshotCopyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6589,7 +6589,7 @@ const deserializeAws_queryDisassociateDataShareConsumerCommandError = async (
 ): Promise<DisassociateDataShareConsumerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6633,7 +6633,7 @@ const deserializeAws_queryEnableLoggingCommandError = async (
 ): Promise<EnableLoggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6689,7 +6689,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
 ): Promise<EnableSnapshotCopyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6760,7 +6760,7 @@ const deserializeAws_queryGetClusterCredentialsCommandError = async (
 ): Promise<GetClusterCredentialsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6804,7 +6804,7 @@ const deserializeAws_queryGetClusterCredentialsWithIAMCommandError = async (
 ): Promise<GetClusterCredentialsWithIAMCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6851,7 +6851,7 @@ const deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommandErro
 ): Promise<GetReservedNodeExchangeConfigurationOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6916,7 +6916,7 @@ const deserializeAws_queryGetReservedNodeExchangeOfferingsCommandError = async (
 ): Promise<GetReservedNodeExchangeOfferingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -6972,7 +6972,7 @@ const deserializeAws_queryModifyAquaConfigurationCommandError = async (
 ): Promise<ModifyAquaConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7019,7 +7019,7 @@ const deserializeAws_queryModifyAuthenticationProfileCommandError = async (
 ): Promise<ModifyAuthenticationProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7066,7 +7066,7 @@ const deserializeAws_queryModifyClusterCommandError = async (
 ): Promise<ModifyClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7161,7 +7161,7 @@ const deserializeAws_queryModifyClusterDbRevisionCommandError = async (
 ): Promise<ModifyClusterDbRevisionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7208,7 +7208,7 @@ const deserializeAws_queryModifyClusterIamRolesCommandError = async (
 ): Promise<ModifyClusterIamRolesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7252,7 +7252,7 @@ const deserializeAws_queryModifyClusterMaintenanceCommandError = async (
 ): Promise<ModifyClusterMaintenanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7296,7 +7296,7 @@ const deserializeAws_queryModifyClusterParameterGroupCommandError = async (
 ): Promise<ModifyClusterParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7340,7 +7340,7 @@ const deserializeAws_queryModifyClusterSnapshotCommandError = async (
 ): Promise<ModifyClusterSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7384,7 +7384,7 @@ const deserializeAws_queryModifyClusterSnapshotScheduleCommandError = async (
 ): Promise<ModifyClusterSnapshotScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7431,7 +7431,7 @@ const deserializeAws_queryModifyClusterSubnetGroupCommandError = async (
 ): Promise<ModifyClusterSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7487,7 +7487,7 @@ const deserializeAws_queryModifyEndpointAccessCommandError = async (
 ): Promise<ModifyEndpointAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7543,7 +7543,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
 ): Promise<ModifyEventSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7608,7 +7608,7 @@ const deserializeAws_queryModifyScheduledActionCommandError = async (
 ): Promise<ModifyScheduledActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7664,7 +7664,7 @@ const deserializeAws_queryModifySnapshotCopyRetentionPeriodCommandError = async 
 ): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7717,7 +7717,7 @@ const deserializeAws_queryModifySnapshotScheduleCommandError = async (
 ): Promise<ModifySnapshotScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7764,7 +7764,7 @@ const deserializeAws_queryModifyUsageLimitCommandError = async (
 ): Promise<ModifyUsageLimitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7811,7 +7811,7 @@ const deserializeAws_queryPauseClusterCommandError = async (
 ): Promise<PauseClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7855,7 +7855,7 @@ const deserializeAws_queryPurchaseReservedNodeOfferingCommandError = async (
 ): Promise<PurchaseReservedNodeOfferingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7905,7 +7905,7 @@ const deserializeAws_queryRebootClusterCommandError = async (
 ): Promise<RebootClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7949,7 +7949,7 @@ const deserializeAws_queryRejectDataShareCommandError = async (
 ): Promise<RejectDataShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -7990,7 +7990,7 @@ const deserializeAws_queryResetClusterParameterGroupCommandError = async (
 ): Promise<ResetClusterParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8034,7 +8034,7 @@ const deserializeAws_queryResizeClusterCommandError = async (
 ): Promise<ResizeClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8117,7 +8117,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
 ): Promise<RestoreFromClusterSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8254,7 +8254,7 @@ const deserializeAws_queryRestoreTableFromClusterSnapshotCommandError = async (
 ): Promise<RestoreTableFromClusterSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8313,7 +8313,7 @@ const deserializeAws_queryResumeClusterCommandError = async (
 ): Promise<ResumeClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8363,7 +8363,7 @@ const deserializeAws_queryRevokeClusterSecurityGroupIngressCommandError = async 
 ): Promise<RevokeClusterSecurityGroupIngressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8410,7 +8410,7 @@ const deserializeAws_queryRevokeEndpointAccessCommandError = async (
 ): Promise<RevokeEndpointAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8469,7 +8469,7 @@ const deserializeAws_queryRevokeSnapshotAccessCommandError = async (
 ): Promise<RevokeSnapshotAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8519,7 +8519,7 @@ const deserializeAws_queryRotateEncryptionKeyCommandError = async (
 ): Promise<RotateEncryptionKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -8566,7 +8566,7 @@ const deserializeAws_queryUpdatePartnerStatusCommandError = async (
 ): Promise<UpdatePartnerStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -19412,6 +19412,12 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+const parseErrorBody = (errorBody: any, context: __SerdeContext): any => {
+  const value = parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
 
 const buildFormUrlencodedString = (formEntries: Record<string, string>): string =>
   Object.entries(formEntries)
