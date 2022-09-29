@@ -57,6 +57,10 @@ import { CancelJobRunCommandInput, CancelJobRunCommandOutput } from "./commands/
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
+import {
+  GetDashboardForJobRunCommandInput,
+  GetDashboardForJobRunCommandOutput,
+} from "./commands/GetDashboardForJobRunCommand";
 import { GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
@@ -77,6 +81,7 @@ export type ServiceInputTypes =
   | CreateApplicationCommandInput
   | DeleteApplicationCommandInput
   | GetApplicationCommandInput
+  | GetDashboardForJobRunCommandInput
   | GetJobRunCommandInput
   | ListApplicationsCommandInput
   | ListJobRunsCommandInput
@@ -93,6 +98,7 @@ export type ServiceOutputTypes =
   | CreateApplicationCommandOutput
   | DeleteApplicationCommandOutput
   | GetApplicationCommandOutput
+  | GetDashboardForJobRunCommandOutput
   | GetJobRunCommandOutput
   | ListApplicationsCommandOutput
   | ListJobRunsCommandOutput

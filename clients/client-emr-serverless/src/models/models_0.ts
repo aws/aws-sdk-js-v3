@@ -8,22 +8,26 @@ import { EMRServerlessServiceException as __BaseException } from "./EMRServerles
  */
 export interface AutoStartConfig {
   /**
-   * <p>Enables the application to automatically start on job submission. Defaults to true.</p>
+   * <p>Enables the application to automatically start on job submission. Defaults to
+   *          true.</p>
    */
   enabled?: boolean;
 }
 
 /**
- * <p>The configuration for an application to automatically stop after a certain amount of time being idle.</p>
+ * <p>The configuration for an application to automatically stop after a certain amount of
+ *          time being idle.</p>
  */
 export interface AutoStopConfig {
   /**
-   * <p>Enables the application to automatically stop after a certain amount of time being idle. Defaults to true.</p>
+   * <p>Enables the application to automatically stop after a certain amount of time being idle.
+   *          Defaults to true.</p>
    */
   enabled?: boolean;
 
   /**
-   * <p>The amount of idle time in minutes after which your application will automatically stop. Defaults to 15 minutes.</p>
+   * <p>The amount of idle time in minutes after which your application will automatically stop.
+   *          Defaults to 15 minutes.</p>
    */
   idleTimeoutMinutes?: number;
 }
@@ -182,7 +186,8 @@ export interface Application {
   autoStartConfiguration?: AutoStartConfig;
 
   /**
-   * <p>The configuration for an application to automatically stop after a certain amount of time being idle.</p>
+   * <p>The configuration for an application to automatically stop after a certain amount of
+   *          time being idle.</p>
    */
   autoStopConfiguration?: AutoStopConfig;
 
@@ -307,7 +312,8 @@ export interface CreateApplicationRequest {
   autoStartConfiguration?: AutoStartConfig;
 
   /**
-   * <p>The configuration for an application to automatically stop after a certain amount of time being idle.</p>
+   * <p>The configuration for an application to automatically stop after a certain amount of
+   *          time being idle.</p>
    */
   autoStopConfiguration?: AutoStopConfig;
 
@@ -426,7 +432,8 @@ export interface ListApplicationsRequest {
   maxResults?: number;
 
   /**
-   * <p>An optional filter for application states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
+   * <p>An optional filter for application states. Note that if this filter contains multiple
+   *          states, the resulting list will be grouped by the state.</p>
    */
   states?: (ApplicationState | string)[];
 }
@@ -511,7 +518,8 @@ export interface UpdateApplicationRequest {
   autoStartConfiguration?: AutoStartConfig;
 
   /**
-   * <p>The configuration for an application to automatically stop after a certain amount of time being idle.</p>
+   * <p>The configuration for an application to automatically stop after a certain amount of
+   *          time being idle.</p>
    */
   autoStopConfiguration?: AutoStopConfig;
 
@@ -552,6 +560,25 @@ export interface CancelJobRunResponse {
   jobRunId: string | undefined;
 }
 
+export interface GetDashboardForJobRunRequest {
+  /**
+   * <p>The ID of the application.</p>
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The ID of the job run.</p>
+   */
+  jobRunId: string | undefined;
+}
+
+export interface GetDashboardForJobRunResponse {
+  /**
+   * <p>The URL to view job run's dashboard.</p>
+   */
+  url?: string;
+}
+
 export interface GetJobRunRequest {
   /**
    * <p>The ID of the application on which the job run is submitted.</p>
@@ -569,7 +596,8 @@ export interface GetJobRunRequest {
  */
 export interface ManagedPersistenceMonitoringConfiguration {
   /**
-   * <p>Enables managed logging and defaults to true. If set to false, managed logging will be turned off.</p>
+   * <p>Enables managed logging and defaults to true. If set to false, managed logging will be
+   *          turned off.</p>
    */
   enabled?: boolean;
 
@@ -705,22 +733,25 @@ export enum JobRunState {
 }
 
 /**
- * <p>The aggregate vCPU, memory, and storage resources used from the time job start executing till the time job is terminated,
- *           rounded up to the nearest second.</p>
+ * <p>The aggregate vCPU, memory, and storage resources used from the time job start executing
+ *          till the time job is terminated, rounded up to the nearest second.</p>
  */
 export interface TotalResourceUtilization {
   /**
-   * <p>The aggregated vCPU used per hour from the time job start executing till the time job is terminated.</p>
+   * <p>The aggregated vCPU used per hour from the time job start executing till the time job is
+   *          terminated.</p>
    */
   vCPUHour?: number;
 
   /**
-   * <p>The aggregated memory used per hour from the time job start executing till the time job is terminated.</p>
+   * <p>The aggregated memory used per hour from the time job start executing till the time job
+   *          is terminated.</p>
    */
   memoryGBHour?: number;
 
   /**
-   * <p>The aggregated storage used per hour from the time job start executing till the time job is terminated.</p>
+   * <p>The aggregated storage used per hour from the time job start executing till the time job
+   *          is terminated.</p>
    */
   storageGBHour?: number;
 }
@@ -752,7 +783,8 @@ export interface ListJobRunsRequest {
   createdAtBefore?: Date;
 
   /**
-   * <p>An optional filter for job run states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
+   * <p>An optional filter for job run states. Note that if this filter contains multiple
+   *          states, the resulting list will be grouped by the state.</p>
    */
   states?: (JobRunState | string)[];
 }
@@ -854,7 +886,9 @@ export interface StartJobRunResponse {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the supported resources are Amazon EMR Serverless applications and job runs.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
+   *          Currently, the supported resources are Amazon EMR Serverless applications and job
+   *          runs.</p>
    */
   resourceArn: string | undefined;
 }
@@ -868,7 +902,9 @@ export interface ListTagsForResourceResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the supported resources are Amazon EMR Serverless applications and job runs.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
+   *          Currently, the supported resources are Amazon EMR Serverless applications and job
+   *          runs.</p>
    */
   resourceArn: string | undefined;
 
@@ -882,7 +918,9 @@ export interface TagResourceResponse {}
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the supported resources are Amazon EMR Serverless applications and job runs.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
+   *          Currently, the supported resources are Amazon EMR Serverless applications and job
+   *          runs.</p>
    */
   resourceArn: string | undefined;
 
@@ -1008,8 +1046,8 @@ export interface JobRun {
   tags?: Record<string, string>;
 
   /**
-   * <p>The aggregate vCPU, memory, and storage resources used from the time job start executing till the time job is terminated,
-   *           rounded up to the nearest second.</p>
+   * <p>The aggregate vCPU, memory, and storage resources used from the time job start executing
+   *          till the time job is terminated, rounded up to the nearest second.</p>
    */
   totalResourceUtilization?: TotalResourceUtilization;
 
@@ -1019,7 +1057,9 @@ export interface JobRun {
   networkConfiguration?: NetworkConfiguration;
 
   /**
-   * <p>The job run total execution duration in seconds. This field is only available for job runs in a <code>COMPLETED</code>, <code>FAILED</code>, or <code>CANCELLED</code> state.</p>
+   * <p>The job run total execution duration in seconds. This field is only available for job
+   *          runs in a <code>COMPLETED</code>, <code>FAILED</code>, or <code>CANCELLED</code>
+   *          state.</p>
    */
   totalExecutionDurationSeconds?: number;
 }
@@ -1057,7 +1097,8 @@ export interface StartJobRunRequest {
   tags?: Record<string, string>;
 
   /**
-   * <p>The maximum duration for the job run to run. If the job run runs beyond this duration, it will be automatically cancelled.</p>
+   * <p>The maximum duration for the job run to run. If the job run runs beyond this duration,
+   *          it will be automatically cancelled.</p>
    */
   executionTimeoutMinutes?: number;
 
@@ -1239,6 +1280,20 @@ export const CancelJobRunRequestFilterSensitiveLog = (obj: CancelJobRunRequest):
  * @internal
  */
 export const CancelJobRunResponseFilterSensitiveLog = (obj: CancelJobRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDashboardForJobRunRequestFilterSensitiveLog = (obj: GetDashboardForJobRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDashboardForJobRunResponseFilterSensitiveLog = (obj: GetDashboardForJobRunResponse): any => ({
   ...obj,
 });
 

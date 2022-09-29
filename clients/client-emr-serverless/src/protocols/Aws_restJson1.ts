@@ -28,6 +28,10 @@ import { CancelJobRunCommandInput, CancelJobRunCommandOutput } from "../commands
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "../commands/DeleteApplicationCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "../commands/GetApplicationCommand";
+import {
+  GetDashboardForJobRunCommandInput,
+  GetDashboardForJobRunCommandOutput,
+} from "../commands/GetDashboardForJobRunCommand";
 import { GetJobRunCommandInput, GetJobRunCommandOutput } from "../commands/GetJobRunCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "../commands/ListJobRunsCommand";
@@ -198,6 +202,36 @@ export const serializeAws_restJson1GetApplicationCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetDashboardForJobRunCommand = async (
+  input: GetDashboardForJobRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/applications/{applicationId}/jobruns/{jobRunId}/dashboard";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "applicationId",
+    () => input.applicationId!,
+    "{applicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "jobRunId", () => input.jobRunId!, "{jobRunId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetJobRunCommand = async (
   input: GetJobRunCommandInput,
   context: __SerdeContext
@@ -238,10 +272,7 @@ export const serializeAws_restJson1ListApplicationsCommand = async (
   const query: any = map({
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    states: [
-      () => input.states !== void 0,
-      () => (Array.from(input.states!.values()) || []).map((_entry) => _entry as any),
-    ],
+    states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({
@@ -283,10 +314,7 @@ export const serializeAws_restJson1ListJobRunsCommand = async (
       () => input.createdAtBefore !== void 0,
       () => (input.createdAtBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    states: [
-      () => input.states !== void 0,
-      () => (Array.from(input.states!.values()) || []).map((_entry) => _entry as any),
-    ],
+    states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({
@@ -683,6 +711,53 @@ const deserializeAws_restJson1GetApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.emrserverless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.emrserverless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.emrserverless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetDashboardForJobRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDashboardForJobRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetDashboardForJobRunCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.url != null) {
+    contents.url = __expectString(data.url);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetDashboardForJobRunCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDashboardForJobRunCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
