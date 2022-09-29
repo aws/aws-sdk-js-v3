@@ -61,40 +61,42 @@ export enum Engine {
   STANDARD = "standard",
 }
 
-export type LanguageCode =
-  | "arb"
-  | "ca-ES"
-  | "cmn-CN"
-  | "cy-GB"
-  | "da-DK"
-  | "de-AT"
-  | "de-DE"
-  | "en-AU"
-  | "en-GB"
-  | "en-GB-WLS"
-  | "en-IN"
-  | "en-NZ"
-  | "en-US"
-  | "en-ZA"
-  | "es-ES"
-  | "es-MX"
-  | "es-US"
-  | "fr-CA"
-  | "fr-FR"
-  | "hi-IN"
-  | "is-IS"
-  | "it-IT"
-  | "ja-JP"
-  | "ko-KR"
-  | "nb-NO"
-  | "nl-NL"
-  | "pl-PL"
-  | "pt-BR"
-  | "pt-PT"
-  | "ro-RO"
-  | "ru-RU"
-  | "sv-SE"
-  | "tr-TR";
+export enum LanguageCode {
+  arb = "arb",
+  ca_ES = "ca-ES",
+  cmn_CN = "cmn-CN",
+  cy_GB = "cy-GB",
+  da_DK = "da-DK",
+  de_AT = "de-AT",
+  de_DE = "de-DE",
+  en_AU = "en-AU",
+  en_GB = "en-GB",
+  en_GB_WLS = "en-GB-WLS",
+  en_IN = "en-IN",
+  en_NZ = "en-NZ",
+  en_US = "en-US",
+  en_ZA = "en-ZA",
+  es_ES = "es-ES",
+  es_MX = "es-MX",
+  es_US = "es-US",
+  fr_CA = "fr-CA",
+  fr_FR = "fr-FR",
+  hi_IN = "hi-IN",
+  is_IS = "is-IS",
+  it_IT = "it-IT",
+  ja_JP = "ja-JP",
+  ko_KR = "ko-KR",
+  nb_NO = "nb-NO",
+  nl_NL = "nl-NL",
+  pl_PL = "pl-PL",
+  pt_BR = "pt-BR",
+  pt_PT = "pt-PT",
+  ro_RO = "ro-RO",
+  ru_RU = "ru-RU",
+  sv_SE = "sv-SE",
+  tr_TR = "tr-TR",
+  yue_CN = "yue-CN",
+}
 
 export interface DescribeVoicesInput {
   /**
@@ -129,81 +131,86 @@ export interface DescribeVoicesInput {
   NextToken?: string;
 }
 
-export type Gender = "Female" | "Male";
+export enum Gender {
+  Female = "Female",
+  Male = "Male",
+}
 
-export type VoiceId =
-  | "Aditi"
-  | "Amy"
-  | "Aria"
-  | "Arlet"
-  | "Arthur"
-  | "Astrid"
-  | "Ayanda"
-  | "Bianca"
-  | "Brian"
-  | "Camila"
-  | "Carla"
-  | "Carmen"
-  | "Celine"
-  | "Chantal"
-  | "Conchita"
-  | "Cristiano"
-  | "Daniel"
-  | "Dora"
-  | "Emma"
-  | "Enrique"
-  | "Ewa"
-  | "Filiz"
-  | "Gabrielle"
-  | "Geraint"
-  | "Giorgio"
-  | "Gwyneth"
-  | "Hannah"
-  | "Hans"
-  | "Ines"
-  | "Ivy"
-  | "Jacek"
-  | "Jan"
-  | "Joanna"
-  | "Joey"
-  | "Justin"
-  | "Kajal"
-  | "Karl"
-  | "Kendra"
-  | "Kevin"
-  | "Kimberly"
-  | "Lea"
-  | "Liam"
-  | "Liv"
-  | "Lotte"
-  | "Lucia"
-  | "Lupe"
-  | "Mads"
-  | "Maja"
-  | "Marlene"
-  | "Mathieu"
-  | "Matthew"
-  | "Maxim"
-  | "Mia"
-  | "Miguel"
-  | "Mizuki"
-  | "Naja"
-  | "Nicole"
-  | "Olivia"
-  | "Pedro"
-  | "Penelope"
-  | "Raveena"
-  | "Ricardo"
-  | "Ruben"
-  | "Russell"
-  | "Salli"
-  | "Seoyeon"
-  | "Takumi"
-  | "Tatyana"
-  | "Vicki"
-  | "Vitoria"
-  | "Zeina"
-  | "Zhiyu";
+export enum VoiceId {
+  Aditi = "Aditi",
+  Amy = "Amy",
+  Aria = "Aria",
+  Arlet = "Arlet",
+  Arthur = "Arthur",
+  Astrid = "Astrid",
+  Ayanda = "Ayanda",
+  Bianca = "Bianca",
+  Brian = "Brian",
+  Camila = "Camila",
+  Carla = "Carla",
+  Carmen = "Carmen",
+  Celine = "Celine",
+  Chantal = "Chantal",
+  Conchita = "Conchita",
+  Cristiano = "Cristiano",
+  Daniel = "Daniel",
+  Dora = "Dora",
+  Emma = "Emma",
+  Enrique = "Enrique",
+  Ewa = "Ewa",
+  Filiz = "Filiz",
+  Gabrielle = "Gabrielle",
+  Geraint = "Geraint",
+  Giorgio = "Giorgio",
+  Gwyneth = "Gwyneth",
+  Hannah = "Hannah",
+  Hans = "Hans",
+  Hiujin = "Hiujin",
+  Ines = "Ines",
+  Ivy = "Ivy",
+  Jacek = "Jacek",
+  Jan = "Jan",
+  Joanna = "Joanna",
+  Joey = "Joey",
+  Justin = "Justin",
+  Kajal = "Kajal",
+  Karl = "Karl",
+  Kendra = "Kendra",
+  Kevin = "Kevin",
+  Kimberly = "Kimberly",
+  Lea = "Lea",
+  Liam = "Liam",
+  Liv = "Liv",
+  Lotte = "Lotte",
+  Lucia = "Lucia",
+  Lupe = "Lupe",
+  Mads = "Mads",
+  Maja = "Maja",
+  Marlene = "Marlene",
+  Mathieu = "Mathieu",
+  Matthew = "Matthew",
+  Maxim = "Maxim",
+  Mia = "Mia",
+  Miguel = "Miguel",
+  Mizuki = "Mizuki",
+  Naja = "Naja",
+  Nicole = "Nicole",
+  Olivia = "Olivia",
+  Pedro = "Pedro",
+  Penelope = "Penelope",
+  Raveena = "Raveena",
+  Ricardo = "Ricardo",
+  Ruben = "Ruben",
+  Russell = "Russell",
+  Salli = "Salli",
+  Seoyeon = "Seoyeon",
+  Takumi = "Takumi",
+  Tatyana = "Tatyana",
+  Vicki = "Vicki",
+  Vitoria = "Vitoria",
+  Zeina = "Zeina",
+  Zhiyu = "Zhiyu",
+}
 
 /**
  * <p>Description of the voice.</p>
@@ -1157,7 +1164,7 @@ export interface SynthesizeSpeechOutput {
   /**
    * <p> Stream containing the synthesized speech. </p>
    */
-  AudioStream?: Readable | ReadableStream | Blob;
+  AudioStream: Readable | ReadableStream | Blob | undefined;
 
   /**
    * <p> Specifies the type audio stream. This should reflect the
