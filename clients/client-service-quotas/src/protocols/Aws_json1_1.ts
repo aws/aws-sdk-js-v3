@@ -421,12 +421,12 @@ const deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       throw await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       throw await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context);
@@ -483,12 +483,12 @@ const deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       throw await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       throw await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context);
@@ -548,12 +548,12 @@ const deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandError = async
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       throw await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       throw await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context);
@@ -610,12 +610,12 @@ const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommandError = 
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       throw await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       throw await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context);
@@ -831,12 +831,12 @@ const deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommandErr
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       throw await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       throw await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context);
@@ -1064,12 +1064,12 @@ const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommandErr
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       throw await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       throw await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context);
@@ -1288,12 +1288,12 @@ const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommandErr
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       throw await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       throw await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context);

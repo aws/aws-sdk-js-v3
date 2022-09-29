@@ -951,16 +951,16 @@ const deserializeAws_queryAddPermissionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1001,16 +1001,16 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     default:
@@ -1051,22 +1051,22 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "FilterPolicyLimitExceededException":
+    case "FilterPolicyLimitExceeded":
     case "com.amazonaws.sns#FilterPolicyLimitExceededException":
       throw await deserializeAws_queryFilterPolicyLimitExceededExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
-    case "SubscriptionLimitExceededException":
+    case "SubscriptionLimitExceeded":
     case "com.amazonaws.sns#SubscriptionLimitExceededException":
       throw await deserializeAws_querySubscriptionLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -1107,13 +1107,13 @@ const deserializeAws_queryCreatePlatformApplicationCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
     default:
@@ -1154,16 +1154,16 @@ const deserializeAws_queryCreatePlatformEndpointCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1204,22 +1204,22 @@ const deserializeAws_queryCreateSMSSandboxPhoneNumberCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "OptedOutException":
+    case "OptedOut":
     case "com.amazonaws.sns#OptedOutException":
       throw await deserializeAws_queryOptedOutExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
-    case "UserErrorException":
+    case "UserError":
     case "com.amazonaws.sns#UserErrorException":
       throw await deserializeAws_queryUserErrorExceptionResponse(parsedOutput, context);
     default:
@@ -1260,31 +1260,31 @@ const deserializeAws_queryCreateTopicCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "ConcurrentAccessException":
+    case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
       throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "StaleTagException":
+    case "StaleTag":
     case "com.amazonaws.sns#StaleTagException":
       throw await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context);
-    case "TagLimitExceededException":
+    case "TagLimitExceeded":
     case "com.amazonaws.sns#TagLimitExceededException":
       throw await deserializeAws_queryTagLimitExceededExceptionResponse(parsedOutput, context);
-    case "TagPolicyException":
+    case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
       throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
-    case "TopicLimitExceededException":
+    case "TopicLimitExceeded":
     case "com.amazonaws.sns#TopicLimitExceededException":
       throw await deserializeAws_queryTopicLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -1322,13 +1322,13 @@ const deserializeAws_queryDeleteEndpointCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
     default:
@@ -1366,13 +1366,13 @@ const deserializeAws_queryDeletePlatformApplicationCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
     default:
@@ -1413,22 +1413,22 @@ const deserializeAws_queryDeleteSMSSandboxPhoneNumberCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
-    case "UserErrorException":
+    case "UserError":
     case "com.amazonaws.sns#UserErrorException":
       throw await deserializeAws_queryUserErrorExceptionResponse(parsedOutput, context);
     default:
@@ -1466,25 +1466,25 @@ const deserializeAws_queryDeleteTopicCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "ConcurrentAccessException":
+    case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
       throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
-    case "StaleTagException":
+    case "StaleTag":
     case "com.amazonaws.sns#StaleTagException":
       throw await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context);
-    case "TagPolicyException":
+    case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
       throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
     default:
@@ -1525,19 +1525,19 @@ const deserializeAws_queryGetDataProtectionPolicyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1578,16 +1578,16 @@ const deserializeAws_queryGetEndpointAttributesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1631,16 +1631,16 @@ const deserializeAws_queryGetPlatformApplicationAttributesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1681,16 +1681,16 @@ const deserializeAws_queryGetSMSAttributesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     default:
@@ -1731,13 +1731,13 @@ const deserializeAws_queryGetSMSSandboxAccountStatusCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     default:
@@ -1778,16 +1778,16 @@ const deserializeAws_queryGetSubscriptionAttributesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1828,19 +1828,19 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1884,16 +1884,16 @@ const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1934,16 +1934,16 @@ const deserializeAws_queryListOriginationNumbersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1987,16 +1987,16 @@ const deserializeAws_queryListPhoneNumbersOptedOutCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     default:
@@ -2037,13 +2037,13 @@ const deserializeAws_queryListPlatformApplicationsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
     default:
@@ -2084,19 +2084,19 @@ const deserializeAws_queryListSMSSandboxPhoneNumbersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     default:
@@ -2137,13 +2137,13 @@ const deserializeAws_queryListSubscriptionsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
     default:
@@ -2184,16 +2184,16 @@ const deserializeAws_queryListSubscriptionsByTopicCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2234,19 +2234,19 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "ConcurrentAccessException":
+    case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
       throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "TagPolicyException":
+    case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
       throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
     default:
@@ -2287,13 +2287,13 @@ const deserializeAws_queryListTopicsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
     default:
@@ -2334,16 +2334,16 @@ const deserializeAws_queryOptInPhoneNumberCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     default:
@@ -2384,46 +2384,46 @@ const deserializeAws_queryPublishCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "EndpointDisabledException":
+    case "EndpointDisabled":
     case "com.amazonaws.sns#EndpointDisabledException":
       throw await deserializeAws_queryEndpointDisabledExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.sns#InvalidParameterValueException":
-      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "KMSAccessDeniedException":
+    case "KMSAccessDenied":
     case "com.amazonaws.sns#KMSAccessDeniedException":
       throw await deserializeAws_queryKMSAccessDeniedExceptionResponse(parsedOutput, context);
-    case "KMSDisabledException":
+    case "KMSDisabled":
     case "com.amazonaws.sns#KMSDisabledException":
       throw await deserializeAws_queryKMSDisabledExceptionResponse(parsedOutput, context);
-    case "KMSInvalidStateException":
+    case "KMSInvalidState":
     case "com.amazonaws.sns#KMSInvalidStateException":
       throw await deserializeAws_queryKMSInvalidStateExceptionResponse(parsedOutput, context);
-    case "KMSNotFoundException":
+    case "KMSNotFound":
     case "com.amazonaws.sns#KMSNotFoundException":
       throw await deserializeAws_queryKMSNotFoundExceptionResponse(parsedOutput, context);
     case "KMSOptInRequired":
     case "com.amazonaws.sns#KMSOptInRequired":
       throw await deserializeAws_queryKMSOptInRequiredResponse(parsedOutput, context);
-    case "KMSThrottlingException":
+    case "KMSThrottling":
     case "com.amazonaws.sns#KMSThrottlingException":
       throw await deserializeAws_queryKMSThrottlingExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
-    case "PlatformApplicationDisabledException":
+    case "ParameterValueInvalid":
+    case "com.amazonaws.sns#InvalidParameterValueException":
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "PlatformApplicationDisabled":
     case "com.amazonaws.sns#PlatformApplicationDisabledException":
       throw await deserializeAws_queryPlatformApplicationDisabledExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -2467,61 +2467,61 @@ const deserializeAws_queryPublishBatchCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "BatchEntryIdsNotDistinctException":
+    case "BatchEntryIdsNotDistinct":
     case "com.amazonaws.sns#BatchEntryIdsNotDistinctException":
       throw await deserializeAws_queryBatchEntryIdsNotDistinctExceptionResponse(parsedOutput, context);
-    case "BatchRequestTooLongException":
+    case "BatchRequestTooLong":
     case "com.amazonaws.sns#BatchRequestTooLongException":
       throw await deserializeAws_queryBatchRequestTooLongExceptionResponse(parsedOutput, context);
-    case "EmptyBatchRequestException":
+    case "EmptyBatchRequest":
     case "com.amazonaws.sns#EmptyBatchRequestException":
       throw await deserializeAws_queryEmptyBatchRequestExceptionResponse(parsedOutput, context);
-    case "EndpointDisabledException":
+    case "EndpointDisabled":
     case "com.amazonaws.sns#EndpointDisabledException":
       throw await deserializeAws_queryEndpointDisabledExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidBatchEntryIdException":
+    case "InvalidBatchEntryId":
     case "com.amazonaws.sns#InvalidBatchEntryIdException":
       throw await deserializeAws_queryInvalidBatchEntryIdExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.sns#InvalidParameterValueException":
-      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "KMSAccessDeniedException":
+    case "KMSAccessDenied":
     case "com.amazonaws.sns#KMSAccessDeniedException":
       throw await deserializeAws_queryKMSAccessDeniedExceptionResponse(parsedOutput, context);
-    case "KMSDisabledException":
+    case "KMSDisabled":
     case "com.amazonaws.sns#KMSDisabledException":
       throw await deserializeAws_queryKMSDisabledExceptionResponse(parsedOutput, context);
-    case "KMSInvalidStateException":
+    case "KMSInvalidState":
     case "com.amazonaws.sns#KMSInvalidStateException":
       throw await deserializeAws_queryKMSInvalidStateExceptionResponse(parsedOutput, context);
-    case "KMSNotFoundException":
+    case "KMSNotFound":
     case "com.amazonaws.sns#KMSNotFoundException":
       throw await deserializeAws_queryKMSNotFoundExceptionResponse(parsedOutput, context);
     case "KMSOptInRequired":
     case "com.amazonaws.sns#KMSOptInRequired":
       throw await deserializeAws_queryKMSOptInRequiredResponse(parsedOutput, context);
-    case "KMSThrottlingException":
+    case "KMSThrottling":
     case "com.amazonaws.sns#KMSThrottlingException":
       throw await deserializeAws_queryKMSThrottlingExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
-    case "PlatformApplicationDisabledException":
+    case "ParameterValueInvalid":
+    case "com.amazonaws.sns#InvalidParameterValueException":
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "PlatformApplicationDisabled":
     case "com.amazonaws.sns#PlatformApplicationDisabledException":
       throw await deserializeAws_queryPlatformApplicationDisabledExceptionResponse(parsedOutput, context);
-    case "TooManyEntriesInBatchRequestException":
+    case "TooManyEntriesInBatchRequest":
     case "com.amazonaws.sns#TooManyEntriesInBatchRequestException":
       throw await deserializeAws_queryTooManyEntriesInBatchRequestExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -2562,19 +2562,19 @@ const deserializeAws_queryPutDataProtectionPolicyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2612,16 +2612,16 @@ const deserializeAws_queryRemovePermissionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2659,16 +2659,16 @@ const deserializeAws_querySetEndpointAttributesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2706,16 +2706,16 @@ const deserializeAws_querySetPlatformApplicationAttributesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2756,16 +2756,16 @@ const deserializeAws_querySetSMSAttributesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     default:
@@ -2803,19 +2803,19 @@ const deserializeAws_querySetSubscriptionAttributesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "FilterPolicyLimitExceededException":
+    case "FilterPolicyLimitExceeded":
     case "com.amazonaws.sns#FilterPolicyLimitExceededException":
       throw await deserializeAws_queryFilterPolicyLimitExceededExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2853,19 +2853,19 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -2906,25 +2906,25 @@ const deserializeAws_querySubscribeCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "FilterPolicyLimitExceededException":
+    case "FilterPolicyLimitExceeded":
     case "com.amazonaws.sns#FilterPolicyLimitExceededException":
       throw await deserializeAws_queryFilterPolicyLimitExceededExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
-    case "SubscriptionLimitExceededException":
+    case "SubscriptionLimitExceeded":
     case "com.amazonaws.sns#SubscriptionLimitExceededException":
       throw await deserializeAws_querySubscriptionLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -2965,25 +2965,25 @@ const deserializeAws_queryTagResourceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "ConcurrentAccessException":
+    case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
       throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "StaleTagException":
+    case "StaleTag":
     case "com.amazonaws.sns#StaleTagException":
       throw await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context);
-    case "TagLimitExceededException":
+    case "TagLimitExceeded":
     case "com.amazonaws.sns#TagLimitExceededException":
       throw await deserializeAws_queryTagLimitExceededExceptionResponse(parsedOutput, context);
-    case "TagPolicyException":
+    case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
       throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
     default:
@@ -3021,19 +3021,19 @@ const deserializeAws_queryUnsubscribeCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "InvalidSecurityException":
+    case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context);
-    case "NotFoundException":
+    case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -3074,25 +3074,25 @@ const deserializeAws_queryUntagResourceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "ConcurrentAccessException":
+    case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
       throw await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "StaleTagException":
+    case "StaleTag":
     case "com.amazonaws.sns#StaleTagException":
       throw await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context);
-    case "TagLimitExceededException":
+    case "TagLimitExceeded":
     case "com.amazonaws.sns#TagLimitExceededException":
       throw await deserializeAws_queryTagLimitExceededExceptionResponse(parsedOutput, context);
-    case "TagPolicyException":
+    case "TagPolicy":
     case "com.amazonaws.sns#TagPolicyException":
       throw await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context);
     default:
@@ -3133,19 +3133,19 @@ const deserializeAws_queryVerifySMSSandboxPhoneNumberCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationErrorException":
+    case "AuthorizationError":
     case "com.amazonaws.sns#AuthorizationErrorException":
       throw await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context);
-    case "InternalErrorException":
+    case "InternalError":
     case "com.amazonaws.sns#InternalErrorException":
       throw await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context);
-    case "InvalidParameterException":
+    case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
-    case "ThrottledException":
+    case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context);
     case "VerificationException":

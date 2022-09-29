@@ -11,4 +11,4 @@ Feature: Simple Notification Service
 
   Scenario: Error handling
     Given I get SNS topic attributes with an invalid ARN
-    Then the error code should be "InvalidParameter"
+    Then the error code should be "InvalidParameterException"

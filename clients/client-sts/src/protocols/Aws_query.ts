@@ -224,10 +224,10 @@ const deserializeAws_queryAssumeRoleCommandError = async (
     case "ExpiredTokenException":
     case "com.amazonaws.sts#ExpiredTokenException":
       throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "PackedPolicyTooLargeException":
+    case "PackedPolicyTooLarge":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
     case "RegionDisabledException":
@@ -274,16 +274,16 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
     case "ExpiredTokenException":
     case "com.amazonaws.sts#ExpiredTokenException":
       throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
-    case "IDPRejectedClaimException":
+    case "IDPRejectedClaim":
     case "com.amazonaws.sts#IDPRejectedClaimException":
       throw await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context);
-    case "InvalidIdentityTokenException":
+    case "InvalidIdentityToken":
     case "com.amazonaws.sts#InvalidIdentityTokenException":
       throw await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "PackedPolicyTooLargeException":
+    case "PackedPolicyTooLarge":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
     case "RegionDisabledException":
@@ -330,19 +330,19 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
     case "ExpiredTokenException":
     case "com.amazonaws.sts#ExpiredTokenException":
       throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
-    case "IDPCommunicationErrorException":
+    case "IDPCommunicationError":
     case "com.amazonaws.sts#IDPCommunicationErrorException":
       throw await deserializeAws_queryIDPCommunicationErrorExceptionResponse(parsedOutput, context);
-    case "IDPRejectedClaimException":
+    case "IDPRejectedClaim":
     case "com.amazonaws.sts#IDPRejectedClaimException":
       throw await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context);
-    case "InvalidIdentityTokenException":
+    case "InvalidIdentityToken":
     case "com.amazonaws.sts#InvalidIdentityTokenException":
       throw await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "PackedPolicyTooLargeException":
+    case "PackedPolicyTooLarge":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
     case "RegionDisabledException":
@@ -497,10 +497,10 @@ const deserializeAws_queryGetFederationTokenCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-    case "PackedPolicyTooLargeException":
+    case "PackedPolicyTooLarge":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
     case "RegionDisabledException":

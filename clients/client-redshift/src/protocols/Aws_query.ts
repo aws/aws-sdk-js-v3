@@ -2757,22 +2757,22 @@ const deserializeAws_queryAcceptReservedNodeExchangeCommandError = async (
     case "DependentServiceUnavailableFault":
     case "com.amazonaws.redshift#DependentServiceUnavailableFault":
       throw await deserializeAws_queryDependentServiceUnavailableFaultResponse(parsedOutput, context);
-    case "InvalidReservedNodeStateFault":
+    case "InvalidReservedNodeState":
     case "com.amazonaws.redshift#InvalidReservedNodeStateFault":
       throw await deserializeAws_queryInvalidReservedNodeStateFaultResponse(parsedOutput, context);
-    case "ReservedNodeAlreadyExistsFault":
+    case "ReservedNodeAlreadyExists":
     case "com.amazonaws.redshift#ReservedNodeAlreadyExistsFault":
       throw await deserializeAws_queryReservedNodeAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ReservedNodeAlreadyMigratedFault":
+    case "ReservedNodeAlreadyMigrated":
     case "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault":
       throw await deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse(parsedOutput, context);
-    case "ReservedNodeNotFoundFault":
+    case "ReservedNodeNotFound":
     case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
       throw await deserializeAws_queryReservedNodeNotFoundFaultResponse(parsedOutput, context);
-    case "ReservedNodeOfferingNotFoundFault":
+    case "ReservedNodeOfferingNotFound":
     case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
       throw await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -2813,13 +2813,13 @@ const deserializeAws_queryAddPartnerCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "PartnerNotFoundFault":
+    case "PartnerNotFound":
     case "com.amazonaws.redshift#PartnerNotFoundFault":
       throw await deserializeAws_queryPartnerNotFoundFaultResponse(parsedOutput, context);
-    case "UnauthorizedPartnerIntegrationFault":
+    case "UnauthorizedPartnerIntegration":
     case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
       throw await deserializeAws_queryUnauthorizedPartnerIntegrationFaultResponse(parsedOutput, context);
     default:
@@ -2907,16 +2907,16 @@ const deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommandError = asy
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationAlreadyExistsFault":
+    case "AuthorizationAlreadyExists":
     case "com.amazonaws.redshift#AuthorizationAlreadyExistsFault":
       throw await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(parsedOutput, context);
-    case "AuthorizationQuotaExceededFault":
+    case "AuthorizationQuotaExceeded":
     case "com.amazonaws.redshift#AuthorizationQuotaExceededFault":
       throw await deserializeAws_queryAuthorizationQuotaExceededFaultResponse(parsedOutput, context);
-    case "ClusterSecurityGroupNotFoundFault":
+    case "ClusterSecurityGroupNotFound":
     case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
       throw await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterSecurityGroupStateFault":
+    case "InvalidClusterSecurityGroupState":
     case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -2998,22 +2998,22 @@ const deserializeAws_queryAuthorizeEndpointAccessCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "EndpointAuthorizationAlreadyExistsFault":
+    case "EndpointAuthorizationAlreadyExists":
     case "com.amazonaws.redshift#EndpointAuthorizationAlreadyExistsFault":
       throw await deserializeAws_queryEndpointAuthorizationAlreadyExistsFaultResponse(parsedOutput, context);
-    case "EndpointAuthorizationsPerClusterLimitExceededFault":
+    case "EndpointAuthorizationsPerClusterLimitExceeded":
     case "com.amazonaws.redshift#EndpointAuthorizationsPerClusterLimitExceededFault":
       throw await deserializeAws_queryEndpointAuthorizationsPerClusterLimitExceededFaultResponse(parsedOutput, context);
-    case "InvalidAuthorizationStateFault":
+    case "InvalidAuthorizationState":
     case "com.amazonaws.redshift#InvalidAuthorizationStateFault":
       throw await deserializeAws_queryInvalidAuthorizationStateFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -3054,25 +3054,25 @@ const deserializeAws_queryAuthorizeSnapshotAccessCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationAlreadyExistsFault":
+    case "AuthorizationAlreadyExists":
     case "com.amazonaws.redshift#AuthorizationAlreadyExistsFault":
       throw await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(parsedOutput, context);
-    case "AuthorizationQuotaExceededFault":
+    case "AuthorizationQuotaExceeded":
     case "com.amazonaws.redshift#AuthorizationQuotaExceededFault":
       throw await deserializeAws_queryAuthorizationQuotaExceededFaultResponse(parsedOutput, context);
-    case "ClusterSnapshotNotFoundFault":
+    case "ClusterSnapshotNotFound":
     case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "DependentServiceRequestThrottlingFault":
     case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
       throw await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(parsedOutput, context);
-    case "InvalidClusterSnapshotStateFault":
+    case "InvalidClusterSnapshotState":
     case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(parsedOutput, context);
     case "LimitExceededFault":
     case "com.amazonaws.redshift#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -3113,7 +3113,7 @@ const deserializeAws_queryBatchDeleteClusterSnapshotsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "BatchDeleteRequestSizeExceededFault":
+    case "BatchDeleteRequestSizeExceeded":
     case "com.amazonaws.redshift#BatchDeleteRequestSizeExceededFault":
       throw await deserializeAws_queryBatchDeleteRequestSizeExceededFaultResponse(parsedOutput, context);
     default:
@@ -3201,16 +3201,16 @@ const deserializeAws_queryCancelResizeCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
-    case "ResizeNotFoundFault":
+    case "ResizeNotFound":
     case "com.amazonaws.redshift#ResizeNotFoundFault":
       throw await deserializeAws_queryResizeNotFoundFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -3251,16 +3251,16 @@ const deserializeAws_queryCopyClusterSnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterSnapshotAlreadyExistsFault":
+    case "ClusterSnapshotAlreadyExists":
     case "com.amazonaws.redshift#ClusterSnapshotAlreadyExistsFault":
       throw await deserializeAws_queryClusterSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ClusterSnapshotNotFoundFault":
+    case "ClusterSnapshotNotFound":
     case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterSnapshotQuotaExceededFault":
+    case "ClusterSnapshotQuotaExceeded":
     case "com.amazonaws.redshift#ClusterSnapshotQuotaExceededFault":
       throw await deserializeAws_queryClusterSnapshotQuotaExceededFaultResponse(parsedOutput, context);
-    case "InvalidClusterSnapshotStateFault":
+    case "InvalidClusterSnapshotState":
     case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidRetentionPeriodFault":
@@ -3351,16 +3351,16 @@ const deserializeAws_queryCreateClusterCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterAlreadyExistsFault":
+    case "ClusterAlreadyExists":
     case "com.amazonaws.redshift#ClusterAlreadyExistsFault":
       throw await deserializeAws_queryClusterAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ClusterParameterGroupNotFoundFault":
+    case "ClusterParameterGroupNotFound":
     case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterQuotaExceededFault":
+    case "ClusterQuotaExceeded":
     case "com.amazonaws.redshift#ClusterQuotaExceededFault":
       throw await deserializeAws_queryClusterQuotaExceededFaultResponse(parsedOutput, context);
-    case "ClusterSecurityGroupNotFoundFault":
+    case "ClusterSecurityGroupNotFound":
     case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
       throw await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "ClusterSubnetGroupNotFoundFault":
@@ -3375,13 +3375,13 @@ const deserializeAws_queryCreateClusterCommandError = async (
     case "HsmConfigurationNotFoundFault":
     case "com.amazonaws.redshift#HsmConfigurationNotFoundFault":
       throw await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientClusterCapacityFault":
+    case "InsufficientClusterCapacity":
     case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
       throw await deserializeAws_queryInsufficientClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidClusterSubnetGroupStateFault":
     case "com.amazonaws.redshift#InvalidClusterSubnetGroupStateFault":
       throw await deserializeAws_queryInvalidClusterSubnetGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidClusterTrackFault":
+    case "InvalidClusterTrack":
     case "com.amazonaws.redshift#InvalidClusterTrackFault":
       throw await deserializeAws_queryInvalidClusterTrackFaultResponse(parsedOutput, context);
     case "InvalidElasticIpFault":
@@ -3402,13 +3402,13 @@ const deserializeAws_queryCreateClusterCommandError = async (
     case "LimitExceededFault":
     case "com.amazonaws.redshift#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "NumberOfNodesPerClusterLimitExceededFault":
+    case "NumberOfNodesPerClusterLimitExceeded":
     case "com.amazonaws.redshift#NumberOfNodesPerClusterLimitExceededFault":
       throw await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(parsedOutput, context);
-    case "NumberOfNodesQuotaExceededFault":
+    case "NumberOfNodesQuotaExceeded":
     case "com.amazonaws.redshift#NumberOfNodesQuotaExceededFault":
       throw await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(parsedOutput, context);
-    case "SnapshotScheduleNotFoundFault":
+    case "SnapshotScheduleNotFound":
     case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
       throw await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(parsedOutput, context);
     case "TagLimitExceededFault":
@@ -3455,10 +3455,10 @@ const deserializeAws_queryCreateClusterParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterParameterGroupAlreadyExistsFault":
+    case "ClusterParameterGroupAlreadyExists":
     case "com.amazonaws.redshift#ClusterParameterGroupAlreadyExistsFault":
       throw await deserializeAws_queryClusterParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ClusterParameterGroupQuotaExceededFault":
+    case "ClusterParameterGroupQuotaExceeded":
     case "com.amazonaws.redshift#ClusterParameterGroupQuotaExceededFault":
       throw await deserializeAws_queryClusterParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidTagFault":
@@ -3505,15 +3505,15 @@ const deserializeAws_queryCreateClusterSecurityGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterSecurityGroupAlreadyExistsFault":
+    case "ClusterSecurityGroupAlreadyExists":
     case "com.amazonaws.redshift#ClusterSecurityGroupAlreadyExistsFault":
       throw await deserializeAws_queryClusterSecurityGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ClusterSecurityGroupQuotaExceededFault":
-    case "com.amazonaws.redshift#ClusterSecurityGroupQuotaExceededFault":
-      throw await deserializeAws_queryClusterSecurityGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidTagFault":
     case "com.amazonaws.redshift#InvalidTagFault":
       throw await deserializeAws_queryInvalidTagFaultResponse(parsedOutput, context);
+    case "QuotaExceeded.ClusterSecurityGroup":
+    case "com.amazonaws.redshift#ClusterSecurityGroupQuotaExceededFault":
+      throw await deserializeAws_queryClusterSecurityGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "TagLimitExceededFault":
     case "com.amazonaws.redshift#TagLimitExceededFault":
       throw await deserializeAws_queryTagLimitExceededFaultResponse(parsedOutput, context);
@@ -3555,16 +3555,16 @@ const deserializeAws_queryCreateClusterSnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterSnapshotAlreadyExistsFault":
+    case "ClusterSnapshotAlreadyExists":
     case "com.amazonaws.redshift#ClusterSnapshotAlreadyExistsFault":
       throw await deserializeAws_queryClusterSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ClusterSnapshotQuotaExceededFault":
+    case "ClusterSnapshotQuotaExceeded":
     case "com.amazonaws.redshift#ClusterSnapshotQuotaExceededFault":
       throw await deserializeAws_queryClusterSnapshotQuotaExceededFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     case "InvalidRetentionPeriodFault":
@@ -3614,10 +3614,10 @@ const deserializeAws_queryCreateClusterSubnetGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterSubnetGroupAlreadyExistsFault":
+    case "ClusterSubnetGroupAlreadyExists":
     case "com.amazonaws.redshift#ClusterSubnetGroupAlreadyExistsFault":
       throw await deserializeAws_queryClusterSubnetGroupAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ClusterSubnetGroupQuotaExceededFault":
+    case "ClusterSubnetGroupQuotaExceeded":
     case "com.amazonaws.redshift#ClusterSubnetGroupQuotaExceededFault":
       throw await deserializeAws_queryClusterSubnetGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "ClusterSubnetQuotaExceededFault":
@@ -3676,34 +3676,34 @@ const deserializeAws_queryCreateEndpointAccessCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessToClusterDeniedFault":
+    case "AccessToClusterDenied":
     case "com.amazonaws.redshift#AccessToClusterDeniedFault":
       throw await deserializeAws_queryAccessToClusterDeniedFaultResponse(parsedOutput, context);
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
     case "ClusterSubnetGroupNotFoundFault":
     case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
       throw await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(parsedOutput, context);
-    case "EndpointAlreadyExistsFault":
+    case "EndpointAlreadyExists":
     case "com.amazonaws.redshift#EndpointAlreadyExistsFault":
       throw await deserializeAws_queryEndpointAlreadyExistsFaultResponse(parsedOutput, context);
-    case "EndpointsPerAuthorizationLimitExceededFault":
+    case "EndpointsPerAuthorizationLimitExceeded":
     case "com.amazonaws.redshift#EndpointsPerAuthorizationLimitExceededFault":
       throw await deserializeAws_queryEndpointsPerAuthorizationLimitExceededFaultResponse(parsedOutput, context);
-    case "EndpointsPerClusterLimitExceededFault":
+    case "EndpointsPerClusterLimitExceeded":
     case "com.amazonaws.redshift#EndpointsPerClusterLimitExceededFault":
       throw await deserializeAws_queryEndpointsPerClusterLimitExceededFaultResponse(parsedOutput, context);
-    case "InvalidClusterSecurityGroupStateFault":
+    case "InvalidClusterSecurityGroupState":
     case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     case "UnauthorizedOperation":
     case "com.amazonaws.redshift#UnauthorizedOperation":
       throw await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -3744,34 +3744,34 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EventSubscriptionQuotaExceededFault":
+    case "EventSubscriptionQuotaExceeded":
     case "com.amazonaws.redshift#EventSubscriptionQuotaExceededFault":
       throw await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidTagFault":
     case "com.amazonaws.redshift#InvalidTagFault":
       throw await deserializeAws_queryInvalidTagFaultResponse(parsedOutput, context);
-    case "SNSInvalidTopicFault":
+    case "SNSInvalidTopic":
     case "com.amazonaws.redshift#SNSInvalidTopicFault":
       throw await deserializeAws_querySNSInvalidTopicFaultResponse(parsedOutput, context);
-    case "SNSNoAuthorizationFault":
+    case "SNSNoAuthorization":
     case "com.amazonaws.redshift#SNSNoAuthorizationFault":
       throw await deserializeAws_querySNSNoAuthorizationFaultResponse(parsedOutput, context);
-    case "SNSTopicArnNotFoundFault":
+    case "SNSTopicArnNotFound":
     case "com.amazonaws.redshift#SNSTopicArnNotFoundFault":
       throw await deserializeAws_querySNSTopicArnNotFoundFaultResponse(parsedOutput, context);
-    case "SourceNotFoundFault":
+    case "SourceNotFound":
     case "com.amazonaws.redshift#SourceNotFoundFault":
       throw await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionAlreadyExistFault":
+    case "SubscriptionAlreadyExist":
     case "com.amazonaws.redshift#SubscriptionAlreadyExistFault":
       throw await deserializeAws_querySubscriptionAlreadyExistFaultResponse(parsedOutput, context);
-    case "SubscriptionCategoryNotFoundFault":
+    case "SubscriptionCategoryNotFound":
     case "com.amazonaws.redshift#SubscriptionCategoryNotFoundFault":
       throw await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionEventIdNotFoundFault":
+    case "SubscriptionEventIdNotFound":
     case "com.amazonaws.redshift#SubscriptionEventIdNotFoundFault":
       throw await deserializeAws_querySubscriptionEventIdNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionSeverityNotFoundFault":
+    case "SubscriptionSeverityNotFound":
     case "com.amazonaws.redshift#SubscriptionSeverityNotFoundFault":
       throw await deserializeAws_querySubscriptionSeverityNotFoundFaultResponse(parsedOutput, context);
     case "TagLimitExceededFault":
@@ -3915,19 +3915,19 @@ const deserializeAws_queryCreateScheduledActionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidScheduledActionFault":
-    case "com.amazonaws.redshift#InvalidScheduledActionFault":
-      throw await deserializeAws_queryInvalidScheduledActionFaultResponse(parsedOutput, context);
-    case "InvalidScheduleFault":
+    case "InvalidSchedule":
     case "com.amazonaws.redshift#InvalidScheduleFault":
       throw await deserializeAws_queryInvalidScheduleFaultResponse(parsedOutput, context);
-    case "ScheduledActionAlreadyExistsFault":
+    case "InvalidScheduledAction":
+    case "com.amazonaws.redshift#InvalidScheduledActionFault":
+      throw await deserializeAws_queryInvalidScheduledActionFaultResponse(parsedOutput, context);
+    case "ScheduledActionAlreadyExists":
     case "com.amazonaws.redshift#ScheduledActionAlreadyExistsFault":
       throw await deserializeAws_queryScheduledActionAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ScheduledActionQuotaExceededFault":
+    case "ScheduledActionQuotaExceeded":
     case "com.amazonaws.redshift#ScheduledActionQuotaExceededFault":
       throw await deserializeAws_queryScheduledActionQuotaExceededFaultResponse(parsedOutput, context);
-    case "ScheduledActionTypeUnsupportedFault":
+    case "ScheduledActionTypeUnsupported":
     case "com.amazonaws.redshift#ScheduledActionTypeUnsupportedFault":
       throw await deserializeAws_queryScheduledActionTypeUnsupportedFaultResponse(parsedOutput, context);
     case "UnauthorizedOperation":
@@ -4027,19 +4027,19 @@ const deserializeAws_queryCreateSnapshotScheduleCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidScheduleFault":
+    case "InvalidSchedule":
     case "com.amazonaws.redshift#InvalidScheduleFault":
       throw await deserializeAws_queryInvalidScheduleFaultResponse(parsedOutput, context);
     case "InvalidTagFault":
     case "com.amazonaws.redshift#InvalidTagFault":
       throw await deserializeAws_queryInvalidTagFaultResponse(parsedOutput, context);
-    case "ScheduleDefinitionTypeUnsupportedFault":
+    case "ScheduleDefinitionTypeUnsupported":
     case "com.amazonaws.redshift#ScheduleDefinitionTypeUnsupportedFault":
       throw await deserializeAws_queryScheduleDefinitionTypeUnsupportedFaultResponse(parsedOutput, context);
-    case "SnapshotScheduleAlreadyExistsFault":
+    case "SnapshotScheduleAlreadyExists":
     case "com.amazonaws.redshift#SnapshotScheduleAlreadyExistsFault":
       throw await deserializeAws_querySnapshotScheduleAlreadyExistsFaultResponse(parsedOutput, context);
-    case "SnapshotScheduleQuotaExceededFault":
+    case "SnapshotScheduleQuotaExceeded":
     case "com.amazonaws.redshift#SnapshotScheduleQuotaExceededFault":
       throw await deserializeAws_querySnapshotScheduleQuotaExceededFaultResponse(parsedOutput, context);
     case "TagLimitExceededFault":
@@ -4080,7 +4080,7 @@ const deserializeAws_queryCreateTagsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     case "InvalidTagFault":
@@ -4130,13 +4130,13 @@ const deserializeAws_queryCreateUsageLimitCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidUsageLimitFault":
+    case "InvalidUsageLimit":
     case "com.amazonaws.redshift#InvalidUsageLimitFault":
       throw await deserializeAws_queryInvalidUsageLimitFaultResponse(parsedOutput, context);
     case "LimitExceededFault":
@@ -4145,10 +4145,10 @@ const deserializeAws_queryCreateUsageLimitCommandError = async (
     case "TagLimitExceededFault":
     case "com.amazonaws.redshift#TagLimitExceededFault":
       throw await deserializeAws_queryTagLimitExceededFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
-    case "UsageLimitAlreadyExistsFault":
+    case "UsageLimitAlreadyExists":
     case "com.amazonaws.redshift#UsageLimitAlreadyExistsFault":
       throw await deserializeAws_queryUsageLimitAlreadyExistsFaultResponse(parsedOutput, context);
     default:
@@ -4274,16 +4274,16 @@ const deserializeAws_queryDeleteClusterCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterSnapshotAlreadyExistsFault":
+    case "ClusterSnapshotAlreadyExists":
     case "com.amazonaws.redshift#ClusterSnapshotAlreadyExistsFault":
       throw await deserializeAws_queryClusterSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ClusterSnapshotQuotaExceededFault":
+    case "ClusterSnapshotQuotaExceeded":
     case "com.amazonaws.redshift#ClusterSnapshotQuotaExceededFault":
       throw await deserializeAws_queryClusterSnapshotQuotaExceededFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     case "InvalidRetentionPeriodFault":
@@ -4324,10 +4324,10 @@ const deserializeAws_queryDeleteClusterParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterParameterGroupNotFoundFault":
+    case "ClusterParameterGroupNotFound":
     case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterParameterGroupStateFault":
+    case "InvalidClusterParameterGroupState":
     case "com.amazonaws.redshift#InvalidClusterParameterGroupStateFault":
       throw await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -4365,10 +4365,10 @@ const deserializeAws_queryDeleteClusterSecurityGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterSecurityGroupNotFoundFault":
+    case "ClusterSecurityGroupNotFound":
     case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
       throw await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterSecurityGroupStateFault":
+    case "InvalidClusterSecurityGroupState":
     case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -4409,10 +4409,10 @@ const deserializeAws_queryDeleteClusterSnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterSnapshotNotFoundFault":
+    case "ClusterSnapshotNotFound":
     case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterSnapshotStateFault":
+    case "InvalidClusterSnapshotState":
     case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(parsedOutput, context);
     default:
@@ -4497,19 +4497,19 @@ const deserializeAws_queryDeleteEndpointAccessCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "EndpointNotFoundFault":
+    case "EndpointNotFound":
     case "com.amazonaws.redshift#EndpointNotFoundFault":
       throw await deserializeAws_queryEndpointNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterSecurityGroupStateFault":
+    case "InvalidClusterSecurityGroupState":
     case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidEndpointStateFault":
+    case "InvalidEndpointState":
     case "com.amazonaws.redshift#InvalidEndpointStateFault":
       throw await deserializeAws_queryInvalidEndpointStateFaultResponse(parsedOutput, context);
     default:
@@ -4550,7 +4550,7 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
     case "InvalidSubscriptionStateFault":
     case "com.amazonaws.redshift#InvalidSubscriptionStateFault":
       throw await deserializeAws_queryInvalidSubscriptionStateFaultResponse(parsedOutput, context);
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.redshift#SubscriptionNotFoundFault":
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -4673,13 +4673,13 @@ const deserializeAws_queryDeletePartnerCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "PartnerNotFoundFault":
+    case "PartnerNotFound":
     case "com.amazonaws.redshift#PartnerNotFoundFault":
       throw await deserializeAws_queryPartnerNotFoundFaultResponse(parsedOutput, context);
-    case "UnauthorizedPartnerIntegrationFault":
+    case "UnauthorizedPartnerIntegration":
     case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
       throw await deserializeAws_queryUnauthorizedPartnerIntegrationFaultResponse(parsedOutput, context);
     default:
@@ -4717,7 +4717,7 @@ const deserializeAws_queryDeleteScheduledActionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ScheduledActionNotFoundFault":
+    case "ScheduledActionNotFound":
     case "com.amazonaws.redshift#ScheduledActionNotFoundFault":
       throw await deserializeAws_queryScheduledActionNotFoundFaultResponse(parsedOutput, context);
     case "UnauthorizedOperation":
@@ -4799,10 +4799,10 @@ const deserializeAws_queryDeleteSnapshotScheduleCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidClusterSnapshotScheduleStateFault":
+    case "InvalidClusterSnapshotScheduleState":
     case "com.amazonaws.redshift#InvalidClusterSnapshotScheduleStateFault":
       throw await deserializeAws_queryInvalidClusterSnapshotScheduleStateFaultResponse(parsedOutput, context);
-    case "SnapshotScheduleNotFoundFault":
+    case "SnapshotScheduleNotFound":
     case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
       throw await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -4881,10 +4881,10 @@ const deserializeAws_queryDeleteUsageLimitCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
-    case "UsageLimitNotFoundFault":
+    case "UsageLimitNotFound":
     case "com.amazonaws.redshift#UsageLimitNotFoundFault":
       throw await deserializeAws_queryUsageLimitNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5007,10 +5007,10 @@ const deserializeAws_queryDescribeClusterDbRevisionsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
@@ -5051,7 +5051,7 @@ const deserializeAws_queryDescribeClusterParameterGroupsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterParameterGroupNotFoundFault":
+    case "ClusterParameterGroupNotFound":
     case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidTagFault":
@@ -5095,7 +5095,7 @@ const deserializeAws_queryDescribeClusterParametersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterParameterGroupNotFoundFault":
+    case "ClusterParameterGroupNotFound":
     case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5136,7 +5136,7 @@ const deserializeAws_queryDescribeClustersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidTagFault":
@@ -5180,7 +5180,7 @@ const deserializeAws_queryDescribeClusterSecurityGroupsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterSecurityGroupNotFoundFault":
+    case "ClusterSecurityGroupNotFound":
     case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
       throw await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidTagFault":
@@ -5224,16 +5224,16 @@ const deserializeAws_queryDescribeClusterSnapshotsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterSnapshotNotFoundFault":
+    case "ClusterSnapshotNotFound":
     case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "InvalidTagFault":
     case "com.amazonaws.redshift#InvalidTagFault":
       throw await deserializeAws_queryInvalidTagFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -5318,7 +5318,7 @@ const deserializeAws_queryDescribeClusterTracksCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidClusterTrackFault":
+    case "InvalidClusterTrack":
     case "com.amazonaws.redshift#InvalidClusterTrackFault":
       throw await deserializeAws_queryInvalidClusterTrackFaultResponse(parsedOutput, context);
     case "UnauthorizedOperation":
@@ -5558,13 +5558,13 @@ const deserializeAws_queryDescribeEndpointAccessCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "EndpointNotFoundFault":
+    case "EndpointNotFound":
     case "com.amazonaws.redshift#EndpointNotFoundFault":
       throw await deserializeAws_queryEndpointNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
@@ -5605,10 +5605,10 @@ const deserializeAws_queryDescribeEndpointAuthorizationCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -5722,7 +5722,7 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
     case "InvalidTagFault":
     case "com.amazonaws.redshift#InvalidTagFault":
       throw await deserializeAws_queryInvalidTagFaultResponse(parsedOutput, context);
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.redshift#SubscriptionNotFoundFault":
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5851,7 +5851,7 @@ const deserializeAws_queryDescribeLoggingStatusCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -5892,19 +5892,19 @@ const deserializeAws_queryDescribeNodeConfigurationOptionsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessToSnapshotDeniedFault":
+    case "AccessToSnapshotDenied":
     case "com.amazonaws.redshift#AccessToSnapshotDeniedFault":
       throw await deserializeAws_queryAccessToSnapshotDeniedFaultResponse(parsedOutput, context);
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterSnapshotNotFoundFault":
+    case "ClusterSnapshotNotFound":
     case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterSnapshotStateFault":
+    case "InvalidClusterSnapshotState":
     case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -5980,10 +5980,10 @@ const deserializeAws_queryDescribePartnersCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "UnauthorizedPartnerIntegrationFault":
+    case "UnauthorizedPartnerIntegration":
     case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
       throw await deserializeAws_queryUnauthorizedPartnerIntegrationFaultResponse(parsedOutput, context);
     default:
@@ -6027,13 +6027,13 @@ const deserializeAws_queryDescribeReservedNodeExchangeStatusCommandError = async
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ReservedNodeExchangeNotFoundFault":
+    case "ReservedNodeExchangeNotFond":
     case "com.amazonaws.redshift#ReservedNodeExchangeNotFoundFault":
       throw await deserializeAws_queryReservedNodeExchangeNotFoundFaultResponse(parsedOutput, context);
-    case "ReservedNodeNotFoundFault":
+    case "ReservedNodeNotFound":
     case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
       throw await deserializeAws_queryReservedNodeNotFoundFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -6077,10 +6077,10 @@ const deserializeAws_queryDescribeReservedNodeOfferingsCommandError = async (
     case "DependentServiceUnavailableFault":
     case "com.amazonaws.redshift#DependentServiceUnavailableFault":
       throw await deserializeAws_queryDependentServiceUnavailableFaultResponse(parsedOutput, context);
-    case "ReservedNodeOfferingNotFoundFault":
+    case "ReservedNodeOfferingNotFound":
     case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
       throw await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -6124,7 +6124,7 @@ const deserializeAws_queryDescribeReservedNodesCommandError = async (
     case "DependentServiceUnavailableFault":
     case "com.amazonaws.redshift#DependentServiceUnavailableFault":
       throw await deserializeAws_queryDependentServiceUnavailableFaultResponse(parsedOutput, context);
-    case "ReservedNodeNotFoundFault":
+    case "ReservedNodeNotFound":
     case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
       throw await deserializeAws_queryReservedNodeNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6165,10 +6165,10 @@ const deserializeAws_queryDescribeResizeCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "ResizeNotFoundFault":
+    case "ResizeNotFound":
     case "com.amazonaws.redshift#ResizeNotFoundFault":
       throw await deserializeAws_queryResizeNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -6209,7 +6209,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ScheduledActionNotFoundFault":
+    case "ScheduledActionNotFound":
     case "com.amazonaws.redshift#ScheduledActionNotFoundFault":
       throw await deserializeAws_queryScheduledActionNotFoundFaultResponse(parsedOutput, context);
     case "UnauthorizedOperation":
@@ -6367,7 +6367,7 @@ const deserializeAws_queryDescribeTableRestoreStatusCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
     case "TableRestoreNotFoundFault":
@@ -6455,10 +6455,10 @@ const deserializeAws_queryDescribeUsageLimitsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -6499,10 +6499,10 @@ const deserializeAws_queryDisableLoggingCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
@@ -6543,10 +6543,10 @@ const deserializeAws_queryDisableSnapshotCopyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     case "SnapshotCopyAlreadyDisabledFault":
@@ -6640,13 +6640,13 @@ const deserializeAws_queryEnableLoggingCommandError = async (
     case "BucketNotFoundFault":
     case "com.amazonaws.redshift#BucketNotFoundFault":
       throw await deserializeAws_queryBucketNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
     case "InsufficientS3BucketPolicyFault":
     case "com.amazonaws.redshift#InsufficientS3BucketPolicyFault":
       throw await deserializeAws_queryInsufficientS3BucketPolicyFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     case "InvalidS3BucketNameFault":
@@ -6693,7 +6693,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
     case "CopyToRegionDisabledFault":
@@ -6705,7 +6705,7 @@ const deserializeAws_queryEnableSnapshotCopyCommandError = async (
     case "IncompatibleOrderableOptions":
     case "com.amazonaws.redshift#IncompatibleOrderableOptions":
       throw await deserializeAws_queryIncompatibleOrderableOptionsResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     case "InvalidRetentionPeriodFault":
@@ -6764,10 +6764,10 @@ const deserializeAws_queryGetClusterCredentialsCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -6808,10 +6808,10 @@ const deserializeAws_queryGetClusterCredentialsWithIAMCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -6855,28 +6855,28 @@ const deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommandErro
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterSnapshotNotFoundFault":
+    case "ClusterSnapshotNotFound":
     case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "DependentServiceUnavailableFault":
     case "com.amazonaws.redshift#DependentServiceUnavailableFault":
       throw await deserializeAws_queryDependentServiceUnavailableFaultResponse(parsedOutput, context);
-    case "InvalidReservedNodeStateFault":
+    case "InvalidReservedNodeState":
     case "com.amazonaws.redshift#InvalidReservedNodeStateFault":
       throw await deserializeAws_queryInvalidReservedNodeStateFaultResponse(parsedOutput, context);
-    case "ReservedNodeAlreadyMigratedFault":
+    case "ReservedNodeAlreadyMigrated":
     case "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault":
       throw await deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse(parsedOutput, context);
-    case "ReservedNodeNotFoundFault":
+    case "ReservedNodeNotFound":
     case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
       throw await deserializeAws_queryReservedNodeNotFoundFaultResponse(parsedOutput, context);
-    case "ReservedNodeOfferingNotFoundFault":
+    case "ReservedNodeOfferingNotFound":
     case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
       throw await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -6923,19 +6923,19 @@ const deserializeAws_queryGetReservedNodeExchangeOfferingsCommandError = async (
     case "DependentServiceUnavailableFault":
     case "com.amazonaws.redshift#DependentServiceUnavailableFault":
       throw await deserializeAws_queryDependentServiceUnavailableFaultResponse(parsedOutput, context);
-    case "InvalidReservedNodeStateFault":
+    case "InvalidReservedNodeState":
     case "com.amazonaws.redshift#InvalidReservedNodeStateFault":
       throw await deserializeAws_queryInvalidReservedNodeStateFaultResponse(parsedOutput, context);
-    case "ReservedNodeAlreadyMigratedFault":
+    case "ReservedNodeAlreadyMigrated":
     case "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault":
       throw await deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse(parsedOutput, context);
-    case "ReservedNodeNotFoundFault":
+    case "ReservedNodeNotFound":
     case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
       throw await deserializeAws_queryReservedNodeNotFoundFaultResponse(parsedOutput, context);
-    case "ReservedNodeOfferingNotFoundFault":
+    case "ReservedNodeOfferingNotFound":
     case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
       throw await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -6976,13 +6976,13 @@ const deserializeAws_queryModifyAquaConfigurationCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -7070,16 +7070,16 @@ const deserializeAws_queryModifyClusterCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterAlreadyExistsFault":
+    case "ClusterAlreadyExists":
     case "com.amazonaws.redshift#ClusterAlreadyExistsFault":
       throw await deserializeAws_queryClusterAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterParameterGroupNotFoundFault":
+    case "ClusterParameterGroupNotFound":
     case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterSecurityGroupNotFoundFault":
+    case "ClusterSecurityGroupNotFound":
     case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
       throw await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DependentServiceRequestThrottlingFault":
@@ -7091,16 +7091,16 @@ const deserializeAws_queryModifyClusterCommandError = async (
     case "HsmConfigurationNotFoundFault":
     case "com.amazonaws.redshift#HsmConfigurationNotFoundFault":
       throw await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientClusterCapacityFault":
+    case "InsufficientClusterCapacity":
     case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
       throw await deserializeAws_queryInsufficientClusterCapacityFaultResponse(parsedOutput, context);
-    case "InvalidClusterSecurityGroupStateFault":
+    case "InvalidClusterSecurityGroupState":
     case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidClusterTrackFault":
+    case "InvalidClusterTrack":
     case "com.amazonaws.redshift#InvalidClusterTrackFault":
       throw await deserializeAws_queryInvalidClusterTrackFaultResponse(parsedOutput, context);
     case "InvalidElasticIpFault":
@@ -7112,13 +7112,13 @@ const deserializeAws_queryModifyClusterCommandError = async (
     case "LimitExceededFault":
     case "com.amazonaws.redshift#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "NumberOfNodesPerClusterLimitExceededFault":
+    case "NumberOfNodesPerClusterLimitExceeded":
     case "com.amazonaws.redshift#NumberOfNodesPerClusterLimitExceededFault":
       throw await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(parsedOutput, context);
-    case "NumberOfNodesQuotaExceededFault":
+    case "NumberOfNodesQuotaExceeded":
     case "com.amazonaws.redshift#NumberOfNodesQuotaExceededFault":
       throw await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(parsedOutput, context);
-    case "TableLimitExceededFault":
+    case "TableLimitExceeded":
     case "com.amazonaws.redshift#TableLimitExceededFault":
       throw await deserializeAws_queryTableLimitExceededFaultResponse(parsedOutput, context);
     case "UnauthorizedOperation":
@@ -7165,13 +7165,13 @@ const deserializeAws_queryModifyClusterDbRevisionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterOnLatestRevisionFault":
+    case "ClusterOnLatestRevision":
     case "com.amazonaws.redshift#ClusterOnLatestRevisionFault":
       throw await deserializeAws_queryClusterOnLatestRevisionFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
@@ -7212,10 +7212,10 @@ const deserializeAws_queryModifyClusterIamRolesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
@@ -7256,10 +7256,10 @@ const deserializeAws_queryModifyClusterMaintenanceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
@@ -7300,10 +7300,10 @@ const deserializeAws_queryModifyClusterParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterParameterGroupNotFoundFault":
+    case "ClusterParameterGroupNotFound":
     case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterParameterGroupStateFault":
+    case "InvalidClusterParameterGroupState":
     case "com.amazonaws.redshift#InvalidClusterParameterGroupStateFault":
       throw await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -7344,10 +7344,10 @@ const deserializeAws_queryModifyClusterSnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterSnapshotNotFoundFault":
+    case "ClusterSnapshotNotFound":
     case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterSnapshotStateFault":
+    case "InvalidClusterSnapshotState":
     case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidRetentionPeriodFault":
@@ -7388,13 +7388,13 @@ const deserializeAws_queryModifyClusterSnapshotScheduleCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterSnapshotScheduleStateFault":
+    case "InvalidClusterSnapshotScheduleState":
     case "com.amazonaws.redshift#InvalidClusterSnapshotScheduleStateFault":
       throw await deserializeAws_queryInvalidClusterSnapshotScheduleStateFaultResponse(parsedOutput, context);
-    case "SnapshotScheduleNotFoundFault":
+    case "SnapshotScheduleNotFound":
     case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
       throw await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -7491,19 +7491,19 @@ const deserializeAws_queryModifyEndpointAccessCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "EndpointNotFoundFault":
+    case "EndpointNotFound":
     case "com.amazonaws.redshift#EndpointNotFoundFault":
       throw await deserializeAws_queryEndpointNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterSecurityGroupStateFault":
+    case "InvalidClusterSecurityGroupState":
     case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidEndpointStateFault":
+    case "InvalidEndpointState":
     case "com.amazonaws.redshift#InvalidEndpointStateFault":
       throw await deserializeAws_queryInvalidEndpointStateFaultResponse(parsedOutput, context);
     case "UnauthorizedOperation":
@@ -7550,28 +7550,28 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
     case "InvalidSubscriptionStateFault":
     case "com.amazonaws.redshift#InvalidSubscriptionStateFault":
       throw await deserializeAws_queryInvalidSubscriptionStateFaultResponse(parsedOutput, context);
-    case "SNSInvalidTopicFault":
+    case "SNSInvalidTopic":
     case "com.amazonaws.redshift#SNSInvalidTopicFault":
       throw await deserializeAws_querySNSInvalidTopicFaultResponse(parsedOutput, context);
-    case "SNSNoAuthorizationFault":
+    case "SNSNoAuthorization":
     case "com.amazonaws.redshift#SNSNoAuthorizationFault":
       throw await deserializeAws_querySNSNoAuthorizationFaultResponse(parsedOutput, context);
-    case "SNSTopicArnNotFoundFault":
+    case "SNSTopicArnNotFound":
     case "com.amazonaws.redshift#SNSTopicArnNotFoundFault":
       throw await deserializeAws_querySNSTopicArnNotFoundFaultResponse(parsedOutput, context);
-    case "SourceNotFoundFault":
+    case "SourceNotFound":
     case "com.amazonaws.redshift#SourceNotFoundFault":
       throw await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionCategoryNotFoundFault":
+    case "SubscriptionCategoryNotFound":
     case "com.amazonaws.redshift#SubscriptionCategoryNotFoundFault":
       throw await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionEventIdNotFoundFault":
+    case "SubscriptionEventIdNotFound":
     case "com.amazonaws.redshift#SubscriptionEventIdNotFoundFault":
       throw await deserializeAws_querySubscriptionEventIdNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.redshift#SubscriptionNotFoundFault":
       throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
-    case "SubscriptionSeverityNotFoundFault":
+    case "SubscriptionSeverityNotFound":
     case "com.amazonaws.redshift#SubscriptionSeverityNotFoundFault":
       throw await deserializeAws_querySubscriptionSeverityNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -7612,16 +7612,16 @@ const deserializeAws_queryModifyScheduledActionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidScheduledActionFault":
-    case "com.amazonaws.redshift#InvalidScheduledActionFault":
-      throw await deserializeAws_queryInvalidScheduledActionFaultResponse(parsedOutput, context);
-    case "InvalidScheduleFault":
+    case "InvalidSchedule":
     case "com.amazonaws.redshift#InvalidScheduleFault":
       throw await deserializeAws_queryInvalidScheduleFaultResponse(parsedOutput, context);
-    case "ScheduledActionNotFoundFault":
+    case "InvalidScheduledAction":
+    case "com.amazonaws.redshift#InvalidScheduledActionFault":
+      throw await deserializeAws_queryInvalidScheduledActionFaultResponse(parsedOutput, context);
+    case "ScheduledActionNotFound":
     case "com.amazonaws.redshift#ScheduledActionNotFoundFault":
       throw await deserializeAws_queryScheduledActionNotFoundFaultResponse(parsedOutput, context);
-    case "ScheduledActionTypeUnsupportedFault":
+    case "ScheduledActionTypeUnsupported":
     case "com.amazonaws.redshift#ScheduledActionTypeUnsupportedFault":
       throw await deserializeAws_queryScheduledActionTypeUnsupportedFaultResponse(parsedOutput, context);
     case "UnauthorizedOperation":
@@ -7668,10 +7668,10 @@ const deserializeAws_queryModifySnapshotCopyRetentionPeriodCommandError = async 
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     case "InvalidRetentionPeriodFault":
@@ -7721,13 +7721,13 @@ const deserializeAws_queryModifySnapshotScheduleCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidScheduleFault":
+    case "InvalidSchedule":
     case "com.amazonaws.redshift#InvalidScheduleFault":
       throw await deserializeAws_queryInvalidScheduleFaultResponse(parsedOutput, context);
-    case "SnapshotScheduleNotFoundFault":
+    case "SnapshotScheduleNotFound":
     case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
       throw await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(parsedOutput, context);
-    case "SnapshotScheduleUpdateInProgressFault":
+    case "SnapshotScheduleUpdateInProgress":
     case "com.amazonaws.redshift#SnapshotScheduleUpdateInProgressFault":
       throw await deserializeAws_querySnapshotScheduleUpdateInProgressFaultResponse(parsedOutput, context);
     default:
@@ -7768,13 +7768,13 @@ const deserializeAws_queryModifyUsageLimitCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidUsageLimitFault":
+    case "InvalidUsageLimit":
     case "com.amazonaws.redshift#InvalidUsageLimitFault":
       throw await deserializeAws_queryInvalidUsageLimitFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
-    case "UsageLimitNotFoundFault":
+    case "UsageLimitNotFound":
     case "com.amazonaws.redshift#UsageLimitNotFoundFault":
       throw await deserializeAws_queryUsageLimitNotFoundFaultResponse(parsedOutput, context);
     default:
@@ -7815,10 +7815,10 @@ const deserializeAws_queryPauseClusterCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
@@ -7859,16 +7859,16 @@ const deserializeAws_queryPurchaseReservedNodeOfferingCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ReservedNodeAlreadyExistsFault":
+    case "ReservedNodeAlreadyExists":
     case "com.amazonaws.redshift#ReservedNodeAlreadyExistsFault":
       throw await deserializeAws_queryReservedNodeAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ReservedNodeOfferingNotFoundFault":
+    case "ReservedNodeOfferingNotFound":
     case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
       throw await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(parsedOutput, context);
-    case "ReservedNodeQuotaExceededFault":
+    case "ReservedNodeQuotaExceeded":
     case "com.amazonaws.redshift#ReservedNodeQuotaExceededFault":
       throw await deserializeAws_queryReservedNodeQuotaExceededFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -7909,10 +7909,10 @@ const deserializeAws_queryRebootClusterCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
@@ -7994,10 +7994,10 @@ const deserializeAws_queryResetClusterParameterGroupCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterParameterGroupNotFoundFault":
+    case "ClusterParameterGroupNotFound":
     case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterParameterGroupStateFault":
+    case "InvalidClusterParameterGroupState":
     case "com.amazonaws.redshift#InvalidClusterParameterGroupStateFault":
       throw await deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -8038,46 +8038,46 @@ const deserializeAws_queryResizeClusterCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
     case "DependentServiceUnavailableFault":
     case "com.amazonaws.redshift#DependentServiceUnavailableFault":
       throw await deserializeAws_queryDependentServiceUnavailableFaultResponse(parsedOutput, context);
-    case "InsufficientClusterCapacityFault":
+    case "InsufficientClusterCapacity":
     case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
       throw await deserializeAws_queryInsufficientClusterCapacityFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidReservedNodeStateFault":
+    case "InvalidReservedNodeState":
     case "com.amazonaws.redshift#InvalidReservedNodeStateFault":
       throw await deserializeAws_queryInvalidReservedNodeStateFaultResponse(parsedOutput, context);
     case "LimitExceededFault":
     case "com.amazonaws.redshift#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "NumberOfNodesPerClusterLimitExceededFault":
+    case "NumberOfNodesPerClusterLimitExceeded":
     case "com.amazonaws.redshift#NumberOfNodesPerClusterLimitExceededFault":
       throw await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(parsedOutput, context);
-    case "NumberOfNodesQuotaExceededFault":
+    case "NumberOfNodesQuotaExceeded":
     case "com.amazonaws.redshift#NumberOfNodesQuotaExceededFault":
       throw await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(parsedOutput, context);
-    case "ReservedNodeAlreadyExistsFault":
+    case "ReservedNodeAlreadyExists":
     case "com.amazonaws.redshift#ReservedNodeAlreadyExistsFault":
       throw await deserializeAws_queryReservedNodeAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ReservedNodeAlreadyMigratedFault":
+    case "ReservedNodeAlreadyMigrated":
     case "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault":
       throw await deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse(parsedOutput, context);
-    case "ReservedNodeNotFoundFault":
+    case "ReservedNodeNotFound":
     case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
       throw await deserializeAws_queryReservedNodeNotFoundFaultResponse(parsedOutput, context);
-    case "ReservedNodeOfferingNotFoundFault":
+    case "ReservedNodeOfferingNotFound":
     case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
       throw await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(parsedOutput, context);
     case "UnauthorizedOperation":
     case "com.amazonaws.redshift#UnauthorizedOperation":
       throw await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     case "UnsupportedOptionFault":
@@ -8121,22 +8121,22 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessToSnapshotDeniedFault":
+    case "AccessToSnapshotDenied":
     case "com.amazonaws.redshift#AccessToSnapshotDeniedFault":
       throw await deserializeAws_queryAccessToSnapshotDeniedFaultResponse(parsedOutput, context);
-    case "ClusterAlreadyExistsFault":
+    case "ClusterAlreadyExists":
     case "com.amazonaws.redshift#ClusterAlreadyExistsFault":
       throw await deserializeAws_queryClusterAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ClusterParameterGroupNotFoundFault":
+    case "ClusterParameterGroupNotFound":
     case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
       throw await deserializeAws_queryClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterQuotaExceededFault":
+    case "ClusterQuotaExceeded":
     case "com.amazonaws.redshift#ClusterQuotaExceededFault":
       throw await deserializeAws_queryClusterQuotaExceededFaultResponse(parsedOutput, context);
-    case "ClusterSecurityGroupNotFoundFault":
+    case "ClusterSecurityGroupNotFound":
     case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
       throw await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterSnapshotNotFoundFault":
+    case "ClusterSnapshotNotFound":
     case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "ClusterSubnetGroupNotFoundFault":
@@ -8154,25 +8154,25 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
     case "HsmConfigurationNotFoundFault":
     case "com.amazonaws.redshift#HsmConfigurationNotFoundFault":
       throw await deserializeAws_queryHsmConfigurationNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientClusterCapacityFault":
+    case "InsufficientClusterCapacity":
     case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
       throw await deserializeAws_queryInsufficientClusterCapacityFaultResponse(parsedOutput, context);
-    case "InvalidClusterSnapshotStateFault":
+    case "InvalidClusterSnapshotState":
     case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidClusterSubnetGroupStateFault":
     case "com.amazonaws.redshift#InvalidClusterSubnetGroupStateFault":
       throw await deserializeAws_queryInvalidClusterSubnetGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidClusterTrackFault":
+    case "InvalidClusterTrack":
     case "com.amazonaws.redshift#InvalidClusterTrackFault":
       throw await deserializeAws_queryInvalidClusterTrackFaultResponse(parsedOutput, context);
     case "InvalidElasticIpFault":
     case "com.amazonaws.redshift#InvalidElasticIpFault":
       throw await deserializeAws_queryInvalidElasticIpFaultResponse(parsedOutput, context);
-    case "InvalidReservedNodeStateFault":
+    case "InvalidReservedNodeState":
     case "com.amazonaws.redshift#InvalidReservedNodeStateFault":
       throw await deserializeAws_queryInvalidReservedNodeStateFaultResponse(parsedOutput, context);
-    case "InvalidRestoreFault":
+    case "InvalidRestore":
     case "com.amazonaws.redshift#InvalidRestoreFault":
       throw await deserializeAws_queryInvalidRestoreFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
@@ -8187,25 +8187,25 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
     case "LimitExceededFault":
     case "com.amazonaws.redshift#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
-    case "NumberOfNodesPerClusterLimitExceededFault":
+    case "NumberOfNodesPerClusterLimitExceeded":
     case "com.amazonaws.redshift#NumberOfNodesPerClusterLimitExceededFault":
       throw await deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse(parsedOutput, context);
-    case "NumberOfNodesQuotaExceededFault":
+    case "NumberOfNodesQuotaExceeded":
     case "com.amazonaws.redshift#NumberOfNodesQuotaExceededFault":
       throw await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(parsedOutput, context);
-    case "ReservedNodeAlreadyExistsFault":
+    case "ReservedNodeAlreadyExists":
     case "com.amazonaws.redshift#ReservedNodeAlreadyExistsFault":
       throw await deserializeAws_queryReservedNodeAlreadyExistsFaultResponse(parsedOutput, context);
-    case "ReservedNodeAlreadyMigratedFault":
+    case "ReservedNodeAlreadyMigrated":
     case "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault":
       throw await deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse(parsedOutput, context);
-    case "ReservedNodeNotFoundFault":
+    case "ReservedNodeNotFound":
     case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
       throw await deserializeAws_queryReservedNodeNotFoundFaultResponse(parsedOutput, context);
-    case "ReservedNodeOfferingNotFoundFault":
+    case "ReservedNodeOfferingNotFound":
     case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
       throw await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(parsedOutput, context);
-    case "SnapshotScheduleNotFoundFault":
+    case "SnapshotScheduleNotFound":
     case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
       throw await deserializeAws_querySnapshotScheduleNotFoundFaultResponse(parsedOutput, context);
     case "TagLimitExceededFault":
@@ -8214,7 +8214,7 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
     case "UnauthorizedOperation":
     case "com.amazonaws.redshift#UnauthorizedOperation":
       throw await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -8258,25 +8258,25 @@ const deserializeAws_queryRestoreTableFromClusterSnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterSnapshotNotFoundFault":
+    case "ClusterSnapshotNotFound":
     case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "InProgressTableRestoreQuotaExceededFault":
     case "com.amazonaws.redshift#InProgressTableRestoreQuotaExceededFault":
       throw await deserializeAws_queryInProgressTableRestoreQuotaExceededFaultResponse(parsedOutput, context);
-    case "InvalidClusterSnapshotStateFault":
+    case "InvalidClusterSnapshotState":
     case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidTableRestoreArgumentFault":
+    case "InvalidTableRestoreArgument":
     case "com.amazonaws.redshift#InvalidTableRestoreArgumentFault":
       throw await deserializeAws_queryInvalidTableRestoreArgumentFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -8317,13 +8317,13 @@ const deserializeAws_queryResumeClusterCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "InsufficientClusterCapacityFault":
+    case "InsufficientClusterCapacity":
     case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
       throw await deserializeAws_queryInsufficientClusterCapacityFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
@@ -8367,13 +8367,13 @@ const deserializeAws_queryRevokeClusterSecurityGroupIngressCommandError = async 
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.redshift#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterSecurityGroupNotFoundFault":
+    case "ClusterSecurityGroupNotFound":
     case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
       throw await deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidClusterSecurityGroupStateFault":
+    case "InvalidClusterSecurityGroupState":
     case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
@@ -8414,25 +8414,25 @@ const deserializeAws_queryRevokeEndpointAccessCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "EndpointAuthorizationNotFoundFault":
+    case "EndpointAuthorizationNotFound":
     case "com.amazonaws.redshift#EndpointAuthorizationNotFoundFault":
       throw await deserializeAws_queryEndpointAuthorizationNotFoundFaultResponse(parsedOutput, context);
-    case "EndpointNotFoundFault":
+    case "EndpointNotFound":
     case "com.amazonaws.redshift#EndpointNotFoundFault":
       throw await deserializeAws_queryEndpointNotFoundFaultResponse(parsedOutput, context);
-    case "InvalidAuthorizationStateFault":
+    case "InvalidAuthorizationState":
     case "com.amazonaws.redshift#InvalidAuthorizationStateFault":
       throw await deserializeAws_queryInvalidAuthorizationStateFaultResponse(parsedOutput, context);
-    case "InvalidClusterSecurityGroupStateFault":
+    case "InvalidClusterSecurityGroupState":
     case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       throw await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
-    case "InvalidEndpointStateFault":
+    case "InvalidEndpointState":
     case "com.amazonaws.redshift#InvalidEndpointStateFault":
       throw await deserializeAws_queryInvalidEndpointStateFaultResponse(parsedOutput, context);
     default:
@@ -8473,16 +8473,16 @@ const deserializeAws_queryRevokeSnapshotAccessCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessToSnapshotDeniedFault":
+    case "AccessToSnapshotDenied":
     case "com.amazonaws.redshift#AccessToSnapshotDeniedFault":
       throw await deserializeAws_queryAccessToSnapshotDeniedFaultResponse(parsedOutput, context);
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.redshift#AuthorizationNotFoundFault":
       throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
-    case "ClusterSnapshotNotFoundFault":
+    case "ClusterSnapshotNotFound":
     case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
-    case "UnsupportedOperationFault":
+    case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
@@ -8523,13 +8523,13 @@ const deserializeAws_queryRotateEncryptionKeyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
     case "DependentServiceRequestThrottlingFault":
     case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
       throw await deserializeAws_queryDependentServiceRequestThrottlingFaultResponse(parsedOutput, context);
-    case "InvalidClusterStateFault":
+    case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context);
     default:
@@ -8570,13 +8570,13 @@ const deserializeAws_queryUpdatePartnerStatusCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterNotFoundFault":
+    case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context);
-    case "PartnerNotFoundFault":
+    case "PartnerNotFound":
     case "com.amazonaws.redshift#PartnerNotFoundFault":
       throw await deserializeAws_queryPartnerNotFoundFaultResponse(parsedOutput, context);
-    case "UnauthorizedPartnerIntegrationFault":
+    case "UnauthorizedPartnerIntegration":
     case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
       throw await deserializeAws_queryUnauthorizedPartnerIntegrationFaultResponse(parsedOutput, context);
     default:

@@ -1296,15 +1296,15 @@ const deserializeAws_json1_1DecryptCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -1867,15 +1867,15 @@ const deserializeAws_json1_1EncryptCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -1929,15 +1929,15 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -1991,15 +1991,15 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -2056,15 +2056,15 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -2121,15 +2121,15 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -2180,15 +2180,15 @@ const deserializeAws_json1_1GenerateMacCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -2460,15 +2460,15 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -2973,15 +2973,15 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -3265,15 +3265,15 @@ const deserializeAws_json1_1SignCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -3645,9 +3645,6 @@ const deserializeAws_json1_1VerifyCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
@@ -3657,6 +3654,9 @@ const deserializeAws_json1_1VerifyCommandError = async (
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
@@ -3707,9 +3707,6 @@ const deserializeAws_json1_1VerifyMacCommandError = async (
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
       throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
@@ -3719,6 +3716,9 @@ const deserializeAws_json1_1VerifyMacCommandError = async (
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
       throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);

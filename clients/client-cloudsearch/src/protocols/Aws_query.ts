@@ -630,7 +630,7 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -680,10 +680,10 @@ const deserializeAws_queryCreateDomainCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
+    case "ResourceAlreadyExists":
     case "com.amazonaws.cloudsearch#ResourceAlreadyExistsException":
       throw await deserializeAws_queryResourceAlreadyExistsExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -733,13 +733,13 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -789,13 +789,13 @@ const deserializeAws_queryDefineExpressionCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -845,13 +845,13 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -901,13 +901,13 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -957,10 +957,10 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1054,10 +1054,10 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1107,10 +1107,10 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1160,10 +1160,10 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1213,7 +1213,7 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1257,19 +1257,19 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
-    case "DisabledOperationException":
+    case "DisabledAction":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       throw await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1316,16 +1316,16 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
-    case "DisabledOperationException":
+    case "DisabledAction":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       throw await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1416,7 +1416,7 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1463,7 +1463,7 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1510,7 +1510,7 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1560,7 +1560,7 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1607,7 +1607,7 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
@@ -1654,7 +1654,7 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1742,19 +1742,19 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
-    case "DisabledOperationException":
+    case "DisabledAction":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       throw await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1801,19 +1801,19 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
-    case "DisabledOperationException":
+    case "DisabledAction":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       throw await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1863,13 +1863,13 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
@@ -1919,13 +1919,13 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
-    case "InvalidTypeException":
+    case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "ResourceNotFoundException":
+    case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":

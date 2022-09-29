@@ -3924,12 +3924,12 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
     case "InvalidResponseCode":
     case "com.amazonaws.cloudfront#InvalidResponseCode":
       throw await deserializeAws_restXmlInvalidResponseCodeResponse(parsedOutput, context);
-    case "InvalidTagging":
-    case "com.amazonaws.cloudfront#InvalidTagging":
-      throw await deserializeAws_restXmlInvalidTaggingResponse(parsedOutput, context);
     case "InvalidTTLOrder":
     case "com.amazonaws.cloudfront#InvalidTTLOrder":
       throw await deserializeAws_restXmlInvalidTTLOrderResponse(parsedOutput, context);
+    case "InvalidTagging":
+    case "com.amazonaws.cloudfront#InvalidTagging":
+      throw await deserializeAws_restXmlInvalidTaggingResponse(parsedOutput, context);
     case "InvalidViewerCertificate":
     case "com.amazonaws.cloudfront#InvalidViewerCertificate":
       throw await deserializeAws_restXmlInvalidViewerCertificateResponse(parsedOutput, context);

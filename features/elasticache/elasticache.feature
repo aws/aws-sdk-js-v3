@@ -13,7 +13,7 @@ Feature: Amazon ElastiCache
 
   Scenario: Error handling
     Given I create a cache parameter group with name prefix ""
-    Then the error code should be "InvalidParameterValue"
+    Then the error code should be "InvalidParameterValueException"
     Then the error message should contain:
     """
     The parameter CacheParameterGroupName must be provided and must not be blank

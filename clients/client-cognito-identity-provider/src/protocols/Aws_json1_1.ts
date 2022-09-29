@@ -2159,12 +2159,12 @@ const deserializeAws_json1_1AdminCreateUserCommandError = async (
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
       throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
-    case "UsernameExistsException":
-    case "com.amazonaws.cognitoidentityprovider#UsernameExistsException":
-      throw await deserializeAws_json1_1UsernameExistsExceptionResponse(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
       throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+    case "UsernameExistsException":
+    case "com.amazonaws.cognitoidentityprovider#UsernameExistsException":
+      throw await deserializeAws_json1_1UsernameExistsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3777,15 +3777,15 @@ const deserializeAws_json1_1ConfirmDeviceCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
       throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
-    case "UsernameExistsException":
-    case "com.amazonaws.cognitoidentityprovider#UsernameExistsException":
-      throw await deserializeAws_json1_1UsernameExistsExceptionResponse(parsedOutput, context);
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
       throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
       throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
+    case "UsernameExistsException":
+    case "com.amazonaws.cognitoidentityprovider#UsernameExistsException":
+      throw await deserializeAws_json1_1UsernameExistsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({

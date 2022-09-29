@@ -1609,13 +1609,13 @@ const deserializeAws_queryCloneReceiptRuleSetCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       throw await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -1656,13 +1656,13 @@ const deserializeAws_queryCreateConfigurationSetCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetAlreadyExistsException":
+    case "ConfigurationSetAlreadyExists":
     case "com.amazonaws.ses#ConfigurationSetAlreadyExistsException":
       throw await deserializeAws_queryConfigurationSetAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidConfigurationSetException":
+    case "InvalidConfigurationSet":
     case "com.amazonaws.ses#InvalidConfigurationSetException":
       throw await deserializeAws_queryInvalidConfigurationSetExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -1706,22 +1706,22 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
-    case "EventDestinationAlreadyExistsException":
+    case "EventDestinationAlreadyExists":
     case "com.amazonaws.ses#EventDestinationAlreadyExistsException":
       throw await deserializeAws_queryEventDestinationAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidCloudWatchDestinationException":
+    case "InvalidCloudWatchDestination":
     case "com.amazonaws.ses#InvalidCloudWatchDestinationException":
       throw await deserializeAws_queryInvalidCloudWatchDestinationExceptionResponse(parsedOutput, context);
-    case "InvalidFirehoseDestinationException":
+    case "InvalidFirehoseDestination":
     case "com.amazonaws.ses#InvalidFirehoseDestinationException":
       throw await deserializeAws_queryInvalidFirehoseDestinationExceptionResponse(parsedOutput, context);
-    case "InvalidSNSDestinationException":
+    case "InvalidSNSDestination":
     case "com.amazonaws.ses#InvalidSNSDestinationException":
       throw await deserializeAws_queryInvalidSNSDestinationExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -1765,10 +1765,10 @@ const deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandError = as
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
-    case "InvalidTrackingOptionsException":
+    case "InvalidTrackingOptions":
     case "com.amazonaws.ses#InvalidTrackingOptionsException":
       throw await deserializeAws_queryInvalidTrackingOptionsExceptionResponse(parsedOutput, context);
     case "TrackingOptionsAlreadyExistsException":
@@ -1809,19 +1809,19 @@ const deserializeAws_queryCreateCustomVerificationEmailTemplateCommandError = as
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CustomVerificationEmailInvalidContentException":
+    case "CustomVerificationEmailInvalidContent":
     case "com.amazonaws.ses#CustomVerificationEmailInvalidContentException":
       throw await deserializeAws_queryCustomVerificationEmailInvalidContentExceptionResponse(parsedOutput, context);
-    case "CustomVerificationEmailTemplateAlreadyExistsException":
+    case "CustomVerificationEmailTemplateAlreadyExists":
     case "com.amazonaws.ses#CustomVerificationEmailTemplateAlreadyExistsException":
       throw await deserializeAws_queryCustomVerificationEmailTemplateAlreadyExistsExceptionResponse(
         parsedOutput,
         context
       );
-    case "FromEmailAddressNotVerifiedException":
+    case "FromEmailAddressNotVerified":
     case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
       throw await deserializeAws_queryFromEmailAddressNotVerifiedExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -1862,10 +1862,10 @@ const deserializeAws_queryCreateReceiptFilterCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       throw await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -1906,25 +1906,25 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       throw await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidLambdaFunctionException":
+    case "InvalidLambdaFunction":
     case "com.amazonaws.ses#InvalidLambdaFunctionException":
       throw await deserializeAws_queryInvalidLambdaFunctionExceptionResponse(parsedOutput, context);
-    case "InvalidS3ConfigurationException":
+    case "InvalidS3Configuration":
     case "com.amazonaws.ses#InvalidS3ConfigurationException":
       throw await deserializeAws_queryInvalidS3ConfigurationExceptionResponse(parsedOutput, context);
-    case "InvalidSnsTopicException":
+    case "InvalidSnsTopic":
     case "com.amazonaws.ses#InvalidSnsTopicException":
       throw await deserializeAws_queryInvalidSnsTopicExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       throw await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context);
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -1965,10 +1965,10 @@ const deserializeAws_queryCreateReceiptRuleSetCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       throw await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -2009,13 +2009,13 @@ const deserializeAws_queryCreateTemplateCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       throw await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context);
-    case "InvalidTemplateException":
+    case "InvalidTemplate":
     case "com.amazonaws.ses#InvalidTemplateException":
       throw await deserializeAws_queryInvalidTemplateExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     default:
@@ -2056,7 +2056,7 @@ const deserializeAws_queryDeleteConfigurationSetCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -2100,10 +2100,10 @@ const deserializeAws_queryDeleteConfigurationSetEventDestinationCommandError = a
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
-    case "EventDestinationDoesNotExistException":
+    case "EventDestinationDoesNotExist":
     case "com.amazonaws.ses#EventDestinationDoesNotExistException":
       throw await deserializeAws_queryEventDestinationDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -2147,7 +2147,7 @@ const deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommandError = as
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     case "TrackingOptionsDoesNotExistException":
@@ -2328,7 +2328,7 @@ const deserializeAws_queryDeleteReceiptRuleCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -2369,7 +2369,7 @@ const deserializeAws_queryDeleteReceiptRuleSetCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CannotDeleteException":
+    case "CannotDelete":
     case "com.amazonaws.ses#CannotDeleteException":
       throw await deserializeAws_queryCannotDeleteExceptionResponse(parsedOutput, context);
     default:
@@ -2512,7 +2512,7 @@ const deserializeAws_queryDescribeConfigurationSetCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -2553,10 +2553,10 @@ const deserializeAws_queryDescribeReceiptRuleCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       throw await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context);
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -2597,7 +2597,7 @@ const deserializeAws_queryDescribeReceiptRuleSetCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -2676,7 +2676,7 @@ const deserializeAws_queryGetCustomVerificationEmailTemplateCommandError = async
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CustomVerificationEmailTemplateDoesNotExistException":
+    case "CustomVerificationEmailTemplateDoesNotExist":
     case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
       throw await deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistExceptionResponse(
         parsedOutput,
@@ -2974,7 +2974,7 @@ const deserializeAws_queryGetTemplateCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       throw await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -3301,10 +3301,10 @@ const deserializeAws_queryPutConfigurationSetDeliveryOptionsCommandError = async
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
-    case "InvalidDeliveryOptionsException":
+    case "InvalidDeliveryOptions":
     case "com.amazonaws.ses#InvalidDeliveryOptionsException":
       throw await deserializeAws_queryInvalidDeliveryOptionsExceptionResponse(parsedOutput, context);
     default:
@@ -3345,7 +3345,7 @@ const deserializeAws_queryPutIdentityPolicyCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidPolicyException":
+    case "InvalidPolicy":
     case "com.amazonaws.ses#InvalidPolicyException":
       throw await deserializeAws_queryInvalidPolicyExceptionResponse(parsedOutput, context);
     default:
@@ -3386,10 +3386,10 @@ const deserializeAws_queryReorderReceiptRuleSetCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       throw await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context);
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -3474,7 +3474,7 @@ const deserializeAws_querySendBulkTemplatedEmailCommandError = async (
     case "AccountSendingPausedException":
     case "com.amazonaws.ses#AccountSendingPausedException":
       throw await deserializeAws_queryAccountSendingPausedExceptionResponse(parsedOutput, context);
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     case "ConfigurationSetSendingPausedException":
@@ -3486,7 +3486,7 @@ const deserializeAws_querySendBulkTemplatedEmailCommandError = async (
     case "MessageRejected":
     case "com.amazonaws.ses#MessageRejected":
       throw await deserializeAws_queryMessageRejectedResponse(parsedOutput, context);
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       throw await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -3527,22 +3527,22 @@ const deserializeAws_querySendCustomVerificationEmailCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
-    case "CustomVerificationEmailTemplateDoesNotExistException":
+    case "CustomVerificationEmailTemplateDoesNotExist":
     case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
       throw await deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistExceptionResponse(
         parsedOutput,
         context
       );
-    case "FromEmailAddressNotVerifiedException":
+    case "FromEmailAddressNotVerified":
     case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
       throw await deserializeAws_queryFromEmailAddressNotVerifiedExceptionResponse(parsedOutput, context);
     case "MessageRejected":
     case "com.amazonaws.ses#MessageRejected":
       throw await deserializeAws_queryMessageRejectedResponse(parsedOutput, context);
-    case "ProductionAccessNotGrantedException":
+    case "ProductionAccessNotGranted":
     case "com.amazonaws.ses#ProductionAccessNotGrantedException":
       throw await deserializeAws_queryProductionAccessNotGrantedExceptionResponse(parsedOutput, context);
     default:
@@ -3586,7 +3586,7 @@ const deserializeAws_querySendEmailCommandError = async (
     case "AccountSendingPausedException":
     case "com.amazonaws.ses#AccountSendingPausedException":
       throw await deserializeAws_queryAccountSendingPausedExceptionResponse(parsedOutput, context);
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     case "ConfigurationSetSendingPausedException":
@@ -3639,7 +3639,7 @@ const deserializeAws_querySendRawEmailCommandError = async (
     case "AccountSendingPausedException":
     case "com.amazonaws.ses#AccountSendingPausedException":
       throw await deserializeAws_queryAccountSendingPausedExceptionResponse(parsedOutput, context);
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     case "ConfigurationSetSendingPausedException":
@@ -3692,7 +3692,7 @@ const deserializeAws_querySendTemplatedEmailCommandError = async (
     case "AccountSendingPausedException":
     case "com.amazonaws.ses#AccountSendingPausedException":
       throw await deserializeAws_queryAccountSendingPausedExceptionResponse(parsedOutput, context);
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     case "ConfigurationSetSendingPausedException":
@@ -3704,7 +3704,7 @@ const deserializeAws_querySendTemplatedEmailCommandError = async (
     case "MessageRejected":
     case "com.amazonaws.ses#MessageRejected":
       throw await deserializeAws_queryMessageRejectedResponse(parsedOutput, context);
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       throw await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -3745,7 +3745,7 @@ const deserializeAws_querySetActiveReceiptRuleSetCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -3967,10 +3967,10 @@ const deserializeAws_querySetReceiptRulePositionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       throw await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context);
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -4011,13 +4011,13 @@ const deserializeAws_queryTestRenderTemplateCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidRenderingParameterException":
+    case "InvalidRenderingParameter":
     case "com.amazonaws.ses#InvalidRenderingParameterException":
       throw await deserializeAws_queryInvalidRenderingParameterExceptionResponse(parsedOutput, context);
-    case "MissingRenderingAttributeException":
+    case "MissingRenderingAttribute":
     case "com.amazonaws.ses#MissingRenderingAttributeException":
       throw await deserializeAws_queryMissingRenderingAttributeExceptionResponse(parsedOutput, context);
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       throw await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -4093,19 +4093,19 @@ const deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError = a
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
-    case "EventDestinationDoesNotExistException":
+    case "EventDestinationDoesNotExist":
     case "com.amazonaws.ses#EventDestinationDoesNotExistException":
       throw await deserializeAws_queryEventDestinationDoesNotExistExceptionResponse(parsedOutput, context);
-    case "InvalidCloudWatchDestinationException":
+    case "InvalidCloudWatchDestination":
     case "com.amazonaws.ses#InvalidCloudWatchDestinationException":
       throw await deserializeAws_queryInvalidCloudWatchDestinationExceptionResponse(parsedOutput, context);
-    case "InvalidFirehoseDestinationException":
+    case "InvalidFirehoseDestination":
     case "com.amazonaws.ses#InvalidFirehoseDestinationException":
       throw await deserializeAws_queryInvalidFirehoseDestinationExceptionResponse(parsedOutput, context);
-    case "InvalidSNSDestinationException":
+    case "InvalidSNSDestination":
     case "com.amazonaws.ses#InvalidSNSDestinationException":
       throw await deserializeAws_queryInvalidSNSDestinationExceptionResponse(parsedOutput, context);
     default:
@@ -4143,7 +4143,7 @@ const deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommandE
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -4181,7 +4181,7 @@ const deserializeAws_queryUpdateConfigurationSetSendingEnabledCommandError = asy
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -4225,10 +4225,10 @@ const deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandError = as
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       throw await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context);
-    case "InvalidTrackingOptionsException":
+    case "InvalidTrackingOptions":
     case "com.amazonaws.ses#InvalidTrackingOptionsException":
       throw await deserializeAws_queryInvalidTrackingOptionsExceptionResponse(parsedOutput, context);
     case "TrackingOptionsDoesNotExistException":
@@ -4269,16 +4269,16 @@ const deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandError = as
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CustomVerificationEmailInvalidContentException":
+    case "CustomVerificationEmailInvalidContent":
     case "com.amazonaws.ses#CustomVerificationEmailInvalidContentException":
       throw await deserializeAws_queryCustomVerificationEmailInvalidContentExceptionResponse(parsedOutput, context);
-    case "CustomVerificationEmailTemplateDoesNotExistException":
+    case "CustomVerificationEmailTemplateDoesNotExist":
     case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
       throw await deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistExceptionResponse(
         parsedOutput,
         context
       );
-    case "FromEmailAddressNotVerifiedException":
+    case "FromEmailAddressNotVerified":
     case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
       throw await deserializeAws_queryFromEmailAddressNotVerifiedExceptionResponse(parsedOutput, context);
     default:
@@ -4319,22 +4319,22 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidLambdaFunctionException":
+    case "InvalidLambdaFunction":
     case "com.amazonaws.ses#InvalidLambdaFunctionException":
       throw await deserializeAws_queryInvalidLambdaFunctionExceptionResponse(parsedOutput, context);
-    case "InvalidS3ConfigurationException":
+    case "InvalidS3Configuration":
     case "com.amazonaws.ses#InvalidS3ConfigurationException":
       throw await deserializeAws_queryInvalidS3ConfigurationExceptionResponse(parsedOutput, context);
-    case "InvalidSnsTopicException":
+    case "InvalidSnsTopic":
     case "com.amazonaws.ses#InvalidSnsTopicException":
       throw await deserializeAws_queryInvalidSnsTopicExceptionResponse(parsedOutput, context);
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       throw await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context);
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       throw await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context);
     default:
@@ -4375,10 +4375,10 @@ const deserializeAws_queryUpdateTemplateCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidTemplateException":
+    case "InvalidTemplate":
     case "com.amazonaws.ses#InvalidTemplateException":
       throw await deserializeAws_queryInvalidTemplateExceptionResponse(parsedOutput, context);
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       throw await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context);
     default:

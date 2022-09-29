@@ -491,7 +491,7 @@ const deserializeAws_queryChangeMessageVisibilityCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "MessageNotInflight":
+    case "AWS.SimpleQueueService.MessageNotInflight":
     case "com.amazonaws.sqs#MessageNotInflight":
       throw await deserializeAws_queryMessageNotInflightResponse(parsedOutput, context);
     case "ReceiptHandleIsInvalid":
@@ -535,16 +535,16 @@ const deserializeAws_queryChangeMessageVisibilityBatchCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "BatchEntryIdsNotDistinct":
+    case "AWS.SimpleQueueService.BatchEntryIdsNotDistinct":
     case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
       throw await deserializeAws_queryBatchEntryIdsNotDistinctResponse(parsedOutput, context);
-    case "EmptyBatchRequest":
+    case "AWS.SimpleQueueService.EmptyBatchRequest":
     case "com.amazonaws.sqs#EmptyBatchRequest":
       throw await deserializeAws_queryEmptyBatchRequestResponse(parsedOutput, context);
-    case "InvalidBatchEntryId":
+    case "AWS.SimpleQueueService.InvalidBatchEntryId":
     case "com.amazonaws.sqs#InvalidBatchEntryId":
       throw await deserializeAws_queryInvalidBatchEntryIdResponse(parsedOutput, context);
-    case "TooManyEntriesInBatchRequest":
+    case "AWS.SimpleQueueService.TooManyEntriesInBatchRequest":
     case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
       throw await deserializeAws_queryTooManyEntriesInBatchRequestResponse(parsedOutput, context);
     default:
@@ -585,10 +585,10 @@ const deserializeAws_queryCreateQueueCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "QueueDeletedRecently":
+    case "AWS.SimpleQueueService.QueueDeletedRecently":
     case "com.amazonaws.sqs#QueueDeletedRecently":
       throw await deserializeAws_queryQueueDeletedRecentlyResponse(parsedOutput, context);
-    case "QueueNameExists":
+    case "QueueAlreadyExists":
     case "com.amazonaws.sqs#QueueNameExists":
       throw await deserializeAws_queryQueueNameExistsResponse(parsedOutput, context);
     default:
@@ -670,16 +670,16 @@ const deserializeAws_queryDeleteMessageBatchCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "BatchEntryIdsNotDistinct":
+    case "AWS.SimpleQueueService.BatchEntryIdsNotDistinct":
     case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
       throw await deserializeAws_queryBatchEntryIdsNotDistinctResponse(parsedOutput, context);
-    case "EmptyBatchRequest":
+    case "AWS.SimpleQueueService.EmptyBatchRequest":
     case "com.amazonaws.sqs#EmptyBatchRequest":
       throw await deserializeAws_queryEmptyBatchRequestResponse(parsedOutput, context);
-    case "InvalidBatchEntryId":
+    case "AWS.SimpleQueueService.InvalidBatchEntryId":
     case "com.amazonaws.sqs#InvalidBatchEntryId":
       throw await deserializeAws_queryInvalidBatchEntryIdResponse(parsedOutput, context);
-    case "TooManyEntriesInBatchRequest":
+    case "AWS.SimpleQueueService.TooManyEntriesInBatchRequest":
     case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
       throw await deserializeAws_queryTooManyEntriesInBatchRequestResponse(parsedOutput, context);
     default:
@@ -793,7 +793,7 @@ const deserializeAws_queryGetQueueUrlCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "QueueDoesNotExist":
+    case "AWS.SimpleQueueService.NonExistentQueue":
     case "com.amazonaws.sqs#QueueDoesNotExist":
       throw await deserializeAws_queryQueueDoesNotExistResponse(parsedOutput, context);
     default:
@@ -834,7 +834,7 @@ const deserializeAws_queryListDeadLetterSourceQueuesCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "QueueDoesNotExist":
+    case "AWS.SimpleQueueService.NonExistentQueue":
     case "com.amazonaws.sqs#QueueDoesNotExist":
       throw await deserializeAws_queryQueueDoesNotExistResponse(parsedOutput, context);
     default:
@@ -942,12 +942,12 @@ const deserializeAws_queryPurgeQueueCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "PurgeQueueInProgress":
-    case "com.amazonaws.sqs#PurgeQueueInProgress":
-      throw await deserializeAws_queryPurgeQueueInProgressResponse(parsedOutput, context);
-    case "QueueDoesNotExist":
+    case "AWS.SimpleQueueService.NonExistentQueue":
     case "com.amazonaws.sqs#QueueDoesNotExist":
       throw await deserializeAws_queryQueueDoesNotExistResponse(parsedOutput, context);
+    case "AWS.SimpleQueueService.PurgeQueueInProgress":
+    case "com.amazonaws.sqs#PurgeQueueInProgress":
+      throw await deserializeAws_queryPurgeQueueInProgressResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1059,12 +1059,12 @@ const deserializeAws_querySendMessageCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWS.SimpleQueueService.UnsupportedOperation":
+    case "com.amazonaws.sqs#UnsupportedOperation":
+      throw await deserializeAws_queryUnsupportedOperationResponse(parsedOutput, context);
     case "InvalidMessageContents":
     case "com.amazonaws.sqs#InvalidMessageContents":
       throw await deserializeAws_queryInvalidMessageContentsResponse(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await deserializeAws_queryUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1103,22 +1103,22 @@ const deserializeAws_querySendMessageBatchCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "BatchEntryIdsNotDistinct":
+    case "AWS.SimpleQueueService.BatchEntryIdsNotDistinct":
     case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
       throw await deserializeAws_queryBatchEntryIdsNotDistinctResponse(parsedOutput, context);
-    case "BatchRequestTooLong":
+    case "AWS.SimpleQueueService.BatchRequestTooLong":
     case "com.amazonaws.sqs#BatchRequestTooLong":
       throw await deserializeAws_queryBatchRequestTooLongResponse(parsedOutput, context);
-    case "EmptyBatchRequest":
+    case "AWS.SimpleQueueService.EmptyBatchRequest":
     case "com.amazonaws.sqs#EmptyBatchRequest":
       throw await deserializeAws_queryEmptyBatchRequestResponse(parsedOutput, context);
-    case "InvalidBatchEntryId":
+    case "AWS.SimpleQueueService.InvalidBatchEntryId":
     case "com.amazonaws.sqs#InvalidBatchEntryId":
       throw await deserializeAws_queryInvalidBatchEntryIdResponse(parsedOutput, context);
-    case "TooManyEntriesInBatchRequest":
+    case "AWS.SimpleQueueService.TooManyEntriesInBatchRequest":
     case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
       throw await deserializeAws_queryTooManyEntriesInBatchRequestResponse(parsedOutput, context);
-    case "UnsupportedOperation":
+    case "AWS.SimpleQueueService.UnsupportedOperation":
     case "com.amazonaws.sqs#UnsupportedOperation":
       throw await deserializeAws_queryUnsupportedOperationResponse(parsedOutput, context);
     default:

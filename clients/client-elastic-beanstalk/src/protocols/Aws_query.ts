@@ -1360,12 +1360,12 @@ const deserializeAws_queryCreateApplicationVersionCommandError = async (
     case "S3LocationNotInServiceRegionException":
     case "com.amazonaws.elasticbeanstalk#S3LocationNotInServiceRegionException":
       throw await deserializeAws_queryS3LocationNotInServiceRegionExceptionResponse(parsedOutput, context);
-    case "TooManyApplicationsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyApplicationsException":
-      throw await deserializeAws_queryTooManyApplicationsExceptionResponse(parsedOutput, context);
     case "TooManyApplicationVersionsException":
     case "com.amazonaws.elasticbeanstalk#TooManyApplicationVersionsException":
       throw await deserializeAws_queryTooManyApplicationVersionsExceptionResponse(parsedOutput, context);
+    case "TooManyApplicationsException":
+    case "com.amazonaws.elasticbeanstalk#TooManyApplicationsException":
+      throw await deserializeAws_queryTooManyApplicationsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1586,7 +1586,7 @@ const deserializeAws_queryDeleteApplicationCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
     default:
@@ -1627,13 +1627,13 @@ const deserializeAws_queryDeleteApplicationVersionCommandError = async (
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
       throw await deserializeAws_queryInsufficientPrivilegesExceptionResponse(parsedOutput, context);
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
     case "S3LocationNotInServiceRegionException":
     case "com.amazonaws.elasticbeanstalk#S3LocationNotInServiceRegionException":
       throw await deserializeAws_queryS3LocationNotInServiceRegionExceptionResponse(parsedOutput, context);
-    case "SourceBundleDeletionException":
+    case "SourceBundleDeletionFailure":
     case "com.amazonaws.elasticbeanstalk#SourceBundleDeletionException":
       throw await deserializeAws_querySourceBundleDeletionExceptionResponse(parsedOutput, context);
     default:
@@ -1671,7 +1671,7 @@ const deserializeAws_queryDeleteConfigurationTemplateCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
     default:
@@ -1750,7 +1750,7 @@ const deserializeAws_queryDeletePlatformVersionCommandError = async (
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
       throw await deserializeAws_queryInsufficientPrivilegesExceptionResponse(parsedOutput, context);
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
     case "PlatformVersionStillReferencedException":
@@ -2935,7 +2935,7 @@ const deserializeAws_queryUpdateTagsForResourceCommandError = async (
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
       throw await deserializeAws_queryInsufficientPrivilegesExceptionResponse(parsedOutput, context);
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
