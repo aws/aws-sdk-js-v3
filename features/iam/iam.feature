@@ -17,4 +17,4 @@ Feature: IAM
     Given I have an IAM username "js-test-dupe"
     And I create an IAM user with the username
     And I create an IAM user with the username
-    Then the error code should be "EntityAlreadyExists"
+    Then the error code should be "EntityAlreadyExistsException"
