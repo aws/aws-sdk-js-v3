@@ -28,7 +28,7 @@ export interface UpdateTrainingJobCommandInput extends UpdateTrainingJobRequest 
 export interface UpdateTrainingJobCommandOutput extends UpdateTrainingJobResponse, __MetadataBearer {}
 
 /**
- * <p>Update a model training job to request a new Debugger profiling configuration.</p>
+ * <p>Update a model training job to request a new Debugger profiling configuration or to change warm pool retention length.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

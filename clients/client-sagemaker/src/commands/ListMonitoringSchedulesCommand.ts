@@ -12,12 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMonitoringSchedulesRequest,
-  ListMonitoringSchedulesRequestFilterSensitiveLog,
-  ListMonitoringSchedulesResponse,
-  ListMonitoringSchedulesResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { ListMonitoringSchedulesRequest, ListMonitoringSchedulesRequestFilterSensitiveLog } from "../models/models_2";
+import { ListMonitoringSchedulesResponse, ListMonitoringSchedulesResponseFilterSensitiveLog } from "../models/models_3";
 import {
   deserializeAws_json1_1ListMonitoringSchedulesCommand,
   serializeAws_json1_1ListMonitoringSchedulesCommand,

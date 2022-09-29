@@ -1215,6 +1215,11 @@ export interface ResourceConfig {
    * <p>The configuration of a heterogeneous cluster in JSON format.</p>
    */
   InstanceGroups?: InstanceGroup[];
+
+  /**
+   * <p>The duration of time in seconds to retain configured resources in a warm pool for subsequent training jobs.</p>
+   */
+  KeepAlivePeriodInSeconds?: number;
 }
 
 /**

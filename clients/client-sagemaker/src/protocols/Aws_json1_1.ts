@@ -1392,7 +1392,6 @@ import {
   ListMonitoringExecutionsRequest,
   ListMonitoringExecutionsResponse,
   ListMonitoringSchedulesRequest,
-  ListMonitoringSchedulesResponse,
   MetricData,
   ModelConfiguration,
   ModelMetadataFilter,
@@ -1425,11 +1424,13 @@ import {
   TrialComponentSource,
   TrialSource,
   UiTemplateInfo,
+  WarmPoolStatus,
   Workforce,
   WorkforceVpcConfigResponse,
   Workteam,
 } from "../models/models_2";
 import {
+  ListMonitoringSchedulesResponse,
   ListNotebookInstanceLifecycleConfigsInput,
   ListNotebookInstanceLifecycleConfigsOutput,
   ListNotebookInstancesInput,
@@ -1502,6 +1503,7 @@ import {
   RenderingError,
   RenderUiTemplateRequest,
   RenderUiTemplateResponse,
+  ResourceConfigForUpdate,
   RetryPipelineExecutionRequest,
   RetryPipelineExecutionResponse,
   SearchExpression,
@@ -20136,6 +20138,7 @@ const serializeAws_json1_1ListTrainingJobsRequest = (input: ListTrainingJobsRequ
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
     ...(input.StatusEquals != null && { StatusEquals: input.StatusEquals }),
+    ...(input.WarmPoolStatusEquals != null && { WarmPoolStatusEquals: input.WarmPoolStatusEquals }),
   };
 };
 
@@ -21598,8 +21601,15 @@ const serializeAws_json1_1ResourceConfig = (input: ResourceConfig, context: __Se
       InstanceGroups: serializeAws_json1_1InstanceGroups(input.InstanceGroups, context),
     }),
     ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
+    ...(input.KeepAlivePeriodInSeconds != null && { KeepAlivePeriodInSeconds: input.KeepAlivePeriodInSeconds }),
     ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
     ...(input.VolumeSizeInGB != null && { VolumeSizeInGB: input.VolumeSizeInGB }),
+  };
+};
+
+const serializeAws_json1_1ResourceConfigForUpdate = (input: ResourceConfigForUpdate, context: __SerdeContext): any => {
+  return {
+    ...(input.KeepAlivePeriodInSeconds != null && { KeepAlivePeriodInSeconds: input.KeepAlivePeriodInSeconds }),
   };
 };
 
@@ -22716,6 +22726,9 @@ const serializeAws_json1_1UpdateTrainingJobRequest = (
         input.ProfilerRuleConfigurations,
         context
       ),
+    }),
+    ...(input.ResourceConfig != null && {
+      ResourceConfig: serializeAws_json1_1ResourceConfigForUpdate(input.ResourceConfig, context),
     }),
     ...(input.TrainingJobName != null && { TrainingJobName: input.TrainingJobName }),
   };
@@ -26646,6 +26659,8 @@ const deserializeAws_json1_1DescribeTrainingJobResponse = (
     TrainingTimeInSeconds: __expectInt32(output.TrainingTimeInSeconds),
     TuningJobArn: __expectString(output.TuningJobArn),
     VpcConfig: output.VpcConfig != null ? deserializeAws_json1_1VpcConfig(output.VpcConfig, context) : undefined,
+    WarmPoolStatus:
+      output.WarmPoolStatus != null ? deserializeAws_json1_1WarmPoolStatus(output.WarmPoolStatus, context) : undefined,
   } as any;
 };
 
@@ -32300,6 +32315,7 @@ const deserializeAws_json1_1ResourceConfig = (output: any, context: __SerdeConte
     InstanceGroups:
       output.InstanceGroups != null ? deserializeAws_json1_1InstanceGroups(output.InstanceGroups, context) : undefined,
     InstanceType: __expectString(output.InstanceType),
+    KeepAlivePeriodInSeconds: __expectInt32(output.KeepAlivePeriodInSeconds),
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
     VolumeSizeInGB: __expectInt32(output.VolumeSizeInGB),
   } as any;
@@ -33009,6 +33025,8 @@ const deserializeAws_json1_1TrainingJobSummary = (output: any, context: __SerdeC
     TrainingJobArn: __expectString(output.TrainingJobArn),
     TrainingJobName: __expectString(output.TrainingJobName),
     TrainingJobStatus: __expectString(output.TrainingJobStatus),
+    WarmPoolStatus:
+      output.WarmPoolStatus != null ? deserializeAws_json1_1WarmPoolStatus(output.WarmPoolStatus, context) : undefined,
   } as any;
 };
 
@@ -33871,6 +33889,14 @@ const deserializeAws_json1_1VpcSecurityGroupIds = (output: any, context: __Serde
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_json1_1WarmPoolStatus = (output: any, context: __SerdeContext): WarmPoolStatus => {
+  return {
+    ResourceRetainedBillableTimeInSeconds: __expectInt32(output.ResourceRetainedBillableTimeInSeconds),
+    ReusedByJob: __expectString(output.ReusedByJob),
+    Status: __expectString(output.Status),
+  } as any;
 };
 
 const deserializeAws_json1_1Workforce = (output: any, context: __SerdeContext): Workforce => {

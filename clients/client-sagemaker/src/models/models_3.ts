@@ -98,7 +98,7 @@ import {
   MetricData,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
-  NotebookInstanceLifecycleConfigSortKey,
+  MonitoringScheduleSummary,
   NotebookInstanceStatus,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
@@ -118,9 +118,30 @@ import {
   TrialComponentSource,
   TrialSource,
   UserProfileStatus,
+  WarmPoolResourceStatus,
+  WarmPoolStatus,
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListMonitoringSchedulesResponse {
+  /**
+   * <p>A JSON array in which each element is a summary for a monitoring schedule.</p>
+   */
+  MonitoringScheduleSummaries: MonitoringScheduleSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
+   *          use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export enum NotebookInstanceLifecycleConfigSortKey {
+  CREATION_TIME = "CreationTime",
+  LAST_MODIFIED_TIME = "LastModifiedTime",
+  NAME = "Name",
+}
 
 export enum NotebookInstanceLifecycleConfigSortOrder {
   ASCENDING = "Ascending",
@@ -1479,6 +1500,11 @@ export interface ListTrainingJobsRequest {
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
   SortOrder?: SortOrder | string;
+
+  /**
+   * <p>A filter that retrieves only training jobs with a specific warm pool status.</p>
+   */
+  WarmPoolStatusEquals?: WarmPoolResourceStatus | string;
 }
 
 /**
@@ -1516,6 +1542,11 @@ export interface TrainingJobSummary {
    * <p>The status of the training job.</p>
    */
   TrainingJobStatus: TrainingJobStatus | string | undefined;
+
+  /**
+   * <p>The status of the warm pool associated with the training job.</p>
+   */
+  WarmPoolStatus?: WarmPoolStatus;
 }
 
 export interface ListTrainingJobsResponse {
@@ -3064,6 +3095,16 @@ export interface RenderUiTemplateResponse {
    *             while rendering the template. If there were no errors, the list is empty.</p>
    */
   Errors: RenderingError[] | undefined;
+}
+
+/**
+ * <p>The <code>ResourceConfig</code> to update <code>KeepAlivePeriodInSeconds</code>. Other fields in the <code>ResourceConfig</code> cannot be updated.</p>
+ */
+export interface ResourceConfigForUpdate {
+  /**
+   * <p>The <code>KeepAlivePeriodInSeconds</code> value specified in the <code>ResourceConfig</code> to update.</p>
+   */
+  KeepAlivePeriodInSeconds: number | undefined;
 }
 
 export interface RetryPipelineExecutionRequest {
@@ -4960,6 +5001,11 @@ export interface UpdateTrainingJobRequest {
    *             metrics.</p>
    */
   ProfilerRuleConfigurations?: ProfilerRuleConfiguration[];
+
+  /**
+   * <p>The training job <code>ResourceConfig</code> to update warm pool retention length.</p>
+   */
+  ResourceConfig?: ResourceConfigForUpdate;
 }
 
 export interface UpdateTrainingJobResponse {
@@ -5255,6 +5301,13 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const ListMonitoringSchedulesResponseFilterSensitiveLog = (obj: ListMonitoringSchedulesResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -5841,6 +5894,13 @@ export const RenderUiTemplateRequestFilterSensitiveLog = (obj: RenderUiTemplateR
  * @internal
  */
 export const RenderUiTemplateResponseFilterSensitiveLog = (obj: RenderUiTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceConfigForUpdateFilterSensitiveLog = (obj: ResourceConfigForUpdate): any => ({
   ...obj,
 });
 

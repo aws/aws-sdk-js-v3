@@ -3020,6 +3020,56 @@ export interface SecondaryStatusTransition {
   StatusMessage?: string;
 }
 
+export enum WarmPoolResourceStatus {
+  AVAILABLE = "Available",
+  INUSE = "InUse",
+  REUSED = "Reused",
+  TERMINATED = "Terminated",
+}
+
+/**
+ * <p>Status and billing information about the warm pool.</p>
+ */
+export interface WarmPoolStatus {
+  /**
+   * <p>The status of the warm pool.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>InUse</code>: The warm pool is in use for the training job.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Available</code>: The warm pool is available to reuse for a matching training job.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Reused</code>: The warm pool moved to a matching training job for reuse.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Terminated</code>: The warm pool is no longer available. Warm pools are unavailable if they are terminated by a user, terminated for a patch update, or terminated for exceeding the specified <code>KeepAlivePeriodInSeconds</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status: WarmPoolResourceStatus | string | undefined;
+
+  /**
+   * <p>The billable time in seconds used by the warm pool. Billable time refers to the absolute wall-clock
+   *             time.</p>
+   *         <p>Multiply <code>ResourceRetainedBillableTimeInSeconds</code> by the number of instances
+   *             (<code>InstanceCount</code>) in your training cluster to get the total compute time
+   *             SageMaker bills you if you run warm pool training. The formula is as follows:
+   *             <code>ResourceRetainedBillableTimeInSeconds * InstanceCount</code>.</p>
+   */
+  ResourceRetainedBillableTimeInSeconds?: number;
+
+  /**
+   * <p>The name of the matching training job that reused the warm pool.</p>
+   */
+  ReusedByJob?: string;
+}
+
 export interface DescribeTrainingJobResponse {
   /**
    * <p> Name of the model training job. </p>
@@ -3420,6 +3470,11 @@ export interface DescribeTrainingJobResponse {
    * <p>The environment variables to set in the Docker container.</p>
    */
   Environment?: Record<string, string>;
+
+  /**
+   * <p>The status of the warm pool associated with the training job.</p>
+   */
+  WarmPoolStatus?: WarmPoolStatus;
 }
 
 export interface DescribeTransformJobRequest {
@@ -8911,25 +8966,6 @@ export interface MonitoringScheduleSummary {
   MonitoringType?: MonitoringType | string;
 }
 
-export interface ListMonitoringSchedulesResponse {
-  /**
-   * <p>A JSON array in which each element is a summary for a monitoring schedule.</p>
-   */
-  MonitoringScheduleSummaries: MonitoringScheduleSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
-   *          use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export enum NotebookInstanceLifecycleConfigSortKey {
-  CREATION_TIME = "CreationTime",
-  LAST_MODIFIED_TIME = "LastModifiedTime",
-  NAME = "Name",
-}
-
 /**
  * @internal
  */
@@ -9488,6 +9524,13 @@ export const ProfilerRuleEvaluationStatusFilterSensitiveLog = (obj: ProfilerRule
  * @internal
  */
 export const SecondaryStatusTransitionFilterSensitiveLog = (obj: SecondaryStatusTransition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WarmPoolStatusFilterSensitiveLog = (obj: WarmPoolStatus): any => ({
   ...obj,
 });
 
@@ -10678,12 +10721,5 @@ export const ListMonitoringSchedulesRequestFilterSensitiveLog = (obj: ListMonito
  * @internal
  */
 export const MonitoringScheduleSummaryFilterSensitiveLog = (obj: MonitoringScheduleSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoringSchedulesResponseFilterSensitiveLog = (obj: ListMonitoringSchedulesResponse): any => ({
   ...obj,
 });

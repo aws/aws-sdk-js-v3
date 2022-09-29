@@ -10233,7 +10233,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Update a model training job to request a new Debugger profiling configuration.</p>
+   * <p>Update a model training job to request a new Debugger profiling configuration or to change warm pool retention length.</p>
    */
   public updateTrainingJob(
     args: UpdateTrainingJobCommandInput,
