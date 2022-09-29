@@ -71,6 +71,7 @@ import {
   CreateDataRepositoryTaskCommandInput,
   CreateDataRepositoryTaskCommandOutput,
 } from "./commands/CreateDataRepositoryTaskCommand";
+import { CreateFileCacheCommandInput, CreateFileCacheCommandOutput } from "./commands/CreateFileCacheCommand";
 import { CreateFileSystemCommandInput, CreateFileSystemCommandOutput } from "./commands/CreateFileSystemCommand";
 import {
   CreateFileSystemFromBackupCommandInput,
@@ -91,6 +92,7 @@ import {
   DeleteDataRepositoryAssociationCommandInput,
   DeleteDataRepositoryAssociationCommandOutput,
 } from "./commands/DeleteDataRepositoryAssociationCommand";
+import { DeleteFileCacheCommandInput, DeleteFileCacheCommandOutput } from "./commands/DeleteFileCacheCommand";
 import { DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput } from "./commands/DeleteFileSystemCommand";
 import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
 import {
@@ -107,6 +109,7 @@ import {
   DescribeDataRepositoryTasksCommandInput,
   DescribeDataRepositoryTasksCommandOutput,
 } from "./commands/DescribeDataRepositoryTasksCommand";
+import { DescribeFileCachesCommandInput, DescribeFileCachesCommandOutput } from "./commands/DescribeFileCachesCommand";
 import {
   DescribeFileSystemAliasesCommandInput,
   DescribeFileSystemAliasesCommandOutput,
@@ -143,6 +146,7 @@ import {
   UpdateDataRepositoryAssociationCommandInput,
   UpdateDataRepositoryAssociationCommandOutput,
 } from "./commands/UpdateDataRepositoryAssociationCommand";
+import { UpdateFileCacheCommandInput, UpdateFileCacheCommandOutput } from "./commands/UpdateFileCacheCommand";
 import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "./commands/UpdateFileSystemCommand";
 import { UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput } from "./commands/UpdateSnapshotCommand";
 import {
@@ -159,6 +163,7 @@ export type ServiceInputTypes =
   | CreateBackupCommandInput
   | CreateDataRepositoryAssociationCommandInput
   | CreateDataRepositoryTaskCommandInput
+  | CreateFileCacheCommandInput
   | CreateFileSystemCommandInput
   | CreateFileSystemFromBackupCommandInput
   | CreateSnapshotCommandInput
@@ -167,6 +172,7 @@ export type ServiceInputTypes =
   | CreateVolumeFromBackupCommandInput
   | DeleteBackupCommandInput
   | DeleteDataRepositoryAssociationCommandInput
+  | DeleteFileCacheCommandInput
   | DeleteFileSystemCommandInput
   | DeleteSnapshotCommandInput
   | DeleteStorageVirtualMachineCommandInput
@@ -174,6 +180,7 @@ export type ServiceInputTypes =
   | DescribeBackupsCommandInput
   | DescribeDataRepositoryAssociationsCommandInput
   | DescribeDataRepositoryTasksCommandInput
+  | DescribeFileCachesCommandInput
   | DescribeFileSystemAliasesCommandInput
   | DescribeFileSystemsCommandInput
   | DescribeSnapshotsCommandInput
@@ -186,6 +193,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDataRepositoryAssociationCommandInput
+  | UpdateFileCacheCommandInput
   | UpdateFileSystemCommandInput
   | UpdateSnapshotCommandInput
   | UpdateStorageVirtualMachineCommandInput
@@ -198,6 +206,7 @@ export type ServiceOutputTypes =
   | CreateBackupCommandOutput
   | CreateDataRepositoryAssociationCommandOutput
   | CreateDataRepositoryTaskCommandOutput
+  | CreateFileCacheCommandOutput
   | CreateFileSystemCommandOutput
   | CreateFileSystemFromBackupCommandOutput
   | CreateSnapshotCommandOutput
@@ -206,6 +215,7 @@ export type ServiceOutputTypes =
   | CreateVolumeFromBackupCommandOutput
   | DeleteBackupCommandOutput
   | DeleteDataRepositoryAssociationCommandOutput
+  | DeleteFileCacheCommandOutput
   | DeleteFileSystemCommandOutput
   | DeleteSnapshotCommandOutput
   | DeleteStorageVirtualMachineCommandOutput
@@ -213,6 +223,7 @@ export type ServiceOutputTypes =
   | DescribeBackupsCommandOutput
   | DescribeDataRepositoryAssociationsCommandOutput
   | DescribeDataRepositoryTasksCommandOutput
+  | DescribeFileCachesCommandOutput
   | DescribeFileSystemAliasesCommandOutput
   | DescribeFileSystemsCommandOutput
   | DescribeSnapshotsCommandOutput
@@ -225,6 +236,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDataRepositoryAssociationCommandOutput
+  | UpdateFileCacheCommandOutput
   | UpdateFileSystemCommandOutput
   | UpdateSnapshotCommandOutput
   | UpdateStorageVirtualMachineCommandOutput

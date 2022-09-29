@@ -52,7 +52,6 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  *                 <p>The implementation might return fewer than <code>MaxResults</code> file
  *                     system descriptions while still including a <code>NextToken</code>
  *                     value.</p>
- *
  *             </li>
  *             <li>
  *                 <p>The order of file systems returned in the response of one

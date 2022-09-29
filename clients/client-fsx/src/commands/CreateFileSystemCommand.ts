@@ -68,16 +68,6 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  *                 <p>Returns the description of the file system in JSON format.</p>
  *             </li>
  *          </ul>
- *
- *         <p>This operation requires a client request token in the request that Amazon FSx
- *             uses to ensure idempotent creation. This means that calling the operation multiple times
- *             with the same client request token has no effect. By using the idempotent operation, you
- *             can retry a <code>CreateFileSystem</code> operation without the risk of creating an
- *             extra file system. This approach can be useful when an initial call fails in a way that
- *             makes it unclear whether a file system was created. Examples are if a transport-level
- *             timeout occurred, or your connection was reset. If you use the same client request token
- *             and the initial call created a file system, the client receives a success message as
- *             long as the parameters are the same.</p>
  *         <note>
  *             <p>The <code>CreateFileSystem</code> call returns while the file system's lifecycle
  *                 state is still <code>CREATING</code>. You can check the file-system creation status

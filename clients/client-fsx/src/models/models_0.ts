@@ -288,12 +288,8 @@ export enum LustreAccessAuditLogLevel {
 
 /**
  * <p>The configuration for Lustre logging used to write the enabled
- *             logging events for your file system to Amazon CloudWatch Logs.</p>
- *         <p>When logging is enabled, Lustre logs error and warning events
- *             from data repository operations such as automatic export and data repository tasks.
- *             To learn more about Lustre logging, see
- *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/cw-event-logging.html">Logging with Amazon CloudWatch Logs</a>.
- *         </p>
+ *             logging events for your Amazon FSx for Lustre file system or
+ *             Amazon File Cache resource to Amazon CloudWatch Logs.</p>
  */
 export interface LustreLogConfiguration {
   /**
@@ -318,6 +314,8 @@ export interface LustreLogConfiguration {
    *                     is turned off.</p>
    *             </li>
    *          </ul>
+   *         <p>Note that Amazon File Cache uses a default setting of <code>WARN_ERROR</code>,
+   *             which can't be changed.</p>
    */
   Level: LustreAccessAuditLogLevel | string | undefined;
 
@@ -1676,13 +1674,13 @@ export enum EventType {
 
 /**
  * <p>Describes a data repository association's automatic export policy. The
- *             <code>AutoExportPolicy</code>  defines the types of updated objects on the
+ *             <code>AutoExportPolicy</code> defines the types of updated objects on the
  *             file system that will be automatically exported to the data repository.
- *             As you create, modify, or delete files, Amazon FSx automatically
- *             exports the defined changes asynchronously once your application finishes
+ *             As you create, modify, or delete files, Amazon FSx for Lustre
+ *             automatically exports the defined changes asynchronously once your application finishes
  *             modifying the file.</p>
- *         <p>This <code>AutoExportPolicy</code> is supported only for file systems with the
- *             <code>Persistent_2</code> deployment type.</p>
+ *         <p>This <code>AutoExportPolicy</code> is supported only for Amazon FSx for Lustre
+ *             file systems with the <code>Persistent_2</code> deployment type.</p>
  */
 export interface AutoExportPolicy {
   /**
@@ -1690,13 +1688,13 @@ export interface AutoExportPolicy {
    *         <ul>
    *             <li>
    *                <p>
-   *                   <code>NEW</code> - Amazon FSx automatically exports new files and
-   *                 directories to the data repository as they are added to the file system.</p>
+   *                   <code>NEW</code> - New files and directories are automatically exported
+   *                 to the data repository as they are added to the file system.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CHANGED</code> - Amazon FSx automatically exports changes to
-   *                 files and directories on the file system to the data repository.</p>
+   *                   <code>CHANGED</code> - Changes to files and directories on the
+   *                 file system are automatically exported to the data repository.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1712,10 +1710,10 @@ export interface AutoExportPolicy {
 /**
  * <p>Describes the data repository association's automatic import policy.
  *             The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory
- *             listings up to date by importing changes to your file system as you modify
- *             objects in a linked S3 bucket.</p>
- *         <p>This <code>AutoImportPolicy</code> is supported only for file systems
- *             with the <code>Persistent_2</code> deployment type.</p>
+ *             listings up to date by importing changes to your Amazon FSx for Lustre file system
+ *             as you modify objects in a linked S3 bucket.</p>
+ *         <p>The <code>AutoImportPolicy</code> is supported only for Amazon FSx for Lustre
+ *             file systems with the <code>Persistent_2</code> deployment type.</p>
  */
 export interface AutoImportPolicy {
   /**
@@ -2128,6 +2126,7 @@ export class InvalidSourceKmsKey extends __BaseException {
 }
 
 export enum ServiceLimit {
+  FILE_CACHE_COUNT = "FILE_CACHE_COUNT",
   FILE_SYSTEM_COUNT = "FILE_SYSTEM_COUNT",
   STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM = "STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM",
   TOTAL_IN_PROGRESS_COPY_BACKUPS = "TOTAL_IN_PROGRESS_COPY_BACKUPS",
@@ -2283,14 +2282,18 @@ export class VolumeNotFound extends __BaseException {
 
 /**
  * <p>The configuration for an Amazon S3 data repository linked to an
- *             Amazon FSx Lustre file system with a data repository association.
+ *             Amazon FSx for Lustre file system with a data repository association.
  *             The configuration consists of an <code>AutoImportPolicy</code> that
- *             defines file events on the data repository are automatically
- *             imported to the file system and an <code>AutoExportPolicy</code>
- *             that defines which file events on the file system are automatically
- *             exported to the data repository. File events are when files or
- *             directories are added, changed, or deleted on the file system or
- *             the data repository.</p>
+ *             defines which file events on the data repository are automatically
+ *             imported to the file system and an <code>AutoExportPolicy</code> that
+ *             defines which file events on the file system are automatically exported
+ *             to the data repository. File events are when files or directories are
+ *             added, changed, or deleted on the file system or the data repository.</p>
+ *         <note>
+ *             <p>Data repository associations on Amazon File Cache don't
+ *             use <code>S3DataRepositoryConfiguration</code> because they don't
+ *             support automatic import or automatic export.</p>
+ *         </note>
  */
 export interface S3DataRepositoryConfiguration {
   /**
@@ -2328,11 +2331,11 @@ export interface CreateDataRepositoryAssociationRequest {
    *             Amazon S3 bucket, and no other S3 bucket can be linked to the directory.</p>
    *         <note>
    *             <p>If you specify only a forward slash (<code>/</code>) as the file system
-   *             path, you can link only 1 data repository to the file system. You can only specify
+   *             path, you can link only one data repository to the file system. You can only specify
    *             "/" as the file system path for the first data repository associated with a file system.</p>
    *          </note>
    */
-  FileSystemPath: string | undefined;
+  FileSystemPath?: string;
 
   /**
    * <p>The path to the Amazon S3 data repository that will be linked to the file
@@ -2383,9 +2386,42 @@ export interface CreateDataRepositoryAssociationRequest {
   Tags?: Tag[];
 }
 
+export enum NfsVersion {
+  NFS3 = "NFS3",
+}
+
+/**
+ * <p>The configuration for a data repository association that
+ *             links an Amazon File Cache resource to an NFS data repository.</p>
+ */
+export interface NFSDataRepositoryConfiguration {
+  /**
+   * <p>The version of the NFS (Network File System) protocol of the
+   *             NFS data repository. Currently, the only supported value is
+   *             <code>NFS3</code>, which indicates that the data repository must
+   *             support the NFSv3 protocol.</p>
+   */
+  Version: NfsVersion | string | undefined;
+
+  /**
+   * <p>A list of up to 2 IP addresses of DNS servers used to resolve
+   *             the NFS file system domain name. The provided IP addresses can either
+   *             be the IP addresses of a DNS forwarder or resolver that the customer
+   *             manages and runs inside the customer VPC, or the IP addresses of the
+   *             on-premises DNS servers.</p>
+   */
+  DnsIps?: string[];
+
+  /**
+   * <p>This parameter is not supported for Amazon File Cache.</p>
+   */
+  AutoExportPolicy?: AutoExportPolicy;
+}
+
 /**
  * <p>The configuration of a data repository association that links
- *             an Amazon FSx for Lustre file system to an Amazon S3 bucket.
+ *             an Amazon FSx for Lustre file system to an Amazon S3 bucket
+ *             or an Amazon File Cache resource to an Amazon S3 bucket or an NFS file system.
  *             The data repository association configuration object is returned
  *             in the response of the following operations:</p>
  *         <ul>
@@ -2405,8 +2441,9 @@ export interface CreateDataRepositoryAssociationRequest {
  *                </p>
  *             </li>
  *          </ul>
- *         <p>Data repository associations are supported only for file systems
- *             with the <code>Persistent_2</code> deployment type.</p>
+ *         <p>Data repository associations are supported only for an Amazon FSx for Lustre
+ *             file system with the <code>Persistent_2</code> deployment type and for an
+ *             Amazon File Cache resource.</p>
  */
 export interface DataRepositoryAssociation {
   /**
@@ -2434,7 +2471,7 @@ export interface DataRepositoryAssociation {
    *             <li>
    *                <p>
    *                   <code>CREATING</code> - The data repository association between
-   *                 the FSx file system and the S3 data repository is being created.
+   *                 the file system or cache and the data repository is being created.
    *                 The data repository is unavailable.</p>
    *             </li>
    *             <li>
@@ -2444,9 +2481,9 @@ export interface DataRepositoryAssociation {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MISCONFIGURED</code> - Amazon FSx cannot automatically import updates
-   *                 from the S3 bucket or automatically export updates to the S3 bucket until the data
-   *                 repository association configuration is corrected.</p>
+   *                   <code>MISCONFIGURED</code> - The data repository association is
+   *                 misconfigured. Until the configuration is corrected, automatic import and
+   *                 automatic export will not work (only for Amazon FSx for Lustre).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2474,7 +2511,7 @@ export interface DataRepositoryAssociation {
   FailureDetails?: DataRepositoryFailureDetails;
 
   /**
-   * <p>A path on the file system that points to a high-level directory (such
+   * <p>A path on the Amazon FSx for Lustre file system that points to a high-level directory (such
    *             as <code>/ns1/</code>) or subdirectory (such as <code>/ns1/subdir/</code>)
    *             that will be mapped 1-1 with <code>DataRepositoryPath</code>.
    *             The leading forward slash in the name is required. Two data repository
@@ -2487,17 +2524,44 @@ export interface DataRepositoryAssociation {
    *             Amazon S3 bucket, and no other S3 bucket can be linked to the directory.</p>
    *         <note>
    *             <p>If you specify only a forward slash (<code>/</code>) as the file system
-   *             path, you can link only 1 data repository to the file system. You can only specify
+   *             path, you can link only one data repository to the file system. You can only specify
    *             "/" as the file system path for the first data repository associated with a file system.</p>
    *          </note>
    */
   FileSystemPath?: string;
 
   /**
-   * <p>The path to the Amazon S3 data repository that will be linked to the file
-   *             system. The path can be an S3 bucket or prefix in the format
-   *             <code>s3://myBucket/myPrefix/</code>. This path specifies where in the S3
-   *             data repository files will be imported from or exported to.</p>
+   * <p>The path to the data repository that will be linked to the cache
+   *             or file system.</p>
+   *         <ul>
+   *             <li>
+   *                <p>For Amazon File Cache, the path can be an NFS data repository
+   *                 that will be linked to the cache. The path can be in one of two formats:</p>
+   *                 <ul>
+   *                   <li>
+   *                      <p>If you are not using the <code>DataRepositorySubdirectories</code>
+   *                         parameter, the path is to an NFS Export directory (or one of its subdirectories)
+   *                         in the format <code>nsf://nfs-domain-name/exportpath</code>. You can therefore
+   *                         link a single NFS Export to a single data repository association.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If you are using the <code>DataRepositorySubdirectories</code>
+   *                         parameter, the path is the domain name of the NFS file system in the format
+   *                         <code>nfs://filer-domain-name</code>, which indicates the root of the
+   *                         subdirectories specified with the <code>DataRepositorySubdirectories</code>
+   *                         parameter.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon File Cache, the path can be an S3 bucket or prefix
+   *                 in the format <code>s3://myBucket/myPrefix/</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon FSx for Lustre, the path can be an S3 bucket or prefix
+   *                 in the format <code>s3://myBucket/myPrefix/</code>.</p>
+   *             </li>
+   *          </ul>
    */
   DataRepositoryPath?: string;
 
@@ -2505,6 +2569,11 @@ export interface DataRepositoryAssociation {
    * <p>A boolean flag indicating whether an import data repository task to import
    *             metadata should run after the data repository association is created. The
    *             task runs if this flag is set to <code>true</code>.</p>
+   *         <note>
+   *             <p>
+   *                <code>BatchImportMetaDataOnCreate</code> is not supported for data repositories
+   *                 linked to an Amazon File Cache resource.</p>
+   *         </note>
    */
   BatchImportMetaDataOnCreate?: boolean;
 
@@ -2512,7 +2581,7 @@ export interface DataRepositoryAssociation {
    * <p>For files imported from a data repository, this value determines the stripe count and
    *             maximum amount of data per file (in MiB) stored on a single physical disk. The maximum
    *             number of disks that a single file can be striped across is limited by the total number
-   *             of disks that make up the file system.</p>
+   *             of disks that make up the file system or cache.</p>
    *
    *         <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
    *             GiB). Amazon S3 objects have a maximum size of 5 TB.</p>
@@ -2521,11 +2590,7 @@ export interface DataRepositoryAssociation {
 
   /**
    * <p>The configuration for an Amazon S3 data repository linked to an
-   *             Amazon FSx Lustre file system with a data repository association.
-   *             The configuration defines which file events (new, changed, or
-   *             deleted files or directories) are automatically imported from
-   *             the linked data repository to the file system or automatically
-   *             exported from the file system to the data repository.</p>
+   *             Amazon FSx for Lustre file system with a data repository association.</p>
    */
   S3?: S3DataRepositoryConfiguration;
 
@@ -2539,6 +2604,50 @@ export interface DataRepositoryAssociation {
    *             also known as Unix time.</p>
    */
   CreationTime?: Date;
+
+  /**
+   * <p>The globally unique ID of the Amazon File Cache resource.</p>
+   */
+  FileCacheId?: string;
+
+  /**
+   * <p>A path on the Amazon File Cache that points to a high-level directory (such
+   *             as <code>/ns1/</code>) or subdirectory (such as <code>/ns1/subdir/</code>)
+   *             that will be mapped 1-1 with <code>DataRepositoryPath</code>.
+   *             The leading forward slash in the path is required. Two data repository
+   *             associations cannot have overlapping cache paths. For example, if
+   *             a data repository is associated with cache path <code>/ns1/</code>,
+   *             then you cannot link another data repository with cache
+   *             path <code>/ns1/ns2</code>.</p>
+   *         <p>This path specifies the directory in your cache where files will be exported
+   *             from. This cache directory can be linked to only one data repository
+   *             (S3 or NFS) and no other data repository can be linked to the directory.</p>
+   *         <note>
+   *             <p>The cache path can only be set to root (/) on an NFS DRA when
+   *                 <code>DataRepositorySubdirectories</code> is specified. If you
+   *                 specify root (/) as the cache path, you can create only one DRA
+   *                 on the cache.</p>
+   *             <p>The cache path cannot be set to root (/) for an S3 DRA.</p>
+   *         </note>
+   */
+  FileCachePath?: string;
+
+  /**
+   * <p>For Amazon File Cache, a list of NFS Exports that will be linked with an
+   *             NFS data repository association. All the subdirectories must be on a single NFS file system.
+   *             The Export paths are in the format <code>/exportpath1</code>.
+   *             To use this parameter, you must configure <code>DataRepositoryPath</code>
+   *             as the domain name of the NFS file system. The NFS file system domain name in effect is the
+   *             root of the subdirectories. Note that <code>DataRepositorySubdirectories</code> is not
+   *             supported for S3 data repositories.</p>
+   */
+  DataRepositorySubdirectories?: string[];
+
+  /**
+   * <p>The configuration for an NFS data repository linked to an
+   *             Amazon File Cache resource with a data repository association.</p>
+   */
+  NFS?: NFSDataRepositoryConfiguration;
 }
 
 export interface CreateDataRepositoryAssociationResponse {
@@ -2595,6 +2704,8 @@ export interface CompletionReport {
 }
 
 export enum DataRepositoryTaskType {
+  AUTO_TRIGGERED_EVICTION = "AUTO_RELEASE_DATA",
+  EVICTION = "RELEASE_DATA_FROM_FILESYSTEM",
   EXPORT = "EXPORT_TO_REPOSITORY",
   IMPORT = "IMPORT_METADATA_FROM_REPOSITORY",
 }
@@ -2651,6 +2762,12 @@ export interface CreateDataRepositoryTaskRequest {
    * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Specifies the amount of data to release, in GiB, by an Amazon File Cache
+   *             <code>AUTO_RELEASE_DATA</code> task that automatically releases files from the cache.</p>
+   */
+  CapacityToRelease?: number;
 }
 
 /**
@@ -2689,12 +2806,19 @@ export interface DataRepositoryTaskStatus {
    * <p>The time at which the task status was last updated.</p>
    */
   LastUpdatedTime?: Date;
+
+  /**
+   * <p>The total amount of data, in GiB, released by an Amazon File Cache
+   *             AUTO_RELEASE_DATA task that automatically releases files from the cache.</p>
+   */
+  ReleasedCapacity?: number;
 }
 
 /**
  * <p>A description of the data repository task. You use data repository tasks
- *             to perform bulk transfer operations between your Amazon FSx file system and a linked data
- *             repository.</p>
+ *             to perform bulk transfer operations between an Amazon FSx for Lustre file system
+ *             and a linked data repository. An Amazon File Cache resource uses a task to
+ *             automatically release files from the cache.</p>
  */
 export interface DataRepositoryTask {
   /**
@@ -2707,28 +2831,28 @@ export interface DataRepositoryTask {
    *         <ul>
    *             <li>
    *                <p>
-   *                   <code>PENDING</code> - Amazon FSx has not started the task.</p>
+   *                   <code>PENDING</code> - The task has not started.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>EXECUTING</code> - Amazon FSx is processing the task.</p>
+   *                   <code>EXECUTING</code> - The task is in process.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code> -  Amazon FSx was not able to complete the task. For example, there may be files the task failed to process.
+   *                   <code>FAILED</code> -  The task was not able to be completed. For example, there may be files the task failed to process.
    *                 The <a>DataRepositoryTaskFailureDetails</a> property provides more information about task failures.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUCCEEDED</code> - FSx completed the task successfully.</p>
+   *                   <code>SUCCEEDED</code> - The task has completed successfully.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CANCELED</code> - Amazon FSx canceled the task and it did not complete.</p>
+   *                   <code>CANCELED</code> - The task was canceled and it did not complete.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CANCELING</code> - FSx is in process of canceling the task.</p>
+   *                   <code>CANCELING</code> - The task is in process of being canceled.</p>
    *             </li>
    *          </ul>
    *         <note>
@@ -2744,12 +2868,19 @@ export interface DataRepositoryTask {
    * <p>The type of data repository task.</p>
    *         <ul>
    *             <li>
-   *                <p>The <code>EXPORT_TO_REPOSITORY</code> data repository task exports
-   *                 from your Lustre file system from to a linked S3 bucket.</p>
+   *                <p>
+   *                   <code>EXPORT_TO_REPOSITORY</code> tasks export from your
+   *                 Amazon FSx for Lustre file system to a linked data repository.</p>
    *             </li>
    *             <li>
-   *                <p>The <code>IMPORT_METADATA_FROM_REPOSITORY</code> data repository task
-   *                 imports metadata changes from a linked S3 bucket to your Lustre file system.</p>
+   *                <p>
+   *                   <code>IMPORT_METADATA_FROM_REPOSITORY</code> tasks import metadata
+   *                 changes from a linked S3 bucket to your Amazon FSx for Lustre file system.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO_RELEASE_DATA</code> tasks automatically release files from
+   *                 an Amazon File Cache resource.</p>
    *             </li>
    *          </ul>
    */
@@ -2762,12 +2893,12 @@ export interface DataRepositoryTask {
   CreationTime: Date | undefined;
 
   /**
-   * <p>The time that Amazon FSx began processing the task.</p>
+   * <p>The time the system began processing the task.</p>
    */
   StartTime?: Date;
 
   /**
-   * <p>The time that Amazon FSx completed processing the task, populated after the task is complete.</p>
+   * <p>The time the system completed processing the task, populated after the task is complete.</p>
    */
   EndTime?: Date;
 
@@ -2785,13 +2916,14 @@ export interface DataRepositoryTask {
   Tags?: Tag[];
 
   /**
-   * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
+   * <p>The globally unique ID of the file system.</p>
    */
-  FileSystemId: string | undefined;
+  FileSystemId?: string;
 
   /**
-   * <p>An array of paths on the Amazon FSx for Lustre file system that specify the data for the data repository task to process.
-   *             For example, in an EXPORT_TO_REPOSITORY task, the paths specify which data to export to the linked data repository.</p>
+   * <p>An array of paths that specify the data for the data repository task to process.
+   *             For example, in an EXPORT_TO_REPOSITORY task, the paths specify which data to export
+   *             to the linked data repository.</p>
    *             <p>(Default) If <code>Paths</code> is not specified, Amazon FSx uses the file system root directory.</p>
    */
   Paths?: string[];
@@ -2813,6 +2945,17 @@ export interface DataRepositoryTask {
    *             You can specify whether or not a report gets generated for a task using the <code>Enabled</code> parameter.</p>
    */
   Report?: CompletionReport;
+
+  /**
+   * <p>Specifies the amount of data to release, in GiB, by an Amazon File Cache
+   *             AUTO_RELEASE_DATA task that automatically releases files from the cache.</p>
+   */
+  CapacityToRelease?: number;
+
+  /**
+   * <p>The system-generated, unique ID of the cache.</p>
+   */
+  FileCacheId?: string;
 }
 
 export interface CreateDataRepositoryTaskResponse {
@@ -2848,21 +2991,556 @@ export class DataRepositoryTaskExecuting extends __BaseException {
 }
 
 /**
+ * <p>The configuration for an NFS data repository association (DRA)
+ *             created during the creation of the Amazon File Cache resource.</p>
+ */
+export interface FileCacheNFSConfiguration {
+  /**
+   * <p>The version of the NFS (Network File System) protocol of the
+   *             NFS data repository. The only supported value is <code>NFS3</code>,
+   *             which indicates that the data repository must support the NFSv3 protocol.</p>
+   */
+  Version: NfsVersion | string | undefined;
+
+  /**
+   * <p>A list of up to 2 IP addresses of DNS servers used to resolve
+   *             the NFS file system domain name. The provided IP addresses can either
+   *             be the IP addresses of a DNS forwarder or resolver that the customer
+   *             manages and runs inside the customer VPC, or the IP addresses of the
+   *             on-premises DNS servers.</p>
+   */
+  DnsIps?: string[];
+}
+
+/**
+ * <p>The configuration for a data repository association (DRA) to
+ *             be created during the Amazon File Cache resource creation. The DRA
+ *             links the cache to either an Amazon S3 bucket or prefix, or a Network File
+ *             System (NFS) data repository that supports the NFSv3 protocol.</p>
+ *         <p>The DRA does not support automatic import or automatic
+ *             export.</p>
+ */
+export interface FileCacheDataRepositoryAssociation {
+  /**
+   * <p>A path on the cache that points to a high-level directory (such
+   *             as <code>/ns1/</code>) or subdirectory (such as <code>/ns1/subdir/</code>)
+   *             that will be mapped 1-1 with <code>DataRepositoryPath</code>.
+   *             The leading forward slash in the name is required. Two data repository
+   *             associations cannot have overlapping cache paths. For example, if
+   *             a data repository is associated with cache path <code>/ns1/</code>,
+   *             then you cannot link another data repository with cache
+   *             path <code>/ns1/ns2</code>.</p>
+   *         <p>This path specifies where in your cache files will be exported
+   *             from. This cache directory can be linked to only one data repository,
+   *             and no data repository other can be linked to the directory.</p>
+   *         <note>
+   *             <p>The cache path can only be set to root (/) on an NFS DRA when
+   *                 <code>DataRepositorySubdirectories</code> is specified. If you
+   *                 specify root (/) as the cache path, you can create only one DRA
+   *                 on the cache.</p>
+   *             <p>The cache path cannot be set to root (/) for an S3 DRA.</p>
+   *         </note>
+   */
+  FileCachePath: string | undefined;
+
+  /**
+   * <p>The path to the S3 or NFS data repository that links to the
+   *             cache. You must provide one of the following paths:</p>
+   *         <ul>
+   *             <li>
+   *                <p>The path can be an NFS data repository that links to
+   *                 the cache. The path can be in one of two formats:</p>
+   *                 <ul>
+   *                   <li>
+   *                      <p>If you are not using the <code>DataRepositorySubdirectories</code>
+   *                         parameter, the path is to an NFS Export directory (or one of its subdirectories)
+   *                         in the format <code>nsf://nfs-domain-name/exportpath</code>. You can therefore
+   *                         link a single NFS Export to a single data repository association.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If you are using the <code>DataRepositorySubdirectories</code>
+   *                         parameter, the path is the domain name of the NFS file system in the format
+   *                         <code>nfs://filer-domain-name</code>, which indicates the root of the
+   *                         subdirectories specified with the <code>DataRepositorySubdirectories</code>
+   *                         parameter.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>The path can be an S3 bucket or prefix
+   *                 in the format <code>s3://myBucket/myPrefix/</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  DataRepositoryPath: string | undefined;
+
+  /**
+   * <p>A list of NFS Exports that will be linked with this data repository
+   *             association. The Export paths are in the format <code>/exportpath1</code>.
+   *             To use this parameter, you must configure <code>DataRepositoryPath</code>
+   *             as the domain name of the NFS file system. The NFS file system domain name in effect is the
+   *             root of the subdirectories. Note that <code>DataRepositorySubdirectories</code>
+   *             is not supported for S3 data repositories.</p>
+   */
+  DataRepositorySubdirectories?: string[];
+
+  /**
+   * <p>The configuration for a data repository association that
+   *             links an Amazon File Cache resource to an NFS data repository.</p>
+   */
+  NFS?: FileCacheNFSConfiguration;
+}
+
+export enum FileCacheType {
+  LUSTRE = "LUSTRE",
+}
+
+export enum FileCacheLustreDeploymentType {
+  CACHE_1 = "CACHE_1",
+}
+
+/**
+ * <p>The configuration for a Lustre MDT (Metadata Target) storage volume.
+ *             The metadata on Amazon File Cache is managed by a Lustre Metadata Server
+ *             (MDS) while the actual metadata is persisted on an MDT.</p>
+ */
+export interface FileCacheLustreMetadataConfiguration {
+  /**
+   * <p>The storage capacity of the Lustre MDT (Metadata Target) storage
+   *             volume in gibibytes (GiB). The only supported value is <code>2400</code> GiB.</p>
+   */
+  StorageCapacity: number | undefined;
+}
+
+/**
+ * <p>The Amazon File Cache configuration for the cache that you are creating.</p>
+ */
+export interface CreateFileCacheLustreConfiguration {
+  /**
+   * <p>Provisions the amount of read and write throughput for each 1 tebibyte (TiB)
+   *             of cache storage capacity, in MB/s/TiB. The only supported
+   *             value is <code>1000</code>.</p>
+   */
+  PerUnitStorageThroughput: number | undefined;
+
+  /**
+   * <p>Specifies the cache deployment type, which must be <code>CACHE_1</code>.</p>
+   */
+  DeploymentType: FileCacheLustreDeploymentType | string | undefined;
+
+  /**
+   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
+   *         <p>
+   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
+   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
+   *         <p>
+   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
+   *             the zero-padded minute of the hour. </p>
+   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   */
+  WeeklyMaintenanceStartTime?: string;
+
+  /**
+   * <p>The configuration for a Lustre MDT (Metadata Target) storage volume.</p>
+   */
+  MetadataConfiguration: FileCacheLustreMetadataConfiguration | undefined;
+}
+
+export interface CreateFileCacheRequest {
+  /**
+   * <p>An idempotency token for resource creation, in a string of up to 64
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   *         <p>By using the idempotent operation, you can retry a <code>CreateFileCache</code>
+   *             operation without the risk of creating an extra cache. This approach can be useful
+   *             when an initial call fails in a way that makes it unclear whether a cache was created.
+   *             Examples are if a transport level timeout occurred, or your connection was reset.
+   *             If you use the same client request token and the initial call created a cache, the
+   *             client receives success as long as the parameters are the same.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The type of cache that you're creating, which
+   *             must be <code>LUSTRE</code>.</p>
+   */
+  FileCacheType: FileCacheType | string | undefined;
+
+  /**
+   * <p>Sets the Lustre version for the cache that you're creating,
+   *             which must be <code>2.12</code>.</p>
+   */
+  FileCacheTypeVersion: string | undefined;
+
+  /**
+   * <p>The storage capacity of the cache in gibibytes (GiB). Valid values
+   *             are 1200 GiB, 2400 GiB, and increments of 2400 GiB.</p>
+   */
+  StorageCapacity: number | undefined;
+
+  /**
+   * <p>A list of subnet IDs that the cache will be accessible from. You can specify only
+   *             one subnet ID in a call to the <code>CreateFileCache</code> operation.</p>
+   */
+  SubnetIds: string[] | undefined;
+
+  /**
+   * <p>A list of IDs specifying the security groups to apply to all network interfaces
+   *             created for Amazon File Cache access. This list isn't returned in later requests to
+   *             describe the cache.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A boolean flag indicating whether tags for the cache should be copied to
+   *             data repository associations. This value defaults to false.</p>
+   */
+  CopyTagsToDataRepositoryAssociations?: boolean;
+
+  /**
+   * <p>Specifies the ID of the Key Management Service (KMS) key to use for encrypting data on
+   *             an Amazon File Cache. If a <code>KmsKeyId</code> isn't specified, the Amazon FSx-managed
+   *             KMS key for your account is used. For more information,
+   *             see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a> in the
+   *             <i>Key Management Service API Reference</i>.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The configuration for the Amazon File Cache resource being created.</p>
+   */
+  LustreConfiguration?: CreateFileCacheLustreConfiguration;
+
+  /**
+   * <p>A list of up to 8 configurations for data repository associations (DRAs) to
+   *             be created during the cache creation. The DRAs link the cache to either an
+   *             Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol.</p>
+   *         <p>The DRA configurations must meet the following requirements:</p>
+   *         <ul>
+   *             <li>
+   *                <p>All configurations on the list must be of the
+   *                 same data repository type, either all S3 or all NFS. A cache
+   *                 can't link to different data repository types at the same time.</p>
+   *             </li>
+   *             <li>
+   *                <p>An NFS DRA must link to an NFS file system that
+   *                 supports the NFSv3 protocol.</p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>DRA automatic import and automatic export is not supported.</p>
+   */
+  DataRepositoryAssociations?: FileCacheDataRepositoryAssociation[];
+}
+
+/**
+ * <p>A structure providing details of any failures that occurred.</p>
+ */
+export interface FileCacheFailureDetails {
+  /**
+   * <p>A message describing any failures that occurred.</p>
+   */
+  Message?: string;
+}
+
+export enum FileCacheLifecycle {
+  AVAILABLE = "AVAILABLE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  UPDATING = "UPDATING",
+}
+
+/**
+ * <p>The configuration for the Amazon File Cache resource.</p>
+ */
+export interface FileCacheLustreConfiguration {
+  /**
+   * <p>Per unit storage throughput represents the megabytes per second of read or write
+   *             throughput per 1 tebibyte of storage provisioned. Cache throughput capacity is
+   *             equal to Storage capacity (TiB) * PerUnitStorageThroughput (MB/s/TiB). The only
+   *             supported value is <code>1000</code>.</p>
+   */
+  PerUnitStorageThroughput?: number;
+
+  /**
+   * <p>The deployment type of the Amazon File Cache resource, which must
+   *             be <code>CACHE_1</code>.</p>
+   */
+  DeploymentType?: FileCacheLustreDeploymentType | string;
+
+  /**
+   * <p>You use the <code>MountName</code> value when mounting the cache. If you pass
+   *             a cache ID to the <code>DescribeFileCaches</code> operation, it returns the
+   *             the <code>MountName</code> value as part of the cache's description.</p>
+   */
+  MountName?: string;
+
+  /**
+   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
+   *         <p>
+   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
+   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
+   *         <p>
+   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
+   *             the zero-padded minute of the hour. </p>
+   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   */
+  WeeklyMaintenanceStartTime?: string;
+
+  /**
+   * <p>The configuration for a Lustre MDT (Metadata Target) storage volume.</p>
+   */
+  MetadataConfiguration?: FileCacheLustreMetadataConfiguration;
+
+  /**
+   * <p>The configuration for Lustre logging used to write the enabled
+   *             logging events for your Amazon File Cache resource to Amazon CloudWatch Logs.</p>
+   */
+  LogConfiguration?: LustreLogConfiguration;
+}
+
+/**
+ * <p>The response object for the Amazon File Cache resource being created in the
+ *             <code>CreateFileCache</code> operation.</p>
+ */
+export interface FileCacheCreating {
+  /**
+   * <p>An Amazon Web Services account ID. This ID is a 12-digit number that you use to construct Amazon
+   *             Resource Names (ARNs) for resources.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The time that the resource was created, in seconds (since 1970-01-01T00:00:00Z),
+   *             also known as Unix time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The system-generated, unique ID of the cache.</p>
+   */
+  FileCacheId?: string;
+
+  /**
+   * <p>The type of cache, which must be <code>LUSTRE</code>.</p>
+   */
+  FileCacheType?: FileCacheType | string;
+
+  /**
+   * <p>The Lustre version of the cache, which must be <code>2.12</code>.</p>
+   */
+  FileCacheTypeVersion?: string;
+
+  /**
+   * <p>The lifecycle status of the cache. The following are the possible values and
+   *             what they mean:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AVAILABLE</code> - The cache is in a healthy state, and is reachable and available for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - The new cache is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - An existing cache is being deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code> - The cache is undergoing a customer-initiated update.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - An existing cache has experienced an unrecoverable failure.
+   *                 When creating a new cache, the cache was unable to be created.</p>
+   *             </li>
+   *          </ul>
+   */
+  Lifecycle?: FileCacheLifecycle | string;
+
+  /**
+   * <p>A structure providing details of any failures that occurred.</p>
+   */
+  FailureDetails?: FileCacheFailureDetails;
+
+  /**
+   * <p>The storage capacity of the cache in gibibytes (GiB).</p>
+   */
+  StorageCapacity?: number;
+
+  /**
+   * <p>The ID of your virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">VPC and
+   *                 subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>A list of subnet IDs that the cache will be accessible from. You can specify only
+   *             one subnet ID in a call to the <code>CreateFileCache</code> operation.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>A list of network interface IDs.</p>
+   */
+  NetworkInterfaceIds?: string[];
+
+  /**
+   * <p>The Domain Name System (DNS) name for the cache.</p>
+   */
+  DNSName?: string;
+
+  /**
+   * <p>Specifies the ID of the Key Management Service (KMS) key to use for encrypting data on
+   *             an Amazon File Cache. If a <code>KmsKeyId</code> isn't specified, the Amazon FSx-managed
+   *             KMS key for your account is used. For more information,
+   *             see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a> in the
+   *             <i>Key Management Service API Reference</i>.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services
+   *             resources. We require an ARN when you need to specify a resource unambiguously across
+   *             all of Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *             the <i>Amazon Web Services General Reference</i>.</p>
+   */
+  ResourceARN?: string;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A boolean flag indicating whether tags for the cache should be copied to
+   *             data repository associations.</p>
+   */
+  CopyTagsToDataRepositoryAssociations?: boolean;
+
+  /**
+   * <p>The configuration for the Amazon File Cache resource.</p>
+   */
+  LustreConfiguration?: FileCacheLustreConfiguration;
+
+  /**
+   * <p>A list of IDs of data repository associations that are associated with this cache.</p>
+   */
+  DataRepositoryAssociationIds?: string[];
+}
+
+export interface CreateFileCacheResponse {
+  /**
+   * <p>A description of the cache that was created.</p>
+   */
+  FileCache?: FileCacheCreating;
+}
+
+/**
+ * <p>One or more network settings specified in the request are invalid.</p>
+ */
+export class InvalidNetworkSettings extends __BaseException {
+  readonly name: "InvalidNetworkSettings" = "InvalidNetworkSettings";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Error message explaining what's wrong with network settings.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The subnet ID that is either invalid or not part of the VPC specified.</p>
+   */
+  InvalidSubnetId?: string;
+
+  /**
+   * <p>The security group ID is either invalid or not part of the VPC specified.</p>
+   */
+  InvalidSecurityGroupId?: string;
+
+  /**
+   * <p>The route table ID is either invalid or not part of the VPC specified.</p>
+   */
+  InvalidRouteTableId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNetworkSettings, __BaseException>) {
+    super({
+      name: "InvalidNetworkSettings",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNetworkSettings.prototype);
+    this.Message = opts.Message;
+    this.InvalidSubnetId = opts.InvalidSubnetId;
+    this.InvalidSecurityGroupId = opts.InvalidSecurityGroupId;
+    this.InvalidRouteTableId = opts.InvalidRouteTableId;
+  }
+}
+
+/**
+ * <p>An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create your file system again, using a valid value.</p>
+ */
+export class InvalidPerUnitStorageThroughput extends __BaseException {
+  readonly name: "InvalidPerUnitStorageThroughput" = "InvalidPerUnitStorageThroughput";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A detailed error message.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPerUnitStorageThroughput, __BaseException>) {
+    super({
+      name: "InvalidPerUnitStorageThroughput",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPerUnitStorageThroughput.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>A cache configuration is required for this operation.</p>
+ */
+export class MissingFileCacheConfiguration extends __BaseException {
+  readonly name: "MissingFileCacheConfiguration" = "MissingFileCacheConfiguration";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A detailed error message.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingFileCacheConfiguration, __BaseException>) {
+    super({
+      name: "MissingFileCacheConfiguration",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingFileCacheConfiguration.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The Lustre logging configuration used when creating or updating an
- *             Amazon FSx for Lustre file system. Lustre logging writes the enabled
- *             logging events for your file system to Amazon CloudWatch Logs.</p>
- *         <p>Error and warning events can be logged from the following data
- *             repository operations:</p>
- *         <ul>
- *             <li>
- *                <p>Automatic export</p>
- *             </li>
- *             <li>
- *                <p>Data repository tasks</p>
- *             </li>
- *          </ul>
- *         <p>To learn more about Lustre logging, see
- *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/cw-event-logging.html">Logging to Amazon CloudWatch Logs</a>.</p>
+ *             Amazon FSx for Lustre file system. An Amazon File Cache is created
+ *             with Lustre logging enabled by default, with a setting of
+ *             <code>WARN_ERROR</code> for the logging events. which can't be changed.</p>
+ *         <p>Lustre logging writes the enabled logging events for your file system
+ *             or cache to Amazon CloudWatch Logs.</p>
  */
 export interface LustreLogCreateConfiguration {
   /**
@@ -2905,7 +3583,9 @@ export interface LustreLogCreateConfiguration {
    *             </li>
    *             <li>
    *                 <p>If you do not provide a destination, Amazon FSx will create and use a
-   *                     log stream in the CloudWatch Logs <code>/aws/fsx/lustre</code> log group.</p>
+   *                     log stream in the CloudWatch Logs <code>/aws/fsx/lustre</code> log group
+   *                     (for Amazon FSx for Lustre) or <code>/aws/fsx/filecache</code>
+   *                     (for Amazon File Cache).</p>
    *             </li>
    *             <li>
    *                 <p>If <code>Destination</code> is provided and the resource does not
@@ -3972,72 +4652,6 @@ export class InvalidImportPath extends __BaseException {
 }
 
 /**
- * <p>One or more network settings specified in the request are invalid.</p>
- */
-export class InvalidNetworkSettings extends __BaseException {
-  readonly name: "InvalidNetworkSettings" = "InvalidNetworkSettings";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Error message explaining what's wrong with network settings.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The subnet ID that is either invalid or not part of the VPC specified.</p>
-   */
-  InvalidSubnetId?: string;
-
-  /**
-   * <p>The security group ID is either invalid or not part of the VPC specified.</p>
-   */
-  InvalidSecurityGroupId?: string;
-
-  /**
-   * <p>The route table ID is either invalid or not part of the VPC specified.</p>
-   */
-  InvalidRouteTableId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNetworkSettings, __BaseException>) {
-    super({
-      name: "InvalidNetworkSettings",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNetworkSettings.prototype);
-    this.Message = opts.Message;
-    this.InvalidSubnetId = opts.InvalidSubnetId;
-    this.InvalidSecurityGroupId = opts.InvalidSecurityGroupId;
-    this.InvalidRouteTableId = opts.InvalidRouteTableId;
-  }
-}
-
-/**
- * <p>An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create your file system again, using a valid value.</p>
- */
-export class InvalidPerUnitStorageThroughput extends __BaseException {
-  readonly name: "InvalidPerUnitStorageThroughput" = "InvalidPerUnitStorageThroughput";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPerUnitStorageThroughput, __BaseException>) {
-    super({
-      name: "InvalidPerUnitStorageThroughput",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPerUnitStorageThroughput.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>A file system configuration is required for this operation.</p>
  */
 export class MissingFileSystemConfiguration extends __BaseException {
@@ -4204,6 +4818,18 @@ export interface CreateFileSystemFromBackupRequest {
    * <p>The OpenZFS configuration for the file system that's being created. </p>
    */
   OpenZFSConfiguration?: CreateFileSystemOpenZFSConfiguration;
+
+  /**
+   * <p>Sets the storage capacity of the OpenZFS file system that you're creating
+   *             from a backup, in gibibytes (GiB). Valid values are from 64 GiB up to 524,288 GiB
+   *             (512 TiB). However, the value that you specify must be equal to or greater than the
+   *             backup's storage capacity value. If you don't use the <code>StorageCapacity</code>
+   *             parameter, the default is the backup's <code>StorageCapacity</code> value.</p>
+   *         <p>If used to create a file system other than OpenZFS, you must provide a value
+   *             that matches the backup's <code>StorageCapacity</code> value. If you provide any
+   *             other value, Amazon FSx responds with a 400 Bad Request. </p>
+   */
+  StorageCapacity?: number;
 }
 
 export interface CreateSnapshotRequest {
@@ -4985,7 +5611,7 @@ export interface DeleteDataRepositoryAssociationRequest {
    * <p>Set to <code>true</code> to delete the data in the file system that corresponds
    *             to the data repository association.</p>
    */
-  DeleteDataInFileSystem: boolean | undefined;
+  DeleteDataInFileSystem?: boolean;
 }
 
 export interface DeleteDataRepositoryAssociationResponse {
@@ -5004,6 +5630,58 @@ export interface DeleteDataRepositoryAssociationResponse {
    *             repository association is being deleted. Default is <code>false</code>.</p>
    */
   DeleteDataInFileSystem?: boolean;
+}
+
+export interface DeleteFileCacheRequest {
+  /**
+   * <p>The ID of the cache that's being deleted.</p>
+   */
+  FileCacheId: string | undefined;
+
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+export interface DeleteFileCacheResponse {
+  /**
+   * <p>The ID of the cache that's being deleted.</p>
+   */
+  FileCacheId?: string;
+
+  /**
+   * <p>The cache lifecycle for the deletion request. If the
+   *             <code>DeleteFileCache</code> operation is successful, this status is
+   *             <code>DELETING</code>.</p>
+   */
+  Lifecycle?: FileCacheLifecycle | string;
+}
+
+/**
+ * <p>No caches were found based upon supplied parameters.</p>
+ */
+export class FileCacheNotFound extends __BaseException {
+  readonly name: "FileCacheNotFound" = "FileCacheNotFound";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A detailed error message.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FileCacheNotFound, __BaseException>) {
+    super({
+      name: "FileCacheNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FileCacheNotFound.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -5370,6 +6048,8 @@ export interface DeleteVolumeResponse {
 export enum FilterName {
   BACKUP_TYPE = "backup-type",
   DATA_REPOSITORY_TYPE = "data-repository-type",
+  FILE_CACHE_ID = "file-cache-id",
+  FILE_CACHE_TYPE = "file-cache-type",
   FILE_SYSTEM_ID = "file-system-id",
   FILE_SYSTEM_TYPE = "file-system-type",
   VOLUME_ID = "volume-id",
@@ -5453,7 +6133,7 @@ export interface DescribeDataRepositoryAssociationsRequest {
 
 export interface DescribeDataRepositoryAssociationsResponse {
   /**
-   * <p>An array of one ore more data repository association descriptions.</p>
+   * <p>An array of one or more data repository association descriptions.</p>
    */
   Associations?: DataRepositoryAssociation[];
 
@@ -5491,6 +6171,7 @@ export class InvalidDataRepositoryType extends __BaseException {
 
 export enum DataRepositoryTaskFilterName {
   DATA_REPO_ASSOCIATION_ID = "data-repository-association-id",
+  FILE_CACHE_ID = "file-cache-id",
   FILE_SYSTEM_ID = "file-system-id",
   TASK_LIFECYCLE = "task-lifecycle",
 }
@@ -5554,6 +6235,161 @@ export interface DescribeDataRepositoryTasksResponse {
    * <p>The collection of data repository task descriptions returned.</p>
    */
   DataRepositoryTasks?: DataRepositoryTask[];
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeFileCachesRequest {
+  /**
+   * <p>IDs of the caches whose descriptions you want to retrieve (String).</p>
+   */
+  FileCacheIds?: string[];
+
+  /**
+   * <p>The maximum number of resources to return in the response. This value must be an
+   *             integer greater than zero.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>A description of a specific Amazon File Cache resource, which is
+ *             a response object from the <code>DescribeFileCaches</code> operation.</p>
+ */
+export interface FileCache {
+  /**
+   * <p>An Amazon Web Services account ID. This ID is a 12-digit number that you use to construct Amazon
+   *             Resource Names (ARNs) for resources.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The time that the resource was created, in seconds (since 1970-01-01T00:00:00Z),
+   *             also known as Unix time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The system-generated, unique ID of the cache.</p>
+   */
+  FileCacheId?: string;
+
+  /**
+   * <p>The type of cache, which must be <code>LUSTRE</code>.</p>
+   */
+  FileCacheType?: FileCacheType | string;
+
+  /**
+   * <p>The Lustre version of the cache, which must be <code>2.12</code>.</p>
+   */
+  FileCacheTypeVersion?: string;
+
+  /**
+   * <p>The lifecycle status of the cache. The following are the possible values and
+   *             what they mean:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AVAILABLE</code> - The cache is in a healthy state, and is reachable and available for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - The new cache is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - An existing cache is being deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code> - The cache is undergoing a customer-initiated update.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - An existing cache has experienced an unrecoverable failure.
+   *                 When creating a new cache, the cache was unable to be created.</p>
+   *             </li>
+   *          </ul>
+   */
+  Lifecycle?: FileCacheLifecycle | string;
+
+  /**
+   * <p>A structure providing details of any failures that occurred.</p>
+   */
+  FailureDetails?: FileCacheFailureDetails;
+
+  /**
+   * <p>The storage capacity of the cache in gibibytes (GiB).</p>
+   */
+  StorageCapacity?: number;
+
+  /**
+   * <p>The ID of your virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">VPC and
+   *                 subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>A list of subnet IDs that the cache will be accessible from. You can specify only
+   *             one subnet ID in a call to the <code>CreateFileCache</code> operation.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>A list of network interface IDs.</p>
+   */
+  NetworkInterfaceIds?: string[];
+
+  /**
+   * <p>The Domain Name System (DNS) name for the cache.</p>
+   */
+  DNSName?: string;
+
+  /**
+   * <p>Specifies the ID of the Key Management Service (KMS) key to use for encrypting data on
+   *             an Amazon File Cache. If a <code>KmsKeyId</code> isn't specified, the Amazon FSx-managed
+   *             KMS key for your account is used. For more information,
+   *             see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a> in the
+   *             <i>Key Management Service API Reference</i>.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services
+   *             resources. We require an ARN when you need to specify a resource unambiguously across
+   *             all of Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *             the <i>Amazon Web Services General Reference</i>.</p>
+   */
+  ResourceARN?: string;
+
+  /**
+   * <p>The configuration for the Amazon File Cache resource.</p>
+   */
+  LustreConfiguration?: FileCacheLustreConfiguration;
+
+  /**
+   * <p>A list of IDs of data repository associations that are associated with this cache.</p>
+   */
+  DataRepositoryAssociationIds?: string[];
+}
+
+export interface DescribeFileCachesResponse {
+  /**
+   * <p>The response object for the <code>DescribeFileCaches</code> operation.</p>
+   */
+  FileCaches?: FileCache[];
 
   /**
    * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
@@ -6119,6 +6955,49 @@ export interface UpdateDataRepositoryAssociationResponse {
    * <p>The response object returned after the data repository association is updated.</p>
    */
   Association?: DataRepositoryAssociation;
+}
+
+/**
+ * <p>The configuration update for an Amazon File Cache resource.</p>
+ */
+export interface UpdateFileCacheLustreConfiguration {
+  /**
+   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
+   *         <p>
+   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
+   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
+   *         <p>
+   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
+   *             the zero-padded minute of the hour. </p>
+   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   */
+  WeeklyMaintenanceStartTime?: string;
+}
+
+export interface UpdateFileCacheRequest {
+  /**
+   * <p>The ID of the cache that you are updating.</p>
+   */
+  FileCacheId: string | undefined;
+
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The configuration updates for an Amazon File Cache resource.</p>
+   */
+  LustreConfiguration?: UpdateFileCacheLustreConfiguration;
+}
+
+export interface UpdateFileCacheResponse {
+  /**
+   * <p>A description of the cache that was updated.</p>
+   */
+  FileCache?: FileCache;
 }
 
 /**
@@ -7746,6 +8625,13 @@ export const CreateDataRepositoryAssociationRequestFilterSensitiveLog = (
 /**
  * @internal
  */
+export const NFSDataRepositoryConfigurationFilterSensitiveLog = (obj: NFSDataRepositoryConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DataRepositoryAssociationFilterSensitiveLog = (obj: DataRepositoryAssociation): any => ({
   ...obj,
 });
@@ -7798,6 +8684,71 @@ export const DataRepositoryTaskFilterSensitiveLog = (obj: DataRepositoryTask): a
  * @internal
  */
 export const CreateDataRepositoryTaskResponseFilterSensitiveLog = (obj: CreateDataRepositoryTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileCacheNFSConfigurationFilterSensitiveLog = (obj: FileCacheNFSConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileCacheDataRepositoryAssociationFilterSensitiveLog = (obj: FileCacheDataRepositoryAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileCacheLustreMetadataConfigurationFilterSensitiveLog = (
+  obj: FileCacheLustreMetadataConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFileCacheLustreConfigurationFilterSensitiveLog = (obj: CreateFileCacheLustreConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFileCacheRequestFilterSensitiveLog = (obj: CreateFileCacheRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileCacheFailureDetailsFilterSensitiveLog = (obj: FileCacheFailureDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileCacheLustreConfigurationFilterSensitiveLog = (obj: FileCacheLustreConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileCacheCreatingFilterSensitiveLog = (obj: FileCacheCreating): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFileCacheResponseFilterSensitiveLog = (obj: CreateFileCacheResponse): any => ({
   ...obj,
 });
 
@@ -8040,6 +8991,20 @@ export const DeleteDataRepositoryAssociationResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const DeleteFileCacheRequestFilterSensitiveLog = (obj: DeleteFileCacheRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileCacheResponseFilterSensitiveLog = (obj: DeleteFileCacheResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteFileSystemLustreConfigurationFilterSensitiveLog = (
   obj: DeleteFileSystemLustreConfiguration
 ): any => ({
@@ -8222,6 +9187,27 @@ export const DescribeDataRepositoryTasksResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const DescribeFileCachesRequestFilterSensitiveLog = (obj: DescribeFileCachesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileCacheFilterSensitiveLog = (obj: FileCache): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFileCachesResponseFilterSensitiveLog = (obj: DescribeFileCachesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeFileSystemAliasesRequestFilterSensitiveLog = (obj: DescribeFileSystemAliasesRequest): any => ({
   ...obj,
 });
@@ -8389,6 +9375,27 @@ export const UpdateDataRepositoryAssociationRequestFilterSensitiveLog = (
 export const UpdateDataRepositoryAssociationResponseFilterSensitiveLog = (
   obj: UpdateDataRepositoryAssociationResponse
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFileCacheLustreConfigurationFilterSensitiveLog = (obj: UpdateFileCacheLustreConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFileCacheRequestFilterSensitiveLog = (obj: UpdateFileCacheRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFileCacheResponseFilterSensitiveLog = (obj: UpdateFileCacheResponse): any => ({
   ...obj,
 });
 

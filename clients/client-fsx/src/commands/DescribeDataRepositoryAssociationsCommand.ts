@@ -30,23 +30,25 @@ export interface DescribeDataRepositoryAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns the description of specific Amazon FSx for Lustre data repository associations, if
- *             one or more <code>AssociationIds</code> values are provided in the request, or if filters are
- *             used in the request. Data repository associations are supported only
- *             for file systems with the <code>Persistent_2</code> deployment type.</p>
+ * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
+ *             data repository associations, if one or more <code>AssociationIds</code> values
+ *             are provided in the request, or if filters are used in the request. Data repository
+ *             associations are supported only for Amazon FSx for Lustre file systems with the
+ *             <code>Persistent_2</code> deployment type and for Amazon File Cache resources.</p>
  *
  *         <p>You can use filters to narrow the response to include just data repository
  *             associations for specific file systems (use the <code>file-system-id</code> filter with
- *             the ID of the file system) or data repository associations for a specific repository type
- *             (use the <code>data-repository-type</code> filter with a value of <code>S3</code>).
- *             If you don't use filters, the response returns all data repository associations
- *             owned by your Amazon Web Services account in the Amazon Web Services Region of the endpoint
- *             that you're calling.</p>
+ *             the ID of the file system) or caches (use the <code>file-cache-id</code> filter with
+ *             the ID of the cache), or data repository associations for a specific repository type
+ *             (use the <code>data-repository-type</code> filter with a value of <code>S3</code>
+ *             or <code>NFS</code>). If you don't use filters, the response returns all data
+ *             repository associations owned by your Amazon Web Services account in the Amazon Web Services Region
+ *             of the endpoint that you're calling.</p>
  *
  *         <p>When retrieving all data repository associations, you can paginate the response by using
  *             the optional <code>MaxResults</code> parameter to limit the number of data repository associations
- *             returned in a response. If more data repository associations remain, Amazon FSx returns a
- *             <code>NextToken</code> value in the response. In this case, send a later
+ *             returned in a response. If more data repository associations remain, a
+ *             <code>NextToken</code> value is returned in the response. In this case, send a later
  *             request with the <code>NextToken</code> request parameter set to the value of
  *             <code>NextToken</code> from the last response.</p>
  * @example

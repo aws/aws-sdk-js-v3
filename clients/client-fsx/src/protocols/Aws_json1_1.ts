@@ -37,6 +37,7 @@ import {
   CreateDataRepositoryTaskCommandInput,
   CreateDataRepositoryTaskCommandOutput,
 } from "../commands/CreateDataRepositoryTaskCommand";
+import { CreateFileCacheCommandInput, CreateFileCacheCommandOutput } from "../commands/CreateFileCacheCommand";
 import { CreateFileSystemCommandInput, CreateFileSystemCommandOutput } from "../commands/CreateFileSystemCommand";
 import {
   CreateFileSystemFromBackupCommandInput,
@@ -57,6 +58,7 @@ import {
   DeleteDataRepositoryAssociationCommandInput,
   DeleteDataRepositoryAssociationCommandOutput,
 } from "../commands/DeleteDataRepositoryAssociationCommand";
+import { DeleteFileCacheCommandInput, DeleteFileCacheCommandOutput } from "../commands/DeleteFileCacheCommand";
 import { DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput } from "../commands/DeleteFileSystemCommand";
 import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "../commands/DeleteSnapshotCommand";
 import {
@@ -73,6 +75,7 @@ import {
   DescribeDataRepositoryTasksCommandInput,
   DescribeDataRepositoryTasksCommandOutput,
 } from "../commands/DescribeDataRepositoryTasksCommand";
+import { DescribeFileCachesCommandInput, DescribeFileCachesCommandOutput } from "../commands/DescribeFileCachesCommand";
 import {
   DescribeFileSystemAliasesCommandInput,
   DescribeFileSystemAliasesCommandOutput,
@@ -109,6 +112,7 @@ import {
   UpdateDataRepositoryAssociationCommandInput,
   UpdateDataRepositoryAssociationCommandOutput,
 } from "../commands/UpdateDataRepositoryAssociationCommand";
+import { UpdateFileCacheCommandInput, UpdateFileCacheCommandOutput } from "../commands/UpdateFileCacheCommand";
 import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "../commands/UpdateFileSystemCommand";
 import { UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput } from "../commands/UpdateSnapshotCommand";
 import {
@@ -145,6 +149,9 @@ import {
   CreateDataRepositoryAssociationResponse,
   CreateDataRepositoryTaskRequest,
   CreateDataRepositoryTaskResponse,
+  CreateFileCacheLustreConfiguration,
+  CreateFileCacheRequest,
+  CreateFileCacheResponse,
   CreateFileSystemFromBackupRequest,
   CreateFileSystemFromBackupResponse,
   CreateFileSystemLustreConfiguration,
@@ -180,6 +187,8 @@ import {
   DeleteBackupResponse,
   DeleteDataRepositoryAssociationRequest,
   DeleteDataRepositoryAssociationResponse,
+  DeleteFileCacheRequest,
+  DeleteFileCacheResponse,
   DeleteFileSystemLustreConfiguration,
   DeleteFileSystemLustreResponse,
   DeleteFileSystemOpenZFSConfiguration,
@@ -205,6 +214,8 @@ import {
   DescribeDataRepositoryAssociationsResponse,
   DescribeDataRepositoryTasksRequest,
   DescribeDataRepositoryTasksResponse,
+  DescribeFileCachesRequest,
+  DescribeFileCachesResponse,
   DescribeFileSystemAliasesRequest,
   DescribeFileSystemAliasesResponse,
   DescribeFileSystemsRequest,
@@ -219,6 +230,14 @@ import {
   DisassociateFileSystemAliasesResponse,
   DiskIopsConfiguration,
   EventType,
+  FileCache,
+  FileCacheCreating,
+  FileCacheDataRepositoryAssociation,
+  FileCacheFailureDetails,
+  FileCacheLustreConfiguration,
+  FileCacheLustreMetadataConfiguration,
+  FileCacheNFSConfiguration,
+  FileCacheNotFound,
   FileSystem,
   FileSystemEndpoint,
   FileSystemEndpoints,
@@ -244,8 +263,10 @@ import {
   LustreLogConfiguration,
   LustreLogCreateConfiguration,
   LustreRootSquashConfiguration,
+  MissingFileCacheConfiguration,
   MissingFileSystemConfiguration,
   MissingVolumeConfiguration,
+  NFSDataRepositoryConfiguration,
   NotServiceResourceError,
   OntapFileSystemConfiguration,
   OntapVolumeConfiguration,
@@ -287,6 +308,9 @@ import {
   UntagResourceResponse,
   UpdateDataRepositoryAssociationRequest,
   UpdateDataRepositoryAssociationResponse,
+  UpdateFileCacheLustreConfiguration,
+  UpdateFileCacheRequest,
+  UpdateFileCacheResponse,
   UpdateFileSystemLustreConfiguration,
   UpdateFileSystemOntapConfiguration,
   UpdateFileSystemOpenZFSConfiguration,
@@ -385,6 +409,19 @@ export const serializeAws_json1_1CreateDataRepositoryTaskCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDataRepositoryTaskRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateFileCacheCommand = async (
+  input: CreateFileCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.CreateFileCache",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateFileCacheRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -492,6 +529,19 @@ export const serializeAws_json1_1DeleteDataRepositoryAssociationCommand = async 
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteFileCacheCommand = async (
+  input: DeleteFileCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.DeleteFileCache",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteFileCacheRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteFileSystemCommand = async (
   input: DeleteFileSystemCommandInput,
   context: __SerdeContext
@@ -580,6 +630,19 @@ export const serializeAws_json1_1DescribeDataRepositoryTasksCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDataRepositoryTasksRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeFileCachesCommand = async (
+  input: DescribeFileCachesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.DescribeFileCaches",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFileCachesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -736,6 +799,19 @@ export const serializeAws_json1_1UpdateDataRepositoryAssociationCommand = async 
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDataRepositoryAssociationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateFileCacheCommand = async (
+  input: UpdateFileCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.UpdateFileCache",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateFileCacheRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1128,6 +1204,65 @@ const deserializeAws_json1_1CreateDataRepositoryTaskCommandError = async (
     case "UnsupportedOperation":
     case "com.amazonaws.fsx#UnsupportedOperation":
       throw await deserializeAws_json1_1UnsupportedOperationResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateFileCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFileCacheCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateFileCacheCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateFileCacheResponse(data, context);
+  const response: CreateFileCacheCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateFileCacheCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFileCacheCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      throw await deserializeAws_json1_1BadRequestResponse(parsedOutput, context);
+    case "IncompatibleParameterError":
+    case "com.amazonaws.fsx#IncompatibleParameterError":
+      throw await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidNetworkSettings":
+    case "com.amazonaws.fsx#InvalidNetworkSettings":
+      throw await deserializeAws_json1_1InvalidNetworkSettingsResponse(parsedOutput, context);
+    case "InvalidPerUnitStorageThroughput":
+    case "com.amazonaws.fsx#InvalidPerUnitStorageThroughput":
+      throw await deserializeAws_json1_1InvalidPerUnitStorageThroughputResponse(parsedOutput, context);
+    case "MissingFileCacheConfiguration":
+    case "com.amazonaws.fsx#MissingFileCacheConfiguration":
+      throw await deserializeAws_json1_1MissingFileCacheConfigurationResponse(parsedOutput, context);
+    case "ServiceLimitExceeded":
+    case "com.amazonaws.fsx#ServiceLimitExceeded":
+      throw await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1617,6 +1752,59 @@ const deserializeAws_json1_1DeleteDataRepositoryAssociationCommandError = async 
   }
 };
 
+export const deserializeAws_json1_1DeleteFileCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFileCacheCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteFileCacheCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteFileCacheResponse(data, context);
+  const response: DeleteFileCacheCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteFileCacheCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFileCacheCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      throw await deserializeAws_json1_1BadRequestResponse(parsedOutput, context);
+    case "FileCacheNotFound":
+    case "com.amazonaws.fsx#FileCacheNotFound":
+      throw await deserializeAws_json1_1FileCacheNotFoundResponse(parsedOutput, context);
+    case "IncompatibleParameterError":
+    case "com.amazonaws.fsx#IncompatibleParameterError":
+      throw await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "ServiceLimitExceeded":
+    case "com.amazonaws.fsx#ServiceLimitExceeded":
+      throw await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DeleteFileSystemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1959,6 +2147,53 @@ const deserializeAws_json1_1DescribeDataRepositoryTasksCommandError = async (
     case "FileSystemNotFound":
     case "com.amazonaws.fsx#FileSystemNotFound":
       throw await deserializeAws_json1_1FileSystemNotFoundResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeFileCachesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFileCachesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFileCachesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFileCachesResponse(data, context);
+  const response: DescribeFileCachesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFileCachesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFileCachesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      throw await deserializeAws_json1_1BadRequestResponse(parsedOutput, context);
+    case "FileCacheNotFound":
+    case "com.amazonaws.fsx#FileCacheNotFound":
+      throw await deserializeAws_json1_1FileCacheNotFoundResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.fsx#InternalServerError":
       throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
@@ -2567,6 +2802,65 @@ const deserializeAws_json1_1UpdateDataRepositoryAssociationCommandError = async 
   }
 };
 
+export const deserializeAws_json1_1UpdateFileCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFileCacheCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateFileCacheCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateFileCacheResponse(data, context);
+  const response: UpdateFileCacheCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateFileCacheCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFileCacheCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      throw await deserializeAws_json1_1BadRequestResponse(parsedOutput, context);
+    case "FileCacheNotFound":
+    case "com.amazonaws.fsx#FileCacheNotFound":
+      throw await deserializeAws_json1_1FileCacheNotFoundResponse(parsedOutput, context);
+    case "IncompatibleParameterError":
+    case "com.amazonaws.fsx#IncompatibleParameterError":
+      throw await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "MissingFileCacheConfiguration":
+    case "com.amazonaws.fsx#MissingFileCacheConfiguration":
+      throw await deserializeAws_json1_1MissingFileCacheConfigurationResponse(parsedOutput, context);
+    case "ServiceLimitExceeded":
+    case "com.amazonaws.fsx#ServiceLimitExceeded":
+      throw await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.fsx#UnsupportedOperation":
+      throw await deserializeAws_json1_1UnsupportedOperationResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1UpdateFileSystemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2909,6 +3203,19 @@ const deserializeAws_json1_1DataRepositoryTaskNotFoundResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1FileCacheNotFoundResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<FileCacheNotFound> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1FileCacheNotFound(body, context);
+  const exception = new FileCacheNotFound({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1FileSystemNotFoundResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3059,6 +3366,19 @@ const deserializeAws_json1_1InvalidSourceKmsKeyResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidSourceKmsKey(body, context);
   const exception = new InvalidSourceKmsKey({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1MissingFileCacheConfigurationResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MissingFileCacheConfiguration> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1MissingFileCacheConfiguration(body, context);
+  const exception = new MissingFileCacheConfiguration({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3308,12 +3628,68 @@ const serializeAws_json1_1CreateDataRepositoryTaskRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CapacityToRelease != null && { CapacityToRelease: input.CapacityToRelease }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
     ...(input.Paths != null && { Paths: serializeAws_json1_1DataRepositoryTaskPaths(input.Paths, context) }),
     ...(input.Report != null && { Report: serializeAws_json1_1CompletionReport(input.Report, context) }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_json1_1CreateFileCacheDataRepositoryAssociations = (
+  input: FileCacheDataRepositoryAssociation[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1FileCacheDataRepositoryAssociation(entry, context);
+    });
+};
+
+const serializeAws_json1_1CreateFileCacheLustreConfiguration = (
+  input: CreateFileCacheLustreConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeploymentType != null && { DeploymentType: input.DeploymentType }),
+    ...(input.MetadataConfiguration != null && {
+      MetadataConfiguration: serializeAws_json1_1FileCacheLustreMetadataConfiguration(
+        input.MetadataConfiguration,
+        context
+      ),
+    }),
+    ...(input.PerUnitStorageThroughput != null && { PerUnitStorageThroughput: input.PerUnitStorageThroughput }),
+    ...(input.WeeklyMaintenanceStartTime != null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
+  };
+};
+
+const serializeAws_json1_1CreateFileCacheRequest = (input: CreateFileCacheRequest, context: __SerdeContext): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.CopyTagsToDataRepositoryAssociations != null && {
+      CopyTagsToDataRepositoryAssociations: input.CopyTagsToDataRepositoryAssociations,
+    }),
+    ...(input.DataRepositoryAssociations != null && {
+      DataRepositoryAssociations: serializeAws_json1_1CreateFileCacheDataRepositoryAssociations(
+        input.DataRepositoryAssociations,
+        context
+      ),
+    }),
+    ...(input.FileCacheType != null && { FileCacheType: input.FileCacheType }),
+    ...(input.FileCacheTypeVersion != null && { FileCacheTypeVersion: input.FileCacheTypeVersion }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.LustreConfiguration != null && {
+      LustreConfiguration: serializeAws_json1_1CreateFileCacheLustreConfiguration(input.LustreConfiguration, context),
+    }),
+    ...(input.SecurityGroupIds != null && {
+      SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
+    }),
+    ...(input.StorageCapacity != null && { StorageCapacity: input.StorageCapacity }),
+    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -3338,6 +3714,7 @@ const serializeAws_json1_1CreateFileSystemFromBackupRequest = (
     ...(input.SecurityGroupIds != null && {
       SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
     }),
+    ...(input.StorageCapacity != null && { StorageCapacity: input.StorageCapacity }),
     ...(input.StorageType != null && { StorageType: input.StorageType }),
     ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
@@ -3691,6 +4068,13 @@ const serializeAws_json1_1DeleteDataRepositoryAssociationRequest = (
   };
 };
 
+const serializeAws_json1_1DeleteFileCacheRequest = (input: DeleteFileCacheRequest, context: __SerdeContext): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.FileCacheId != null && { FileCacheId: input.FileCacheId }),
+  };
+};
+
 const serializeAws_json1_1DeleteFileSystemLustreConfiguration = (
   input: DeleteFileSystemLustreConfiguration,
   context: __SerdeContext
@@ -3852,6 +4236,17 @@ const serializeAws_json1_1DescribeDataRepositoryTasksRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeFileCachesRequest = (
+  input: DescribeFileCachesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FileCacheIds != null && { FileCacheIds: serializeAws_json1_1FileCacheIds(input.FileCacheIds, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1DescribeFileSystemAliasesRequest = (
   input: DescribeFileSystemAliasesRequest,
   context: __SerdeContext
@@ -3944,6 +4339,50 @@ const serializeAws_json1_1EventTypes = (input: (EventType | string)[], context: 
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_json1_1FileCacheDataRepositoryAssociation = (
+  input: FileCacheDataRepositoryAssociation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataRepositoryPath != null && { DataRepositoryPath: input.DataRepositoryPath }),
+    ...(input.DataRepositorySubdirectories != null && {
+      DataRepositorySubdirectories: serializeAws_json1_1SubDirectoriesPaths(
+        input.DataRepositorySubdirectories,
+        context
+      ),
+    }),
+    ...(input.FileCachePath != null && { FileCachePath: input.FileCachePath }),
+    ...(input.NFS != null && { NFS: serializeAws_json1_1FileCacheNFSConfiguration(input.NFS, context) }),
+  };
+};
+
+const serializeAws_json1_1FileCacheIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1FileCacheLustreMetadataConfiguration = (
+  input: FileCacheLustreMetadataConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.StorageCapacity != null && { StorageCapacity: input.StorageCapacity }),
+  };
+};
+
+const serializeAws_json1_1FileCacheNFSConfiguration = (
+  input: FileCacheNFSConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DnsIps != null && { DnsIps: serializeAws_json1_1RepositoryDnsIps(input.DnsIps, context) }),
+    ...(input.Version != null && { Version: input.Version }),
+  };
 };
 
 const serializeAws_json1_1FileSystemIds = (input: string[], context: __SerdeContext): any => {
@@ -4108,6 +4547,14 @@ const serializeAws_json1_1ReleaseFileSystemNfsV3LocksRequest = (
   };
 };
 
+const serializeAws_json1_1RepositoryDnsIps = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_1RestoreOpenZFSVolumeOptions = (
   input: (RestoreOpenZFSVolumeOption | string)[],
   context: __SerdeContext
@@ -4260,6 +4707,14 @@ const serializeAws_json1_1StorageVirtualMachineIds = (input: string[], context: 
     });
 };
 
+const serializeAws_json1_1SubDirectoriesPaths = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -4329,6 +4784,25 @@ const serializeAws_json1_1UpdateDataRepositoryAssociationRequest = (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.ImportedFileChunkSize != null && { ImportedFileChunkSize: input.ImportedFileChunkSize }),
     ...(input.S3 != null && { S3: serializeAws_json1_1S3DataRepositoryConfiguration(input.S3, context) }),
+  };
+};
+
+const serializeAws_json1_1UpdateFileCacheLustreConfiguration = (
+  input: UpdateFileCacheLustreConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.WeeklyMaintenanceStartTime != null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
+  };
+};
+
+const serializeAws_json1_1UpdateFileCacheRequest = (input: UpdateFileCacheRequest, context: __SerdeContext): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.FileCacheId != null && { FileCacheId: input.FileCacheId }),
+    ...(input.LustreConfiguration != null && {
+      LustreConfiguration: serializeAws_json1_1UpdateFileCacheLustreConfiguration(input.LustreConfiguration, context),
+    }),
   };
 };
 
@@ -4825,6 +5299,16 @@ const deserializeAws_json1_1CreateDataRepositoryTaskResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateFileCacheResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateFileCacheResponse => {
+  return {
+    FileCache:
+      output.FileCache != null ? deserializeAws_json1_1FileCacheCreating(output.FileCache, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateFileSystemFromBackupResponse = (
   output: any,
   context: __SerdeContext
@@ -4888,18 +5372,37 @@ const deserializeAws_json1_1DataRepositoryAssociation = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DataRepositoryPath: __expectString(output.DataRepositoryPath),
+    DataRepositorySubdirectories:
+      output.DataRepositorySubdirectories != null
+        ? deserializeAws_json1_1SubDirectoriesPaths(output.DataRepositorySubdirectories, context)
+        : undefined,
     FailureDetails:
       output.FailureDetails != null
         ? deserializeAws_json1_1DataRepositoryFailureDetails(output.FailureDetails, context)
         : undefined,
+    FileCacheId: __expectString(output.FileCacheId),
+    FileCachePath: __expectString(output.FileCachePath),
     FileSystemId: __expectString(output.FileSystemId),
     FileSystemPath: __expectString(output.FileSystemPath),
     ImportedFileChunkSize: __expectInt32(output.ImportedFileChunkSize),
     Lifecycle: __expectString(output.Lifecycle),
+    NFS: output.NFS != null ? deserializeAws_json1_1NFSDataRepositoryConfiguration(output.NFS, context) : undefined,
     ResourceARN: __expectString(output.ResourceARN),
     S3: output.S3 != null ? deserializeAws_json1_1S3DataRepositoryConfiguration(output.S3, context) : undefined,
     Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1DataRepositoryAssociationIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1DataRepositoryAssociationNotFound = (
@@ -4954,6 +5457,7 @@ const deserializeAws_json1_1DataRepositoryFailureDetails = (
 
 const deserializeAws_json1_1DataRepositoryTask = (output: any, context: __SerdeContext): DataRepositoryTask => {
   return {
+    CapacityToRelease: __expectLong(output.CapacityToRelease),
     CreationTime:
       output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
@@ -4964,6 +5468,7 @@ const deserializeAws_json1_1DataRepositoryTask = (output: any, context: __SerdeC
       output.FailureDetails != null
         ? deserializeAws_json1_1DataRepositoryTaskFailureDetails(output.FailureDetails, context)
         : undefined,
+    FileCacheId: __expectString(output.FileCacheId),
     FileSystemId: __expectString(output.FileSystemId),
     Lifecycle: __expectString(output.Lifecycle),
     Paths: output.Paths != null ? deserializeAws_json1_1DataRepositoryTaskPaths(output.Paths, context) : undefined,
@@ -5048,6 +5553,7 @@ const deserializeAws_json1_1DataRepositoryTaskStatus = (
       output.LastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
+    ReleasedCapacity: __expectLong(output.ReleasedCapacity),
     SucceededCount: __expectLong(output.SucceededCount),
     TotalCount: __expectLong(output.TotalCount),
   } as any;
@@ -5067,6 +5573,16 @@ const deserializeAws_json1_1DeleteDataRepositoryAssociationResponse = (
   return {
     AssociationId: __expectString(output.AssociationId),
     DeleteDataInFileSystem: __expectBoolean(output.DeleteDataInFileSystem),
+    Lifecycle: __expectString(output.Lifecycle),
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteFileCacheResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteFileCacheResponse => {
+  return {
+    FileCacheId: __expectString(output.FileCacheId),
     Lifecycle: __expectString(output.Lifecycle),
   } as any;
 };
@@ -5201,6 +5717,16 @@ const deserializeAws_json1_1DescribeDataRepositoryTasksResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeFileCachesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeFileCachesResponse => {
+  return {
+    FileCaches: output.FileCaches != null ? deserializeAws_json1_1FileCaches(output.FileCaches, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeFileSystemAliasesResponse = (
   output: any,
   context: __SerdeContext
@@ -5291,6 +5817,136 @@ const deserializeAws_json1_1EventTypes = (output: any, context: __SerdeContext):
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1FileCache = (output: any, context: __SerdeContext): FileCache => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DNSName: __expectString(output.DNSName),
+    DataRepositoryAssociationIds:
+      output.DataRepositoryAssociationIds != null
+        ? deserializeAws_json1_1DataRepositoryAssociationIds(output.DataRepositoryAssociationIds, context)
+        : undefined,
+    FailureDetails:
+      output.FailureDetails != null
+        ? deserializeAws_json1_1FileCacheFailureDetails(output.FailureDetails, context)
+        : undefined,
+    FileCacheId: __expectString(output.FileCacheId),
+    FileCacheType: __expectString(output.FileCacheType),
+    FileCacheTypeVersion: __expectString(output.FileCacheTypeVersion),
+    KmsKeyId: __expectString(output.KmsKeyId),
+    Lifecycle: __expectString(output.Lifecycle),
+    LustreConfiguration:
+      output.LustreConfiguration != null
+        ? deserializeAws_json1_1FileCacheLustreConfiguration(output.LustreConfiguration, context)
+        : undefined,
+    NetworkInterfaceIds:
+      output.NetworkInterfaceIds != null
+        ? deserializeAws_json1_1NetworkInterfaceIds(output.NetworkInterfaceIds, context)
+        : undefined,
+    OwnerId: __expectString(output.OwnerId),
+    ResourceARN: __expectString(output.ResourceARN),
+    StorageCapacity: __expectInt32(output.StorageCapacity),
+    SubnetIds: output.SubnetIds != null ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context) : undefined,
+    VpcId: __expectString(output.VpcId),
+  } as any;
+};
+
+const deserializeAws_json1_1FileCacheCreating = (output: any, context: __SerdeContext): FileCacheCreating => {
+  return {
+    CopyTagsToDataRepositoryAssociations: __expectBoolean(output.CopyTagsToDataRepositoryAssociations),
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DNSName: __expectString(output.DNSName),
+    DataRepositoryAssociationIds:
+      output.DataRepositoryAssociationIds != null
+        ? deserializeAws_json1_1DataRepositoryAssociationIds(output.DataRepositoryAssociationIds, context)
+        : undefined,
+    FailureDetails:
+      output.FailureDetails != null
+        ? deserializeAws_json1_1FileCacheFailureDetails(output.FailureDetails, context)
+        : undefined,
+    FileCacheId: __expectString(output.FileCacheId),
+    FileCacheType: __expectString(output.FileCacheType),
+    FileCacheTypeVersion: __expectString(output.FileCacheTypeVersion),
+    KmsKeyId: __expectString(output.KmsKeyId),
+    Lifecycle: __expectString(output.Lifecycle),
+    LustreConfiguration:
+      output.LustreConfiguration != null
+        ? deserializeAws_json1_1FileCacheLustreConfiguration(output.LustreConfiguration, context)
+        : undefined,
+    NetworkInterfaceIds:
+      output.NetworkInterfaceIds != null
+        ? deserializeAws_json1_1NetworkInterfaceIds(output.NetworkInterfaceIds, context)
+        : undefined,
+    OwnerId: __expectString(output.OwnerId),
+    ResourceARN: __expectString(output.ResourceARN),
+    StorageCapacity: __expectInt32(output.StorageCapacity),
+    SubnetIds: output.SubnetIds != null ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    VpcId: __expectString(output.VpcId),
+  } as any;
+};
+
+const deserializeAws_json1_1FileCacheFailureDetails = (
+  output: any,
+  context: __SerdeContext
+): FileCacheFailureDetails => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1FileCacheLustreConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FileCacheLustreConfiguration => {
+  return {
+    DeploymentType: __expectString(output.DeploymentType),
+    LogConfiguration:
+      output.LogConfiguration != null
+        ? deserializeAws_json1_1LustreLogConfiguration(output.LogConfiguration, context)
+        : undefined,
+    MetadataConfiguration:
+      output.MetadataConfiguration != null
+        ? deserializeAws_json1_1FileCacheLustreMetadataConfiguration(output.MetadataConfiguration, context)
+        : undefined,
+    MountName: __expectString(output.MountName),
+    PerUnitStorageThroughput: __expectInt32(output.PerUnitStorageThroughput),
+    WeeklyMaintenanceStartTime: __expectString(output.WeeklyMaintenanceStartTime),
+  } as any;
+};
+
+const deserializeAws_json1_1FileCacheLustreMetadataConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FileCacheLustreMetadataConfiguration => {
+  return {
+    StorageCapacity: __expectInt32(output.StorageCapacity),
+  } as any;
+};
+
+const deserializeAws_json1_1FileCacheNotFound = (output: any, context: __SerdeContext): FileCacheNotFound => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1FileCaches = (output: any, context: __SerdeContext): FileCache[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FileCache(entry, context);
     });
   return retVal;
 };
@@ -5569,6 +6225,15 @@ const deserializeAws_json1_1LustreRootSquashConfiguration = (
   } as any;
 };
 
+const deserializeAws_json1_1MissingFileCacheConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MissingFileCacheConfiguration => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1MissingFileSystemConfiguration = (
   output: any,
   context: __SerdeContext
@@ -5597,6 +6262,20 @@ const deserializeAws_json1_1NetworkInterfaceIds = (output: any, context: __Serde
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_json1_1NFSDataRepositoryConfiguration = (
+  output: any,
+  context: __SerdeContext
+): NFSDataRepositoryConfiguration => {
+  return {
+    AutoExportPolicy:
+      output.AutoExportPolicy != null
+        ? deserializeAws_json1_1AutoExportPolicy(output.AutoExportPolicy, context)
+        : undefined,
+    DnsIps: output.DnsIps != null ? deserializeAws_json1_1RepositoryDnsIps(output.DnsIps, context) : undefined,
+    Version: __expectString(output.Version),
+  } as any;
 };
 
 const deserializeAws_json1_1NotServiceResourceError = (
@@ -5813,6 +6492,18 @@ const deserializeAws_json1_1ReleaseFileSystemNfsV3LocksResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1RepositoryDnsIps = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ResourceDoesNotSupportTagging = (
   output: any,
   context: __SerdeContext
@@ -5990,6 +6681,18 @@ const deserializeAws_json1_1StorageVirtualMachines = (
   return retVal;
 };
 
+const deserializeAws_json1_1SubDirectoriesPaths = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -6086,6 +6789,15 @@ const deserializeAws_json1_1UpdateDataRepositoryAssociationResponse = (
       output.Association != null
         ? deserializeAws_json1_1DataRepositoryAssociation(output.Association, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateFileCacheResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateFileCacheResponse => {
+  return {
+    FileCache: output.FileCache != null ? deserializeAws_json1_1FileCache(output.FileCache, context) : undefined,
   } as any;
 };
 
