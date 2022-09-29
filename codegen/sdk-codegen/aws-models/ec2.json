@@ -52890,6 +52890,12 @@
           "traits": {
             "smithy.api#enumValue": "p4de.24xlarge"
           }
+        },
+        "u_3tb1_56xlarge": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "u-3tb1.56xlarge"
+          }
         }
       }
     },

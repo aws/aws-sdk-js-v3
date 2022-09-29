@@ -6113,6 +6113,7 @@ export enum _InstanceType {
   u_12tb1_metal = "u-12tb1.metal",
   u_18tb1_metal = "u-18tb1.metal",
   u_24tb1_metal = "u-24tb1.metal",
+  u_3tb1_56xlarge = "u-3tb1.56xlarge",
   u_6tb1_112xlarge = "u-6tb1.112xlarge",
   u_6tb1_56xlarge = "u-6tb1.56xlarge",
   u_6tb1_metal = "u-6tb1.metal",
