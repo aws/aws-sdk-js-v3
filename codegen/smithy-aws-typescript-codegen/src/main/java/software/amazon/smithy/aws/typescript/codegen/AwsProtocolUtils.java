@@ -128,9 +128,9 @@ final class AwsProtocolUtils {
 
         // Include a JSON body parser used to deserialize documents from HTTP responses.
         writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
-        writer.openBlock("const parseErrorBody = (errorBody: any, context: __SerdeContext): "
-            + "any => {", "}", () -> {
-                writer.write("const value = parseBody(errorBody, context);");
+        writer.openBlock("const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {",
+            "}", () -> {
+                writer.write("const value = await parseBody(errorBody, context);");
                 writer.write("value.message = value.message ?? value.Message;");
                 writer.write("return value;");
             });

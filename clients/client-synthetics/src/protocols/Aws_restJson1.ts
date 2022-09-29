@@ -2358,8 +2358,8 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const parseErrorBody = (errorBody: any, context: __SerdeContext): any => {
-  const value = parseBody(errorBody, context);
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
   value.message = value.message ?? value.Message;
   return value;
 };
