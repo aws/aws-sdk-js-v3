@@ -101,7 +101,7 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
         AwsProtocolUtils.generateXmlParseBody(context);
-        AwsProtocolUtils.generateParseErrorBody(context);
+        AwsProtocolUtils.generateXmlParseErrorBody(context);
         AwsProtocolUtils.addItempotencyAutofillImport(context);
 
         TypeScriptWriter writer = context.getWriter();
