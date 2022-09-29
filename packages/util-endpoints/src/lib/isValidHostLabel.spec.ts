@@ -2,7 +2,7 @@ import { isValidHostLabel } from "./isValidHostLabel";
 
 describe(isValidHostLabel.name, () => {
   const testCases: Array<[boolean, string]> = [
-    [false, "01010"],
+    [true, "01010"],
     [true, "abc"],
     [true, "A0c"],
     [false, "A0c-"],
