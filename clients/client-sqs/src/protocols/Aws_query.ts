@@ -1464,6 +1464,9 @@ const serializeAws_queryAddPermissionRequest = (input: AddPermissionRequest, con
   }
   if (input.AWSAccountIds != null) {
     const memberEntries = serializeAws_queryAWSAccountIdList(input.AWSAccountIds, context);
+    if (input.AWSAccountIds?.length === 0) {
+      entries.AWSAccountId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AWSAccountId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1471,6 +1474,9 @@ const serializeAws_queryAddPermissionRequest = (input: AddPermissionRequest, con
   }
   if (input.Actions != null) {
     const memberEntries = serializeAws_queryActionNameList(input.Actions, context);
+    if (input.Actions?.length === 0) {
+      entries.ActionName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1528,6 +1534,9 @@ const serializeAws_queryChangeMessageVisibilityBatchRequest = (
   }
   if (input.Entries != null) {
     const memberEntries = serializeAws_queryChangeMessageVisibilityBatchRequestEntryList(input.Entries, context);
+    if (input.Entries?.length === 0) {
+      entries.ChangeMessageVisibilityBatchRequestEntry = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ChangeMessageVisibilityBatchRequestEntry.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1621,6 +1630,9 @@ const serializeAws_queryDeleteMessageBatchRequest = (
   }
   if (input.Entries != null) {
     const memberEntries = serializeAws_queryDeleteMessageBatchRequestEntryList(input.Entries, context);
+    if (input.Entries?.length === 0) {
+      entries.DeleteMessageBatchRequestEntry = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DeleteMessageBatchRequestEntry.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1691,6 +1703,9 @@ const serializeAws_queryGetQueueAttributesRequest = (
   }
   if (input.AttributeNames != null) {
     const memberEntries = serializeAws_queryAttributeNameList(input.AttributeNames, context);
+    if (input.AttributeNames?.length === 0) {
+      entries.AttributeName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1772,6 +1787,9 @@ const serializeAws_queryMessageAttributeValue = (input: MessageAttributeValue, c
   }
   if (input.StringListValues != null) {
     const memberEntries = serializeAws_queryStringList(input.StringListValues, context);
+    if (input.StringListValues?.length === 0) {
+      entries.StringListValue = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StringListValue.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1779,6 +1797,9 @@ const serializeAws_queryMessageAttributeValue = (input: MessageAttributeValue, c
   }
   if (input.BinaryListValues != null) {
     const memberEntries = serializeAws_queryBinaryList(input.BinaryListValues, context);
+    if (input.BinaryListValues?.length === 0) {
+      entries.BinaryListValue = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BinaryListValue.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1841,6 +1862,9 @@ const serializeAws_queryMessageSystemAttributeValue = (
   }
   if (input.StringListValues != null) {
     const memberEntries = serializeAws_queryStringList(input.StringListValues, context);
+    if (input.StringListValues?.length === 0) {
+      entries.StringListValue = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StringListValue.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1848,6 +1872,9 @@ const serializeAws_queryMessageSystemAttributeValue = (
   }
   if (input.BinaryListValues != null) {
     const memberEntries = serializeAws_queryBinaryList(input.BinaryListValues, context);
+    if (input.BinaryListValues?.length === 0) {
+      entries.BinaryListValue = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BinaryListValue.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1887,6 +1914,9 @@ const serializeAws_queryReceiveMessageRequest = (input: ReceiveMessageRequest, c
   }
   if (input.AttributeNames != null) {
     const memberEntries = serializeAws_queryAttributeNameList(input.AttributeNames, context);
+    if (input.AttributeNames?.length === 0) {
+      entries.AttributeName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1894,6 +1924,9 @@ const serializeAws_queryReceiveMessageRequest = (input: ReceiveMessageRequest, c
   }
   if (input.MessageAttributeNames != null) {
     const memberEntries = serializeAws_queryMessageAttributeNameList(input.MessageAttributeNames, context);
+    if (input.MessageAttributeNames?.length === 0) {
+      entries.MessageAttributeName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MessageAttributeName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1932,6 +1965,9 @@ const serializeAws_querySendMessageBatchRequest = (input: SendMessageBatchReques
   }
   if (input.Entries != null) {
     const memberEntries = serializeAws_querySendMessageBatchRequestEntryList(input.Entries, context);
+    if (input.Entries?.length === 0) {
+      entries.SendMessageBatchRequestEntry = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SendMessageBatchRequestEntry.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -2109,6 +2145,9 @@ const serializeAws_queryUntagQueueRequest = (input: UntagQueueRequest, context: 
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKey = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKey.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;

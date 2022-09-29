@@ -31363,6 +31363,9 @@ const serializeAws_ec2AcceptReservedInstancesExchangeQuoteRequest = (
   }
   if (input.ReservedInstanceIds != null) {
     const memberEntries = serializeAws_ec2ReservedInstanceIdSet(input.ReservedInstanceIds, context);
+    if (input.ReservedInstanceIds?.length === 0) {
+      entries.ReservedInstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31370,6 +31373,9 @@ const serializeAws_ec2AcceptReservedInstancesExchangeQuoteRequest = (
   }
   if (input.TargetConfigurations != null) {
     const memberEntries = serializeAws_ec2TargetConfigurationRequestSet(input.TargetConfigurations, context);
+    if (input.TargetConfigurations?.length === 0) {
+      entries.TargetConfiguration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetConfiguration.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31391,6 +31397,9 @@ const serializeAws_ec2AcceptTransitGatewayMulticastDomainAssociationsRequest = (
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31443,6 +31452,9 @@ const serializeAws_ec2AcceptVpcEndpointConnectionsRequest = (
   }
   if (input.VpcEndpointIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointIdList(input.VpcEndpointIds, context);
+    if (input.VpcEndpointIds?.length === 0) {
+      entries.VpcEndpointId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcEndpointId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31499,6 +31511,9 @@ const serializeAws_ec2AccessScopePathRequest = (input: AccessScopePathRequest, c
   }
   if (input.ThroughResources != null) {
     const memberEntries = serializeAws_ec2ThroughResourcesStatementRequestList(input.ThroughResources, context);
+    if (input.ThroughResources?.length === 0) {
+      entries.ThroughResource = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ThroughResource.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31607,6 +31622,9 @@ const serializeAws_ec2AllocateAddressRequest = (input: AllocateAddressRequest, c
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31637,6 +31655,9 @@ const serializeAws_ec2AllocateHostsRequest = (input: AllocateHostsRequest, conte
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31682,6 +31703,9 @@ const serializeAws_ec2AllocateIpamPoolCidrRequest = (
   }
   if (input.DisallowedCidrs != null) {
     const memberEntries = serializeAws_ec2IpamPoolAllocationDisallowedCidrs(input.DisallowedCidrs, context);
+    if (input.DisallowedCidrs?.length === 0) {
+      entries.DisallowedCidr = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DisallowedCidr.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31729,6 +31753,9 @@ const serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkRequest = (
   }
   if (input.SecurityGroupIds != null) {
     const memberEntries = serializeAws_ec2ClientVpnSecurityGroupIdSet(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31776,6 +31803,9 @@ const serializeAws_ec2AssignIpv6AddressesRequest = (
   }
   if (input.Ipv6Addresses != null) {
     const memberEntries = serializeAws_ec2Ipv6AddressList(input.Ipv6Addresses, context);
+    if (input.Ipv6Addresses?.length === 0) {
+      entries.Ipv6Addresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Addresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31786,6 +31816,9 @@ const serializeAws_ec2AssignIpv6AddressesRequest = (
   }
   if (input.Ipv6Prefixes != null) {
     const memberEntries = serializeAws_ec2IpPrefixList(input.Ipv6Prefixes, context);
+    if (input.Ipv6Prefixes?.length === 0) {
+      entries.Ipv6Prefix = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31810,6 +31843,9 @@ const serializeAws_ec2AssignPrivateIpAddressesRequest = (
   }
   if (input.PrivateIpAddresses != null) {
     const memberEntries = serializeAws_ec2PrivateIpAddressStringList(input.PrivateIpAddresses, context);
+    if (input.PrivateIpAddresses?.length === 0) {
+      entries.PrivateIpAddress = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31820,6 +31856,9 @@ const serializeAws_ec2AssignPrivateIpAddressesRequest = (
   }
   if (input.Ipv4Prefixes != null) {
     const memberEntries = serializeAws_ec2IpPrefixList(input.Ipv4Prefixes, context);
+    if (input.Ipv4Prefixes?.length === 0) {
+      entries.Ipv4Prefix = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32000,6 +32039,9 @@ const serializeAws_ec2AssociateTransitGatewayMulticastDomainRequest = (
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_ec2TransitGatewaySubnetIdList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32168,6 +32210,9 @@ const serializeAws_ec2AttachClassicLinkVpcRequest = (
   }
   if (input.Groups != null) {
     const memberEntries = serializeAws_ec2GroupIdStringList(input.Groups, context);
+    if (input.Groups?.length === 0) {
+      entries.SecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32314,6 +32359,9 @@ const serializeAws_ec2AuthorizeSecurityGroupEgressRequest = (
   }
   if (input.IpPermissions != null) {
     const memberEntries = serializeAws_ec2IpPermissionList(input.IpPermissions, context);
+    if (input.IpPermissions?.length === 0) {
+      entries.IpPermissions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpPermissions.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32321,6 +32369,9 @@ const serializeAws_ec2AuthorizeSecurityGroupEgressRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32366,6 +32417,9 @@ const serializeAws_ec2AuthorizeSecurityGroupIngressRequest = (
   }
   if (input.IpPermissions != null) {
     const memberEntries = serializeAws_ec2IpPermissionList(input.IpPermissions, context);
+    if (input.IpPermissions?.length === 0) {
+      entries.IpPermissions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpPermissions.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32388,6 +32442,9 @@ const serializeAws_ec2AuthorizeSecurityGroupIngressRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32560,6 +32617,9 @@ const serializeAws_ec2CancelCapacityReservationFleetsRequest = (
   }
   if (input.CapacityReservationFleetIds != null) {
     const memberEntries = serializeAws_ec2CapacityReservationFleetIdSet(input.CapacityReservationFleetIds, context);
+    if (input.CapacityReservationFleetIds?.length === 0) {
+      entries.CapacityReservationFleetId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CapacityReservationFleetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32639,6 +32699,9 @@ const serializeAws_ec2CancelSpotFleetRequestsRequest = (
   }
   if (input.SpotFleetRequestIds != null) {
     const memberEntries = serializeAws_ec2SpotFleetRequestIdList(input.SpotFleetRequestIds, context);
+    if (input.SpotFleetRequestIds?.length === 0) {
+      entries.SpotFleetRequestId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SpotFleetRequestId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32660,6 +32723,9 @@ const serializeAws_ec2CancelSpotInstanceRequestsRequest = (
   }
   if (input.SpotInstanceRequestIds != null) {
     const memberEntries = serializeAws_ec2SpotInstanceRequestIdList(input.SpotInstanceRequestIds, context);
+    if (input.SpotInstanceRequestIds?.length === 0) {
+      entries.SpotInstanceRequestId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SpotInstanceRequestId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32800,6 +32866,9 @@ const serializeAws_ec2ClassicLoadBalancersConfig = (
   const entries: any = {};
   if (input.ClassicLoadBalancers != null) {
     const memberEntries = serializeAws_ec2ClassicLoadBalancers(input.ClassicLoadBalancers, context);
+    if (input.ClassicLoadBalancers?.length === 0) {
+      entries.ClassicLoadBalancers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClassicLoadBalancers.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33094,6 +33163,9 @@ const serializeAws_ec2CopySnapshotRequest = (input: CopySnapshotRequest, context
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33148,6 +33220,9 @@ const serializeAws_ec2CreateCapacityReservationFleetRequest = (
       input.InstanceTypeSpecifications,
       context
     );
+    if (input.InstanceTypeSpecifications?.length === 0) {
+      entries.InstanceTypeSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceTypeSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33167,6 +33242,9 @@ const serializeAws_ec2CreateCapacityReservationFleetRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33221,6 +33299,9 @@ const serializeAws_ec2CreateCapacityReservationRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecifications = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecifications.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33248,6 +33329,9 @@ const serializeAws_ec2CreateCarrierGatewayRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33278,6 +33362,9 @@ const serializeAws_ec2CreateClientVpnEndpointRequest = (
   }
   if (input.AuthenticationOptions != null) {
     const memberEntries = serializeAws_ec2ClientVpnAuthenticationRequestList(input.AuthenticationOptions, context);
+    if (input.AuthenticationOptions?.length === 0) {
+      entries.Authentication = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Authentication.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33292,6 +33379,9 @@ const serializeAws_ec2CreateClientVpnEndpointRequest = (
   }
   if (input.DnsServers != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.DnsServers, context);
+    if (input.DnsServers?.length === 0) {
+      entries.DnsServers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DnsServers.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33320,6 +33410,9 @@ const serializeAws_ec2CreateClientVpnEndpointRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33327,6 +33420,9 @@ const serializeAws_ec2CreateClientVpnEndpointRequest = (
   }
   if (input.SecurityGroupIds != null) {
     const memberEntries = serializeAws_ec2ClientVpnSecurityGroupIdSet(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33408,6 +33504,9 @@ const serializeAws_ec2CreateCoipPoolRequest = (input: CreateCoipPoolRequest, con
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33438,6 +33537,9 @@ const serializeAws_ec2CreateCustomerGatewayRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33484,6 +33586,9 @@ const serializeAws_ec2CreateDhcpOptionsRequest = (input: CreateDhcpOptionsReques
   const entries: any = {};
   if (input.DhcpConfigurations != null) {
     const memberEntries = serializeAws_ec2NewDhcpConfigurationList(input.DhcpConfigurations, context);
+    if (input.DhcpConfigurations?.length === 0) {
+      entries.DhcpConfiguration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DhcpConfiguration.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33491,6 +33596,9 @@ const serializeAws_ec2CreateDhcpOptionsRequest = (input: CreateDhcpOptionsReques
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33518,6 +33626,9 @@ const serializeAws_ec2CreateEgressOnlyInternetGatewayRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33553,6 +33664,9 @@ const serializeAws_ec2CreateFleetRequest = (input: CreateFleetRequest, context: 
   }
   if (input.LaunchTemplateConfigs != null) {
     const memberEntries = serializeAws_ec2FleetLaunchTemplateConfigListRequest(input.LaunchTemplateConfigs, context);
+    if (input.LaunchTemplateConfigs?.length === 0) {
+      entries.LaunchTemplateConfigs = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateConfigs.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33585,6 +33699,9 @@ const serializeAws_ec2CreateFleetRequest = (input: CreateFleetRequest, context: 
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33615,6 +33732,9 @@ const serializeAws_ec2CreateFlowLogsRequest = (input: CreateFlowLogsRequest, con
   }
   if (input.ResourceIds != null) {
     const memberEntries = serializeAws_ec2FlowLogResourceIds(input.ResourceIds, context);
+    if (input.ResourceIds?.length === 0) {
+      entries.ResourceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33637,6 +33757,9 @@ const serializeAws_ec2CreateFlowLogsRequest = (input: CreateFlowLogsRequest, con
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33685,6 +33808,9 @@ const serializeAws_ec2CreateFpgaImageRequest = (input: CreateFpgaImageRequest, c
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33697,6 +33823,9 @@ const serializeAws_ec2CreateImageRequest = (input: CreateImageRequest, context: 
   const entries: any = {};
   if (input.BlockDeviceMappings != null) {
     const memberEntries = serializeAws_ec2BlockDeviceMappingRequestList(input.BlockDeviceMappings, context);
+    if (input.BlockDeviceMappings?.length === 0) {
+      entries.BlockDeviceMapping = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33719,6 +33848,9 @@ const serializeAws_ec2CreateImageRequest = (input: CreateImageRequest, context: 
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33740,6 +33872,9 @@ const serializeAws_ec2CreateInstanceEventWindowRequest = (
   }
   if (input.TimeRanges != null) {
     const memberEntries = serializeAws_ec2InstanceEventWindowTimeRangeRequestSet(input.TimeRanges, context);
+    if (input.TimeRanges?.length === 0) {
+      entries.TimeRange = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TimeRange.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33750,6 +33885,9 @@ const serializeAws_ec2CreateInstanceEventWindowRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33781,6 +33919,9 @@ const serializeAws_ec2CreateInstanceExportTaskRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33796,6 +33937,9 @@ const serializeAws_ec2CreateInternetGatewayRequest = (
   const entries: any = {};
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33844,6 +33988,9 @@ const serializeAws_ec2CreateIpamPoolRequest = (input: CreateIpamPoolRequest, con
   }
   if (input.AllocationResourceTags != null) {
     const memberEntries = serializeAws_ec2RequestIpamResourceTagList(input.AllocationResourceTags, context);
+    if (input.AllocationResourceTags?.length === 0) {
+      entries.AllocationResourceTag = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AllocationResourceTag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33851,6 +33998,9 @@ const serializeAws_ec2CreateIpamPoolRequest = (input: CreateIpamPoolRequest, con
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33878,6 +34028,9 @@ const serializeAws_ec2CreateIpamRequest = (input: CreateIpamRequest, context: __
   }
   if (input.OperatingRegions != null) {
     const memberEntries = serializeAws_ec2AddIpamOperatingRegionSet(input.OperatingRegions, context);
+    if (input.OperatingRegions?.length === 0) {
+      entries.OperatingRegion = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33885,6 +34038,9 @@ const serializeAws_ec2CreateIpamRequest = (input: CreateIpamRequest, context: __
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33912,6 +34068,9 @@ const serializeAws_ec2CreateIpamScopeRequest = (input: CreateIpamScopeRequest, c
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33939,6 +34098,9 @@ const serializeAws_ec2CreateKeyPairRequest = (input: CreateKeyPairRequest, conte
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33976,6 +34138,9 @@ const serializeAws_ec2CreateLaunchTemplateRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34053,6 +34218,9 @@ const serializeAws_ec2CreateLocalGatewayRouteTableRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34077,6 +34245,9 @@ const serializeAws_ec2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociati
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34101,6 +34272,9 @@ const serializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34125,6 +34299,9 @@ const serializeAws_ec2CreateManagedPrefixListRequest = (
   }
   if (input.Entries != null) {
     const memberEntries = serializeAws_ec2AddPrefixListEntries(input.Entries, context);
+    if (input.Entries?.length === 0) {
+      entries.Entry = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Entry.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34135,6 +34312,9 @@ const serializeAws_ec2CreateManagedPrefixListRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34171,6 +34351,9 @@ const serializeAws_ec2CreateNatGatewayRequest = (input: CreateNatGatewayRequest,
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34238,6 +34421,9 @@ const serializeAws_ec2CreateNetworkAclRequest = (input: CreateNetworkAclRequest,
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34253,6 +34439,9 @@ const serializeAws_ec2CreateNetworkInsightsAccessScopeRequest = (
   const entries: any = {};
   if (input.MatchPaths != null) {
     const memberEntries = serializeAws_ec2AccessScopePathListRequest(input.MatchPaths, context);
+    if (input.MatchPaths?.length === 0) {
+      entries.MatchPath = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MatchPath.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34260,6 +34449,9 @@ const serializeAws_ec2CreateNetworkInsightsAccessScopeRequest = (
   }
   if (input.ExcludePaths != null) {
     const memberEntries = serializeAws_ec2AccessScopePathListRequest(input.ExcludePaths, context);
+    if (input.ExcludePaths?.length === 0) {
+      entries.ExcludePath = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludePath.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34273,6 +34465,9 @@ const serializeAws_ec2CreateNetworkInsightsAccessScopeRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34309,6 +34504,9 @@ const serializeAws_ec2CreateNetworkInsightsPathRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34362,6 +34560,9 @@ const serializeAws_ec2CreateNetworkInterfaceRequest = (
   }
   if (input.Groups != null) {
     const memberEntries = serializeAws_ec2SecurityGroupIdStringList(input.Groups, context);
+    if (input.Groups?.length === 0) {
+      entries.SecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34372,6 +34573,9 @@ const serializeAws_ec2CreateNetworkInterfaceRequest = (
   }
   if (input.Ipv6Addresses != null) {
     const memberEntries = serializeAws_ec2InstanceIpv6AddressList(input.Ipv6Addresses, context);
+    if (input.Ipv6Addresses?.length === 0) {
+      entries.Ipv6Addresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Addresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34382,6 +34586,9 @@ const serializeAws_ec2CreateNetworkInterfaceRequest = (
   }
   if (input.PrivateIpAddresses != null) {
     const memberEntries = serializeAws_ec2PrivateIpAddressSpecificationList(input.PrivateIpAddresses, context);
+    if (input.PrivateIpAddresses?.length === 0) {
+      entries.PrivateIpAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34392,6 +34599,9 @@ const serializeAws_ec2CreateNetworkInterfaceRequest = (
   }
   if (input.Ipv4Prefixes != null) {
     const memberEntries = serializeAws_ec2Ipv4PrefixList(input.Ipv4Prefixes, context);
+    if (input.Ipv4Prefixes?.length === 0) {
+      entries.Ipv4Prefix = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34402,6 +34612,9 @@ const serializeAws_ec2CreateNetworkInterfaceRequest = (
   }
   if (input.Ipv6Prefixes != null) {
     const memberEntries = serializeAws_ec2Ipv6PrefixList(input.Ipv6Prefixes, context);
+    if (input.Ipv6Prefixes?.length === 0) {
+      entries.Ipv6Prefix = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34418,6 +34631,9 @@ const serializeAws_ec2CreateNetworkInterfaceRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34451,6 +34667,9 @@ const serializeAws_ec2CreatePlacementGroupRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34472,6 +34691,9 @@ const serializeAws_ec2CreatePublicIpv4PoolRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34502,6 +34724,9 @@ const serializeAws_ec2CreateReplaceRootVolumeTaskRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34529,6 +34754,9 @@ const serializeAws_ec2CreateReservedInstancesListingRequest = (
   }
   if (input.PriceSchedules != null) {
     const memberEntries = serializeAws_ec2PriceScheduleSpecificationList(input.PriceSchedules, context);
+    if (input.PriceSchedules?.length === 0) {
+      entries.PriceSchedules = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PriceSchedules.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34556,6 +34784,9 @@ const serializeAws_ec2CreateRestoreImageTaskRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34630,6 +34861,9 @@ const serializeAws_ec2CreateRouteTableRequest = (input: CreateRouteTableRequest,
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34654,6 +34888,9 @@ const serializeAws_ec2CreateSecurityGroupRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34678,6 +34915,9 @@ const serializeAws_ec2CreateSnapshotRequest = (input: CreateSnapshotRequest, con
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34706,6 +34946,9 @@ const serializeAws_ec2CreateSnapshotsRequest = (input: CreateSnapshotsRequest, c
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34750,6 +34993,9 @@ const serializeAws_ec2CreateStoreImageTaskRequest = (
   }
   if (input.S3ObjectTags != null) {
     const memberEntries = serializeAws_ec2S3ObjectTagList(input.S3ObjectTags, context);
+    if (input.S3ObjectTags?.length === 0) {
+      entries.S3ObjectTag = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `S3ObjectTag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34783,6 +35029,9 @@ const serializeAws_ec2CreateSubnetCidrReservationRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34795,6 +35044,9 @@ const serializeAws_ec2CreateSubnetRequest = (input: CreateSubnetRequest, context
   const entries: any = {};
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34834,6 +35086,9 @@ const serializeAws_ec2CreateTagsRequest = (input: CreateTagsRequest, context: __
   }
   if (input.Resources != null) {
     const memberEntries = serializeAws_ec2ResourceIdList(input.Resources, context);
+    if (input.Resources?.length === 0) {
+      entries.ResourceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34841,6 +35096,9 @@ const serializeAws_ec2CreateTagsRequest = (input: CreateTagsRequest, context: __
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_ec2TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tag = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34859,6 +35117,9 @@ const serializeAws_ec2CreateTrafficMirrorFilterRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34959,6 +35220,9 @@ const serializeAws_ec2CreateTrafficMirrorSessionRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34992,6 +35256,9 @@ const serializeAws_ec2CreateTrafficMirrorTargetRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35035,6 +35302,9 @@ const serializeAws_ec2CreateTransitGatewayConnectPeerRequest = (
   }
   if (input.InsideCidrBlocks != null) {
     const memberEntries = serializeAws_ec2InsideCidrBlocksStringList(input.InsideCidrBlocks, context);
+    if (input.InsideCidrBlocks?.length === 0) {
+      entries.InsideCidrBlocks = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InsideCidrBlocks.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35042,6 +35312,9 @@ const serializeAws_ec2CreateTransitGatewayConnectPeerRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35070,6 +35343,9 @@ const serializeAws_ec2CreateTransitGatewayConnectRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35109,6 +35385,9 @@ const serializeAws_ec2CreateTransitGatewayMulticastDomainRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35163,6 +35442,9 @@ const serializeAws_ec2CreateTransitGatewayPeeringAttachmentRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35195,6 +35477,9 @@ const serializeAws_ec2CreateTransitGatewayPolicyTableRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecifications = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecifications.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35246,6 +35531,9 @@ const serializeAws_ec2CreateTransitGatewayRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35293,6 +35581,9 @@ const serializeAws_ec2CreateTransitGatewayRouteTableAnnouncementRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35314,6 +35605,9 @@ const serializeAws_ec2CreateTransitGatewayRouteTableRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecifications = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecifications.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35338,6 +35632,9 @@ const serializeAws_ec2CreateTransitGatewayVpcAttachmentRequest = (
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_ec2TransitGatewaySubnetIdList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35352,6 +35649,9 @@ const serializeAws_ec2CreateTransitGatewayVpcAttachmentRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecifications = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecifications.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35414,6 +35714,9 @@ const serializeAws_ec2CreateVolumePermissionModifications = (
   const entries: any = {};
   if (input.Add != null) {
     const memberEntries = serializeAws_ec2CreateVolumePermissionList(input.Add, context);
+    if (input.Add?.length === 0) {
+      entries.Add = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Add.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35421,6 +35724,9 @@ const serializeAws_ec2CreateVolumePermissionModifications = (
   }
   if (input.Remove != null) {
     const memberEntries = serializeAws_ec2CreateVolumePermissionList(input.Remove, context);
+    if (input.Remove?.length === 0) {
+      entries.Remove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Remove.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35460,6 +35766,9 @@ const serializeAws_ec2CreateVolumeRequest = (input: CreateVolumeRequest, context
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35499,6 +35808,9 @@ const serializeAws_ec2CreateVpcEndpointConnectionNotificationRequest = (
   }
   if (input.ConnectionEvents != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.ConnectionEvents, context);
+    if (input.ConnectionEvents?.length === 0) {
+      entries.ConnectionEvents = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionEvents.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35529,6 +35841,9 @@ const serializeAws_ec2CreateVpcEndpointRequest = (input: CreateVpcEndpointReques
   }
   if (input.RouteTableIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointRouteTableIdList(input.RouteTableIds, context);
+    if (input.RouteTableIds?.length === 0) {
+      entries.RouteTableId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RouteTableId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35536,6 +35851,9 @@ const serializeAws_ec2CreateVpcEndpointRequest = (input: CreateVpcEndpointReques
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointSubnetIdList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35543,6 +35861,9 @@ const serializeAws_ec2CreateVpcEndpointRequest = (input: CreateVpcEndpointReques
   }
   if (input.SecurityGroupIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointSecurityGroupIdList(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35566,6 +35887,9 @@ const serializeAws_ec2CreateVpcEndpointRequest = (input: CreateVpcEndpointReques
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35590,6 +35914,9 @@ const serializeAws_ec2CreateVpcEndpointServiceConfigurationRequest = (
   }
   if (input.NetworkLoadBalancerArns != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.NetworkLoadBalancerArns, context);
+    if (input.NetworkLoadBalancerArns?.length === 0) {
+      entries.NetworkLoadBalancerArn = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35597,6 +35924,9 @@ const serializeAws_ec2CreateVpcEndpointServiceConfigurationRequest = (
   }
   if (input.GatewayLoadBalancerArns != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.GatewayLoadBalancerArns, context);
+    if (input.GatewayLoadBalancerArns?.length === 0) {
+      entries.GatewayLoadBalancerArn = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GatewayLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35604,6 +35934,9 @@ const serializeAws_ec2CreateVpcEndpointServiceConfigurationRequest = (
   }
   if (input.SupportedIpAddressTypes != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.SupportedIpAddressTypes, context);
+    if (input.SupportedIpAddressTypes?.length === 0) {
+      entries.SupportedIpAddressType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SupportedIpAddressType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35614,6 +35947,9 @@ const serializeAws_ec2CreateVpcEndpointServiceConfigurationRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35644,6 +35980,9 @@ const serializeAws_ec2CreateVpcPeeringConnectionRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35689,6 +36028,9 @@ const serializeAws_ec2CreateVpcRequest = (input: CreateVpcRequest, context: __Se
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35726,6 +36068,9 @@ const serializeAws_ec2CreateVpnConnectionRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35758,6 +36103,9 @@ const serializeAws_ec2CreateVpnGatewayRequest = (input: CreateVpnGatewayRequest,
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35928,6 +36276,9 @@ const serializeAws_ec2DeleteFleetsRequest = (input: DeleteFleetsRequest, context
   }
   if (input.FleetIds != null) {
     const memberEntries = serializeAws_ec2FleetIdSet(input.FleetIds, context);
+    if (input.FleetIds?.length === 0) {
+      entries.FleetId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FleetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35946,6 +36297,9 @@ const serializeAws_ec2DeleteFlowLogsRequest = (input: DeleteFlowLogsRequest, con
   }
   if (input.FlowLogIds != null) {
     const memberEntries = serializeAws_ec2FlowLogIdList(input.FlowLogIds, context);
+    if (input.FlowLogIds?.length === 0) {
+      entries.FlowLogId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FlowLogId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36079,6 +36433,9 @@ const serializeAws_ec2DeleteLaunchTemplateVersionsRequest = (
   }
   if (input.Versions != null) {
     const memberEntries = serializeAws_ec2VersionStringList(input.Versions, context);
+    if (input.Versions?.length === 0) {
+      entries.LaunchTemplateVersion = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateVersion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36341,6 +36698,9 @@ const serializeAws_ec2DeleteQueuedReservedInstancesRequest = (
   }
   if (input.ReservedInstancesIds != null) {
     const memberEntries = serializeAws_ec2DeleteQueuedReservedInstancesIdList(input.ReservedInstancesIds, context);
+    if (input.ReservedInstancesIds?.length === 0) {
+      entries.ReservedInstancesId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstancesId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36451,6 +36811,9 @@ const serializeAws_ec2DeleteTagsRequest = (input: DeleteTagsRequest, context: __
   }
   if (input.Resources != null) {
     const memberEntries = serializeAws_ec2ResourceIdList(input.Resources, context);
+    if (input.Resources?.length === 0) {
+      entries.ResourceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36458,6 +36821,9 @@ const serializeAws_ec2DeleteTagsRequest = (input: DeleteTagsRequest, context: __
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_ec2TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tag = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36703,6 +37069,9 @@ const serializeAws_ec2DeleteVpcEndpointConnectionNotificationsRequest = (
   }
   if (input.ConnectionNotificationIds != null) {
     const memberEntries = serializeAws_ec2ConnectionNotificationIdsList(input.ConnectionNotificationIds, context);
+    if (input.ConnectionNotificationIds?.length === 0) {
+      entries.ConnectionNotificationId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionNotificationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36721,6 +37090,9 @@ const serializeAws_ec2DeleteVpcEndpointServiceConfigurationsRequest = (
   }
   if (input.ServiceIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointServiceIdList(input.ServiceIds, context);
+    if (input.ServiceIds?.length === 0) {
+      entries.ServiceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36736,6 +37108,9 @@ const serializeAws_ec2DeleteVpcEndpointsRequest = (input: DeleteVpcEndpointsRequ
   }
   if (input.VpcEndpointIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointIdList(input.VpcEndpointIds, context);
+    if (input.VpcEndpointIds?.length === 0) {
+      entries.VpcEndpointId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcEndpointId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36895,6 +37270,9 @@ const serializeAws_ec2DeregisterInstanceTagAttributeRequest = (
   }
   if (input.InstanceTagKeys != null) {
     const memberEntries = serializeAws_ec2InstanceTagKeySet(input.InstanceTagKeys, context);
+    if (input.InstanceTagKeys?.length === 0) {
+      entries.InstanceTagKey = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceTagKey.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36916,6 +37294,9 @@ const serializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersRequest = (
   }
   if (input.NetworkInterfaceIds != null) {
     const memberEntries = serializeAws_ec2TransitGatewayNetworkInterfaceIdList(input.NetworkInterfaceIds, context);
+    if (input.NetworkInterfaceIds?.length === 0) {
+      entries.NetworkInterfaceIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterfaceIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36940,6 +37321,9 @@ const serializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesRequest = (
   }
   if (input.NetworkInterfaceIds != null) {
     const memberEntries = serializeAws_ec2TransitGatewayNetworkInterfaceIdList(input.NetworkInterfaceIds, context);
+    if (input.NetworkInterfaceIds?.length === 0) {
+      entries.NetworkInterfaceIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterfaceIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36958,6 +37342,9 @@ const serializeAws_ec2DescribeAccountAttributesRequest = (
   const entries: any = {};
   if (input.AttributeNames != null) {
     const memberEntries = serializeAws_ec2AccountAttributeNameStringList(input.AttributeNames, context);
+    if (input.AttributeNames?.length === 0) {
+      entries.AttributeName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36976,6 +37363,9 @@ const serializeAws_ec2DescribeAddressesAttributeRequest = (
   const entries: any = {};
   if (input.AllocationIds != null) {
     const memberEntries = serializeAws_ec2AllocationIds(input.AllocationIds, context);
+    if (input.AllocationIds?.length === 0) {
+      entries.AllocationId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AllocationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37000,6 +37390,9 @@ const serializeAws_ec2DescribeAddressesRequest = (input: DescribeAddressesReques
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37007,6 +37400,9 @@ const serializeAws_ec2DescribeAddressesRequest = (input: DescribeAddressesReques
   }
   if (input.PublicIps != null) {
     const memberEntries = serializeAws_ec2PublicIpStringList(input.PublicIps, context);
+    if (input.PublicIps?.length === 0) {
+      entries.PublicIp = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PublicIp.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37014,6 +37410,9 @@ const serializeAws_ec2DescribeAddressesRequest = (input: DescribeAddressesReques
   }
   if (input.AllocationIds != null) {
     const memberEntries = serializeAws_ec2AllocationIdList(input.AllocationIds, context);
+    if (input.AllocationIds?.length === 0) {
+      entries.AllocationId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AllocationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37067,6 +37466,9 @@ const serializeAws_ec2DescribeAvailabilityZonesRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37074,6 +37476,9 @@ const serializeAws_ec2DescribeAvailabilityZonesRequest = (
   }
   if (input.ZoneNames != null) {
     const memberEntries = serializeAws_ec2ZoneNameStringList(input.ZoneNames, context);
+    if (input.ZoneNames?.length === 0) {
+      entries.ZoneName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ZoneName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37081,6 +37486,9 @@ const serializeAws_ec2DescribeAvailabilityZonesRequest = (
   }
   if (input.ZoneIds != null) {
     const memberEntries = serializeAws_ec2ZoneIdStringList(input.ZoneIds, context);
+    if (input.ZoneIds?.length === 0) {
+      entries.ZoneId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ZoneId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37102,6 +37510,9 @@ const serializeAws_ec2DescribeBundleTasksRequest = (
   const entries: any = {};
   if (input.BundleIds != null) {
     const memberEntries = serializeAws_ec2BundleIdStringList(input.BundleIds, context);
+    if (input.BundleIds?.length === 0) {
+      entries.BundleId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BundleId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37109,6 +37520,9 @@ const serializeAws_ec2DescribeBundleTasksRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37141,6 +37555,9 @@ const serializeAws_ec2DescribeCapacityReservationFleetsRequest = (
   const entries: any = {};
   if (input.CapacityReservationFleetIds != null) {
     const memberEntries = serializeAws_ec2CapacityReservationFleetIdSet(input.CapacityReservationFleetIds, context);
+    if (input.CapacityReservationFleetIds?.length === 0) {
+      entries.CapacityReservationFleetId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CapacityReservationFleetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37154,6 +37571,9 @@ const serializeAws_ec2DescribeCapacityReservationFleetsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37172,6 +37592,9 @@ const serializeAws_ec2DescribeCapacityReservationsRequest = (
   const entries: any = {};
   if (input.CapacityReservationIds != null) {
     const memberEntries = serializeAws_ec2CapacityReservationIdSet(input.CapacityReservationIds, context);
+    if (input.CapacityReservationIds?.length === 0) {
+      entries.CapacityReservationId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CapacityReservationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37185,6 +37608,9 @@ const serializeAws_ec2DescribeCapacityReservationsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37203,6 +37629,9 @@ const serializeAws_ec2DescribeCarrierGatewaysRequest = (
   const entries: any = {};
   if (input.CarrierGatewayIds != null) {
     const memberEntries = serializeAws_ec2CarrierGatewayIdSet(input.CarrierGatewayIds, context);
+    if (input.CarrierGatewayIds?.length === 0) {
+      entries.CarrierGatewayId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CarrierGatewayId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37210,6 +37639,9 @@ const serializeAws_ec2DescribeCarrierGatewaysRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37234,6 +37666,9 @@ const serializeAws_ec2DescribeClassicLinkInstancesRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37244,6 +37679,9 @@ const serializeAws_ec2DescribeClassicLinkInstancesRequest = (
   }
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_ec2InstanceIdStringList(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37274,6 +37712,9 @@ const serializeAws_ec2DescribeClientVpnAuthorizationRulesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37295,6 +37736,9 @@ const serializeAws_ec2DescribeClientVpnConnectionsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37319,6 +37763,9 @@ const serializeAws_ec2DescribeClientVpnEndpointsRequest = (
   const entries: any = {};
   if (input.ClientVpnEndpointIds != null) {
     const memberEntries = serializeAws_ec2ClientVpnEndpointIdList(input.ClientVpnEndpointIds, context);
+    if (input.ClientVpnEndpointIds?.length === 0) {
+      entries.ClientVpnEndpointId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClientVpnEndpointId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37332,6 +37779,9 @@ const serializeAws_ec2DescribeClientVpnEndpointsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37353,6 +37803,9 @@ const serializeAws_ec2DescribeClientVpnRoutesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37380,6 +37833,9 @@ const serializeAws_ec2DescribeClientVpnTargetNetworksRequest = (
   }
   if (input.AssociationIds != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.AssociationIds, context);
+    if (input.AssociationIds?.length === 0) {
+      entries.AssociationIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AssociationIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37393,6 +37849,9 @@ const serializeAws_ec2DescribeClientVpnTargetNetworksRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37408,6 +37867,9 @@ const serializeAws_ec2DescribeCoipPoolsRequest = (input: DescribeCoipPoolsReques
   const entries: any = {};
   if (input.PoolIds != null) {
     const memberEntries = serializeAws_ec2CoipPoolIdSet(input.PoolIds, context);
+    if (input.PoolIds?.length === 0) {
+      entries.PoolId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PoolId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37415,6 +37877,9 @@ const serializeAws_ec2DescribeCoipPoolsRequest = (input: DescribeCoipPoolsReques
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37439,6 +37904,9 @@ const serializeAws_ec2DescribeConversionTasksRequest = (
   const entries: any = {};
   if (input.ConversionTaskIds != null) {
     const memberEntries = serializeAws_ec2ConversionIdStringList(input.ConversionTaskIds, context);
+    if (input.ConversionTaskIds?.length === 0) {
+      entries.ConversionTaskId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConversionTaskId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37457,6 +37925,9 @@ const serializeAws_ec2DescribeCustomerGatewaysRequest = (
   const entries: any = {};
   if (input.CustomerGatewayIds != null) {
     const memberEntries = serializeAws_ec2CustomerGatewayIdStringList(input.CustomerGatewayIds, context);
+    if (input.CustomerGatewayIds?.length === 0) {
+      entries.CustomerGatewayId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CustomerGatewayId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37464,6 +37935,9 @@ const serializeAws_ec2DescribeCustomerGatewaysRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37482,6 +37956,9 @@ const serializeAws_ec2DescribeDhcpOptionsRequest = (
   const entries: any = {};
   if (input.DhcpOptionsIds != null) {
     const memberEntries = serializeAws_ec2DhcpOptionsIdStringList(input.DhcpOptionsIds, context);
+    if (input.DhcpOptionsIds?.length === 0) {
+      entries.DhcpOptionsId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DhcpOptionsId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37489,6 +37966,9 @@ const serializeAws_ec2DescribeDhcpOptionsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37516,6 +37996,9 @@ const serializeAws_ec2DescribeEgressOnlyInternetGatewaysRequest = (
   }
   if (input.EgressOnlyInternetGatewayIds != null) {
     const memberEntries = serializeAws_ec2EgressOnlyInternetGatewayIdList(input.EgressOnlyInternetGatewayIds, context);
+    if (input.EgressOnlyInternetGatewayIds?.length === 0) {
+      entries.EgressOnlyInternetGatewayId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EgressOnlyInternetGatewayId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37529,6 +38012,9 @@ const serializeAws_ec2DescribeEgressOnlyInternetGatewaysRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37544,6 +38030,9 @@ const serializeAws_ec2DescribeElasticGpusRequest = (
   const entries: any = {};
   if (input.ElasticGpuIds != null) {
     const memberEntries = serializeAws_ec2ElasticGpuIdSet(input.ElasticGpuIds, context);
+    if (input.ElasticGpuIds?.length === 0) {
+      entries.ElasticGpuId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ElasticGpuId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37554,6 +38043,9 @@ const serializeAws_ec2DescribeElasticGpusRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37578,6 +38070,9 @@ const serializeAws_ec2DescribeExportImageTasksRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37585,6 +38080,9 @@ const serializeAws_ec2DescribeExportImageTasksRequest = (
   }
   if (input.ExportImageTaskIds != null) {
     const memberEntries = serializeAws_ec2ExportImageTaskIdList(input.ExportImageTaskIds, context);
+    if (input.ExportImageTaskIds?.length === 0) {
+      entries.ExportImageTaskId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExportImageTaskId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37606,6 +38104,9 @@ const serializeAws_ec2DescribeExportTasksRequest = (
   const entries: any = {};
   if (input.ExportTaskIds != null) {
     const memberEntries = serializeAws_ec2ExportTaskIdStringList(input.ExportTaskIds, context);
+    if (input.ExportTaskIds?.length === 0) {
+      entries.ExportTaskId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExportTaskId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37613,6 +38114,9 @@ const serializeAws_ec2DescribeExportTasksRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37628,6 +38132,9 @@ const serializeAws_ec2DescribeFastLaunchImagesRequest = (
   const entries: any = {};
   if (input.ImageIds != null) {
     const memberEntries = serializeAws_ec2FastLaunchImageIdList(input.ImageIds, context);
+    if (input.ImageIds?.length === 0) {
+      entries.ImageId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ImageId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37635,6 +38142,9 @@ const serializeAws_ec2DescribeFastLaunchImagesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37659,6 +38169,9 @@ const serializeAws_ec2DescribeFastSnapshotRestoresRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37721,6 +38234,9 @@ const serializeAws_ec2DescribeFleetInstancesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37742,6 +38258,9 @@ const serializeAws_ec2DescribeFleetsRequest = (input: DescribeFleetsRequest, con
   }
   if (input.FleetIds != null) {
     const memberEntries = serializeAws_ec2FleetIdSet(input.FleetIds, context);
+    if (input.FleetIds?.length === 0) {
+      entries.FleetId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FleetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37749,6 +38268,9 @@ const serializeAws_ec2DescribeFleetsRequest = (input: DescribeFleetsRequest, con
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37764,6 +38286,9 @@ const serializeAws_ec2DescribeFlowLogsRequest = (input: DescribeFlowLogsRequest,
   }
   if (input.Filter != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filter, context);
+    if (input.Filter?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37771,6 +38296,9 @@ const serializeAws_ec2DescribeFlowLogsRequest = (input: DescribeFlowLogsRequest,
   }
   if (input.FlowLogIds != null) {
     const memberEntries = serializeAws_ec2FlowLogIdList(input.FlowLogIds, context);
+    if (input.FlowLogIds?.length === 0) {
+      entries.FlowLogId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FlowLogId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37809,6 +38337,9 @@ const serializeAws_ec2DescribeFpgaImagesRequest = (input: DescribeFpgaImagesRequ
   }
   if (input.FpgaImageIds != null) {
     const memberEntries = serializeAws_ec2FpgaImageIdList(input.FpgaImageIds, context);
+    if (input.FpgaImageIds?.length === 0) {
+      entries.FpgaImageId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FpgaImageId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37816,6 +38347,9 @@ const serializeAws_ec2DescribeFpgaImagesRequest = (input: DescribeFpgaImagesRequ
   }
   if (input.Owners != null) {
     const memberEntries = serializeAws_ec2OwnerStringList(input.Owners, context);
+    if (input.Owners?.length === 0) {
+      entries.Owner = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Owner.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37823,6 +38357,9 @@ const serializeAws_ec2DescribeFpgaImagesRequest = (input: DescribeFpgaImagesRequ
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37844,6 +38381,9 @@ const serializeAws_ec2DescribeHostReservationOfferingsRequest = (
   const entries: any = {};
   if (input.Filter != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filter, context);
+    if (input.Filter?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37874,6 +38414,9 @@ const serializeAws_ec2DescribeHostReservationsRequest = (
   const entries: any = {};
   if (input.Filter != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filter, context);
+    if (input.Filter?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37881,6 +38424,9 @@ const serializeAws_ec2DescribeHostReservationsRequest = (
   }
   if (input.HostReservationIdSet != null) {
     const memberEntries = serializeAws_ec2HostReservationIdSet(input.HostReservationIdSet, context);
+    if (input.HostReservationIdSet?.length === 0) {
+      entries.HostReservationIdSet = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostReservationIdSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37899,6 +38445,9 @@ const serializeAws_ec2DescribeHostsRequest = (input: DescribeHostsRequest, conte
   const entries: any = {};
   if (input.Filter != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filter, context);
+    if (input.Filter?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37906,6 +38455,9 @@ const serializeAws_ec2DescribeHostsRequest = (input: DescribeHostsRequest, conte
   }
   if (input.HostIds != null) {
     const memberEntries = serializeAws_ec2RequestHostIdList(input.HostIds, context);
+    if (input.HostIds?.length === 0) {
+      entries.HostId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37927,6 +38479,9 @@ const serializeAws_ec2DescribeIamInstanceProfileAssociationsRequest = (
   const entries: any = {};
   if (input.AssociationIds != null) {
     const memberEntries = serializeAws_ec2AssociationIdList(input.AssociationIds, context);
+    if (input.AssociationIds?.length === 0) {
+      entries.AssociationId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AssociationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37934,6 +38489,9 @@ const serializeAws_ec2DescribeIamInstanceProfileAssociationsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37991,6 +38549,9 @@ const serializeAws_ec2DescribeImagesRequest = (input: DescribeImagesRequest, con
   const entries: any = {};
   if (input.ExecutableUsers != null) {
     const memberEntries = serializeAws_ec2ExecutableByStringList(input.ExecutableUsers, context);
+    if (input.ExecutableUsers?.length === 0) {
+      entries.ExecutableBy = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExecutableBy.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37998,6 +38559,9 @@ const serializeAws_ec2DescribeImagesRequest = (input: DescribeImagesRequest, con
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38005,6 +38569,9 @@ const serializeAws_ec2DescribeImagesRequest = (input: DescribeImagesRequest, con
   }
   if (input.ImageIds != null) {
     const memberEntries = serializeAws_ec2ImageIdStringList(input.ImageIds, context);
+    if (input.ImageIds?.length === 0) {
+      entries.ImageId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ImageId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38012,6 +38579,9 @@ const serializeAws_ec2DescribeImagesRequest = (input: DescribeImagesRequest, con
   }
   if (input.Owners != null) {
     const memberEntries = serializeAws_ec2OwnerStringList(input.Owners, context);
+    if (input.Owners?.length === 0) {
+      entries.Owner = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Owner.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38036,6 +38606,9 @@ const serializeAws_ec2DescribeImportImageTasksRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38043,6 +38616,9 @@ const serializeAws_ec2DescribeImportImageTasksRequest = (
   }
   if (input.ImportTaskIds != null) {
     const memberEntries = serializeAws_ec2ImportTaskIdList(input.ImportTaskIds, context);
+    if (input.ImportTaskIds?.length === 0) {
+      entries.ImportTaskId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ImportTaskId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38067,6 +38643,9 @@ const serializeAws_ec2DescribeImportSnapshotTasksRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38074,6 +38653,9 @@ const serializeAws_ec2DescribeImportSnapshotTasksRequest = (
   }
   if (input.ImportTaskIds != null) {
     const memberEntries = serializeAws_ec2ImportSnapshotTaskIdList(input.ImportTaskIds, context);
+    if (input.ImportTaskIds?.length === 0) {
+      entries.ImportTaskId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ImportTaskId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38115,6 +38697,9 @@ const serializeAws_ec2DescribeInstanceCreditSpecificationsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38122,6 +38707,9 @@ const serializeAws_ec2DescribeInstanceCreditSpecificationsRequest = (
   }
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_ec2InstanceIdStringList(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38157,6 +38745,9 @@ const serializeAws_ec2DescribeInstanceEventWindowsRequest = (
   }
   if (input.InstanceEventWindowIds != null) {
     const memberEntries = serializeAws_ec2InstanceEventWindowIdSet(input.InstanceEventWindowIds, context);
+    if (input.InstanceEventWindowIds?.length === 0) {
+      entries.InstanceEventWindowId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceEventWindowId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38164,6 +38755,9 @@ const serializeAws_ec2DescribeInstanceEventWindowsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38182,6 +38776,9 @@ const serializeAws_ec2DescribeInstancesRequest = (input: DescribeInstancesReques
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38189,6 +38786,9 @@ const serializeAws_ec2DescribeInstancesRequest = (input: DescribeInstancesReques
   }
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_ec2InstanceIdStringList(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38213,6 +38813,9 @@ const serializeAws_ec2DescribeInstanceStatusRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38220,6 +38823,9 @@ const serializeAws_ec2DescribeInstanceStatusRequest = (
   }
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_ec2InstanceIdStringList(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38253,6 +38859,9 @@ const serializeAws_ec2DescribeInstanceTypeOfferingsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38277,6 +38886,9 @@ const serializeAws_ec2DescribeInstanceTypesRequest = (
   }
   if (input.InstanceTypes != null) {
     const memberEntries = serializeAws_ec2RequestInstanceTypeList(input.InstanceTypes, context);
+    if (input.InstanceTypes?.length === 0) {
+      entries.InstanceType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38284,6 +38896,9 @@ const serializeAws_ec2DescribeInstanceTypesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38305,6 +38920,9 @@ const serializeAws_ec2DescribeInternetGatewaysRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38315,6 +38933,9 @@ const serializeAws_ec2DescribeInternetGatewaysRequest = (
   }
   if (input.InternetGatewayIds != null) {
     const memberEntries = serializeAws_ec2InternetGatewayIdList(input.InternetGatewayIds, context);
+    if (input.InternetGatewayIds?.length === 0) {
+      entries.InternetGatewayId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InternetGatewayId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38336,6 +38957,9 @@ const serializeAws_ec2DescribeIpamPoolsRequest = (input: DescribeIpamPoolsReques
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38349,6 +38973,9 @@ const serializeAws_ec2DescribeIpamPoolsRequest = (input: DescribeIpamPoolsReques
   }
   if (input.IpamPoolIds != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.IpamPoolIds, context);
+    if (input.IpamPoolIds?.length === 0) {
+      entries.IpamPoolId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpamPoolId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38364,6 +38991,9 @@ const serializeAws_ec2DescribeIpamScopesRequest = (input: DescribeIpamScopesRequ
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38377,6 +39007,9 @@ const serializeAws_ec2DescribeIpamScopesRequest = (input: DescribeIpamScopesRequ
   }
   if (input.IpamScopeIds != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.IpamScopeIds, context);
+    if (input.IpamScopeIds?.length === 0) {
+      entries.IpamScopeId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpamScopeId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38392,6 +39025,9 @@ const serializeAws_ec2DescribeIpamsRequest = (input: DescribeIpamsRequest, conte
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38405,6 +39041,9 @@ const serializeAws_ec2DescribeIpamsRequest = (input: DescribeIpamsRequest, conte
   }
   if (input.IpamIds != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.IpamIds, context);
+    if (input.IpamIds?.length === 0) {
+      entries.IpamId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpamId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38417,6 +39056,9 @@ const serializeAws_ec2DescribeIpv6PoolsRequest = (input: DescribeIpv6PoolsReques
   const entries: any = {};
   if (input.PoolIds != null) {
     const memberEntries = serializeAws_ec2Ipv6PoolIdList(input.PoolIds, context);
+    if (input.PoolIds?.length === 0) {
+      entries.PoolId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PoolId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38433,6 +39075,9 @@ const serializeAws_ec2DescribeIpv6PoolsRequest = (input: DescribeIpv6PoolsReques
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38445,6 +39090,9 @@ const serializeAws_ec2DescribeKeyPairsRequest = (input: DescribeKeyPairsRequest,
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38452,6 +39100,9 @@ const serializeAws_ec2DescribeKeyPairsRequest = (input: DescribeKeyPairsRequest,
   }
   if (input.KeyNames != null) {
     const memberEntries = serializeAws_ec2KeyNameStringList(input.KeyNames, context);
+    if (input.KeyNames?.length === 0) {
+      entries.KeyName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `KeyName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38459,6 +39110,9 @@ const serializeAws_ec2DescribeKeyPairsRequest = (input: DescribeKeyPairsRequest,
   }
   if (input.KeyPairIds != null) {
     const memberEntries = serializeAws_ec2KeyPairIdStringList(input.KeyPairIds, context);
+    if (input.KeyPairIds?.length === 0) {
+      entries.KeyPairId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `KeyPairId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38483,6 +39137,9 @@ const serializeAws_ec2DescribeLaunchTemplatesRequest = (
   }
   if (input.LaunchTemplateIds != null) {
     const memberEntries = serializeAws_ec2LaunchTemplateIdStringList(input.LaunchTemplateIds, context);
+    if (input.LaunchTemplateIds?.length === 0) {
+      entries.LaunchTemplateId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38490,6 +39147,9 @@ const serializeAws_ec2DescribeLaunchTemplatesRequest = (
   }
   if (input.LaunchTemplateNames != null) {
     const memberEntries = serializeAws_ec2LaunchTemplateNameStringList(input.LaunchTemplateNames, context);
+    if (input.LaunchTemplateNames?.length === 0) {
+      entries.LaunchTemplateName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38497,6 +39157,9 @@ const serializeAws_ec2DescribeLaunchTemplatesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38527,6 +39190,9 @@ const serializeAws_ec2DescribeLaunchTemplateVersionsRequest = (
   }
   if (input.Versions != null) {
     const memberEntries = serializeAws_ec2VersionStringList(input.Versions, context);
+    if (input.Versions?.length === 0) {
+      entries.LaunchTemplateVersion = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateVersion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38546,6 +39212,9 @@ const serializeAws_ec2DescribeLaunchTemplateVersionsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38561,6 +39230,9 @@ const serializeAws_ec2DescribeLocalGatewayRouteTablesRequest = (
   const entries: any = {};
   if (input.LocalGatewayRouteTableIds != null) {
     const memberEntries = serializeAws_ec2LocalGatewayRouteTableIdSet(input.LocalGatewayRouteTableIds, context);
+    if (input.LocalGatewayRouteTableIds?.length === 0) {
+      entries.LocalGatewayRouteTableId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalGatewayRouteTableId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38568,6 +39240,9 @@ const serializeAws_ec2DescribeLocalGatewayRouteTablesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38595,6 +39270,9 @@ const serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssocia
       input.LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds,
       context
     );
+    if (input.LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds?.length === 0) {
+      entries.LocalGatewayRouteTableVirtualInterfaceGroupAssociationId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalGatewayRouteTableVirtualInterfaceGroupAssociationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38602,6 +39280,9 @@ const serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssocia
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38629,6 +39310,9 @@ const serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsRequest = (
       input.LocalGatewayRouteTableVpcAssociationIds,
       context
     );
+    if (input.LocalGatewayRouteTableVpcAssociationIds?.length === 0) {
+      entries.LocalGatewayRouteTableVpcAssociationId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalGatewayRouteTableVpcAssociationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38636,6 +39320,9 @@ const serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38660,6 +39347,9 @@ const serializeAws_ec2DescribeLocalGatewaysRequest = (
   const entries: any = {};
   if (input.LocalGatewayIds != null) {
     const memberEntries = serializeAws_ec2LocalGatewayIdSet(input.LocalGatewayIds, context);
+    if (input.LocalGatewayIds?.length === 0) {
+      entries.LocalGatewayId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalGatewayId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38667,6 +39357,9 @@ const serializeAws_ec2DescribeLocalGatewaysRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38694,6 +39387,9 @@ const serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsRequest = (
       input.LocalGatewayVirtualInterfaceGroupIds,
       context
     );
+    if (input.LocalGatewayVirtualInterfaceGroupIds?.length === 0) {
+      entries.LocalGatewayVirtualInterfaceGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalGatewayVirtualInterfaceGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38701,6 +39397,9 @@ const serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38728,6 +39427,9 @@ const serializeAws_ec2DescribeLocalGatewayVirtualInterfacesRequest = (
       input.LocalGatewayVirtualInterfaceIds,
       context
     );
+    if (input.LocalGatewayVirtualInterfaceIds?.length === 0) {
+      entries.LocalGatewayVirtualInterfaceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalGatewayVirtualInterfaceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38735,6 +39437,9 @@ const serializeAws_ec2DescribeLocalGatewayVirtualInterfacesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38762,6 +39467,9 @@ const serializeAws_ec2DescribeManagedPrefixListsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38775,6 +39483,9 @@ const serializeAws_ec2DescribeManagedPrefixListsRequest = (
   }
   if (input.PrefixListIds != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.PrefixListIds, context);
+    if (input.PrefixListIds?.length === 0) {
+      entries.PrefixListId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrefixListId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38790,6 +39501,9 @@ const serializeAws_ec2DescribeMovingAddressesRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38806,6 +39520,9 @@ const serializeAws_ec2DescribeMovingAddressesRequest = (
   }
   if (input.PublicIps != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.PublicIps, context);
+    if (input.PublicIps?.length === 0) {
+      entries.PublicIp = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PublicIp.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38824,6 +39541,9 @@ const serializeAws_ec2DescribeNatGatewaysRequest = (
   }
   if (input.Filter != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filter, context);
+    if (input.Filter?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38834,6 +39554,9 @@ const serializeAws_ec2DescribeNatGatewaysRequest = (
   }
   if (input.NatGatewayIds != null) {
     const memberEntries = serializeAws_ec2NatGatewayIdStringList(input.NatGatewayIds, context);
+    if (input.NatGatewayIds?.length === 0) {
+      entries.NatGatewayId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NatGatewayId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38852,6 +39575,9 @@ const serializeAws_ec2DescribeNetworkAclsRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38862,6 +39588,9 @@ const serializeAws_ec2DescribeNetworkAclsRequest = (
   }
   if (input.NetworkAclIds != null) {
     const memberEntries = serializeAws_ec2NetworkAclIdStringList(input.NetworkAclIds, context);
+    if (input.NetworkAclIds?.length === 0) {
+      entries.NetworkAclId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkAclId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38886,6 +39615,9 @@ const serializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesRequest = (
       input.NetworkInsightsAccessScopeAnalysisIds,
       context
     );
+    if (input.NetworkInsightsAccessScopeAnalysisIds?.length === 0) {
+      entries.NetworkInsightsAccessScopeAnalysisId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInsightsAccessScopeAnalysisId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38902,6 +39634,9 @@ const serializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38929,6 +39664,9 @@ const serializeAws_ec2DescribeNetworkInsightsAccessScopesRequest = (
       input.NetworkInsightsAccessScopeIds,
       context
     );
+    if (input.NetworkInsightsAccessScopeIds?.length === 0) {
+      entries.NetworkInsightsAccessScopeId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInsightsAccessScopeId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38936,6 +39674,9 @@ const serializeAws_ec2DescribeNetworkInsightsAccessScopesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38960,6 +39701,9 @@ const serializeAws_ec2DescribeNetworkInsightsAnalysesRequest = (
   const entries: any = {};
   if (input.NetworkInsightsAnalysisIds != null) {
     const memberEntries = serializeAws_ec2NetworkInsightsAnalysisIdList(input.NetworkInsightsAnalysisIds, context);
+    if (input.NetworkInsightsAnalysisIds?.length === 0) {
+      entries.NetworkInsightsAnalysisId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInsightsAnalysisId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38976,6 +39720,9 @@ const serializeAws_ec2DescribeNetworkInsightsAnalysesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39000,6 +39747,9 @@ const serializeAws_ec2DescribeNetworkInsightsPathsRequest = (
   const entries: any = {};
   if (input.NetworkInsightsPathIds != null) {
     const memberEntries = serializeAws_ec2NetworkInsightsPathIdList(input.NetworkInsightsPathIds, context);
+    if (input.NetworkInsightsPathIds?.length === 0) {
+      entries.NetworkInsightsPathId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInsightsPathId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39007,6 +39757,9 @@ const serializeAws_ec2DescribeNetworkInsightsPathsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39051,6 +39804,9 @@ const serializeAws_ec2DescribeNetworkInterfacePermissionsRequest = (
       input.NetworkInterfacePermissionIds,
       context
     );
+    if (input.NetworkInterfacePermissionIds?.length === 0) {
+      entries.NetworkInterfacePermissionId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterfacePermissionId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39058,6 +39814,9 @@ const serializeAws_ec2DescribeNetworkInterfacePermissionsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39079,6 +39838,9 @@ const serializeAws_ec2DescribeNetworkInterfacesRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39089,6 +39851,9 @@ const serializeAws_ec2DescribeNetworkInterfacesRequest = (
   }
   if (input.NetworkInterfaceIds != null) {
     const memberEntries = serializeAws_ec2NetworkInterfaceIdList(input.NetworkInterfaceIds, context);
+    if (input.NetworkInterfaceIds?.length === 0) {
+      entries.NetworkInterfaceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterfaceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39110,6 +39875,9 @@ const serializeAws_ec2DescribePlacementGroupsRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39120,6 +39888,9 @@ const serializeAws_ec2DescribePlacementGroupsRequest = (
   }
   if (input.GroupNames != null) {
     const memberEntries = serializeAws_ec2PlacementGroupStringList(input.GroupNames, context);
+    if (input.GroupNames?.length === 0) {
+      entries.GroupName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39127,6 +39898,9 @@ const serializeAws_ec2DescribePlacementGroupsRequest = (
   }
   if (input.GroupIds != null) {
     const memberEntries = serializeAws_ec2PlacementGroupIdStringList(input.GroupIds, context);
+    if (input.GroupIds?.length === 0) {
+      entries.GroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39145,6 +39919,9 @@ const serializeAws_ec2DescribePrefixListsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39158,6 +39935,9 @@ const serializeAws_ec2DescribePrefixListsRequest = (
   }
   if (input.PrefixListIds != null) {
     const memberEntries = serializeAws_ec2PrefixListResourceIdStringList(input.PrefixListIds, context);
+    if (input.PrefixListIds?.length === 0) {
+      entries.PrefixListId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrefixListId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39176,6 +39956,9 @@ const serializeAws_ec2DescribePrincipalIdFormatRequest = (
   }
   if (input.Resources != null) {
     const memberEntries = serializeAws_ec2ResourceList(input.Resources, context);
+    if (input.Resources?.length === 0) {
+      entries.Resource = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Resource.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39197,6 +39980,9 @@ const serializeAws_ec2DescribePublicIpv4PoolsRequest = (
   const entries: any = {};
   if (input.PoolIds != null) {
     const memberEntries = serializeAws_ec2PublicIpv4PoolIdStringList(input.PoolIds, context);
+    if (input.PoolIds?.length === 0) {
+      entries.PoolId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PoolId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39210,6 +39996,9 @@ const serializeAws_ec2DescribePublicIpv4PoolsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39222,6 +40011,9 @@ const serializeAws_ec2DescribeRegionsRequest = (input: DescribeRegionsRequest, c
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39229,6 +40021,9 @@ const serializeAws_ec2DescribeRegionsRequest = (input: DescribeRegionsRequest, c
   }
   if (input.RegionNames != null) {
     const memberEntries = serializeAws_ec2RegionNameStringList(input.RegionNames, context);
+    if (input.RegionNames?.length === 0) {
+      entries.RegionName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RegionName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39250,6 +40045,9 @@ const serializeAws_ec2DescribeReplaceRootVolumeTasksRequest = (
   const entries: any = {};
   if (input.ReplaceRootVolumeTaskIds != null) {
     const memberEntries = serializeAws_ec2ReplaceRootVolumeTaskIds(input.ReplaceRootVolumeTaskIds, context);
+    if (input.ReplaceRootVolumeTaskIds?.length === 0) {
+      entries.ReplaceRootVolumeTaskId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplaceRootVolumeTaskId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39257,6 +40055,9 @@ const serializeAws_ec2DescribeReplaceRootVolumeTasksRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39281,6 +40082,9 @@ const serializeAws_ec2DescribeReservedInstancesListingsRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39302,6 +40106,9 @@ const serializeAws_ec2DescribeReservedInstancesModificationsRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39312,6 +40119,9 @@ const serializeAws_ec2DescribeReservedInstancesModificationsRequest = (
       input.ReservedInstancesModificationIds,
       context
     );
+    if (input.ReservedInstancesModificationIds?.length === 0) {
+      entries.ReservedInstancesModificationId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstancesModificationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39333,6 +40143,9 @@ const serializeAws_ec2DescribeReservedInstancesOfferingsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39364,6 +40177,9 @@ const serializeAws_ec2DescribeReservedInstancesOfferingsRequest = (
       input.ReservedInstancesOfferingIds,
       context
     );
+    if (input.ReservedInstancesOfferingIds?.length === 0) {
+      entries.ReservedInstancesOfferingId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstancesOfferingId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39394,6 +40210,9 @@ const serializeAws_ec2DescribeReservedInstancesRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39404,6 +40223,9 @@ const serializeAws_ec2DescribeReservedInstancesRequest = (
   }
   if (input.ReservedInstancesIds != null) {
     const memberEntries = serializeAws_ec2ReservedInstancesIdStringList(input.ReservedInstancesIds, context);
+    if (input.ReservedInstancesIds?.length === 0) {
+      entries.ReservedInstancesId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstancesId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39425,6 +40247,9 @@ const serializeAws_ec2DescribeRouteTablesRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39435,6 +40260,9 @@ const serializeAws_ec2DescribeRouteTablesRequest = (
   }
   if (input.RouteTableIds != null) {
     const memberEntries = serializeAws_ec2RouteTableIdStringList(input.RouteTableIds, context);
+    if (input.RouteTableIds?.length === 0) {
+      entries.RouteTableId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RouteTableId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39459,6 +40287,9 @@ const serializeAws_ec2DescribeScheduledInstanceAvailabilityRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39503,6 +40334,9 @@ const serializeAws_ec2DescribeScheduledInstancesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39516,6 +40350,9 @@ const serializeAws_ec2DescribeScheduledInstancesRequest = (
   }
   if (input.ScheduledInstanceIds != null) {
     const memberEntries = serializeAws_ec2ScheduledInstanceIdRequestSet(input.ScheduledInstanceIds, context);
+    if (input.ScheduledInstanceIds?.length === 0) {
+      entries.ScheduledInstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScheduledInstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39541,6 +40378,9 @@ const serializeAws_ec2DescribeSecurityGroupReferencesRequest = (
   }
   if (input.GroupId != null) {
     const memberEntries = serializeAws_ec2GroupIds(input.GroupId, context);
+    if (input.GroupId?.length === 0) {
+      entries.GroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39556,6 +40396,9 @@ const serializeAws_ec2DescribeSecurityGroupRulesRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39563,6 +40406,9 @@ const serializeAws_ec2DescribeSecurityGroupRulesRequest = (
   }
   if (input.SecurityGroupRuleIds != null) {
     const memberEntries = serializeAws_ec2SecurityGroupRuleIdList(input.SecurityGroupRuleIds, context);
+    if (input.SecurityGroupRuleIds?.length === 0) {
+      entries.SecurityGroupRuleId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupRuleId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39587,6 +40433,9 @@ const serializeAws_ec2DescribeSecurityGroupsRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39594,6 +40443,9 @@ const serializeAws_ec2DescribeSecurityGroupsRequest = (
   }
   if (input.GroupIds != null) {
     const memberEntries = serializeAws_ec2GroupIdStringList(input.GroupIds, context);
+    if (input.GroupIds?.length === 0) {
+      entries.GroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39601,6 +40453,9 @@ const serializeAws_ec2DescribeSecurityGroupsRequest = (
   }
   if (input.GroupNames != null) {
     const memberEntries = serializeAws_ec2GroupNameStringList(input.GroupNames, context);
+    if (input.GroupNames?.length === 0) {
+      entries.GroupName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39639,6 +40494,9 @@ const serializeAws_ec2DescribeSnapshotsRequest = (input: DescribeSnapshotsReques
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39652,6 +40510,9 @@ const serializeAws_ec2DescribeSnapshotsRequest = (input: DescribeSnapshotsReques
   }
   if (input.OwnerIds != null) {
     const memberEntries = serializeAws_ec2OwnerStringList(input.OwnerIds, context);
+    if (input.OwnerIds?.length === 0) {
+      entries.Owner = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Owner.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39659,6 +40520,9 @@ const serializeAws_ec2DescribeSnapshotsRequest = (input: DescribeSnapshotsReques
   }
   if (input.RestorableByUserIds != null) {
     const memberEntries = serializeAws_ec2RestorableByStringList(input.RestorableByUserIds, context);
+    if (input.RestorableByUserIds?.length === 0) {
+      entries.RestorableBy = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RestorableBy.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39666,6 +40530,9 @@ const serializeAws_ec2DescribeSnapshotsRequest = (input: DescribeSnapshotsReques
   }
   if (input.SnapshotIds != null) {
     const memberEntries = serializeAws_ec2SnapshotIdStringList(input.SnapshotIds, context);
+    if (input.SnapshotIds?.length === 0) {
+      entries.SnapshotId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SnapshotId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39684,6 +40551,9 @@ const serializeAws_ec2DescribeSnapshotTierStatusRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39774,6 +40644,9 @@ const serializeAws_ec2DescribeSpotFleetRequestsRequest = (
   }
   if (input.SpotFleetRequestIds != null) {
     const memberEntries = serializeAws_ec2SpotFleetRequestIdList(input.SpotFleetRequestIds, context);
+    if (input.SpotFleetRequestIds?.length === 0) {
+      entries.SpotFleetRequestId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SpotFleetRequestId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39789,6 +40662,9 @@ const serializeAws_ec2DescribeSpotInstanceRequestsRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39799,6 +40675,9 @@ const serializeAws_ec2DescribeSpotInstanceRequestsRequest = (
   }
   if (input.SpotInstanceRequestIds != null) {
     const memberEntries = serializeAws_ec2SpotInstanceRequestIdList(input.SpotInstanceRequestIds, context);
+    if (input.SpotInstanceRequestIds?.length === 0) {
+      entries.SpotInstanceRequestId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SpotInstanceRequestId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39820,6 +40699,9 @@ const serializeAws_ec2DescribeSpotPriceHistoryRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39836,6 +40718,9 @@ const serializeAws_ec2DescribeSpotPriceHistoryRequest = (
   }
   if (input.InstanceTypes != null) {
     const memberEntries = serializeAws_ec2InstanceTypeList(input.InstanceTypes, context);
+    if (input.InstanceTypes?.length === 0) {
+      entries.InstanceType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39849,6 +40734,9 @@ const serializeAws_ec2DescribeSpotPriceHistoryRequest = (
   }
   if (input.ProductDescriptions != null) {
     const memberEntries = serializeAws_ec2ProductDescriptionList(input.ProductDescriptions, context);
+    if (input.ProductDescriptions?.length === 0) {
+      entries.ProductDescription = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProductDescription.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39887,6 +40775,9 @@ const serializeAws_ec2DescribeStoreImageTasksRequest = (
   const entries: any = {};
   if (input.ImageIds != null) {
     const memberEntries = serializeAws_ec2ImageIdList(input.ImageIds, context);
+    if (input.ImageIds?.length === 0) {
+      entries.ImageId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ImageId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39897,6 +40788,9 @@ const serializeAws_ec2DescribeStoreImageTasksRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39915,6 +40809,9 @@ const serializeAws_ec2DescribeSubnetsRequest = (input: DescribeSubnetsRequest, c
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39922,6 +40819,9 @@ const serializeAws_ec2DescribeSubnetsRequest = (input: DescribeSubnetsRequest, c
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_ec2SubnetIdStringList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39946,6 +40846,9 @@ const serializeAws_ec2DescribeTagsRequest = (input: DescribeTagsRequest, context
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39967,6 +40870,9 @@ const serializeAws_ec2DescribeTrafficMirrorFiltersRequest = (
   const entries: any = {};
   if (input.TrafficMirrorFilterIds != null) {
     const memberEntries = serializeAws_ec2TrafficMirrorFilterIdList(input.TrafficMirrorFilterIds, context);
+    if (input.TrafficMirrorFilterIds?.length === 0) {
+      entries.TrafficMirrorFilterId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TrafficMirrorFilterId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39977,6 +40883,9 @@ const serializeAws_ec2DescribeTrafficMirrorFiltersRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39998,6 +40907,9 @@ const serializeAws_ec2DescribeTrafficMirrorSessionsRequest = (
   const entries: any = {};
   if (input.TrafficMirrorSessionIds != null) {
     const memberEntries = serializeAws_ec2TrafficMirrorSessionIdList(input.TrafficMirrorSessionIds, context);
+    if (input.TrafficMirrorSessionIds?.length === 0) {
+      entries.TrafficMirrorSessionId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TrafficMirrorSessionId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40008,6 +40920,9 @@ const serializeAws_ec2DescribeTrafficMirrorSessionsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40029,6 +40944,9 @@ const serializeAws_ec2DescribeTrafficMirrorTargetsRequest = (
   const entries: any = {};
   if (input.TrafficMirrorTargetIds != null) {
     const memberEntries = serializeAws_ec2TrafficMirrorTargetIdList(input.TrafficMirrorTargetIds, context);
+    if (input.TrafficMirrorTargetIds?.length === 0) {
+      entries.TrafficMirrorTargetId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TrafficMirrorTargetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40039,6 +40957,9 @@ const serializeAws_ec2DescribeTrafficMirrorTargetsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40063,6 +40984,9 @@ const serializeAws_ec2DescribeTransitGatewayAttachmentsRequest = (
       input.TransitGatewayAttachmentIds,
       context
     );
+    if (input.TransitGatewayAttachmentIds?.length === 0) {
+      entries.TransitGatewayAttachmentIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayAttachmentIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40070,6 +40994,9 @@ const serializeAws_ec2DescribeTransitGatewayAttachmentsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40097,6 +41024,9 @@ const serializeAws_ec2DescribeTransitGatewayConnectPeersRequest = (
       input.TransitGatewayConnectPeerIds,
       context
     );
+    if (input.TransitGatewayConnectPeerIds?.length === 0) {
+      entries.TransitGatewayConnectPeerIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayConnectPeerIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40104,6 +41034,9 @@ const serializeAws_ec2DescribeTransitGatewayConnectPeersRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40131,6 +41064,9 @@ const serializeAws_ec2DescribeTransitGatewayConnectsRequest = (
       input.TransitGatewayAttachmentIds,
       context
     );
+    if (input.TransitGatewayAttachmentIds?.length === 0) {
+      entries.TransitGatewayAttachmentIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayAttachmentIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40138,6 +41074,9 @@ const serializeAws_ec2DescribeTransitGatewayConnectsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40165,6 +41104,9 @@ const serializeAws_ec2DescribeTransitGatewayMulticastDomainsRequest = (
       input.TransitGatewayMulticastDomainIds,
       context
     );
+    if (input.TransitGatewayMulticastDomainIds?.length === 0) {
+      entries.TransitGatewayMulticastDomainIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayMulticastDomainIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40172,6 +41114,9 @@ const serializeAws_ec2DescribeTransitGatewayMulticastDomainsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40199,6 +41144,9 @@ const serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsRequest = (
       input.TransitGatewayAttachmentIds,
       context
     );
+    if (input.TransitGatewayAttachmentIds?.length === 0) {
+      entries.TransitGatewayAttachmentIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayAttachmentIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40206,6 +41154,9 @@ const serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40233,6 +41184,9 @@ const serializeAws_ec2DescribeTransitGatewayPolicyTablesRequest = (
       input.TransitGatewayPolicyTableIds,
       context
     );
+    if (input.TransitGatewayPolicyTableIds?.length === 0) {
+      entries.TransitGatewayPolicyTableIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayPolicyTableIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40240,6 +41194,9 @@ const serializeAws_ec2DescribeTransitGatewayPolicyTablesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40267,6 +41224,9 @@ const serializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsRequest = (
       input.TransitGatewayRouteTableAnnouncementIds,
       context
     );
+    if (input.TransitGatewayRouteTableAnnouncementIds?.length === 0) {
+      entries.TransitGatewayRouteTableAnnouncementIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayRouteTableAnnouncementIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40274,6 +41234,9 @@ const serializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40301,6 +41264,9 @@ const serializeAws_ec2DescribeTransitGatewayRouteTablesRequest = (
       input.TransitGatewayRouteTableIds,
       context
     );
+    if (input.TransitGatewayRouteTableIds?.length === 0) {
+      entries.TransitGatewayRouteTableIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayRouteTableIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40308,6 +41274,9 @@ const serializeAws_ec2DescribeTransitGatewayRouteTablesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40332,6 +41301,9 @@ const serializeAws_ec2DescribeTransitGatewaysRequest = (
   const entries: any = {};
   if (input.TransitGatewayIds != null) {
     const memberEntries = serializeAws_ec2TransitGatewayIdStringList(input.TransitGatewayIds, context);
+    if (input.TransitGatewayIds?.length === 0) {
+      entries.TransitGatewayIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40339,6 +41311,9 @@ const serializeAws_ec2DescribeTransitGatewaysRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40366,6 +41341,9 @@ const serializeAws_ec2DescribeTransitGatewayVpcAttachmentsRequest = (
       input.TransitGatewayAttachmentIds,
       context
     );
+    if (input.TransitGatewayAttachmentIds?.length === 0) {
+      entries.TransitGatewayAttachmentIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayAttachmentIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40373,6 +41351,9 @@ const serializeAws_ec2DescribeTransitGatewayVpcAttachmentsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40397,6 +41378,9 @@ const serializeAws_ec2DescribeTrunkInterfaceAssociationsRequest = (
   const entries: any = {};
   if (input.AssociationIds != null) {
     const memberEntries = serializeAws_ec2TrunkInterfaceAssociationIdList(input.AssociationIds, context);
+    if (input.AssociationIds?.length === 0) {
+      entries.AssociationId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AssociationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40407,6 +41391,9 @@ const serializeAws_ec2DescribeTrunkInterfaceAssociationsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40448,6 +41435,9 @@ const serializeAws_ec2DescribeVolumesModificationsRequest = (
   }
   if (input.VolumeIds != null) {
     const memberEntries = serializeAws_ec2VolumeIdStringList(input.VolumeIds, context);
+    if (input.VolumeIds?.length === 0) {
+      entries.VolumeId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VolumeId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40455,6 +41445,9 @@ const serializeAws_ec2DescribeVolumesModificationsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40473,6 +41466,9 @@ const serializeAws_ec2DescribeVolumesRequest = (input: DescribeVolumesRequest, c
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40480,6 +41476,9 @@ const serializeAws_ec2DescribeVolumesRequest = (input: DescribeVolumesRequest, c
   }
   if (input.VolumeIds != null) {
     const memberEntries = serializeAws_ec2VolumeIdStringList(input.VolumeIds, context);
+    if (input.VolumeIds?.length === 0) {
+      entries.VolumeId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VolumeId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40504,6 +41503,9 @@ const serializeAws_ec2DescribeVolumeStatusRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40517,6 +41519,9 @@ const serializeAws_ec2DescribeVolumeStatusRequest = (
   }
   if (input.VolumeIds != null) {
     const memberEntries = serializeAws_ec2VolumeIdStringList(input.VolumeIds, context);
+    if (input.VolumeIds?.length === 0) {
+      entries.VolumeId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VolumeId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40558,6 +41563,9 @@ const serializeAws_ec2DescribeVpcClassicLinkDnsSupportRequest = (
   }
   if (input.VpcIds != null) {
     const memberEntries = serializeAws_ec2VpcClassicLinkIdList(input.VpcIds, context);
+    if (input.VpcIds?.length === 0) {
+      entries.VpcIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40573,6 +41581,9 @@ const serializeAws_ec2DescribeVpcClassicLinkRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40583,6 +41594,9 @@ const serializeAws_ec2DescribeVpcClassicLinkRequest = (
   }
   if (input.VpcIds != null) {
     const memberEntries = serializeAws_ec2VpcClassicLinkIdList(input.VpcIds, context);
+    if (input.VpcIds?.length === 0) {
+      entries.VpcId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40604,6 +41618,9 @@ const serializeAws_ec2DescribeVpcEndpointConnectionNotificationsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40628,6 +41645,9 @@ const serializeAws_ec2DescribeVpcEndpointConnectionsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40652,6 +41672,9 @@ const serializeAws_ec2DescribeVpcEndpointServiceConfigurationsRequest = (
   }
   if (input.ServiceIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointServiceIdList(input.ServiceIds, context);
+    if (input.ServiceIds?.length === 0) {
+      entries.ServiceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40659,6 +41682,9 @@ const serializeAws_ec2DescribeVpcEndpointServiceConfigurationsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40686,6 +41712,9 @@ const serializeAws_ec2DescribeVpcEndpointServicePermissionsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40710,6 +41739,9 @@ const serializeAws_ec2DescribeVpcEndpointServicesRequest = (
   }
   if (input.ServiceNames != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.ServiceNames, context);
+    if (input.ServiceNames?.length === 0) {
+      entries.ServiceName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40717,6 +41749,9 @@ const serializeAws_ec2DescribeVpcEndpointServicesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40741,6 +41776,9 @@ const serializeAws_ec2DescribeVpcEndpointsRequest = (
   }
   if (input.VpcEndpointIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointIdList(input.VpcEndpointIds, context);
+    if (input.VpcEndpointIds?.length === 0) {
+      entries.VpcEndpointId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcEndpointId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40748,6 +41786,9 @@ const serializeAws_ec2DescribeVpcEndpointsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40769,6 +41810,9 @@ const serializeAws_ec2DescribeVpcPeeringConnectionsRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40779,6 +41823,9 @@ const serializeAws_ec2DescribeVpcPeeringConnectionsRequest = (
   }
   if (input.VpcPeeringConnectionIds != null) {
     const memberEntries = serializeAws_ec2VpcPeeringConnectionIdList(input.VpcPeeringConnectionIds, context);
+    if (input.VpcPeeringConnectionIds?.length === 0) {
+      entries.VpcPeeringConnectionId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcPeeringConnectionId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40797,6 +41844,9 @@ const serializeAws_ec2DescribeVpcsRequest = (input: DescribeVpcsRequest, context
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40804,6 +41854,9 @@ const serializeAws_ec2DescribeVpcsRequest = (input: DescribeVpcsRequest, context
   }
   if (input.VpcIds != null) {
     const memberEntries = serializeAws_ec2VpcIdStringList(input.VpcIds, context);
+    if (input.VpcIds?.length === 0) {
+      entries.VpcId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40828,6 +41881,9 @@ const serializeAws_ec2DescribeVpnConnectionsRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40835,6 +41891,9 @@ const serializeAws_ec2DescribeVpnConnectionsRequest = (
   }
   if (input.VpnConnectionIds != null) {
     const memberEntries = serializeAws_ec2VpnConnectionIdStringList(input.VpnConnectionIds, context);
+    if (input.VpnConnectionIds?.length === 0) {
+      entries.VpnConnectionId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpnConnectionId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40853,6 +41912,9 @@ const serializeAws_ec2DescribeVpnGatewaysRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40860,6 +41922,9 @@ const serializeAws_ec2DescribeVpnGatewaysRequest = (
   }
   if (input.VpnGatewayIds != null) {
     const memberEntries = serializeAws_ec2VpnGatewayIdStringList(input.VpnGatewayIds, context);
+    if (input.VpnGatewayIds?.length === 0) {
+      entries.VpnGatewayId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpnGatewayId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -41040,6 +42105,9 @@ const serializeAws_ec2DisableFastSnapshotRestoresRequest = (
   const entries: any = {};
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_ec2AvailabilityZoneStringList(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZone = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZone.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -41047,6 +42115,9 @@ const serializeAws_ec2DisableFastSnapshotRestoresRequest = (
   }
   if (input.SourceSnapshotIds != null) {
     const memberEntries = serializeAws_ec2SnapshotIdStringList(input.SourceSnapshotIds, context);
+    if (input.SourceSnapshotIds?.length === 0) {
+      entries.SourceSnapshotId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceSnapshotId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -41280,6 +42351,9 @@ const serializeAws_ec2DisassociateTransitGatewayMulticastDomainRequest = (
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_ec2TransitGatewaySubnetIdList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -41423,6 +42497,9 @@ const serializeAws_ec2DnsServersOptionsModifyStructure = (
   const entries: any = {};
   if (input.CustomDnsServers != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.CustomDnsServers, context);
+    if (input.CustomDnsServers?.length === 0) {
+      entries.CustomDnsServers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CustomDnsServers.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -41648,6 +42725,9 @@ const serializeAws_ec2EnableFastSnapshotRestoresRequest = (
   const entries: any = {};
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_ec2AvailabilityZoneStringList(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZone = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZone.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -41655,6 +42735,9 @@ const serializeAws_ec2EnableFastSnapshotRestoresRequest = (
   }
   if (input.SourceSnapshotIds != null) {
     const memberEntries = serializeAws_ec2SnapshotIdStringList(input.SourceSnapshotIds, context);
+    if (input.SourceSnapshotIds?.length === 0) {
+      entries.SourceSnapshotId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceSnapshotId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -41875,6 +42958,9 @@ const serializeAws_ec2ExportImageRequest = (input: ExportImageRequest, context: 
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -41953,6 +43039,9 @@ const serializeAws_ec2ExportTransitGatewayRoutesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42029,6 +43118,9 @@ const serializeAws_ec2Filter = (input: Filter, context: __SerdeContext): any => 
   }
   if (input.Values != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Value = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Value.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42102,6 +43194,9 @@ const serializeAws_ec2FleetLaunchTemplateConfigRequest = (
   }
   if (input.Overrides != null) {
     const memberEntries = serializeAws_ec2FleetLaunchTemplateOverridesListRequest(input.Overrides, context);
+    if (input.Overrides?.length === 0) {
+      entries.Overrides = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Overrides.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42335,6 +43430,9 @@ const serializeAws_ec2GetCoipPoolUsageRequest = (input: GetCoipPoolUsageRequest,
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42470,6 +43568,9 @@ const serializeAws_ec2GetHostReservationPurchasePreviewRequest = (
   const entries: any = {};
   if (input.HostIdSet != null) {
     const memberEntries = serializeAws_ec2RequestHostIdSet(input.HostIdSet, context);
+    if (input.HostIdSet?.length === 0) {
+      entries.HostIdSet = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostIdSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42491,6 +43592,9 @@ const serializeAws_ec2GetInstanceTypesFromInstanceRequirementsRequest = (
   }
   if (input.ArchitectureTypes != null) {
     const memberEntries = serializeAws_ec2ArchitectureTypeSet(input.ArchitectureTypes, context);
+    if (input.ArchitectureTypes?.length === 0) {
+      entries.ArchitectureType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ArchitectureType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42498,6 +43602,9 @@ const serializeAws_ec2GetInstanceTypesFromInstanceRequirementsRequest = (
   }
   if (input.VirtualizationTypes != null) {
     const memberEntries = serializeAws_ec2VirtualizationTypeSet(input.VirtualizationTypes, context);
+    if (input.VirtualizationTypes?.length === 0) {
+      entries.VirtualizationType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VirtualizationType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42581,6 +43688,9 @@ const serializeAws_ec2GetIpamPoolAllocationsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42605,6 +43715,9 @@ const serializeAws_ec2GetIpamPoolCidrsRequest = (input: GetIpamPoolCidrsRequest,
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42629,6 +43742,9 @@ const serializeAws_ec2GetIpamResourceCidrsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42777,6 +43893,9 @@ const serializeAws_ec2GetReservedInstancesExchangeQuoteRequest = (
   }
   if (input.ReservedInstanceIds != null) {
     const memberEntries = serializeAws_ec2ReservedInstanceIdSet(input.ReservedInstanceIds, context);
+    if (input.ReservedInstanceIds?.length === 0) {
+      entries.ReservedInstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42784,6 +43903,9 @@ const serializeAws_ec2GetReservedInstancesExchangeQuoteRequest = (
   }
   if (input.TargetConfigurations != null) {
     const memberEntries = serializeAws_ec2TargetConfigurationRequestSet(input.TargetConfigurations, context);
+    if (input.TargetConfigurations?.length === 0) {
+      entries.TargetConfiguration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetConfiguration.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42810,6 +43932,9 @@ const serializeAws_ec2GetSpotPlacementScoresRequest = (
   const entries: any = {};
   if (input.InstanceTypes != null) {
     const memberEntries = serializeAws_ec2InstanceTypes(input.InstanceTypes, context);
+    if (input.InstanceTypes?.length === 0) {
+      entries.InstanceType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42826,6 +43951,9 @@ const serializeAws_ec2GetSpotPlacementScoresRequest = (
   }
   if (input.RegionNames != null) {
     const memberEntries = serializeAws_ec2RegionNames(input.RegionNames, context);
+    if (input.RegionNames?.length === 0) {
+      entries.RegionName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RegionName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42860,6 +43988,9 @@ const serializeAws_ec2GetSubnetCidrReservationsRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42890,6 +44021,9 @@ const serializeAws_ec2GetTransitGatewayAttachmentPropagationsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42917,6 +44051,9 @@ const serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42944,6 +44081,9 @@ const serializeAws_ec2GetTransitGatewayPolicyTableAssociationsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42971,6 +44111,9 @@ const serializeAws_ec2GetTransitGatewayPolicyTableEntriesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42998,6 +44141,9 @@ const serializeAws_ec2GetTransitGatewayPrefixListReferencesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43025,6 +44171,9 @@ const serializeAws_ec2GetTransitGatewayRouteTableAssociationsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43052,6 +44201,9 @@ const serializeAws_ec2GetTransitGatewayRouteTablePropagationsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43381,6 +44533,9 @@ const serializeAws_ec2ImportImageRequest = (input: ImportImageRequest, context: 
   }
   if (input.DiskContainers != null) {
     const memberEntries = serializeAws_ec2ImageDiskContainerList(input.DiskContainers, context);
+    if (input.DiskContainers?.length === 0) {
+      entries.DiskContainer = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DiskContainer.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43412,6 +44567,9 @@ const serializeAws_ec2ImportImageRequest = (input: ImportImageRequest, context: 
       input.LicenseSpecifications,
       context
     );
+    if (input.LicenseSpecifications?.length === 0) {
+      entries.LicenseSpecifications = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LicenseSpecifications.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43419,6 +44577,9 @@ const serializeAws_ec2ImportImageRequest = (input: ImportImageRequest, context: 
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43446,6 +44607,9 @@ const serializeAws_ec2ImportInstanceLaunchSpecification = (
   }
   if (input.GroupIds != null) {
     const memberEntries = serializeAws_ec2SecurityGroupIdStringList(input.GroupIds, context);
+    if (input.GroupIds?.length === 0) {
+      entries.GroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43453,6 +44617,9 @@ const serializeAws_ec2ImportInstanceLaunchSpecification = (
   }
   if (input.GroupNames != null) {
     const memberEntries = serializeAws_ec2SecurityGroupStringList(input.GroupNames, context);
+    if (input.GroupNames?.length === 0) {
+      entries.GroupName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43497,6 +44664,9 @@ const serializeAws_ec2ImportInstanceRequest = (input: ImportInstanceRequest, con
   }
   if (input.DiskImages != null) {
     const memberEntries = serializeAws_ec2DiskImageList(input.DiskImages, context);
+    if (input.DiskImages?.length === 0) {
+      entries.DiskImage = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DiskImage.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43531,6 +44701,9 @@ const serializeAws_ec2ImportKeyPairRequest = (input: ImportKeyPairRequest, conte
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43575,6 +44748,9 @@ const serializeAws_ec2ImportSnapshotRequest = (input: ImportSnapshotRequest, con
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43733,6 +44909,9 @@ const serializeAws_ec2InstanceEventWindowAssociationRequest = (
   const entries: any = {};
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_ec2InstanceIdList(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43740,6 +44919,9 @@ const serializeAws_ec2InstanceEventWindowAssociationRequest = (
   }
   if (input.InstanceTags != null) {
     const memberEntries = serializeAws_ec2TagList(input.InstanceTags, context);
+    if (input.InstanceTags?.length === 0) {
+      entries.InstanceTag = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceTag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43747,6 +44929,9 @@ const serializeAws_ec2InstanceEventWindowAssociationRequest = (
   }
   if (input.DedicatedHostIds != null) {
     const memberEntries = serializeAws_ec2DedicatedHostIdList(input.DedicatedHostIds, context);
+    if (input.DedicatedHostIds?.length === 0) {
+      entries.DedicatedHostId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DedicatedHostId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43762,6 +44947,9 @@ const serializeAws_ec2InstanceEventWindowDisassociationRequest = (
   const entries: any = {};
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_ec2InstanceIdList(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43769,6 +44957,9 @@ const serializeAws_ec2InstanceEventWindowDisassociationRequest = (
   }
   if (input.InstanceTags != null) {
     const memberEntries = serializeAws_ec2TagList(input.InstanceTags, context);
+    if (input.InstanceTags?.length === 0) {
+      entries.InstanceTag = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceTag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43776,6 +44967,9 @@ const serializeAws_ec2InstanceEventWindowDisassociationRequest = (
   }
   if (input.DedicatedHostIds != null) {
     const memberEntries = serializeAws_ec2DedicatedHostIdList(input.DedicatedHostIds, context);
+    if (input.DedicatedHostIds?.length === 0) {
+      entries.DedicatedHostId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DedicatedHostId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44003,6 +45197,9 @@ const serializeAws_ec2InstanceNetworkInterfaceSpecification = (
   }
   if (input.Groups != null) {
     const memberEntries = serializeAws_ec2SecurityGroupIdStringList(input.Groups, context);
+    if (input.Groups?.length === 0) {
+      entries.SecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44013,6 +45210,9 @@ const serializeAws_ec2InstanceNetworkInterfaceSpecification = (
   }
   if (input.Ipv6Addresses != null) {
     const memberEntries = serializeAws_ec2InstanceIpv6AddressList(input.Ipv6Addresses, context);
+    if (input.Ipv6Addresses?.length === 0) {
+      entries.Ipv6Addresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Addresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44026,6 +45226,9 @@ const serializeAws_ec2InstanceNetworkInterfaceSpecification = (
   }
   if (input.PrivateIpAddresses != null) {
     const memberEntries = serializeAws_ec2PrivateIpAddressSpecificationList(input.PrivateIpAddresses, context);
+    if (input.PrivateIpAddresses?.length === 0) {
+      entries.PrivateIpAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44048,6 +45251,9 @@ const serializeAws_ec2InstanceNetworkInterfaceSpecification = (
   }
   if (input.Ipv4Prefixes != null) {
     const memberEntries = serializeAws_ec2Ipv4PrefixList(input.Ipv4Prefixes, context);
+    if (input.Ipv4Prefixes?.length === 0) {
+      entries.Ipv4Prefix = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44058,6 +45264,9 @@ const serializeAws_ec2InstanceNetworkInterfaceSpecification = (
   }
   if (input.Ipv6Prefixes != null) {
     const memberEntries = serializeAws_ec2Ipv6PrefixList(input.Ipv6Prefixes, context);
+    if (input.Ipv6Prefixes?.length === 0) {
+      entries.Ipv6Prefix = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44106,6 +45315,9 @@ const serializeAws_ec2InstanceRequirements = (input: InstanceRequirements, conte
   }
   if (input.CpuManufacturers != null) {
     const memberEntries = serializeAws_ec2CpuManufacturerSet(input.CpuManufacturers, context);
+    if (input.CpuManufacturers?.length === 0) {
+      entries.CpuManufacturerSet = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CpuManufacturerSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44120,6 +45332,9 @@ const serializeAws_ec2InstanceRequirements = (input: InstanceRequirements, conte
   }
   if (input.ExcludedInstanceTypes != null) {
     const memberEntries = serializeAws_ec2ExcludedInstanceTypeSet(input.ExcludedInstanceTypes, context);
+    if (input.ExcludedInstanceTypes?.length === 0) {
+      entries.ExcludedInstanceTypeSet = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludedInstanceTypeSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44127,6 +45342,9 @@ const serializeAws_ec2InstanceRequirements = (input: InstanceRequirements, conte
   }
   if (input.InstanceGenerations != null) {
     const memberEntries = serializeAws_ec2InstanceGenerationSet(input.InstanceGenerations, context);
+    if (input.InstanceGenerations?.length === 0) {
+      entries.InstanceGenerationSet = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceGenerationSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44159,6 +45377,9 @@ const serializeAws_ec2InstanceRequirements = (input: InstanceRequirements, conte
   }
   if (input.LocalStorageTypes != null) {
     const memberEntries = serializeAws_ec2LocalStorageTypeSet(input.LocalStorageTypes, context);
+    if (input.LocalStorageTypes?.length === 0) {
+      entries.LocalStorageTypeSet = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalStorageTypeSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44180,6 +45401,9 @@ const serializeAws_ec2InstanceRequirements = (input: InstanceRequirements, conte
   }
   if (input.AcceleratorTypes != null) {
     const memberEntries = serializeAws_ec2AcceleratorTypeSet(input.AcceleratorTypes, context);
+    if (input.AcceleratorTypes?.length === 0) {
+      entries.AcceleratorTypeSet = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorTypeSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44194,6 +45418,9 @@ const serializeAws_ec2InstanceRequirements = (input: InstanceRequirements, conte
   }
   if (input.AcceleratorManufacturers != null) {
     const memberEntries = serializeAws_ec2AcceleratorManufacturerSet(input.AcceleratorManufacturers, context);
+    if (input.AcceleratorManufacturers?.length === 0) {
+      entries.AcceleratorManufacturerSet = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorManufacturerSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44201,6 +45428,9 @@ const serializeAws_ec2InstanceRequirements = (input: InstanceRequirements, conte
   }
   if (input.AcceleratorNames != null) {
     const memberEntries = serializeAws_ec2AcceleratorNameSet(input.AcceleratorNames, context);
+    if (input.AcceleratorNames?.length === 0) {
+      entries.AcceleratorNameSet = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorNameSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44237,6 +45467,9 @@ const serializeAws_ec2InstanceRequirementsRequest = (
   }
   if (input.CpuManufacturers != null) {
     const memberEntries = serializeAws_ec2CpuManufacturerSet(input.CpuManufacturers, context);
+    if (input.CpuManufacturers?.length === 0) {
+      entries.CpuManufacturer = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CpuManufacturer.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44251,6 +45484,9 @@ const serializeAws_ec2InstanceRequirementsRequest = (
   }
   if (input.ExcludedInstanceTypes != null) {
     const memberEntries = serializeAws_ec2ExcludedInstanceTypeSet(input.ExcludedInstanceTypes, context);
+    if (input.ExcludedInstanceTypes?.length === 0) {
+      entries.ExcludedInstanceType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludedInstanceType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44258,6 +45494,9 @@ const serializeAws_ec2InstanceRequirementsRequest = (
   }
   if (input.InstanceGenerations != null) {
     const memberEntries = serializeAws_ec2InstanceGenerationSet(input.InstanceGenerations, context);
+    if (input.InstanceGenerations?.length === 0) {
+      entries.InstanceGeneration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceGeneration.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44290,6 +45529,9 @@ const serializeAws_ec2InstanceRequirementsRequest = (
   }
   if (input.LocalStorageTypes != null) {
     const memberEntries = serializeAws_ec2LocalStorageTypeSet(input.LocalStorageTypes, context);
+    if (input.LocalStorageTypes?.length === 0) {
+      entries.LocalStorageType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalStorageType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44311,6 +45553,9 @@ const serializeAws_ec2InstanceRequirementsRequest = (
   }
   if (input.AcceleratorTypes != null) {
     const memberEntries = serializeAws_ec2AcceleratorTypeSet(input.AcceleratorTypes, context);
+    if (input.AcceleratorTypes?.length === 0) {
+      entries.AcceleratorType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44325,6 +45570,9 @@ const serializeAws_ec2InstanceRequirementsRequest = (
   }
   if (input.AcceleratorManufacturers != null) {
     const memberEntries = serializeAws_ec2AcceleratorManufacturerSet(input.AcceleratorManufacturers, context);
+    if (input.AcceleratorManufacturers?.length === 0) {
+      entries.AcceleratorManufacturer = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorManufacturer.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44332,6 +45580,9 @@ const serializeAws_ec2InstanceRequirementsRequest = (
   }
   if (input.AcceleratorNames != null) {
     const memberEntries = serializeAws_ec2AcceleratorNameSet(input.AcceleratorNames, context);
+    if (input.AcceleratorNames?.length === 0) {
+      entries.AcceleratorName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44354,6 +45605,9 @@ const serializeAws_ec2InstanceRequirementsWithMetadataRequest = (
   const entries: any = {};
   if (input.ArchitectureTypes != null) {
     const memberEntries = serializeAws_ec2ArchitectureTypeSet(input.ArchitectureTypes, context);
+    if (input.ArchitectureTypes?.length === 0) {
+      entries.ArchitectureType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ArchitectureType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44361,6 +45615,9 @@ const serializeAws_ec2InstanceRequirementsWithMetadataRequest = (
   }
   if (input.VirtualizationTypes != null) {
     const memberEntries = serializeAws_ec2VirtualizationTypeSet(input.VirtualizationTypes, context);
+    if (input.VirtualizationTypes?.length === 0) {
+      entries.VirtualizationType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VirtualizationType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44386,6 +45643,9 @@ const serializeAws_ec2InstanceSpecification = (input: InstanceSpecification, con
   }
   if (input.ExcludeDataVolumeIds != null) {
     const memberEntries = serializeAws_ec2VolumeIdStringList(input.ExcludeDataVolumeIds, context);
+    if (input.ExcludeDataVolumeIds?.length === 0) {
+      entries.ExcludeDataVolumeId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludeDataVolumeId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44437,6 +45697,9 @@ const serializeAws_ec2IntegrateServices = (input: IntegrateServices, context: __
   const entries: any = {};
   if (input.AthenaIntegrations != null) {
     const memberEntries = serializeAws_ec2AthenaIntegrationsSet(input.AthenaIntegrations, context);
+    if (input.AthenaIntegrations?.length === 0) {
+      entries.AthenaIntegration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AthenaIntegration.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44495,6 +45758,9 @@ const serializeAws_ec2IpPermission = (input: IpPermission, context: __SerdeConte
   }
   if (input.IpRanges != null) {
     const memberEntries = serializeAws_ec2IpRangeList(input.IpRanges, context);
+    if (input.IpRanges?.length === 0) {
+      entries.IpRanges = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpRanges.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44502,6 +45768,9 @@ const serializeAws_ec2IpPermission = (input: IpPermission, context: __SerdeConte
   }
   if (input.Ipv6Ranges != null) {
     const memberEntries = serializeAws_ec2Ipv6RangeList(input.Ipv6Ranges, context);
+    if (input.Ipv6Ranges?.length === 0) {
+      entries.Ipv6Ranges = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Ranges.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44509,6 +45778,9 @@ const serializeAws_ec2IpPermission = (input: IpPermission, context: __SerdeConte
   }
   if (input.PrefixListIds != null) {
     const memberEntries = serializeAws_ec2PrefixListIdList(input.PrefixListIds, context);
+    if (input.PrefixListIds?.length === 0) {
+      entries.PrefixListIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrefixListIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44519,6 +45791,9 @@ const serializeAws_ec2IpPermission = (input: IpPermission, context: __SerdeConte
   }
   if (input.UserIdGroupPairs != null) {
     const memberEntries = serializeAws_ec2UserIdGroupPairList(input.UserIdGroupPairs, context);
+    if (input.UserIdGroupPairs?.length === 0) {
+      entries.Groups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Groups.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44756,6 +46031,9 @@ const serializeAws_ec2LaunchPermissionModifications = (
   const entries: any = {};
   if (input.Add != null) {
     const memberEntries = serializeAws_ec2LaunchPermissionList(input.Add, context);
+    if (input.Add?.length === 0) {
+      entries.Add = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Add.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44763,6 +46041,9 @@ const serializeAws_ec2LaunchPermissionModifications = (
   }
   if (input.Remove != null) {
     const memberEntries = serializeAws_ec2LaunchPermissionList(input.Remove, context);
+    if (input.Remove?.length === 0) {
+      entries.Remove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Remove.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44859,6 +46140,9 @@ const serializeAws_ec2LaunchTemplateConfig = (input: LaunchTemplateConfig, conte
   }
   if (input.Overrides != null) {
     const memberEntries = serializeAws_ec2LaunchTemplateOverridesList(input.Overrides, context);
+    if (input.Overrides?.length === 0) {
+      entries.Overrides = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Overrides.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45085,6 +46369,9 @@ const serializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
   }
   if (input.Groups != null) {
     const memberEntries = serializeAws_ec2SecurityGroupIdStringList(input.Groups, context);
+    if (input.Groups?.length === 0) {
+      entries.SecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45098,6 +46385,9 @@ const serializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
   }
   if (input.Ipv6Addresses != null) {
     const memberEntries = serializeAws_ec2InstanceIpv6AddressListRequest(input.Ipv6Addresses, context);
+    if (input.Ipv6Addresses?.length === 0) {
+      entries.Ipv6Addresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Addresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45111,6 +46401,9 @@ const serializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
   }
   if (input.PrivateIpAddresses != null) {
     const memberEntries = serializeAws_ec2PrivateIpAddressSpecificationList(input.PrivateIpAddresses, context);
+    if (input.PrivateIpAddresses?.length === 0) {
+      entries.PrivateIpAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45127,6 +46420,9 @@ const serializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
   }
   if (input.Ipv4Prefixes != null) {
     const memberEntries = serializeAws_ec2Ipv4PrefixList(input.Ipv4Prefixes, context);
+    if (input.Ipv4Prefixes?.length === 0) {
+      entries.Ipv4Prefix = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45137,6 +46433,9 @@ const serializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
   }
   if (input.Ipv6Prefixes != null) {
     const memberEntries = serializeAws_ec2Ipv6PrefixList(input.Ipv6Prefixes, context);
+    if (input.Ipv6Prefixes?.length === 0) {
+      entries.Ipv6Prefix = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45369,6 +46668,9 @@ const serializeAws_ec2LaunchTemplateTagSpecificationRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_ec2TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tag = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45433,6 +46735,9 @@ const serializeAws_ec2ListImagesInRecycleBinRequest = (
   const entries: any = {};
   if (input.ImageIds != null) {
     const memberEntries = serializeAws_ec2ImageIdStringList(input.ImageIds, context);
+    if (input.ImageIds?.length === 0) {
+      entries.ImageId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ImageId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45463,6 +46768,9 @@ const serializeAws_ec2ListSnapshotsInRecycleBinRequest = (
   }
   if (input.SnapshotIds != null) {
     const memberEntries = serializeAws_ec2SnapshotIdStringList(input.SnapshotIds, context);
+    if (input.SnapshotIds?.length === 0) {
+      entries.SnapshotId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SnapshotId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45516,6 +46824,9 @@ const serializeAws_ec2LoadPermissionModifications = (
   const entries: any = {};
   if (input.Add != null) {
     const memberEntries = serializeAws_ec2LoadPermissionListRequest(input.Add, context);
+    if (input.Add?.length === 0) {
+      entries.Add = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Add.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45523,6 +46834,9 @@ const serializeAws_ec2LoadPermissionModifications = (
   }
   if (input.Remove != null) {
     const memberEntries = serializeAws_ec2LoadPermissionListRequest(input.Remove, context);
+    if (input.Remove?.length === 0) {
+      entries.Remove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Remove.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45805,6 +47119,9 @@ const serializeAws_ec2ModifyClientVpnEndpointRequest = (
   }
   if (input.SecurityGroupIds != null) {
     const memberEntries = serializeAws_ec2ClientVpnSecurityGroupIdSet(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45877,6 +47194,9 @@ const serializeAws_ec2ModifyFleetRequest = (input: ModifyFleetRequest, context: 
   }
   if (input.LaunchTemplateConfigs != null) {
     const memberEntries = serializeAws_ec2FleetLaunchTemplateConfigListRequest(input.LaunchTemplateConfigs, context);
+    if (input.LaunchTemplateConfigs?.length === 0) {
+      entries.LaunchTemplateConfig = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateConfig.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45920,6 +47240,9 @@ const serializeAws_ec2ModifyFpgaImageAttributeRequest = (
   }
   if (input.UserIds != null) {
     const memberEntries = serializeAws_ec2UserIdStringList(input.UserIds, context);
+    if (input.UserIds?.length === 0) {
+      entries.UserId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45927,6 +47250,9 @@ const serializeAws_ec2ModifyFpgaImageAttributeRequest = (
   }
   if (input.UserGroups != null) {
     const memberEntries = serializeAws_ec2UserGroupStringList(input.UserGroups, context);
+    if (input.UserGroups?.length === 0) {
+      entries.UserGroup = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserGroup.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45934,6 +47260,9 @@ const serializeAws_ec2ModifyFpgaImageAttributeRequest = (
   }
   if (input.ProductCodes != null) {
     const memberEntries = serializeAws_ec2ProductCodeStringList(input.ProductCodes, context);
+    if (input.ProductCodes?.length === 0) {
+      entries.ProductCode = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProductCode.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45962,6 +47291,9 @@ const serializeAws_ec2ModifyHostsRequest = (input: ModifyHostsRequest, context: 
   }
   if (input.HostIds != null) {
     const memberEntries = serializeAws_ec2RequestHostIdList(input.HostIds, context);
+    if (input.HostIds?.length === 0) {
+      entries.HostId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46037,6 +47369,9 @@ const serializeAws_ec2ModifyImageAttributeRequest = (
   }
   if (input.ProductCodes != null) {
     const memberEntries = serializeAws_ec2ProductCodeStringList(input.ProductCodes, context);
+    if (input.ProductCodes?.length === 0) {
+      entries.ProductCode = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProductCode.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46044,6 +47379,9 @@ const serializeAws_ec2ModifyImageAttributeRequest = (
   }
   if (input.UserGroups != null) {
     const memberEntries = serializeAws_ec2UserGroupStringList(input.UserGroups, context);
+    if (input.UserGroups?.length === 0) {
+      entries.UserGroup = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserGroup.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46051,6 +47389,9 @@ const serializeAws_ec2ModifyImageAttributeRequest = (
   }
   if (input.UserIds != null) {
     const memberEntries = serializeAws_ec2UserIdStringList(input.UserIds, context);
+    if (input.UserIds?.length === 0) {
+      entries.UserId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46064,6 +47405,9 @@ const serializeAws_ec2ModifyImageAttributeRequest = (
   }
   if (input.OrganizationArns != null) {
     const memberEntries = serializeAws_ec2OrganizationArnStringList(input.OrganizationArns, context);
+    if (input.OrganizationArns?.length === 0) {
+      entries.OrganizationArn = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OrganizationArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46071,6 +47415,9 @@ const serializeAws_ec2ModifyImageAttributeRequest = (
   }
   if (input.OrganizationalUnitArns != null) {
     const memberEntries = serializeAws_ec2OrganizationalUnitArnStringList(input.OrganizationalUnitArns, context);
+    if (input.OrganizationalUnitArns?.length === 0) {
+      entries.OrganizationalUnitArn = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OrganizationalUnitArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46099,6 +47446,9 @@ const serializeAws_ec2ModifyInstanceAttributeRequest = (
       input.BlockDeviceMappings,
       context
     );
+    if (input.BlockDeviceMappings?.length === 0) {
+      entries.BlockDeviceMapping = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46130,6 +47480,9 @@ const serializeAws_ec2ModifyInstanceAttributeRequest = (
   }
   if (input.Groups != null) {
     const memberEntries = serializeAws_ec2GroupIdStringList(input.Groups, context);
+    if (input.Groups?.length === 0) {
+      entries.GroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46233,6 +47586,9 @@ const serializeAws_ec2ModifyInstanceCreditSpecificationRequest = (
       input.InstanceCreditSpecifications,
       context
     );
+    if (input.InstanceCreditSpecifications?.length === 0) {
+      entries.InstanceCreditSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceCreditSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46277,6 +47633,9 @@ const serializeAws_ec2ModifyInstanceEventWindowRequest = (
   }
   if (input.TimeRanges != null) {
     const memberEntries = serializeAws_ec2InstanceEventWindowTimeRangeRequestSet(input.TimeRanges, context);
+    if (input.TimeRanges?.length === 0) {
+      entries.TimeRange = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TimeRange.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46391,6 +47750,9 @@ const serializeAws_ec2ModifyIpamPoolRequest = (input: ModifyIpamPoolRequest, con
   }
   if (input.AddAllocationResourceTags != null) {
     const memberEntries = serializeAws_ec2RequestIpamResourceTagList(input.AddAllocationResourceTags, context);
+    if (input.AddAllocationResourceTags?.length === 0) {
+      entries.AddAllocationResourceTag = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddAllocationResourceTag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46398,6 +47760,9 @@ const serializeAws_ec2ModifyIpamPoolRequest = (input: ModifyIpamPoolRequest, con
   }
   if (input.RemoveAllocationResourceTags != null) {
     const memberEntries = serializeAws_ec2RequestIpamResourceTagList(input.RemoveAllocationResourceTags, context);
+    if (input.RemoveAllocationResourceTags?.length === 0) {
+      entries.RemoveAllocationResourceTag = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveAllocationResourceTag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46419,6 +47784,9 @@ const serializeAws_ec2ModifyIpamRequest = (input: ModifyIpamRequest, context: __
   }
   if (input.AddOperatingRegions != null) {
     const memberEntries = serializeAws_ec2AddIpamOperatingRegionSet(input.AddOperatingRegions, context);
+    if (input.AddOperatingRegions?.length === 0) {
+      entries.AddOperatingRegion = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddOperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46426,6 +47794,9 @@ const serializeAws_ec2ModifyIpamRequest = (input: ModifyIpamRequest, context: __
   }
   if (input.RemoveOperatingRegions != null) {
     const memberEntries = serializeAws_ec2RemoveIpamOperatingRegionSet(input.RemoveOperatingRegions, context);
+    if (input.RemoveOperatingRegions?.length === 0) {
+      entries.RemoveOperatingRegion = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveOperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46542,6 +47913,9 @@ const serializeAws_ec2ModifyManagedPrefixListRequest = (
   }
   if (input.AddEntries != null) {
     const memberEntries = serializeAws_ec2AddPrefixListEntries(input.AddEntries, context);
+    if (input.AddEntries?.length === 0) {
+      entries.AddEntry = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddEntry.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46549,6 +47923,9 @@ const serializeAws_ec2ModifyManagedPrefixListRequest = (
   }
   if (input.RemoveEntries != null) {
     const memberEntries = serializeAws_ec2RemovePrefixListEntries(input.RemoveEntries, context);
+    if (input.RemoveEntries?.length === 0) {
+      entries.RemoveEntry = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveEntry.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46584,6 +47961,9 @@ const serializeAws_ec2ModifyNetworkInterfaceAttributeRequest = (
   }
   if (input.Groups != null) {
     const memberEntries = serializeAws_ec2SecurityGroupIdStringList(input.Groups, context);
+    if (input.Groups?.length === 0) {
+      entries.SecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46632,6 +48012,9 @@ const serializeAws_ec2ModifyReservedInstancesRequest = (
   const entries: any = {};
   if (input.ReservedInstancesIds != null) {
     const memberEntries = serializeAws_ec2ReservedInstancesIdStringList(input.ReservedInstancesIds, context);
+    if (input.ReservedInstancesIds?.length === 0) {
+      entries.ReservedInstancesId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstancesId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46642,6 +48025,9 @@ const serializeAws_ec2ModifyReservedInstancesRequest = (
   }
   if (input.TargetConfigurations != null) {
     const memberEntries = serializeAws_ec2ReservedInstancesConfigurationList(input.TargetConfigurations, context);
+    if (input.TargetConfigurations?.length === 0) {
+      entries.ReservedInstancesConfigurationSetItemType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstancesConfigurationSetItemType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46660,6 +48046,9 @@ const serializeAws_ec2ModifySecurityGroupRulesRequest = (
   }
   if (input.SecurityGroupRules != null) {
     const memberEntries = serializeAws_ec2SecurityGroupRuleUpdateList(input.SecurityGroupRules, context);
+    if (input.SecurityGroupRules?.length === 0) {
+      entries.SecurityGroupRule = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupRule.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46688,6 +48077,9 @@ const serializeAws_ec2ModifySnapshotAttributeRequest = (
   }
   if (input.GroupNames != null) {
     const memberEntries = serializeAws_ec2GroupNameStringList(input.GroupNames, context);
+    if (input.GroupNames?.length === 0) {
+      entries.UserGroup = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserGroup.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46701,6 +48093,9 @@ const serializeAws_ec2ModifySnapshotAttributeRequest = (
   }
   if (input.UserIds != null) {
     const memberEntries = serializeAws_ec2UserIdStringList(input.UserIds, context);
+    if (input.UserIds?.length === 0) {
+      entries.UserId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46736,6 +48131,9 @@ const serializeAws_ec2ModifySpotFleetRequestRequest = (
   }
   if (input.LaunchTemplateConfigs != null) {
     const memberEntries = serializeAws_ec2LaunchTemplateConfigList(input.LaunchTemplateConfigs, context);
+    if (input.LaunchTemplateConfigs?.length === 0) {
+      entries.LaunchTemplateConfig = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateConfig.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46835,6 +48233,9 @@ const serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesRequest = (
   }
   if (input.AddNetworkServices != null) {
     const memberEntries = serializeAws_ec2TrafficMirrorNetworkServiceList(input.AddNetworkServices, context);
+    if (input.AddNetworkServices?.length === 0) {
+      entries.AddNetworkService = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddNetworkService.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46842,6 +48243,9 @@ const serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesRequest = (
   }
   if (input.RemoveNetworkServices != null) {
     const memberEntries = serializeAws_ec2TrafficMirrorNetworkServiceList(input.RemoveNetworkServices, context);
+    if (input.RemoveNetworkServices?.length === 0) {
+      entries.RemoveNetworkService = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveNetworkService.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46898,6 +48302,9 @@ const serializeAws_ec2ModifyTrafficMirrorFilterRuleRequest = (
   }
   if (input.RemoveFields != null) {
     const memberEntries = serializeAws_ec2TrafficMirrorFilterRuleFieldList(input.RemoveFields, context);
+    if (input.RemoveFields?.length === 0) {
+      entries.RemoveField = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveField.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46937,6 +48344,9 @@ const serializeAws_ec2ModifyTrafficMirrorSessionRequest = (
   }
   if (input.RemoveFields != null) {
     const memberEntries = serializeAws_ec2TrafficMirrorSessionFieldList(input.RemoveFields, context);
+    if (input.RemoveFields?.length === 0) {
+      entries.RemoveField = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveField.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46955,6 +48365,9 @@ const serializeAws_ec2ModifyTransitGatewayOptions = (
   const entries: any = {};
   if (input.AddTransitGatewayCidrBlocks != null) {
     const memberEntries = serializeAws_ec2TransitGatewayCidrBlockStringList(input.AddTransitGatewayCidrBlocks, context);
+    if (input.AddTransitGatewayCidrBlocks?.length === 0) {
+      entries.AddTransitGatewayCidrBlocks = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddTransitGatewayCidrBlocks.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46965,6 +48378,9 @@ const serializeAws_ec2ModifyTransitGatewayOptions = (
       input.RemoveTransitGatewayCidrBlocks,
       context
     );
+    if (input.RemoveTransitGatewayCidrBlocks?.length === 0) {
+      entries.RemoveTransitGatewayCidrBlocks = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveTransitGatewayCidrBlocks.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47054,6 +48470,9 @@ const serializeAws_ec2ModifyTransitGatewayVpcAttachmentRequest = (
   }
   if (input.AddSubnetIds != null) {
     const memberEntries = serializeAws_ec2TransitGatewaySubnetIdList(input.AddSubnetIds, context);
+    if (input.AddSubnetIds?.length === 0) {
+      entries.AddSubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddSubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47061,6 +48480,9 @@ const serializeAws_ec2ModifyTransitGatewayVpcAttachmentRequest = (
   }
   if (input.RemoveSubnetIds != null) {
     const memberEntries = serializeAws_ec2TransitGatewaySubnetIdList(input.RemoveSubnetIds, context);
+    if (input.RemoveSubnetIds?.length === 0) {
+      entries.RemoveSubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveSubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47188,6 +48610,9 @@ const serializeAws_ec2ModifyVpcEndpointConnectionNotificationRequest = (
   }
   if (input.ConnectionEvents != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.ConnectionEvents, context);
+    if (input.ConnectionEvents?.length === 0) {
+      entries.ConnectionEvents = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionEvents.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47212,6 +48637,9 @@ const serializeAws_ec2ModifyVpcEndpointRequest = (input: ModifyVpcEndpointReques
   }
   if (input.AddRouteTableIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointRouteTableIdList(input.AddRouteTableIds, context);
+    if (input.AddRouteTableIds?.length === 0) {
+      entries.AddRouteTableId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddRouteTableId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47219,6 +48647,9 @@ const serializeAws_ec2ModifyVpcEndpointRequest = (input: ModifyVpcEndpointReques
   }
   if (input.RemoveRouteTableIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointRouteTableIdList(input.RemoveRouteTableIds, context);
+    if (input.RemoveRouteTableIds?.length === 0) {
+      entries.RemoveRouteTableId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveRouteTableId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47226,6 +48657,9 @@ const serializeAws_ec2ModifyVpcEndpointRequest = (input: ModifyVpcEndpointReques
   }
   if (input.AddSubnetIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointSubnetIdList(input.AddSubnetIds, context);
+    if (input.AddSubnetIds?.length === 0) {
+      entries.AddSubnetId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddSubnetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47233,6 +48667,9 @@ const serializeAws_ec2ModifyVpcEndpointRequest = (input: ModifyVpcEndpointReques
   }
   if (input.RemoveSubnetIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointSubnetIdList(input.RemoveSubnetIds, context);
+    if (input.RemoveSubnetIds?.length === 0) {
+      entries.RemoveSubnetId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveSubnetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47240,6 +48677,9 @@ const serializeAws_ec2ModifyVpcEndpointRequest = (input: ModifyVpcEndpointReques
   }
   if (input.AddSecurityGroupIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointSecurityGroupIdList(input.AddSecurityGroupIds, context);
+    if (input.AddSecurityGroupIds?.length === 0) {
+      entries.AddSecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddSecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47247,6 +48687,9 @@ const serializeAws_ec2ModifyVpcEndpointRequest = (input: ModifyVpcEndpointReques
   }
   if (input.RemoveSecurityGroupIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointSecurityGroupIdList(input.RemoveSecurityGroupIds, context);
+    if (input.RemoveSecurityGroupIds?.length === 0) {
+      entries.RemoveSecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveSecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47290,6 +48733,9 @@ const serializeAws_ec2ModifyVpcEndpointServiceConfigurationRequest = (
   }
   if (input.AddNetworkLoadBalancerArns != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.AddNetworkLoadBalancerArns, context);
+    if (input.AddNetworkLoadBalancerArns?.length === 0) {
+      entries.AddNetworkLoadBalancerArn = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddNetworkLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47297,6 +48743,9 @@ const serializeAws_ec2ModifyVpcEndpointServiceConfigurationRequest = (
   }
   if (input.RemoveNetworkLoadBalancerArns != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.RemoveNetworkLoadBalancerArns, context);
+    if (input.RemoveNetworkLoadBalancerArns?.length === 0) {
+      entries.RemoveNetworkLoadBalancerArn = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveNetworkLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47304,6 +48753,9 @@ const serializeAws_ec2ModifyVpcEndpointServiceConfigurationRequest = (
   }
   if (input.AddGatewayLoadBalancerArns != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.AddGatewayLoadBalancerArns, context);
+    if (input.AddGatewayLoadBalancerArns?.length === 0) {
+      entries.AddGatewayLoadBalancerArn = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddGatewayLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47311,6 +48763,9 @@ const serializeAws_ec2ModifyVpcEndpointServiceConfigurationRequest = (
   }
   if (input.RemoveGatewayLoadBalancerArns != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.RemoveGatewayLoadBalancerArns, context);
+    if (input.RemoveGatewayLoadBalancerArns?.length === 0) {
+      entries.RemoveGatewayLoadBalancerArn = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveGatewayLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47318,6 +48773,9 @@ const serializeAws_ec2ModifyVpcEndpointServiceConfigurationRequest = (
   }
   if (input.AddSupportedIpAddressTypes != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.AddSupportedIpAddressTypes, context);
+    if (input.AddSupportedIpAddressTypes?.length === 0) {
+      entries.AddSupportedIpAddressType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddSupportedIpAddressType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47325,6 +48783,9 @@ const serializeAws_ec2ModifyVpcEndpointServiceConfigurationRequest = (
   }
   if (input.RemoveSupportedIpAddressTypes != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.RemoveSupportedIpAddressTypes, context);
+    if (input.RemoveSupportedIpAddressTypes?.length === 0) {
+      entries.RemoveSupportedIpAddressType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveSupportedIpAddressType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47363,6 +48824,9 @@ const serializeAws_ec2ModifyVpcEndpointServicePermissionsRequest = (
   }
   if (input.AddAllowedPrincipals != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.AddAllowedPrincipals, context);
+    if (input.AddAllowedPrincipals?.length === 0) {
+      entries.AddAllowedPrincipals = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddAllowedPrincipals.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47370,6 +48834,9 @@ const serializeAws_ec2ModifyVpcEndpointServicePermissionsRequest = (
   }
   if (input.RemoveAllowedPrincipals != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.RemoveAllowedPrincipals, context);
+    if (input.RemoveAllowedPrincipals?.length === 0) {
+      entries.RemoveAllowedPrincipals = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveAllowedPrincipals.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47556,6 +49023,9 @@ const serializeAws_ec2ModifyVpnTunnelOptionsSpecification = (
       input.Phase1EncryptionAlgorithms,
       context
     );
+    if (input.Phase1EncryptionAlgorithms?.length === 0) {
+      entries.Phase1EncryptionAlgorithm = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase1EncryptionAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47566,6 +49036,9 @@ const serializeAws_ec2ModifyVpnTunnelOptionsSpecification = (
       input.Phase2EncryptionAlgorithms,
       context
     );
+    if (input.Phase2EncryptionAlgorithms?.length === 0) {
+      entries.Phase2EncryptionAlgorithm = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase2EncryptionAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47576,6 +49049,9 @@ const serializeAws_ec2ModifyVpnTunnelOptionsSpecification = (
       input.Phase1IntegrityAlgorithms,
       context
     );
+    if (input.Phase1IntegrityAlgorithms?.length === 0) {
+      entries.Phase1IntegrityAlgorithm = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase1IntegrityAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47586,6 +49062,9 @@ const serializeAws_ec2ModifyVpnTunnelOptionsSpecification = (
       input.Phase2IntegrityAlgorithms,
       context
     );
+    if (input.Phase2IntegrityAlgorithms?.length === 0) {
+      entries.Phase2IntegrityAlgorithm = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase2IntegrityAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47593,6 +49072,9 @@ const serializeAws_ec2ModifyVpnTunnelOptionsSpecification = (
   }
   if (input.Phase1DHGroupNumbers != null) {
     const memberEntries = serializeAws_ec2Phase1DHGroupNumbersRequestList(input.Phase1DHGroupNumbers, context);
+    if (input.Phase1DHGroupNumbers?.length === 0) {
+      entries.Phase1DHGroupNumber = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase1DHGroupNumber.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47600,6 +49082,9 @@ const serializeAws_ec2ModifyVpnTunnelOptionsSpecification = (
   }
   if (input.Phase2DHGroupNumbers != null) {
     const memberEntries = serializeAws_ec2Phase2DHGroupNumbersRequestList(input.Phase2DHGroupNumbers, context);
+    if (input.Phase2DHGroupNumbers?.length === 0) {
+      entries.Phase2DHGroupNumber = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase2DHGroupNumber.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47607,6 +49092,9 @@ const serializeAws_ec2ModifyVpnTunnelOptionsSpecification = (
   }
   if (input.IKEVersions != null) {
     const memberEntries = serializeAws_ec2IKEVersionsRequestList(input.IKEVersions, context);
+    if (input.IKEVersions?.length === 0) {
+      entries.IKEVersion = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IKEVersion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47629,6 +49117,9 @@ const serializeAws_ec2MonitorInstancesRequest = (input: MonitorInstancesRequest,
   const entries: any = {};
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_ec2InstanceIdStringList(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47821,6 +49312,9 @@ const serializeAws_ec2NewDhcpConfiguration = (input: NewDhcpConfiguration, conte
   }
   if (input.Values != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Value = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Value.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47931,6 +49425,9 @@ const serializeAws_ec2PacketHeaderStatementRequest = (
   const entries: any = {};
   if (input.SourceAddresses != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.SourceAddresses, context);
+    if (input.SourceAddresses?.length === 0) {
+      entries.SourceAddress = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceAddress.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47938,6 +49435,9 @@ const serializeAws_ec2PacketHeaderStatementRequest = (
   }
   if (input.DestinationAddresses != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.DestinationAddresses, context);
+    if (input.DestinationAddresses?.length === 0) {
+      entries.DestinationAddress = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DestinationAddress.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47945,6 +49445,9 @@ const serializeAws_ec2PacketHeaderStatementRequest = (
   }
   if (input.SourcePorts != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.SourcePorts, context);
+    if (input.SourcePorts?.length === 0) {
+      entries.SourcePort = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourcePort.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47952,6 +49455,9 @@ const serializeAws_ec2PacketHeaderStatementRequest = (
   }
   if (input.DestinationPorts != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.DestinationPorts, context);
+    if (input.DestinationPorts?.length === 0) {
+      entries.DestinationPort = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DestinationPort.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47959,6 +49465,9 @@ const serializeAws_ec2PacketHeaderStatementRequest = (
   }
   if (input.SourcePrefixLists != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.SourcePrefixLists, context);
+    if (input.SourcePrefixLists?.length === 0) {
+      entries.SourcePrefixList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourcePrefixList.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47966,6 +49475,9 @@ const serializeAws_ec2PacketHeaderStatementRequest = (
   }
   if (input.DestinationPrefixLists != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.DestinationPrefixLists, context);
+    if (input.DestinationPrefixLists?.length === 0) {
+      entries.DestinationPrefixList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DestinationPrefixList.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47973,6 +49485,9 @@ const serializeAws_ec2PacketHeaderStatementRequest = (
   }
   if (input.Protocols != null) {
     const memberEntries = serializeAws_ec2ProtocolList(input.Protocols, context);
+    if (input.Protocols?.length === 0) {
+      entries.Protocol = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Protocol.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48483,6 +49998,9 @@ const serializeAws_ec2ProvisionByoipCidrRequest = (input: ProvisionByoipCidrRequ
   }
   if (input.PoolTagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.PoolTagSpecifications, context);
+    if (input.PoolTagSpecifications?.length === 0) {
+      entries.PoolTagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PoolTagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48577,6 +50095,9 @@ const serializeAws_ec2PurchaseHostReservationRequest = (
   }
   if (input.HostIdSet != null) {
     const memberEntries = serializeAws_ec2RequestHostIdSet(input.HostIdSet, context);
+    if (input.HostIdSet?.length === 0) {
+      entries.HostIdSet = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostIdSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48590,6 +50111,9 @@ const serializeAws_ec2PurchaseHostReservationRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48668,6 +50192,9 @@ const serializeAws_ec2PurchaseScheduledInstancesRequest = (
   }
   if (input.PurchaseRequests != null) {
     const memberEntries = serializeAws_ec2PurchaseRequestSet(input.PurchaseRequests, context);
+    if (input.PurchaseRequests?.length === 0) {
+      entries.PurchaseRequest = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PurchaseRequest.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48696,6 +50223,9 @@ const serializeAws_ec2RebootInstancesRequest = (input: RebootInstancesRequest, c
   const entries: any = {};
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_ec2InstanceIdStringList(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48743,6 +50273,9 @@ const serializeAws_ec2RegisterImageRequest = (input: RegisterImageRequest, conte
   }
   if (input.BlockDeviceMappings != null) {
     const memberEntries = serializeAws_ec2BlockDeviceMappingRequestList(input.BlockDeviceMappings, context);
+    if (input.BlockDeviceMappings?.length === 0) {
+      entries.BlockDeviceMapping = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48765,6 +50298,9 @@ const serializeAws_ec2RegisterImageRequest = (input: RegisterImageRequest, conte
   }
   if (input.BillingProducts != null) {
     const memberEntries = serializeAws_ec2BillingProductList(input.BillingProducts, context);
+    if (input.BillingProducts?.length === 0) {
+      entries.BillingProduct = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BillingProduct.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48825,6 +50361,9 @@ const serializeAws_ec2RegisterInstanceTagAttributeRequest = (
   }
   if (input.InstanceTagKeys != null) {
     const memberEntries = serializeAws_ec2InstanceTagKeySet(input.InstanceTagKeys, context);
+    if (input.InstanceTagKeys?.length === 0) {
+      entries.InstanceTagKey = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceTagKey.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48846,6 +50385,9 @@ const serializeAws_ec2RegisterTransitGatewayMulticastGroupMembersRequest = (
   }
   if (input.NetworkInterfaceIds != null) {
     const memberEntries = serializeAws_ec2TransitGatewayNetworkInterfaceIdList(input.NetworkInterfaceIds, context);
+    if (input.NetworkInterfaceIds?.length === 0) {
+      entries.NetworkInterfaceIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterfaceIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48870,6 +50412,9 @@ const serializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesRequest = (
   }
   if (input.NetworkInterfaceIds != null) {
     const memberEntries = serializeAws_ec2TransitGatewayNetworkInterfaceIdList(input.NetworkInterfaceIds, context);
+    if (input.NetworkInterfaceIds?.length === 0) {
+      entries.NetworkInterfaceIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterfaceIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48894,6 +50439,9 @@ const serializeAws_ec2RejectTransitGatewayMulticastDomainAssociationsRequest = (
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48946,6 +50494,9 @@ const serializeAws_ec2RejectVpcEndpointConnectionsRequest = (
   }
   if (input.VpcEndpointIds != null) {
     const memberEntries = serializeAws_ec2VpcEndpointIdList(input.VpcEndpointIds, context);
+    if (input.VpcEndpointIds?.length === 0) {
+      entries.VpcEndpointId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcEndpointId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48989,6 +50540,9 @@ const serializeAws_ec2ReleaseHostsRequest = (input: ReleaseHostsRequest, context
   const entries: any = {};
   if (input.HostIds != null) {
     const memberEntries = serializeAws_ec2RequestHostIdList(input.HostIds, context);
+    if (input.HostIds?.length === 0) {
+      entries.HostId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49274,6 +50828,9 @@ const serializeAws_ec2ReportInstanceStatusRequest = (
   }
   if (input.Instances != null) {
     const memberEntries = serializeAws_ec2InstanceIdStringList(input.Instances, context);
+    if (input.Instances?.length === 0) {
+      entries.InstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49281,6 +50838,9 @@ const serializeAws_ec2ReportInstanceStatusRequest = (
   }
   if (input.ReasonCodes != null) {
     const memberEntries = serializeAws_ec2ReasonCodesList(input.ReasonCodes, context);
+    if (input.ReasonCodes?.length === 0) {
+      entries.ReasonCode = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReasonCode.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49384,6 +50944,9 @@ const serializeAws_ec2RequestLaunchTemplateData = (input: RequestLaunchTemplateD
       input.BlockDeviceMappings,
       context
     );
+    if (input.BlockDeviceMappings?.length === 0) {
+      entries.BlockDeviceMapping = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49394,6 +50957,9 @@ const serializeAws_ec2RequestLaunchTemplateData = (input: RequestLaunchTemplateD
       input.NetworkInterfaces,
       context
     );
+    if (input.NetworkInterfaces?.length === 0) {
+      entries.NetworkInterface = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterface.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49436,6 +51002,9 @@ const serializeAws_ec2RequestLaunchTemplateData = (input: RequestLaunchTemplateD
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2LaunchTemplateTagSpecificationRequestList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49443,6 +51012,9 @@ const serializeAws_ec2RequestLaunchTemplateData = (input: RequestLaunchTemplateD
   }
   if (input.ElasticGpuSpecifications != null) {
     const memberEntries = serializeAws_ec2ElasticGpuSpecificationList(input.ElasticGpuSpecifications, context);
+    if (input.ElasticGpuSpecifications?.length === 0) {
+      entries.ElasticGpuSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ElasticGpuSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49453,6 +51025,9 @@ const serializeAws_ec2RequestLaunchTemplateData = (input: RequestLaunchTemplateD
       input.ElasticInferenceAccelerators,
       context
     );
+    if (input.ElasticInferenceAccelerators?.length === 0) {
+      entries.ElasticInferenceAccelerator = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ElasticInferenceAccelerator.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49460,6 +51035,9 @@ const serializeAws_ec2RequestLaunchTemplateData = (input: RequestLaunchTemplateD
   }
   if (input.SecurityGroupIds != null) {
     const memberEntries = serializeAws_ec2SecurityGroupIdStringList(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49467,6 +51045,9 @@ const serializeAws_ec2RequestLaunchTemplateData = (input: RequestLaunchTemplateD
   }
   if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_ec2SecurityGroupStringList(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroup = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroup.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49511,6 +51092,9 @@ const serializeAws_ec2RequestLaunchTemplateData = (input: RequestLaunchTemplateD
       input.LicenseSpecifications,
       context
     );
+    if (input.LicenseSpecifications?.length === 0) {
+      entries.LicenseSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LicenseSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49629,6 +51213,9 @@ const serializeAws_ec2RequestSpotInstancesRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49650,6 +51237,9 @@ const serializeAws_ec2RequestSpotLaunchSpecification = (
       input.SecurityGroupIds,
       context
     );
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49660,6 +51250,9 @@ const serializeAws_ec2RequestSpotLaunchSpecification = (
       input.SecurityGroups,
       context
     );
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroup = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroup.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49670,6 +51263,9 @@ const serializeAws_ec2RequestSpotLaunchSpecification = (
   }
   if (input.BlockDeviceMappings != null) {
     const memberEntries = serializeAws_ec2BlockDeviceMappingList(input.BlockDeviceMappings, context);
+    if (input.BlockDeviceMappings?.length === 0) {
+      entries.BlockDeviceMapping = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49706,6 +51302,9 @@ const serializeAws_ec2RequestSpotLaunchSpecification = (
   }
   if (input.NetworkInterfaces != null) {
     const memberEntries = serializeAws_ec2InstanceNetworkInterfaceSpecificationList(input.NetworkInterfaces, context);
+    if (input.NetworkInterfaces?.length === 0) {
+      entries.NetworkInterface = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterface.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50061,6 +51660,9 @@ const serializeAws_ec2ResourceStatementRequest = (input: ResourceStatementReques
   const entries: any = {};
   if (input.Resources != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.Resources, context);
+    if (input.Resources?.length === 0) {
+      entries.Resource = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Resource.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50068,6 +51670,9 @@ const serializeAws_ec2ResourceStatementRequest = (input: ResourceStatementReques
   }
   if (input.ResourceTypes != null) {
     const memberEntries = serializeAws_ec2ValueStringList(input.ResourceTypes, context);
+    if (input.ResourceTypes?.length === 0) {
+      entries.ResourceType = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50207,6 +51812,9 @@ const serializeAws_ec2RevokeSecurityGroupEgressRequest = (
   }
   if (input.IpPermissions != null) {
     const memberEntries = serializeAws_ec2IpPermissionList(input.IpPermissions, context);
+    if (input.IpPermissions?.length === 0) {
+      entries.IpPermissions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpPermissions.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50214,6 +51822,9 @@ const serializeAws_ec2RevokeSecurityGroupEgressRequest = (
   }
   if (input.SecurityGroupRuleIds != null) {
     const memberEntries = serializeAws_ec2SecurityGroupRuleIdList(input.SecurityGroupRuleIds, context);
+    if (input.SecurityGroupRuleIds?.length === 0) {
+      entries.SecurityGroupRuleId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupRuleId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50259,6 +51870,9 @@ const serializeAws_ec2RevokeSecurityGroupIngressRequest = (
   }
   if (input.IpPermissions != null) {
     const memberEntries = serializeAws_ec2IpPermissionList(input.IpPermissions, context);
+    if (input.IpPermissions?.length === 0) {
+      entries.IpPermissions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpPermissions.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50281,6 +51895,9 @@ const serializeAws_ec2RevokeSecurityGroupIngressRequest = (
   }
   if (input.SecurityGroupRuleIds != null) {
     const memberEntries = serializeAws_ec2SecurityGroupRuleIdList(input.SecurityGroupRuleIds, context);
+    if (input.SecurityGroupRuleIds?.length === 0) {
+      entries.SecurityGroupRuleId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupRuleId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50317,6 +51934,9 @@ const serializeAws_ec2RunInstancesRequest = (input: RunInstancesRequest, context
   const entries: any = {};
   if (input.BlockDeviceMappings != null) {
     const memberEntries = serializeAws_ec2BlockDeviceMappingRequestList(input.BlockDeviceMappings, context);
+    if (input.BlockDeviceMappings?.length === 0) {
+      entries.BlockDeviceMapping = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50333,6 +51953,9 @@ const serializeAws_ec2RunInstancesRequest = (input: RunInstancesRequest, context
   }
   if (input.Ipv6Addresses != null) {
     const memberEntries = serializeAws_ec2InstanceIpv6AddressList(input.Ipv6Addresses, context);
+    if (input.Ipv6Addresses?.length === 0) {
+      entries.Ipv6Address = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Address.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50369,6 +51992,9 @@ const serializeAws_ec2RunInstancesRequest = (input: RunInstancesRequest, context
   }
   if (input.SecurityGroupIds != null) {
     const memberEntries = serializeAws_ec2SecurityGroupIdStringList(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50376,6 +52002,9 @@ const serializeAws_ec2RunInstancesRequest = (input: RunInstancesRequest, context
   }
   if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_ec2SecurityGroupStringList(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroup = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroup.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50417,6 +52046,9 @@ const serializeAws_ec2RunInstancesRequest = (input: RunInstancesRequest, context
   }
   if (input.NetworkInterfaces != null) {
     const memberEntries = serializeAws_ec2InstanceNetworkInterfaceSpecificationList(input.NetworkInterfaces, context);
+    if (input.NetworkInterfaces?.length === 0) {
+      entries.NetworkInterface = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterface.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50427,6 +52059,9 @@ const serializeAws_ec2RunInstancesRequest = (input: RunInstancesRequest, context
   }
   if (input.ElasticGpuSpecification != null) {
     const memberEntries = serializeAws_ec2ElasticGpuSpecifications(input.ElasticGpuSpecification, context);
+    if (input.ElasticGpuSpecification?.length === 0) {
+      entries.ElasticGpuSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ElasticGpuSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50434,6 +52069,9 @@ const serializeAws_ec2RunInstancesRequest = (input: RunInstancesRequest, context
   }
   if (input.ElasticInferenceAccelerators != null) {
     const memberEntries = serializeAws_ec2ElasticInferenceAccelerators(input.ElasticInferenceAccelerators, context);
+    if (input.ElasticInferenceAccelerators?.length === 0) {
+      entries.ElasticInferenceAccelerator = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ElasticInferenceAccelerator.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50441,6 +52079,9 @@ const serializeAws_ec2RunInstancesRequest = (input: RunInstancesRequest, context
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50493,6 +52134,9 @@ const serializeAws_ec2RunInstancesRequest = (input: RunInstancesRequest, context
   }
   if (input.LicenseSpecifications != null) {
     const memberEntries = serializeAws_ec2LicenseSpecificationListRequest(input.LicenseSpecifications, context);
+    if (input.LicenseSpecifications?.length === 0) {
+      entries.LicenseSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LicenseSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50635,6 +52279,9 @@ const serializeAws_ec2ScheduledInstanceRecurrenceRequest = (
   }
   if (input.OccurrenceDays != null) {
     const memberEntries = serializeAws_ec2OccurrenceDayRequestSet(input.OccurrenceDays, context);
+    if (input.OccurrenceDays?.length === 0) {
+      entries.OccurrenceDay = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OccurrenceDay.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50766,6 +52413,9 @@ const serializeAws_ec2ScheduledInstancesLaunchSpecification = (
   const entries: any = {};
   if (input.BlockDeviceMappings != null) {
     const memberEntries = serializeAws_ec2ScheduledInstancesBlockDeviceMappingSet(input.BlockDeviceMappings, context);
+    if (input.BlockDeviceMappings?.length === 0) {
+      entries.BlockDeviceMapping = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50802,6 +52452,9 @@ const serializeAws_ec2ScheduledInstancesLaunchSpecification = (
   }
   if (input.NetworkInterfaces != null) {
     const memberEntries = serializeAws_ec2ScheduledInstancesNetworkInterfaceSet(input.NetworkInterfaces, context);
+    if (input.NetworkInterfaces?.length === 0) {
+      entries.NetworkInterface = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterface.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50819,6 +52472,9 @@ const serializeAws_ec2ScheduledInstancesLaunchSpecification = (
   }
   if (input.SecurityGroupIds != null) {
     const memberEntries = serializeAws_ec2ScheduledInstancesSecurityGroupIdSet(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50863,6 +52519,9 @@ const serializeAws_ec2ScheduledInstancesNetworkInterface = (
   }
   if (input.Groups != null) {
     const memberEntries = serializeAws_ec2ScheduledInstancesSecurityGroupIdSet(input.Groups, context);
+    if (input.Groups?.length === 0) {
+      entries.Group = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Group.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50873,6 +52532,9 @@ const serializeAws_ec2ScheduledInstancesNetworkInterface = (
   }
   if (input.Ipv6Addresses != null) {
     const memberEntries = serializeAws_ec2ScheduledInstancesIpv6AddressList(input.Ipv6Addresses, context);
+    if (input.Ipv6Addresses?.length === 0) {
+      entries.Ipv6Address = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Address.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50886,6 +52548,9 @@ const serializeAws_ec2ScheduledInstancesNetworkInterface = (
   }
   if (input.PrivateIpAddressConfigs != null) {
     const memberEntries = serializeAws_ec2PrivateIpAddressConfigSet(input.PrivateIpAddressConfigs, context);
+    if (input.PrivateIpAddressConfigs?.length === 0) {
+      entries.PrivateIpAddressConfig = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddressConfig.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50970,6 +52635,9 @@ const serializeAws_ec2SearchLocalGatewayRoutesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50997,6 +52665,9 @@ const serializeAws_ec2SearchTransitGatewayMulticastGroupsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51024,6 +52695,9 @@ const serializeAws_ec2SearchTransitGatewayRoutesRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51261,6 +52935,9 @@ const serializeAws_ec2SpotFleetLaunchSpecification = (
   const entries: any = {};
   if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_ec2GroupIdentifierList(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.GroupSet = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51271,6 +52948,9 @@ const serializeAws_ec2SpotFleetLaunchSpecification = (
   }
   if (input.BlockDeviceMappings != null) {
     const memberEntries = serializeAws_ec2BlockDeviceMappingList(input.BlockDeviceMappings, context);
+    if (input.BlockDeviceMappings?.length === 0) {
+      entries.BlockDeviceMapping = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51307,6 +52987,9 @@ const serializeAws_ec2SpotFleetLaunchSpecification = (
   }
   if (input.NetworkInterfaces != null) {
     const memberEntries = serializeAws_ec2InstanceNetworkInterfaceSpecificationList(input.NetworkInterfaces, context);
+    if (input.NetworkInterfaces?.length === 0) {
+      entries.NetworkInterfaceSet = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterfaceSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51336,6 +53019,9 @@ const serializeAws_ec2SpotFleetLaunchSpecification = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2SpotFleetTagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecificationSet = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecificationSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51394,6 +53080,9 @@ const serializeAws_ec2SpotFleetRequestConfigData = (
   }
   if (input.LaunchSpecifications != null) {
     const memberEntries = serializeAws_ec2LaunchSpecsList(input.LaunchSpecifications, context);
+    if (input.LaunchSpecifications?.length === 0) {
+      entries.LaunchSpecifications = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchSpecifications.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51401,6 +53090,9 @@ const serializeAws_ec2SpotFleetRequestConfigData = (
   }
   if (input.LaunchTemplateConfigs != null) {
     const memberEntries = serializeAws_ec2LaunchTemplateConfigList(input.LaunchTemplateConfigs, context);
+    if (input.LaunchTemplateConfigs?.length === 0) {
+      entries.LaunchTemplateConfigs = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateConfigs.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51457,6 +53149,9 @@ const serializeAws_ec2SpotFleetRequestConfigData = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51485,6 +53180,9 @@ const serializeAws_ec2SpotFleetTagSpecification = (input: SpotFleetTagSpecificat
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_ec2TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tag = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51608,6 +53306,9 @@ const serializeAws_ec2StartInstancesRequest = (input: StartInstancesRequest, con
   const entries: any = {};
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_ec2InstanceIdStringList(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51635,6 +53336,9 @@ const serializeAws_ec2StartNetworkInsightsAccessScopeAnalysisRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51659,6 +53363,9 @@ const serializeAws_ec2StartNetworkInsightsAnalysisRequest = (
   }
   if (input.FilterInArns != null) {
     const memberEntries = serializeAws_ec2ArnList(input.FilterInArns, context);
+    if (input.FilterInArns?.length === 0) {
+      entries.FilterInArn = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FilterInArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51669,6 +53376,9 @@ const serializeAws_ec2StartNetworkInsightsAnalysisRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51701,6 +53411,9 @@ const serializeAws_ec2StopInstancesRequest = (input: StopInstancesRequest, conte
   const entries: any = {};
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_ec2InstanceIdStringList(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51788,6 +53501,9 @@ const serializeAws_ec2TagSpecification = (input: TagSpecification, context: __Se
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_ec2TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tag = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51896,6 +53612,9 @@ const serializeAws_ec2TargetGroupsConfig = (input: TargetGroupsConfig, context: 
   const entries: any = {};
   if (input.TargetGroups != null) {
     const memberEntries = serializeAws_ec2TargetGroups(input.TargetGroups, context);
+    if (input.TargetGroups?.length === 0) {
+      entries.TargetGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroups.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51928,6 +53647,9 @@ const serializeAws_ec2TerminateInstancesRequest = (input: TerminateInstancesRequ
   const entries: any = {};
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_ec2InstanceIdStringList(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52229,6 +53951,9 @@ const serializeAws_ec2TransitGatewayRequestOptions = (
   }
   if (input.TransitGatewayCidrBlocks != null) {
     const memberEntries = serializeAws_ec2TransitGatewayCidrBlockStringList(input.TransitGatewayCidrBlocks, context);
+    if (input.TransitGatewayCidrBlocks?.length === 0) {
+      entries.TransitGatewayCidrBlocks = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayCidrBlocks.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52299,6 +54024,9 @@ const serializeAws_ec2UnassignIpv6AddressesRequest = (
   const entries: any = {};
   if (input.Ipv6Addresses != null) {
     const memberEntries = serializeAws_ec2Ipv6AddressList(input.Ipv6Addresses, context);
+    if (input.Ipv6Addresses?.length === 0) {
+      entries.Ipv6Addresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Addresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52306,6 +54034,9 @@ const serializeAws_ec2UnassignIpv6AddressesRequest = (
   }
   if (input.Ipv6Prefixes != null) {
     const memberEntries = serializeAws_ec2IpPrefixList(input.Ipv6Prefixes, context);
+    if (input.Ipv6Prefixes?.length === 0) {
+      entries.Ipv6Prefix = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52327,6 +54058,9 @@ const serializeAws_ec2UnassignPrivateIpAddressesRequest = (
   }
   if (input.PrivateIpAddresses != null) {
     const memberEntries = serializeAws_ec2PrivateIpAddressStringList(input.PrivateIpAddresses, context);
+    if (input.PrivateIpAddresses?.length === 0) {
+      entries.PrivateIpAddress = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52334,6 +54068,9 @@ const serializeAws_ec2UnassignPrivateIpAddressesRequest = (
   }
   if (input.Ipv4Prefixes != null) {
     const memberEntries = serializeAws_ec2IpPrefixList(input.Ipv4Prefixes, context);
+    if (input.Ipv4Prefixes?.length === 0) {
+      entries.Ipv4Prefix = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52346,6 +54083,9 @@ const serializeAws_ec2UnmonitorInstancesRequest = (input: UnmonitorInstancesRequ
   const entries: any = {};
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_ec2InstanceIdStringList(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52373,6 +54113,9 @@ const serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressRequest = (
   }
   if (input.IpPermissions != null) {
     const memberEntries = serializeAws_ec2IpPermissionList(input.IpPermissions, context);
+    if (input.IpPermissions?.length === 0) {
+      entries.IpPermissions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpPermissions.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52383,6 +54126,9 @@ const serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressRequest = (
       input.SecurityGroupRuleDescriptions,
       context
     );
+    if (input.SecurityGroupRuleDescriptions?.length === 0) {
+      entries.SecurityGroupRuleDescription = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupRuleDescription.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52407,6 +54153,9 @@ const serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressRequest = (
   }
   if (input.IpPermissions != null) {
     const memberEntries = serializeAws_ec2IpPermissionList(input.IpPermissions, context);
+    if (input.IpPermissions?.length === 0) {
+      entries.IpPermissions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpPermissions.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52417,6 +54166,9 @@ const serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressRequest = (
       input.SecurityGroupRuleDescriptions,
       context
     );
+    if (input.SecurityGroupRuleDescriptions?.length === 0) {
+      entries.SecurityGroupRuleDescription = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupRuleDescription.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52730,6 +54482,9 @@ const serializeAws_ec2VpnConnectionOptionsSpecification = (
   }
   if (input.TunnelOptions != null) {
     const memberEntries = serializeAws_ec2VpnTunnelOptionsSpecificationsList(input.TunnelOptions, context);
+    if (input.TunnelOptions?.length === 0) {
+      entries.TunnelOptions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TunnelOptions.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52824,6 +54579,9 @@ const serializeAws_ec2VpnTunnelOptionsSpecification = (
       input.Phase1EncryptionAlgorithms,
       context
     );
+    if (input.Phase1EncryptionAlgorithms?.length === 0) {
+      entries.Phase1EncryptionAlgorithm = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase1EncryptionAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52834,6 +54592,9 @@ const serializeAws_ec2VpnTunnelOptionsSpecification = (
       input.Phase2EncryptionAlgorithms,
       context
     );
+    if (input.Phase2EncryptionAlgorithms?.length === 0) {
+      entries.Phase2EncryptionAlgorithm = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase2EncryptionAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52844,6 +54605,9 @@ const serializeAws_ec2VpnTunnelOptionsSpecification = (
       input.Phase1IntegrityAlgorithms,
       context
     );
+    if (input.Phase1IntegrityAlgorithms?.length === 0) {
+      entries.Phase1IntegrityAlgorithm = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase1IntegrityAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52854,6 +54618,9 @@ const serializeAws_ec2VpnTunnelOptionsSpecification = (
       input.Phase2IntegrityAlgorithms,
       context
     );
+    if (input.Phase2IntegrityAlgorithms?.length === 0) {
+      entries.Phase2IntegrityAlgorithm = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase2IntegrityAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52861,6 +54628,9 @@ const serializeAws_ec2VpnTunnelOptionsSpecification = (
   }
   if (input.Phase1DHGroupNumbers != null) {
     const memberEntries = serializeAws_ec2Phase1DHGroupNumbersRequestList(input.Phase1DHGroupNumbers, context);
+    if (input.Phase1DHGroupNumbers?.length === 0) {
+      entries.Phase1DHGroupNumber = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase1DHGroupNumber.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52868,6 +54638,9 @@ const serializeAws_ec2VpnTunnelOptionsSpecification = (
   }
   if (input.Phase2DHGroupNumbers != null) {
     const memberEntries = serializeAws_ec2Phase2DHGroupNumbersRequestList(input.Phase2DHGroupNumbers, context);
+    if (input.Phase2DHGroupNumbers?.length === 0) {
+      entries.Phase2DHGroupNumber = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase2DHGroupNumber.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52875,6 +54648,9 @@ const serializeAws_ec2VpnTunnelOptionsSpecification = (
   }
   if (input.IKEVersions != null) {
     const memberEntries = serializeAws_ec2IKEVersionsRequestList(input.IKEVersions, context);
+    if (input.IKEVersions?.length === 0) {
+      entries.IKEVersion = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IKEVersion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;

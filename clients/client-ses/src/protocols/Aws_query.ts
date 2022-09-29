@@ -5087,6 +5087,9 @@ const serializeAws_queryBulkEmailDestination = (input: BulkEmailDestination, con
   }
   if (input.ReplacementTags != null) {
     const memberEntries = serializeAws_queryMessageTagList(input.ReplacementTags, context);
+    if (input.ReplacementTags?.length === 0) {
+      entries.ReplacementTags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplacementTags.${key}`;
       entries[loc] = value;
@@ -5132,6 +5135,9 @@ const serializeAws_queryCloudWatchDestination = (input: CloudWatchDestination, c
   const entries: any = {};
   if (input.DimensionConfigurations != null) {
     const memberEntries = serializeAws_queryCloudWatchDimensionConfigurations(input.DimensionConfigurations, context);
+    if (input.DimensionConfigurations?.length === 0) {
+      entries.DimensionConfigurations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DimensionConfigurations.${key}`;
       entries[loc] = value;
@@ -5494,6 +5500,9 @@ const serializeAws_queryDescribeConfigurationSetRequest = (
       input.ConfigurationSetAttributeNames,
       context
     );
+    if (input.ConfigurationSetAttributeNames?.length === 0) {
+      entries.ConfigurationSetAttributeNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConfigurationSetAttributeNames.${key}`;
       entries[loc] = value;
@@ -5531,6 +5540,9 @@ const serializeAws_queryDestination = (input: Destination, context: __SerdeConte
   const entries: any = {};
   if (input.ToAddresses != null) {
     const memberEntries = serializeAws_queryAddressList(input.ToAddresses, context);
+    if (input.ToAddresses?.length === 0) {
+      entries.ToAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ToAddresses.${key}`;
       entries[loc] = value;
@@ -5538,6 +5550,9 @@ const serializeAws_queryDestination = (input: Destination, context: __SerdeConte
   }
   if (input.CcAddresses != null) {
     const memberEntries = serializeAws_queryAddressList(input.CcAddresses, context);
+    if (input.CcAddresses?.length === 0) {
+      entries.CcAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CcAddresses.${key}`;
       entries[loc] = value;
@@ -5545,6 +5560,9 @@ const serializeAws_queryDestination = (input: Destination, context: __SerdeConte
   }
   if (input.BccAddresses != null) {
     const memberEntries = serializeAws_queryAddressList(input.BccAddresses, context);
+    if (input.BccAddresses?.length === 0) {
+      entries.BccAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BccAddresses.${key}`;
       entries[loc] = value;
@@ -5563,6 +5581,9 @@ const serializeAws_queryEventDestination = (input: EventDestination, context: __
   }
   if (input.MatchingEventTypes != null) {
     const memberEntries = serializeAws_queryEventTypes(input.MatchingEventTypes, context);
+    if (input.MatchingEventTypes?.length === 0) {
+      entries.MatchingEventTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MatchingEventTypes.${key}`;
       entries[loc] = value;
@@ -5650,6 +5671,9 @@ const serializeAws_queryGetIdentityDkimAttributesRequest = (
   const entries: any = {};
   if (input.Identities != null) {
     const memberEntries = serializeAws_queryIdentityList(input.Identities, context);
+    if (input.Identities?.length === 0) {
+      entries.Identities = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Identities.${key}`;
       entries[loc] = value;
@@ -5665,6 +5689,9 @@ const serializeAws_queryGetIdentityMailFromDomainAttributesRequest = (
   const entries: any = {};
   if (input.Identities != null) {
     const memberEntries = serializeAws_queryIdentityList(input.Identities, context);
+    if (input.Identities?.length === 0) {
+      entries.Identities = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Identities.${key}`;
       entries[loc] = value;
@@ -5680,6 +5707,9 @@ const serializeAws_queryGetIdentityNotificationAttributesRequest = (
   const entries: any = {};
   if (input.Identities != null) {
     const memberEntries = serializeAws_queryIdentityList(input.Identities, context);
+    if (input.Identities?.length === 0) {
+      entries.Identities = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Identities.${key}`;
       entries[loc] = value;
@@ -5698,6 +5728,9 @@ const serializeAws_queryGetIdentityPoliciesRequest = (
   }
   if (input.PolicyNames != null) {
     const memberEntries = serializeAws_queryPolicyNameList(input.PolicyNames, context);
+    if (input.PolicyNames?.length === 0) {
+      entries.PolicyNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
@@ -5713,6 +5746,9 @@ const serializeAws_queryGetIdentityVerificationAttributesRequest = (
   const entries: any = {};
   if (input.Identities != null) {
     const memberEntries = serializeAws_queryIdentityList(input.Identities, context);
+    if (input.Identities?.length === 0) {
+      entries.Identities = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Identities.${key}`;
       entries[loc] = value;
@@ -5882,6 +5918,9 @@ const serializeAws_queryMessageDsn = (input: MessageDsn, context: __SerdeContext
   }
   if (input.ExtensionFields != null) {
     const memberEntries = serializeAws_queryExtensionFieldList(input.ExtensionFields, context);
+    if (input.ExtensionFields?.length === 0) {
+      entries.ExtensionFields = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExtensionFields.${key}`;
       entries[loc] = value;
@@ -6079,6 +6118,9 @@ const serializeAws_queryReceiptRule = (input: ReceiptRule, context: __SerdeConte
   }
   if (input.Recipients != null) {
     const memberEntries = serializeAws_queryRecipientsList(input.Recipients, context);
+    if (input.Recipients?.length === 0) {
+      entries.Recipients = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Recipients.${key}`;
       entries[loc] = value;
@@ -6086,6 +6128,9 @@ const serializeAws_queryReceiptRule = (input: ReceiptRule, context: __SerdeConte
   }
   if (input.Actions != null) {
     const memberEntries = serializeAws_queryReceiptActionsList(input.Actions, context);
+    if (input.Actions?.length === 0) {
+      entries.Actions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Actions.${key}`;
       entries[loc] = value;
@@ -6132,6 +6177,9 @@ const serializeAws_queryRecipientDsnFields = (input: RecipientDsnFields, context
   }
   if (input.ExtensionFields != null) {
     const memberEntries = serializeAws_queryExtensionFieldList(input.ExtensionFields, context);
+    if (input.ExtensionFields?.length === 0) {
+      entries.ExtensionFields = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExtensionFields.${key}`;
       entries[loc] = value;
@@ -6163,6 +6211,9 @@ const serializeAws_queryReorderReceiptRuleSetRequest = (
   }
   if (input.RuleNames != null) {
     const memberEntries = serializeAws_queryReceiptRuleNamesList(input.RuleNames, context);
+    if (input.RuleNames?.length === 0) {
+      entries.RuleNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RuleNames.${key}`;
       entries[loc] = value;
@@ -6208,6 +6259,9 @@ const serializeAws_querySendBounceRequest = (input: SendBounceRequest, context: 
   }
   if (input.BouncedRecipientInfoList != null) {
     const memberEntries = serializeAws_queryBouncedRecipientInfoList(input.BouncedRecipientInfoList, context);
+    if (input.BouncedRecipientInfoList?.length === 0) {
+      entries.BouncedRecipientInfoList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BouncedRecipientInfoList.${key}`;
       entries[loc] = value;
@@ -6232,6 +6286,9 @@ const serializeAws_querySendBulkTemplatedEmailRequest = (
   }
   if (input.ReplyToAddresses != null) {
     const memberEntries = serializeAws_queryAddressList(input.ReplyToAddresses, context);
+    if (input.ReplyToAddresses?.length === 0) {
+      entries.ReplyToAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplyToAddresses.${key}`;
       entries[loc] = value;
@@ -6248,6 +6305,9 @@ const serializeAws_querySendBulkTemplatedEmailRequest = (
   }
   if (input.DefaultTags != null) {
     const memberEntries = serializeAws_queryMessageTagList(input.DefaultTags, context);
+    if (input.DefaultTags?.length === 0) {
+      entries.DefaultTags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DefaultTags.${key}`;
       entries[loc] = value;
@@ -6264,6 +6324,9 @@ const serializeAws_querySendBulkTemplatedEmailRequest = (
   }
   if (input.Destinations != null) {
     const memberEntries = serializeAws_queryBulkEmailDestinationList(input.Destinations, context);
+    if (input.Destinations?.length === 0) {
+      entries.Destinations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Destinations.${key}`;
       entries[loc] = value;
@@ -6310,6 +6373,9 @@ const serializeAws_querySendEmailRequest = (input: SendEmailRequest, context: __
   }
   if (input.ReplyToAddresses != null) {
     const memberEntries = serializeAws_queryAddressList(input.ReplyToAddresses, context);
+    if (input.ReplyToAddresses?.length === 0) {
+      entries.ReplyToAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplyToAddresses.${key}`;
       entries[loc] = value;
@@ -6326,6 +6392,9 @@ const serializeAws_querySendEmailRequest = (input: SendEmailRequest, context: __
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryMessageTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -6344,6 +6413,9 @@ const serializeAws_querySendRawEmailRequest = (input: SendRawEmailRequest, conte
   }
   if (input.Destinations != null) {
     const memberEntries = serializeAws_queryAddressList(input.Destinations, context);
+    if (input.Destinations?.length === 0) {
+      entries.Destinations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Destinations.${key}`;
       entries[loc] = value;
@@ -6367,6 +6439,9 @@ const serializeAws_querySendRawEmailRequest = (input: SendRawEmailRequest, conte
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryMessageTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -6395,6 +6470,9 @@ const serializeAws_querySendTemplatedEmailRequest = (
   }
   if (input.ReplyToAddresses != null) {
     const memberEntries = serializeAws_queryAddressList(input.ReplyToAddresses, context);
+    if (input.ReplyToAddresses?.length === 0) {
+      entries.ReplyToAddresses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplyToAddresses.${key}`;
       entries[loc] = value;
@@ -6411,6 +6489,9 @@ const serializeAws_querySendTemplatedEmailRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryMessageTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;

@@ -3600,6 +3600,9 @@ const serializeAws_queryAddPermissionInput = (input: AddPermissionInput, context
   }
   if (input.AWSAccountId != null) {
     const memberEntries = serializeAws_queryDelegatesList(input.AWSAccountId, context);
+    if (input.AWSAccountId?.length === 0) {
+      entries.AWSAccountId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AWSAccountId.${key}`;
       entries[loc] = value;
@@ -3607,6 +3610,9 @@ const serializeAws_queryAddPermissionInput = (input: AddPermissionInput, context
   }
   if (input.ActionName != null) {
     const memberEntries = serializeAws_queryActionsList(input.ActionName, context);
+    if (input.ActionName?.length === 0) {
+      entries.ActionName = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionName.${key}`;
       entries[loc] = value;
@@ -3713,6 +3719,9 @@ const serializeAws_queryCreateTopicInput = (input: CreateTopicInput, context: __
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3812,6 +3821,9 @@ const serializeAws_queryGetSMSAttributesInput = (input: GetSMSAttributesInput, c
   const entries: any = {};
   if (input.attributes != null) {
     const memberEntries = serializeAws_queryListString(input.attributes, context);
+    if (input.attributes?.length === 0) {
+      entries.attributes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `attributes.${key}`;
       entries[loc] = value;
@@ -4026,6 +4038,9 @@ const serializeAws_queryPublishBatchInput = (input: PublishBatchInput, context: 
   }
   if (input.PublishBatchRequestEntries != null) {
     const memberEntries = serializeAws_queryPublishBatchRequestEntryList(input.PublishBatchRequestEntries, context);
+    if (input.PublishBatchRequestEntries?.length === 0) {
+      entries.PublishBatchRequestEntries = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PublishBatchRequestEntries.${key}`;
       entries[loc] = value;
@@ -4307,6 +4322,9 @@ const serializeAws_queryTagResourceRequest = (input: TagResourceRequest, context
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -4343,6 +4361,9 @@ const serializeAws_queryUntagResourceRequest = (input: UntagResourceRequest, con
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;

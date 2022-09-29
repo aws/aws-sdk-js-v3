@@ -1221,6 +1221,9 @@ const serializeAws_ec2NestedStructWithList = (input: NestedStructWithList, conte
   const entries: any = {};
   if (input.ListArg != null) {
     const memberEntries = serializeAws_ec2StringList(input.ListArg, context);
+    if (input.ListArg?.length === 0) {
+      entries.ListArg = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArg.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1247,6 +1250,9 @@ const serializeAws_ec2QueryListsInput = (input: QueryListsInput, context: __Serd
   const entries: any = {};
   if (input.ListArg != null) {
     const memberEntries = serializeAws_ec2StringList(input.ListArg, context);
+    if (input.ListArg?.length === 0) {
+      entries.ListArg = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArg.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1254,6 +1260,9 @@ const serializeAws_ec2QueryListsInput = (input: QueryListsInput, context: __Serd
   }
   if (input.ComplexListArg != null) {
     const memberEntries = serializeAws_ec2GreetingList(input.ComplexListArg, context);
+    if (input.ComplexListArg?.length === 0) {
+      entries.ComplexListArg = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ComplexListArg.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1261,6 +1270,9 @@ const serializeAws_ec2QueryListsInput = (input: QueryListsInput, context: __Serd
   }
   if (input.ListArgWithXmlNameMember != null) {
     const memberEntries = serializeAws_ec2ListWithXmlName(input.ListArgWithXmlNameMember, context);
+    if (input.ListArgWithXmlNameMember?.length === 0) {
+      entries.ListArgWithXmlNameMember = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArgWithXmlNameMember.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1268,6 +1280,9 @@ const serializeAws_ec2QueryListsInput = (input: QueryListsInput, context: __Serd
   }
   if (input.ListArgWithXmlName != null) {
     const memberEntries = serializeAws_ec2ListWithXmlName(input.ListArgWithXmlName, context);
+    if (input.ListArgWithXmlName?.length === 0) {
+      entries.Hi = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Hi.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
