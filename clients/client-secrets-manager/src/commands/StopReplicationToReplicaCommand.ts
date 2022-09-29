@@ -30,6 +30,7 @@ export interface StopReplicationToReplicaCommandOutput extends StopReplicationTo
 /**
  * <p>Removes the link between the replica secret and the primary secret and promotes the replica to a primary secret in the replica Region.</p>
  *          <p>You must call this operation from the Region in which you want to promote the replica to a primary secret.</p>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:StopReplicationToReplica</code>.

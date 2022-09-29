@@ -38,12 +38,15 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  *       than once every 10 minutes, you create more versions than Secrets Manager removes, and you will reach
  *       the quota for secret versions.</p>
  *          <p>If you include <code>SecretString</code> or <code>SecretBinary</code> to create a new
- *       secret version, Secrets Manager automatically attaches the staging label <code>AWSCURRENT</code> to the new
- *       version. </p>
+ *       secret version, Secrets Manager automatically moves the staging label <code>AWSCURRENT</code> to the new
+ *       version. Then it attaches the label <code>AWSPREVIOUS</code>
+ *         to the version that <code>AWSCURRENT</code> was removed from.</p>
+ *
  *          <p>If you call this operation with a <code>ClientRequestToken</code> that matches an existing version's
  *       <code>VersionId</code>, the operation results in an error. You can't modify an existing
  *       version, you can only create a new version. To remove a version, remove all staging labels from it. See
  *     <a>UpdateSecretVersionStage</a>.</p>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters except <code>SecretBinary</code> or <code>SecretString</code> because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:UpdateSecret</code>.

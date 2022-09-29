@@ -31,6 +31,7 @@ export interface RemoveRegionsFromReplicationCommandOutput
 
 /**
  * <p>For a secret that is replicated to other Regions, deletes the secret replicas from the Regions you specify.</p>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:RemoveRegionsFromReplication</code>.

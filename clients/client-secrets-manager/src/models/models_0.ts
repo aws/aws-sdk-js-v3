@@ -781,7 +781,14 @@ export interface DescribeSecretResponse {
   ReplicationStatus?: ReplicationStatusType[];
 }
 
-export type FilterNameStringType = "all" | "description" | "name" | "primary-region" | "tag-key" | "tag-value";
+export enum FilterNameStringType {
+  all = "all",
+  description = "description",
+  name = "name",
+  primary_region = "primary-region",
+  tag_key = "tag-key",
+  tag_value = "tag-value",
+}
 
 /**
  * <p>Allows you to add filters when you use the search function in Secrets Manager. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_search-secret.html">Find secrets in Secrets Manager</a>.</p>
