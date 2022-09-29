@@ -6,8 +6,16 @@ export const evaluateCondition = ({ assign, ...fnArgs }: ConditionObject, option
     throw new EndpointError(`'${assign}' is already defined in Reference Record.`);
   }
   const value = callFunction(fnArgs, options);
-  return {
+  const output = {
     result: value === "" ? true : !!value,
     ...(assign != null && { toAssign: { name: assign, value } }),
   };
+
+  // console.log("evaluateCondition", {
+  //   args: JSON.stringify(fnArgs),
+  //   references: options.referenceRecord,
+  //   output,
+  // });
+
+  return output;
 };

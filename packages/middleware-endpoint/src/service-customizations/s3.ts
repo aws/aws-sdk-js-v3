@@ -1,35 +1,13 @@
-import { EndpointParameters, HandlerExecutionContext, SerializeHandlerArguments } from "@aws-sdk/types";
+import { EndpointParameters } from "@aws-sdk/types";
 
-import { getEndpointFromInstructions } from "../adaptors";
-import { PreviouslyResolvedServiceId } from "../endpointMiddleware";
-import { EndpointResolvedConfig } from "../resolveEndpointConfig";
-import { EndpointParameterInstructions } from "../types";
-
-/**
- * Bucket name DNS compatibility customization.
- */
-export const s3Customizations = async <T extends EndpointParameters>(
-  config: EndpointResolvedConfig<T> & PreviouslyResolvedServiceId,
-  instructions: EndpointParameterInstructions,
-  args: SerializeHandlerArguments<any>,
-  context: HandlerExecutionContext
-) => {
-  const endpoint = context.endpointV2;
-  const bucket: string | undefined = args.input?.Bucket || void 0;
-
-  if (!endpoint || !bucket) {
-    return;
-  }
+export const resolveParamsForS3 = async (endpointParams: EndpointParameters) => {
+  const bucket = (endpointParams?.Bucket as string) || "";
 
   if (!isDnsCompatibleBucketName(bucket) || bucket.indexOf(".") !== -1) {
-    context.endpointV2 = await getEndpointFromInstructions(
-      args.input,
-      {
-        getEndpointParameterInstructions: () => instructions,
-      },
-      { ...config, forcePathStyle: true }
-    );
+    endpointParams.ForcePathStyle = true;
   }
+
+  return endpointParams;
 };
 
 const DOMAIN_PATTERN = /^[a-z0-9][a-z0-9\.\-]{1,61}[a-z0-9]$/;

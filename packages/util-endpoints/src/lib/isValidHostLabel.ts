@@ -1,4 +1,4 @@
-const VALID_HOST_LABEL_REGEX = new RegExp(`^(?![0-9]+$)(?!.*-$)(?!-)[a-zA-Z0-9-]{1,63}$`);
+const VALID_HOST_LABEL_REGEX = new RegExp(`^(?!.*-$)(?!-)[a-zA-Z0-9-]{1,63}$`);
 
 /**
  * Evaluates whether one or more string values are valid host labels per RFC 1123.

@@ -1,6 +1,7 @@
 import { EndpointParameters, EndpointV2, HandlerExecutionContext } from "@aws-sdk/types";
 
 import { EndpointResolvedConfig } from "../resolveEndpointConfig";
+import { resolveParamsForS3 } from "../service-customizations";
 import { EndpointParameterInstructions } from "../types";
 
 export type EndpointParameterInstructionsSupplier = Partial<{
@@ -31,13 +32,28 @@ export const getEndpointFromInstructions = async <
   clientConfig: Partial<EndpointResolvedConfig<T>> & Config,
   context?: HandlerExecutionContext
 ): Promise<EndpointV2> => {
-  const endpointParams: EndpointParameters = {};
-  const instructions: EndpointParameterInstructions =
-    (instructionsSupplier.getEndpointParameterInstructions || (() => null))() || {};
+  const endpointParams = await resolveParams(commandInput, instructionsSupplier, clientConfig);
 
   if (typeof clientConfig.endpointProvider !== "function") {
     throw new Error("config.endpointProvider is not set.");
   }
+  const endpoint: EndpointV2 = clientConfig.endpointProvider!(endpointParams as T, context);
+
+  return endpoint;
+};
+
+export const resolveParams = async <
+  T extends EndpointParameters,
+  CommandInput extends Record<string, unknown>,
+  Config extends Record<string, unknown>
+>(
+  commandInput: CommandInput,
+  instructionsSupplier: EndpointParameterInstructionsSupplier,
+  clientConfig: Partial<EndpointResolvedConfig<T>> & Config
+) => {
+  const endpointParams: EndpointParameters = {};
+  const instructions: EndpointParameterInstructions =
+    (instructionsSupplier.getEndpointParameterInstructions || (() => null))() || {};
 
   for (const [name, instruction] of Object.entries(instructions)) {
     switch (instruction.type) {
@@ -49,25 +65,35 @@ export const getEndpointFromInstructions = async <
         break;
       case "clientContextParams":
       case "builtInParams":
-        endpointParams[name] = await createConfigProvider<Config>(instruction.name, clientConfig)();
+        endpointParams[name] = await createConfigProvider<Config>(instruction.name, name, clientConfig)();
         break;
       default:
         throw new Error("Unrecognized endpoint parameter instruction: " + JSON.stringify(instruction));
     }
   }
 
-  const endpoint: EndpointV2 = clientConfig.endpointProvider!(endpointParams as T, context);
+  if (Object.keys(instructions).length === 0) {
+    Object.assign(endpointParams, clientConfig);
+  }
 
-  return endpoint;
+  if (String(clientConfig.serviceId).toLowerCase() === "s3") {
+    resolveParamsForS3(endpointParams);
+  }
+
+  return endpointParams;
 };
 
 /**
  * Normalize some key of the client config to an async provider.
  * @private
  */
-const createConfigProvider = <Config extends Record<string, unknown>>(configKey: string, config: Config) => {
+const createConfigProvider = <Config extends Record<string, unknown>>(
+  configKey: string,
+  canonicalEndpointParamKey: string,
+  config: Config
+) => {
   const configProvider = async () => {
-    const configValue: unknown = config[configKey];
+    const configValue: unknown = config[configKey] || config[canonicalEndpointParamKey];
     if (typeof configValue === "function") {
       return configValue();
     }
