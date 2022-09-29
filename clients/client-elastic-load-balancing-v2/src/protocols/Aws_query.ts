@@ -6723,7 +6723,9 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
 
 const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
   const value = await parseBody(errorBody, context);
-  value.message = value.message ?? value.Message;
+  if (value.Error) {
+    value.Error.message = value.Error.message ?? value.Error.Message;
+  }
   return value;
 };
 
