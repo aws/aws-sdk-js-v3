@@ -29,6 +29,8 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
 
 /**
  * <p>Returns detailed metadata about the specified ACM certificate.</p>
+ *          <p>If you have just created a certificate using the <code>RequestCertificate</code> action,
+ *       there is a delay of several seconds before you can retrieve information about it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

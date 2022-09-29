@@ -28,21 +28,17 @@ export interface ImportCertificateCommandInput extends ImportCertificateRequest 
 export interface ImportCertificateCommandOutput extends ImportCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Imports a certificate into Amazon Web Services Certificate Manager (ACM) to use with services that are integrated with
+ * <p>Imports a certificate into Certificate Manager (ACM) to use with services that are integrated with
  *       ACM. Note that <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-services.html">integrated
  *         services</a> allow only certificate types and keys they support to be associated with
  *       their resources. Further, their support differs depending on whether the certificate is
  *       imported into IAM or into ACM. For more information, see the documentation for each
  *       service. For more information about importing certificates into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
- *         Certificates</a> in the <i>Amazon Web Services Certificate Manager User Guide</i>. </p>
- *
+ *         Certificates</a> in the <i>Certificate Manager User Guide</i>. </p>
  *          <note>
  *             <p>ACM does not provide <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for certificates that you import.</p>
  *          </note>
- *
  *          <p>Note the following guidelines when importing third party certificates:</p>
- *
- *
  *          <ul>
  *             <li>
  *                <p>You must enter the private key that matches the certificate you are importing.</p>
@@ -98,7 +94,6 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  *           must also be RSA.</p>
  *             </li>
  *          </ul>
- *
  *          <p>This operation returns the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
  *         Resource Name (ARN)</a> of the imported certificate.</p>
  * @example

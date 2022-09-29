@@ -79,9 +79,9 @@ import {
 } from "./commands/UpdateCertificateOptionsCommand";
 
 /**
- * <fullname>Amazon Web Services Certificate Manager</fullname>
- *          <p>You can use Amazon Web Services Certificate Manager (ACM) to manage SSL/TLS certificates for your Amazon Web Services-based websites
- *       and applications. For more information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Amazon Web Services Certificate Manager User Guide</a>.</p>
+ * <fullname>Certificate Manager</fullname>
+ *          <p>You can use Certificate Manager (ACM) to manage SSL/TLS certificates for your Amazon Web Services-based websites
+ *       and applications. For more information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
  */
 export class ACM extends ACMClient {
   /**
@@ -89,7 +89,6 @@ export class ACM extends ACMClient {
    *       identify and organize your Amazon Web Services resources. Each tag consists of a <code>key</code> and an
    *       optional <code>value</code>. You specify the certificate on input by its Amazon Resource Name
    *       (ARN). You specify the tag by using a key-value pair. </p>
-   *
    *          <p>You can apply a tag to just one certificate if you want to identify a specific
    *       characteristic of that certificate, or you can apply the same tag to multiple certificates if
    *       you want to filter for a common relationship among those certificates. Similarly, you can
@@ -98,7 +97,6 @@ export class ACM extends ACMClient {
    *       Balancing load balancer to indicate that they are both used by the same website. For more
    *       information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/tags.html">Tagging ACM
    *         certificates</a>. </p>
-   *
    *          <p>To remove one or more tags, use the <a>RemoveTagsFromCertificate</a> action. To
    *       view all of the tags that have been applied to the certificate, use the <a>ListTagsForCertificate</a> action. </p>
    */
@@ -172,6 +170,8 @@ export class ACM extends ACMClient {
 
   /**
    * <p>Returns detailed metadata about the specified ACM certificate.</p>
+   *          <p>If you have just created a certificate using the <code>RequestCertificate</code> action,
+   *       there is a delay of several seconds before you can retrieve information about it.</p>
    */
   public describeCertificate(
     args: DescribeCertificateCommandInput,
@@ -241,8 +241,7 @@ export class ACM extends ACMClient {
   }
 
   /**
-   * <p>Returns the account
-   *       configuration options associated with an Amazon Web Services account.</p>
+   * <p>Returns the account configuration options associated with an Amazon Web Services account.</p>
    */
   public getAccountConfiguration(
     args: GetAccountConfigurationCommandInput,
@@ -309,21 +308,17 @@ export class ACM extends ACMClient {
   }
 
   /**
-   * <p>Imports a certificate into Amazon Web Services Certificate Manager (ACM) to use with services that are integrated with
+   * <p>Imports a certificate into Certificate Manager (ACM) to use with services that are integrated with
    *       ACM. Note that <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-services.html">integrated
    *         services</a> allow only certificate types and keys they support to be associated with
    *       their resources. Further, their support differs depending on whether the certificate is
    *       imported into IAM or into ACM. For more information, see the documentation for each
    *       service. For more information about importing certificates into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
-   *         Certificates</a> in the <i>Amazon Web Services Certificate Manager User Guide</i>. </p>
-   *
+   *         Certificates</a> in the <i>Certificate Manager User Guide</i>. </p>
    *          <note>
    *             <p>ACM does not provide <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for certificates that you import.</p>
    *          </note>
-   *
    *          <p>Note the following guidelines when importing third party certificates:</p>
-   *
-   *
    *          <ul>
    *             <li>
    *                <p>You must enter the private key that matches the certificate you are importing.</p>
@@ -379,7 +374,6 @@ export class ACM extends ACMClient {
    *           must also be RSA.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>This operation returns the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
    *         Resource Name (ARN)</a> of the imported certificate.</p>
    */
@@ -482,12 +476,9 @@ export class ACM extends ACMClient {
   }
 
   /**
-   * <p>Adds or modifies
-   *       account-level configurations in ACM.
-   *       </p>
-   *          <p>The
-   *       supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies the
-   *       number of days prior to certificate expiration when ACM starts generating
+   * <p>Adds or modifies account-level configurations in ACM. </p>
+   *          <p>The supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies
+   *       the number of days prior to certificate expiration when ACM starts generating
    *         <code>EventBridge</code> events. ACM sends one event per day per certificate until the
    *       certificate expires. By default, accounts receive events starting 45 days before certificate
    *       expiration.</p>
@@ -526,7 +517,6 @@ export class ACM extends ACMClient {
    *       you do not specify the value portion of the tag when calling this function, the tag will be
    *       removed regardless of value. If you specify a value, the tag is removed only if it is
    *       associated with the specified value. </p>
-   *
    *          <p>To add tags to a certificate, use the <a>AddTagsToCertificate</a> action. To
    *       view all of the tags that have been applied to a specific ACM certificate, use the <a>ListTagsForCertificate</a> action. </p>
    */
@@ -561,8 +551,8 @@ export class ACM extends ACMClient {
 
   /**
    * <p>Renews an eligible ACM certificate. At this time, only exported private certificates can
-   *       be renewed with this operation. In order to renew your ACM PCA certificates with ACM, you must
-   *       first <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html">grant the ACM
+   *       be renewed with this operation. In order to renew your ACM Private CA certificates with ACM, you
+   *       must first <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html">grant the ACM
    *         service principal permission to do so</a>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html">Testing Managed Renewal</a>
    *       in the ACM User Guide.</p>
    */
@@ -605,12 +595,13 @@ export class ACM extends ACMClient {
    *       that you own or control the domain. You can use <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email validation</a>.
    *       We recommend that you use DNS validation. ACM issues public certificates after receiving
    *       approval from the domain owner. </p>
-   *
    *          <note>
-   *             <p>ACM behavior differs from the <a href="https://tools.ietf.org/html/rfc6125#appendix-B.2">https://tools.ietf.org/html/rfc6125#appendix-B.2</a>RFC 6125 specification of the
-   *         certificate validation process. first checks for a subject alternative name, and, if it
-   *         finds one, ignores the common name (CN)</p>
+   *             <p>ACM behavior differs from the <a href="https://datatracker.ietf.org/doc/html/rfc6125#appendix-B.2">RFC 6125</a>
+   *         specification of the certificate validation process. ACM first checks for a Subject
+   *         Alternative Name, and, if it finds one, ignores the common name (CN).</p>
    *          </note>
+   *          <p>After successful completion of the <code>RequestCertificate</code> action, there is a
+   *       delay of several seconds before you can retrieve information about the new certificate.</p>
    */
   public requestCertificate(
     args: RequestCertificateCommandInput,

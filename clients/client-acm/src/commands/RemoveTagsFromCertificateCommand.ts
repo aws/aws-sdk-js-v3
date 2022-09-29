@@ -30,7 +30,6 @@ export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer
  *       you do not specify the value portion of the tag when calling this function, the tag will be
  *       removed regardless of value. If you specify a value, the tag is removed only if it is
  *       associated with the specified value. </p>
- *
  *          <p>To add tags to a certificate, use the <a>AddTagsToCertificate</a> action. To
  *       view all of the tags that have been applied to a specific ACM certificate, use the <a>ListTagsForCertificate</a> action. </p>
  * @example

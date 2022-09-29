@@ -23,12 +23,9 @@ export interface PutAccountConfigurationCommandInput extends PutAccountConfigura
 export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds or modifies
- *       account-level configurations in ACM.
- *       </p>
- *          <p>The
- *       supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies the
- *       number of days prior to certificate expiration when ACM starts generating
+ * <p>Adds or modifies account-level configurations in ACM. </p>
+ *          <p>The supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies
+ *       the number of days prior to certificate expiration when ACM starts generating
  *         <code>EventBridge</code> events. ACM sends one event per day per certificate until the
  *       certificate expires. By default, accounts receive events starting 45 days before certificate
  *       expiration.</p>

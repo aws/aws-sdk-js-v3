@@ -2,6 +2,7 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -1391,6 +1392,8 @@ const serializeAws_json1_1ListCertificatesRequest = (input: ListCertificatesRequ
     ...(input.Includes != null && { Includes: serializeAws_json1_1Filters(input.Includes, context) }),
     ...(input.MaxItems != null && { MaxItems: input.MaxItems }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -1549,7 +1552,35 @@ const deserializeAws_json1_1CertificateOptions = (output: any, context: __SerdeC
 const deserializeAws_json1_1CertificateSummary = (output: any, context: __SerdeContext): CertificateSummary => {
   return {
     CertificateArn: __expectString(output.CertificateArn),
+    CreatedAt:
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DomainName: __expectString(output.DomainName),
+    Exported: __expectBoolean(output.Exported),
+    ExtendedKeyUsages:
+      output.ExtendedKeyUsages != null
+        ? deserializeAws_json1_1ExtendedKeyUsageNames(output.ExtendedKeyUsages, context)
+        : undefined,
+    HasAdditionalSubjectAlternativeNames: __expectBoolean(output.HasAdditionalSubjectAlternativeNames),
+    ImportedAt:
+      output.ImportedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ImportedAt))) : undefined,
+    InUse: __expectBoolean(output.InUse),
+    IssuedAt:
+      output.IssuedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.IssuedAt))) : undefined,
+    KeyAlgorithm: __expectString(output.KeyAlgorithm),
+    KeyUsages: output.KeyUsages != null ? deserializeAws_json1_1KeyUsageNames(output.KeyUsages, context) : undefined,
+    NotAfter:
+      output.NotAfter != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotAfter))) : undefined,
+    NotBefore:
+      output.NotBefore != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotBefore))) : undefined,
+    RenewalEligibility: __expectString(output.RenewalEligibility),
+    RevokedAt:
+      output.RevokedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RevokedAt))) : undefined,
+    Status: __expectString(output.Status),
+    SubjectAlternativeNameSummaries:
+      output.SubjectAlternativeNameSummaries != null
+        ? deserializeAws_json1_1DomainList(output.SubjectAlternativeNameSummaries, context)
+        : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -1659,6 +1690,21 @@ const deserializeAws_json1_1ExtendedKeyUsageList = (output: any, context: __Serd
   return retVal;
 };
 
+const deserializeAws_json1_1ExtendedKeyUsageNames = (
+  output: any,
+  context: __SerdeContext
+): (ExtendedKeyUsageName | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1GetAccountConfigurationResponse = (
   output: any,
   context: __SerdeContext
@@ -1755,6 +1801,18 @@ const deserializeAws_json1_1KeyUsageList = (output: any, context: __SerdeContext
         return null as any;
       }
       return deserializeAws_json1_1KeyUsage(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1KeyUsageNames = (output: any, context: __SerdeContext): (KeyUsageName | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };

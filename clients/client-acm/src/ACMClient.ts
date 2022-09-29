@@ -282,9 +282,9 @@ type ACMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
 export interface ACMClientResolvedConfig extends ACMClientResolvedConfigType {}
 
 /**
- * <fullname>Amazon Web Services Certificate Manager</fullname>
- *          <p>You can use Amazon Web Services Certificate Manager (ACM) to manage SSL/TLS certificates for your Amazon Web Services-based websites
- *       and applications. For more information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Amazon Web Services Certificate Manager User Guide</a>.</p>
+ * <fullname>Certificate Manager</fullname>
+ *          <p>You can use Certificate Manager (ACM) to manage SSL/TLS certificates for your Amazon Web Services-based websites
+ *       and applications. For more information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
  */
 export class ACMClient extends __Client<
   __HttpHandlerOptions,

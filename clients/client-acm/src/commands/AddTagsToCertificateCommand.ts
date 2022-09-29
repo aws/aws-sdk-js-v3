@@ -27,7 +27,6 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  *       identify and organize your Amazon Web Services resources. Each tag consists of a <code>key</code> and an
  *       optional <code>value</code>. You specify the certificate on input by its Amazon Resource Name
  *       (ARN). You specify the tag by using a key-value pair. </p>
- *
  *          <p>You can apply a tag to just one certificate if you want to identify a specific
  *       characteristic of that certificate, or you can apply the same tag to multiple certificates if
  *       you want to filter for a common relationship among those certificates. Similarly, you can
@@ -36,7 +35,6 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  *       Balancing load balancer to indicate that they are both used by the same website. For more
  *       information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/tags.html">Tagging ACM
  *         certificates</a>. </p>
- *
  *          <p>To remove one or more tags, use the <a>RemoveTagsFromCertificate</a> action. To
  *       view all of the tags that have been applied to the certificate, use the <a>ListTagsForCertificate</a> action. </p>
  * @example

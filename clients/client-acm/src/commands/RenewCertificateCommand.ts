@@ -24,8 +24,8 @@ export interface RenewCertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Renews an eligible ACM certificate. At this time, only exported private certificates can
- *       be renewed with this operation. In order to renew your ACM PCA certificates with ACM, you must
- *       first <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html">grant the ACM
+ *       be renewed with this operation. In order to renew your ACM Private CA certificates with ACM, you
+ *       must first <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html">grant the ACM
  *         service principal permission to do so</a>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html">Testing Managed Renewal</a>
  *       in the ACM User Guide.</p>
  * @example

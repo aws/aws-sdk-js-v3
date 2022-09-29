@@ -23,8 +23,7 @@ export interface GetAccountConfigurationCommandInput {}
 export interface GetAccountConfigurationCommandOutput extends GetAccountConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the account
- *       configuration options associated with an Amazon Web Services account.</p>
+ * <p>Returns the account configuration options associated with an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
