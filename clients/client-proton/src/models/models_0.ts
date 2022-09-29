@@ -71,8 +71,8 @@ export interface EnvironmentAccountConnection {
    *          <p>The environment account connection must have a <code>componentRoleArn</code> to allow directly defined components to be associated with any
    *       environments running in the account.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
 }
@@ -209,11 +209,11 @@ export enum RepositoryProvider {
 }
 
 /**
- * <p>Detail data for a repository branch.</p>
+ * <p>Detail data for a linked repository branch.</p>
  */
 export interface RepositoryBranch {
   /**
-   * <p>The Amazon Resource Name (ARN) of the repository branch.</p>
+   * <p>The Amazon Resource Name (ARN) of the linked repository.</p>
    */
   arn: string | undefined;
 
@@ -234,7 +234,7 @@ export interface RepositoryBranch {
 }
 
 /**
- * <p>The Proton pipeline service role and repository data shared across the Amazon Web Services account.</p>
+ * <p>Proton settings that are used for multiple services in the Amazon Web Services account.</p>
  */
 export interface AccountSettings {
   /**
@@ -244,8 +244,8 @@ export interface AccountSettings {
   pipelineServiceRoleArn?: string;
 
   /**
-   * <p>The repository configured in the Amazon Web Services account for pipeline provisioning. Required it if you have environments configured for self-managed
-   *       provisioning with services that include pipelines.</p>
+   * <p>The linked repository for pipeline provisioning. Required if you have environments configured for self-managed provisioning with services that include
+   *       pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
    */
   pipelineProvisioningRepository?: RepositoryBranch;
 }
@@ -260,7 +260,7 @@ export interface GetAccountSettingsOutput {
 }
 
 /**
- * <p>Detail input data for a repository branch.</p>
+ * <p>Detail input data for a linked repository branch.</p>
  */
 export interface RepositoryBranchInput {
   /**
@@ -283,14 +283,23 @@ export interface UpdateAccountSettingsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by
    *       customer-owned automation for self-managed provisioning.</p>
+   *          <p>To remove a previously configured ARN, specify an empty string.</p>
    */
   pipelineServiceRoleArn?: string;
 
   /**
-   * <p>A repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that include
-   *       pipelines.</p>
+   * <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that include
+   *       pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
+   *          <p>To remove a previously configured repository, set <code>deletePipelineProvisioningRepository</code> to <code>true</code>, and don't set
+   *       <code>pipelineProvisioningRepository</code>.</p>
    */
   pipelineProvisioningRepository?: RepositoryBranchInput;
+
+  /**
+   * <p>Set to <code>true</code> to remove a configured pipeline repository from the account settings. Don't set this field if you are updating the configured
+   *       pipeline repository.</p>
+   */
+  deletePipelineProvisioningRepository?: boolean;
 }
 
 export interface UpdateAccountSettingsOutput {
@@ -321,8 +330,8 @@ export enum DeploymentStatus {
 /**
  * <p>Detailed data of an Proton component resource.</p>
  *          <p>For more information about components, see
- *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
- *   <i>Proton Administrator Guide</i>.</p>
+ *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+ *   <i>Proton User Guide</i>.</p>
  */
 export interface Component {
   /**
@@ -494,7 +503,8 @@ export interface Environment {
   provisioning?: Provisioning | string;
 
   /**
-   * <p>The infrastructure repository that you use to host your rendered infrastructure templates for self-managed provisioning.</p>
+   * <p>The linked repository that you use to host your rendered infrastructure templates for self-managed provisioning. A linked repository is a repository
+   *       that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
    */
   provisioningRepository?: RepositoryBranch;
 
@@ -503,8 +513,8 @@ export interface Environment {
    *       determines the scope of infrastructure that a component can provision.</p>
    *          <p>The environment must have a <code>componentRoleArn</code> to allow directly defined components to be associated with the environment.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
 }
@@ -748,7 +758,7 @@ export interface ProvisionedResource {
   /**
    * <p>The resource provisioning engine. At this time, <code>CLOUDFORMATION</code> can be used for Amazon Web Services-managed provisioning, and <code>TERRAFORM</code> can
    *       be used for self-managed provisioning.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton Administrator Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton User Guide</i>.</p>
    */
   provisioningEngine?: ProvisionedResourceEngine | string;
 }
@@ -832,7 +842,8 @@ export interface CreateComponentInput {
 
   /**
    * <p>An optional list of metadata items that you can associate with the Proton component. A tag is a key-value pair.</p>
-   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
+   *         <i>Proton User Guide</i>.</p>
    */
   tags?: Tag[];
 }
@@ -845,8 +856,8 @@ export interface CreateComponentOutput {
 }
 
 /**
- * <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-limits.html">Proton Quotas</a> in the <i>Proton Administrator
- *     Guide</i>.</p>
+ * <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html">Proton Quotas</a> in
+ *       the <i>Proton User Guide</i>.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -924,8 +935,8 @@ export interface ListComponentsInput {
 /**
  * <p>Summary data of an Proton component resource.</p>
  *          <p>For more information about components, see
- *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
- *   <i>Proton Administrator Guide</i>.</p>
+ *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+ *   <i>Proton User Guide</i>.</p>
  */
 export interface ComponentSummary {
   /**
@@ -1098,8 +1109,8 @@ export interface CreateEnvironmentAccountConnectionInput {
 
   /**
    * <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton resources and tagging</a> in the
-   *         <i>Proton Administrator Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
+   *         <i>Proton User Guide</i>.</p>
    */
   tags?: Tag[];
 
@@ -1109,8 +1120,8 @@ export interface CreateEnvironmentAccountConnectionInput {
    *          <p>You must specify <code>componentRoleArn</code> to allow directly defined components to be associated with any environments running in this
    *       account.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
 }
@@ -1238,8 +1249,8 @@ export interface EnvironmentAccountConnectionSummary {
    *          <p>The environment account connection must have a <code>componentRoleArn</code> to allow directly defined components to be associated with any
    *       environments running in the account.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
 }
@@ -1288,8 +1299,8 @@ export interface UpdateEnvironmentAccountConnectionInput {
    *          <p>The environment account connection must have a <code>componentRoleArn</code> to allow directly defined components to be associated with any
    *       environments running in the account.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
 }
@@ -1360,7 +1371,7 @@ export interface CreateEnvironmentInput {
   name: string | undefined;
 
   /**
-   * <p>The name of the environment template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment Templates</a> in the <i>Proton Administrator Guide</i>.</p>
+   * <p>The name of the environment template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Environment Templates</a> in the <i>Proton User Guide</i>.</p>
    */
   templateName: string | undefined;
 
@@ -1380,7 +1391,7 @@ export interface CreateEnvironmentInput {
   description?: string;
 
   /**
-   * <p>A YAML formatted string that provides inputs as defined in the environment template bundle schema file. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> in the <i>Proton Administrator
+   * <p>A YAML formatted string that provides inputs as defined in the environment template bundle schema file. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a> in the <i>Proton User
    *       Guide</i>.</p>
    */
   spec: string | undefined;
@@ -1394,8 +1405,8 @@ export interface CreateEnvironmentInput {
 
   /**
    * <p>The ID of the environment account connection that you provide if you're provisioning your environment infrastructure resources to an environment
-   *       account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *         connections</a> in the <i>Proton Administrator guide</i>.</p>
+   *       account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
+   *         connections</a> in the <i>Proton User guide</i>.</p>
    *          <p>To use Amazon Web Services-managed provisioning for the environment, specify either the <code>environmentAccountConnectionId</code> or
    *         <code>protonServiceRoleArn</code> parameter and omit the <code>provisioningRepository</code> parameter.</p>
    */
@@ -1403,12 +1414,14 @@ export interface CreateEnvironmentInput {
 
   /**
    * <p>An optional list of metadata items that you can associate with the Proton environment. A tag is a key-value pair.</p>
-   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
+   *         <i>Proton User Guide</i>.</p>
    */
   tags?: Tag[];
 
   /**
-   * <p>The infrastructure repository that you use to host your rendered infrastructure templates for self-managed provisioning.</p>
+   * <p>The linked repository that you use to host your rendered infrastructure templates for self-managed provisioning. A linked repository is a repository
+   *       that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
    *          <p>To use self-managed provisioning for the environment, specify this parameter and omit the <code>environmentAccountConnectionId</code> and
    *         <code>protonServiceRoleArn</code> parameters.</p>
    */
@@ -1419,8 +1432,8 @@ export interface CreateEnvironmentInput {
    *       determines the scope of infrastructure that a component can provision.</p>
    *          <p>You must specify <code>componentRoleArn</code> to allow directly defined components to be associated with this environment.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
 }
@@ -1577,8 +1590,8 @@ export interface EnvironmentSummary {
    *       determines the scope of infrastructure that a component can provision.</p>
    *          <p>The environment must have a <code>componentRoleArn</code> to allow directly defined components to be associated with the environment.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
 }
@@ -1679,7 +1692,8 @@ export interface UpdateEnvironmentInput {
   environmentAccountConnectionId?: string;
 
   /**
-   * <p>The infrastructure repository that you use to host your rendered infrastructure templates for self-managed provisioning.</p>
+   * <p>The linked repository that you use to host your rendered infrastructure templates for self-managed provisioning. A linked repository is a repository
+   *       that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
    */
   provisioningRepository?: RepositoryBranchInput;
 
@@ -1688,8 +1702,8 @@ export interface UpdateEnvironmentInput {
    *       determines the scope of infrastructure that a component can provision.</p>
    *          <p>The environment must have a <code>componentRoleArn</code> to allow directly defined components to be associated with the environment.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
 }
@@ -1729,7 +1743,8 @@ export interface CreateEnvironmentTemplateInput {
 
   /**
    * <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
-   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
+   *         <i>Proton User Guide</i>.</p>
    */
   tags?: Tag[];
 }
@@ -1991,7 +2006,8 @@ export interface CreateEnvironmentTemplateVersionInput {
 
   /**
    * <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p>
-   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
+   *         <i>Proton User Guide</i>.</p>
    */
   tags?: Tag[];
 }
@@ -2096,7 +2112,7 @@ export interface DeleteEnvironmentTemplateVersionOutput {
 
 export interface GetEnvironmentTemplateVersionInput {
   /**
-   * <p>The name of the environment template a version of which you want to get detailed data for..</p>
+   * <p>The name of the environment template a version of which you want to get detailed data for.</p>
    */
   templateName: string | undefined;
 
@@ -2527,7 +2543,7 @@ export interface ListRepositorySyncDefinitionsInput {
 }
 
 /**
- * <p>The repository sync definition.</p>
+ * <p>A repository sync definition.</p>
  */
 export interface RepositorySyncDefinition {
   /**
@@ -2641,8 +2657,8 @@ export interface CreateRepositoryInput {
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of your Amazon Web Services CodeStar connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html">Setting up for Proton</a> in the <i>Proton Administrator
-   *       Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of your AWS CodeStar connection that connects Proton to your repository provider account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html">Setting up for Proton</a> in the <i>Proton User
+   *         Guide</i>.</p>
    */
   connectionArn: string | undefined;
 
@@ -2653,17 +2669,18 @@ export interface CreateRepositoryInput {
 
   /**
    * <p>An optional list of metadata items that you can associate with the Proton repository. A tag is a key-value pair.</p>
-   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
+   *         <i>Proton User Guide</i>.</p>
    */
   tags?: Tag[];
 }
 
 /**
- * <p>Detailed data of a repository that has been registered with Proton.</p>
+ * <p>Detailed data of a linked repository—a repository that has been registered with Proton.</p>
  */
 export interface Repository {
   /**
-   * <p>The repository Amazon Resource Name (ARN).</p>
+   * <p>The Amazon Resource Name (ARN) of the linked repository.</p>
    */
   arn: string | undefined;
 
@@ -2678,7 +2695,7 @@ export interface Repository {
   name: string | undefined;
 
   /**
-   * <p>The repository Amazon Web Services CodeStar connection that connects Proton to your repository.</p>
+   * <p>The Amazon Resource Name (ARN) of your AWS CodeStar connection that connects Proton to your repository provider account.</p>
    */
   connectionArn: string | undefined;
 
@@ -2690,7 +2707,7 @@ export interface Repository {
 
 export interface CreateRepositoryOutput {
   /**
-   * <p>The repository detail data that's returned by Proton.</p>
+   * <p>The repository link's detail data that's returned by Proton.</p>
    */
   repository: Repository | undefined;
 }
@@ -2702,14 +2719,14 @@ export interface DeleteRepositoryInput {
   provider: RepositoryProvider | string | undefined;
 
   /**
-   * <p>The name of the repository.</p>
+   * <p>The repository name.</p>
    */
   name: string | undefined;
 }
 
 export interface DeleteRepositoryOutput {
   /**
-   * <p>The repository detail data that's returned by Proton.</p>
+   * <p>The deleted repository link's detail data that's returned by Proton.</p>
    */
   repository?: Repository;
 }
@@ -2728,7 +2745,7 @@ export interface GetRepositoryInput {
 
 export interface GetRepositoryOutput {
   /**
-   * <p>The repository detail data that's returned by Proton.</p>
+   * <p>The repository link's detail data that's returned by Proton.</p>
    */
   repository: Repository | undefined;
 }
@@ -2746,11 +2763,11 @@ export interface ListRepositoriesInput {
 }
 
 /**
- * <p>Summary data of a repository that has been registered with Proton.</p>
+ * <p>Summary data of a linked repository—a repository that has been registered with Proton.</p>
  */
 export interface RepositorySummary {
   /**
-   * <p>The Amazon Resource Name (ARN) for a repository.</p>
+   * <p>The Amazon Resource Name (ARN) of the linked repository.</p>
    */
   arn: string | undefined;
 
@@ -2772,7 +2789,7 @@ export interface ListRepositoriesOutput {
   nextToken?: string;
 
   /**
-   * <p>An array of repositories.</p>
+   * <p>An array of repository links.</p>
    */
   repositories: RepositorySummary[] | undefined;
 }
@@ -3171,17 +3188,15 @@ export interface CreateServiceInput {
   /**
    * <p>A link to a spec file that provides inputs as defined in the service template bundle schema file. The spec file is in YAML format.
    *         <i>Don’t</i> include pipeline inputs in the spec if your service template <i>doesn’t</i> include a service pipeline. For
-   *       more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-svc.html.html">Create a service</a> in the
-   *         <i>Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-create.html">Create a
-   *         service</a> in the <i>Proton User Guide</i>.</p>
+   *       more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-create-svc.html">Create a service</a> in the <i>Proton
+   *         User Guide</i>.</p>
    */
   spec: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the repository connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol">Set up repository connection</a> in the <i>Proton
-   *         Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection">Setting up with
-   *         Proton</a> in the <i>Proton User Guide</i>. <i>Don't</i> include this parameter if your service template
-   *         <i>doesn't</i> include a service pipeline.</p>
+   * <p>The Amazon Resource Name (ARN) of the repository connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol">Setting up an AWS CodeStar connection</a> in the <i>Proton User
+   *         Guide</i>. <i>Don't</i> include this parameter if your service template <i>doesn't</i> include a service
+   *       pipeline.</p>
    */
   repositoryConnectionArn?: string;
 
@@ -3199,7 +3214,8 @@ export interface CreateServiceInput {
 
   /**
    * <p>An optional list of metadata items that you can associate with the Proton service. A tag is a key-value pair.</p>
-   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
+   *         <i>Proton User Guide</i>.</p>
    */
   tags?: Tag[];
 }
@@ -3276,9 +3292,8 @@ export interface Service {
   pipeline?: ServicePipeline;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the repository connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol">Set up a repository connection</a> in the <i>Proton
-   *         Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection">Setting up with
-   *         Proton</a> in the <i>Proton User Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the repository connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol">Setting up an AWS CodeStar connection</a> in the <i>Proton User
+   *         Guide</i>.</p>
    */
   repositoryConnectionArn?: string;
 
@@ -3410,8 +3425,7 @@ export interface UpdateServiceInput {
 
   /**
    * <p>Lists the service instances to add and the existing service instances to remain. Omit the existing service instances to delete from the list.
-   *         <i>Don't</i> include edits to the existing service instances or pipeline. For more information, see <i>Edit a service</i> in
-   *       the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-update.html">Proton Administrator Guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-update.html">Proton User Guide</a>.</p>
+   *         <i>Don't</i> include edits to the existing service instances or pipeline. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-update.html">Edit a service</a> in the <i>Proton User Guide</i>.</p>
    */
   spec?: string;
 }
@@ -3446,14 +3460,15 @@ export interface CreateServiceTemplateInput {
 
   /**
    * <p>By default, Proton provides a service pipeline for your service. When this parameter is included, it indicates that an Proton service pipeline
-   *         <i>isn't</i> provided for your service. After it's included, it <i>can't</i> be changed. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html">Service template bundles</a> in the <i>Proton Administrator
-   *         Guide</i>.</p>
+   *         <i>isn't</i> provided for your service. After it's included, it <i>can't</i> be changed. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-authoring.html#ag-template-bundles">Template bundles</a> in the <i>Proton
+   *         User Guide</i>.</p>
    */
   pipelineProvisioning?: Provisioning | string;
 
   /**
    * <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
-   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
+   *         <i>Proton User Guide</i>.</p>
    */
   tags?: Tag[];
 }
@@ -3696,7 +3711,8 @@ export interface CreateServiceTemplateVersionInput {
 
   /**
    * <p>An optional list of metadata items that you can associate with the Proton service template version. A tag is a key-value pair.</p>
-   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
+   *         <i>Proton User Guide</i>.</p>
    */
   tags?: Tag[];
 
@@ -3704,8 +3720,8 @@ export interface CreateServiceTemplateVersionInput {
    * <p>An array of supported component sources. Components with supported sources can be attached to service instances based on this service template
    *       version.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
 }
@@ -3793,8 +3809,8 @@ export interface ServiceTemplateVersion {
    * <p>An array of supported component sources. Components with supported sources can be attached to service instances based on this service template
    *       version.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
 }
@@ -3987,8 +4003,8 @@ export interface UpdateServiceTemplateVersionInput {
    *         change only affects later associations.</p>
    *          </note>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
 }
@@ -4031,12 +4047,12 @@ export interface CreateTemplateSyncConfigInput {
   repositoryProvider: RepositoryProvider | string | undefined;
 
   /**
-   * <p>The name of your repository (for example, <code>myrepos/myrepo</code>).</p>
+   * <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
    */
   repositoryName: string | undefined;
 
   /**
-   * <p>The branch of the registered repository for your template.</p>
+   * <p>The repository branch for your template.</p>
    */
   branch: string | undefined;
 
@@ -4067,7 +4083,7 @@ export interface TemplateSyncConfig {
   repositoryProvider: RepositoryProvider | string | undefined;
 
   /**
-   * <p>The name of the repository, for example <code>myrepos/myrepo</code>.</p>
+   * <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
    */
   repositoryName: string | undefined;
 
@@ -4144,12 +4160,12 @@ export interface UpdateTemplateSyncConfigInput {
   repositoryProvider: RepositoryProvider | string | undefined;
 
   /**
-   * <p>The name of the repository (for example, <code>myrepos/myrepo</code>).</p>
+   * <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
    */
   repositoryName: string | undefined;
 
   /**
-   * <p>The repository branch.</p>
+   * <p>The repository branch for your template.</p>
    */
   branch: string | undefined;
 

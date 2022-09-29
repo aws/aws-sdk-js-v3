@@ -33,8 +33,8 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  *             <p>A repository sync status isn't tied to the Proton Repository resource (or any other Proton resource). Therefore, tags on an Proton Repository resource
  *         have no effect on this action. Specifically, you can't use these tags to control access to this action using Attribute-based access control
  *         (ABAC).</p>
- *             <p>For more information about ABAC, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags">ABAC</a> in the <i>Proton
- *           Administrator Guide</i>.</p>
+ *             <p>For more information about ABAC, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags">ABAC</a> in the <i>Proton User
+ *           Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

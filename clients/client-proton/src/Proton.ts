@@ -383,9 +383,7 @@ import { ProtonClient } from "./ProtonClient";
  *    running on Proton, developers need permissions to the service <i>create</i>, <i>list</i>,
  *     <i>update</i> and <i>delete</i> API operations and the service instance <i>list</i> and
  *     <i>update</i> API operations.</p>
- *          <p>To learn more about Proton administration, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/Welcome.html">Proton
- *     Administrator Guide</a>.</p>
- *          <p>To learn more about deploying serverless and containerized applications on Proton, see the <a href="https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html">Proton User Guide</a>.</p>
+ *          <p>To learn more about Proton, see the <a href="https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html">Proton User Guide</a>.</p>
  *          <p>
  *             <b>Ensuring Idempotency</b>
  *          </p>
@@ -496,8 +494,8 @@ export class Proton extends ProtonClient {
   /**
    * <p>In a management account, an environment account connection request is accepted. When the environment account connection request is accepted, Proton
    *       can use the associated IAM role to provision environment infrastructure resources in the associated environment account.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *         connections</a> in the <i>Proton Administrator guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
+   *         connections</a> in the <i>Proton User guide</i>.</p>
    */
   public acceptEnvironmentAccountConnection(
     args: AcceptEnvironmentAccountConnectionCommandInput,
@@ -531,8 +529,8 @@ export class Proton extends ProtonClient {
   /**
    * <p>Attempts to cancel a component deployment (for a component that is in the <code>IN_PROGRESS</code> deployment status).</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   public cancelComponentDeployment(
     args: CancelComponentDeploymentCommandInput,
@@ -565,8 +563,8 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Attempts to cancel an environment deployment on an <a>UpdateEnvironment</a> action, if the deployment is <code>IN_PROGRESS</code>. For more
-   *       information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-update.html">Update an environment</a> in the <i>Proton
-   *         Administrator guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-update.html">Update an environment</a> in the <i>Proton
+   *         User guide</i>.</p>
    *          <p>The following list includes potential cancellation scenarios.</p>
    *          <ul>
    *             <li>
@@ -612,7 +610,8 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is <code>IN_PROGRESS</code>.
-   *       For more information, see <i>Update a service instance</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-instance-update.html">Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-instance-update.html">Proton User guide</a>.</p>
+   *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-instance-update.html">Update a service instance</a> in the
+   *         <i>Proton User guide</i>.</p>
    *          <p>The following list includes potential cancellation scenarios.</p>
    *          <ul>
    *             <li>
@@ -658,7 +657,8 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Attempts to cancel a service pipeline deployment on an <a>UpdateServicePipeline</a> action, if the deployment is <code>IN_PROGRESS</code>.
-   *       For more information, see <i>Update a service pipeline</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-pipeline-update.html">Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-pipeline-update.html">Proton User guide</a>.</p>
+   *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-pipeline-update.html">Update a service pipeline</a> in the
+   *         <i>Proton User guide</i>.</p>
    *          <p>The following list includes potential cancellation scenarios.</p>
    *          <ul>
    *             <li>
@@ -705,8 +705,8 @@ export class Proton extends ProtonClient {
   /**
    * <p>Create an Proton component. A component is an infrastructure extension for a service instance.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   public createComponent(
     args: CreateComponentCommandInput,
@@ -752,7 +752,7 @@ export class Proton extends ProtonClient {
    *           engine uses to provision resources.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton Administrator
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton User
    *         Guide</i>.</p>
    */
   public createEnvironment(
@@ -788,7 +788,7 @@ export class Proton extends ProtonClient {
    * <p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in the environment
    *       account from a management account.</p>
    *          <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an <i>environment
-   *         account</i> that maintains authorization and permissions. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a> in the <i>Proton Administrator
+   *         account</i> that maintains authorization and permissions. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account connections</a> in the <i>Proton User
    *         guide</i>.</p>
    */
   public createEnvironmentAccountConnection(
@@ -821,7 +821,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Create an environment template for Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment Templates</a> in the <i>Proton Administrator Guide</i>.</p>
+   * <p>Create an environment template for Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Environment Templates</a> in the <i>Proton User Guide</i>.</p>
    *          <p>You can create an environment template in one of the two following ways:</p>
    *          <ul>
    *             <li>
@@ -832,8 +832,8 @@ export class Proton extends ProtonClient {
    *                <p>Register and publish a <i>customer managed</i> environment template that connects Proton to your existing provisioned
    *           infrastructure that you manage. Proton <i>doesn't</i> manage your existing provisioned infrastructure. To create an environment
    *           template for customer provisioned and managed infrastructure, include the <code>provisioning</code> parameter and set the value to
-   *             <code>CUSTOMER_MANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html">Register
-   *             and publish an environment template</a> in the <i>Proton Administrator Guide</i>.</p>
+   *             <code>CUSTOMER_MANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/template-create.html">Register
+   *             and publish an environment template</a> in the <i>Proton User Guide</i>.</p>
    *             </li>
    *          </ul>
    */
@@ -901,11 +901,12 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Create and register a link to a repository that can be used with self-managed provisioning (infrastructure or pipelines) or for template sync
-   *       configurations. When you create a repository link, Proton creates a <a href="https://docs.aws.amazon.com/proton/latest/adminguide/using-service-linked-roles.html">service-linked role</a> for you.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a>, <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html">Template bundles</a>, and
-   *         <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-sync-configs.html">Template sync configurations</a> in the <i>Proton
-   *         Administrator Guide</i>.</p>
+   * <p>Create and register a link to a repository. Proton uses the link to repeatedly access the repository, to either push to it (self-managed
+   *       provisioning) or pull from it (template sync). You can share a linked repository across multiple resources (like environments using self-managed
+   *       provisioning, or synced templates). When you create a repository link, Proton creates a <a href="https://docs.aws.amazon.com/proton/latest/userguide/using-service-linked-roles.html">service-linked role</a> for you.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a>, <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-authoring.html#ag-template-bundles">Template bundles</a>, and
+   *         <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html">Template sync configurations</a> in the <i>Proton
+   *         User Guide</i>.</p>
    */
   public createRepository(
     args: CreateRepositoryCommandInput,
@@ -938,9 +939,8 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Create an Proton service. An Proton service is an instantiation of a service template and often includes several service instances and pipeline.
-   *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html">Services</a> in the <i>Proton
-   *         Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html">Services</a> in the <i>Proton
-   *         User Guide</i>.</p>
+   *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html">Services</a> in the <i>Proton User
+   *         Guide</i>.</p>
    */
   public createService(
     args: CreateServiceCommandInput,
@@ -975,8 +975,8 @@ export class Proton extends ProtonClient {
    * <p>Create a service template. The administrator creates a service template to define standardized infrastructure and an optional CI/CD service pipeline.
    *       Developers, in turn, select the service template from Proton. If the selected service template includes a service pipeline definition, they provide a
    *       link to their source code repository. Proton then deploys and manages the infrastructure defined by the selected service template. For more
-   *       information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html">Service Templates</a> in the
-   *         <i>Proton Administrator Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Proton templates</a> in the <i>Proton User
+   *         Guide</i>.</p>
    */
   public createServiceTemplate(
     args: CreateServiceTemplateCommandInput,
@@ -1041,9 +1041,11 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Set up a template to create new template versions automatically. When a commit is pushed to your registered <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Repository.html">repository</a>, Proton checks for changes to your repository template bundles. If it detects
-   *       a template bundle change, a new major or minor version of its template is created, if the version doesn’t already exist. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-sync-configs.html">Template sync configurations</a> in the <i>Proton
-   *         Administrator Guide</i>.</p>
+   * <p>Set up a template to create new template versions automatically by tracking a linked repository. A linked repository is a repository that has been
+   *       registered with Proton. For more information, see <a>CreateRepository</a>.</p>
+   *          <p>When a commit is pushed to your linked repository, Proton checks for changes to your repository template bundles. If it detects a template bundle
+   *       change, a new major or minor version of its template is created, if the version doesn’t already exist. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html">Template sync configurations</a> in the <i>Proton User
+   *         Guide</i>.</p>
    */
   public createTemplateSyncConfig(
     args: CreateTemplateSyncConfigCommandInput,
@@ -1077,8 +1079,8 @@ export class Proton extends ProtonClient {
   /**
    * <p>Delete an Proton component resource.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   public deleteComponent(
     args: DeleteComponentCommandInput,
@@ -1146,8 +1148,8 @@ export class Proton extends ProtonClient {
    *          <p>After you delete an environment account connection that’s in use by an Proton environment, Proton <i>can’t</i> manage the
    *       environment infrastructure resources until a new environment account connection is accepted for the environment account and associated environment. You're
    *       responsible for cleaning up provisioned resources that remain without an environment connection.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *         connections</a> in the <i>Proton Administrator guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
+   *         connections</a> in the <i>Proton User guide</i>.</p>
    */
   public deleteEnvironmentAccountConnection(
     args: DeleteEnvironmentAccountConnectionCommandInput,
@@ -1284,8 +1286,8 @@ export class Proton extends ProtonClient {
    *          <note>
    *             <p>You can't delete a service if it has any service instances that have components attached to them.</p>
    *             <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    *          </note>
    */
   public deleteService(
@@ -1419,7 +1421,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Get detail data for the Proton pipeline service role.</p>
+   * <p>Get detail data for Proton account-wide settings.</p>
    */
   public getAccountSettings(
     args: GetAccountSettingsCommandInput,
@@ -1453,8 +1455,8 @@ export class Proton extends ProtonClient {
   /**
    * <p>Get detailed data for a component.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   public getComponent(
     args: GetComponentCommandInput,
@@ -1516,8 +1518,8 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>In an environment account, get the detailed data for an environment account connection.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *         connections</a> in the <i>Proton Administrator guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
+   *         connections</a> in the <i>Proton User guide</i>.</p>
    */
   public getEnvironmentAccountConnection(
     args: GetEnvironmentAccountConnectionCommandInput,
@@ -1613,7 +1615,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Get detail data for a repository.</p>
+   * <p>Get detail data for a linked repository.</p>
    */
   public getRepository(
     args: GetRepositoryCommandInput,
@@ -1650,8 +1652,8 @@ export class Proton extends ProtonClient {
    *             <p>A repository sync status isn't tied to the Proton Repository resource (or any other Proton resource). Therefore, tags on an Proton Repository resource
    *         have no effect on this action. Specifically, you can't use these tags to control access to this action using Attribute-based access control
    *         (ABAC).</p>
-   *             <p>For more information about ABAC, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags">ABAC</a> in the <i>Proton
-   *           Administrator Guide</i>.</p>
+   *             <p>For more information about ABAC, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags">ABAC</a> in the <i>Proton User
+   *           Guide</i>.</p>
    *          </note>
    */
   public getRepositorySyncStatus(
@@ -1872,8 +1874,8 @@ export class Proton extends ProtonClient {
   /**
    * <p>Get a list of component Infrastructure as Code (IaC) outputs.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   public listComponentOutputs(
     args: ListComponentOutputsCommandInput,
@@ -1907,8 +1909,8 @@ export class Proton extends ProtonClient {
   /**
    * <p>List provisioned resources for a component with details.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   public listComponentProvisionedResources(
     args: ListComponentProvisionedResourcesCommandInput,
@@ -1942,8 +1944,8 @@ export class Proton extends ProtonClient {
   /**
    * <p>List components with summary data. You can filter the result list by environment, service, or a single service instance.</p>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   public listComponents(
     args: ListComponentsCommandInput,
@@ -1976,8 +1978,8 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>View a list of environment account connections.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *         connections</a> in the <i>Proton Administrator guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
+   *         connections</a> in the <i>Proton User guide</i>.</p>
    */
   public listEnvironmentAccountConnections(
     args: ListEnvironmentAccountConnectionsCommandInput,
@@ -2169,7 +2171,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>List repositories with detail data.</p>
+   * <p>List linked repositories with detail data.</p>
    */
   public listRepositories(
     args: ListRepositoriesCommandInput,
@@ -2490,7 +2492,8 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>List tags for a resource. For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   * <p>List tags for a resource. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and
+   *         tagging</a> in the <i>Proton User Guide</i>.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2523,7 +2526,7 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton Administrator Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton User Guide</i>.</p>
    */
   public notifyResourceDeploymentStatusChange(
     args: NotifyResourceDeploymentStatusChangeCommandInput,
@@ -2559,8 +2562,8 @@ export class Proton extends ProtonClient {
    *          <p>After you reject an environment account connection request, you <i>can't</i> accept or use the rejected environment account
    *       connection.</p>
    *          <p>You <i>can’t</i> reject an environment account connection that's connected to an environment.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *         connections</a> in the <i>Proton Administrator guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
+   *         connections</a> in the <i>Proton User guide</i>.</p>
    */
   public rejectEnvironmentAccountConnection(
     args: RejectEnvironmentAccountConnectionCommandInput,
@@ -2593,7 +2596,8 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Tag a resource. A tag is a key-value pair of metadata that you associate with an Proton resource.</p>
-   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
+   *         <i>Proton User Guide</i>.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -2620,7 +2624,8 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Remove a customer tag from a resource. A tag is a key-value pair of metadata associated with an Proton resource.</p>
-   *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
+   *         <i>Proton User Guide</i>.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2652,7 +2657,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Update the Proton service pipeline role or repository settings.</p>
+   * <p>Update Proton settings that are used for multiple services in the Amazon Web Services account.</p>
    */
   public updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
@@ -2691,8 +2696,8 @@ export class Proton extends ProtonClient {
    *         <code>IN_PROGRESS</code>.</p>
    *          </note>
    *          <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    */
   public updateComponent(
     args: UpdateComponentCommandInput,
@@ -2737,7 +2742,7 @@ export class Proton extends ProtonClient {
    *          <p>If the environment was configured for Amazon Web Services-managed provisioning, omit the <code>provisioningRepository</code> parameter.</p>
    *          <p>If the environment was configured for self-managed provisioning, specify the <code>provisioningRepository</code> parameter and omit the
    *         <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code> parameters.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton Administrator
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton User
    *         Guide</i>.</p>
    *          <p>There are four modes for updating an environment. The <code>deploymentType</code> field defines the mode.</p>
    *          <dl>
@@ -2805,8 +2810,8 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>In an environment account, update an environment account connection to use a new IAM role.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *         connections</a> in the <i>Proton Administrator guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
+   *         connections</a> in the <i>Proton User guide</i>.</p>
    */
   public updateEnvironmentAccountConnection(
     args: UpdateEnvironmentAccountConnectionCommandInput,
@@ -2911,8 +2916,8 @@ export class Proton extends ProtonClient {
    *          <note>
    *             <p>You can't delete a service instance (remove it from the spec) if it has an attached component.</p>
    *             <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    *          </note>
    */
   public updateService(
@@ -2951,8 +2956,8 @@ export class Proton extends ProtonClient {
    *             <p>You can't update a service instance while its deployment status, or the deployment status of a component attached to it, is
    *         <code>IN_PROGRESS</code>.</p>
    *             <p>For more information about components, see
-   *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
-   *   <i>Proton Administrator Guide</i>.</p>
+   *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+   *   <i>Proton User Guide</i>.</p>
    *          </note>
    */
   public updateServiceInstance(
@@ -3115,7 +3120,9 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Update template sync configuration parameters, except for the <code>templateName</code> and <code>templateType</code>.</p>
+   * <p>Update template sync configuration parameters, except for the <code>templateName</code> and <code>templateType</code>. Repository details (branch,
+   *       name, and provider) should be of a linked repository. A linked repository is a repository that has been registered with Proton. For more information,
+   *       see <a>CreateRepository</a>.</p>
    */
   public updateTemplateSyncConfig(
     args: UpdateTemplateSyncConfigCommandInput,

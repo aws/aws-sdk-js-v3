@@ -28,7 +28,7 @@ export interface ListRepositoriesCommandInput extends ListRepositoriesInput {}
 export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, __MetadataBearer {}
 
 /**
- * <p>List repositories with detail data.</p>
+ * <p>List linked repositories with detail data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

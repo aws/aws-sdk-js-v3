@@ -28,7 +28,7 @@ export interface GetRepositoryCommandInput extends GetRepositoryInput {}
 export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __MetadataBearer {}
 
 /**
- * <p>Get detail data for a repository.</p>
+ * <p>Get detail data for a linked repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

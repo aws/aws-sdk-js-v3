@@ -31,7 +31,8 @@ export interface CancelServiceInstanceDeploymentCommandOutput
 
 /**
  * <p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is <code>IN_PROGRESS</code>.
- *       For more information, see <i>Update a service instance</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-instance-update.html">Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-instance-update.html">Proton User guide</a>.</p>
+ *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-instance-update.html">Update a service instance</a> in the
+ *         <i>Proton User guide</i>.</p>
  *          <p>The following list includes potential cancellation scenarios.</p>
  *          <ul>
  *             <li>

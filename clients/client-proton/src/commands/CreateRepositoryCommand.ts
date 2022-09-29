@@ -28,11 +28,12 @@ export interface CreateRepositoryCommandInput extends CreateRepositoryInput {}
 export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, __MetadataBearer {}
 
 /**
- * <p>Create and register a link to a repository that can be used with self-managed provisioning (infrastructure or pipelines) or for template sync
- *       configurations. When you create a repository link, Proton creates a <a href="https://docs.aws.amazon.com/proton/latest/adminguide/using-service-linked-roles.html">service-linked role</a> for you.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a>, <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html">Template bundles</a>, and
- *         <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-sync-configs.html">Template sync configurations</a> in the <i>Proton
- *         Administrator Guide</i>.</p>
+ * <p>Create and register a link to a repository. Proton uses the link to repeatedly access the repository, to either push to it (self-managed
+ *       provisioning) or pull from it (template sync). You can share a linked repository across multiple resources (like environments using self-managed
+ *       provisioning, or synced templates). When you create a repository link, Proton creates a <a href="https://docs.aws.amazon.com/proton/latest/userguide/using-service-linked-roles.html">service-linked role</a> for you.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a>, <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-authoring.html#ag-template-bundles">Template bundles</a>, and
+ *         <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html">Template sync configurations</a> in the <i>Proton
+ *         User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

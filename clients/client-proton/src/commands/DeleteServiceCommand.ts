@@ -32,8 +32,8 @@ export interface DeleteServiceCommandOutput extends DeleteServiceOutput, __Metad
  *          <note>
  *             <p>You can't delete a service if it has any service instances that have components attached to them.</p>
  *             <p>For more information about components, see
- *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
- *   <i>Proton Administrator Guide</i>.</p>
+ *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+ *   <i>Proton User Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

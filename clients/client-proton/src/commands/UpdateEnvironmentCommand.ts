@@ -41,7 +41,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *          <p>If the environment was configured for Amazon Web Services-managed provisioning, omit the <code>provisioningRepository</code> parameter.</p>
  *          <p>If the environment was configured for self-managed provisioning, specify the <code>provisioningRepository</code> parameter and omit the
  *         <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code> parameters.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton Administrator
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton User
  *         Guide</i>.</p>
  *          <p>There are four modes for updating an environment. The <code>deploymentType</code> field defines the mode.</p>
  *          <dl>

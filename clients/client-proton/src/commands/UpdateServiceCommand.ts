@@ -37,8 +37,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __Metad
  *          <note>
  *             <p>You can't delete a service instance (remove it from the spec) if it has an attached component.</p>
  *             <p>For more information about components, see
- *   <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton components</a> in the
- *   <i>Proton Administrator Guide</i>.</p>
+ *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
+ *   <i>Proton User Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

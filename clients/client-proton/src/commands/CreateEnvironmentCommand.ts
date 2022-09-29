@@ -42,7 +42,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *           engine uses to provision resources.</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton Administrator
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton User
  *         Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

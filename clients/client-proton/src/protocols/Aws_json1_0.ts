@@ -6390,6 +6390,9 @@ const serializeAws_json1_0UpdateAccountSettingsInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.deletePipelineProvisioningRepository != null && {
+      deletePipelineProvisioningRepository: input.deletePipelineProvisioningRepository,
+    }),
     ...(input.pipelineProvisioningRepository != null && {
       pipelineProvisioningRepository: serializeAws_json1_0RepositoryBranchInput(
         input.pipelineProvisioningRepository,
