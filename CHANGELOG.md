@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.181.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.180.0...v3.181.0) (2022-09-29)
+
+
+### Bug Fixes
+
+* **clients:** make parseErrorBody async ([#3999](https://github.com/aws/aws-sdk-js-v3/issues/3999)) ([2558c93](https://github.com/aws/aws-sdk-js-v3/commit/2558c93c050357ac6dc47aa0452b15b12ebfd676))
+* **clients:** populate message field when parsing errors ([#3995](https://github.com/aws/aws-sdk-js-v3/issues/3995)) ([02e47f1](https://github.com/aws/aws-sdk-js-v3/commit/02e47f14397ae0a5d2e2883350d038b307fdcdb4))
+* **clients:** update message in Error key in case of XML protocol ([#4000](https://github.com/aws/aws-sdk-js-v3/issues/4000)) ([057f686](https://github.com/aws/aws-sdk-js-v3/commit/057f686f217caa4e277bbe6e2905decf97b0fad1))
+
+
+### Features
+
+* **client-acm:** This update returns additional certificate details such as certificate SANs and allows sorting in the ListCertificates API. ([0afc7d5](https://github.com/aws/aws-sdk-js-v3/commit/0afc7d5b2b171d75c36712c60e87becb4dc82209))
+* **client-ec2:** u-3tb1 instances are powered by Intel Xeon Platinum 8176M (Skylake) processors and are purpose-built to run large in-memory databases. ([66a6a45](https://github.com/aws/aws-sdk-js-v3/commit/66a6a455dd580ebadbcdb1bb5dbc07b753aca2ff))
+* **client-emr-serverless:** This release adds API support to debug Amazon EMR Serverless jobs in real-time with live application UIs ([9a3cc54](https://github.com/aws/aws-sdk-js-v3/commit/9a3cc549937b367ea4495a993f51c50db993ed59))
+* **client-fsx:** This release adds support for Amazon File Cache. ([0c9782d](https://github.com/aws/aws-sdk-js-v3/commit/0c9782d1d653291f6dcb2ea8e1a1aa630c594c73))
+* **client-migrationhuborchestrator:** Introducing AWS MigrationHubOrchestrator. This is the first public release of AWS MigrationHubOrchestrator. ([0c9f5df](https://github.com/aws/aws-sdk-js-v3/commit/0c9f5dff3c920d6ce7b3892186cfa627882afd4d))
+* **client-polly:** Added support for the new Cantonese voice - Hiujin. Hiujin is available as a Neural voice only. ([9f1d83e](https://github.com/aws/aws-sdk-js-v3/commit/9f1d83e368d0180ca3e02b19fe786982e0d5a6e0))
+* **client-proton:** This release adds an option to delete pipeline provisioning repositories using the UpdateAccountSettings API ([bedb9af](https://github.com/aws/aws-sdk-js-v3/commit/bedb9afd214f8a7631b003c15729469994c3cad5))
+* **client-sagemaker:** SageMaker Training Managed Warm Pools let you retain provisioned infrastructure to reduce latency for repetitive training workloads. ([85fc637](https://github.com/aws/aws-sdk-js-v3/commit/85fc637e30667ba6fbe6963cbcb677b8e835d752))
+* **client-translate:** This release enables customers to access control rights on Translate resources like Parallel Data and Custom Terminology using Tag Based Authorization. ([2426699](https://github.com/aws/aws-sdk-js-v3/commit/24266996622e1325ec3e6a57bb75dfd6434f1964))
+* **client-workspaces:** This release includes diagnostic log uploading feature. If it is enabled, the log files of WorkSpaces Windows client will be sent to Amazon WorkSpaces automatically for troubleshooting. You can use modifyClientProperty api to enable/disable this feature. ([252939d](https://github.com/aws/aws-sdk-js-v3/commit/252939df51af81b2e00e65a637e2eb51109b847c))
+* **clients:** support awsQueryError trait ([#3998](https://github.com/aws/aws-sdk-js-v3/issues/3998)) ([384cbd7](https://github.com/aws/aws-sdk-js-v3/commit/384cbd7cbdbc0635d2dbff53b54d769ca80dabbb))
+* **clients:** update client endpoints as of 2022-09-29 ([86f34f3](https://github.com/aws/aws-sdk-js-v3/commit/86f34f3bab5a7af9de134dd3c832feac90d45caf))
+
+
+
+
+
 # [3.180.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.179.0...v3.180.0) (2022-09-27)
 
 

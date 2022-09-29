@@ -38,10 +38,10 @@
 |@aws-sdk/credential-provider-cognito-identity|3.112.0|39.5 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/credential-provider-env|3.171.0|17.4 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-imds|3.171.0|56.1 KB|N/A|N/A|N/A|
-|@aws-sdk/credential-provider-ini|3.178.0|36.9 KB|N/A|N/A|N/A|
-|@aws-sdk/credential-provider-node|3.178.0|27 KB|N/A|N/A|N/A|
+|@aws-sdk/credential-provider-ini|3.180.0|36.9 KB|N/A|N/A|N/A|
+|@aws-sdk/credential-provider-node|3.180.0|27 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-process|3.171.0|22.7 KB|N/A|N/A|N/A|
-|@aws-sdk/credential-provider-sso|3.178.0|29 KB|N/A|N/A|N/A|
+|@aws-sdk/credential-provider-sso|3.180.0|29 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-web-identity|3.109.0|37 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/credential-providers|3.112.0|79.7 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/fetch-http-handler|3.109.0|75.6 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
