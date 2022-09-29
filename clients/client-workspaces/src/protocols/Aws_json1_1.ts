@@ -4508,6 +4508,7 @@ const serializeAws_json1_1ClientDeviceTypeList = (
 
 const serializeAws_json1_1ClientProperties = (input: ClientProperties, context: __SerdeContext): any => {
   return {
+    ...(input.LogUploadEnabled != null && { LogUploadEnabled: input.LogUploadEnabled }),
     ...(input.ReconnectEnabled != null && { ReconnectEnabled: input.ReconnectEnabled }),
   };
 };
@@ -5561,6 +5562,7 @@ const deserializeAws_json1_1BundleList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1ClientProperties = (output: any, context: __SerdeContext): ClientProperties => {
   return {
+    LogUploadEnabled: __expectString(output.LogUploadEnabled),
     ReconnectEnabled: __expectString(output.ReconnectEnabled),
   } as any;
 };

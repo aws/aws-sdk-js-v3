@@ -386,6 +386,11 @@ export enum ClientDeviceType {
   DEVICE_TYPE_WINDOWS = "DeviceTypeWindows",
 }
 
+export enum LogUploadEnum {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
 export enum ReconnectEnum {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -401,6 +406,14 @@ export interface ClientProperties {
    *          credentials. </p>
    */
   ReconnectEnabled?: ReconnectEnum | string;
+
+  /**
+   * <p>Specifies whether users can upload diagnostic log files of Amazon WorkSpaces client directly to
+   *          WorkSpaces to troubleshoot issues when using the WorkSpaces client.
+   *          When enabled, the log files will be sent to WorkSpaces automatically and will be applied to all
+   *          users in the specified directory.</p>
+   */
+  LogUploadEnabled?: LogUploadEnum | string;
 }
 
 /**
@@ -918,7 +931,7 @@ export interface CreateWorkspaceImageResult {
   Created?: Date;
 
   /**
-   * <p>The identifier of the AWS account that owns the image.</p>
+   * <p>The identifier of the Amazon Web Services account that owns the image.</p>
    */
   OwnerAccountId?: string;
 }
