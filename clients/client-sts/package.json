@@ -52,7 +52,6 @@
     "@aws-sdk/util-user-agent-node": "*",
     "@aws-sdk/util-utf8-browser": "*",
     "@aws-sdk/util-utf8-node": "*",
-    "entities": "2.2.0",
     "fast-xml-parser": "4.0.10",
     "tslib": "^2.3.1"
   },
