@@ -85,7 +85,7 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
     public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
         AwsProtocolUtils.generateXmlParseBody(context);
-        AwsProtocolUtils.generateParseErrorBody(context);
+        AwsProtocolUtils.generateXmlParseErrorBody(context);
         AwsProtocolUtils.generateBuildFormUrlencodedString(context);
         AwsProtocolUtils.addItempotencyAutofillImport(context);
 

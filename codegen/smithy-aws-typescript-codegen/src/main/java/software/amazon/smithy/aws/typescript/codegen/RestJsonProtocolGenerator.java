@@ -79,7 +79,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
         AwsProtocolUtils.generateJsonParseBody(context);
-        AwsProtocolUtils.generateParseErrorBody(context);
+        AwsProtocolUtils.generateJsonParseErrorBody(context);
         AwsProtocolUtils.addItempotencyAutofillImport(context);
 
         TypeScriptWriter writer = context.getWriter();

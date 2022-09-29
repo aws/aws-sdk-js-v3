@@ -118,12 +118,12 @@ final class AwsProtocolUtils {
     }
 
     /**
-     * Writes a response body parser function for errors. This
+     * Writes a response body parser function for JSON errors. This
      * will populate message field in parsed object, if it's not present.
      *
      * @param context The generation context.
      */
-    static void generateParseErrorBody(GenerationContext context) {
+    static void generateJsonParseErrorBody(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
 
         // Include a JSON body parser used to deserialize documents from HTTP responses.
@@ -172,6 +172,29 @@ final class AwsProtocolUtils {
                     });
                     writer.write("return {};");
                 });
+        writer.write("");
+    }
+
+    /**
+     * Writes a response body parser function for XML errors. This
+     * will populate message field in parsed object, if it's not present.
+     *
+     * @param context The generation context.
+     */
+    static void generateXmlParseErrorBody(GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+
+        // Include a JSON body parser used to deserialize documents from HTTP responses.
+        writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
+        writer.openBlock("const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {",
+            "}", () -> {
+                writer.write("const value = await parseBody(errorBody, context);");
+                writer.openBlock("if (value.Error) {", "}", () -> {
+                    writer.write("value.Error.message = value.Error.message ?? value.Error.Message;");
+                });
+                writer.write("return value;");
+            });
+
         writer.write("");
     }
 
