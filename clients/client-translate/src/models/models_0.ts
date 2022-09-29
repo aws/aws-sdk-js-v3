@@ -40,6 +40,28 @@ export interface AppliedTerminology {
 }
 
 /**
+ * <p>Another modification is being made. That modification must complete before you can make
+ *       your change.</p>
+ */
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>There was a conflict processing the request. Try your request again.</p>
  */
 export class ConflictException extends __BaseException {
@@ -101,6 +123,11 @@ export interface ParallelDataConfig {
   Format: ParallelDataFormat | string | undefined;
 }
 
+export interface Tag {
+  Key: string | undefined;
+  Value: string | undefined;
+}
+
 export interface CreateParallelDataRequest {
   /**
    * <p>A custom name for the parallel data resource in Amazon Translate. You must assign a name
@@ -128,6 +155,8 @@ export interface CreateParallelDataRequest {
    *       Amazon Translate through an AWS SDK.</p>
    */
   ClientToken?: string;
+
+  Tags?: Tag[];
 }
 
 export enum ParallelDataStatus {
@@ -260,25 +289,21 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
-/**
- * <p>Another modification is being made. That modification must complete before you can make
- *       your change.</p>
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  ResourceArn?: string;
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
     super({
-      name: "ConcurrentModificationException",
+      name: "TooManyTagsException",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-    this.Message = opts.Message;
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.ResourceArn = opts.ResourceArn;
   }
 }
 
@@ -1005,6 +1030,8 @@ export interface ImportTerminologyRequest {
    * <p>The encryption key for the custom terminology being imported.</p>
    */
   EncryptionKey?: EncryptionKey;
+
+  Tags?: Tag[];
 }
 
 export interface ImportTerminologyResponse {
@@ -1135,6 +1162,14 @@ export interface ListParallelDataResponse {
    *       response. This value is null if there are no additional pages.</p>
    */
   NextToken?: string;
+}
+
+export interface ListTagsForResourceRequest {
+  ResourceArn: string | undefined;
+}
+
+export interface ListTagsForResourceResponse {
+  Tags?: Tag[];
 }
 
 export interface ListTerminologiesRequest {
@@ -1416,6 +1451,13 @@ export interface StopTextTranslationJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+export interface TagResourceRequest {
+  ResourceArn: string | undefined;
+  Tags: Tag[] | undefined;
+}
+
+export interface TagResourceResponse {}
+
 /**
  * <p>The confidence that Amazon Comprehend accurately detected the source language is low. If a
  *       low confidence level is acceptable for your application, you can use the language in the
@@ -1558,6 +1600,13 @@ export interface TranslateTextResponse {
   AppliedSettings?: TranslationSettings;
 }
 
+export interface UntagResourceRequest {
+  ResourceArn: string | undefined;
+  TagKeys: string[] | undefined;
+}
+
+export interface UntagResourceResponse {}
+
 export interface UpdateParallelDataRequest {
   /**
    * <p>The name of the parallel data resource being updated.</p>
@@ -1631,6 +1680,13 @@ export const EncryptionKeyFilterSensitiveLog = (obj: EncryptionKey): any => ({
  * @internal
  */
 export const ParallelDataConfigFilterSensitiveLog = (obj: ParallelDataConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
   ...obj,
 });
 
@@ -1835,6 +1891,20 @@ export const ListParallelDataResponseFilterSensitiveLog = (obj: ListParallelData
 /**
  * @internal
  */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListTerminologiesRequestFilterSensitiveLog = (obj: ListTerminologiesRequest): any => ({
   ...obj,
 });
@@ -1898,6 +1968,20 @@ export const StopTextTranslationJobResponseFilterSensitiveLog = (obj: StopTextTr
 /**
  * @internal
  */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const TranslateTextRequestFilterSensitiveLog = (obj: TranslateTextRequest): any => ({
   ...obj,
 });
@@ -1906,6 +1990,20 @@ export const TranslateTextRequestFilterSensitiveLog = (obj: TranslateTextRequest
  * @internal
  */
 export const TranslateTextResponseFilterSensitiveLog = (obj: TranslateTextResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
   ...obj,
 });
 

@@ -65,6 +65,10 @@ import { GetTerminologyCommandInput, GetTerminologyCommandOutput } from "./comma
 import { ImportTerminologyCommandInput, ImportTerminologyCommandOutput } from "./commands/ImportTerminologyCommand";
 import { ListLanguagesCommandInput, ListLanguagesCommandOutput } from "./commands/ListLanguagesCommand";
 import { ListParallelDataCommandInput, ListParallelDataCommandOutput } from "./commands/ListParallelDataCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { ListTerminologiesCommandInput, ListTerminologiesCommandOutput } from "./commands/ListTerminologiesCommand";
 import {
   ListTextTranslationJobsCommandInput,
@@ -78,7 +82,9 @@ import {
   StopTextTranslationJobCommandInput,
   StopTextTranslationJobCommandOutput,
 } from "./commands/StopTextTranslationJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TranslateTextCommandInput, TranslateTextCommandOutput } from "./commands/TranslateTextCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateParallelDataCommandInput, UpdateParallelDataCommandOutput } from "./commands/UpdateParallelDataCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
@@ -92,11 +98,14 @@ export type ServiceInputTypes =
   | ImportTerminologyCommandInput
   | ListLanguagesCommandInput
   | ListParallelDataCommandInput
+  | ListTagsForResourceCommandInput
   | ListTerminologiesCommandInput
   | ListTextTranslationJobsCommandInput
   | StartTextTranslationJobCommandInput
   | StopTextTranslationJobCommandInput
+  | TagResourceCommandInput
   | TranslateTextCommandInput
+  | UntagResourceCommandInput
   | UpdateParallelDataCommandInput;
 
 export type ServiceOutputTypes =
@@ -109,11 +118,14 @@ export type ServiceOutputTypes =
   | ImportTerminologyCommandOutput
   | ListLanguagesCommandOutput
   | ListParallelDataCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListTerminologiesCommandOutput
   | ListTextTranslationJobsCommandOutput
   | StartTextTranslationJobCommandOutput
   | StopTextTranslationJobCommandOutput
+  | TagResourceCommandOutput
   | TranslateTextCommandOutput
+  | UntagResourceCommandOutput
   | UpdateParallelDataCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
