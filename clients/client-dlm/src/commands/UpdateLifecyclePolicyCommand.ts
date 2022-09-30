@@ -29,6 +29,8 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
 
 /**
  * <p>Updates the specified lifecycle policy.</p>
+ * 		       <p>For more information about updating a policy, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#modify">Modify lifecycle
+ * 			policies</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

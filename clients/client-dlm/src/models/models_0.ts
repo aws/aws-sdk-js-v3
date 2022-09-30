@@ -93,6 +93,68 @@ export interface Action {
   CrossRegionCopy: CrossRegionCopyAction[] | undefined;
 }
 
+/**
+ * <p>
+ *             <b>[Snapshot policies only]</b> Describes the retention rule for archived snapshots. Once the archive
+ * 			retention threshold is met, the snapshots are permanently deleted from the archive tier.</p>
+ * 		       <note>
+ * 			         <p>The archive retention rule must retain snapshots in the archive tier for a minimum
+ * 				of 90 days.</p>
+ * 		       </note>
+ *
+ * 		       <p>For <b>count-based schedules</b>, you must specify <b>Count</b>. For <b>age-based
+ * 				schedules</b>, you must specify <b>Interval</b> and
+ * 				<b> IntervalUnit</b>.</p>
+ * 		       <p>For more information about using snapshot archiving, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive">Considerations for
+ * 			snapshot lifecycle policies</a>.</p>
+ */
+export interface RetentionArchiveTier {
+  /**
+   * <p>The maximum number of snapshots to retain in the archive storage tier for each volume.
+   * 			The count must ensure that each snapshot remains in the archive tier for at least
+   * 		90 days. For example, if the schedule creates snapshots every 30 days, you must specify a
+   * 		count of 3 or more to ensure that each snapshot is archived for at least 90 days.</p>
+   */
+  Count?: number;
+
+  /**
+   * <p>Specifies the period of time to retain snapshots in the archive tier. After this period
+   * 			expires, the snapshot is permanently deleted.</p>
+   */
+  Interval?: number;
+
+  /**
+   * <p>The unit of time in which to measure the <b>Interval</b>. For
+   * 			example, to retain a snapshots in the archive tier for 6 months, specify <code>Interval=6</code>
+   * 			and <code>IntervalUnit=MONTHS</code>.</p>
+   */
+  IntervalUnit?: RetentionIntervalUnitValues | string;
+}
+
+/**
+ * <p>
+ *             <b>[Snapshot policies only]</b> Specifies information about the archive storage tier retention period.</p>
+ */
+export interface ArchiveRetainRule {
+  /**
+   * <p>Information about retention period in the Amazon EBS Snapshots Archive. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/snapshot-archive.html">Archive Amazon
+   * 				EBS snapshots</a>.</p>
+   */
+  RetentionArchiveTier: RetentionArchiveTier | undefined;
+}
+
+/**
+ * <p>
+ *             <b>[Snapshot policies only]</b> Specifies a snapshot archiving rule for a schedule.</p>
+ */
+export interface ArchiveRule {
+  /**
+   * <p>Information about the retention period for the snapshot archiving rule.</p>
+   */
+  RetainRule: ArchiveRetainRule | undefined;
+}
+
 export enum EventTypeValues {
   SHARE_SNAPSHOT = "shareSnapshot",
 }
@@ -165,7 +227,7 @@ export interface Tag {
  * 			set of valid parameters depends on the combination of policy type and target resource
  * 			type.</p>
  * 		       <p>If you choose to exclude boot volumes and you specify tags that consequently exclude
- * 			all of the additional data volumes attached to an instance, then Amazon DLM will not create
+ * 			all of the additional data volumes attached to an instance, then Amazon Data Lifecycle Manager will not create
  * 			any snapshots for the affected instance, and it will emit a <code>SnapshotsCreateFailed</code>
  * 			Amazon CloudWatch metric. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-dlm-cw-metrics.html">Monitor your policies
  * 				using Amazon CloudWatch</a>.</p>
@@ -228,10 +290,19 @@ export enum LocationValues {
 /**
  * <p>
  *             <b>[Snapshot and AMI policies only]</b> Specifies when the policy should create snapshots or AMIs.</p>
- * 		       <important>
- * 			         <p>You must specify either a Cron expression or an interval, interval unit, and start
- * 			time. You cannot specify both.</p>
- * 		       </important>
+ * 		       <note>
+ * 			         <ul>
+ *                <li>
+ * 					             <p>You must specify either <b>CronExpression</b>, or
+ * 						<b>Interval</b>, <b>IntervalUnit</b>,
+ * 						and <b>Times</b>.</p>
+ * 				           </li>
+ *                <li>
+ * 					             <p>If you need to specify an <a>ArchiveRule</a> for the schedule, then you must
+ * 						specify a creation frequency of at least 28 days.</p>
+ * 				           </li>
+ *             </ul>
+ * 		       </note>
  */
 export interface CreateRule {
   /**
@@ -248,8 +319,7 @@ export interface CreateRule {
   Location?: LocationValues | string;
 
   /**
-   * <p>The interval between snapshots. The supported values are 1, 2, 3, 4, 6, 8, 12, and
-   * 			24.</p>
+   * <p>The interval between snapshots. The supported values are 1, 2, 3, 4, 6, 8, 12, and 24.</p>
    */
   Interval?: number;
 
@@ -261,7 +331,7 @@ export interface CreateRule {
   /**
    * <p>The time, in UTC, to start the operation. The supported format is hh:mm.</p>
    * 		       <p>The operation occurs within a one-hour window following the specified time. If you do
-   * 			not specify a time, Amazon DLM selects a time within the next 24 hours.</p>
+   * 			not specify a time, Amazon Data Lifecycle Manager selects a time within the next 24 hours.</p>
    */
   Times?: string[];
 
@@ -385,8 +455,8 @@ export interface DeprecateRule {
 /**
  * <p>
  *             <b>[Snapshot policies only]</b> Specifies a rule for enabling fast snapshot restore for snapshots created by
- * 			snaspshot policies. You can enable fast snapshot restore based on either a count or a time
- * 			interval.</p>
+ * 			snapshot policies. You can enable fast snapshot restore based on either a count or a
+ * 			time interval.</p>
  */
 export interface FastRestoreRule {
   /**
@@ -413,14 +483,48 @@ export interface FastRestoreRule {
 
 /**
  * <p>
- *             <b>[Snapshot and AMI policies only]</b> Specifies a retention rule for snapshots created by snapshot policies
- * 			or for AMIs created by AMI policies. You can retain snapshots based on either a count or a time interval.</p>
- * 		       <p>You must specify either <b>Count</b>, or <b>Interval</b>
- * 			and <b>IntervalUnit</b>.</p>
+ *             <b>[Snapshot and AMI policies only]</b> Specifies a retention rule for snapshots created by snapshot policies, or for AMIs
+ * 			created by AMI policies.</p>
+ *
+ * 		       <note>
+ * 			         <p>For snapshot policies that have an <a>ArchiveRule</a>, this retention rule
+ * 				applies to standard tier retention. When the retention threshold is met, snapshots
+ * 				are moved from the standard to the archive tier.</p>
+ * 			         <p>For snapshot policies that do not have an <b>ArchiveRule</b>, snapshots
+ * 				are permanently deleted when this retention threshold is met.</p>
+ * 		       </note>
+ *
+ * 		       <p>You can retain snapshots based on either a count or a time interval.</p>
+ * 		       <ul>
+ *             <li>
+ * 				           <p>
+ *                   <b>Count-based retention</b>
+ *                </p>
+ * 				           <p>You must specify <b>Count</b>.
+ * 					If you specify an <a>ArchiveRule</a> for the schedule, then you can specify a retention count of
+ * 					<code>0</code> to archive snapshots immediately after creation. If you specify a <a>FastRestoreRule</a>,
+ * 					<a>ShareRule</a>, or a <a>CrossRegionCopyRule</a>, then you must specify a retention count
+ * 					of <code>1</code> or more.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>
+ *                   <b>Age-based retention</b>
+ *                </p>
+ * 				           <p>You must specify <b>Interval</b>
+ * 					and <b>IntervalUnit</b>. If you specify an <a>ArchiveRule</a> for the
+ * 					schedule, then you can specify a retention interval of <code>0</code> days to archive snapshots immediately
+ * 					after creation. If you specify a <a>FastRestoreRule</a>, <a>ShareRule</a>, or a
+ * 					<a>CrossRegionCopyRule</a>, then you must specify a retention interval of <code>1</code> day or
+ * 					more.</p>
+ * 			         </li>
+ *          </ul>
  */
 export interface RetainRule {
   /**
-   * <p>The number of snapshots to retain for each volume, up to a maximum of 1000.</p>
+   * <p>The number of snapshots to retain for each volume, up to a maximum of 1000. For example if you want to
+   * 			retain a maximum of three snapshots, specify <code>3</code>. When the fourth snapshot is created, the
+   * 			oldest retained snapshot is deleted, or it is moved to the archive tier if you have specified an
+   * 			<a>ArchiveRule</a>.</p>
    */
   Count?: number;
 
@@ -431,7 +535,10 @@ export interface RetainRule {
   Interval?: number;
 
   /**
-   * <p>The unit of time for time-based retention.</p>
+   * <p>The unit of time for time-based retention. For example, to retain snapshots for 3 months, specify
+   * 			<code>Interval=3</code> and <code>IntervalUnit=MONTHS</code>. Once the snapshot has been retained for
+   * 			3 months, it is deleted, or it is moved to the archive tier if you have specified an
+   * 			<a>ArchiveRule</a>.</p>
    */
   IntervalUnit?: RetentionIntervalUnitValues | string;
 }
@@ -527,6 +634,17 @@ export interface Schedule {
    *             <b>[AMI policies only]</b> The AMI deprecation rule for the schedule.</p>
    */
   DeprecateRule?: DeprecateRule;
+
+  /**
+   * <p>
+   *             <b>[Snapshot policies that target volumes only]</b> The snapshot archiving rule for the schedule. When you specify an archiving
+   * 			rule, snapshots are automatically moved from the standard tier to the archive tier once the schedule's
+   * 			retention threshold is met. Snapshots are then retained in the archive tier for the archive retention
+   * 			period that you specify. </p>
+   * 		       <p>For more information about using snapshot archiving, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive">Considerations for
+   * 				snapshot lifecycle policies</a>.</p>
+   */
+  ArchiveRule?: ArchiveRule;
 }
 
 /**
@@ -1018,6 +1136,27 @@ export const CrossRegionCopyActionFilterSensitiveLog = (obj: CrossRegionCopyActi
  * @internal
  */
 export const ActionFilterSensitiveLog = (obj: Action): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetentionArchiveTierFilterSensitiveLog = (obj: RetentionArchiveTier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArchiveRetainRuleFilterSensitiveLog = (obj: ArchiveRetainRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArchiveRuleFilterSensitiveLog = (obj: ArchiveRule): any => ({
   ...obj,
 });
 

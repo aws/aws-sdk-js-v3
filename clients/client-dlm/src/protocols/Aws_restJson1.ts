@@ -47,6 +47,8 @@ import { DLMServiceException as __BaseException } from "../models/DLMServiceExce
 import {
   _Parameters,
   Action,
+  ArchiveRetainRule,
+  ArchiveRule,
   CreateRule,
   CrossRegionCopyAction,
   CrossRegionCopyDeprecateRule,
@@ -67,6 +69,7 @@ import {
   ResourceNotFoundException,
   ResourceTypeValues,
   RetainRule,
+  RetentionArchiveTier,
   Schedule,
   ShareRule,
   Tag,
@@ -753,6 +756,20 @@ const serializeAws_restJson1ActionList = (input: Action[], context: __SerdeConte
     });
 };
 
+const serializeAws_restJson1ArchiveRetainRule = (input: ArchiveRetainRule, context: __SerdeContext): any => {
+  return {
+    ...(input.RetentionArchiveTier != null && {
+      RetentionArchiveTier: serializeAws_restJson1RetentionArchiveTier(input.RetentionArchiveTier, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ArchiveRule = (input: ArchiveRule, context: __SerdeContext): any => {
+  return {
+    ...(input.RetainRule != null && { RetainRule: serializeAws_restJson1ArchiveRetainRule(input.RetainRule, context) }),
+  };
+};
+
 const serializeAws_restJson1AvailabilityZoneList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -949,8 +966,17 @@ const serializeAws_restJson1RetainRule = (input: RetainRule, context: __SerdeCon
   };
 };
 
+const serializeAws_restJson1RetentionArchiveTier = (input: RetentionArchiveTier, context: __SerdeContext): any => {
+  return {
+    ...(input.Count != null && { Count: input.Count }),
+    ...(input.Interval != null && { Interval: input.Interval }),
+    ...(input.IntervalUnit != null && { IntervalUnit: input.IntervalUnit }),
+  };
+};
+
 const serializeAws_restJson1Schedule = (input: Schedule, context: __SerdeContext): any => {
   return {
+    ...(input.ArchiveRule != null && { ArchiveRule: serializeAws_restJson1ArchiveRule(input.ArchiveRule, context) }),
     ...(input.CopyTags != null && { CopyTags: input.CopyTags }),
     ...(input.CreateRule != null && { CreateRule: serializeAws_restJson1CreateRule(input.CreateRule, context) }),
     ...(input.CrossRegionCopyRules != null && {
@@ -1085,6 +1111,22 @@ const deserializeAws_restJson1ActionList = (output: any, context: __SerdeContext
       return deserializeAws_restJson1Action(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1ArchiveRetainRule = (output: any, context: __SerdeContext): ArchiveRetainRule => {
+  return {
+    RetentionArchiveTier:
+      output.RetentionArchiveTier != null
+        ? deserializeAws_restJson1RetentionArchiveTier(output.RetentionArchiveTier, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ArchiveRule = (output: any, context: __SerdeContext): ArchiveRule => {
+  return {
+    RetainRule:
+      output.RetainRule != null ? deserializeAws_restJson1ArchiveRetainRule(output.RetainRule, context) : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1AvailabilityZoneList = (output: any, context: __SerdeContext): string[] => {
@@ -1393,8 +1435,18 @@ const deserializeAws_restJson1RetainRule = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_restJson1RetentionArchiveTier = (output: any, context: __SerdeContext): RetentionArchiveTier => {
+  return {
+    Count: __expectInt32(output.Count),
+    Interval: __expectInt32(output.Interval),
+    IntervalUnit: __expectString(output.IntervalUnit),
+  } as any;
+};
+
 const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext): Schedule => {
   return {
+    ArchiveRule:
+      output.ArchiveRule != null ? deserializeAws_restJson1ArchiveRule(output.ArchiveRule, context) : undefined,
     CopyTags: __expectBoolean(output.CopyTags),
     CreateRule: output.CreateRule != null ? deserializeAws_restJson1CreateRule(output.CreateRule, context) : undefined,
     CrossRegionCopyRules:
