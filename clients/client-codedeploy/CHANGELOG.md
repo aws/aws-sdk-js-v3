@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.182.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.181.0...v3.182.0) (2022-09-30)
+
+
+### Features
+
+* **client-codedeploy:** This release allows you to override the alarm configurations when creating a deployment. ([593dbc2](https://github.com/aws/aws-sdk-js-v3/commit/593dbc27b0e0e91958ab73211ce7d1eceb51016c))
+
+
+
+
+
 # [3.181.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.180.0...v3.181.0) (2022-09-29)
 
 

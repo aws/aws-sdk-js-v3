@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.182.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.181.0...v3.182.0) (2022-09-30)
+
+
+### Bug Fixes
+
+* **endpoint:** misc fixes for endpoints 2.0 based on service unit tests ([#4002](https://github.com/aws/aws-sdk-js-v3/issues/4002)) ([77788f9](https://github.com/aws/aws-sdk-js-v3/commit/77788f9a9c7274d0cdec7832b6ed72325c9262e6))
+
+
+
+
+
 # [3.179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.178.0...v3.179.0) (2022-09-26)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.182.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.181.0...v3.182.0) (2022-09-30)
+
+
+### Features
+
+* **client-dlm:** This release adds support for archival of single-volume snapshots created by Amazon Data Lifecycle Manager policies ([a88a887](https://github.com/aws/aws-sdk-js-v3/commit/a88a88710933a67d956f02e85d6cf11296143410))
+
+
+
+
+
 # [3.181.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.180.0...v3.181.0) (2022-09-29)
 
 

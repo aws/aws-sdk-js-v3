@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.182.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.181.0...v3.182.0) (2022-09-30)
+
+
+### Bug Fixes
+
+* **endpoint:** misc fixes for endpoints 2.0 based on service unit tests ([#4002](https://github.com/aws/aws-sdk-js-v3/issues/4002)) ([77788f9](https://github.com/aws/aws-sdk-js-v3/commit/77788f9a9c7274d0cdec7832b6ed72325c9262e6))
+
+
+### Features
+
+* **client-codedeploy:** This release allows you to override the alarm configurations when creating a deployment. ([593dbc2](https://github.com/aws/aws-sdk-js-v3/commit/593dbc27b0e0e91958ab73211ce7d1eceb51016c))
+* **client-devops-guru:** This release adds filter feature on AddNotificationChannel API, enable customer to configure the SNS notification messages by Severity or MessageTypes ([84ff65b](https://github.com/aws/aws-sdk-js-v3/commit/84ff65b728362d72cabddf01bd41acb92743b502))
+* **client-dlm:** This release adds support for archival of single-volume snapshots created by Amazon Data Lifecycle Manager policies ([a88a887](https://github.com/aws/aws-sdk-js-v3/commit/a88a88710933a67d956f02e85d6cf11296143410))
+* **client-sagemaker-runtime:** A new parameter called EnableExplanations is added to InvokeEndpoint API to enable on-demand SageMaker Clarify online explainability requests. ([4ad08ad](https://github.com/aws/aws-sdk-js-v3/commit/4ad08ad25c4b9a9b1ee786bd66719e80770b90b8))
+* **client-sagemaker:** A new parameter called ExplainerConfig is added to CreateEndpointConfig API to enable SageMaker Clarify online explainability feature. ([ac3017f](https://github.com/aws/aws-sdk-js-v3/commit/ac3017f5b5764d6e090c8aface70c0c81142b148))
+* **clients:** update client endpoints as of 2022-09-30 ([c3085e8](https://github.com/aws/aws-sdk-js-v3/commit/c3085e8c39b693f38a15bbb4fa96de41ecf1f12d))
+
+
+
+
+
 # [3.181.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.180.0...v3.181.0) (2022-09-29)
 
 
