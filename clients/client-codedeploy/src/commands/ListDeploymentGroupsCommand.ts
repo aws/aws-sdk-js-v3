@@ -28,8 +28,8 @@ export interface ListDeploymentGroupsCommandInput extends ListDeploymentGroupsIn
 export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the deployment groups for an application registered with the IAM user or AWS
- *             account.</p>
+ * <p>Lists the deployment groups for an application registered with the IAM
+ *             user or Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

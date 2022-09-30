@@ -33,10 +33,11 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  * <note>
  *             <p> The newer <code>BatchGetDeploymentTargets</code> should be used instead because
  *                 it works with all compute types. <code>ListDeploymentInstances</code> throws an
- *                 exception if it is used with a compute platform other than EC2/On-premises or AWS
- *                 Lambda. </p>
+ *                 exception if it is used with a compute platform other than EC2/On-premises or
+ *                     Lambda. </p>
  *         </note>
- *         <p> Lists the instance for a deployment associated with the IAM user or AWS account. </p>
+ *         <p> Lists the instance for a deployment associated with the IAM user or
+ *                 Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

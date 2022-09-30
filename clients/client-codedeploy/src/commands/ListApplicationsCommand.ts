@@ -28,7 +28,7 @@ export interface ListApplicationsCommandInput extends ListApplicationsInput {}
 export interface ListApplicationsCommandOutput extends ListApplicationsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the applications registered with the IAM user or AWS account.</p>
+ * <p>Lists the applications registered with the IAM user or Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

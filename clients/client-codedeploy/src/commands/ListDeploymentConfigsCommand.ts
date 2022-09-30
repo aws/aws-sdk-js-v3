@@ -28,7 +28,7 @@ export interface ListDeploymentConfigsCommandInput extends ListDeploymentConfigs
 export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfigsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the deployment configurations with the IAM user or AWS account.</p>
+ * <p>Lists the deployment configurations with the IAM user or Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

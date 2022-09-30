@@ -25,8 +25,7 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
 /**
  * <p>Registers an on-premises instance.</p>
  *         <note>
- *             <p>Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request.
- *                 You cannot use both.</p>
+ *             <p>Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request. You cannot use both.</p>
  *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

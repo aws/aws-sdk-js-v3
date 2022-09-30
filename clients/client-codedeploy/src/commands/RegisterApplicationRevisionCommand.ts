@@ -26,7 +26,7 @@ export interface RegisterApplicationRevisionCommandInput extends RegisterApplica
 export interface RegisterApplicationRevisionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Registers with AWS CodeDeploy a revision for the specified application.</p>
+ * <p>Registers with CodeDeploy a revision for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

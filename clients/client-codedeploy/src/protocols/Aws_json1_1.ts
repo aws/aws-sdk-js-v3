@@ -1617,6 +1617,9 @@ const deserializeAws_json1_1CreateDeploymentCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AlarmsLimitExceededException":
+    case "com.amazonaws.codedeploy#AlarmsLimitExceededException":
+      throw await deserializeAws_json1_1AlarmsLimitExceededExceptionResponse(parsedOutput, context);
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
       throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
@@ -1638,6 +1641,9 @@ const deserializeAws_json1_1CreateDeploymentCommandError = async (
     case "DescriptionTooLongException":
     case "com.amazonaws.codedeploy#DescriptionTooLongException":
       throw await deserializeAws_json1_1DescriptionTooLongExceptionResponse(parsedOutput, context);
+    case "InvalidAlarmConfigException":
+    case "com.amazonaws.codedeploy#InvalidAlarmConfigException":
+      throw await deserializeAws_json1_1InvalidAlarmConfigExceptionResponse(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
       throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
@@ -5492,6 +5498,9 @@ const serializeAws_json1_1CreateDeploymentInput = (input: CreateDeploymentInput,
     ...(input.ignoreApplicationStopFailures != null && {
       ignoreApplicationStopFailures: input.ignoreApplicationStopFailures,
     }),
+    ...(input.overrideAlarmConfiguration != null && {
+      overrideAlarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.overrideAlarmConfiguration, context),
+    }),
     ...(input.revision != null && { revision: serializeAws_json1_1RevisionLocation(input.revision, context) }),
     ...(input.targetInstances != null && {
       targetInstances: serializeAws_json1_1TargetInstances(input.targetInstances, context),
@@ -6949,6 +6958,10 @@ const deserializeAws_json1_1DeploymentInfo = (output: any, context: __SerdeConte
     loadBalancerInfo:
       output.loadBalancerInfo != null
         ? deserializeAws_json1_1LoadBalancerInfo(output.loadBalancerInfo, context)
+        : undefined,
+    overrideAlarmConfiguration:
+      output.overrideAlarmConfiguration != null
+        ? deserializeAws_json1_1AlarmConfiguration(output.overrideAlarmConfiguration, context)
         : undefined,
     previousRevision:
       output.previousRevision != null

@@ -37,23 +37,22 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  *         <ul>
  *             <li>
  *                 <p>
- *                     <b>EC2/On-premises</b>: Information about EC2 instance
- *                     targets. </p>
+ *                     <b>EC2/On-premises</b>: Information about Amazon EC2 instance targets. </p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>AWS Lambda</b>: Information about Lambda functions
- *                     targets. </p>
+ *                     <b>Lambda</b>: Information about
+ *                         Lambda functions targets. </p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>Amazon ECS</b>: Information about Amazon ECS
- *                     service targets. </p>
+ *                     <b>Amazon ECS</b>: Information about Amazon ECS service targets. </p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <b>CloudFormation</b>: Information about targets of
- *                     blue/green deployments initiated by a CloudFormation stack update.</p>
+ *                   <b>CloudFormation</b>: Information about
+ *                     targets of blue/green deployments initiated by a CloudFormation stack
+ *                     update.</p>
  *             </li>
  *          </ul>
  * @example
