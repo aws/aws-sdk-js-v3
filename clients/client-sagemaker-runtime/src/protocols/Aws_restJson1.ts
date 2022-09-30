@@ -44,6 +44,7 @@ export const serializeAws_restJson1InvokeEndpointCommand = async (
     "x-amzn-sagemaker-target-variant": input.TargetVariant!,
     "x-amzn-sagemaker-target-container-hostname": input.TargetContainerHostname!,
     "x-amzn-sagemaker-inference-id": input.InferenceId!,
+    "x-amzn-sagemaker-enable-explanations": input.EnableExplanations!,
   });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/endpoints/{EndpointName}/invocations";

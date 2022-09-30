@@ -4,7 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { SageMakerRuntimeServiceException as __BaseException } from "./SageMakerRuntimeServiceException";
 
 /**
- * <p>Your request caused an exception with an internal dependency. Contact customer support. </p>
+ * <p>Your request caused an exception with an internal dependency. Contact customer
+ *             support. </p>
  */
 export class InternalDependencyException extends __BaseException {
   readonly name: "InternalDependencyException" = "InternalDependencyException";
@@ -84,8 +85,8 @@ export interface InvokeEndpointInput {
    *             prepend the custom attribute with <code>Trace ID:</code> in your post-processing
    *             function.</p>
    *
-   *         <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker Python
-   *             SDK.</p>
+   *         <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker
+   *             Python SDK.</p>
    */
   CustomAttributes?: string;
 
@@ -117,13 +118,23 @@ export interface InvokeEndpointInput {
    *             Data</a>.</p>
    */
   InferenceId?: string;
+
+  /**
+   * <p>An optional JMESPath expression used to override the <code>EnableExplanations</code>
+   *             parameter of the <code>ClarifyExplainerConfig</code> API. See the <a href="https://docs.aws.amazon.com/clarify-online-explainability-create-endpoint.html#clarify-online-exaplainability-create-endpoint-enable">EnableExplanations</a> section in the developer guide for more information.
+   *         </p>
+   */
+  EnableExplanations?: string;
 }
 
 export interface InvokeEndpointOutput {
   /**
-   * <p>Includes the inference provided by the model.</p>
+   * <p>Includes the inference provided by the model. </p>
    *         <p>For information about the format of the response body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data
    *                 Formats-Inference</a>.</p>
+   *         <p>If the explainer is activated, the
+   *             body includes the explanations provided by the model. For more information, see the
+   *             <b>Response section</b> under <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">Invoke the Endpoint</a> in the Developer Guide.</p>
    */
   Body: Uint8Array | undefined;
 
@@ -152,8 +163,8 @@ export interface InvokeEndpointOutput {
    *             returned. For example, if a custom attribute represents the trace ID, your model can
    *             prepend the custom attribute with <code>Trace ID:</code> in your post-processing
    *             function.</p>
-   *         <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker Python
-   *             SDK.</p>
+   *         <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker
+   *             Python SDK.</p>
    */
   CustomAttributes?: string;
 }
@@ -198,7 +209,9 @@ export class ModelError extends __BaseException {
 }
 
 /**
- * <p>Either a serverless endpoint variant's resources are still being provisioned, or a multi-model endpoint is still downloading or loading the target model. Wait and try your request again.</p>
+ * <p>Either a serverless endpoint variant's resources are still being provisioned, or a
+ *             multi-model endpoint is still downloading or loading the target model. Wait and try your
+ *             request again.</p>
  */
 export class ModelNotReadyException extends __BaseException {
   readonly name: "ModelNotReadyException" = "ModelNotReadyException";
@@ -262,8 +275,8 @@ export class ValidationError extends __BaseException {
 
 export interface InvokeEndpointAsyncInput {
   /**
-   * <p>The name of the endpoint that you specified when you created the endpoint using
-   *             the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">
+   * <p>The name of the endpoint that you specified when you created the endpoint using the
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">
    *                <code>CreateEndpoint</code>
    *             </a> API.</p>
    */
@@ -280,27 +293,28 @@ export interface InvokeEndpointAsyncInput {
   Accept?: string;
 
   /**
-   * <p>Provides additional information about a request for an inference submitted to
-   *             a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is
-   *             forwarded verbatim. You could use this value, for example, to provide an ID that you
-   *             can use to track a request or to provide other metadata that a service endpoint was
-   *             programmed to process. The value must consist of no more than 1024
-   *             visible US-ASCII characters as specified in
-   *             <a href="https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6">Section 3.3.6.
-   *                 Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </p>
+   * <p>Provides additional information about a request for an inference submitted to a model
+   *             hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded
+   *             verbatim. You could use this value, for example, to provide an ID that you can use to
+   *             track a request or to provide other metadata that a service endpoint was programmed to
+   *             process. The value must consist of no more than 1024 visible US-ASCII characters as
+   *             specified in <a href="https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6">Section 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol
+   *             (HTTP/1.1). </p>
    *
-   *         <p>The code in your model is responsible for setting or updating any custom attributes
-   *             in the response. If your code does not set this value in the response, an empty
-   *             value is returned. For example, if a custom attribute represents the trace ID,
-   *             your model can prepend the custom attribute with <code>Trace ID</code>: in your post-processing function. </p>
+   *         <p>The code in your model is responsible for setting or updating any custom attributes in
+   *             the response. If your code does not set this value in the response, an empty value is
+   *             returned. For example, if a custom attribute represents the trace ID, your model can
+   *             prepend the custom attribute with <code>Trace ID</code>: in your post-processing
+   *             function. </p>
    *
-   *         <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker Python SDK. </p>
+   *         <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker
+   *             Python SDK. </p>
    */
   CustomAttributes?: string;
 
   /**
-   * <p>The identifier for the inference request. Amazon SageMaker will generate an identifier for you
-   *             if none is specified. </p>
+   * <p>The identifier for the inference request. Amazon SageMaker will generate an identifier for you if
+   *             none is specified. </p>
    */
   InferenceId?: string;
 
@@ -310,15 +324,17 @@ export interface InvokeEndpointAsyncInput {
   InputLocation: string | undefined;
 
   /**
-   * <p>Maximum age in seconds a request can be in the queue before it is marked as expired.</p>
+   * <p>Maximum age in seconds a request can be in the queue before it is marked as
+   *             expired.</p>
    */
   RequestTTLSeconds?: number;
 }
 
 export interface InvokeEndpointAsyncOutput {
   /**
-   * <p>Identifier for an inference request. This will be the same as the <code>InferenceId</code> specified
-   *             in the input. Amazon SageMaker will generate an identifier for you if you do not specify one.</p>
+   * <p>Identifier for an inference request. This will be the same as the
+   *                 <code>InferenceId</code> specified in the input. Amazon SageMaker will generate an identifier
+   *             for you if you do not specify one.</p>
    */
   InferenceId?: string;
 
