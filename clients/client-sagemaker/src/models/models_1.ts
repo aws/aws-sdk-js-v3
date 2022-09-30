@@ -29,6 +29,7 @@ import {
   AutoMLJobStatus,
   AutoMLOutputDataConfig,
   AutoMLPartialFailureReason,
+  AwsManagedHumanLoopRequestSource,
   BatchStrategy,
   Bias,
   CaptureStatus,
@@ -44,7 +45,6 @@ import {
   ContentClassifier,
   ContextSource,
   ContinuousParameterRange,
-  DataCaptureConfig,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
@@ -56,11 +56,13 @@ import {
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   EndpointInput,
+  ExplainerConfig,
   GitConfig,
+  HumanLoopActivationConfig,
+  HyperParameterScalingType,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
   InputConfig,
-  IntegerParameterRange,
   KernelGatewayImageConfig,
   MetadataProperties,
   MetricDefinition,
@@ -81,7 +83,6 @@ import {
   ProcessingS3DataDistributionType,
   ProcessingS3InputMode,
   ProcessingS3UploadMode,
-  ProductionVariant,
   ProductionVariantAcceleratorType,
   ProductionVariantInstanceType,
   ProductionVariantServerlessConfig,
@@ -101,6 +102,527 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Describes the work to be performed by human workers.</p>
+ */
+export interface HumanLoopConfig {
+  /**
+   * <p>Amazon Resource Name (ARN) of a team of workers. To learn more about the types of
+   *          workforces and work teams you can create and use with Amazon A2I, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management.html">Create
+   *             and Manage Workforces</a>.</p>
+   */
+  WorkteamArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the human task user interface.</p>
+   *          <p>You can use standard HTML and Crowd HTML Elements to create a custom worker task
+   *          template. You use this template to create a human task UI.</p>
+   *          <p>To learn how to create a custom HTML template, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-custom-templates.html">Create Custom Worker
+   *             Task Template</a>.</p>
+   *          <p>To learn how to create a human task UI, which is a worker task template that can be used
+   *          in a flow definition, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-worker-template-console.html">Create and Delete a Worker Task Templates</a>.</p>
+   */
+  HumanTaskUiArn: string | undefined;
+
+  /**
+   * <p>A title for the human worker task.</p>
+   */
+  TaskTitle: string | undefined;
+
+  /**
+   * <p>A description for the human worker task.</p>
+   */
+  TaskDescription: string | undefined;
+
+  /**
+   * <p>The number of distinct workers who will perform the same task on each object.
+   *       For example, if <code>TaskCount</code> is set to <code>3</code> for an image classification
+   *       labeling job, three workers will classify each input image.
+   *       Increasing <code>TaskCount</code> can improve label accuracy.</p>
+   */
+  TaskCount: number | undefined;
+
+  /**
+   * <p>The length of time that a task remains available for review by human workers.</p>
+   */
+  TaskAvailabilityLifetimeInSeconds?: number;
+
+  /**
+   * <p>The amount of time that a worker has to complete a task. The default value is 3,600
+   *          seconds (1 hour).</p>
+   */
+  TaskTimeLimitInSeconds?: number;
+
+  /**
+   * <p>Keywords used to describe the task so that workers can discover the task.</p>
+   */
+  TaskKeywords?: string[];
+
+  /**
+   * <p>Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. </p>
+   *         <p>Use one of the following prices for bounding box tasks. Prices are in US dollars and
+   *             should be based on the complexity of the task; the longer it takes in your initial
+   *             testing, the more you should offer.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>0.036</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.048</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.060</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.072</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.120</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.240</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.360</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.480</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.600</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.720</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.840</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.960</p>
+   *             </li>
+   *             <li>
+   *                 <p>1.080</p>
+   *             </li>
+   *             <li>
+   *                 <p>1.200</p>
+   *             </li>
+   *          </ul>
+   *         <p>Use one of the following prices for image classification, text classification, and
+   *             custom tasks. Prices are in US dollars.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>0.012</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.024</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.036</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.048</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.060</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.072</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.120</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.240</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.360</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.480</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.600</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.720</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.840</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.960</p>
+   *             </li>
+   *             <li>
+   *                 <p>1.080</p>
+   *             </li>
+   *             <li>
+   *                 <p>1.200</p>
+   *             </li>
+   *          </ul>
+   *         <p>Use one of the following prices for semantic segmentation tasks. Prices are in US
+   *             dollars.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>0.840</p>
+   *             </li>
+   *             <li>
+   *                 <p>0.960</p>
+   *             </li>
+   *             <li>
+   *                 <p>1.080</p>
+   *             </li>
+   *             <li>
+   *                 <p>1.200</p>
+   *             </li>
+   *          </ul>
+   *         <p>Use one of the following prices for Textract AnalyzeDocument Important Form Key Amazon
+   *             Augmented AI review tasks. Prices are in US dollars.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>2.400 </p>
+   *             </li>
+   *             <li>
+   *                 <p>2.280 </p>
+   *             </li>
+   *             <li>
+   *                 <p>2.160 </p>
+   *             </li>
+   *             <li>
+   *                 <p>2.040 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.920 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.800 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.680 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.560 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.440 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.320 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.200 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.080 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.960 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.840 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.720 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.600 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.480 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.360 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.240 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.120 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.072 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.060 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.048 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.036 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.024 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.012 </p>
+   *             </li>
+   *          </ul>
+   *         <p>Use one of the following prices for Rekognition DetectModerationLabels Amazon
+   *             Augmented AI review tasks. Prices are in US dollars.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>1.200 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.080 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.960 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.840 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.720 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.600 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.480 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.360 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.240 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.120 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.072 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.060 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.048 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.036 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.024 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.012 </p>
+   *             </li>
+   *          </ul>
+   *         <p>Use one of the following prices for Amazon Augmented AI custom human review tasks.
+   *             Prices are in US dollars.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>1.200 </p>
+   *             </li>
+   *             <li>
+   *                 <p>1.080 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.960 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.840 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.720 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.600 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.480 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.360 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.240 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.120 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.072 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.060 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.048 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.036 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.024 </p>
+   *             </li>
+   *             <li>
+   *                 <p>0.012 </p>
+   *             </li>
+   *          </ul>
+   */
+  PublicWorkforceTaskPrice?: PublicWorkforceTaskPrice;
+}
+
+/**
+ * <p>Container for configuring the source of human task requests.</p>
+ */
+export interface HumanLoopRequestSource {
+  /**
+   * <p>Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source.
+   *       The default field settings and JSON parsing rules are different based on the integration source. Valid values:</p>
+   */
+  AwsManagedHumanLoopRequestSource: AwsManagedHumanLoopRequestSource | string | undefined;
+}
+
+/**
+ * <p>Contains information about where human output will be stored.</p>
+ */
+export interface FlowDefinitionOutputConfig {
+  /**
+   * <p>The Amazon S3 path where the object containing human output will be made available.</p>
+   *          <p>To learn more about the format of Amazon A2I output data, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-output-data.html">Amazon A2I
+   *             Output Data</a>.</p>
+   */
+  S3OutputPath: string | undefined;
+
+  /**
+   * <p>The Amazon Key Management Service (KMS) key ID for server-side encryption.</p>
+   */
+  KmsKeyId?: string;
+}
+
+export interface CreateFlowDefinitionRequest {
+  /**
+   * <p>The name of your flow definition.</p>
+   */
+  FlowDefinitionName: string | undefined;
+
+  /**
+   * <p>Container for configuring the source of human task requests. Use to specify if
+   *       Amazon Rekognition or Amazon Textract is used as an integration source.</p>
+   */
+  HumanLoopRequestSource?: HumanLoopRequestSource;
+
+  /**
+   * <p>An object containing information about the events that trigger a human workflow.</p>
+   */
+  HumanLoopActivationConfig?: HumanLoopActivationConfig;
+
+  /**
+   * <p>An object containing information about the tasks the human reviewers will perform.</p>
+   */
+  HumanLoopConfig: HumanLoopConfig | undefined;
+
+  /**
+   * <p>An object containing information about where the human review results will be uploaded.</p>
+   */
+  OutputConfig: FlowDefinitionOutputConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role needed to call other services on your behalf. For example, <code>arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20180111T151298</code>.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>An array of key-value pairs that contain metadata to help you categorize and organize a flow definition. Each tag consists of a key and a value, both of which you define.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateFlowDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow definition you create.</p>
+   */
+  FlowDefinitionArn: string | undefined;
+}
+
+/**
+ * <p>The Liquid template for the worker user interface.</p>
+ */
+export interface UiTemplate {
+  /**
+   * <p>The content of the Liquid template for the worker user interface.</p>
+   */
+  Content: string | undefined;
+}
+
+export interface CreateHumanTaskUiRequest {
+  /**
+   * <p>The name of the user interface you are creating.</p>
+   */
+  HumanTaskUiName: string | undefined;
+
+  /**
+   * <p>The Liquid template for the worker user interface.</p>
+   */
+  UiTemplate: UiTemplate | undefined;
+
+  /**
+   * <p>An array of key-value pairs that contain metadata to help you categorize and organize a human review workflow user interface. Each tag consists of a key and a value, both of which you define.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateHumanTaskUiResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the human review workflow user interface you create.</p>
+   */
+  HumanTaskUiArn: string | undefined;
+}
+
+/**
+ * <p>For a hyperparameter of the integer type, specifies the range
+ *             that
+ *             a hyperparameter tuning job searches.</p>
+ */
+export interface IntegerParameterRange {
+  /**
+   * <p>The name of the hyperparameter to search.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The minimum
+   *             value
+   *             of the hyperparameter to search.</p>
+   */
+  MinValue: string | undefined;
+
+  /**
+   * <p>The maximum
+   *             value
+   *             of the hyperparameter to search.</p>
+   */
+  MaxValue: string | undefined;
+
+  /**
+   * <p>The scale that hyperparameter tuning uses to search the hyperparameter range. For
+   *             information about choosing a hyperparameter scale, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type">Hyperparameter Scaling</a>. One of the following values:</p>
+   *         <dl>
+   *             <dt>Auto</dt>
+   *             <dd>
+   *                     <p>SageMaker hyperparameter tuning chooses the best scale for the
+   *                         hyperparameter.</p>
+   *                 </dd>
+   *             <dt>Linear</dt>
+   *             <dd>
+   *                     <p>Hyperparameter tuning searches the values in the hyperparameter range by
+   *                         using a linear scale.</p>
+   *                 </dd>
+   *             <dt>Logarithmic</dt>
+   *             <dd>
+   *                     <p>Hyperparameter tuning searches the values in the hyperparameter range by
+   *                         using a logarithmic scale.</p>
+   *                     <p>Logarithmic scaling works only for ranges that have only values greater
+   *                         than 0.</p>
+   *                 </dd>
+   *          </dl>
+   */
+  ScalingType?: HyperParameterScalingType | string;
+}
 
 /**
  * <p>Specifies ranges of integer, continuous, and categorical hyperparameters that a
@@ -8953,6 +9475,11 @@ export interface DescribeEndpointOutput {
    *             endpoint is creating or updating with a new endpoint configuration.</p>
    */
   PendingDeploymentSummary?: PendingDeploymentSummary;
+
+  /**
+   * <p>The configuration parameters for an explainer.</p>
+   */
+  ExplainerConfig?: ExplainerConfig;
 }
 
 export interface DescribeEndpointConfigInput {
@@ -8962,165 +9489,68 @@ export interface DescribeEndpointConfigInput {
   EndpointConfigName: string | undefined;
 }
 
-export interface DescribeEndpointConfigOutput {
-  /**
-   * <p>Name of the SageMaker endpoint configuration.</p>
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint configuration.</p>
-   */
-  EndpointConfigArn: string | undefined;
-
-  /**
-   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you
-   *             want to host at this endpoint.</p>
-   */
-  ProductionVariants: ProductionVariant[] | undefined;
-
-  /**
-   * <p>Configuration to control how SageMaker captures inference data.</p>
-   */
-  DataCaptureConfig?: DataCaptureConfig;
-
-  /**
-   * <p>Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data when storing it on
-   *             the ML storage volume attached to the instance.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>A timestamp that shows when the endpoint configuration was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">
-   *                <code>CreateEndpointConfig</code>
-   *             </a> API.</p>
-   */
-  AsyncInferenceConfig?: AsyncInferenceConfig;
-}
-
-export interface DescribeExperimentRequest {
-  /**
-   * <p>The name of the experiment to describe.</p>
-   */
-  ExperimentName: string | undefined;
-}
+/**
+ * @internal
+ */
+export const HumanLoopConfigFilterSensitiveLog = (obj: HumanLoopConfig): any => ({
+  ...obj,
+});
 
 /**
- * <p>The source of the experiment.</p>
+ * @internal
  */
-export interface ExperimentSource {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source.</p>
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * <p>The source type.</p>
-   */
-  SourceType?: string;
-}
-
-export interface DescribeExperimentResponse {
-  /**
-   * <p>The name of the experiment.</p>
-   */
-  ExperimentName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   */
-  ExperimentArn?: string;
-
-  /**
-   * <p>The name of the experiment as displayed. If <code>DisplayName</code> isn't specified,
-   *         <code>ExperimentName</code> is displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The ARN of the source and, optionally, the type.</p>
-   */
-  Source?: ExperimentSource;
-
-  /**
-   * <p>The description of the experiment.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>When the experiment was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Who created the experiment.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>When the experiment was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Who last modified the experiment.</p>
-   */
-  LastModifiedBy?: UserContext;
-}
-
-export interface DescribeFeatureGroupRequest {
-  /**
-   * <p>The name of the <code>FeatureGroup</code> you want described. </p>
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>A token to resume pagination of the list of <code>Features</code>
-   *             (<code>FeatureDefinitions</code>). 2,500 <code>Features</code> are returned by
-   *          default.</p>
-   */
-  NextToken?: string;
-}
-
-export enum FeatureGroupStatus {
-  CREATED = "Created",
-  CREATE_FAILED = "CreateFailed",
-  CREATING = "Creating",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-}
-
-export enum LastUpdateStatusValue {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  SUCCESSFUL = "Successful",
-}
+export const HumanLoopRequestSourceFilterSensitiveLog = (obj: HumanLoopRequestSource): any => ({
+  ...obj,
+});
 
 /**
- * <p>A value that indicates whether the update was successful.</p>
+ * @internal
  */
-export interface LastUpdateStatus {
-  /**
-   * <p>A value that indicates whether the update was made successful.</p>
-   */
-  Status: LastUpdateStatusValue | string | undefined;
+export const FlowDefinitionOutputConfigFilterSensitiveLog = (obj: FlowDefinitionOutputConfig): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>If the update wasn't successful, indicates the reason why it failed.</p>
-   */
-  FailureReason?: string;
-}
+/**
+ * @internal
+ */
+export const CreateFlowDefinitionRequestFilterSensitiveLog = (obj: CreateFlowDefinitionRequest): any => ({
+  ...obj,
+});
 
-export enum OfflineStoreStatusValue {
-  ACTIVE = "Active",
-  BLOCKED = "Blocked",
-  DISABLED = "Disabled",
-}
+/**
+ * @internal
+ */
+export const CreateFlowDefinitionResponseFilterSensitiveLog = (obj: CreateFlowDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UiTemplateFilterSensitiveLog = (obj: UiTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHumanTaskUiRequestFilterSensitiveLog = (obj: CreateHumanTaskUiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHumanTaskUiResponseFilterSensitiveLog = (obj: CreateHumanTaskUiResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntegerParameterRangeFilterSensitiveLog = (obj: IntegerParameterRange): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11021,47 +11451,5 @@ export const DescribeEndpointOutputFilterSensitiveLog = (obj: DescribeEndpointOu
  * @internal
  */
 export const DescribeEndpointConfigInputFilterSensitiveLog = (obj: DescribeEndpointConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointConfigOutputFilterSensitiveLog = (obj: DescribeEndpointConfigOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeExperimentRequestFilterSensitiveLog = (obj: DescribeExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentSourceFilterSensitiveLog = (obj: ExperimentSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeExperimentResponseFilterSensitiveLog = (obj: DescribeExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFeatureGroupRequestFilterSensitiveLog = (obj: DescribeFeatureGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LastUpdateStatusFilterSensitiveLog = (obj: LastUpdateStatus): any => ({
   ...obj,
 });

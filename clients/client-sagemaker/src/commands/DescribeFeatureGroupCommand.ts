@@ -12,8 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeFeatureGroupRequest, DescribeFeatureGroupRequestFilterSensitiveLog } from "../models/models_1";
-import { DescribeFeatureGroupResponse, DescribeFeatureGroupResponseFilterSensitiveLog } from "../models/models_2";
+import {
+  DescribeFeatureGroupRequest,
+  DescribeFeatureGroupRequestFilterSensitiveLog,
+  DescribeFeatureGroupResponse,
+  DescribeFeatureGroupResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeFeatureGroupCommand,
   serializeAws_json1_1DescribeFeatureGroupCommand,

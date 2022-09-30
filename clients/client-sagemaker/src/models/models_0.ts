@@ -5102,6 +5102,343 @@ export interface ClarifyCheckStepMetadata {
   RegisterNewBaseline?: boolean;
 }
 
+export enum ClarifyFeatureType {
+  CATEGORICAL = "categorical",
+  NUMERICAL = "numerical",
+  TEXT = "text",
+}
+
+/**
+ * <p>The inference configuration parameter for the model container.</p>
+ */
+export interface ClarifyInferenceConfig {
+  /**
+   * <p>Provides the JMESPath expression to extract the features from a model container input
+   *             in JSON Lines format. For example, if <code>FeaturesAttribute</code> is the JMESPath
+   *             expression <code>'myfeatures'</code>, it extracts a list of features
+   *                 <code>[1,2,3]</code> from request data <code>'{"myfeatures":[1,2,3}'</code>.</p>
+   */
+  FeaturesAttribute?: string;
+
+  /**
+   * <p>A template string used to format a JSON record into an acceptable model container
+   *             input. For example, a <code>ContentTemplate</code> string
+   *                 <code>'{"myfeatures":$features}'</code> will format a list of features
+   *                 <code>[1,2,3]</code> into the record string <code>'{"myfeatures":[1,2,3]}'</code>.
+   *             Required only when the model container input is in JSON Lines format.</p>
+   */
+  ContentTemplate?: string;
+
+  /**
+   * <p>The maximum number of records in a request that the model container can process when
+   *             querying the model container for the predictions of a <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-synthetic">synthetic dataset</a>. A record is a unit of input data that inference can be
+   *             made on, for example, a single line in CSV data. If <code>MaxRecordCount</code> is
+   *                 <code>1</code>, the model container expects one record per request. A value of 2 or
+   *             greater means that the model expects batch requests, which can reduce overhead and speed
+   *             up the inferencing process. If this parameter is not provided, the explainer will tune
+   *             the record count per request according to the model container's capacity at
+   *             runtime.</p>
+   */
+  MaxRecordCount?: number;
+
+  /**
+   * <p>The maximum payload size (MB) allowed of a request from the explainer to the model
+   *             container. Defaults to <code>6</code> MB.</p>
+   */
+  MaxPayloadInMB?: number;
+
+  /**
+   * <p>A zero-based index used to extract a probability value (score) or list from model
+   *             container output in CSV format. If this value is not provided, the entire model
+   *             container output will be treated as a probability value (score) or list.</p>
+   *         <p>
+   *             <b>Example for a single class model:</b> If the model
+   *             container output consists of a string-formatted prediction label followed by its
+   *             probability: <code>'1,0.6'</code>, set <code>ProbabilityIndex</code> to <code>1</code>
+   *             to select the probability value <code>0.6</code>.</p>
+   *         <p>
+   *             <b>Example for a multiclass model:</b> If the model
+   *             container output consists of a string-formatted prediction label followed by its
+   *             probability: <code>'"[\'cat\',\'dog\',\'fish\']","[0.1,0.6,0.3]"'</code>, set
+   *                 <code>ProbabilityIndex</code> to <code>1</code> to select the probability values
+   *                 <code>[0.1,0.6,0.3]</code>.</p>
+   */
+  ProbabilityIndex?: number;
+
+  /**
+   * <p>A zero-based index used to extract a label header or list of label headers from model
+   *             container output in CSV format.</p>
+   *         <p>
+   *             <b>Example for a multiclass model:</b> If the model
+   *             container output consists of label headers followed by probabilities:
+   *                 <code>'"[\'cat\',\'dog\',\'fish\']","[0.1,0.6,0.3]"'</code>, set
+   *                 <code>LabelIndex</code> to <code>0</code> to select the label headers
+   *                 <code>['cat','dog','fish']</code>.</p>
+   */
+  LabelIndex?: number;
+
+  /**
+   * <p>A JMESPath expression used to extract the probability (or score) from the model
+   *             container output if the model container is in JSON Lines format.</p>
+   *         <p>
+   *             <b>Example</b>: If the model container output of a single
+   *             request is <code>'{"predicted_label":1,"probability":0.6}'</code>, then set
+   *                 <code>ProbabilityAttribute</code> to <code>'probability'</code>.</p>
+   */
+  ProbabilityAttribute?: string;
+
+  /**
+   * <p>A JMESPath expression used to locate the list of label headers in the model container
+   *             output.</p>
+   *         <p>
+   *             <b>Example</b>: If the model container output of a batch
+   *             request is <code>'{"labels":["cat","dog","fish"],"probability":[0.6,0.3,0.1]}'</code>,
+   *             then set <code>LabelAttribute</code> to <code>'labels'</code> to extract the list of
+   *             label headers <code>["cat","dog","fish"]</code>
+   *          </p>
+   */
+  LabelAttribute?: string;
+
+  /**
+   * <p>For multiclass classification problems, the label headers are the names of the
+   *             classes. Otherwise, the label header is the name of the predicted label. These are used
+   *             to help readability for the output of the <code>InvokeEndpoint</code> API. See the
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">response</a> section under <b>Invoke the endpoint</b>
+   *             in the Developer Guide for more information. If there are no label headers in the model
+   *             container output, provide them manually using this parameter.</p>
+   */
+  LabelHeaders?: string[];
+
+  /**
+   * <p>The names of the features. If provided, these are included in the endpoint response
+   *             payload to help readability of the <code>InvokeEndpoint</code> output. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">Response</a> section under <b>Invoke the endpoint</b>
+   *             in the Developer Guide for more information.</p>
+   */
+  FeatureHeaders?: string[];
+
+  /**
+   * <p>A list of data types of the features (optional). Applicable only to NLP
+   *             explainability. If provided, <code>FeatureTypes</code> must have at least one
+   *                 <code>'text'</code> string (for example, <code>['text']</code>). If
+   *                 <code>FeatureTypes</code> is not provided, the explainer infers the feature types
+   *             based on the baseline data. The feature types are included in the endpoint response
+   *             payload. For additional information see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">response</a> section under <b>Invoke the endpoint</b>
+   *             in the Developer Guide for more information.</p>
+   */
+  FeatureTypes?: (ClarifyFeatureType | string)[];
+}
+
+/**
+ * <p>The configuration for the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-feature-attribute-shap-baselines.html">SHAP
+ *                 baseline</a> (also called the background or reference dataset) of the Kernal
+ *             SHAP algorithm.</p>
+ *         <note>
+ *             <ul>
+ *                <li>
+ *                     <p>The number of records in the baseline data determines the size of the
+ *                         synthetic dataset, which has an impact on latency of explainability
+ *                         requests. For more information, see the <b>Synthetic
+ *                             data</b> of <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html">Configure and create an endpoint</a>.</p>
+ *                 </li>
+ *                <li>
+ *                     <p>
+ *                      <code>ShapBaseline</code> and <code>ShapBaselineUri</code> are mutually
+ *                         exclusive parameters. One or the either is required to configure a SHAP
+ *                         baseline. </p>
+ *                 </li>
+ *             </ul>
+ *         </note>
+ */
+export interface ClarifyShapBaselineConfig {
+  /**
+   * <p>The MIME type of the baseline data. Choose from <code>'text/csv'</code> or
+   *                 <code>'application/jsonlines'</code>. Defaults to <code>'text/csv'</code>.</p>
+   */
+  MimeType?: string;
+
+  /**
+   * <p>The inline SHAP baseline data in string format. <code>ShapBaseline</code> can have one
+   *             or multiple records to be used as the baseline dataset. The format of the SHAP baseline
+   *             file should be the same format as the training dataset. For example, if the training
+   *             dataset is in CSV format and each record contains four features, and all features are
+   *             numerical, then the format of the baseline data should also share these characteristics.
+   *             For natural language processing (NLP) of text columns, the baseline value should be the
+   *             value used to replace the unit of text specified by the <code>Granularity</code> of the
+   *                 <code>TextConfig</code> parameter. The size limit for <code>ShapBasline</code> is 4
+   *             KB. Use the <code>ShapBaselineUri</code> parameter if you want to provide more than 4 KB
+   *             of baseline data.</p>
+   */
+  ShapBaseline?: string;
+
+  /**
+   * <p>The uniform resource identifier (URI) of the S3 bucket where the SHAP baseline file is
+   *             stored. The format of the SHAP baseline file should be the same format as the format of
+   *             the training dataset. For example, if the training dataset is in CSV format, and each
+   *             record in the training dataset has four features, and all features are numerical, then
+   *             the baseline file should also have this same format. Each record should contain only the
+   *             features. If you are using a virtual private cloud (VPC), the
+   *                 <code>ShapBaselineUri</code> should be accessible to the VPC. For more information
+   *             about setting up endpoints with Amazon Virtual Private Cloud, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker access to
+   *                 Resources in your Amazon Virtual Private Cloud</a>.</p>
+   */
+  ShapBaselineUri?: string;
+}
+
+export enum ClarifyTextGranularity {
+  PARAGRAPH = "paragraph",
+  SENTENCE = "sentence",
+  TOKEN = "token",
+}
+
+export enum ClarifyTextLanguage {
+  AFRIKAANS = "af",
+  ALBANIAN = "sq",
+  ARABIC = "ar",
+  ARMENIAN = "hy",
+  BASQUE = "eu",
+  BENGALI = "bn",
+  BULGARIAN = "bg",
+  CATALAN = "ca",
+  CHINESE = "zh",
+  CROATIAN = "hr",
+  CZECH = "cs",
+  DANISH = "da",
+  DUTCH = "nl",
+  ENGLISH = "en",
+  ESTONIAN = "et",
+  FINNISH = "fi",
+  FRENCH = "fr",
+  GERMAN = "de",
+  GREEK = "el",
+  GUJARATI = "gu",
+  HEBREW = "he",
+  HINDI = "hi",
+  HUNGARIAN = "hu",
+  ICELANDIC = "is",
+  INDONESIAN = "id",
+  IRISH = "ga",
+  ITALIAN = "it",
+  KANNADA = "kn",
+  KYRGYZ = "ky",
+  LATVIAN = "lv",
+  LIGURIAN = "lij",
+  LITHUANIAN = "lt",
+  LUXEMBOURGISH = "lb",
+  MACEDONIAN = "mk",
+  MALAYALAM = "ml",
+  MARATHI = "mr",
+  MULTI_LANGUAGE = "xx",
+  NEPALI = "ne",
+  NORWEGIAN_BOKMAL = "nb",
+  PERSIAN = "fa",
+  POLISH = "pl",
+  PORTUGUESE = "pt",
+  ROMANIAN = "ro",
+  RUSSIAN = "ru",
+  SANSKRIT = "sa",
+  SERBIAN = "sr",
+  SETSWANA = "tn",
+  SINHALA = "si",
+  SLOVAK = "sk",
+  SLOVENIAN = "sl",
+  SPANISH = "es",
+  SWEDISH = "sv",
+  TAGALOG = "tl",
+  TAMIL = "ta",
+  TATAR = "tt",
+  TELUGU = "te",
+  TURKISH = "tr",
+  UKRAINIAN = "uk",
+  URDU = "ur",
+  YORUBA = "yo",
+}
+
+/**
+ * <p>A parameter used to configure the SageMaker Clarify explainer to treat text features as text so
+ *             that explanations are provided for individual units of text. Required only for natural
+ *             language processing (NLP) explainability. </p>
+ */
+export interface ClarifyTextConfig {
+  /**
+   * <p>Specifies the language of the text features in <a href=" https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1</a> or
+   *                 <a href="https://en.wikipedia.org/wiki/ISO_639-3">ISO 639-3</a> code of a
+   *             supported language. </p>
+   *         <note>
+   *             <p>For a mix of multiple languages, use code <code>'xx'</code>.</p>
+   *         </note>
+   */
+  Language: ClarifyTextLanguage | string | undefined;
+
+  /**
+   * <p>The unit of granularity for the analysis of text features. For example, if the unit is
+   *                 <code>'token'</code>, then each token (like a word in English) of the text is
+   *             treated as a feature. SHAP values are computed for each unit/feature.</p>
+   */
+  Granularity: ClarifyTextGranularity | string | undefined;
+}
+
+/**
+ * <p>The configuration for SHAP analysis using SageMaker Clarify Explainer.</p>
+ */
+export interface ClarifyShapConfig {
+  /**
+   * <p>The configuration for the SHAP baseline of the Kernal SHAP algorithm.</p>
+   */
+  ShapBaselineConfig: ClarifyShapBaselineConfig | undefined;
+
+  /**
+   * <p>The number of samples to be used for analysis by the Kernal SHAP algorithm. </p>
+   *         <note>
+   *             <p>The number of samples determines the size of the synthetic dataset, which has an
+   *                 impact on latency of explainability requests. For more information, see the
+   *                     <b>Synthetic data</b> of <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html">Configure and create an endpoint</a>.</p>
+   *         </note>
+   */
+  NumberOfSamples?: number;
+
+  /**
+   * <p>A Boolean toggle to indicate if you want to use the logit function (true) or log-odds
+   *             units (false) for model predictions. Defaults to false.</p>
+   */
+  UseLogit?: boolean;
+
+  /**
+   * <p>The starting value used to initialize the random number generator in the explainer.
+   *             Provide a value for this parameter to obtain a deterministic SHAP result.</p>
+   */
+  Seed?: number;
+
+  /**
+   * <p>A parameter that indicates if text features are treated as text and explanations are
+   *             provided for individual units of text. Required for natural language processing (NLP)
+   *             explainability only.</p>
+   */
+  TextConfig?: ClarifyTextConfig;
+}
+
+/**
+ * <p>The configuration parameters for the SageMaker Clarify explainer.</p>
+ */
+export interface ClarifyExplainerConfig {
+  /**
+   * <p>A JMESPath boolean expression used to filter which records to explain. Explanations
+   *             are activated by default. See <a href="https://docs.aws.amazon.com/sagemaker-dg/src/AWSIronmanApiDoc/build/server-root/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable">
+   *                 <code>EnableExplanations</code>
+   *             </a>for additional information.</p>
+   */
+  EnableExplanations?: string;
+
+  /**
+   * <p>The inference configuration parameter for the model container.</p>
+   */
+  InferenceConfig?: ClarifyInferenceConfig;
+
+  /**
+   * <p>The configuration for SHAP analysis.</p>
+   */
+  ShapConfig: ClarifyShapConfig | undefined;
+}
+
 export enum CodeRepositorySortBy {
   CREATION_TIME = "CreationTime",
   LAST_MODIFIED_TIME = "LastModifiedTime",
@@ -8393,6 +8730,17 @@ export interface DataCaptureConfig {
   CaptureContentTypeHeader?: CaptureContentTypeHeader;
 }
 
+/**
+ * <p>A parameter to activate explainers.</p>
+ */
+export interface ExplainerConfig {
+  /**
+   * <p>A member of <code>ExplainerConfig</code> that contains configuration parameters for
+   *             the SageMaker Clarify explainer.</p>
+   */
+  ClarifyExplainerConfig?: ClarifyExplainerConfig;
+}
+
 export enum ProductionVariantAcceleratorType {
   ML_EIA1_LARGE = "ml.eia1.large",
   ML_EIA1_MEDIUM = "ml.eia1.medium",
@@ -8626,6 +8974,11 @@ export interface CreateEndpointConfigInput {
    *             required field in order for your Endpoint to be invoked using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html">InvokeEndpointAsync</a>.</p>
    */
   AsyncInferenceConfig?: AsyncInferenceConfig;
+
+  /**
+   * <p>A member of <code>CreateEndpointConfig</code> that enables explainers.</p>
+   */
+  ExplainerConfig?: ExplainerConfig;
 }
 
 export interface CreateEndpointConfigOutput {
@@ -9369,527 +9722,6 @@ export interface PublicWorkforceTaskPrice {
 }
 
 /**
- * <p>Describes the work to be performed by human workers.</p>
- */
-export interface HumanLoopConfig {
-  /**
-   * <p>Amazon Resource Name (ARN) of a team of workers. To learn more about the types of
-   *          workforces and work teams you can create and use with Amazon A2I, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management.html">Create
-   *             and Manage Workforces</a>.</p>
-   */
-  WorkteamArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the human task user interface.</p>
-   *          <p>You can use standard HTML and Crowd HTML Elements to create a custom worker task
-   *          template. You use this template to create a human task UI.</p>
-   *          <p>To learn how to create a custom HTML template, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-custom-templates.html">Create Custom Worker
-   *             Task Template</a>.</p>
-   *          <p>To learn how to create a human task UI, which is a worker task template that can be used
-   *          in a flow definition, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-worker-template-console.html">Create and Delete a Worker Task Templates</a>.</p>
-   */
-  HumanTaskUiArn: string | undefined;
-
-  /**
-   * <p>A title for the human worker task.</p>
-   */
-  TaskTitle: string | undefined;
-
-  /**
-   * <p>A description for the human worker task.</p>
-   */
-  TaskDescription: string | undefined;
-
-  /**
-   * <p>The number of distinct workers who will perform the same task on each object.
-   *       For example, if <code>TaskCount</code> is set to <code>3</code> for an image classification
-   *       labeling job, three workers will classify each input image.
-   *       Increasing <code>TaskCount</code> can improve label accuracy.</p>
-   */
-  TaskCount: number | undefined;
-
-  /**
-   * <p>The length of time that a task remains available for review by human workers.</p>
-   */
-  TaskAvailabilityLifetimeInSeconds?: number;
-
-  /**
-   * <p>The amount of time that a worker has to complete a task. The default value is 3,600
-   *          seconds (1 hour).</p>
-   */
-  TaskTimeLimitInSeconds?: number;
-
-  /**
-   * <p>Keywords used to describe the task so that workers can discover the task.</p>
-   */
-  TaskKeywords?: string[];
-
-  /**
-   * <p>Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. </p>
-   *         <p>Use one of the following prices for bounding box tasks. Prices are in US dollars and
-   *             should be based on the complexity of the task; the longer it takes in your initial
-   *             testing, the more you should offer.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>0.036</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.048</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.060</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.072</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.120</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.240</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.360</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.480</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.600</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.720</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.840</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.960</p>
-   *             </li>
-   *             <li>
-   *                 <p>1.080</p>
-   *             </li>
-   *             <li>
-   *                 <p>1.200</p>
-   *             </li>
-   *          </ul>
-   *         <p>Use one of the following prices for image classification, text classification, and
-   *             custom tasks. Prices are in US dollars.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>0.012</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.024</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.036</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.048</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.060</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.072</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.120</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.240</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.360</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.480</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.600</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.720</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.840</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.960</p>
-   *             </li>
-   *             <li>
-   *                 <p>1.080</p>
-   *             </li>
-   *             <li>
-   *                 <p>1.200</p>
-   *             </li>
-   *          </ul>
-   *         <p>Use one of the following prices for semantic segmentation tasks. Prices are in US
-   *             dollars.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>0.840</p>
-   *             </li>
-   *             <li>
-   *                 <p>0.960</p>
-   *             </li>
-   *             <li>
-   *                 <p>1.080</p>
-   *             </li>
-   *             <li>
-   *                 <p>1.200</p>
-   *             </li>
-   *          </ul>
-   *         <p>Use one of the following prices for Textract AnalyzeDocument Important Form Key Amazon
-   *             Augmented AI review tasks. Prices are in US dollars.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>2.400 </p>
-   *             </li>
-   *             <li>
-   *                 <p>2.280 </p>
-   *             </li>
-   *             <li>
-   *                 <p>2.160 </p>
-   *             </li>
-   *             <li>
-   *                 <p>2.040 </p>
-   *             </li>
-   *             <li>
-   *                 <p>1.920 </p>
-   *             </li>
-   *             <li>
-   *                 <p>1.800 </p>
-   *             </li>
-   *             <li>
-   *                 <p>1.680 </p>
-   *             </li>
-   *             <li>
-   *                 <p>1.560 </p>
-   *             </li>
-   *             <li>
-   *                 <p>1.440 </p>
-   *             </li>
-   *             <li>
-   *                 <p>1.320 </p>
-   *             </li>
-   *             <li>
-   *                 <p>1.200 </p>
-   *             </li>
-   *             <li>
-   *                 <p>1.080 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.960 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.840 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.720 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.600 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.480 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.360 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.240 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.120 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.072 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.060 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.048 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.036 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.024 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.012 </p>
-   *             </li>
-   *          </ul>
-   *         <p>Use one of the following prices for Rekognition DetectModerationLabels Amazon
-   *             Augmented AI review tasks. Prices are in US dollars.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>1.200 </p>
-   *             </li>
-   *             <li>
-   *                 <p>1.080 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.960 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.840 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.720 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.600 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.480 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.360 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.240 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.120 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.072 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.060 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.048 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.036 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.024 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.012 </p>
-   *             </li>
-   *          </ul>
-   *         <p>Use one of the following prices for Amazon Augmented AI custom human review tasks.
-   *             Prices are in US dollars.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>1.200 </p>
-   *             </li>
-   *             <li>
-   *                 <p>1.080 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.960 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.840 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.720 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.600 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.480 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.360 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.240 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.120 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.072 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.060 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.048 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.036 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.024 </p>
-   *             </li>
-   *             <li>
-   *                 <p>0.012 </p>
-   *             </li>
-   *          </ul>
-   */
-  PublicWorkforceTaskPrice?: PublicWorkforceTaskPrice;
-}
-
-/**
- * <p>Container for configuring the source of human task requests.</p>
- */
-export interface HumanLoopRequestSource {
-  /**
-   * <p>Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source.
-   *       The default field settings and JSON parsing rules are different based on the integration source. Valid values:</p>
-   */
-  AwsManagedHumanLoopRequestSource: AwsManagedHumanLoopRequestSource | string | undefined;
-}
-
-/**
- * <p>Contains information about where human output will be stored.</p>
- */
-export interface FlowDefinitionOutputConfig {
-  /**
-   * <p>The Amazon S3 path where the object containing human output will be made available.</p>
-   *          <p>To learn more about the format of Amazon A2I output data, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-output-data.html">Amazon A2I
-   *             Output Data</a>.</p>
-   */
-  S3OutputPath: string | undefined;
-
-  /**
-   * <p>The Amazon Key Management Service (KMS) key ID for server-side encryption.</p>
-   */
-  KmsKeyId?: string;
-}
-
-export interface CreateFlowDefinitionRequest {
-  /**
-   * <p>The name of your flow definition.</p>
-   */
-  FlowDefinitionName: string | undefined;
-
-  /**
-   * <p>Container for configuring the source of human task requests. Use to specify if
-   *       Amazon Rekognition or Amazon Textract is used as an integration source.</p>
-   */
-  HumanLoopRequestSource?: HumanLoopRequestSource;
-
-  /**
-   * <p>An object containing information about the events that trigger a human workflow.</p>
-   */
-  HumanLoopActivationConfig?: HumanLoopActivationConfig;
-
-  /**
-   * <p>An object containing information about the tasks the human reviewers will perform.</p>
-   */
-  HumanLoopConfig: HumanLoopConfig | undefined;
-
-  /**
-   * <p>An object containing information about where the human review results will be uploaded.</p>
-   */
-  OutputConfig: FlowDefinitionOutputConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the role needed to call other services on your behalf. For example, <code>arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20180111T151298</code>.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>An array of key-value pairs that contain metadata to help you categorize and organize a flow definition. Each tag consists of a key and a value, both of which you define.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateFlowDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow definition you create.</p>
-   */
-  FlowDefinitionArn: string | undefined;
-}
-
-/**
- * <p>The Liquid template for the worker user interface.</p>
- */
-export interface UiTemplate {
-  /**
-   * <p>The content of the Liquid template for the worker user interface.</p>
-   */
-  Content: string | undefined;
-}
-
-export interface CreateHumanTaskUiRequest {
-  /**
-   * <p>The name of the user interface you are creating.</p>
-   */
-  HumanTaskUiName: string | undefined;
-
-  /**
-   * <p>The Liquid template for the worker user interface.</p>
-   */
-  UiTemplate: UiTemplate | undefined;
-
-  /**
-   * <p>An array of key-value pairs that contain metadata to help you categorize and organize a human review workflow user interface. Each tag consists of a key and a value, both of which you define.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateHumanTaskUiResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the human review workflow user interface you create.</p>
-   */
-  HumanTaskUiArn: string | undefined;
-}
-
-/**
- * <p>For a hyperparameter of the integer type, specifies the range
- *             that
- *             a hyperparameter tuning job searches.</p>
- */
-export interface IntegerParameterRange {
-  /**
-   * <p>The name of the hyperparameter to search.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The minimum
-   *             value
-   *             of the hyperparameter to search.</p>
-   */
-  MinValue: string | undefined;
-
-  /**
-   * <p>The maximum
-   *             value
-   *             of the hyperparameter to search.</p>
-   */
-  MaxValue: string | undefined;
-
-  /**
-   * <p>The scale that hyperparameter tuning uses to search the hyperparameter range. For
-   *             information about choosing a hyperparameter scale, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type">Hyperparameter Scaling</a>. One of the following values:</p>
-   *         <dl>
-   *             <dt>Auto</dt>
-   *             <dd>
-   *                     <p>SageMaker hyperparameter tuning chooses the best scale for the
-   *                         hyperparameter.</p>
-   *                 </dd>
-   *             <dt>Linear</dt>
-   *             <dd>
-   *                     <p>Hyperparameter tuning searches the values in the hyperparameter range by
-   *                         using a linear scale.</p>
-   *                 </dd>
-   *             <dt>Logarithmic</dt>
-   *             <dd>
-   *                     <p>Hyperparameter tuning searches the values in the hyperparameter range by
-   *                         using a logarithmic scale.</p>
-   *                     <p>Logarithmic scaling works only for ranges that have only values greater
-   *                         than 0.</p>
-   *                 </dd>
-   *          </dl>
-   */
-  ScalingType?: HyperParameterScalingType | string;
-}
-
-/**
  * @internal
  */
 export const ActionSourceFilterSensitiveLog = (obj: ActionSource): any => ({
@@ -10589,6 +10421,41 @@ export const ClarifyCheckStepMetadataFilterSensitiveLog = (obj: ClarifyCheckStep
 /**
  * @internal
  */
+export const ClarifyInferenceConfigFilterSensitiveLog = (obj: ClarifyInferenceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClarifyShapBaselineConfigFilterSensitiveLog = (obj: ClarifyShapBaselineConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClarifyTextConfigFilterSensitiveLog = (obj: ClarifyTextConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClarifyShapConfigFilterSensitiveLog = (obj: ClarifyShapConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClarifyExplainerConfigFilterSensitiveLog = (obj: ClarifyExplainerConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GitConfigFilterSensitiveLog = (obj: GitConfig): any => ({
   ...obj,
 });
@@ -11197,6 +11064,13 @@ export const DataCaptureConfigFilterSensitiveLog = (obj: DataCaptureConfig): any
 /**
  * @internal
  */
+export const ExplainerConfigFilterSensitiveLog = (obj: ExplainerConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ProductionVariantCoreDumpConfigFilterSensitiveLog = (obj: ProductionVariantCoreDumpConfig): any => ({
   ...obj,
 });
@@ -11326,68 +11200,5 @@ export const USDFilterSensitiveLog = (obj: USD): any => ({
  * @internal
  */
 export const PublicWorkforceTaskPriceFilterSensitiveLog = (obj: PublicWorkforceTaskPrice): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HumanLoopConfigFilterSensitiveLog = (obj: HumanLoopConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HumanLoopRequestSourceFilterSensitiveLog = (obj: HumanLoopRequestSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FlowDefinitionOutputConfigFilterSensitiveLog = (obj: FlowDefinitionOutputConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFlowDefinitionRequestFilterSensitiveLog = (obj: CreateFlowDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFlowDefinitionResponseFilterSensitiveLog = (obj: CreateFlowDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UiTemplateFilterSensitiveLog = (obj: UiTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHumanTaskUiRequestFilterSensitiveLog = (obj: CreateHumanTaskUiRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHumanTaskUiResponseFilterSensitiveLog = (obj: CreateHumanTaskUiResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IntegerParameterRangeFilterSensitiveLog = (obj: IntegerParameterRange): any => ({
   ...obj,
 });

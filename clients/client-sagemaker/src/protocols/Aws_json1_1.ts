@@ -761,6 +761,12 @@ import {
   ChannelSpecification,
   CheckpointConfig,
   ClarifyCheckStepMetadata,
+  ClarifyExplainerConfig,
+  ClarifyFeatureType,
+  ClarifyInferenceConfig,
+  ClarifyShapBaselineConfig,
+  ClarifyShapConfig,
+  ClarifyTextConfig,
   CodeRepositorySummary,
   CognitoConfig,
   CognitoMemberDefinition,
@@ -810,10 +816,6 @@ import {
   CreateExperimentResponse,
   CreateFeatureGroupRequest,
   CreateFeatureGroupResponse,
-  CreateFlowDefinitionRequest,
-  CreateFlowDefinitionResponse,
-  CreateHumanTaskUiRequest,
-  CreateHumanTaskUiResponse,
   CustomImage,
   DataCaptureConfig,
   DataCatalogConfig,
@@ -829,23 +831,20 @@ import {
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EndpointInput,
+  ExplainerConfig,
   FeatureDefinition,
   FileSystemConfig,
   FileSystemDataSource,
   FinalAutoMLJobObjectiveMetric,
-  FlowDefinitionOutputConfig,
   GitConfig,
   HumanLoopActivationConditionsConfig,
   HumanLoopActivationConfig,
-  HumanLoopConfig,
-  HumanLoopRequestSource,
   HyperParameterSpecification,
   HyperParameterTuningJobObjective,
   ImageConfig,
   InferenceSpecification,
   InputConfig,
   InstanceGroup,
-  IntegerParameterRange,
   IntegerParameterRangeSpecification,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
@@ -911,13 +910,16 @@ import {
   TransformOutput,
   TransformResources,
   TransformS3DataSource,
-  UiTemplate,
   USD,
   UserContext,
   UserSettings,
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateFlowDefinitionRequest,
+  CreateFlowDefinitionResponse,
+  CreateHumanTaskUiRequest,
+  CreateHumanTaskUiResponse,
   CreateHyperParameterTuningJobRequest,
   CreateHyperParameterTuningJobResponse,
   CreateImageRequest,
@@ -1067,12 +1069,8 @@ import {
   DescribeEdgePackagingJobRequest,
   DescribeEdgePackagingJobResponse,
   DescribeEndpointConfigInput,
-  DescribeEndpointConfigOutput,
   DescribeEndpointInput,
   DescribeEndpointOutput,
-  DescribeExperimentRequest,
-  DescribeExperimentResponse,
-  DescribeFeatureGroupRequest,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1084,9 +1082,11 @@ import {
   EndpointInputConfiguration,
   EnvironmentParameterRanges,
   ExperimentConfig,
-  ExperimentSource,
   Explainability,
   FileSource,
+  FlowDefinitionOutputConfig,
+  HumanLoopConfig,
+  HumanLoopRequestSource,
   HumanTaskConfig,
   HyperbandStrategyConfig,
   HyperParameterAlgorithmSpecification,
@@ -1098,6 +1098,7 @@ import {
   HyperParameterTuningResourceConfig,
   InferenceExecutionConfig,
   InstanceMetadataServiceConfiguration,
+  IntegerParameterRange,
   LabelingJobAlgorithmsConfig,
   LabelingJobDataAttributes,
   LabelingJobDataSource,
@@ -1107,7 +1108,6 @@ import {
   LabelingJobS3DataSource,
   LabelingJobSnsDataSource,
   LabelingJobStoppingConditions,
-  LastUpdateStatus,
   MemberDefinition,
   ModelArtifacts,
   ModelBiasAppSpecification,
@@ -1185,9 +1185,14 @@ import {
   TrialComponentStatus,
   TuningJobCompletionCriteria,
   UiConfig,
+  UiTemplate,
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DescribeEndpointConfigOutput,
+  DescribeExperimentRequest,
+  DescribeExperimentResponse,
+  DescribeFeatureGroupRequest,
   DescribeFeatureGroupResponse,
   DescribeFeatureMetadataRequest,
   DescribeFeatureMetadataResponse,
@@ -1279,6 +1284,7 @@ import {
   EndpointSummary,
   EnvironmentParameter,
   Experiment,
+  ExperimentSource,
   ExperimentSummary,
   FailStepMetadata,
   FeatureGroup,
@@ -1313,6 +1319,7 @@ import {
   LabelingJobOutput,
   LabelingJobSummary,
   LambdaStepMetadata,
+  LastUpdateStatus,
   LineageGroupSummary,
   LineageType,
   ListActionsRequest,
@@ -1387,11 +1394,6 @@ import {
   ListModelPackagesOutput,
   ListModelQualityJobDefinitionsRequest,
   ListModelQualityJobDefinitionsResponse,
-  ListModelsInput,
-  ListModelsOutput,
-  ListMonitoringExecutionsRequest,
-  ListMonitoringExecutionsResponse,
-  ListMonitoringSchedulesRequest,
   MetricData,
   ModelConfiguration,
   ModelMetadataFilter,
@@ -1401,11 +1403,9 @@ import {
   ModelPackageStatusDetails,
   ModelPackageStatusItem,
   ModelPackageSummary,
-  ModelSummary,
   MonitoringExecutionSummary,
   MonitoringJobDefinitionSummary,
   MonitoringSchedule,
-  MonitoringScheduleSummary,
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   OidcConfigForResponse,
@@ -1430,6 +1430,11 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListModelsInput,
+  ListModelsOutput,
+  ListMonitoringExecutionsRequest,
+  ListMonitoringExecutionsResponse,
+  ListMonitoringSchedulesRequest,
   ListMonitoringSchedulesResponse,
   ListNotebookInstanceLifecycleConfigsInput,
   ListNotebookInstanceLifecycleConfigsOutput,
@@ -1474,6 +1479,8 @@ import {
   ModelPackage,
   ModelPackageGroup,
   ModelStepMetadata,
+  ModelSummary,
+  MonitoringScheduleSummary,
   NestedFilters,
   NotebookInstanceLifecycleConfigSummary,
   NotebookInstanceSummary,
@@ -15900,6 +15907,95 @@ const serializeAws_json1_1Cidrs = (input: string[], context: __SerdeContext): an
     });
 };
 
+const serializeAws_json1_1ClarifyExplainerConfig = (input: ClarifyExplainerConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.EnableExplanations != null && { EnableExplanations: input.EnableExplanations }),
+    ...(input.InferenceConfig != null && {
+      InferenceConfig: serializeAws_json1_1ClarifyInferenceConfig(input.InferenceConfig, context),
+    }),
+    ...(input.ShapConfig != null && { ShapConfig: serializeAws_json1_1ClarifyShapConfig(input.ShapConfig, context) }),
+  };
+};
+
+const serializeAws_json1_1ClarifyFeatureHeaders = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ClarifyFeatureTypes = (
+  input: (ClarifyFeatureType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ClarifyInferenceConfig = (input: ClarifyInferenceConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.ContentTemplate != null && { ContentTemplate: input.ContentTemplate }),
+    ...(input.FeatureHeaders != null && {
+      FeatureHeaders: serializeAws_json1_1ClarifyFeatureHeaders(input.FeatureHeaders, context),
+    }),
+    ...(input.FeatureTypes != null && {
+      FeatureTypes: serializeAws_json1_1ClarifyFeatureTypes(input.FeatureTypes, context),
+    }),
+    ...(input.FeaturesAttribute != null && { FeaturesAttribute: input.FeaturesAttribute }),
+    ...(input.LabelAttribute != null && { LabelAttribute: input.LabelAttribute }),
+    ...(input.LabelHeaders != null && {
+      LabelHeaders: serializeAws_json1_1ClarifyLabelHeaders(input.LabelHeaders, context),
+    }),
+    ...(input.LabelIndex != null && { LabelIndex: input.LabelIndex }),
+    ...(input.MaxPayloadInMB != null && { MaxPayloadInMB: input.MaxPayloadInMB }),
+    ...(input.MaxRecordCount != null && { MaxRecordCount: input.MaxRecordCount }),
+    ...(input.ProbabilityAttribute != null && { ProbabilityAttribute: input.ProbabilityAttribute }),
+    ...(input.ProbabilityIndex != null && { ProbabilityIndex: input.ProbabilityIndex }),
+  };
+};
+
+const serializeAws_json1_1ClarifyLabelHeaders = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ClarifyShapBaselineConfig = (
+  input: ClarifyShapBaselineConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MimeType != null && { MimeType: input.MimeType }),
+    ...(input.ShapBaseline != null && { ShapBaseline: input.ShapBaseline }),
+    ...(input.ShapBaselineUri != null && { ShapBaselineUri: input.ShapBaselineUri }),
+  };
+};
+
+const serializeAws_json1_1ClarifyShapConfig = (input: ClarifyShapConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.NumberOfSamples != null && { NumberOfSamples: input.NumberOfSamples }),
+    ...(input.Seed != null && { Seed: input.Seed }),
+    ...(input.ShapBaselineConfig != null && {
+      ShapBaselineConfig: serializeAws_json1_1ClarifyShapBaselineConfig(input.ShapBaselineConfig, context),
+    }),
+    ...(input.TextConfig != null && { TextConfig: serializeAws_json1_1ClarifyTextConfig(input.TextConfig, context) }),
+    ...(input.UseLogit != null && { UseLogit: input.UseLogit }),
+  };
+};
+
+const serializeAws_json1_1ClarifyTextConfig = (input: ClarifyTextConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.Granularity != null && { Granularity: input.Granularity }),
+    ...(input.Language != null && { Language: input.Language }),
+  };
+};
+
 const serializeAws_json1_1CognitoConfig = (input: CognitoConfig, context: __SerdeContext): any => {
   return {
     ...(input.ClientId != null && { ClientId: input.ClientId }),
@@ -16330,6 +16426,9 @@ const serializeAws_json1_1CreateEndpointConfigInput = (
       DataCaptureConfig: serializeAws_json1_1DataCaptureConfig(input.DataCaptureConfig, context),
     }),
     ...(input.EndpointConfigName != null && { EndpointConfigName: input.EndpointConfigName }),
+    ...(input.ExplainerConfig != null && {
+      ExplainerConfig: serializeAws_json1_1ExplainerConfig(input.ExplainerConfig, context),
+    }),
     ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
     ...(input.ProductionVariants != null && {
       ProductionVariants: serializeAws_json1_1ProductionVariantList(input.ProductionVariants, context),
@@ -18358,6 +18457,14 @@ const serializeAws_json1_1ExperimentConfig = (input: ExperimentConfig, context: 
 const serializeAws_json1_1Explainability = (input: Explainability, context: __SerdeContext): any => {
   return {
     ...(input.Report != null && { Report: serializeAws_json1_1MetricsSource(input.Report, context) }),
+  };
+};
+
+const serializeAws_json1_1ExplainerConfig = (input: ExplainerConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.ClarifyExplainerConfig != null && {
+      ClarifyExplainerConfig: serializeAws_json1_1ClarifyExplainerConfig(input.ClarifyExplainerConfig, context),
+    }),
   };
 };
 
@@ -24021,6 +24128,110 @@ const deserializeAws_json1_1ClarifyCheckStepMetadata = (
   } as any;
 };
 
+const deserializeAws_json1_1ClarifyExplainerConfig = (output: any, context: __SerdeContext): ClarifyExplainerConfig => {
+  return {
+    EnableExplanations: __expectString(output.EnableExplanations),
+    InferenceConfig:
+      output.InferenceConfig != null
+        ? deserializeAws_json1_1ClarifyInferenceConfig(output.InferenceConfig, context)
+        : undefined,
+    ShapConfig:
+      output.ShapConfig != null ? deserializeAws_json1_1ClarifyShapConfig(output.ShapConfig, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ClarifyFeatureHeaders = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ClarifyFeatureTypes = (
+  output: any,
+  context: __SerdeContext
+): (ClarifyFeatureType | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ClarifyInferenceConfig = (output: any, context: __SerdeContext): ClarifyInferenceConfig => {
+  return {
+    ContentTemplate: __expectString(output.ContentTemplate),
+    FeatureHeaders:
+      output.FeatureHeaders != null
+        ? deserializeAws_json1_1ClarifyFeatureHeaders(output.FeatureHeaders, context)
+        : undefined,
+    FeatureTypes:
+      output.FeatureTypes != null ? deserializeAws_json1_1ClarifyFeatureTypes(output.FeatureTypes, context) : undefined,
+    FeaturesAttribute: __expectString(output.FeaturesAttribute),
+    LabelAttribute: __expectString(output.LabelAttribute),
+    LabelHeaders:
+      output.LabelHeaders != null ? deserializeAws_json1_1ClarifyLabelHeaders(output.LabelHeaders, context) : undefined,
+    LabelIndex: __expectInt32(output.LabelIndex),
+    MaxPayloadInMB: __expectInt32(output.MaxPayloadInMB),
+    MaxRecordCount: __expectInt32(output.MaxRecordCount),
+    ProbabilityAttribute: __expectString(output.ProbabilityAttribute),
+    ProbabilityIndex: __expectInt32(output.ProbabilityIndex),
+  } as any;
+};
+
+const deserializeAws_json1_1ClarifyLabelHeaders = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ClarifyShapBaselineConfig = (
+  output: any,
+  context: __SerdeContext
+): ClarifyShapBaselineConfig => {
+  return {
+    MimeType: __expectString(output.MimeType),
+    ShapBaseline: __expectString(output.ShapBaseline),
+    ShapBaselineUri: __expectString(output.ShapBaselineUri),
+  } as any;
+};
+
+const deserializeAws_json1_1ClarifyShapConfig = (output: any, context: __SerdeContext): ClarifyShapConfig => {
+  return {
+    NumberOfSamples: __expectInt32(output.NumberOfSamples),
+    Seed: __expectInt32(output.Seed),
+    ShapBaselineConfig:
+      output.ShapBaselineConfig != null
+        ? deserializeAws_json1_1ClarifyShapBaselineConfig(output.ShapBaselineConfig, context)
+        : undefined,
+    TextConfig:
+      output.TextConfig != null ? deserializeAws_json1_1ClarifyTextConfig(output.TextConfig, context) : undefined,
+    UseLogit: __expectBoolean(output.UseLogit),
+  } as any;
+};
+
+const deserializeAws_json1_1ClarifyTextConfig = (output: any, context: __SerdeContext): ClarifyTextConfig => {
+  return {
+    Granularity: __expectString(output.Granularity),
+    Language: __expectString(output.Language),
+  } as any;
+};
+
 const deserializeAws_json1_1CodeRepositorySummary = (output: any, context: __SerdeContext): CodeRepositorySummary => {
   return {
     CodeRepositoryArn: __expectString(output.CodeRepositoryArn),
@@ -25606,6 +25817,10 @@ const deserializeAws_json1_1DescribeEndpointConfigOutput = (
         : undefined,
     EndpointConfigArn: __expectString(output.EndpointConfigArn),
     EndpointConfigName: __expectString(output.EndpointConfigName),
+    ExplainerConfig:
+      output.ExplainerConfig != null
+        ? deserializeAws_json1_1ExplainerConfig(output.ExplainerConfig, context)
+        : undefined,
     KmsKeyId: __expectString(output.KmsKeyId),
     ProductionVariants:
       output.ProductionVariants != null
@@ -25632,6 +25847,10 @@ const deserializeAws_json1_1DescribeEndpointOutput = (output: any, context: __Se
     EndpointConfigName: __expectString(output.EndpointConfigName),
     EndpointName: __expectString(output.EndpointName),
     EndpointStatus: __expectString(output.EndpointStatus),
+    ExplainerConfig:
+      output.ExplainerConfig != null
+        ? deserializeAws_json1_1ExplainerConfig(output.ExplainerConfig, context)
+        : undefined,
     FailureReason: __expectString(output.FailureReason),
     LastDeploymentConfig:
       output.LastDeploymentConfig != null
@@ -27596,6 +27815,15 @@ const deserializeAws_json1_1ExperimentSummary = (output: any, context: __SerdeCo
 const deserializeAws_json1_1Explainability = (output: any, context: __SerdeContext): Explainability => {
   return {
     Report: output.Report != null ? deserializeAws_json1_1MetricsSource(output.Report, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ExplainerConfig = (output: any, context: __SerdeContext): ExplainerConfig => {
+  return {
+    ClarifyExplainerConfig:
+      output.ClarifyExplainerConfig != null
+        ? deserializeAws_json1_1ClarifyExplainerConfig(output.ClarifyExplainerConfig, context)
+        : undefined,
   } as any;
 };
 

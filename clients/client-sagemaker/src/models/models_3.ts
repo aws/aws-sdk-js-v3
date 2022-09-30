@@ -28,7 +28,6 @@ import {
   TransformInput,
   TransformOutput,
   TransformResources,
-  UiTemplate,
   UserContext,
   UserSettings,
   VpcConfig,
@@ -48,6 +47,7 @@ import {
   ModelMetrics,
   ModelPackageValidationSpecification,
   MonitoringScheduleConfig,
+  MonitoringType,
   NetworkConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
@@ -73,6 +73,7 @@ import {
   TrialComponentParameterValue,
   TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
+  UiTemplate,
   WorkforceVpcConfigRequest,
 } from "./models_1";
 import {
@@ -84,6 +85,7 @@ import {
   Edge,
   EMRStepMetadata,
   Endpoint,
+  ExecutionStatus,
   Experiment,
   FailStepMetadata,
   FeatureGroup,
@@ -98,14 +100,17 @@ import {
   MetricData,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
-  MonitoringScheduleSummary,
+  ModelSortKey,
+  MonitoringExecutionSummary,
   NotebookInstanceStatus,
+  OrderKey,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
   PipelineStatus,
   ProcessingJobStatus,
   ProjectStatus,
   ResourceType,
+  ScheduleStatus,
   SecondaryStatus,
   SecondaryStatusTransition,
   ServiceCatalogProvisionedProductDetails,
@@ -123,6 +128,306 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListModelsInput {
+  /**
+   * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: ModelSortKey | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: OrderKey | string;
+
+  /**
+   * <p>If the response to a previous <code>ListModels</code> request was truncated, the
+   *             response includes a <code>NextToken</code>. To retrieve the next set of models, use the
+   *             token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of models to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in the model name. This filter returns only models whose name contains the
+   *             specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only models created before the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only models with a creation time greater than or equal to the
+   *             specified time (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+}
+
+/**
+ * <p>Provides summary information about a model.</p>
+ */
+export interface ModelSummary {
+  /**
+   * <p>The name of the model that you want a summary for.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model.</p>
+   */
+  ModelArn: string | undefined;
+
+  /**
+   * <p>A timestamp that indicates when the model was created.</p>
+   */
+  CreationTime: Date | undefined;
+}
+
+export interface ListModelsOutput {
+  /**
+   * <p>An array of <code>ModelSummary</code> objects, each of which lists a
+   *             model.</p>
+   */
+  Models: ModelSummary[] | undefined;
+
+  /**
+   * <p> If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *             models, use it in the subsequent request. </p>
+   */
+  NextToken?: string;
+}
+
+export enum MonitoringExecutionSortKey {
+  CREATION_TIME = "CreationTime",
+  SCHEDULED_TIME = "ScheduledTime",
+  STATUS = "Status",
+}
+
+export interface ListMonitoringExecutionsRequest {
+  /**
+   * <p>Name of a specific schedule to fetch jobs for.</p>
+   */
+  MonitoringScheduleName?: string;
+
+  /**
+   * <p>Name of a specific endpoint to fetch jobs for.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>Whether to sort results by <code>Status</code>, <code>CreationTime</code>,
+   *             <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: MonitoringExecutionSortKey | string;
+
+  /**
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+   *          The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job
+   *          executions, use it in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filter for jobs scheduled before a specified time.</p>
+   */
+  ScheduledTimeBefore?: Date;
+
+  /**
+   * <p>Filter for jobs scheduled after a specified time.</p>
+   */
+  ScheduledTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only jobs created before a specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only jobs created after a specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only jobs modified after a specified time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only jobs modified before a specified time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that retrieves only jobs with a specific status.</p>
+   */
+  StatusEquals?: ExecutionStatus | string;
+
+  /**
+   * <p>Gets a list of the monitoring job runs of the specified monitoring job
+   *          definitions.</p>
+   */
+  MonitoringJobDefinitionName?: string;
+
+  /**
+   * <p>A filter that returns only the monitoring job runs of the specified monitoring
+   *          type.</p>
+   */
+  MonitoringTypeEquals?: MonitoringType | string;
+}
+
+export interface ListMonitoringExecutionsResponse {
+  /**
+   * <p>A JSON array in which each element is a summary for a monitoring execution.</p>
+   */
+  MonitoringExecutionSummaries: MonitoringExecutionSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
+   *          use it in the subsequent reques</p>
+   */
+  NextToken?: string;
+}
+
+export enum MonitoringScheduleSortKey {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name",
+  STATUS = "Status",
+}
+
+export interface ListMonitoringSchedulesRequest {
+  /**
+   * <p>Name of a specific endpoint to fetch schedules for.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>Whether to sort results by <code>Status</code>, <code>CreationTime</code>,
+   *             <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: MonitoringScheduleSortKey | string;
+
+  /**
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+   *          The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job
+   *          executions, use it in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filter for monitoring schedules whose name contains a specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only monitoring schedules created before a specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only monitoring schedules created after a specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only monitoring schedules modified after a specified time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
+   */
+  StatusEquals?: ScheduleStatus | string;
+
+  /**
+   * <p>Gets a list of the monitoring schedules for the specified monitoring job
+   *          definition.</p>
+   */
+  MonitoringJobDefinitionName?: string;
+
+  /**
+   * <p>A filter that returns only the monitoring schedules for the specified monitoring
+   *          type.</p>
+   */
+  MonitoringTypeEquals?: MonitoringType | string;
+}
+
+/**
+ * <p>Summarizes the monitoring schedule.</p>
+ */
+export interface MonitoringScheduleSummary {
+  /**
+   * <p>The name of the monitoring schedule.</p>
+   */
+  MonitoringScheduleName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
+   */
+  MonitoringScheduleArn: string | undefined;
+
+  /**
+   * <p>The creation time of the monitoring schedule.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The last time the monitoring schedule was modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The status of the monitoring schedule.</p>
+   */
+  MonitoringScheduleStatus: ScheduleStatus | string | undefined;
+
+  /**
+   * <p>The name of the endpoint using the monitoring schedule.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>The name of the monitoring job definition that the schedule is for.</p>
+   */
+  MonitoringJobDefinitionName?: string;
+
+  /**
+   * <p>The type of the monitoring job definition that the schedule is for.</p>
+   */
+  MonitoringType?: MonitoringType | string;
+}
 
 export interface ListMonitoringSchedulesResponse {
   /**
@@ -5301,6 +5606,55 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const ListModelsInputFilterSensitiveLog = (obj: ListModelsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModelSummaryFilterSensitiveLog = (obj: ModelSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListModelsOutputFilterSensitiveLog = (obj: ListModelsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMonitoringExecutionsRequestFilterSensitiveLog = (obj: ListMonitoringExecutionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMonitoringExecutionsResponseFilterSensitiveLog = (obj: ListMonitoringExecutionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMonitoringSchedulesRequestFilterSensitiveLog = (obj: ListMonitoringSchedulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitoringScheduleSummaryFilterSensitiveLog = (obj: MonitoringScheduleSummary): any => ({
+  ...obj,
+});
 
 /**
  * @internal
