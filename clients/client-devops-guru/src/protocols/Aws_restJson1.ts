@@ -166,6 +166,8 @@ import {
   MonitoredResourceIdentifier,
   NotificationChannel,
   NotificationChannelConfig,
+  NotificationFilterConfig,
+  NotificationMessageType,
   OpsCenterIntegration,
   OpsCenterIntegrationConfig,
   PerformanceInsightsMetricDimensionGroup,
@@ -3151,8 +3153,32 @@ const serializeAws_restJson1NotificationChannelConfig = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Filters != null && { Filters: serializeAws_restJson1NotificationFilterConfig(input.Filters, context) }),
     ...(input.Sns != null && { Sns: serializeAws_restJson1SnsChannelConfig(input.Sns, context) }),
   };
+};
+
+const serializeAws_restJson1NotificationFilterConfig = (
+  input: NotificationFilterConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MessageTypes != null && {
+      MessageTypes: serializeAws_restJson1NotificationMessageTypes(input.MessageTypes, context),
+    }),
+    ...(input.Severities != null && { Severities: serializeAws_restJson1InsightSeverities(input.Severities, context) }),
+  };
+};
+
+const serializeAws_restJson1NotificationMessageTypes = (
+  input: (NotificationMessageType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_restJson1OpsCenterIntegrationConfig = (
@@ -3788,6 +3814,21 @@ const deserializeAws_restJson1InsightHealth = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1InsightSeverities = (
+  output: any,
+  context: __SerdeContext
+): (InsightSeverity | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1InsightTimeRange = (output: any, context: __SerdeContext): InsightTimeRange => {
   return {
     EndTime:
@@ -3893,8 +3934,39 @@ const deserializeAws_restJson1NotificationChannelConfig = (
   context: __SerdeContext
 ): NotificationChannelConfig => {
   return {
+    Filters:
+      output.Filters != null ? deserializeAws_restJson1NotificationFilterConfig(output.Filters, context) : undefined,
     Sns: output.Sns != null ? deserializeAws_restJson1SnsChannelConfig(output.Sns, context) : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1NotificationFilterConfig = (
+  output: any,
+  context: __SerdeContext
+): NotificationFilterConfig => {
+  return {
+    MessageTypes:
+      output.MessageTypes != null
+        ? deserializeAws_restJson1NotificationMessageTypes(output.MessageTypes, context)
+        : undefined,
+    Severities:
+      output.Severities != null ? deserializeAws_restJson1InsightSeverities(output.Severities, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1NotificationMessageTypes = (
+  output: any,
+  context: __SerdeContext
+): (NotificationMessageType | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1OpsCenterIntegration = (output: any, context: __SerdeContext): OpsCenterIntegration => {
