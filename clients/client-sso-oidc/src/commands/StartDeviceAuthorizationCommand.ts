@@ -28,7 +28,8 @@ export interface StartDeviceAuthorizationCommandInput extends StartDeviceAuthori
 export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthorizationResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates device authorization by requesting a pair of verification codes from the authorization service.</p>
+ * <p>Initiates device authorization by requesting a pair of verification codes from the
+ *       authorization service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
