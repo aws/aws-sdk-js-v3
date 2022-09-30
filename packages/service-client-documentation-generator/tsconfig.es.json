@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "experimentalDecorators": true,
-    "lib": ["es2015"],
+    "lib": [],
     "outDir": "dist-es",
     "pretty": true,
     "rootDir": "src",
