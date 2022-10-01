@@ -106,7 +106,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                     writer.write("$S", serviceId);
                 });
             } else {
-                LOGGER.info("Cannot generate a serivce ID for the client because no aws.api#Service "
+                LOGGER.info("Cannot generate a service ID for the client because no aws.api#Service "
                         + "trait was found on " + service.getId());
             }
         }

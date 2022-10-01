@@ -1,4 +1,4 @@
-import { AuthScheme } from "./auth";
+import { AuthScheme, HttpAuthDefinition } from "./auth";
 import { EndpointV2 } from "./endpoint";
 import { Logger } from "./logger";
 import { UserAgent } from "./util";
@@ -406,6 +406,12 @@ export interface HandlerExecutionContext {
    * Set at the same time as endpointV2.
    */
   authSchemes?: AuthScheme[];
+
+  /**
+   * The current auth configuration that has been set by any auth middleware and
+   * that will prevent from being set more than once.
+   */
+  currentAuthConfig?: HttpAuthDefinition;
 
   /**
    * Used by DynamoDbDocumentClient.

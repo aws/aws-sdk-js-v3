@@ -39,6 +39,13 @@ describe(tokenMiddleware.name, () => {
       (isInstance as unknown as jest.Mock).mockReturnValue(true);
     });
 
+    it("continues if token is not provided", async () => {
+      mockOptions.token.mockReturnValueOnce(null);
+      await tokenMiddleware(mockOptions)(mockNext, mockContext)(mockArgs as any);
+      expect(mockNext).toHaveBeenCalledWith(mockArgs);
+      expect(mockOptions.token).toHaveBeenCalledTimes(1);
+    });
+
     it("re-throws error if token provider fails", async () => {
       const mockError = new Error("mockError");
       mockOptions.token.mockRejectedValueOnce(mockError);
@@ -56,7 +63,7 @@ describe(tokenMiddleware.name, () => {
       await tokenMiddleware(mockOptions)(mockNext, mockContext)(mockArgs as any);
       expect(mockNext).toHaveBeenCalledWith({
         ...mockArgs,
-        request: { ...mockArgs.request, headers: { Authorization: `Bearer ${mockToken.token}` } },
+        request: { ...mockArgs.request, headers: { authorization: `Bearer ${mockToken.token}` } },
       });
       expect(mockOptions.token).toHaveBeenCalledTimes(1);
     });

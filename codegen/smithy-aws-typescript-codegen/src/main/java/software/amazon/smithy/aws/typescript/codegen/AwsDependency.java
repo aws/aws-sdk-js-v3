@@ -75,11 +75,14 @@ public enum AwsDependency implements SymbolDependencyContainer {
     SIGNATURE_V4_MULTIREGION(NORMAL_DEPENDENCY, "@aws-sdk/signature-v4-multi-region"),
     RECURSION_DETECTION_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-recursion-detection"),
 
-    // Conditionally added when httpChecksum trait exists
+    // Conditionally added when httpChecksum trait is present
     MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js"),
     STREAM_HASHER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/hash-stream-node"),
     STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/hash-blob-browser"),
-    FLEXIBLE_CHECKSUMS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-flexible-checksums");
+    FLEXIBLE_CHECKSUMS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-flexible-checksums"),
+
+    // Conditionally added when auth trait is present
+    MIDDLEWARE_API_KEY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-api-key");
 
     public final String packageName;
     public final String version;

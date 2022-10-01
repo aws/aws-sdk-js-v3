@@ -25,3 +25,29 @@ export interface AuthScheme {
   signingScope?: never;
   properties: Record<string, unknown>;
 }
+
+// As described in the Smithy documentation:
+// https://github.com/awslabs/smithy/blob/main/smithy-model/src/main/resources/software/amazon/smithy/model/loader/prelude.smithy
+export interface HttpAuthDefinition {
+  /**
+   * Defines the location of where the Auth is serialized.
+   */
+  in: HttpAuthLocation;
+
+  /**
+   * Defines the name of the HTTP header or query string parameter
+   * that contains the Auth.
+   */
+  name: string;
+
+  /**
+   * Defines the security scheme to use on the `Authorization` header value.
+   * This can only be set if the "in" property is set to {@link HttpAuthLocation.HEADER}.
+   */
+  scheme?: string;
+}
+
+export enum HttpAuthLocation {
+  HEADER = "header",
+  QUERY = "query",
+}
