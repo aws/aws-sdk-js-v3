@@ -286,17 +286,17 @@ Lastly we have higher level libraries in `/lib`. These are javascript specific l
 
 Certain command outputs include streams, which have different implementations in
 Node.js and browsers. For convenience, a set of stream handling methods will be
-merged (`Object.assign`) to the output stream object, as defined in 
+merged (`Object.assign`) to the output stream object, as defined in
 [SdkStreamMixin](serde-code-url).
 
 Output types having this feature will be indicated by the `WithSdkStreamMixin<T, StreamKey>`
 [wrapper type](serde-code-url), where `T` is the original output type
-and `StreamKey` is the output property key having a stream type specific to 
+and `StreamKey` is the output property key having a stream type specific to
 the runtime environment.
 
 [serde-code-url]: https://github.com/aws/aws-sdk-js-v3/blob/main/packages/types/src/serde.ts
 
-Here is an example using `S3::GetObject`. 
+Here is an example using `S3::GetObject`.
 
 ```js
 import { S3 } from "@aws-sdk/client-s3";
@@ -309,7 +309,7 @@ const getObjectResult = await client.getObject({
 });
 
 // env-specific stream with added mixin methods.
-const bodyStream = getObjectResult.Body; 
+const bodyStream = getObjectResult.Body;
 
 // one-time transform.
 const bodyAsString = await bodyStream.transformToString();

@@ -54,10 +54,10 @@ export const updateDiscoveredEndpointInCache = async (
           resolve();
         })
         .catch((error: any) => {
-          // The cache entry must be deleted 
+          // The cache entry must be deleted
           // because a subsequent blocking request will be stuck
           // in a waiting state if it sees the cache entry
-          // but we have already flushed the request queue. 
+          // but we have already flushed the request queue.
           endpointCache.delete(cacheKey);
 
           const errorToThrow = Object.assign(

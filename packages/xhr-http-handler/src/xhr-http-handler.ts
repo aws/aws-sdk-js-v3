@@ -26,7 +26,7 @@ export type XhrHttpHandlerEvents = {
    * differentiation of multiple concurrent request events.
    */
   readonly PROGRESS: "xhr.progress";
-  
+
   /**
    * Emitted for xhr.upload on progress.
    * Payload is the native ProgressEvent and the HttpRequest to allow

@@ -5,7 +5,7 @@ import { getEndpointFromRegion } from "./utils/getEndpointFromRegion";
 
 export interface EndpointsInputConfig {
   /**
-   * The fully qualified endpoint of the webservice. This is only required when using 
+   * The fully qualified endpoint of the webservice. This is only required when using
    * a custom endpoint (for example, when using a local version of S3).
    */
   endpoint?: string | Endpoint | Provider<Endpoint>;

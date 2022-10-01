@@ -14,7 +14,6 @@ import { getEndpointFromInstructions } from "./adaptors/getEndpointFromInstructi
 import { EndpointResolvedConfig } from "./resolveEndpointConfig";
 import { EndpointParameterInstructions } from "./types";
 
-
 /**
  * @private
  */
