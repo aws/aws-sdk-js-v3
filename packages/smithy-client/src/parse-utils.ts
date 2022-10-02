@@ -7,8 +7,10 @@
 export const parseBoolean = (value: string): boolean => {
   switch (value) {
     case "true":
+    case "TRUE":
       return true;
     case "false":
+    case "FALSE":
       return false;
     default:
       throw new Error(`Unable to parse boolean value "${value}"`);
