@@ -40,7 +40,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *          <p></p>
  *
  *          <p class="title">
- *             <b>Snow Family Devices and their capacities.</b>
+ *             <b>Snow Family devices and their capacities.</b>
  *          </p>
  *          <ul>
  *             <li>
@@ -120,6 +120,19 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                   </li>
  *                   <li>
  *                      <p>Description: Snowball Edge Storage Optimized with EC2 Compute</p>
+ *                   </li>
+ *                </ul>
+ *                <p></p>
+ *             </li>
+ *             <li>
+ *                <p>Device type: <b>V3_5C</b>
+ *                </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>Capacity: T32</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Description: Snowball Edge Compute Optimized without GPU</p>
  *                   </li>
  *                </ul>
  *                <p></p>

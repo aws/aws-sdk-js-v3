@@ -512,6 +512,7 @@ export enum SnowballType {
   SNC1_HDD = "SNC1_HDD",
   SNC1_SSD = "SNC1_SSD",
   STANDARD = "STANDARD",
+  V3_5C = "V3_5C",
 }
 
 /**
@@ -586,7 +587,7 @@ export interface CreateClusterRequest {
   RoleARN: string | undefined;
 
   /**
-   * <p>The type of Snow Family Devices to use for this cluster. </p>
+   * <p>The type of Snow Family devices to use for this cluster. </p>
    *          <note>
    *             <p>For cluster jobs, Amazon Web Services Snow Family currently supports only the
    *           <code>EDGE</code> device type.</p>
@@ -779,6 +780,7 @@ export enum SnowballCapacity {
   NO_PREFERENCE = "NoPreference",
   T100 = "T100",
   T14 = "T14",
+  T32 = "T32",
   T42 = "T42",
   T50 = "T50",
   T8 = "T8",
@@ -892,7 +894,7 @@ export interface CreateJobRequest {
   ClusterId?: string;
 
   /**
-   * <p>The type of Snow Family Devices to use for this job.
+   * <p>The type of Snow Family devices to use for this job.
    *       </p>
    *          <note>
    *             <p>For cluster jobs, Amazon Web Services Snow Family currently supports only the
@@ -968,13 +970,14 @@ export interface CreateLongTermPricingRequest {
   LongTermPricingType: LongTermPricingType | string | undefined;
 
   /**
-   * <p>Specifies whether the current long-term pricing type for the device should be
+   * <p>snowballty</p>
+   *          <p>Specifies whether the current long-term pricing type for the device should be
    *       renewed.</p>
    */
   IsLongTermPricingAutoRenew?: boolean;
 
   /**
-   * <p>The type of Snow Family Devices to use for the long-term pricing job.</p>
+   * <p>The type of Snow Family devices to use for the long-term pricing job.</p>
    */
   SnowballType?: SnowballType | string;
 }
@@ -1932,7 +1935,7 @@ export interface LongTermPricingListEntry {
   LongTermPricingStatus?: string;
 
   /**
-   * <p>The type of Snow Family Devices associated with this long-term pricing job.</p>
+   * <p>The type of Snow Family devices associated with this long-term pricing job.</p>
    */
   SnowballType?: SnowballType | string;
 
