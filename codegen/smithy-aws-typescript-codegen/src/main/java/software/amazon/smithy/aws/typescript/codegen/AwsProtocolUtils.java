@@ -43,6 +43,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpProtocolGeneratorUtils;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -115,6 +116,13 @@ final class AwsProtocolUtils {
                 });
 
         writer.write("");
+    }
+
+    static void generateJsonParseBodyWithQueryHeader(GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+        writer.addImport("HeaderBag", "__HeaderBag", "@aws-sdk/types");
+        writer.write(IoUtils.readUtf8Resource(
+                AwsProtocolUtils.class, "populate-body-with-query-compatibility-code-stub.ts"));
     }
 
     /**

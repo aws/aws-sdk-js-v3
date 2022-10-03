@@ -16,6 +16,7 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Set;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryCompatibleTrait;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
@@ -86,6 +87,10 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
         TypeScriptWriter writer = context.getWriter();
         writer.addUseImports(getApplicationProtocol().getResponseType());
         writer.write(IoUtils.readUtf8Resource(getClass(), "load-json-error-code-stub.ts"));
+
+        if (context.getService().hasTrait(AwsQueryCompatibleTrait.class)) {
+            AwsProtocolUtils.generateJsonParseBodyWithQueryHeader(context);
+        }
     }
 
     @Override
@@ -127,6 +132,14 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     @Override
     protected void writeErrorCodeParser(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
+
+        if (context.getService().hasTrait(AwsQueryCompatibleTrait.class)) {
+            // Populate parsedOutput.body with 'Code' and 'Type' fields
+            // "x-amzn-query-error" header is available when AwsQueryCompatibleTrait is applied to a service
+            // The header value contains query error Code and Type joined by ';'
+            // E.g. "MalformedInput;Sender" or "InternalFailure;Receiver"
+            writer.write("populateBodyWithQueryCompatibility(parsedOutput, output.headers);");
+        }
 
         // Outsource error code parsing since it's complex for this protocol.
         writer.write("const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);");
