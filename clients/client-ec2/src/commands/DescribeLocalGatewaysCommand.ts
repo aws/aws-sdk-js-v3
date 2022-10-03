@@ -13,8 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeLocalGatewaysRequest, DescribeLocalGatewaysRequestFilterSensitiveLog } from "../models/models_3";
-import { DescribeLocalGatewaysResult, DescribeLocalGatewaysResultFilterSensitiveLog } from "../models/models_4";
+import {
+  DescribeLocalGatewaysRequest,
+  DescribeLocalGatewaysRequestFilterSensitiveLog,
+  DescribeLocalGatewaysResult,
+  DescribeLocalGatewaysResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeLocalGatewaysCommand,
   serializeAws_ec2DescribeLocalGatewaysCommand,

@@ -2712,7 +2712,6 @@ import {
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
   DescribeLocalGatewayRouteTableVpcAssociationsRequest,
   DescribeLocalGatewayRouteTableVpcAssociationsResult,
-  DescribeLocalGatewaysRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2821,6 +2820,7 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeLocalGatewaysRequest,
   DescribeLocalGatewaysResult,
   DescribeLocalGatewayVirtualInterfaceGroupsRequest,
   DescribeLocalGatewayVirtualInterfaceGroupsResult,
@@ -3024,7 +3024,6 @@ import {
   EnableFastLaunchRequest,
   EnableFastLaunchResult,
   EnableFastSnapshotRestoresRequest,
-  EnableFastSnapshotRestoreSuccessItem,
   FastLaunchLaunchTemplateSpecificationRequest,
   FastLaunchSnapshotConfigurationRequest,
   HistoryRecord,
@@ -3113,6 +3112,7 @@ import {
   EnableFastSnapshotRestoresResult,
   EnableFastSnapshotRestoreStateError,
   EnableFastSnapshotRestoreStateErrorItem,
+  EnableFastSnapshotRestoreSuccessItem,
   EnableImageDeprecationRequest,
   EnableImageDeprecationResult,
   EnableIpamOrganizationAdminAccountRequest,
@@ -3347,7 +3347,6 @@ import {
   ModifyVpnTunnelCertificateRequest,
   ModifyVpnTunnelCertificateResult,
   ModifyVpnTunnelOptionsRequest,
-  ModifyVpnTunnelOptionsResult,
   ModifyVpnTunnelOptionsSpecification,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
@@ -3397,6 +3396,7 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpnTunnelOptionsResult,
   MonitorInstancesRequest,
   MonitorInstancesResult,
   MoveAddressToVpcRequest,
@@ -48474,6 +48474,9 @@ const serializeAws_ec2RegisterImageRequest = (input: RegisterImageRequest, conte
   if (input.UefiData != null) {
     entries["UefiData"] = input.UefiData;
   }
+  if (input.ImdsSupport != null) {
+    entries["ImdsSupport"] = input.ImdsSupport;
+  }
   return entries;
 };
 
@@ -65000,6 +65003,7 @@ const deserializeAws_ec2Image = (output: any, context: __SerdeContext): Image =>
     BootMode: undefined,
     TpmSupport: undefined,
     DeprecationTime: undefined,
+    ImdsSupport: undefined,
   };
   if (output["architecture"] !== undefined) {
     contents.Architecture = __expectString(output["architecture"]);
@@ -65100,6 +65104,9 @@ const deserializeAws_ec2Image = (output: any, context: __SerdeContext): Image =>
   if (output["deprecationTime"] !== undefined) {
     contents.DeprecationTime = __expectString(output["deprecationTime"]);
   }
+  if (output["imdsSupport"] !== undefined) {
+    contents.ImdsSupport = __expectString(output["imdsSupport"]);
+  }
   return contents;
 };
 
@@ -65117,6 +65124,7 @@ const deserializeAws_ec2ImageAttribute = (output: any, context: __SerdeContext):
     TpmSupport: undefined,
     UefiData: undefined,
     LastLaunchedTime: undefined,
+    ImdsSupport: undefined,
   };
   if (output.blockDeviceMapping === "") {
     contents.BlockDeviceMappings = [];
@@ -65168,6 +65176,9 @@ const deserializeAws_ec2ImageAttribute = (output: any, context: __SerdeContext):
   }
   if (output["lastLaunchedTime"] !== undefined) {
     contents.LastLaunchedTime = deserializeAws_ec2AttributeValue(output["lastLaunchedTime"], context);
+  }
+  if (output["imdsSupport"] !== undefined) {
+    contents.ImdsSupport = deserializeAws_ec2AttributeValue(output["imdsSupport"], context);
   }
   return contents;
 };

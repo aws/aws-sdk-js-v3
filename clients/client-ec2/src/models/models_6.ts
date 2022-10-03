@@ -37,13 +37,14 @@ import {
   SnapshotState,
   SpotInstanceType,
 } from "./models_1";
-import { InstanceTagNotificationAttribute, IpamPoolCidr, TransitGatewayRoute } from "./models_2";
+import { InstanceTagNotificationAttribute, IpamPoolCidr, TransitGatewayRoute, VpnConnection } from "./models_2";
 import {
   ArchitectureValues,
   BootModeValues,
   ClientVpnConnectionStatus,
   Filter,
   HttpTokensState,
+  ImdsSupportValues,
   InstanceAttributeName,
   InstanceAutoRecoveryState,
   InstanceMetadataEndpointState,
@@ -66,6 +67,13 @@ import {
   SpotPlacement,
 } from "./models_4";
 import { CapacityReservationSpecification, Purchase } from "./models_5";
+
+export interface ModifyVpnTunnelOptionsResult {
+  /**
+   * <p>Describes a VPN connection.</p>
+   */
+  VpnConnection?: VpnConnection;
+}
 
 export interface MonitorInstancesRequest {
   /**
@@ -614,6 +622,19 @@ export interface RegisterImageRequest {
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   UefiData?: string;
+
+  /**
+   * <p>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances
+   *       launched from this AMI will have <code>HttpTokens</code> automatically set to
+   *         <code>required</code> so that, by default, the instance requires that IMDSv2 is used when
+   *       requesting instance metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to
+   *         <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+   *         the AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <note>
+   *             <p>If you set the value to <code>v2.0</code>, make sure that your AMI software can support IMDSv2.</p>
+   *          </note>
+   */
+  ImdsSupport?: ImdsSupportValues | string;
 }
 
 /**
@@ -3840,6 +3861,13 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const ModifyVpnTunnelOptionsResultFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal

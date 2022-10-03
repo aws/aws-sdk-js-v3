@@ -4899,6 +4899,7 @@ export enum ImageAttributeName {
   blockDeviceMapping = "blockDeviceMapping",
   bootMode = "bootMode",
   description = "description",
+  imdsSupport = "imdsSupport",
   kernel = "kernel",
   lastLaunchedTime = "lastLaunchedTime",
   launchPermission = "launchPermission",
@@ -5034,6 +5035,16 @@ export interface ImageAttribute {
    *          </note>
    */
   LastLaunchedTime?: AttributeValue;
+
+  /**
+   * <p>If <code>v2.0</code>, it indicates that IMDSv2 is specified in the AMI. Instances launched
+   *       from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so
+   *       that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.
+   *       In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+   *         the AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  ImdsSupport?: AttributeValue;
 }
 
 export interface DescribeImagesRequest {
@@ -5273,6 +5284,10 @@ export enum ImageTypeValues {
   ramdisk = "ramdisk",
 }
 
+export enum ImdsSupportValues {
+  v2_0 = "v2.0",
+}
+
 export enum DeviceType {
   ebs = "ebs",
   instance_store = "instance-store",
@@ -5462,6 +5477,16 @@ export interface Image {
    *       nearest minute.</p>
    */
   DeprecationTime?: string;
+
+  /**
+   * <p>If <code>v2.0</code>, it indicates that IMDSv2 is specified in the AMI. Instances launched
+   *       from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so
+   *       that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.
+   *       In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+   *         the AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  ImdsSupport?: ImdsSupportValues | string;
 }
 
 export interface DescribeImagesResult {
@@ -9680,54 +9705,6 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsResult {
   NextToken?: string;
 }
 
-export interface DescribeLocalGatewaysRequest {
-  /**
-   * <p>The IDs of the local gateways.</p>
-   */
-  LocalGatewayIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the association.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
 /**
  * @internal
  */
@@ -11497,12 +11474,5 @@ export const DescribeLocalGatewayRouteTableVpcAssociationsRequestFilterSensitive
 export const DescribeLocalGatewayRouteTableVpcAssociationsResultFilterSensitiveLog = (
   obj: DescribeLocalGatewayRouteTableVpcAssociationsResult
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewaysRequestFilterSensitiveLog = (obj: DescribeLocalGatewaysRequest): any => ({
   ...obj,
 });

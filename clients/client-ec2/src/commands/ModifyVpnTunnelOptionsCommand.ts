@@ -13,12 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyVpnTunnelOptionsRequest,
-  ModifyVpnTunnelOptionsRequestFilterSensitiveLog,
-  ModifyVpnTunnelOptionsResult,
-  ModifyVpnTunnelOptionsResultFilterSensitiveLog,
-} from "../models/models_5";
+import { ModifyVpnTunnelOptionsRequest, ModifyVpnTunnelOptionsRequestFilterSensitiveLog } from "../models/models_5";
+import { ModifyVpnTunnelOptionsResult, ModifyVpnTunnelOptionsResultFilterSensitiveLog } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpnTunnelOptionsCommand,
   serializeAws_ec2ModifyVpnTunnelOptionsCommand,

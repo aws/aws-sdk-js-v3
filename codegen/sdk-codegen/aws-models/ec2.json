@@ -44687,6 +44687,14 @@
             "smithy.api#documentation": "<p>The date and time to deprecate the AMI, in UTC, in the following format: \n     <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.\n      If you specified a value for seconds, Amazon EC2 rounds the seconds to the\n      nearest minute.</p>",
             "smithy.api#xmlName": "deprecationTime"
           }
+        },
+        "ImdsSupport": {
+          "target": "com.amazonaws.ec2#ImdsSupportValues",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ImdsSupport",
+            "smithy.api#documentation": "<p>If <code>v2.0</code>, it indicates that IMDSv2 is specified in the AMI. Instances launched\n      from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so\n      that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.\n      In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more\n      information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration\">Configure\n        the AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+            "smithy.api#xmlName": "imdsSupport"
+          }
         }
       },
       "traits": {
@@ -44791,6 +44799,14 @@
             "smithy.api#documentation": "<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time\n        format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used\n      to launch an instance, there is a 24-hour delay before that usage is reported.</p>\n         <note>\n            <p>\n               <code>lastLaunchedTime</code> data is available starting April 2017.</p>\n         </note>",
             "smithy.api#xmlName": "lastLaunchedTime"
           }
+        },
+        "ImdsSupport": {
+          "target": "com.amazonaws.ec2#AttributeValue",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ImdsSupport",
+            "smithy.api#documentation": "<p>If <code>v2.0</code>, it indicates that IMDSv2 is specified in the AMI. Instances launched\n      from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so\n      that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.\n      In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more\n      information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration\">Configure\n        the AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+            "smithy.api#xmlName": "imdsSupport"
+          }
         }
       },
       "traits": {
@@ -44864,6 +44880,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "lastLaunchedTime"
+          }
+        },
+        "imdsSupport": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "imdsSupport"
           }
         }
       }
@@ -45074,6 +45096,17 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "ramdisk"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#ImdsSupportValues": {
+      "type": "enum",
+      "members": {
+        "v2_0": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "v2.0"
           }
         }
       }
@@ -67186,7 +67219,7 @@
       "traits": {
         "smithy.api#default": 0,
         "smithy.api#range": {
-          "min": 1,
+          "min": 0,
           "max": 65535
         }
       }
@@ -69232,6 +69265,12 @@
           "target": "com.amazonaws.ec2#StringType",
           "traits": {
             "smithy.api#documentation": "<p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,\n      use the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData\">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the\n        <a href=\"https://github.com/awslabs/python-uefivars\">python-uefivars tool</a> on\n      GitHub. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html\">UEFI Secure Boot</a> in the\n        <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+          }
+        },
+        "ImdsSupport": {
+          "target": "com.amazonaws.ec2#ImdsSupportValues",
+          "traits": {
+            "smithy.api#documentation": "<p>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances\n      launched from this AMI will have <code>HttpTokens</code> automatically set to\n        <code>required</code> so that, by default, the instance requires that IMDSv2 is used when\n      requesting instance metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to\n        <code>2</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration\">Configure\n        the AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <note>\n            <p>If you set the value to <code>v2.0</code>, make sure that your AMI software can support IMDSv2.</p>\n         </note>"
           }
         }
       },

@@ -96,6 +96,7 @@ import {
   BootModeValues,
   ConversionTask,
   ExportTaskS3Location,
+  FastSnapshotRestoreStateCode,
   Filter,
   FpgaImageAttribute,
   FpgaImageAttributeName,
@@ -118,7 +119,6 @@ import {
 import {
   AnalysisStatus,
   CreateVolumePermission,
-  EnableFastSnapshotRestoreSuccessItem,
   ExcessCapacityTerminationPolicy,
   LaunchTemplateConfig,
   ReservedInstancesConfiguration,
@@ -127,6 +127,78 @@ import {
   TransitGatewayPropagationState,
   VolumeModification,
 } from "./models_4";
+
+/**
+ * <p>Describes fast snapshot restores that were successfully enabled.</p>
+ */
+export interface EnableFastSnapshotRestoreSuccessItem {
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The Availability Zone.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The state of fast snapshot restores.</p>
+   */
+  State?: FastSnapshotRestoreStateCode | string;
+
+  /**
+   * <p>The reason for the state transition. The possible values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Client.UserInitiated</code> - The state successfully transitioned to <code>enabling</code> or
+   *           <code>disabling</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Client.UserInitiated - Lifecycle state transition</code> - The state successfully transitioned
+   *           to <code>optimizing</code>, <code>enabled</code>, or <code>disabled</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  StateTransitionReason?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The Amazon Web Services owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
+   */
+  OwnerAlias?: string;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
+   */
+  EnablingTime?: Date;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
+   */
+  OptimizingTime?: Date;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
+   */
+  EnabledTime?: Date;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
+   */
+  DisablingTime?: Date;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>disabled</code> state.</p>
+   */
+  DisabledTime?: Date;
+}
 
 /**
  * <p>Describes an error that occurred when enabling fast snapshot restores.</p>
@@ -7136,12 +7208,14 @@ export interface ModifyVpnTunnelOptionsRequest {
   DryRun?: boolean;
 }
 
-export interface ModifyVpnTunnelOptionsResult {
-  /**
-   * <p>Describes a VPN connection.</p>
-   */
-  VpnConnection?: VpnConnection;
-}
+/**
+ * @internal
+ */
+export const EnableFastSnapshotRestoreSuccessItemFilterSensitiveLog = (
+  obj: EnableFastSnapshotRestoreSuccessItem
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9324,12 +9398,5 @@ export const ModifyVpnTunnelOptionsSpecificationFilterSensitiveLog = (
  * @internal
  */
 export const ModifyVpnTunnelOptionsRequestFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyVpnTunnelOptionsResultFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsResult): any => ({
   ...obj,
 });
