@@ -873,8 +873,8 @@ export interface S3PublicAccessBlockConfiguration {
  *          proposed Amazon S3 access point configuration is for an existing bucket, the access preview uses
  *          the proposed access point configuration in place of the existing access points. To propose
  *          an access point without a policy, you can provide an empty string as the access point
- *          policy. For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access points</a>. For more information about access point policy limits,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points-restrictions-limitations.html">Access points
+ *          policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access points</a>.
+ *          For more information about access point policy limits, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points-restrictions-limitations.html">Access points
  *             restrictions and limitations</a>.</p>
  */
 export interface S3AccessPointConfiguration {
@@ -2451,6 +2451,7 @@ export enum PolicyType {
 }
 
 export enum ValidatePolicyResourceType {
+  ROLE_TRUST = "AWS::IAM::AssumeRolePolicyDocument",
   S3_ACCESS_POINT = "AWS::S3::AccessPoint",
   S3_BUCKET = "AWS::S3::Bucket",
   S3_MULTI_REGION_ACCESS_POINT = "AWS::S3::MultiRegionAccessPoint",
