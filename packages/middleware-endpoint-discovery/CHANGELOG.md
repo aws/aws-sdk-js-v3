@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.183.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.182.0...v3.183.0) (2022-10-03)
+
+
+### Bug Fixes
+
+* **endpoint-discovery:** delete failed cache entry in blocking operations ([#4011](https://github.com/aws/aws-sdk-js-v3/issues/4011)) ([c96ac94](https://github.com/aws/aws-sdk-js-v3/commit/c96ac9418a22687b867077e7d72b5d353d37778c))
+
+
+
+
+
 # [3.178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.177.0...v3.178.0) (2022-09-23)
 
 **Note:** Version bump only for package @aws-sdk/middleware-endpoint-discovery

@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.183.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.182.0...v3.183.0) (2022-10-03)
+
+
+### Bug Fixes
+
+* **endpoint-discovery:** delete failed cache entry in blocking operations ([#4011](https://github.com/aws/aws-sdk-js-v3/issues/4011)) ([c96ac94](https://github.com/aws/aws-sdk-js-v3/commit/c96ac9418a22687b867077e7d72b5d353d37778c))
+
+
+### Features
+
+* **client-accessanalyzer:** AWS IAM Access Analyzer policy validation introduces new checks for role trust policies. As customers author a policy, IAM Access Analyzer policy validation evaluates the policy for any issues to make it easier for customers to author secure policies. ([b7db053](https://github.com/aws/aws-sdk-js-v3/commit/b7db05377b506e9692582e3b64a2376133b23d11))
+* **client-ec2:** Adding an imdsSupport attribute to EC2 AMIs ([7304adf](https://github.com/aws/aws-sdk-js-v3/commit/7304adf7306997875f660cb0f2beab7efd3a9fbd))
+* **client-snowball:** Adds support for V3_5C. This is a refreshed AWS Snowball Edge Compute Optimized device type with 28TB SSD, 104 vCPU and 416GB memory (customer usable). ([22500bf](https://github.com/aws/aws-sdk-js-v3/commit/22500bf32b6db1e29a61c61c9b3a25a16c6251f4))
+* **clients:** update client endpoints as of 2022-10-03 ([a285143](https://github.com/aws/aws-sdk-js-v3/commit/a28514385b25c9a4617e40c10dc36de0cc1e25d8))
+* **codegen:** add query compatible header error code handling for JSON protocols ([#3972](https://github.com/aws/aws-sdk-js-v3/issues/3972)) ([8fe1b54](https://github.com/aws/aws-sdk-js-v3/commit/8fe1b54c191dbd0a3915ee64e8f03ed0f2f9ec01))
+
+
+
+
+
 # [3.182.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.181.0...v3.182.0) (2022-09-30)
 
 
