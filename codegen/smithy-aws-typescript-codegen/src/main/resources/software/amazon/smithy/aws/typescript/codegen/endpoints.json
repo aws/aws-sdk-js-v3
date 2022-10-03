@@ -22397,7 +22397,8 @@
         },
         "ram": {
           "endpoints": {
-            "us-iso-east-1": {}
+            "us-iso-east-1": {},
+            "us-iso-west-1": {}
           }
         },
         "rds": {
@@ -22884,6 +22885,11 @@
           },
           "isRegionalized": false,
           "partitionEndpoint": "aws-iso-b-global"
+        },
+        "route53resolver": {
+          "endpoints": {
+            "us-isob-east-1": {}
+          }
         },
         "s3": {
           "defaults": {
