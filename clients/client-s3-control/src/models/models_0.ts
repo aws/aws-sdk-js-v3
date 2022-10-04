@@ -477,10 +477,15 @@ export interface CreateAccessPointResult {
 export enum ObjectLambdaAllowedFeature {
   GetObjectPartNumber = "GetObject-PartNumber",
   GetObjectRange = "GetObject-Range",
+  HeadObjectPartNumber = "HeadObject-PartNumber",
+  HeadObjectRange = "HeadObject-Range",
 }
 
 export enum ObjectLambdaTransformationConfigurationAction {
   GetObject = "GetObject",
+  HeadObject = "HeadObject",
+  ListObjects = "ListObjects",
+  ListObjectsV2 = "ListObjectsV2",
 }
 
 /**
