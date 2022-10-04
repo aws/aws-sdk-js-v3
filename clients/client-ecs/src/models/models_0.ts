@@ -3918,10 +3918,6 @@ export interface PortMapping {
    * 			used. Do not attempt to specify a host port in the ephemeral port range as these are
    * 			reserved for automatic assignment. In general, ports below 32768 are outside of the
    * 			ephemeral port range.</p>
-   * 		       <note>
-   * 			         <p>The default ephemeral port range from 49153 through 65535 is always used for
-   * 				Docker versions before 1.6.0.</p>
-   * 		       </note>
    * 		       <p>The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the
    * 			Amazon ECS container agent ports 51678-51680. Any host port that was previously specified in
    * 			a running task is also reserved while the task is running. That is, after a task stops,
@@ -5321,7 +5317,7 @@ export interface TaskDefinition {
    * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <note>
    * 			         <p>The <code>host</code> and <code>sourcePath</code> parameters aren't supported for
-   * 				tasks run on Fargate.</p>
+   * 				tasks run on Fargate. </p>
    * 		       </note>
    */
   volumes?: Volume[];
@@ -7385,6 +7381,10 @@ export interface PutAccountSettingDefaultRequest {
    * 				<code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS container
    * 			instances is affected. If <code>containerInsights</code> is specified, the default
    * 			setting for CloudWatch Container Insights for your clusters is affected.</p>
+   * 		       <p>Fargate is transitioning from task count-based quotas to vCPU-based quotas. You can set
+   * 			the name to <code>fargateVCPULimit</code> to opt in or opt out of the vCPU-based quotas.
+   * 			For information about the opt in timeline, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#fargate-quota-timeline">Fargate vCPU-based quotas timeline</a> in the
+   * 				<i>Amazon ECS Developer Guide</i>.</p>
    */
   name: SettingName | string | undefined;
 
@@ -7927,9 +7927,6 @@ export interface RegisterTaskDefinitionRequest {
    * 			         <ul>
    *                <li>
    * 					             <p>Linux platform version <code>1.4.0</code> or later.</p>
-   * 				           </li>
-   *                <li>
-   * 					             <p>Windows platform version <code>1.0.0</code> or later.</p>
    * 				           </li>
    *             </ul>
    * 		       </note>
