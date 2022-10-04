@@ -28,7 +28,7 @@ export interface CreateResourceCommandInput extends CreateResourceRequest {}
 export interface CreateResourceCommandOutput extends CreateResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon WorkMail resource. </p>
+ * <p>Creates a new WorkMail resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

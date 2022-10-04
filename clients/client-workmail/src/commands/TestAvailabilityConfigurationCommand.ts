@@ -36,7 +36,7 @@ export interface TestAvailabilityConfigurationCommandOutput
  *             <p>The request must contain either one provider definition (<code>EwsProvider</code> or
  *                <code>LambdaProvider</code>) or the <code>DomainName</code> parameter. If the
  *                <code>DomainName</code> parameter is provided, the configuration stored under the
- *                <code>DomainName</code> will be tested. </p>
+ *                <code>DomainName</code> will be tested.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

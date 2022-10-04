@@ -28,7 +28,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags applied to an Amazon WorkMail organization resource.</p>
+ * <p>Lists the tags applied to an WorkMail organization resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

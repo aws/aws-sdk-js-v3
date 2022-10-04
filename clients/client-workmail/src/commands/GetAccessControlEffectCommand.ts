@@ -29,7 +29,7 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
 
 /**
  * <p>Gets the effects of an organization's access control rules as they apply to a
- *          specified IPv4 address, access protocol action, or user ID. </p>
+ *          specified IPv4 address, access protocol action, and  user ID or impersonation role ID. You must provide either the user ID or impersonation role ID. Impersonation role ID can only be used with Action EWS.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

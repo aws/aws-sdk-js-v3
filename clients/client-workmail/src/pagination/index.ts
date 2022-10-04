@@ -4,6 +4,7 @@ export * from "./ListAliasesPaginator";
 export * from "./ListAvailabilityConfigurationsPaginator";
 export * from "./ListGroupMembersPaginator";
 export * from "./ListGroupsPaginator";
+export * from "./ListImpersonationRolesPaginator";
 export * from "./ListMailDomainsPaginator";
 export * from "./ListMailboxExportJobsPaginator";
 export * from "./ListMailboxPermissionsPaginator";

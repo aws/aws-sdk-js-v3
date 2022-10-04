@@ -30,7 +30,7 @@ export interface DeleteMobileDeviceAccessRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes a mobile device access rule for the specified Amazon WorkMail organization.</p>
+ * <p>Deletes a mobile device access rule for the specified WorkMail organization.</p>
  *          <note>
  *             <p>Deleting already deleted and non-existing rules does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
  *          </note>

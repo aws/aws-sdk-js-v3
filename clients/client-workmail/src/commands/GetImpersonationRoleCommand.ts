@@ -13,46 +13,46 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DeleteResourceRequest,
-  DeleteResourceRequestFilterSensitiveLog,
-  DeleteResourceResponse,
-  DeleteResourceResponseFilterSensitiveLog,
+  GetImpersonationRoleRequest,
+  GetImpersonationRoleRequestFilterSensitiveLog,
+  GetImpersonationRoleResponse,
+  GetImpersonationRoleResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteResourceCommand,
-  serializeAws_json1_1DeleteResourceCommand,
+  deserializeAws_json1_1GetImpersonationRoleCommand,
+  serializeAws_json1_1GetImpersonationRoleCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
-export interface DeleteResourceCommandInput extends DeleteResourceRequest {}
-export interface DeleteResourceCommandOutput extends DeleteResourceResponse, __MetadataBearer {}
+export interface GetImpersonationRoleCommandInput extends GetImpersonationRoleRequest {}
+export interface GetImpersonationRoleCommandOutput extends GetImpersonationRoleResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified resource.</p>
+ * <p>Gets the impersonation role details for the given WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DeleteResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DeleteResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, GetImpersonationRoleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, GetImpersonationRoleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const command = new DeleteResourceCommand(input);
+ * const command = new GetImpersonationRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DeleteResourceCommandInput} for command's `input` shape.
- * @see {@link DeleteResourceCommandOutput} for command's `response` shape.
+ * @see {@link GetImpersonationRoleCommandInput} for command's `input` shape.
+ * @see {@link GetImpersonationRoleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
-export class DeleteResourceCommand extends $Command<
-  DeleteResourceCommandInput,
-  DeleteResourceCommandOutput,
+export class GetImpersonationRoleCommand extends $Command<
+  GetImpersonationRoleCommandInput,
+  GetImpersonationRoleCommandOutput,
   WorkMailClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DeleteResourceCommandInput) {
+  constructor(readonly input: GetImpersonationRoleCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -65,20 +65,20 @@ export class DeleteResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteResourceCommandInput, DeleteResourceCommandOutput> {
+  ): Handler<GetImpersonationRoleCommandInput, GetImpersonationRoleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WorkMailClient";
-    const commandName = "DeleteResourceCommand";
+    const commandName = "GetImpersonationRoleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: GetImpersonationRoleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetImpersonationRoleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +88,12 @@ export class DeleteResourceCommand extends $Command<
     );
   }
 
-  private serialize(input: DeleteResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResourceCommand(input, context);
+  private serialize(input: GetImpersonationRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1GetImpersonationRoleCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceCommandOutput> {
-    return deserializeAws_json1_1DeleteResourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImpersonationRoleCommandOutput> {
+    return deserializeAws_json1_1GetImpersonationRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

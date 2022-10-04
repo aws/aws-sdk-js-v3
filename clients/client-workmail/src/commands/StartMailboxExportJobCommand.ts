@@ -31,7 +31,7 @@ export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJo
  * <p>Starts a mailbox export job to export MIME-format email messages and calendar items
  *          from the specified mailbox to the specified Amazon Simple Storage Service (Amazon S3)
  *          bucket. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html">Exporting mailbox content</a> in
- *          the <i>Amazon WorkMail Administrator Guide</i>.</p>
+ *          the <i>WorkMail Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

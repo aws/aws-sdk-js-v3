@@ -28,7 +28,7 @@ export interface CreateUserCommandInput extends CreateUserRequest {}
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a user who can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a> operation.</p>
+ * <p>Creates a user who can be used in WorkMail by calling the <a>RegisterToWorkMail</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

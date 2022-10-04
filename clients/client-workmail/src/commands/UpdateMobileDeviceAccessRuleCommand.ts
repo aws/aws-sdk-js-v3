@@ -30,7 +30,7 @@ export interface UpdateMobileDeviceAccessRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates a mobile device access rule for the specified Amazon WorkMail organization.</p>
+ * <p>Updates a mobile device access rule for the specified WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

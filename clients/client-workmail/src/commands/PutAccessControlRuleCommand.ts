@@ -30,7 +30,7 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
 /**
  * <p>Adds a new access control rule for the specified organization. The rule allows or
  *          denies access to the organization for the specified IPv4 addresses, access protocol
- *          actions, and user IDs. Adding a new rule with the same name as an existing rule replaces
+ *          actions, user IDs and impersonation IDs. Adding a new rule with the same name as an existing rule replaces
  *          the older rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

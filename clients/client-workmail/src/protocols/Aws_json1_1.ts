@@ -4,6 +4,7 @@ import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
@@ -28,6 +29,10 @@ import {
   AssociateMemberToGroupCommandOutput,
 } from "../commands/AssociateMemberToGroupCommand";
 import {
+  AssumeImpersonationRoleCommandInput,
+  AssumeImpersonationRoleCommandOutput,
+} from "../commands/AssumeImpersonationRoleCommand";
+import {
   CancelMailboxExportJobCommandInput,
   CancelMailboxExportJobCommandOutput,
 } from "../commands/CancelMailboxExportJobCommand";
@@ -37,6 +42,10 @@ import {
   CreateAvailabilityConfigurationCommandOutput,
 } from "../commands/CreateAvailabilityConfigurationCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
+import {
+  CreateImpersonationRoleCommandInput,
+  CreateImpersonationRoleCommandOutput,
+} from "../commands/CreateImpersonationRoleCommand";
 import {
   CreateMobileDeviceAccessRuleCommandInput,
   CreateMobileDeviceAccessRuleCommandOutput,
@@ -58,6 +67,10 @@ import {
   DeleteEmailMonitoringConfigurationCommandOutput,
 } from "../commands/DeleteEmailMonitoringConfigurationCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
+import {
+  DeleteImpersonationRoleCommandInput,
+  DeleteImpersonationRoleCommandOutput,
+} from "../commands/DeleteImpersonationRoleCommand";
 import {
   DeleteMailboxPermissionsCommandInput,
   DeleteMailboxPermissionsCommandOutput,
@@ -120,6 +133,14 @@ import {
   GetDefaultRetentionPolicyCommandInput,
   GetDefaultRetentionPolicyCommandOutput,
 } from "../commands/GetDefaultRetentionPolicyCommand";
+import {
+  GetImpersonationRoleCommandInput,
+  GetImpersonationRoleCommandOutput,
+} from "../commands/GetImpersonationRoleCommand";
+import {
+  GetImpersonationRoleEffectCommandInput,
+  GetImpersonationRoleEffectCommandOutput,
+} from "../commands/GetImpersonationRoleEffectCommand";
 import { GetMailboxDetailsCommandInput, GetMailboxDetailsCommandOutput } from "../commands/GetMailboxDetailsCommand";
 import { GetMailDomainCommandInput, GetMailDomainCommandOutput } from "../commands/GetMailDomainCommand";
 import {
@@ -141,6 +162,10 @@ import {
 } from "../commands/ListAvailabilityConfigurationsCommand";
 import { ListGroupMembersCommandInput, ListGroupMembersCommandOutput } from "../commands/ListGroupMembersCommand";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
+import {
+  ListImpersonationRolesCommandInput,
+  ListImpersonationRolesCommandOutput,
+} from "../commands/ListImpersonationRolesCommand";
 import {
   ListMailboxExportJobsCommandInput,
   ListMailboxExportJobsCommandOutput,
@@ -211,6 +236,10 @@ import {
   UpdateDefaultMailDomainCommandInput,
   UpdateDefaultMailDomainCommandOutput,
 } from "../commands/UpdateDefaultMailDomainCommand";
+import {
+  UpdateImpersonationRoleCommandInput,
+  UpdateImpersonationRoleCommandOutput,
+} from "../commands/UpdateImpersonationRoleCommand";
 import { UpdateMailboxQuotaCommandInput, UpdateMailboxQuotaCommandOutput } from "../commands/UpdateMailboxQuotaCommand";
 import {
   UpdateMobileDeviceAccessRuleCommandInput,
@@ -227,6 +256,8 @@ import {
   AssociateDelegateToResourceResponse,
   AssociateMemberToGroupRequest,
   AssociateMemberToGroupResponse,
+  AssumeImpersonationRoleRequest,
+  AssumeImpersonationRoleResponse,
   AvailabilityConfiguration,
   BookingOptions,
   CancelMailboxExportJobRequest,
@@ -237,6 +268,8 @@ import {
   CreateAvailabilityConfigurationResponse,
   CreateGroupRequest,
   CreateGroupResponse,
+  CreateImpersonationRoleRequest,
+  CreateImpersonationRoleResponse,
   CreateMobileDeviceAccessRuleRequest,
   CreateMobileDeviceAccessRuleResponse,
   CreateOrganizationRequest,
@@ -256,6 +289,8 @@ import {
   DeleteEmailMonitoringConfigurationResponse,
   DeleteGroupRequest,
   DeleteGroupResponse,
+  DeleteImpersonationRoleRequest,
+  DeleteImpersonationRoleResponse,
   DeleteMailboxPermissionsRequest,
   DeleteMailboxPermissionsResponse,
   DeleteMobileDeviceAccessOverrideRequest,
@@ -307,6 +342,10 @@ import {
   GetAccessControlEffectResponse,
   GetDefaultRetentionPolicyRequest,
   GetDefaultRetentionPolicyResponse,
+  GetImpersonationRoleEffectRequest,
+  GetImpersonationRoleEffectResponse,
+  GetImpersonationRoleRequest,
+  GetImpersonationRoleResponse,
   GetMailboxDetailsRequest,
   GetMailboxDetailsResponse,
   GetMailDomainRequest,
@@ -316,6 +355,9 @@ import {
   GetMobileDeviceAccessOverrideRequest,
   GetMobileDeviceAccessOverrideResponse,
   Group,
+  ImpersonationMatchedRule,
+  ImpersonationRole,
+  ImpersonationRule,
   InvalidConfigurationException,
   InvalidCustomSesConfigurationException,
   InvalidParameterException,
@@ -332,6 +374,8 @@ import {
   ListGroupMembersResponse,
   ListGroupsRequest,
   ListGroupsResponse,
+  ListImpersonationRolesRequest,
+  ListImpersonationRolesResponse,
   ListMailboxExportJobsRequest,
   ListMailboxExportJobsResponse,
   ListMailboxPermissionsRequest,
@@ -404,6 +448,8 @@ import {
   UpdateAvailabilityConfigurationResponse,
   UpdateDefaultMailDomainRequest,
   UpdateDefaultMailDomainResponse,
+  UpdateImpersonationRoleRequest,
+  UpdateImpersonationRoleResponse,
   UpdateMailboxQuotaRequest,
   UpdateMailboxQuotaResponse,
   UpdateMobileDeviceAccessRuleRequest,
@@ -439,6 +485,19 @@ export const serializeAws_json1_1AssociateMemberToGroupCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateMemberToGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1AssumeImpersonationRoleCommand = async (
+  input: AssumeImpersonationRoleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.AssumeImpersonationRole",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AssumeImpersonationRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -491,6 +550,19 @@ export const serializeAws_json1_1CreateGroupCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateImpersonationRoleCommand = async (
+  input: CreateImpersonationRoleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.CreateImpersonationRole",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateImpersonationRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -608,6 +680,19 @@ export const serializeAws_json1_1DeleteGroupCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteImpersonationRoleCommand = async (
+  input: DeleteImpersonationRoleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.DeleteImpersonationRole",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteImpersonationRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -871,6 +956,32 @@ export const serializeAws_json1_1GetDefaultRetentionPolicyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetImpersonationRoleCommand = async (
+  input: GetImpersonationRoleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.GetImpersonationRole",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetImpersonationRoleRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetImpersonationRoleEffectCommand = async (
+  input: GetImpersonationRoleEffectCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.GetImpersonationRoleEffect",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetImpersonationRoleEffectRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetMailboxDetailsCommand = async (
   input: GetMailboxDetailsCommandInput,
   context: __SerdeContext
@@ -985,6 +1096,19 @@ export const serializeAws_json1_1ListGroupsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListGroupsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListImpersonationRolesCommand = async (
+  input: ListImpersonationRolesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.ListImpersonationRoles",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListImpersonationRolesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1313,6 +1437,19 @@ export const serializeAws_json1_1UpdateDefaultMailDomainCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateImpersonationRoleCommand = async (
+  input: UpdateImpersonationRoleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.UpdateImpersonationRole",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateImpersonationRoleRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateMailboxQuotaCommand = async (
   input: UpdateMailboxQuotaCommandInput,
   context: __SerdeContext
@@ -1469,6 +1606,56 @@ const deserializeAws_json1_1AssociateMemberToGroupCommandError = async (
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1AssumeImpersonationRoleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssumeImpersonationRoleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AssumeImpersonationRoleCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AssumeImpersonationRoleResponse(data, context);
+  const response: AssumeImpersonationRoleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AssumeImpersonationRoleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssumeImpersonationRoleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workmail#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1699,6 +1886,62 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateImpersonationRoleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateImpersonationRoleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateImpersonationRoleCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateImpersonationRoleResponse(data, context);
+  const response: CreateImpersonationRoleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateImpersonationRoleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateImpersonationRoleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
+      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
+      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.workmail#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2173,6 +2416,53 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteImpersonationRoleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteImpersonationRoleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteImpersonationRoleCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteImpersonationRoleResponse(data, context);
+  const response: DeleteImpersonationRoleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteImpersonationRoleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteImpersonationRoleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3135,6 +3425,9 @@ const deserializeAws_json1_1GetAccessControlEffectCommandError = async (
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
       throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workmail#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3185,6 +3478,112 @@ const deserializeAws_json1_1GetDefaultRetentionPolicyCommandError = async (
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
       throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetImpersonationRoleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImpersonationRoleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetImpersonationRoleCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetImpersonationRoleResponse(data, context);
+  const response: GetImpersonationRoleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetImpersonationRoleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImpersonationRoleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workmail#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetImpersonationRoleEffectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImpersonationRoleEffectCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetImpersonationRoleEffectCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetImpersonationRoleEffectResponse(data, context);
+  const response: GetImpersonationRoleEffectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetImpersonationRoleEffectCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImpersonationRoleEffectCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
+      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
+      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workmail#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3617,6 +4016,53 @@ const deserializeAws_json1_1ListGroupsCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
       throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListImpersonationRolesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImpersonationRolesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListImpersonationRolesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListImpersonationRolesResponse(data, context);
+  const response: ListImpersonationRolesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListImpersonationRolesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImpersonationRolesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
@@ -4149,6 +4595,9 @@ const deserializeAws_json1_1PutAccessControlRuleCommandError = async (
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
       throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workmail#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4893,6 +5342,65 @@ const deserializeAws_json1_1UpdateDefaultMailDomainCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateImpersonationRoleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateImpersonationRoleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateImpersonationRoleCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateImpersonationRoleResponse(data, context);
+  const response: UpdateImpersonationRoleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateImpersonationRoleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateImpersonationRoleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
+      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
+      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.workmail#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workmail#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1UpdateMailboxQuotaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5451,6 +5959,16 @@ const serializeAws_json1_1AssociateMemberToGroupRequest = (
   };
 };
 
+const serializeAws_json1_1AssumeImpersonationRoleRequest = (
+  input: AssumeImpersonationRoleRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ImpersonationRoleId != null && { ImpersonationRoleId: input.ImpersonationRoleId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+  };
+};
+
 const serializeAws_json1_1BookingOptions = (input: BookingOptions, context: __SerdeContext): any => {
   return {
     ...(input.AutoAcceptRequests != null && { AutoAcceptRequests: input.AutoAcceptRequests }),
@@ -5503,6 +6021,20 @@ const serializeAws_json1_1CreateGroupRequest = (input: CreateGroupRequest, conte
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+  };
+};
+
+const serializeAws_json1_1CreateImpersonationRoleRequest = (
+  input: CreateImpersonationRoleRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.Rules != null && { Rules: serializeAws_json1_1ImpersonationRuleList(input.Rules, context) }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -5615,6 +6147,16 @@ const serializeAws_json1_1DeleteEmailMonitoringConfigurationRequest = (
 const serializeAws_json1_1DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupId != null && { GroupId: input.GroupId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+  };
+};
+
+const serializeAws_json1_1DeleteImpersonationRoleRequest = (
+  input: DeleteImpersonationRoleRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ImpersonationRoleId != null && { ImpersonationRoleId: input.ImpersonationRoleId }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
@@ -5863,6 +6405,7 @@ const serializeAws_json1_1GetAccessControlEffectRequest = (
 ): any => {
   return {
     ...(input.Action != null && { Action: input.Action }),
+    ...(input.ImpersonationRoleId != null && { ImpersonationRoleId: input.ImpersonationRoleId }),
     ...(input.IpAddress != null && { IpAddress: input.IpAddress }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
     ...(input.UserId != null && { UserId: input.UserId }),
@@ -5874,6 +6417,27 @@ const serializeAws_json1_1GetDefaultRetentionPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+  };
+};
+
+const serializeAws_json1_1GetImpersonationRoleEffectRequest = (
+  input: GetImpersonationRoleEffectRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ImpersonationRoleId != null && { ImpersonationRoleId: input.ImpersonationRoleId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.TargetUser != null && { TargetUser: input.TargetUser }),
+  };
+};
+
+const serializeAws_json1_1GetImpersonationRoleRequest = (
+  input: GetImpersonationRoleRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ImpersonationRoleId != null && { ImpersonationRoleId: input.ImpersonationRoleId }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
@@ -5917,6 +6481,35 @@ const serializeAws_json1_1GetMobileDeviceAccessOverrideRequest = (
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
     ...(input.UserId != null && { UserId: input.UserId }),
   };
+};
+
+const serializeAws_json1_1ImpersonationRoleIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ImpersonationRule = (input: ImpersonationRule, context: __SerdeContext): any => {
+  return {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Effect != null && { Effect: input.Effect }),
+    ...(input.ImpersonationRuleId != null && { ImpersonationRuleId: input.ImpersonationRuleId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.NotTargetUsers != null && {
+      NotTargetUsers: serializeAws_json1_1TargetUsers(input.NotTargetUsers, context),
+    }),
+    ...(input.TargetUsers != null && { TargetUsers: serializeAws_json1_1TargetUsers(input.TargetUsers, context) }),
+  };
+};
+
+const serializeAws_json1_1ImpersonationRuleList = (input: ImpersonationRule[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1ImpersonationRule(entry, context);
+    });
 };
 
 const serializeAws_json1_1IpRangeList = (input: string[], context: __SerdeContext): any => {
@@ -5975,6 +6568,17 @@ const serializeAws_json1_1ListGroupMembersRequest = (input: ListGroupMembersRequ
 };
 
 const serializeAws_json1_1ListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+  };
+};
+
+const serializeAws_json1_1ListImpersonationRolesRequest = (
+  input: ListImpersonationRolesRequest,
+  context: __SerdeContext
+): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -6098,9 +6702,15 @@ const serializeAws_json1_1PutAccessControlRuleRequest = (
     ...(input.Actions != null && { Actions: serializeAws_json1_1ActionsList(input.Actions, context) }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Effect != null && { Effect: input.Effect }),
+    ...(input.ImpersonationRoleIds != null && {
+      ImpersonationRoleIds: serializeAws_json1_1ImpersonationRoleIdList(input.ImpersonationRoleIds, context),
+    }),
     ...(input.IpRanges != null && { IpRanges: serializeAws_json1_1IpRangeList(input.IpRanges, context) }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.NotActions != null && { NotActions: serializeAws_json1_1ActionsList(input.NotActions, context) }),
+    ...(input.NotImpersonationRoleIds != null && {
+      NotImpersonationRoleIds: serializeAws_json1_1ImpersonationRoleIdList(input.NotImpersonationRoleIds, context),
+    }),
     ...(input.NotIpRanges != null && { NotIpRanges: serializeAws_json1_1IpRangeList(input.NotIpRanges, context) }),
     ...(input.NotUserIds != null && { NotUserIds: serializeAws_json1_1UserIdList(input.NotUserIds, context) }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
@@ -6247,6 +6857,14 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
   };
 };
 
+const serializeAws_json1_1TargetUsers = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_1TestAvailabilityConfigurationRequest = (
   input: TestAvailabilityConfigurationRequest,
   context: __SerdeContext
@@ -6293,6 +6911,20 @@ const serializeAws_json1_1UpdateDefaultMailDomainRequest = (
   return {
     ...(input.DomainName != null && { DomainName: input.DomainName }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+  };
+};
+
+const serializeAws_json1_1UpdateImpersonationRoleRequest = (
+  input: UpdateImpersonationRoleRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.ImpersonationRoleId != null && { ImpersonationRoleId: input.ImpersonationRoleId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.Rules != null && { Rules: serializeAws_json1_1ImpersonationRuleList(input.Rules, context) }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -6388,9 +7020,17 @@ const deserializeAws_json1_1AccessControlRule = (output: any, context: __SerdeCo
         : undefined,
     Description: __expectString(output.Description),
     Effect: __expectString(output.Effect),
+    ImpersonationRoleIds:
+      output.ImpersonationRoleIds != null
+        ? deserializeAws_json1_1ImpersonationRoleIdList(output.ImpersonationRoleIds, context)
+        : undefined,
     IpRanges: output.IpRanges != null ? deserializeAws_json1_1IpRangeList(output.IpRanges, context) : undefined,
     Name: __expectString(output.Name),
     NotActions: output.NotActions != null ? deserializeAws_json1_1ActionsList(output.NotActions, context) : undefined,
+    NotImpersonationRoleIds:
+      output.NotImpersonationRoleIds != null
+        ? deserializeAws_json1_1ImpersonationRoleIdList(output.NotImpersonationRoleIds, context)
+        : undefined,
     NotIpRanges:
       output.NotIpRanges != null ? deserializeAws_json1_1IpRangeList(output.NotIpRanges, context) : undefined,
     NotUserIds: output.NotUserIds != null ? deserializeAws_json1_1UserIdList(output.NotUserIds, context) : undefined,
@@ -6458,6 +7098,16 @@ const deserializeAws_json1_1AssociateMemberToGroupResponse = (
   context: __SerdeContext
 ): AssociateMemberToGroupResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1AssumeImpersonationRoleResponse = (
+  output: any,
+  context: __SerdeContext
+): AssumeImpersonationRoleResponse => {
+  return {
+    ExpiresIn: __expectLong(output.ExpiresIn),
+    Token: __expectString(output.Token),
+  } as any;
 };
 
 const deserializeAws_json1_1AvailabilityConfiguration = (
@@ -6533,6 +7183,15 @@ const deserializeAws_json1_1CreateGroupResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1CreateImpersonationRoleResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateImpersonationRoleResponse => {
+  return {
+    ImpersonationRoleId: __expectString(output.ImpersonationRoleId),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateMobileDeviceAccessRuleResponse = (
   output: any,
   context: __SerdeContext
@@ -6596,6 +7255,13 @@ const deserializeAws_json1_1DeleteEmailMonitoringConfigurationResponse = (
 };
 
 const deserializeAws_json1_1DeleteGroupResponse = (output: any, context: __SerdeContext): DeleteGroupResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteImpersonationRoleResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteImpersonationRoleResponse => {
   return {} as any;
 };
 
@@ -6969,6 +7635,41 @@ const deserializeAws_json1_1GetDefaultRetentionPolicyResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1GetImpersonationRoleEffectResponse = (
+  output: any,
+  context: __SerdeContext
+): GetImpersonationRoleEffectResponse => {
+  return {
+    Effect: __expectString(output.Effect),
+    MatchedRules:
+      output.MatchedRules != null
+        ? deserializeAws_json1_1ImpersonationMatchedRuleList(output.MatchedRules, context)
+        : undefined,
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1GetImpersonationRoleResponse = (
+  output: any,
+  context: __SerdeContext
+): GetImpersonationRoleResponse => {
+  return {
+    DateCreated:
+      output.DateCreated != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
+        : undefined,
+    DateModified:
+      output.DateModified != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
+        : undefined,
+    Description: __expectString(output.Description),
+    ImpersonationRoleId: __expectString(output.ImpersonationRoleId),
+    Name: __expectString(output.Name),
+    Rules: output.Rules != null ? deserializeAws_json1_1ImpersonationRuleList(output.Rules, context) : undefined,
+    Type: __expectString(output.Type),
+  } as any;
+};
+
 const deserializeAws_json1_1GetMailboxDetailsResponse = (
   output: any,
   context: __SerdeContext
@@ -7047,6 +7748,96 @@ const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Gro
         return null as any;
       }
       return deserializeAws_json1_1Group(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ImpersonationMatchedRule = (
+  output: any,
+  context: __SerdeContext
+): ImpersonationMatchedRule => {
+  return {
+    ImpersonationRuleId: __expectString(output.ImpersonationRuleId),
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1ImpersonationMatchedRuleList = (
+  output: any,
+  context: __SerdeContext
+): ImpersonationMatchedRule[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ImpersonationMatchedRule(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ImpersonationRole = (output: any, context: __SerdeContext): ImpersonationRole => {
+  return {
+    DateCreated:
+      output.DateCreated != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
+        : undefined,
+    DateModified:
+      output.DateModified != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
+        : undefined,
+    ImpersonationRoleId: __expectString(output.ImpersonationRoleId),
+    Name: __expectString(output.Name),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1ImpersonationRoleIdList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ImpersonationRoleList = (output: any, context: __SerdeContext): ImpersonationRole[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ImpersonationRole(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ImpersonationRule = (output: any, context: __SerdeContext): ImpersonationRule => {
+  return {
+    Description: __expectString(output.Description),
+    Effect: __expectString(output.Effect),
+    ImpersonationRuleId: __expectString(output.ImpersonationRuleId),
+    Name: __expectString(output.Name),
+    NotTargetUsers:
+      output.NotTargetUsers != null ? deserializeAws_json1_1TargetUsers(output.NotTargetUsers, context) : undefined,
+    TargetUsers:
+      output.TargetUsers != null ? deserializeAws_json1_1TargetUsers(output.TargetUsers, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ImpersonationRuleList = (output: any, context: __SerdeContext): ImpersonationRule[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ImpersonationRule(entry, context);
     });
   return retVal;
 };
@@ -7169,6 +7960,16 @@ const deserializeAws_json1_1ListGroupsResponse = (output: any, context: __SerdeC
   return {
     Groups: output.Groups != null ? deserializeAws_json1_1Groups(output.Groups, context) : undefined,
     NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListImpersonationRolesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListImpersonationRolesResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    Roles: output.Roles != null ? deserializeAws_json1_1ImpersonationRoleList(output.Roles, context) : undefined,
   } as any;
 };
 
@@ -7725,6 +8526,18 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
   return {} as any;
 };
 
+const deserializeAws_json1_1TargetUsers = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1TestAvailabilityConfigurationResponse = (
   output: any,
   context: __SerdeContext
@@ -7765,6 +8578,13 @@ const deserializeAws_json1_1UpdateDefaultMailDomainResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateDefaultMailDomainResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateImpersonationRoleResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateImpersonationRoleResponse => {
   return {} as any;
 };
 

@@ -28,7 +28,7 @@ export interface RegisterMailDomainCommandInput extends RegisterMailDomainReques
 export interface RegisterMailDomainCommandOutput extends RegisterMailDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a new domain in Amazon WorkMail and SES, and configures it for use by WorkMail. Emails received by SES for this domain are routed to the specified WorkMail organization, and WorkMail has
+ * <p>Registers a new domain in WorkMail and SES, and configures it for use by WorkMail. Emails received by SES for this domain are routed to the specified WorkMail organization, and WorkMail has
  *          permanent permission to use the specified domain for sending your users' emails.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

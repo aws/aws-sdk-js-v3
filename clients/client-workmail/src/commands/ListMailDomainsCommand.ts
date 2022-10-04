@@ -28,7 +28,7 @@ export interface ListMailDomainsCommandInput extends ListMailDomainsRequest {}
 export interface ListMailDomainsCommandOutput extends ListMailDomainsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the mail domains in a given Amazon WorkMail organization.</p>
+ * <p>Lists the mail domains in a given WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

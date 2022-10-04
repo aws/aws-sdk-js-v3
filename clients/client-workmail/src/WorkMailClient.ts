@@ -62,6 +62,10 @@ import {
   AssociateMemberToGroupCommandOutput,
 } from "./commands/AssociateMemberToGroupCommand";
 import {
+  AssumeImpersonationRoleCommandInput,
+  AssumeImpersonationRoleCommandOutput,
+} from "./commands/AssumeImpersonationRoleCommand";
+import {
   CancelMailboxExportJobCommandInput,
   CancelMailboxExportJobCommandOutput,
 } from "./commands/CancelMailboxExportJobCommand";
@@ -71,6 +75,10 @@ import {
   CreateAvailabilityConfigurationCommandOutput,
 } from "./commands/CreateAvailabilityConfigurationCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
+import {
+  CreateImpersonationRoleCommandInput,
+  CreateImpersonationRoleCommandOutput,
+} from "./commands/CreateImpersonationRoleCommand";
 import {
   CreateMobileDeviceAccessRuleCommandInput,
   CreateMobileDeviceAccessRuleCommandOutput,
@@ -92,6 +100,10 @@ import {
   DeleteEmailMonitoringConfigurationCommandOutput,
 } from "./commands/DeleteEmailMonitoringConfigurationCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
+import {
+  DeleteImpersonationRoleCommandInput,
+  DeleteImpersonationRoleCommandOutput,
+} from "./commands/DeleteImpersonationRoleCommand";
 import {
   DeleteMailboxPermissionsCommandInput,
   DeleteMailboxPermissionsCommandOutput,
@@ -154,6 +166,14 @@ import {
   GetDefaultRetentionPolicyCommandInput,
   GetDefaultRetentionPolicyCommandOutput,
 } from "./commands/GetDefaultRetentionPolicyCommand";
+import {
+  GetImpersonationRoleCommandInput,
+  GetImpersonationRoleCommandOutput,
+} from "./commands/GetImpersonationRoleCommand";
+import {
+  GetImpersonationRoleEffectCommandInput,
+  GetImpersonationRoleEffectCommandOutput,
+} from "./commands/GetImpersonationRoleEffectCommand";
 import { GetMailboxDetailsCommandInput, GetMailboxDetailsCommandOutput } from "./commands/GetMailboxDetailsCommand";
 import { GetMailDomainCommandInput, GetMailDomainCommandOutput } from "./commands/GetMailDomainCommand";
 import {
@@ -175,6 +195,10 @@ import {
 } from "./commands/ListAvailabilityConfigurationsCommand";
 import { ListGroupMembersCommandInput, ListGroupMembersCommandOutput } from "./commands/ListGroupMembersCommand";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
+import {
+  ListImpersonationRolesCommandInput,
+  ListImpersonationRolesCommandOutput,
+} from "./commands/ListImpersonationRolesCommand";
 import {
   ListMailboxExportJobsCommandInput,
   ListMailboxExportJobsCommandOutput,
@@ -245,6 +269,10 @@ import {
   UpdateDefaultMailDomainCommandInput,
   UpdateDefaultMailDomainCommandOutput,
 } from "./commands/UpdateDefaultMailDomainCommand";
+import {
+  UpdateImpersonationRoleCommandInput,
+  UpdateImpersonationRoleCommandOutput,
+} from "./commands/UpdateImpersonationRoleCommand";
 import { UpdateMailboxQuotaCommandInput, UpdateMailboxQuotaCommandOutput } from "./commands/UpdateMailboxQuotaCommand";
 import {
   UpdateMobileDeviceAccessRuleCommandInput,
@@ -260,10 +288,12 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 export type ServiceInputTypes =
   | AssociateDelegateToResourceCommandInput
   | AssociateMemberToGroupCommandInput
+  | AssumeImpersonationRoleCommandInput
   | CancelMailboxExportJobCommandInput
   | CreateAliasCommandInput
   | CreateAvailabilityConfigurationCommandInput
   | CreateGroupCommandInput
+  | CreateImpersonationRoleCommandInput
   | CreateMobileDeviceAccessRuleCommandInput
   | CreateOrganizationCommandInput
   | CreateResourceCommandInput
@@ -273,6 +303,7 @@ export type ServiceInputTypes =
   | DeleteAvailabilityConfigurationCommandInput
   | DeleteEmailMonitoringConfigurationCommandInput
   | DeleteGroupCommandInput
+  | DeleteImpersonationRoleCommandInput
   | DeleteMailboxPermissionsCommandInput
   | DeleteMobileDeviceAccessOverrideCommandInput
   | DeleteMobileDeviceAccessRuleCommandInput
@@ -293,6 +324,8 @@ export type ServiceInputTypes =
   | DisassociateMemberFromGroupCommandInput
   | GetAccessControlEffectCommandInput
   | GetDefaultRetentionPolicyCommandInput
+  | GetImpersonationRoleCommandInput
+  | GetImpersonationRoleEffectCommandInput
   | GetMailDomainCommandInput
   | GetMailboxDetailsCommandInput
   | GetMobileDeviceAccessEffectCommandInput
@@ -302,6 +335,7 @@ export type ServiceInputTypes =
   | ListAvailabilityConfigurationsCommandInput
   | ListGroupMembersCommandInput
   | ListGroupsCommandInput
+  | ListImpersonationRolesCommandInput
   | ListMailDomainsCommandInput
   | ListMailboxExportJobsCommandInput
   | ListMailboxPermissionsCommandInput
@@ -327,6 +361,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAvailabilityConfigurationCommandInput
   | UpdateDefaultMailDomainCommandInput
+  | UpdateImpersonationRoleCommandInput
   | UpdateMailboxQuotaCommandInput
   | UpdateMobileDeviceAccessRuleCommandInput
   | UpdatePrimaryEmailAddressCommandInput
@@ -335,10 +370,12 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateDelegateToResourceCommandOutput
   | AssociateMemberToGroupCommandOutput
+  | AssumeImpersonationRoleCommandOutput
   | CancelMailboxExportJobCommandOutput
   | CreateAliasCommandOutput
   | CreateAvailabilityConfigurationCommandOutput
   | CreateGroupCommandOutput
+  | CreateImpersonationRoleCommandOutput
   | CreateMobileDeviceAccessRuleCommandOutput
   | CreateOrganizationCommandOutput
   | CreateResourceCommandOutput
@@ -348,6 +385,7 @@ export type ServiceOutputTypes =
   | DeleteAvailabilityConfigurationCommandOutput
   | DeleteEmailMonitoringConfigurationCommandOutput
   | DeleteGroupCommandOutput
+  | DeleteImpersonationRoleCommandOutput
   | DeleteMailboxPermissionsCommandOutput
   | DeleteMobileDeviceAccessOverrideCommandOutput
   | DeleteMobileDeviceAccessRuleCommandOutput
@@ -368,6 +406,8 @@ export type ServiceOutputTypes =
   | DisassociateMemberFromGroupCommandOutput
   | GetAccessControlEffectCommandOutput
   | GetDefaultRetentionPolicyCommandOutput
+  | GetImpersonationRoleCommandOutput
+  | GetImpersonationRoleEffectCommandOutput
   | GetMailDomainCommandOutput
   | GetMailboxDetailsCommandOutput
   | GetMobileDeviceAccessEffectCommandOutput
@@ -377,6 +417,7 @@ export type ServiceOutputTypes =
   | ListAvailabilityConfigurationsCommandOutput
   | ListGroupMembersCommandOutput
   | ListGroupsCommandOutput
+  | ListImpersonationRolesCommandOutput
   | ListMailDomainsCommandOutput
   | ListMailboxExportJobsCommandOutput
   | ListMailboxPermissionsCommandOutput
@@ -402,6 +443,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAvailabilityConfigurationCommandOutput
   | UpdateDefaultMailDomainCommandOutput
+  | UpdateImpersonationRoleCommandOutput
   | UpdateMailboxQuotaCommandOutput
   | UpdateMobileDeviceAccessRuleCommandOutput
   | UpdatePrimaryEmailAddressCommandOutput
@@ -561,7 +603,7 @@ type WorkMailClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
 export interface WorkMailClientResolvedConfig extends WorkMailClientResolvedConfigType {}
 
 /**
- * <p>Amazon WorkMail is a secure, managed business email and calendaring service with support for
+ * <p>WorkMail is a secure, managed business email and calendaring service with support for
  *          existing desktop and mobile email clients. You can access your email, contacts, and
  *          calendars using Microsoft Outlook, your browser, or other native iOS and Android email
  *          applications. You can integrate WorkMail with your existing corporate directory and control

@@ -28,7 +28,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Untags the specified tags from the specified Amazon WorkMail organization
+ * <p>Untags the specified tags from the specified WorkMail organization
  *          resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

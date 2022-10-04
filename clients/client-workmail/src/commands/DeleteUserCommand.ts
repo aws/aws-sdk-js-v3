@@ -28,7 +28,7 @@ export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a user from Amazon WorkMail and all subsequent systems. Before you can delete a
+ * <p>Deletes a user from WorkMail and all subsequent systems. Before you can delete a
  *          user, the user state must be <code>DISABLED</code>. Use the <a>DescribeUser</a>
  *          action to confirm the user state.</p>
  *          <p>Deleting a user is permanent and cannot be undone. WorkMail archives user mailboxes for

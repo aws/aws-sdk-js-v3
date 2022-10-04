@@ -28,7 +28,7 @@ export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
 export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a group from Amazon WorkMail.</p>
+ * <p>Deletes a group from WorkMail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

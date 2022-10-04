@@ -28,7 +28,7 @@ export interface CreateAliasCommandInput extends CreateAliasRequest {}
 export interface CreateAliasCommandOutput extends CreateAliasResponse, __MetadataBearer {}
 
 /**
- * <p>Adds an alias to the set of a given member (user or group) of Amazon WorkMail.</p>
+ * <p>Adds an alias to the set of a given member (user or group) of WorkMail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
