@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.184.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.183.0...v3.184.0) (2022-10-04)
+
+
+### Features
+
+* **client-connectcases:** This release adds APIs for Amazon Connect Cases. Cases allows your agents to quickly track and manage customer issues that require multiple interactions, follow-up tasks, and teams in your contact center.  For more information, see https://docs.aws.amazon.com/cases/latest/APIReference/Welcome.html ([424c2a5](https://github.com/aws/aws-sdk-js-v3/commit/424c2a55a090ea5678930aceb97b7931d8f4acd8))
+* **client-connect:** Updated the CreateIntegrationAssociation API to support the CASES_DOMAIN IntegrationType. ([b544ac0](https://github.com/aws/aws-sdk-js-v3/commit/b544ac065c6aed6d6bb45645cba14a9193a1dd01))
+* **client-ec2:** Added EnableNetworkAddressUsageMetrics flag for ModifyVpcAttribute, DescribeVpcAttribute APIs. ([cbd2640](https://github.com/aws/aws-sdk-js-v3/commit/cbd2640efb3ace31a5abb75d603599324c413f57))
+* **client-s3-control:** S3 Object Lambda adds support to allow customers to intercept HeadObject and ListObjects requests and introduce their own compute. These requests were previously proxied to S3. ([9915896](https://github.com/aws/aws-sdk-js-v3/commit/9915896feb5537e59f42a18f08eb65629dc5269b))
+* **client-workmail:** This release adds support for impersonation roles in Amazon WorkMail. ([f919ccd](https://github.com/aws/aws-sdk-js-v3/commit/f919ccdd3fc6b6bd0cdcebb351fc6d71ee1ee50f))
+* **clients:** update client endpoints as of 2022-10-04 ([7180ca6](https://github.com/aws/aws-sdk-js-v3/commit/7180ca677a78e0bde1816549d940aad10d3795f9))
+
+
+
+
+
 # [3.183.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.182.0...v3.183.0) (2022-10-03)
 
 
