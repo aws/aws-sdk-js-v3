@@ -1220,6 +1220,7 @@ export interface CreateInstanceResponse {
 }
 
 export enum IntegrationType {
+  CASES_DOMAIN = "CASES_DOMAIN",
   EVENT = "EVENT",
   PINPOINT_APP = "PINPOINT_APP",
   VOICE_ID = "VOICE_ID",
