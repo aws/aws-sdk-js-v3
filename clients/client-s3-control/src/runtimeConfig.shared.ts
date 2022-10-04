@@ -14,5 +14,6 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => ({
   logger: config?.logger ?? ({} as __Logger),
   regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "S3 Control",
+  signingEscapePath: config?.signingEscapePath ?? false,
   urlParser: config?.urlParser ?? parseUrl,
 });
