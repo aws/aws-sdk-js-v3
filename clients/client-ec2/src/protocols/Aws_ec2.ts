@@ -46852,6 +46852,13 @@ const serializeAws_ec2ModifyVpcAttributeRequest = (input: ModifyVpcAttributeRequ
   if (input.VpcId != null) {
     entries["VpcId"] = input.VpcId;
   }
+  if (input.EnableNetworkAddressUsageMetrics != null) {
+    const memberEntries = serializeAws_ec2AttributeBooleanValue(input.EnableNetworkAddressUsageMetrics, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `EnableNetworkAddressUsageMetrics.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -60763,6 +60770,7 @@ const deserializeAws_ec2DescribeVpcAttributeResult = (
     VpcId: undefined,
     EnableDnsHostnames: undefined,
     EnableDnsSupport: undefined,
+    EnableNetworkAddressUsageMetrics: undefined,
   };
   if (output["vpcId"] !== undefined) {
     contents.VpcId = __expectString(output["vpcId"]);
@@ -60772,6 +60780,12 @@ const deserializeAws_ec2DescribeVpcAttributeResult = (
   }
   if (output["enableDnsSupport"] !== undefined) {
     contents.EnableDnsSupport = deserializeAws_ec2AttributeBooleanValue(output["enableDnsSupport"], context);
+  }
+  if (output["enableNetworkAddressUsageMetrics"] !== undefined) {
+    contents.EnableNetworkAddressUsageMetrics = deserializeAws_ec2AttributeBooleanValue(
+      output["enableNetworkAddressUsageMetrics"],
+      context
+    );
   }
   return contents;
 };

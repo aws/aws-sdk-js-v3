@@ -6490,6 +6490,11 @@ export interface ModifyVpcAttributeRequest {
    * <p>The ID of the VPC.</p>
    */
   VpcId: string | undefined;
+
+  /**
+   * <p>Indicates whether Network Address Usage metrics are enabled for your VPC.</p>
+   */
+  EnableNetworkAddressUsageMetrics?: AttributeBooleanValue;
 }
 
 /**

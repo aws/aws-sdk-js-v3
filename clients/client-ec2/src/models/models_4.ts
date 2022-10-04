@@ -7600,6 +7600,7 @@ export interface DescribeVolumeStatusResult {
 export enum VpcAttributeName {
   enableDnsHostnames = "enableDnsHostnames",
   enableDnsSupport = "enableDnsSupport",
+  enableNetworkAddressUsageMetrics = "enableNetworkAddressUsageMetrics",
 }
 
 export interface DescribeVpcAttributeRequest {
@@ -7641,6 +7642,11 @@ export interface DescribeVpcAttributeResult {
    * 				IP addresses; otherwise, it does not.</p>
    */
   EnableDnsSupport?: AttributeBooleanValue;
+
+  /**
+   * <p>Indicates whether Network Address Usage metrics are enabled for your VPC.</p>
+   */
+  EnableNetworkAddressUsageMetrics?: AttributeBooleanValue;
 }
 
 export interface DescribeVpcClassicLinkRequest {

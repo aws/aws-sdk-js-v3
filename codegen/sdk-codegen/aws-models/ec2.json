@@ -32364,6 +32364,14 @@
             "smithy.api#documentation": "<p>Indicates whether DNS resolution is enabled for\n\t\t\t\tthe VPC. If this attribute is <code>true</code>, the Amazon DNS server\n\t\t\t\tresolves DNS hostnames for your instances to their corresponding\n\t\t\t\tIP addresses; otherwise, it does not.</p>",
             "smithy.api#xmlName": "enableDnsSupport"
           }
+        },
+        "EnableNetworkAddressUsageMetrics": {
+          "target": "com.amazonaws.ec2#AttributeBooleanValue",
+          "traits": {
+            "aws.protocols#ec2QueryName": "EnableNetworkAddressUsageMetrics",
+            "smithy.api#documentation": "<p>Indicates whether Network Address Usage metrics are enabled for your VPC.</p>",
+            "smithy.api#xmlName": "enableNetworkAddressUsageMetrics"
+          }
         }
       }
     },
@@ -62573,6 +62581,12 @@
             "smithy.api#required": {},
             "smithy.api#xmlName": "vpcId"
           }
+        },
+        "EnableNetworkAddressUsageMetrics": {
+          "target": "com.amazonaws.ec2#AttributeBooleanValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether Network Address Usage metrics are enabled for your VPC.</p>"
+          }
         }
       }
     },
@@ -87033,6 +87047,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "enableDnsHostnames"
+          }
+        },
+        "enableNetworkAddressUsageMetrics": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "enableNetworkAddressUsageMetrics"
           }
         }
       }
