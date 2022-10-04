@@ -30,6 +30,7 @@ import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -43,7 +44,16 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegration {
     @Override
-    public void writeAdditionalFiles(
+    public void customize(TypeScriptCodegenContext codegenContext) {
+        TypeScriptSettings settings = codegenContext.settings();
+        Model model = codegenContext.model();
+        SymbolProvider symbolProvider = codegenContext.symbolProvider();
+        BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory = codegenContext.writerDelegator()::useFileWriter;
+
+        writeAdditionalFiles(settings, model, symbolProvider, writerFactory);
+    }
+
+    private void writeAdditionalFiles(
             TypeScriptSettings settings,
             Model model,
             SymbolProvider symbolProvider,
