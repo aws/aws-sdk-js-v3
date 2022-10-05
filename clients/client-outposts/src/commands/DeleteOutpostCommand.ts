@@ -28,7 +28,7 @@ export interface DeleteOutpostCommandInput extends DeleteOutpostInput {}
 export interface DeleteOutpostCommandOutput extends DeleteOutpostOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the Outpost.</p>
+ * <p>Deletes the specified Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

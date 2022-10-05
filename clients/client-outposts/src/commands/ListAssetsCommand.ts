@@ -28,11 +28,10 @@ export interface ListAssetsCommandInput extends ListAssetsInput {}
 export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *       Lists the hardware assets in an Outpost. If you are using Dedicated Hosts on
- *       Amazon Web Services Outposts, you can filter your request by host ID to return a list of hardware
- *       assets that allocate resources for Dedicated Hosts.
- *     </p>
+ * <p>Lists the hardware assets for the specified Outpost.</p>
+ *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
+ *  all of the specified filters. For a filter where you can specify multiple values, the results include
+ *  items that match any of the values that you specify for the filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

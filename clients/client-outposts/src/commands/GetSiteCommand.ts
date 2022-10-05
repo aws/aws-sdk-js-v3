@@ -28,9 +28,7 @@ export interface GetSiteCommandInput extends GetSiteInput {}
 export interface GetSiteCommandOutput extends GetSiteOutput, __MetadataBearer {}
 
 /**
- * <p>
- *       Gets information about the specified Outpost site.
- *     </p>
+ * <p>Gets information about the specified Outpost site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

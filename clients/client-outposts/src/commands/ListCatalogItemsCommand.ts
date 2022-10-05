@@ -28,11 +28,10 @@ export interface ListCatalogItemsCommandInput extends ListCatalogItemsInput {}
 export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the items in the catalog. Add filters to your request to return a
- *       more specific list of results. Use filters to match an item class, storage
- *       option, or EC2 family. </p>
- *          <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and
- *       the request returns only results that match all of the specified filters.</p>
+ * <p>Lists the items in the catalog.</p>
+ *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
+ *  all of the specified filters. For a filter where you can specify multiple values, the results include
+ *  items that match any of the values that you specify for the filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,7 +28,7 @@ export interface GetOrderCommandInput extends GetOrderInput {}
 export interface GetOrderCommandOutput extends GetOrderOutput, __MetadataBearer {}
 
 /**
- * <p>Gets an order.</p>
+ * <p>Gets information about the specified order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

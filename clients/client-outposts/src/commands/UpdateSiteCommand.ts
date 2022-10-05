@@ -28,9 +28,7 @@ export interface UpdateSiteCommandInput extends UpdateSiteInput {}
 export interface UpdateSiteCommandOutput extends UpdateSiteOutput, __MetadataBearer {}
 
 /**
- * <p>
- *       Updates the site.
- *     </p>
+ * <p>Updates the specified site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

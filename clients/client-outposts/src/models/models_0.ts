@@ -109,6 +109,12 @@ export enum AssetType {
   COMPUTE = "COMPUTE",
 }
 
+export enum ComputeAssetState {
+  ACTIVE = "ACTIVE",
+  ISOLATED = "ISOLATED",
+  RETIRING = "RETIRING",
+}
+
 /**
  * <p>
  *       Information about compute hardware assets.
@@ -117,10 +123,28 @@ export enum AssetType {
 export interface ComputeAttributes {
   /**
    * <p>
-   *       The host ID of any Dedicated Hosts on the asset.
+   *       The host ID of the Dedicated Host on the asset.
    *     </p>
    */
   HostId?: string;
+
+  /**
+   * <p>The state.</p>
+   *          <ul>
+   *             <li>
+   *                <p>ACTIVE - The asset is available and can provide capacity for new compute resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>ISOLATED - The asset is undergoing maintenance and can't provide capacity for new compute resources.
+   *             Existing compute resources on the asset are not affected.</p>
+   *             </li>
+   *             <li>
+   *                <p>RETIRING - The underlying hardware for the asset is degraded. Capacity for new compute resources is reduced.
+   *             Amazon Web Services sends notifications for resources that must be stopped before the asset can be replaced.</p>
+   *             </li>
+   *          </ul>
+   */
+  State?: ComputeAssetState | string;
 }
 
 /**
@@ -165,10 +189,15 @@ export interface AssetInfo {
   AssetLocation?: AssetLocation;
 }
 
+export enum AssetState {
+  ACTIVE = "ACTIVE",
+  RETIRING = "RETIRING",
+}
+
 export interface CancelOrderInput {
   /**
    * <p>
-   *       The ID of the order to cancel.
+   *       The ID of the order.
    *     </p>
    */
   OrderId: string | undefined;
@@ -441,6 +470,7 @@ export enum PaymentOption {
 }
 
 export enum PaymentTerm {
+  ONE_YEAR = "ONE_YEAR",
   THREE_YEARS = "THREE_YEARS",
 }
 
@@ -458,12 +488,12 @@ export interface CreateOrderInput {
   LineItems: LineItemRequest[] | undefined;
 
   /**
-   * <p>The payment option for the order.</p>
+   * <p>The payment option.</p>
    */
   PaymentOption: PaymentOption | string | undefined;
 
   /**
-   * <p>The payment terms for the order.</p>
+   * <p>The payment terms.</p>
    */
   PaymentTerm?: PaymentTerm | string;
 }
@@ -483,7 +513,7 @@ export interface LineItemAssetInformation {
 
   /**
    * <p>
-   *       MAC addresses of the asset.
+   *       The MAC addresses of the asset.
    *     </p>
    */
   MacAddressList?: string[];
@@ -608,7 +638,7 @@ export interface Order {
    *             <li>
    *                <p>
    *                   <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. To get more
-   *           details, see the <code>LineItem</code> status.</p>
+   *           details, see the line item status.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -700,12 +730,6 @@ export interface CreateOutpostInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
-   *          <note>
-   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
-   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
-   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
-   *       you can make the request with an ARN.</p>
-   *          </note>
    */
   SiteId: string | undefined;
 
@@ -754,9 +778,7 @@ export interface Outpost {
   OutpostArn?: string;
 
   /**
-   * <p>
-   *       The ID of the site.
-   *     </p>
+   * <p>The ID of the site.</p>
    */
   SiteId?: string;
 
@@ -997,9 +1019,7 @@ export interface CreateSiteInput {
  */
 export interface Site {
   /**
-   * <p>
-   *       The ID of the site.
-   *     </p>
+   * <p>The ID of the site.</p>
    */
   SiteId?: string;
 
@@ -1074,12 +1094,6 @@ export interface DeleteOutpostInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
-   *          <note>
-   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
-   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
-   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
-   *       you can make the request with an ARN.</p>
-   *          </note>
    */
   OutpostId: string | undefined;
 }
@@ -1091,12 +1105,6 @@ export interface DeleteSiteInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
-   *          <note>
-   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
-   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
-   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
-   *       you can make the request with an ARN.</p>
-   *          </note>
    */
   SiteId: string | undefined;
 }
@@ -1120,7 +1128,7 @@ export interface GetCatalogItemOutput {
 export interface GetConnectionRequest {
   /**
    * <p>
-   *       The ID of the connection you request.
+   *       The ID of the connection.
    *     </p>
    */
   ConnectionId: string | undefined;
@@ -1129,14 +1137,14 @@ export interface GetConnectionRequest {
 export interface GetConnectionResponse {
   /**
    * <p>
-   *       The ID of the connection you receive.
+   *       The ID of the connection.
    *     </p>
    */
   ConnectionId?: string;
 
   /**
    * <p>
-   *      Information about a connection.
+   *      Information about the connection.
    *     </p>
    */
   ConnectionDetails?: ConnectionDetails;
@@ -1161,12 +1169,6 @@ export interface GetOutpostInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
-   *          <note>
-   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
-   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
-   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
-   *       you can make the request with an ARN.</p>
-   *          </note>
    */
   OutpostId: string | undefined;
 }
@@ -1183,12 +1185,6 @@ export interface GetOutpostInstanceTypesInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
-   *          <note>
-   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
-   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
-   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
-   *       you can make the request with an ARN.</p>
-   *          </note>
    */
   OutpostId: string | undefined;
 
@@ -1228,12 +1224,6 @@ export interface GetOutpostInstanceTypesOutput {
    * <p>
    *       The ID of the Outpost.
    *     </p>
-   *          <note>
-   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
-   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
-   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
-   *       you can make the request with an ARN.</p>
-   *          </note>
    */
   OutpostId?: string;
 
@@ -1248,12 +1238,6 @@ export interface GetSiteInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
-   *          <note>
-   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
-   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
-   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
-   *       you can make the request with an ARN.</p>
-   *          </note>
    */
   SiteId: string | undefined;
 }
@@ -1270,31 +1254,23 @@ export interface GetSiteAddressInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
-   *          <note>
-   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
-   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
-   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
-   *       you can make the request with an ARN.</p>
-   *          </note>
    */
   SiteId: string | undefined;
 
   /**
-   * <p> The type of the address you request. </p>
+   * <p>The type of the address you request. </p>
    */
   AddressType: AddressType | string | undefined;
 }
 
 export interface GetSiteAddressOutput {
   /**
-   * <p>
-   *       The ID of the site.
-   *     </p>
+   * <p>The ID of the site.</p>
    */
   SiteId?: string;
 
   /**
-   * <p> The type of the address you receive. </p>
+   * <p>The type of the address you receive. </p>
    */
   AddressType?: AddressType | string;
 
@@ -1315,12 +1291,7 @@ export interface ListAssetsInput {
   OutpostIdentifier: string | undefined;
 
   /**
-   * <p>
-   *       A filter for the host ID of Dedicated Hosts on the Outpost.
-   *     </p>
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * <p>Filters the results by the host ID of a Dedicated Host.</p>
    */
   HostIdFilter?: string[];
 
@@ -1333,13 +1304,16 @@ export interface ListAssetsInput {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Filters the results by state.</p>
+   */
+  StatusFilter?: (AssetState | string)[];
 }
 
 export interface ListAssetsOutput {
   /**
-   * <p>
-   *       Information about hardware assets.
-   *     </p>
+   * <p>Information about the hardware assets.</p>
    */
   Assets?: AssetInfo[];
 
@@ -1361,32 +1335,17 @@ export interface ListCatalogItemsInput {
   MaxResults?: number;
 
   /**
-   * <p>
-   *       A filter for the class of items in the catalog.
-   *     </p>
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * <p>Filters the results by item class.</p>
    */
   ItemClassFilter?: (CatalogItemClass | string)[];
 
   /**
-   * <p>
-   *       A filter for the storage options of items in the catalog.
-   *     </p>
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * <p>Filters the results by storage option.</p>
    */
   SupportedStorageFilter?: (SupportedStorageEnum | string)[];
 
   /**
-   * <p>
-   *       A filter for EC2 family options for items in the catalog.
-   *     </p>
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * <p>Filters the results by EC2 family (for example, M5).</p>
    */
   EC2FamilyFilter?: string[];
 }
@@ -1496,14 +1455,14 @@ export interface OrderSummary {
 
   /**
    * <p>
-   *       Submission date for the order.
+   *       The submission date for the order.
    *     </p>
    */
   OrderSubmissionDate?: Date;
 
   /**
    * <p>
-   *       Fulfilment date for the order.
+   *       The fulfilment date for the order.
    *     </p>
    */
   OrderFulfilledDate?: Date;
@@ -1535,32 +1494,17 @@ export interface ListOutpostsInput {
   MaxResults?: number;
 
   /**
-   * <p>
-   *       A filter for the lifecycle status of the Outpost.
-   *     </p>
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * <p>Filters the results by the lifecycle status.</p>
    */
   LifeCycleStatusFilter?: string[];
 
   /**
-   * <p> A filter for the Availability Zone (<code>us-east-1a</code>) of the Outpost. </p>
-   *
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * <p>Filters the results by Availability Zone (for example, <code>us-east-1a</code>).</p>
    */
   AvailabilityZoneFilter?: string[];
 
   /**
-   * <p>
-   *       A filter for the AZ IDs (<code>use1-az1</code>) of the Outpost.
-   *     </p>
-   *
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * <p>Filters the results by AZ ID (for example, <code>use1-az1</code>).</p>
    */
   AvailabilityZoneIdFilter?: string[];
 }
@@ -1589,28 +1533,17 @@ export interface ListSitesInput {
   MaxResults?: number;
 
   /**
-   * <p> A filter for the country code of the Outpost site. </p>
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * <p>Filters the results by country code.</p>
    */
   OperatingAddressCountryCodeFilter?: string[];
 
   /**
-   * <p> A filter for the state/region of the Outpost site. </p>
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * <p>Filters the results by state or region.</p>
    */
   OperatingAddressStateOrRegionFilter?: string[];
 
   /**
-   * <p>
-   *       A filter for the city of the Outpost site.
-   *     </p>
-   *          <p>Filter values are case sensitive. If you specify multiple
-   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
-   *          all results that match any of the specified values.</p>
+   * <p>Filters the results by city.</p>
    */
   OperatingAddressCityFilter?: string[];
 }
@@ -1720,12 +1653,6 @@ export interface UpdateOutpostInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
-   *          <note>
-   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
-   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
-   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
-   *       you can make the request with an ARN.</p>
-   *          </note>
    */
   OutpostId: string | undefined;
 
@@ -1759,12 +1686,6 @@ export interface UpdateSiteInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
-   *          <note>
-   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
-   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
-   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
-   *       you can make the request with an ARN.</p>
-   *          </note>
    */
   SiteId: string | undefined;
 
@@ -1779,9 +1700,7 @@ export interface UpdateSiteInput {
   Description?: string;
 
   /**
-   * <p>
-   *       Notes about a site.
-   *     </p>
+   * <p>Notes about a site.</p>
    */
   Notes?: string;
 }
@@ -1798,12 +1717,6 @@ export interface UpdateSiteAddressInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
-   *          <note>
-   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
-   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
-   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
-   *       you can make the request with an ARN.</p>
-   *          </note>
    */
   SiteId: string | undefined;
 
@@ -1843,23 +1756,17 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
-   *          <note>
-   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
-   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
-   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
-   *       you can make the request with an ARN.</p>
-   *          </note>
    */
   SiteId: string | undefined;
 
   /**
-   * <p>Specify in kVA the power draw available at the hardware placement position for the
+   * <p>The power draw, in kVA, available at the hardware placement position for the
    *       rack.</p>
    */
   PowerDrawKva?: PowerDrawKva | string;
 
   /**
-   * <p> Specify the power option that you can provide for hardware. </p>
+   * <p>The power option that you can provide for hardware. </p>
    *          <ul>
    *             <li>
    *                <p>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</p>
@@ -1872,7 +1779,7 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
   PowerPhase?: PowerPhase | string;
 
   /**
-   * <p> Specify the power connector that Amazon Web Services should plan to provide for connections to the
+   * <p>The power connector that Amazon Web Services should plan to provide for connections to the
    *       hardware. Note the correlation between <code>PowerPhase</code> and
    *       <code>PowerConnector</code>. </p>
    *          <ul>
@@ -1910,12 +1817,12 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
   PowerConnector?: PowerConnector | string;
 
   /**
-   * <p> Specify whether the power feed comes above or below the rack. </p>
+   * <p>Indicates whether the power feed comes above or below the rack. </p>
    */
   PowerFeedDrop?: PowerFeedDrop | string;
 
   /**
-   * <p> Specify the uplink speed the rack should support for the connection to the Region.
+   * <p>The uplink speed the rack should support for the connection to the Region.
    *     </p>
    */
   UplinkGbps?: UplinkGbps | string;
@@ -1940,13 +1847,13 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
   UplinkCount?: UplinkCount | string;
 
   /**
-   * <p> Specify the type of fiber that you will use to attach the Outpost to your network.
+   * <p>The type of fiber that you will use to attach the Outpost to your network.
    *     </p>
    */
   FiberOpticCableType?: FiberOpticCableType | string;
 
   /**
-   * <p>Specify the type of optical standard that you will use to attach the Outpost to your
+   * <p>The type of optical standard that you will use to attach the Outpost to your
    *       network. This field is dependent on uplink speed, fiber type, and distance to the upstream
    *       device. For more information
    *       about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a>
@@ -2010,7 +1917,7 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
   OpticalStandard?: OpticalStandard | string;
 
   /**
-   * <p> Specify the maximum rack weight that this site can support. <code>NO_LIMIT</code> is over
+   * <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over
    *       2000lbs. </p>
    */
   MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs | string;

@@ -33,7 +33,7 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  *       Amazon Web Services uses this action to install Outpost servers.</p>
  *          </note>
  *          <p>
- *       Gets information about a specified connection.
+ *       Gets information about the specified connection.
  *     </p>
  *          <p>
  *       Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For

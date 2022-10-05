@@ -28,7 +28,7 @@ export interface GetCatalogItemCommandInput extends GetCatalogItemInput {}
 export interface GetCatalogItemCommandOutput extends GetCatalogItemOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about a catalog item.</p>
+ * <p>Gets information about the specified catalog item.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

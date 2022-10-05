@@ -28,7 +28,7 @@ export interface DeleteSiteCommandInput extends DeleteSiteInput {}
 export interface DeleteSiteCommandOutput extends DeleteSiteOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the site.</p>
+ * <p>Deletes the specified site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -428,6 +428,10 @@ export const serializeAws_restJson1ListAssetsCommand = async (
     ],
     MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     NextToken: [, input.NextToken!],
+    StatusFilter: [
+      () => input.StatusFilter !== void 0,
+      () => (input.StatusFilter! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -2382,6 +2386,7 @@ const deserializeAws_restJson1CIDRList = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1ComputeAttributes = (output: any, context: __SerdeContext): ComputeAttributes => {
   return {
     HostId: __expectString(output.HostId),
+    State: __expectString(output.State),
   } as any;
 };
 

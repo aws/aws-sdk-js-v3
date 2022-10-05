@@ -28,8 +28,7 @@ export interface ListOrdersCommandInput extends ListOrdersInput {}
 export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the Outpost orders for your Amazon Web Services account. You can filter your request by Outpost to
- *       return a more specific list of results. </p>
+ * <p>Lists the Outpost orders for your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
