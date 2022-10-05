@@ -2,6 +2,7 @@ import { SdkError } from "@aws-sdk/types";
 
 import {
   CLOCK_SKEW_ERROR_CODES,
+  NODEJS_TIMEOUT_ERROR_CODES,
   THROTTLING_ERROR_CODES,
   TRANSIENT_ERROR_CODES,
   TRANSIENT_ERROR_STATUS_CODES,
@@ -16,6 +17,13 @@ export const isThrottlingError = (error: SdkError) =>
   THROTTLING_ERROR_CODES.includes(error.name) ||
   error.$retryable?.throttling == true;
 
+/**
+ * Though NODEJS_TIMEOUT_ERROR_CODES are platform specific, they are
+ * included here because there is an error scenario with unknown root
+ * cause where the NodeHttpHandler does not decorate the Error with
+ * the name "TimeoutError" to be checked by the TRANSIENT_ERROR_CODES condition.
+ */
 export const isTransientError = (error: SdkError) =>
   TRANSIENT_ERROR_CODES.includes(error.name) ||
+  NODEJS_TIMEOUT_ERROR_CODES.includes((error as { code?: string })?.code || "") ||
   TRANSIENT_ERROR_STATUS_CODES.includes(error.$metadata?.httpStatusCode || 0);
