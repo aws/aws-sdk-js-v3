@@ -45,6 +45,27 @@ import {
   WorkflowRun,
 } from "./models_0";
 
+export interface CreateWorkflowResponse {
+  /**
+   * <p>The name of the workflow which was provided as part of the request.</p>
+   */
+  Name?: string;
+}
+
+export interface DeleteBlueprintRequest {
+  /**
+   * <p>The name of the blueprint to delete.</p>
+   */
+  Name: string | undefined;
+}
+
+export interface DeleteBlueprintResponse {
+  /**
+   * <p>Returns the name of the blueprint that was deleted.</p>
+   */
+  Name?: string;
+}
+
 export interface DeleteClassifierRequest {
   /**
    * <p>Name of the classifier to remove.</p>
@@ -5678,72 +5699,26 @@ export interface PutWorkflowRunPropertiesRequest {
 
 export interface PutWorkflowRunPropertiesResponse {}
 
-export interface QuerySchemaVersionMetadataInput {
-  /**
-   * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
-   */
-  SchemaId?: SchemaId;
-
-  /**
-   * <p>The version number of the schema.</p>
-   */
-  SchemaVersionNumber?: SchemaVersionNumber;
-
-  /**
-   * <p>The unique version ID of the schema version.</p>
-   */
-  SchemaVersionId?: string;
-
-  /**
-   * <p>Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.</p>
-   */
-  MetadataList?: MetadataKeyValuePair[];
-
-  /**
-   * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const CreateWorkflowResponseFilterSensitiveLog = (obj: CreateWorkflowResponse): any => ({
+  ...obj,
+});
 
 /**
- * <p>A structure containing other metadata for a schema version belonging to the same metadata key.</p>
+ * @internal
  */
-export interface OtherMetadataValueListItem {
-  /**
-   * <p>The metadata key’s corresponding value for the other metadata belonging to the same metadata key.</p>
-   */
-  MetadataValue?: string;
-
-  /**
-   * <p>The time at which the entry was created.</p>
-   */
-  CreatedTime?: string;
-}
+export const DeleteBlueprintRequestFilterSensitiveLog = (obj: DeleteBlueprintRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>A structure containing metadata information for a schema version.</p>
+ * @internal
  */
-export interface MetadataInfo {
-  /**
-   * <p>The metadata key’s corresponding value.</p>
-   */
-  MetadataValue?: string;
-
-  /**
-   * <p>The time at which the entry was created.</p>
-   */
-  CreatedTime?: string;
-
-  /**
-   * <p>Other metadata belonging to the same metadata key.</p>
-   */
-  OtherMetadataValueList?: OtherMetadataValueListItem[];
-}
+export const DeleteBlueprintResponseFilterSensitiveLog = (obj: DeleteBlueprintResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7680,26 +7655,5 @@ export const PutWorkflowRunPropertiesRequestFilterSensitiveLog = (obj: PutWorkfl
  * @internal
  */
 export const PutWorkflowRunPropertiesResponseFilterSensitiveLog = (obj: PutWorkflowRunPropertiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QuerySchemaVersionMetadataInputFilterSensitiveLog = (obj: QuerySchemaVersionMetadataInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OtherMetadataValueListItemFilterSensitiveLog = (obj: OtherMetadataValueListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetadataInfoFilterSensitiveLog = (obj: MetadataInfo): any => ({
   ...obj,
 });

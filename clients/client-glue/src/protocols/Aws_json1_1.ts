@@ -358,10 +358,18 @@ import {
 import { UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput } from "../commands/UpdateDatabaseCommand";
 import { UpdateDevEndpointCommandInput, UpdateDevEndpointCommandOutput } from "../commands/UpdateDevEndpointCommand";
 import { UpdateJobCommandInput, UpdateJobCommandOutput } from "../commands/UpdateJobCommand";
+import {
+  UpdateJobFromSourceControlCommandInput,
+  UpdateJobFromSourceControlCommandOutput,
+} from "../commands/UpdateJobFromSourceControlCommand";
 import { UpdateMLTransformCommandInput, UpdateMLTransformCommandOutput } from "../commands/UpdateMLTransformCommand";
 import { UpdatePartitionCommandInput, UpdatePartitionCommandOutput } from "../commands/UpdatePartitionCommand";
 import { UpdateRegistryCommandInput, UpdateRegistryCommandOutput } from "../commands/UpdateRegistryCommand";
 import { UpdateSchemaCommandInput, UpdateSchemaCommandOutput } from "../commands/UpdateSchemaCommand";
+import {
+  UpdateSourceControlFromJobCommandInput,
+  UpdateSourceControlFromJobCommandOutput,
+} from "../commands/UpdateSourceControlFromJobCommand";
 import { UpdateTableCommandInput, UpdateTableCommandOutput } from "../commands/UpdateTableCommand";
 import { UpdateTriggerCommandInput, UpdateTriggerCommandOutput } from "../commands/UpdateTriggerCommand";
 import {
@@ -480,7 +488,6 @@ import {
   CreateUserDefinedFunctionRequest,
   CreateUserDefinedFunctionResponse,
   CreateWorkflowRequest,
-  CreateWorkflowResponse,
   CreateXMLClassifierRequest,
   CustomCode,
   CustomEntityType,
@@ -488,8 +495,6 @@ import {
   DatabaseInput,
   DataLakePrincipal,
   Datatype,
-  DeleteBlueprintRequest,
-  DeleteBlueprintResponse,
   DeltaTarget,
   DevEndpoint,
   DirectKafkaSource,
@@ -598,6 +603,7 @@ import {
   Session,
   SessionCommand,
   SkewedInfo,
+  SourceControlDetails,
   SparkConnectorSource,
   SparkConnectorTarget,
   SparkSQL,
@@ -646,12 +652,15 @@ import {
   CrawlerMetrics,
   CrawlerRunningException,
   CrawlsFilter,
+  CreateWorkflowResponse,
   CsvClassifier,
   Database,
   DataCatalogEncryptionSettings,
   DateColumnStatisticsData,
   DecimalColumnStatisticsData,
   DecimalNumber,
+  DeleteBlueprintRequest,
+  DeleteBlueprintResponse,
   DeleteClassifierRequest,
   DeleteClassifierResponse,
   DeleteColumnStatisticsForPartitionRequest,
@@ -866,10 +875,8 @@ import {
   Location,
   LongColumnStatisticsData,
   MappingEntry,
-  MetadataInfo,
   MetadataKeyValuePair,
   MLTransform,
-  OtherMetadataValueListItem,
   PartitionIndexDescriptor,
   PermissionType,
   PermissionTypeMismatchException,
@@ -881,7 +888,6 @@ import {
   PutSchemaVersionMetadataResponse,
   PutWorkflowRunPropertiesRequest,
   PutWorkflowRunPropertiesResponse,
-  QuerySchemaVersionMetadataInput,
   RegistryListItem,
   SchedulerTransitioningException,
   SchemaColumn,
@@ -924,9 +930,12 @@ import {
   Job,
   JobUpdate,
   Mapping,
+  MetadataInfo,
   MLTransformNotReadyException,
   NoScheduleException,
+  OtherMetadataValueListItem,
   PropertyPredicate,
+  QuerySchemaVersionMetadataInput,
   QuerySchemaVersionMetadataResponse,
   RegisterSchemaVersionInput,
   RegisterSchemaVersionResponse,
@@ -998,6 +1007,8 @@ import {
   UpdateDevEndpointRequest,
   UpdateDevEndpointResponse,
   UpdateGrokClassifierRequest,
+  UpdateJobFromSourceControlRequest,
+  UpdateJobFromSourceControlResponse,
   UpdateJobRequest,
   UpdateJobResponse,
   UpdateJsonClassifierRequest,
@@ -1009,6 +1020,8 @@ import {
   UpdateRegistryResponse,
   UpdateSchemaInput,
   UpdateSchemaResponse,
+  UpdateSourceControlFromJobRequest,
+  UpdateSourceControlFromJobResponse,
   UpdateTableRequest,
   UpdateTableResponse,
   UpdateTriggerRequest,
@@ -3309,6 +3322,19 @@ export const serializeAws_json1_1UpdateJobCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateJobFromSourceControlCommand = async (
+  input: UpdateJobFromSourceControlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.UpdateJobFromSourceControl",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateJobFromSourceControlRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateMLTransformCommand = async (
   input: UpdateMLTransformCommandInput,
   context: __SerdeContext
@@ -3358,6 +3384,19 @@ export const serializeAws_json1_1UpdateSchemaCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateSchemaInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateSourceControlFromJobCommand = async (
+  input: UpdateSourceControlFromJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.UpdateSourceControlFromJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateSourceControlFromJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -12465,6 +12504,65 @@ const deserializeAws_json1_1UpdateJobCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateJobFromSourceControlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateJobFromSourceControlCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateJobFromSourceControlCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateJobFromSourceControlResponse(data, context);
+  const response: UpdateJobFromSourceControlCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateJobFromSourceControlCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateJobFromSourceControlCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "AlreadyExistsException":
+    case "com.amazonaws.glue#AlreadyExistsException":
+      throw await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.glue#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1UpdateMLTransformCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12666,6 +12764,65 @@ const deserializeAws_json1_1UpdateSchemaCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1UpdateSourceControlFromJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSourceControlFromJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateSourceControlFromJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateSourceControlFromJobResponse(data, context);
+  const response: UpdateSourceControlFromJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateSourceControlFromJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSourceControlFromJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "AlreadyExistsException":
+    case "com.amazonaws.glue#AlreadyExistsException":
+      throw await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.glue#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -14354,6 +14511,9 @@ const serializeAws_json1_1CreateJobRequest = (input: CreateJobRequest, context: 
     ...(input.NumberOfWorkers != null && { NumberOfWorkers: input.NumberOfWorkers }),
     ...(input.Role != null && { Role: input.Role }),
     ...(input.SecurityConfiguration != null && { SecurityConfiguration: input.SecurityConfiguration }),
+    ...(input.SourceControlDetails != null && {
+      SourceControlDetails: serializeAws_json1_1SourceControlDetails(input.SourceControlDetails, context),
+    }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagsMap(input.Tags, context) }),
     ...(input.Timeout != null && { Timeout: input.Timeout }),
     ...(input.WorkerType != null && { WorkerType: input.WorkerType }),
@@ -15974,6 +16134,9 @@ const serializeAws_json1_1JobUpdate = (input: JobUpdate, context: __SerdeContext
     ...(input.NumberOfWorkers != null && { NumberOfWorkers: input.NumberOfWorkers }),
     ...(input.Role != null && { Role: input.Role }),
     ...(input.SecurityConfiguration != null && { SecurityConfiguration: input.SecurityConfiguration }),
+    ...(input.SourceControlDetails != null && {
+      SourceControlDetails: serializeAws_json1_1SourceControlDetails(input.SourceControlDetails, context),
+    }),
     ...(input.Timeout != null && { Timeout: input.Timeout }),
     ...(input.WorkerType != null && { WorkerType: input.WorkerType }),
   };
@@ -17193,6 +17356,19 @@ const serializeAws_json1_1SortCriterion = (input: SortCriterion, context: __Serd
   };
 };
 
+const serializeAws_json1_1SourceControlDetails = (input: SourceControlDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.AuthStrategy != null && { AuthStrategy: input.AuthStrategy }),
+    ...(input.AuthToken != null && { AuthToken: input.AuthToken }),
+    ...(input.Branch != null && { Branch: input.Branch }),
+    ...(input.Folder != null && { Folder: input.Folder }),
+    ...(input.LastCommitId != null && { LastCommitId: input.LastCommitId }),
+    ...(input.Owner != null && { Owner: input.Owner }),
+    ...(input.Provider != null && { Provider: input.Provider }),
+    ...(input.Repository != null && { Repository: input.Repository }),
+  };
+};
+
 const serializeAws_json1_1SparkConnectorSource = (input: SparkConnectorSource, context: __SerdeContext): any => {
   return {
     ...(input.AdditionalOptions != null && {
@@ -17803,6 +17979,23 @@ const serializeAws_json1_1UpdateGrokClassifierRequest = (
   };
 };
 
+const serializeAws_json1_1UpdateJobFromSourceControlRequest = (
+  input: UpdateJobFromSourceControlRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AuthStrategy != null && { AuthStrategy: input.AuthStrategy }),
+    ...(input.AuthToken != null && { AuthToken: input.AuthToken }),
+    ...(input.BranchName != null && { BranchName: input.BranchName }),
+    ...(input.CommitId != null && { CommitId: input.CommitId }),
+    ...(input.Folder != null && { Folder: input.Folder }),
+    ...(input.JobName != null && { JobName: input.JobName }),
+    ...(input.Provider != null && { Provider: input.Provider }),
+    ...(input.RepositoryName != null && { RepositoryName: input.RepositoryName }),
+    ...(input.RepositoryOwner != null && { RepositoryOwner: input.RepositoryOwner }),
+  };
+};
+
 const serializeAws_json1_1UpdateJobRequest = (input: UpdateJobRequest, context: __SerdeContext): any => {
   return {
     ...(input.JobName != null && { JobName: input.JobName }),
@@ -17868,6 +18061,23 @@ const serializeAws_json1_1UpdateSchemaInput = (input: UpdateSchemaInput, context
     ...(input.SchemaVersionNumber != null && {
       SchemaVersionNumber: serializeAws_json1_1SchemaVersionNumber(input.SchemaVersionNumber, context),
     }),
+  };
+};
+
+const serializeAws_json1_1UpdateSourceControlFromJobRequest = (
+  input: UpdateSourceControlFromJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AuthStrategy != null && { AuthStrategy: input.AuthStrategy }),
+    ...(input.AuthToken != null && { AuthToken: input.AuthToken }),
+    ...(input.BranchName != null && { BranchName: input.BranchName }),
+    ...(input.CommitId != null && { CommitId: input.CommitId }),
+    ...(input.Folder != null && { Folder: input.Folder }),
+    ...(input.JobName != null && { JobName: input.JobName }),
+    ...(input.Provider != null && { Provider: input.Provider }),
+    ...(input.RepositoryName != null && { RepositoryName: input.RepositoryName }),
+    ...(input.RepositoryOwner != null && { RepositoryOwner: input.RepositoryOwner }),
   };
 };
 
@@ -21409,6 +21619,10 @@ const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job =>
     NumberOfWorkers: __expectInt32(output.NumberOfWorkers),
     Role: __expectString(output.Role),
     SecurityConfiguration: __expectString(output.SecurityConfiguration),
+    SourceControlDetails:
+      output.SourceControlDetails != null
+        ? deserializeAws_json1_1SourceControlDetails(output.SourceControlDetails, context)
+        : undefined,
     Timeout: __expectInt32(output.Timeout),
     WorkerType: __expectString(output.WorkerType),
   } as any;
@@ -23265,6 +23479,19 @@ const deserializeAws_json1_1SkewedInfo = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1SourceControlDetails = (output: any, context: __SerdeContext): SourceControlDetails => {
+  return {
+    AuthStrategy: __expectString(output.AuthStrategy),
+    AuthToken: __expectString(output.AuthToken),
+    Branch: __expectString(output.Branch),
+    Folder: __expectString(output.Folder),
+    LastCommitId: __expectString(output.LastCommitId),
+    Owner: __expectString(output.Owner),
+    Provider: __expectString(output.Provider),
+    Repository: __expectString(output.Repository),
+  } as any;
+};
+
 const deserializeAws_json1_1SparkConnectorSource = (output: any, context: __SerdeContext): SparkConnectorSource => {
   return {
     AdditionalOptions:
@@ -23959,6 +24186,15 @@ const deserializeAws_json1_1UpdateDevEndpointResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1UpdateJobFromSourceControlResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateJobFromSourceControlResponse => {
+  return {
+    JobName: __expectString(output.JobName),
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateJobResponse = (output: any, context: __SerdeContext): UpdateJobResponse => {
   return {
     JobName: __expectString(output.JobName),
@@ -23993,6 +24229,15 @@ const deserializeAws_json1_1UpdateSchemaResponse = (output: any, context: __Serd
     RegistryName: __expectString(output.RegistryName),
     SchemaArn: __expectString(output.SchemaArn),
     SchemaName: __expectString(output.SchemaName),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateSourceControlFromJobResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateSourceControlFromJobResponse => {
+  return {
+    JobName: __expectString(output.JobName),
   } as any;
 };
 

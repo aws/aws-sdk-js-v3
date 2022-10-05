@@ -391,10 +391,18 @@ import {
 import { UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput } from "./commands/UpdateDatabaseCommand";
 import { UpdateDevEndpointCommandInput, UpdateDevEndpointCommandOutput } from "./commands/UpdateDevEndpointCommand";
 import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
+import {
+  UpdateJobFromSourceControlCommandInput,
+  UpdateJobFromSourceControlCommandOutput,
+} from "./commands/UpdateJobFromSourceControlCommand";
 import { UpdateMLTransformCommandInput, UpdateMLTransformCommandOutput } from "./commands/UpdateMLTransformCommand";
 import { UpdatePartitionCommandInput, UpdatePartitionCommandOutput } from "./commands/UpdatePartitionCommand";
 import { UpdateRegistryCommandInput, UpdateRegistryCommandOutput } from "./commands/UpdateRegistryCommand";
 import { UpdateSchemaCommandInput, UpdateSchemaCommandOutput } from "./commands/UpdateSchemaCommand";
+import {
+  UpdateSourceControlFromJobCommandInput,
+  UpdateSourceControlFromJobCommandOutput,
+} from "./commands/UpdateSourceControlFromJobCommand";
 import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import { UpdateTriggerCommandInput, UpdateTriggerCommandOutput } from "./commands/UpdateTriggerCommand";
 import {
@@ -581,10 +589,12 @@ export type ServiceInputTypes =
   | UpdateDatabaseCommandInput
   | UpdateDevEndpointCommandInput
   | UpdateJobCommandInput
+  | UpdateJobFromSourceControlCommandInput
   | UpdateMLTransformCommandInput
   | UpdatePartitionCommandInput
   | UpdateRegistryCommandInput
   | UpdateSchemaCommandInput
+  | UpdateSourceControlFromJobCommandInput
   | UpdateTableCommandInput
   | UpdateTriggerCommandInput
   | UpdateUserDefinedFunctionCommandInput
@@ -767,10 +777,12 @@ export type ServiceOutputTypes =
   | UpdateDatabaseCommandOutput
   | UpdateDevEndpointCommandOutput
   | UpdateJobCommandOutput
+  | UpdateJobFromSourceControlCommandOutput
   | UpdateMLTransformCommandOutput
   | UpdatePartitionCommandOutput
   | UpdateRegistryCommandOutput
   | UpdateSchemaCommandOutput
+  | UpdateSourceControlFromJobCommandOutput
   | UpdateTableCommandOutput
   | UpdateTriggerCommandOutput
   | UpdateUserDefinedFunctionCommandOutput

@@ -68,6 +68,9 @@ import {
   SchemaVersionStatus,
   SelectFields,
   SelectFromCollection,
+  SourceControlAuthStrategy,
+  SourceControlDetails,
+  SourceControlProvider,
   SparkConnectorSource,
   SparkConnectorTarget,
   SparkSQL,
@@ -83,12 +86,78 @@ import {
 import {
   ColumnStatistics,
   JobBookmarkEntry,
-  MetadataInfo,
   MetadataKeyValuePair,
   ResourceShareType,
   SchemaVersionNumber,
   Table,
 } from "./models_1";
+
+export interface QuerySchemaVersionMetadataInput {
+  /**
+   * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
+   */
+  SchemaId?: SchemaId;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  SchemaVersionNumber?: SchemaVersionNumber;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.</p>
+   */
+  MetadataList?: MetadataKeyValuePair[];
+
+  /**
+   * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>A structure containing other metadata for a schema version belonging to the same metadata key.</p>
+ */
+export interface OtherMetadataValueListItem {
+  /**
+   * <p>The metadata key’s corresponding value for the other metadata belonging to the same metadata key.</p>
+   */
+  MetadataValue?: string;
+
+  /**
+   * <p>The time at which the entry was created.</p>
+   */
+  CreatedTime?: string;
+}
+
+/**
+ * <p>A structure containing metadata information for a schema version.</p>
+ */
+export interface MetadataInfo {
+  /**
+   * <p>The metadata key’s corresponding value.</p>
+   */
+  MetadataValue?: string;
+
+  /**
+   * <p>The time at which the entry was created.</p>
+   */
+  CreatedTime?: string;
+
+  /**
+   * <p>Other metadata belonging to the same metadata key.</p>
+   */
+  OtherMetadataValueList?: OtherMetadataValueListItem[];
+}
 
 export interface QuerySchemaVersionMetadataResponse {
   /**
@@ -1468,6 +1537,60 @@ export interface UpdateJobResponse {
   JobName?: string;
 }
 
+export interface UpdateJobFromSourceControlRequest {
+  /**
+   * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>The provider for the remote repository.</p>
+   */
+  Provider?: SourceControlProvider | string;
+
+  /**
+   * <p>The name of the remote repository that contains the job artifacts.</p>
+   */
+  RepositoryName?: string;
+
+  /**
+   * <p>The owner of the remote repository that contains the job artifacts.</p>
+   */
+  RepositoryOwner?: string;
+
+  /**
+   * <p>An optional branch in the remote repository.</p>
+   */
+  BranchName?: string;
+
+  /**
+   * <p>An optional folder in the remote repository.</p>
+   */
+  Folder?: string;
+
+  /**
+   * <p>A commit ID for a commit in the remote repository.</p>
+   */
+  CommitId?: string;
+
+  /**
+   * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
+   */
+  AuthStrategy?: SourceControlAuthStrategy | string;
+
+  /**
+   * <p>The value of the authorization token.</p>
+   */
+  AuthToken?: string;
+}
+
+export interface UpdateJobFromSourceControlResponse {
+  /**
+   * <p>The name of the Glue job.</p>
+   */
+  JobName?: string;
+}
+
 export interface UpdateMLTransformRequest {
   /**
    * <p>A unique identifier that was generated when the transform was created.</p>
@@ -1652,6 +1775,60 @@ export interface UpdateSchemaResponse {
    * <p>The name of the registry that contains the schema.</p>
    */
   RegistryName?: string;
+}
+
+export interface UpdateSourceControlFromJobRequest {
+  /**
+   * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>The provider for the remote repository.</p>
+   */
+  Provider?: SourceControlProvider | string;
+
+  /**
+   * <p>The name of the remote repository that contains the job artifacts.</p>
+   */
+  RepositoryName?: string;
+
+  /**
+   * <p>The owner of the remote repository that contains the job artifacts.</p>
+   */
+  RepositoryOwner?: string;
+
+  /**
+   * <p>An optional branch in the remote repository.</p>
+   */
+  BranchName?: string;
+
+  /**
+   * <p>An optional folder in the remote repository.</p>
+   */
+  Folder?: string;
+
+  /**
+   * <p>A commit ID for a commit in the remote repository.</p>
+   */
+  CommitId?: string;
+
+  /**
+   * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
+   */
+  AuthStrategy?: SourceControlAuthStrategy | string;
+
+  /**
+   * <p>The value of the authorization token.</p>
+   */
+  AuthToken?: string;
+}
+
+export interface UpdateSourceControlFromJobResponse {
+  /**
+   * <p>The name of the Glue job.</p>
+   */
+  JobName?: string;
 }
 
 export interface UpdateTableRequest {
@@ -2322,6 +2499,11 @@ export interface CreateJobRequest {
    * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
   ExecutionClass?: ExecutionClass | string;
+
+  /**
+   * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
+   */
+  SourceControlDetails?: SourceControlDetails;
 }
 
 /**
@@ -2497,6 +2679,11 @@ export interface Job {
    * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
   ExecutionClass?: ExecutionClass | string;
+
+  /**
+   * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
+   */
+  SourceControlDetails?: SourceControlDetails;
 }
 
 /**
@@ -2654,6 +2841,11 @@ export interface JobUpdate {
    * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
   ExecutionClass?: ExecutionClass | string;
+
+  /**
+   * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
+   */
+  SourceControlDetails?: SourceControlDetails;
 }
 
 export interface GetJobResponse {
@@ -2698,6 +2890,27 @@ export interface GetJobsResponse {
    */
   NextToken?: string;
 }
+
+/**
+ * @internal
+ */
+export const QuerySchemaVersionMetadataInputFilterSensitiveLog = (obj: QuerySchemaVersionMetadataInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OtherMetadataValueListItemFilterSensitiveLog = (obj: OtherMetadataValueListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetadataInfoFilterSensitiveLog = (obj: MetadataInfo): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -3234,6 +3447,20 @@ export const UpdateJobResponseFilterSensitiveLog = (obj: UpdateJobResponse): any
 /**
  * @internal
  */
+export const UpdateJobFromSourceControlRequestFilterSensitiveLog = (obj: UpdateJobFromSourceControlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobFromSourceControlResponseFilterSensitiveLog = (obj: UpdateJobFromSourceControlResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const UpdateMLTransformRequestFilterSensitiveLog = (obj: UpdateMLTransformRequest): any => ({
   ...obj,
 });
@@ -3284,6 +3511,20 @@ export const UpdateSchemaInputFilterSensitiveLog = (obj: UpdateSchemaInput): any
  * @internal
  */
 export const UpdateSchemaResponseFilterSensitiveLog = (obj: UpdateSchemaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSourceControlFromJobRequestFilterSensitiveLog = (obj: UpdateSourceControlFromJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSourceControlFromJobResponseFilterSensitiveLog = (obj: UpdateSourceControlFromJobResponse): any => ({
   ...obj,
 });
 

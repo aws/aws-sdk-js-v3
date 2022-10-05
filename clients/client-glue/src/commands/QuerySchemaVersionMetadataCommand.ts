@@ -13,8 +13,9 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { QuerySchemaVersionMetadataInput, QuerySchemaVersionMetadataInputFilterSensitiveLog } from "../models/models_1";
 import {
+  QuerySchemaVersionMetadataInput,
+  QuerySchemaVersionMetadataInputFilterSensitiveLog,
   QuerySchemaVersionMetadataResponse,
   QuerySchemaVersionMetadataResponseFilterSensitiveLog,
 } from "../models/models_2";

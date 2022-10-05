@@ -758,6 +758,11 @@ import {
 } from "./commands/UpdateDevEndpointCommand";
 import { UpdateJobCommand, UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import {
+  UpdateJobFromSourceControlCommand,
+  UpdateJobFromSourceControlCommandInput,
+  UpdateJobFromSourceControlCommandOutput,
+} from "./commands/UpdateJobFromSourceControlCommand";
+import {
   UpdateMLTransformCommand,
   UpdateMLTransformCommandInput,
   UpdateMLTransformCommandOutput,
@@ -777,6 +782,11 @@ import {
   UpdateSchemaCommandInput,
   UpdateSchemaCommandOutput,
 } from "./commands/UpdateSchemaCommand";
+import {
+  UpdateSourceControlFromJobCommand,
+  UpdateSourceControlFromJobCommandInput,
+  UpdateSourceControlFromJobCommandOutput,
+} from "./commands/UpdateSourceControlFromJobCommand";
 import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import {
   UpdateTriggerCommand,
@@ -6420,6 +6430,40 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Synchronizes a job from the source control repository. This operation takes the job artifacts that are located in the remote repository and updates the Glue internal stores with these artifacts.</p>
+   *
+   * 	        <p>This API supports optional parameters which take in the repository information.</p>
+   */
+  public updateJobFromSourceControl(
+    args: UpdateJobFromSourceControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateJobFromSourceControlCommandOutput>;
+  public updateJobFromSourceControl(
+    args: UpdateJobFromSourceControlCommandInput,
+    cb: (err: any, data?: UpdateJobFromSourceControlCommandOutput) => void
+  ): void;
+  public updateJobFromSourceControl(
+    args: UpdateJobFromSourceControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateJobFromSourceControlCommandOutput) => void
+  ): void;
+  public updateJobFromSourceControl(
+    args: UpdateJobFromSourceControlCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJobFromSourceControlCommandOutput) => void),
+    cb?: (err: any, data?: UpdateJobFromSourceControlCommandOutput) => void
+  ): Promise<UpdateJobFromSourceControlCommandOutput> | void {
+    const command = new UpdateJobFromSourceControlCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p>
    *
    *          <p>After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code>
@@ -6541,6 +6585,40 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: UpdateSchemaCommandOutput) => void
   ): Promise<UpdateSchemaCommandOutput> | void {
     const command = new UpdateSchemaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Synchronizes a job to the source control repository. This operation takes the job artifacts from the Glue internal stores and makes a commit to the remote repository that is configured on the job.</p>
+   *
+   * 	        <p>This API supports optional parameters which take in the repository information.</p>
+   */
+  public updateSourceControlFromJob(
+    args: UpdateSourceControlFromJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSourceControlFromJobCommandOutput>;
+  public updateSourceControlFromJob(
+    args: UpdateSourceControlFromJobCommandInput,
+    cb: (err: any, data?: UpdateSourceControlFromJobCommandOutput) => void
+  ): void;
+  public updateSourceControlFromJob(
+    args: UpdateSourceControlFromJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSourceControlFromJobCommandOutput) => void
+  ): void;
+  public updateSourceControlFromJob(
+    args: UpdateSourceControlFromJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSourceControlFromJobCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSourceControlFromJobCommandOutput) => void
+  ): Promise<UpdateSourceControlFromJobCommandOutput> | void {
+    const command = new UpdateSourceControlFromJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

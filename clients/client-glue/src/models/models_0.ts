@@ -3922,6 +3922,61 @@ export interface ExecutionProperty {
   MaxConcurrentRuns?: number;
 }
 
+export enum SourceControlAuthStrategy {
+  AWS_SECRETS_MANAGER = "AWS_SECRETS_MANAGER",
+  PERSONAL_ACCESS_TOKEN = "PERSONAL_ACCESS_TOKEN",
+}
+
+export enum SourceControlProvider {
+  AWS_CODE_COMMIT = "AWS_CODE_COMMIT",
+  GITHUB = "GITHUB",
+}
+
+/**
+ * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
+ */
+export interface SourceControlDetails {
+  /**
+   * <p>The provider for the remote repository.</p>
+   */
+  Provider?: SourceControlProvider | string;
+
+  /**
+   * <p>The name of the remote repository that contains the job artifacts.</p>
+   */
+  Repository?: string;
+
+  /**
+   * <p>The owner of the remote repository that contains the job artifacts.</p>
+   */
+  Owner?: string;
+
+  /**
+   * <p>An optional branch in the remote repository.</p>
+   */
+  Branch?: string;
+
+  /**
+   * <p>An optional folder in the remote repository.</p>
+   */
+  Folder?: string;
+
+  /**
+   * <p>The last commit ID for a commit in the remote repository.</p>
+   */
+  LastCommitId?: string;
+
+  /**
+   * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
+   */
+  AuthStrategy?: SourceControlAuthStrategy | string;
+
+  /**
+   * <p>The value of an authorization token.</p>
+   */
+  AuthToken?: string;
+}
+
 export interface BatchGetPartitionRequest {
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside.
@@ -7152,27 +7207,6 @@ export interface CreateWorkflowRequest {
   MaxConcurrentRuns?: number;
 }
 
-export interface CreateWorkflowResponse {
-  /**
-   * <p>The name of the workflow which was provided as part of the request.</p>
-   */
-  Name?: string;
-}
-
-export interface DeleteBlueprintRequest {
-  /**
-   * <p>The name of the blueprint to delete.</p>
-   */
-  Name: string | undefined;
-}
-
-export interface DeleteBlueprintResponse {
-  /**
-   * <p>Returns the name of the blueprint that was deleted.</p>
-   */
-  Name?: string;
-}
-
 /**
  * @internal
  */
@@ -8044,6 +8078,13 @@ export const ExecutionPropertyFilterSensitiveLog = (obj: ExecutionProperty): any
 /**
  * @internal
  */
+export const SourceControlDetailsFilterSensitiveLog = (obj: SourceControlDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const BatchGetPartitionRequestFilterSensitiveLog = (obj: BatchGetPartitionRequest): any => ({
   ...obj,
 });
@@ -8791,26 +8832,5 @@ export const CreateUserDefinedFunctionResponseFilterSensitiveLog = (obj: CreateU
  * @internal
  */
 export const CreateWorkflowRequestFilterSensitiveLog = (obj: CreateWorkflowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkflowResponseFilterSensitiveLog = (obj: CreateWorkflowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBlueprintRequestFilterSensitiveLog = (obj: DeleteBlueprintRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBlueprintResponseFilterSensitiveLog = (obj: DeleteBlueprintResponse): any => ({
   ...obj,
 });

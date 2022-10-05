@@ -18,7 +18,7 @@ import {
   DeleteBlueprintRequestFilterSensitiveLog,
   DeleteBlueprintResponse,
   DeleteBlueprintResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteBlueprintCommand,
   serializeAws_json1_1DeleteBlueprintCommand,
