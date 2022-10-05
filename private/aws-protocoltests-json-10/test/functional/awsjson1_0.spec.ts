@@ -277,50 +277,6 @@ it("AwsJson10EndpointTraitWithHostLabel:Request", async () => {
 });
 
 /**
- * @awsQueryCompatible trait is applied to service
- */
-it("Json10WithQueryCompatibleGreetingError:Error:GreetingWithErrors", async () => {
-  const client = new JSONRPC10Client({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      false,
-      402,
-      {
-        "x-amzn-query-error": "CustomGreetingErrorCode;Sender",
-        "content-type": "application/x-amz-json-1.0",
-      },
-      `{"__type": "InvalidGreetingError","Message": "Hi"}`
-    ),
-  });
-
-  const params: any = {};
-  const command = new GreetingWithErrorsCommand(params);
-
-  try {
-    await client.send(command);
-  } catch (err) {
-    if (err.name !== "InvalidGreeting") {
-      console.log(err);
-      fail(`Expected a InvalidGreeting to be thrown, got ${err.name} instead`);
-      return;
-    }
-    const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(402);
-    const paramsToValidate: any = [
-      {
-        message: "Hi",
-      },
-    ][0];
-    Object.keys(paramsToValidate).forEach((param) => {
-      expect(r[param]).toBeDefined();
-      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-    });
-    return;
-  }
-  fail("Expected an exception to be thrown from response");
-});
-
-/**
  * Parses simple JSON errors
  */
 it("AwsJson10InvalidGreetingError:Error:GreetingWithErrors", async () => {
