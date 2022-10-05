@@ -3033,6 +3033,7 @@ const serializeAws_json1_0StatefulActions = (input: string[], context: __SerdeCo
 const serializeAws_json1_0StatefulEngineOptions = (input: StatefulEngineOptions, context: __SerdeContext): any => {
   return {
     ...(input.RuleOrder != null && { RuleOrder: input.RuleOrder }),
+    ...(input.StreamExceptionPolicy != null && { StreamExceptionPolicy: input.StreamExceptionPolicy }),
   };
 };
 
@@ -4282,6 +4283,7 @@ const deserializeAws_json1_0StatefulActions = (output: any, context: __SerdeCont
 const deserializeAws_json1_0StatefulEngineOptions = (output: any, context: __SerdeContext): StatefulEngineOptions => {
   return {
     RuleOrder: __expectString(output.RuleOrder),
+    StreamExceptionPolicy: __expectString(output.StreamExceptionPolicy),
   } as any;
 };
 

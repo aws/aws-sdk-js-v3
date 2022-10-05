@@ -753,6 +753,11 @@ export enum RuleOrder {
   STRICT_ORDER = "STRICT_ORDER",
 }
 
+export enum StreamExceptionPolicy {
+  CONTINUE = "CONTINUE",
+  DROP = "DROP",
+}
+
 /**
  * <p>Configuration settings for the handling of the stateful rule groups in a firewall policy. </p>
  */
@@ -765,6 +770,21 @@ export interface StatefulEngineOptions {
    *       </p>
    */
   RuleOrder?: RuleOrder | string;
+
+  /**
+   * <p>Configures how Network Firewall processes traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DROP</code> - Network Firewall fails closed and drops all subsequent traffic going to the firewall. This is the default behavior.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONTINUE</code> - Network Firewall continues to apply rules to the subsequent traffic without context from traffic before the break. This impacts the behavior of rules that depend on this context. For example, if you have a stateful rule to <code>drop http</code> traffic, Network Firewall won't match the traffic for this rule because the service won't have the context from session initialization defining the application layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule using a <code>flow:stateless</code> rule would still match, as would the <code>aws:drop_strict</code> default action.</p>
+   *             </li>
+   *          </ul>
+   */
+  StreamExceptionPolicy?: StreamExceptionPolicy | string;
 }
 
 export enum OverrideAction {
@@ -1259,7 +1279,7 @@ export interface RuleOption {
  * <p>A single Suricata rules specification, for use in a stateful rule group.
  *        Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options.
  *        For information about the Suricata <code>Rules</code> format, see
- *                                         <a href="https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html#">Rules Format</a>. </p>
+ *                                         <a href="https://suricata.readthedocs.io/rules/intro.html#">Rules Format</a>. </p>
  */
 export interface StatefulRule {
   /**
@@ -1528,7 +1548,7 @@ export interface RulesSource {
    * <p>An array of individual stateful rules inspection criteria to be used together in a stateful rule group.
    *        Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options.
    *        For information about the Suricata <code>Rules</code> format, see
-   *                                         <a href="https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html#">Rules Format</a>. </p>
+   *                                         <a href="https://suricata.readthedocs.io/rules/intro.html#">Rules Format</a>. </p>
    */
   StatefulRules?: StatefulRule[];
 
