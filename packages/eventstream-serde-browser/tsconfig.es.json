@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["DOM"],
+    "lib": ["es2018.asynciterable", "DOM"],
     "outDir": "dist-es",
     "rootDir": "src"
   },
