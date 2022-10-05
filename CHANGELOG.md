@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.185.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.184.0...v3.185.0) (2022-10-05)
+
+
+### Bug Fixes
+
+* **codegen:** add deser check for x-amz-request-id ([#4015](https://github.com/aws/aws-sdk-js-v3/issues/4015)) ([6ff07bd](https://github.com/aws/aws-sdk-js-v3/commit/6ff07bd7e72bd56725f318013ac1d6d0fbbcdd9a))
+* **node-http-handler:** check for error code in isTransientError ([#4018](https://github.com/aws/aws-sdk-js-v3/issues/4018)) ([ab0e7be](https://github.com/aws/aws-sdk-js-v3/commit/ab0e7be36e7e7f8a0c04834357aaad643c7912c3))
+* **s3-control:** default config.signingEscapePath to false ([#4013](https://github.com/aws/aws-sdk-js-v3/issues/4013)) ([0d599da](https://github.com/aws/aws-sdk-js-v3/commit/0d599da0d16cec5f5649c20c9795464ecc87ebd4))
+
+
+### Features
+
+* **client-glue:** This SDK release adds support to sync glue jobs with source control provider. Additionally, a new parameter called SourceControlDetails will be added to Job model. ([4b78fcd](https://github.com/aws/aws-sdk-js-v3/commit/4b78fcd5c5334a1df43edff4b115017bb8ee1dee))
+* **client-network-firewall:** StreamExceptionPolicy configures how AWS Network Firewall processes traffic when a network connection breaks midstream ([caa6cba](https://github.com/aws/aws-sdk-js-v3/commit/caa6cbace1e049926106c6aeddfcf631d3d5b2ef))
+* **client-outposts:** This release adds the Asset state information to the ListAssets response. The ListAssets request supports filtering on Asset state. ([435b5de](https://github.com/aws/aws-sdk-js-v3/commit/435b5de0628cf1d0cd2a743dc3f869a31dc68584))
+
+
+
+
+
 # [3.184.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.183.0...v3.184.0) (2022-10-04)
 
 

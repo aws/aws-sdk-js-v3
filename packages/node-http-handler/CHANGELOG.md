@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.185.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.184.0...v3.185.0) (2022-10-05)
+
+
+### Bug Fixes
+
+* **node-http-handler:** check for error code in isTransientError ([#4018](https://github.com/aws/aws-sdk-js-v3/issues/4018)) ([ab0e7be](https://github.com/aws/aws-sdk-js-v3/commit/ab0e7be36e7e7f8a0c04834357aaad643c7912c3))
+
+
+
+
+
 # [3.183.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.182.0...v3.183.0) (2022-10-03)
 
 **Note:** Version bump only for package @aws-sdk/node-http-handler
