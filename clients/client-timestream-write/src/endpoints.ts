@@ -2,7 +2,35 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "ingest-fips-us-east-1": {
+    variants: [
+      {
+        hostname: "ingest.timestream-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "us-east-1",
+  },
+  "ingest-fips-us-east-2": {
+    variants: [
+      {
+        hostname: "ingest.timestream-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "us-east-2",
+  },
+  "ingest-fips-us-west-2": {
+    variants: [
+      {
+        hostname: "ingest.timestream-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "us-west-2",
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {
@@ -23,6 +51,9 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "ingest-fips-us-east-1",
+      "ingest-fips-us-east-2",
+      "ingest-fips-us-west-2",
       "me-central-1",
       "me-south-1",
       "sa-east-1",

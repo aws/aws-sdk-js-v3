@@ -65,6 +65,10 @@ const regionHash: RegionHash = {
         hostname: "ec2.us-gov-east-1.amazonaws.com",
         tags: [],
       },
+      {
+        hostname: "ec2.us-gov-east-1.api.aws",
+        tags: ["dualstack"],
+      },
     ],
     signingRegion: "us-gov-east-1",
   },
@@ -73,6 +77,10 @@ const regionHash: RegionHash = {
       {
         hostname: "ec2.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ec2.us-gov-west-1.api.aws",
+        tags: ["dualstack"],
       },
     ],
     signingRegion: "us-gov-west-1",
