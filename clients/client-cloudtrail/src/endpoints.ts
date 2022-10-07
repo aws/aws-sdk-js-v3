@@ -163,7 +163,7 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
       {
-        hostname: "cloudtrail-fips.{region}.amazonaws.com",
+        hostname: "cloudtrail.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
       {
