@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.187.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.186.0...v3.187.0) (2022-10-07)
+
+
+### Features
+
+* **client-greengrassv2:** This release adds error status details for deployments and components that failed on a device and adds features to improve visibility into component installation. ([0faff07](https://github.com/aws/aws-sdk-js-v3/commit/0faff0779623527f7697d2dd06d2adb568d68fae))
+* **client-quicksight:** Amazon QuickSight now supports SecretsManager Secret ARN in place of CredentialPair for DataSource creation and update. This release also has some minor documentation updates and removes CountryCode as a required parameter in GeoSpatialColumnGroup ([d5ad4e8](https://github.com/aws/aws-sdk-js-v3/commit/d5ad4e8bf194109f4e06ef91479111cf9e8f7788))
+* **clients:** update client endpoints as of 2022-10-07 ([8e5b8ec](https://github.com/aws/aws-sdk-js-v3/commit/8e5b8ec16c8e07c8c1e2d1987c6a00c53805bcc3))
+
+
+
+
+
 # [3.186.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.185.0...v3.186.0) (2022-10-06)
 
 
