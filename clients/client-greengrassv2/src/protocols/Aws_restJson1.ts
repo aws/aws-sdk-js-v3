@@ -126,6 +126,7 @@ import {
   DisassociateClientDeviceFromCoreDeviceEntry,
   DisassociateClientDeviceFromCoreDeviceErrorEntry,
   EffectiveDeployment,
+  EffectiveDeploymentStatusDetails,
   InstalledComponent,
   InternalServerException,
   IoTJobAbortConfig,
@@ -3623,8 +3624,36 @@ const deserializeAws_restJson1EffectiveDeployment = (output: any, context: __Ser
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedTimestamp)))
         : undefined,
     reason: __expectString(output.reason),
+    statusDetails:
+      output.statusDetails != null
+        ? deserializeAws_restJson1EffectiveDeploymentStatusDetails(output.statusDetails, context)
+        : undefined,
     targetArn: __expectString(output.targetArn),
   } as any;
+};
+
+const deserializeAws_restJson1EffectiveDeploymentErrorStack = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1EffectiveDeploymentErrorTypeList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1EffectiveDeploymentsList = (
@@ -3642,18 +3671,58 @@ const deserializeAws_restJson1EffectiveDeploymentsList = (
   return retVal;
 };
 
+const deserializeAws_restJson1EffectiveDeploymentStatusDetails = (
+  output: any,
+  context: __SerdeContext
+): EffectiveDeploymentStatusDetails => {
+  return {
+    errorStack:
+      output.errorStack != null
+        ? deserializeAws_restJson1EffectiveDeploymentErrorStack(output.errorStack, context)
+        : undefined,
+    errorTypes:
+      output.errorTypes != null
+        ? deserializeAws_restJson1EffectiveDeploymentErrorTypeList(output.errorTypes, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1InstalledComponent = (output: any, context: __SerdeContext): InstalledComponent => {
   return {
     componentName: __expectString(output.componentName),
     componentVersion: __expectString(output.componentVersion),
     isRoot: __expectBoolean(output.isRoot),
+    lastInstallationSource: __expectString(output.lastInstallationSource),
+    lastReportedTimestamp:
+      output.lastReportedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastReportedTimestamp)))
+        : undefined,
     lastStatusChangeTimestamp:
       output.lastStatusChangeTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStatusChangeTimestamp)))
         : undefined,
     lifecycleState: __expectString(output.lifecycleState),
     lifecycleStateDetails: __expectString(output.lifecycleStateDetails),
+    lifecycleStatusCodes:
+      output.lifecycleStatusCodes != null
+        ? deserializeAws_restJson1InstalledComponentLifecycleStatusCodeList(output.lifecycleStatusCodes, context)
+        : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1InstalledComponentLifecycleStatusCodeList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1InstalledComponentList = (output: any, context: __SerdeContext): InstalledComponent[] => {

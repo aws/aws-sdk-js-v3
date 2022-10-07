@@ -1630,6 +1630,32 @@ export enum EffectiveDeploymentExecutionStatus {
 }
 
 /**
+ * <p>Contains all error-related information for the deployment record. The status details will
+ *       be null if the deployment is in a success state.</p>
+ *          <note>
+ *             <p>Greengrass nucleus v2.8.0 or later is required to get an accurate <code>errorStack</code> and
+ *           <code>errorTypes</code> response. This field will not be returned for earlier Greengrass nucleus
+ *         versions.</p>
+ *          </note>
+ */
+export interface EffectiveDeploymentStatusDetails {
+  /**
+   * <p>Contains an ordered list of short error codes that range from the most generic error to
+   *       the most specific one. The error codes describe the reason for failure whenever the
+   *         <code>coreDeviceExecutionStatus</code> is in a failed state. The response will be an empty
+   *       list if there is no error.</p>
+   */
+  errorStack?: string[];
+
+  /**
+   * <p>Contains tags which describe the error. You can use the error types to classify errors to
+   *       assist with remediating the failure. The response will be an empty list if there is no
+   *       error.</p>
+   */
+  errorTypes?: string[];
+}
+
+/**
  * <p>Contains information about a deployment job that IoT Greengrass sends to a Greengrass core device.</p>
  */
 export interface EffectiveDeployment {
@@ -1683,6 +1709,12 @@ export interface EffectiveDeployment {
    *       format.</p>
    */
   modifiedTimestamp: Date | undefined;
+
+  /**
+   * <p>The status details that explain why a deployment has an error. This response will be null
+   *       if the deployment is in a success state.</p>
+   */
+  statusDetails?: EffectiveDeploymentStatusDetails;
 }
 
 export enum RecipeOutputFormat {
@@ -2208,7 +2240,8 @@ export interface InstalledComponent {
   lifecycleState?: InstalledComponentLifecycleState | string;
 
   /**
-   * <p>The details about the lifecycle state of the component.</p>
+   * <p>A detailed response about the lifecycle state of the component that explains the reason
+   *       why a component has an error or is broken.</p>
    */
   lifecycleStateDetails?: string;
 
@@ -2224,15 +2257,45 @@ export interface InstalledComponent {
    *       deployment, it might not undergo a state change and this status would not be updated.</p>
    */
   lastStatusChangeTimestamp?: Date;
+
+  /**
+   * <p>The last time the Greengrass core device sent a message containing a certain component to the
+   *       Amazon Web Services Cloud.</p>
+   *          <p>A component does not need to see a state change for this field to update.</p>
+   */
+  lastReportedTimestamp?: Date;
+
+  /**
+   * <p>The most recent deployment source that brought the component to the Greengrass core device. For
+   *       a thing group deployment or thing deployment, the source will be the The ID of the deployment. and for
+   *       local deployments it will be <code>LOCAL</code>.</p>
+   */
+  lastInstallationSource?: string;
+
+  /**
+   * <p>The status codes that indicate the reason for failure whenever the
+   *         <code>lifecycleState</code> has an error or is in a broken state.</p>
+   *          <note>
+   *             <p>Greengrass nucleus v2.8.0 or later is required to get an accurate
+   *           <code>lifecycleStatusCodes</code> response. This response can be inaccurate in earlier
+   *         Greengrass nucleus versions.</p>
+   *          </note>
+   */
+  lifecycleStatusCodes?: string[];
 }
 
 export interface ListInstalledComponentsResponse {
   /**
    * <p>A list that summarizes each component on the core device.</p>
    *          <note>
-   *             <p>Accuracy of the <code>lastStatusChangeTimestamp</code> response depends on Greengrass nucleus
-   *         v2.7.0. It performs best on Greengrass nucleus v2.7.0 and can be inaccurate on earlier
-   *         versions.</p>
+   *             <p>Greengrass nucleus v2.7.0 or later is required to get an accurate
+   *           <code>lastStatusChangeTimestamp</code> response. This response can be inaccurate in
+   *         earlier Greengrass nucleus versions.</p>
+   *          </note>
+   *          <note>
+   *             <p>Greengrass nucleus v2.8.0 or later is required to get an accurate
+   *           <code>lastInstallationSource</code> and <code>lastReportedTimestamp</code> response. This
+   *         response can be inaccurate or null in earlier Greengrass nucleus versions.</p>
    *          </note>
    */
   installedComponents?: InstalledComponent[];
@@ -2802,6 +2865,13 @@ export const DisassociateServiceRoleFromAccountRequestFilterSensitiveLog = (
 export const DisassociateServiceRoleFromAccountResponseFilterSensitiveLog = (
   obj: DisassociateServiceRoleFromAccountResponse
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EffectiveDeploymentStatusDetailsFilterSensitiveLog = (obj: EffectiveDeploymentStatusDetails): any => ({
   ...obj,
 });
 
