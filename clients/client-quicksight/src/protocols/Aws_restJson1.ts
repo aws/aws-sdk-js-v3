@@ -13652,6 +13652,7 @@ const serializeAws_restJson1DataSourceCredentials = (input: DataSourceCredential
     ...(input.CredentialPair != null && {
       CredentialPair: serializeAws_restJson1CredentialPair(input.CredentialPair, context),
     }),
+    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
   };
 };
 
@@ -15281,6 +15282,7 @@ const deserializeAws_restJson1DataSource = (output: any, context: __SerdeContext
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     Name: __expectString(output.Name),
+    SecretArn: __expectString(output.SecretArn),
     SslProperties:
       output.SslProperties != null ? deserializeAws_restJson1SslProperties(output.SslProperties, context) : undefined,
     Status: __expectString(output.Status),

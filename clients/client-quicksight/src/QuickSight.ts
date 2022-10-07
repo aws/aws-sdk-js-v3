@@ -4068,7 +4068,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Updates a dataset. This operation doesn't support datasets that include uploaded files as a source.</p>
+   * <p>Updates a dataset. This operation doesn't support datasets that include uploaded files as a source. Partial updates are not supported by this operation.</p>
    */
   public updateDataSet(
     args: UpdateDataSetCommandInput,

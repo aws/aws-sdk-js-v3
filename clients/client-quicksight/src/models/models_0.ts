@@ -828,7 +828,7 @@ export interface GeoSpatialColumnGroup {
   /**
    * <p>Country code.</p>
    */
-  CountryCode: GeoSpatialCountryCode | string | undefined;
+  CountryCode?: GeoSpatialCountryCode | string;
 
   /**
    * <p>Columns in this hierarchy.</p>
@@ -3627,6 +3627,11 @@ export interface DataSourceCredentials {
    *             <code>DataSourceCredentials</code> structure.</p>
    */
   CopySourceArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
+   */
+  SecretArn?: string;
 }
 
 /**
@@ -5314,6 +5319,11 @@ export interface DataSource {
    * <p>Error information from the last update or the creation of the data source.</p>
    */
   ErrorInfo?: DataSourceErrorInfo;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
+   */
+  SecretArn?: string;
 }
 
 export interface DeleteAccountCustomizationRequest {

@@ -292,7 +292,7 @@ export interface User {
   Arn?: string;
 
   /**
-   * <p>The user's user name. In the output, the value for <code>UserName</code> is
+   * <p>The user's user name. This value is required if you are registering a user that will be managed in Amazon QuickSight. In the output, the value for <code>UserName</code> is
    *                 <code>N/A</code> when the value for <code>IdentityType</code> is <code>IAM</code>
    *             and the corresponding IAM user is deleted.</p>
    */
