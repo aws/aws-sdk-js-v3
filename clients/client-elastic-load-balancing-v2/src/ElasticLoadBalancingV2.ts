@@ -1345,8 +1345,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
-   * <p>Sets the type of IP addresses used by the subnets of the specified Application Load
-   *       Balancer or Network Load Balancer.</p>
+   * <p>Sets the type of IP addresses used by the subnets of the specified load balancer.</p>
    */
   public setIpAddressType(
     args: SetIpAddressTypeCommandInput,

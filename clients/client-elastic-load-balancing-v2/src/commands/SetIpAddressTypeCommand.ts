@@ -32,8 +32,7 @@ export interface SetIpAddressTypeCommandInput extends SetIpAddressTypeInput {}
 export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Sets the type of IP addresses used by the subnets of the specified Application Load
- *       Balancer or Network Load Balancer.</p>
+ * <p>Sets the type of IP addresses used by the subnets of the specified load balancer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
