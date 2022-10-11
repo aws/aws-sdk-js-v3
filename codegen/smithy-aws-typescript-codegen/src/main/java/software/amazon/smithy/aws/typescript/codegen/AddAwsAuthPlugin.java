@@ -40,6 +40,7 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.traits.OptionalAuthTrait;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -195,10 +196,21 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
     }
 
     @Override
-    public void writeAdditionalFiles(
+    public void customize(TypeScriptCodegenContext codegenContext) {
+        TypeScriptSettings settings = codegenContext.settings();
+        Model model = codegenContext.model();
+        BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory = codegenContext.writerDelegator()::useFileWriter;
+
+        writeAdditionalFiles(settings, model, writerFactory);
+
+        writerFactory.accept(Paths.get(CodegenUtils.SOURCE_FOLDER, "index.ts").toString(), writer -> {
+            writeAdditionalExports(settings, model, writer);
+        });
+    }
+
+    private void writeAdditionalFiles(
         TypeScriptSettings settings,
         Model model,
-        SymbolProvider symbolProvider,
         BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
     ) {
         ServiceShape service = settings.getService(model);
@@ -228,11 +240,9 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         });
     }
 
-    @Override
-    public void writeAdditionalExports(
+    private void writeAdditionalExports(
         TypeScriptSettings settings,
         Model model,
-        SymbolProvider symbolProvider,
         TypeScriptWriter writer
     ) {
         ServiceShape service = settings.getService(model);
