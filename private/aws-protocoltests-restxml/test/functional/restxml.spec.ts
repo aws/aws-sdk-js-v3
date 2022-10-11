@@ -4,7 +4,7 @@ import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { Encoder as __Encoder } from "@aws-sdk/types";
 import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
 import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 import { Readable } from "stream";
 
 import { AllQueryStringTypesCommand } from "../../src/commands/AllQueryStringTypesCommand";
@@ -6753,14 +6753,19 @@ const compareEquivalentUnknownTypeBodies = (
 const compareEquivalentXmlBodies = (expectedBody: string, generatedBody: string): Object => {
   const parseConfig = {
     attributeNamePrefix: "",
+    htmlEntities: true,
     ignoreAttributes: false,
-    parseNodeValue: false,
+    ignoreDeclaration: true,
+    parseTagValue: false,
     trimValues: false,
-    tagValueProcessor: (val: any, tagName: any) => (val.trim() === "" ? "" : decodeHTML(val)),
+    tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
   };
 
   const parseXmlBody = (body: string) => {
-    const parsedObj = xmlParse(body, parseConfig);
+    const parser = new XMLParser(parseConfig);
+    parser.addEntity("#xD", "\r");
+    parser.addEntity("#10", "\n");
+    const parsedObj = parser.parse(body);
     const textNodeName = "#text";
     const key = Object.keys(parsedObj)[0];
     const parsedObjToReturn = parsedObj[key];
