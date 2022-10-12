@@ -77,7 +77,7 @@ export const resolveParams = async <
   }
 
   if (String(clientConfig.serviceId).toLowerCase() === "s3") {
-    resolveParamsForS3(endpointParams);
+    await resolveParamsForS3(endpointParams);
   }
 
   return endpointParams;
