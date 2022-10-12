@@ -17,6 +17,7 @@ import {
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -717,7 +718,7 @@ const deserializeAws_restJson1StartSpeechSynthesisTaskCommandError = async (
 
 export const deserializeAws_restJson1SynthesizeSpeechCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<SynthesizeSpeechCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SynthesizeSpeechCommandError(output, context);
@@ -731,6 +732,7 @@ export const deserializeAws_restJson1SynthesizeSpeechCommand = async (
     ],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.AudioStream = data;
   return contents;
 };

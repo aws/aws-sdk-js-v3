@@ -9,7 +9,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
@@ -25,7 +28,9 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetSnapshotBlockCommandInput extends GetSnapshotBlockRequest {}
-export interface GetSnapshotBlockCommandOutput extends GetSnapshotBlockResponse, __MetadataBearer {}
+export interface GetSnapshotBlockCommandOutput
+  extends __WithSdkStreamMixin<GetSnapshotBlockResponse, "BlockData">,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the data in a block in an Amazon Elastic Block Store snapshot.</p>
@@ -92,7 +97,10 @@ export class GetSnapshotBlockCommand extends $Command<
     return serializeAws_restJson1GetSnapshotBlockCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnapshotBlockCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetSnapshotBlockCommandOutput> {
     return deserializeAws_restJson1GetSnapshotBlockCommand(output, context);
   }
 

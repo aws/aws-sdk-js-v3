@@ -18,6 +18,7 @@ import {
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -252,7 +253,7 @@ const deserializeAws_restJson1DescribeObjectCommandError = async (
 
 export const deserializeAws_restJson1GetObjectCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetObjectCommandError(output, context);
@@ -273,6 +274,7 @@ export const deserializeAws_restJson1GetObjectCommand = async (
     ],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.Body = data;
   map(contents, {
     StatusCode: [, output.statusCode],

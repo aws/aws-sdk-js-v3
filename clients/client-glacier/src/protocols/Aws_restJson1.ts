@@ -15,6 +15,7 @@ import {
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -1688,7 +1689,7 @@ const deserializeAws_restJson1GetDataRetrievalPolicyCommandError = async (
 
 export const deserializeAws_restJson1GetJobOutputCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetJobOutputCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetJobOutputCommandError(output, context);
@@ -1702,6 +1703,7 @@ export const deserializeAws_restJson1GetJobOutputCommand = async (
     archiveDescription: [, output.headers["x-amz-archive-description"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.body = data;
   map(contents, {
     status: [, output.statusCode],

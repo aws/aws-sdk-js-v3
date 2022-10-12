@@ -79,8 +79,6 @@ public enum AwsDependency implements SymbolDependencyContainer {
     MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js"),
     STREAM_HASHER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/hash-stream-node"),
     STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/hash-blob-browser"),
-    UTIL_STREAM_NODE(NORMAL_DEPENDENCY, "@aws-sdk/util-stream-node"),
-    UTIL_STREAM_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/util-stream-browser"),
     FLEXIBLE_CHECKSUMS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-flexible-checksums");
 
     public final String packageName;

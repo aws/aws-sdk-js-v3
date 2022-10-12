@@ -27,6 +27,7 @@ import {
   Endpoint as __Endpoint,
   EventStreamSerdeContext as __EventStreamSerdeContext,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
@@ -5274,7 +5275,7 @@ const deserializeAws_restXmlGetBucketWebsiteCommandError = async (
 
 export const deserializeAws_restXmlGetObjectCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetObjectCommandError(output, context);
@@ -5353,6 +5354,7 @@ export const deserializeAws_restXmlGetObjectCommand = async (
     ],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.Body = data;
   return contents;
 };
@@ -5633,7 +5635,7 @@ const deserializeAws_restXmlGetObjectTaggingCommandError = async (
 
 export const deserializeAws_restXmlGetObjectTorrentCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetObjectTorrentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetObjectTorrentCommandError(output, context);
@@ -5643,6 +5645,7 @@ export const deserializeAws_restXmlGetObjectTorrentCommand = async (
     RequestCharged: [, output.headers["x-amz-request-charged"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.Body = data;
   return contents;
 };

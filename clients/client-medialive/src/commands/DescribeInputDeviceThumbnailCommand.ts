@@ -9,7 +9,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
@@ -26,7 +29,7 @@ import {
 
 export interface DescribeInputDeviceThumbnailCommandInput extends DescribeInputDeviceThumbnailRequest {}
 export interface DescribeInputDeviceThumbnailCommandOutput
-  extends DescribeInputDeviceThumbnailResponse,
+  extends __WithSdkStreamMixin<DescribeInputDeviceThumbnailResponse, "Body">,
     __MetadataBearer {}
 
 /**
@@ -96,7 +99,7 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: __SerdeContext
+    context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<DescribeInputDeviceThumbnailCommandOutput> {
     return deserializeAws_restJson1DescribeInputDeviceThumbnailCommand(output, context);
   }

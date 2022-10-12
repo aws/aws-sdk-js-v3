@@ -10,7 +10,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -26,7 +29,9 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface GetObjectTorrentCommandInput extends GetObjectTorrentRequest {}
-export interface GetObjectTorrentCommandOutput extends GetObjectTorrentOutput, __MetadataBearer {}
+export interface GetObjectTorrentCommandOutput
+  extends __WithSdkStreamMixin<GetObjectTorrentOutput, "Body">,
+    __MetadataBearer {}
 
 /**
  * <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're
@@ -110,7 +115,10 @@ export class GetObjectTorrentCommand extends $Command<
     return serializeAws_restXmlGetObjectTorrentCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectTorrentCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetObjectTorrentCommandOutput> {
     return deserializeAws_restXmlGetObjectTorrentCommand(output, context);
   }
 

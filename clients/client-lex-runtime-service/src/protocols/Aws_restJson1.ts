@@ -16,6 +16,7 @@ import {
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -349,7 +350,7 @@ const deserializeAws_restJson1GetSessionCommandError = async (
 
 export const deserializeAws_restJson1PostContentCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<PostContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PostContentCommandError(output, context);
@@ -403,6 +404,7 @@ export const deserializeAws_restJson1PostContentCommand = async (
     ],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.audioStream = data;
   return contents;
 };
@@ -564,7 +566,7 @@ const deserializeAws_restJson1PostTextCommandError = async (
 
 export const deserializeAws_restJson1PutSessionCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<PutSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutSessionCommandError(output, context);
@@ -600,6 +602,7 @@ export const deserializeAws_restJson1PutSessionCommand = async (
     ],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.audioStream = data;
   return contents;
 };

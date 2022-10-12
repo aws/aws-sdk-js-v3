@@ -9,7 +9,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -29,7 +32,7 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetMediaCommandInput extends GetMediaInput {}
-export interface GetMediaCommandOutput extends GetMediaOutput, __MetadataBearer {}
+export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutput, "Payload">, __MetadataBearer {}
 
 /**
  * <p> Use this API to retrieve media content from a Kinesis video stream. In the request,
@@ -141,7 +144,10 @@ export class GetMediaCommand extends $Command<
     return serializeAws_restJson1GetMediaCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMediaCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetMediaCommandOutput> {
     return deserializeAws_restJson1GetMediaCommand(output, context);
   }
 

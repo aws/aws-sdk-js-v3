@@ -9,7 +9,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -38,7 +41,9 @@ type PostContentCommandInputType = Omit<PostContentRequest, "inputStream"> & {
  * This interface extends from `PostContentRequest` interface. There are more parameters than `inputStream` defined in {@link PostContentRequest}
  */
 export interface PostContentCommandInput extends PostContentCommandInputType {}
-export interface PostContentCommandOutput extends PostContentResponse, __MetadataBearer {}
+export interface PostContentCommandOutput
+  extends __WithSdkStreamMixin<PostContentResponse, "audioStream">,
+    __MetadataBearer {}
 
 /**
  * <p> Sends user input (text or speech) to Amazon Lex. Clients use this API to
@@ -181,7 +186,10 @@ export class PostContentCommand extends $Command<
     return serializeAws_restJson1PostContentCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostContentCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<PostContentCommandOutput> {
     return deserializeAws_restJson1PostContentCommand(output, context);
   }
 

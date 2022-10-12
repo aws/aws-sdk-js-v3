@@ -1,6 +1,7 @@
 import { SdkStreamMixin } from "@aws-sdk/types";
 import { fromArrayBuffer } from "@aws-sdk/util-buffer-from";
 import { PassThrough, Readable, Writable } from "stream";
+import util from "util";
 
 import { sdkStreamMixin } from "./sdk-stream-mixin";
 
@@ -89,6 +90,23 @@ describe(sdkStreamMixin.name, () => {
         await writeDataToStream(passThrough, [Buffer.from("foo")]);
         await sdkStream.transformToString(encoding);
         expect(toStringMock).toBeCalledWith(encoding);
+      }
+    );
+
+    it.each(["ibm866", "iso-8859-2", "koi8-r", "macintosh", "windows-874", "gbk", "gb18030", "euc-jp"])(
+      "should transform the stream to string with TextDecoder config %s",
+      async (encoding) => {
+        jest.spyOn(util, "TextDecoder").mockImplementation(
+          () =>
+            ({
+              decode: jest.fn(),
+            } as any)
+        );
+        (fromArrayBuffer as jest.Mock).mockReturnValue({ toString: toStringMock });
+        const sdkStream = sdkStreamMixin(passThrough);
+        await writeDataToStream(passThrough, [Buffer.from("foo")]);
+        await sdkStream.transformToString(encoding);
+        expect(util.TextDecoder).toBeCalledWith(encoding);
       }
     );
 

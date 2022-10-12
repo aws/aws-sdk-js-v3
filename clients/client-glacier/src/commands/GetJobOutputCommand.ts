@@ -9,7 +9,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
@@ -25,7 +28,7 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetJobOutputCommandInput extends GetJobOutputInput {}
-export interface GetJobOutputCommandOutput extends GetJobOutputOutput, __MetadataBearer {}
+export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOutputOutput, "body">, __MetadataBearer {}
 
 /**
  * <p>This operation downloads the output of the job you initiated using <a>InitiateJob</a>. Depending on the job type you specified when you initiated the
@@ -128,7 +131,10 @@ export class GetJobOutputCommand extends $Command<
     return serializeAws_restJson1GetJobOutputCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobOutputCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetJobOutputCommandOutput> {
     return deserializeAws_restJson1GetJobOutputCommand(output, context);
   }
 

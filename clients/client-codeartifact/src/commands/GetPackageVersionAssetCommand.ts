@@ -9,7 +9,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
@@ -25,7 +28,9 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetPackageVersionAssetCommandInput extends GetPackageVersionAssetRequest {}
-export interface GetPackageVersionAssetCommandOutput extends GetPackageVersionAssetResult, __MetadataBearer {}
+export interface GetPackageVersionAssetCommandOutput
+  extends __WithSdkStreamMixin<GetPackageVersionAssetResult, "asset">,
+    __MetadataBearer {}
 
 /**
  * <p>
@@ -96,7 +101,10 @@ export class GetPackageVersionAssetCommand extends $Command<
     return serializeAws_restJson1GetPackageVersionAssetCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPackageVersionAssetCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetPackageVersionAssetCommandOutput> {
     return deserializeAws_restJson1GetPackageVersionAssetCommand(output, context);
   }
 

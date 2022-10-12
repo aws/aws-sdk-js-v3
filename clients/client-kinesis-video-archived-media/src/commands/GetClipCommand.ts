@@ -9,7 +9,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import {
@@ -29,7 +32,7 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetClipCommandInput extends GetClipInput {}
-export interface GetClipCommandOutput extends GetClipOutput, __MetadataBearer {}
+export interface GetClipCommandOutput extends __WithSdkStreamMixin<GetClipOutput, "Payload">, __MetadataBearer {}
 
 /**
  * <p>Downloads an MP4 file (clip) containing the archived, on-demand media from the
@@ -136,7 +139,10 @@ export class GetClipCommand extends $Command<
     return serializeAws_restJson1GetClipCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClipCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetClipCommandOutput> {
     return deserializeAws_restJson1GetClipCommand(output, context);
   }
 

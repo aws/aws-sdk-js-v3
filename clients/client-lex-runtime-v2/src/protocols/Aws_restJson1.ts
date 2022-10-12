@@ -17,6 +17,7 @@ import {
   Message as __Message,
   MessageHeaders as __MessageHeaders,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
@@ -386,7 +387,7 @@ const deserializeAws_restJson1GetSessionCommandError = async (
 
 export const deserializeAws_restJson1PutSessionCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<PutSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutSessionCommandError(output, context);
@@ -400,6 +401,7 @@ export const deserializeAws_restJson1PutSessionCommand = async (
     sessionId: [, output.headers["x-amz-lex-session-id"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.audioStream = data;
   return contents;
 };
@@ -525,7 +527,7 @@ const deserializeAws_restJson1RecognizeTextCommandError = async (
 
 export const deserializeAws_restJson1RecognizeUtteranceCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<RecognizeUtteranceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RecognizeUtteranceCommandError(output, context);
@@ -542,6 +544,7 @@ export const deserializeAws_restJson1RecognizeUtteranceCommand = async (
     inputTranscript: [, output.headers["x-amz-lex-input-transcript"]],
   });
   const data: any = output.body;
+  context.sdkStreamMixin(data);
   contents.audioStream = data;
   return contents;
 };

@@ -9,7 +9,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStream as __SdkStream,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
@@ -25,7 +28,7 @@ import {
 } from "../protocols/Aws_restJson1";
 
 export interface GetChunkCommandInput extends GetChunkInput {}
-export interface GetChunkCommandOutput extends GetChunkOutput, __MetadataBearer {}
+export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutput, "Data">, __MetadataBearer {}
 
 /**
  * Gets the specified object's chunk.
@@ -92,7 +95,10 @@ export class GetChunkCommand extends $Command<
     return serializeAws_restJson1GetChunkCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChunkCommandOutput> {
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetChunkCommandOutput> {
     return deserializeAws_restJson1GetChunkCommand(output, context);
   }
 
