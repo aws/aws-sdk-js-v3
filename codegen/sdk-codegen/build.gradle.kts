@@ -21,19 +21,24 @@ import software.amazon.smithy.aws.traits.ServiceTrait
 import java.util.stream.Stream
 import kotlin.streams.toList
 
+val smithyVersion: String by project
+
 buildscript {
+    val smithyVersion: String by project
+
     repositories {
         mavenLocal()
         mavenCentral()
     }
     dependencies {
-        "classpath"("software.amazon.smithy:smithy-cli:${rootProject.extra["smithyVersion"]}")
-        "classpath"("software.amazon.smithy:smithy-aws-traits:${rootProject.extra["smithyVersion"]}")
+        "classpath"("software.amazon.smithy:smithy-cli:$smithyVersion")
+        "classpath"("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
     }
 }
 
 plugins {
-    id("software.amazon.smithy") version "0.6.0"
+    val smithyGradleVersion: String by project
+    id("software.amazon.smithy").version(smithyGradleVersion)
 }
 
 dependencies {
