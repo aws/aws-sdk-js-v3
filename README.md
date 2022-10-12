@@ -284,10 +284,15 @@ Lastly we have higher level libraries in `/lib`. These are javascript specific l
 
 ### Streams
 
-Certain command outputs include streams, which have different implementations in Node.js and browsers. For convenience, a set of stream handling methods will be merged (`Object.assign`) to the output stream object, as defined in [SdkStreamMixin](https://github.com/aws/aws-sdk-js-v3/blob/ad99b66944b6fe1ce83082c1a33193dff033cfaf/packages/types/src/serde.ts#L77-L81).
+Certain command outputs include streams, which have different implementations in
+Node.js and browsers. For convenience, a set of stream handling methods will be
+merged (`Object.assign`) to the output stream object, as defined in 
+[SdkStreamMixin](https://github.com/aws/aws-sdk-js-v3/blob/ad99b66944b6fe1ce83082c1a33193dff033cfaf/packages/types/src/serde.ts#L77-L81).
 
-Output types having this feature will be indicated by the `WithSdkStreamMixin<T, BaseStream>` [wrapper type](https://github.com/aws/aws-sdk-js-v3/blob/ad99b66944b6fe1ce83082c1a33193dff033cfaf/packages/types/src/serde.ts#L89-L96), where `T` is the original output type and `BaseStream` is
-the stream type specific to the runtime environment.
+Output types having this feature will be indicated by the `WithSdkStreamMixin<T, BaseStream>` 
+[wrapper type](https://github.com/aws/aws-sdk-js-v3/blob/ad99b66944b6fe1ce83082c1a33193dff033cfaf/packages/types/src/serde.ts#L89-L96), 
+where `T` is the original output type and `BaseStream` isthe stream type 
+specific to the runtime environment.
 
 Here is an example using `S3::GetObject`. 
 
