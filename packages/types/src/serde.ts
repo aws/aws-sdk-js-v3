@@ -88,12 +88,12 @@ export type SdkStream<BaseStream> = BaseStream & SdkStreamMixin;
 
 /**
  * Indicates that any members of type T
- * that were of type BaseStream have been extended
+ * that were of type T[StreamKey] have been extended
  * with the SdkStreamMixin helper methods.
  */
-export type WithSdkStreamMixin<T, BaseStream> = {
-  [key in keyof T]: T[key] extends BaseStream ? SdkStream<BaseStream> : T[key]
-}
+export type WithSdkStreamMixin<T, StreamKey extends keyof T> = {
+  [key in keyof T]: T[key] extends T[StreamKey] ? SdkStream<T[StreamKey]> : T[key];
+};
 
 /**
  * Interface for internal function to inject stream utility functions
@@ -111,4 +111,3 @@ export interface SdkStreamMixinInjector {
 export interface SdkStreamSerdeContext {
   sdkStreamMixin: SdkStreamMixinInjector;
 }
-
