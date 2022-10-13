@@ -143,6 +143,11 @@ import {
   RemoveApplicationInstanceCommandInput,
   RemoveApplicationInstanceCommandOutput,
 } from "./commands/RemoveApplicationInstanceCommand";
+import {
+  SignalApplicationInstanceNodeInstancesCommand,
+  SignalApplicationInstanceNodeInstancesCommandInput,
+  SignalApplicationInstanceNodeInstancesCommandOutput,
+} from "./commands/SignalApplicationInstanceNodeInstancesCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -198,7 +203,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
-   * <p>Creates a job to run on one or more devices.</p>
+   * <p>Creates a job to run on one or more devices. A job can update a device's software or reboot it.</p>
    */
   public createJobForDevices(
     args: CreateJobForDevicesCommandInput,
@@ -1101,6 +1106,40 @@ export class Panorama extends PanoramaClient {
     cb?: (err: any, data?: RemoveApplicationInstanceCommandOutput) => void
   ): Promise<RemoveApplicationInstanceCommandOutput> | void {
     const command = new RemoveApplicationInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Signal camera nodes to stop or resume.</p>
+   */
+  public signalApplicationInstanceNodeInstances(
+    args: SignalApplicationInstanceNodeInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SignalApplicationInstanceNodeInstancesCommandOutput>;
+  public signalApplicationInstanceNodeInstances(
+    args: SignalApplicationInstanceNodeInstancesCommandInput,
+    cb: (err: any, data?: SignalApplicationInstanceNodeInstancesCommandOutput) => void
+  ): void;
+  public signalApplicationInstanceNodeInstances(
+    args: SignalApplicationInstanceNodeInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SignalApplicationInstanceNodeInstancesCommandOutput) => void
+  ): void;
+  public signalApplicationInstanceNodeInstances(
+    args: SignalApplicationInstanceNodeInstancesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SignalApplicationInstanceNodeInstancesCommandOutput) => void),
+    cb?: (err: any, data?: SignalApplicationInstanceNodeInstancesCommandOutput) => void
+  ): Promise<SignalApplicationInstanceNodeInstancesCommandOutput> | void {
+    const command = new SignalApplicationInstanceNodeInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

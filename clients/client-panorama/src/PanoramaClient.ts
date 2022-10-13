@@ -137,6 +137,10 @@ import {
   RemoveApplicationInstanceCommandInput,
   RemoveApplicationInstanceCommandOutput,
 } from "./commands/RemoveApplicationInstanceCommand";
+import {
+  SignalApplicationInstanceNodeInstancesCommandInput,
+  SignalApplicationInstanceNodeInstancesCommandOutput,
+} from "./commands/SignalApplicationInstanceNodeInstancesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -176,6 +180,7 @@ export type ServiceInputTypes =
   | ProvisionDeviceCommandInput
   | RegisterPackageVersionCommandInput
   | RemoveApplicationInstanceCommandInput
+  | SignalApplicationInstanceNodeInstancesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDeviceMetadataCommandInput;
@@ -211,6 +216,7 @@ export type ServiceOutputTypes =
   | ProvisionDeviceCommandOutput
   | RegisterPackageVersionCommandOutput
   | RemoveApplicationInstanceCommandOutput
+  | SignalApplicationInstanceNodeInstancesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDeviceMetadataCommandOutput;

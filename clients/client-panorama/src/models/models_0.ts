@@ -40,6 +40,51 @@ export enum ApplicationInstanceHealthStatus {
   RUNNING = "RUNNING",
 }
 
+export enum DesiredState {
+  REMOVED = "REMOVED",
+  RUNNING = "RUNNING",
+  STOPPED = "STOPPED",
+}
+
+export enum DeviceReportedStatus {
+  INSTALL_ERROR = "INSTALL_ERROR",
+  INSTALL_IN_PROGRESS = "INSTALL_IN_PROGRESS",
+  LAUNCHED = "LAUNCHED",
+  LAUNCH_ERROR = "LAUNCH_ERROR",
+  REMOVAL_FAILED = "REMOVAL_FAILED",
+  REMOVAL_IN_PROGRESS = "REMOVAL_IN_PROGRESS",
+  RUNNING = "RUNNING",
+  STARTING = "STARTING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
+  STOP_ERROR = "STOP_ERROR",
+}
+
+/**
+ * <p>An application instance's state.</p>
+ */
+export interface ReportedRuntimeContextState {
+  /**
+   * <p>The application's desired state.</p>
+   */
+  DesiredState: DesiredState | string | undefined;
+
+  /**
+   * <p>The device's name.</p>
+   */
+  RuntimeContextName: string | undefined;
+
+  /**
+   * <p>The application's reported status.</p>
+   */
+  DeviceReportedStatus: DeviceReportedStatus | string | undefined;
+
+  /**
+   * <p>When the device reported the application's state.</p>
+   */
+  DeviceReportedTime: Date | undefined;
+}
+
 export enum ApplicationInstanceStatus {
   DEPLOYMENT_ERROR = "DEPLOYMENT_ERROR",
   DEPLOYMENT_FAILED = "DEPLOYMENT_FAILED",
@@ -112,6 +157,11 @@ export interface ApplicationInstance {
    * <p>The application instance's tags.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>The application's state.</p>
+   */
+  RuntimeContextStates?: ReportedRuntimeContextState[];
 }
 
 /**
@@ -465,6 +515,7 @@ export interface DeviceJobConfig {
 
 export enum JobType {
   OTA = "OTA",
+  REBOOT = "REBOOT",
 }
 
 export interface CreateJobForDevicesRequest {
@@ -474,9 +525,9 @@ export interface CreateJobForDevicesRequest {
   DeviceIds: string[] | undefined;
 
   /**
-   * <p>Configuration settings for the job.</p>
+   * <p>Configuration settings for a software update job.</p>
    */
-  DeviceJobConfig: DeviceJobConfig | undefined;
+  DeviceJobConfig?: DeviceJobConfig;
 
   /**
    * <p>The type of job to run.</p>
@@ -908,6 +959,11 @@ export interface DescribeApplicationInstanceResponse {
    * <p>The application instance's tags.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>The application instance's state.</p>
+   */
+  RuntimeContextStates?: ReportedRuntimeContextState[];
 }
 
 export interface DescribeApplicationInstanceDetailsRequest {
@@ -1051,6 +1107,7 @@ export enum DeviceAggregatedStatus {
   OFFLINE = "OFFLINE",
   ONLINE = "ONLINE",
   PENDING = "PENDING",
+  REBOOTING = "REBOOTING",
   UPDATE_NEEDED = "UPDATE_NEEDED",
 }
 
@@ -1085,6 +1142,11 @@ export interface LatestDeviceJob {
    * <p>Status of the latest device job.</p>
    */
   Status?: UpdateProgress | string;
+
+  /**
+   * <p>The job's type.</p>
+   */
+  JobType?: JobType | string;
 }
 
 /**
@@ -1321,6 +1383,11 @@ export interface DescribeDeviceJobResponse {
    * <p>When the job was created.</p>
    */
   CreatedTime?: Date;
+
+  /**
+   * <p>The job's type.</p>
+   */
+  JobType?: JobType | string;
 }
 
 export interface DescribeNodeRequest {
@@ -1895,6 +1962,11 @@ export interface DeviceJob {
    * <p>When the job was created.</p>
    */
   CreatedTime?: Date;
+
+  /**
+   * <p>The job's type.</p>
+   */
+  JobType?: JobType | string;
 }
 
 export interface ListApplicationInstanceDependenciesRequest {
@@ -1966,6 +2038,7 @@ export interface ListApplicationInstanceNodeInstancesRequest {
 export enum NodeInstanceStatus {
   ERROR = "ERROR",
   NOT_AVAILABLE = "NOT_AVAILABLE",
+  PAUSED = "PAUSED",
   RUNNING = "RUNNING",
 }
 
@@ -2445,6 +2518,26 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+export enum NodeSignalValue {
+  PAUSE = "PAUSE",
+  RESUME = "RESUME",
+}
+
+/**
+ * <p>A signal to a camera node to start or stop processing video.</p>
+ */
+export interface NodeSignal {
+  /**
+   * <p>The camera node's name, from the application manifest.</p>
+   */
+  NodeInstanceId: string | undefined;
+
+  /**
+   * <p>The signal value.</p>
+   */
+  Signal: NodeSignalValue | string | undefined;
+}
+
 export interface ProvisionDeviceRequest {
   /**
    * <p>A name for the device.</p>
@@ -2532,6 +2625,25 @@ export interface RemoveApplicationInstanceRequest {
 
 export interface RemoveApplicationInstanceResponse {}
 
+export interface SignalApplicationInstanceNodeInstancesRequest {
+  /**
+   * <p>An application instance ID.</p>
+   */
+  ApplicationInstanceId: string | undefined;
+
+  /**
+   * <p>A list of signals.</p>
+   */
+  NodeSignals: NodeSignal[] | undefined;
+}
+
+export interface SignalApplicationInstanceNodeInstancesResponse {
+  /**
+   * <p>An application instance ID.</p>
+   */
+  ApplicationInstanceId: string | undefined;
+}
+
 export interface TagResourceRequest {
   /**
    * <p>The resource's ARN.</p>
@@ -2583,6 +2695,13 @@ export interface UpdateDeviceMetadataResponse {
  * @internal
  */
 export const AlternateSoftwareMetadataFilterSensitiveLog = (obj: AlternateSoftwareMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportedRuntimeContextStateFilterSensitiveLog = (obj: ReportedRuntimeContextState): any => ({
   ...obj,
 });
 
@@ -3254,6 +3373,13 @@ export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForRe
 /**
  * @internal
  */
+export const NodeSignalFilterSensitiveLog = (obj: NodeSignal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ProvisionDeviceRequestFilterSensitiveLog = (obj: ProvisionDeviceRequest): any => ({
   ...obj,
 });
@@ -3290,6 +3416,24 @@ export const RemoveApplicationInstanceRequestFilterSensitiveLog = (obj: RemoveAp
  * @internal
  */
 export const RemoveApplicationInstanceResponseFilterSensitiveLog = (obj: RemoveApplicationInstanceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignalApplicationInstanceNodeInstancesRequestFilterSensitiveLog = (
+  obj: SignalApplicationInstanceNodeInstancesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignalApplicationInstanceNodeInstancesResponseFilterSensitiveLog = (
+  obj: SignalApplicationInstanceNodeInstancesResponse
+): any => ({
   ...obj,
 });
 

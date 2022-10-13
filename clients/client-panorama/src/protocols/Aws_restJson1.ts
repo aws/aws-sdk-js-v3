@@ -106,6 +106,10 @@ import {
   RemoveApplicationInstanceCommandInput,
   RemoveApplicationInstanceCommandOutput,
 } from "../commands/RemoveApplicationInstanceCommand";
+import {
+  SignalApplicationInstanceNodeInstancesCommandInput,
+  SignalApplicationInstanceNodeInstancesCommandOutput,
+} from "../commands/SignalApplicationInstanceNodeInstancesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -137,6 +141,7 @@ import {
   NodeInstance,
   NodeInterface,
   NodeOutputPort,
+  NodeSignal,
   NtpPayload,
   NtpStatus,
   OTAJobConfig,
@@ -149,6 +154,7 @@ import {
   PackageObject,
   PackageVersionInputConfig,
   PackageVersionOutputConfig,
+  ReportedRuntimeContextState,
   ResourceNotFoundException,
   S3Location,
   ServiceQuotaExceededException,
@@ -993,6 +999,40 @@ export const serializeAws_restJson1RemoveApplicationInstanceCommand = async (
   });
 };
 
+export const serializeAws_restJson1SignalApplicationInstanceNodeInstancesCommand = async (
+  input: SignalApplicationInstanceNodeInstancesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/application-instances/{ApplicationInstanceId}/node-signals";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationInstanceId",
+    () => input.ApplicationInstanceId!,
+    "{ApplicationInstanceId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify({
+    ...(input.NodeSignals != null && { NodeSignals: serializeAws_restJson1NodeSignalList(input.NodeSignals, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
@@ -1520,6 +1560,12 @@ export const deserializeAws_restJson1DescribeApplicationInstanceCommand = async 
   if (data.Name != null) {
     contents.Name = __expectString(data.Name);
   }
+  if (data.RuntimeContextStates != null) {
+    contents.RuntimeContextStates = deserializeAws_restJson1ReportedRuntimeContextStates(
+      data.RuntimeContextStates,
+      context
+    );
+  }
   if (data.RuntimeRoleArn != null) {
     contents.RuntimeRoleArn = __expectString(data.RuntimeRoleArn);
   }
@@ -1786,6 +1832,9 @@ export const deserializeAws_restJson1DescribeDeviceJobCommand = async (
   }
   if (data.JobId != null) {
     contents.JobId = __expectString(data.JobId);
+  }
+  if (data.JobType != null) {
+    contents.JobType = __expectString(data.JobType);
   }
   if (data.Status != null) {
     contents.Status = __expectString(data.Status);
@@ -2912,6 +2961,56 @@ const deserializeAws_restJson1RemoveApplicationInstanceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1SignalApplicationInstanceNodeInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SignalApplicationInstanceNodeInstancesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SignalApplicationInstanceNodeInstancesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ApplicationInstanceId != null) {
+    contents.ApplicationInstanceId = __expectString(data.ApplicationInstanceId);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1SignalApplicationInstanceNodeInstancesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SignalApplicationInstanceNodeInstancesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.panorama#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.panorama#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.panorama#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.panorama#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3273,6 +3372,21 @@ const serializeAws_restJson1NetworkPayload = (input: NetworkPayload, context: __
   };
 };
 
+const serializeAws_restJson1NodeSignal = (input: NodeSignal, context: __SerdeContext): any => {
+  return {
+    ...(input.NodeInstanceId != null && { NodeInstanceId: input.NodeInstanceId }),
+    ...(input.Signal != null && { Signal: input.Signal }),
+  };
+};
+
+const serializeAws_restJson1NodeSignalList = (input: NodeSignal[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1NodeSignal(entry, context);
+    });
+};
+
 const serializeAws_restJson1NtpPayload = (input: NtpPayload, context: __SerdeContext): any => {
   return {
     ...(input.NtpServers != null && { NtpServers: serializeAws_restJson1NtpServerList(input.NtpServers, context) }),
@@ -3419,6 +3533,10 @@ const deserializeAws_restJson1ApplicationInstance = (output: any, context: __Ser
     Description: __expectString(output.Description),
     HealthStatus: __expectString(output.HealthStatus),
     Name: __expectString(output.Name),
+    RuntimeContextStates:
+      output.RuntimeContextStates != null
+        ? deserializeAws_restJson1ReportedRuntimeContextStates(output.RuntimeContextStates, context)
+        : undefined,
     Status: __expectString(output.Status),
     StatusDescription: __expectString(output.StatusDescription),
     Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
@@ -3501,6 +3619,7 @@ const deserializeAws_restJson1DeviceJob = (output: any, context: __SerdeContext)
     DeviceId: __expectString(output.DeviceId),
     DeviceName: __expectString(output.DeviceName),
     JobId: __expectString(output.JobId),
+    JobType: __expectString(output.JobType),
   } as any;
 };
 
@@ -3611,6 +3730,7 @@ const deserializeAws_restJson1JobTagsList = (output: any, context: __SerdeContex
 const deserializeAws_restJson1LatestDeviceJob = (output: any, context: __SerdeContext): LatestDeviceJob => {
   return {
     ImageVersion: __expectString(output.ImageVersion),
+    JobType: __expectString(output.JobType),
     Status: __expectString(output.Status),
   } as any;
 };
@@ -3956,6 +4076,36 @@ const deserializeAws_restJson1PrincipalArnsList = (output: any, context: __Serde
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ReportedRuntimeContextState = (
+  output: any,
+  context: __SerdeContext
+): ReportedRuntimeContextState => {
+  return {
+    DesiredState: __expectString(output.DesiredState),
+    DeviceReportedStatus: __expectString(output.DeviceReportedStatus),
+    DeviceReportedTime:
+      output.DeviceReportedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeviceReportedTime)))
+        : undefined,
+    RuntimeContextName: __expectString(output.RuntimeContextName),
+  } as any;
+};
+
+const deserializeAws_restJson1ReportedRuntimeContextStates = (
+  output: any,
+  context: __SerdeContext
+): ReportedRuntimeContextState[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ReportedRuntimeContextState(entry, context);
     });
   return retVal;
 };
