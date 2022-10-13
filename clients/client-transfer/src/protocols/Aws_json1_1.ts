@@ -4633,6 +4633,14 @@ const serializeAws_json1_1ListWorkflowsRequest = (input: ListWorkflowsRequest, c
   };
 };
 
+const serializeAws_json1_1OnPartialUploadWorkflowDetails = (input: WorkflowDetail[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1WorkflowDetail(entry, context);
+    });
+};
+
 const serializeAws_json1_1OnUploadWorkflowDetails = (input: WorkflowDetail[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -4929,6 +4937,9 @@ const serializeAws_json1_1WorkflowDetail = (input: WorkflowDetail, context: __Se
 
 const serializeAws_json1_1WorkflowDetails = (input: WorkflowDetails, context: __SerdeContext): any => {
   return {
+    ...(input.OnPartialUpload != null && {
+      OnPartialUpload: serializeAws_json1_1OnPartialUploadWorkflowDetails(input.OnPartialUpload, context),
+    }),
     ...(input.OnUpload != null && { OnUpload: serializeAws_json1_1OnUploadWorkflowDetails(input.OnUpload, context) }),
   };
 };
@@ -5921,6 +5932,21 @@ const deserializeAws_json1_1LoggingConfiguration = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1OnPartialUploadWorkflowDetails = (
+  output: any,
+  context: __SerdeContext
+): WorkflowDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1WorkflowDetail(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1OnUploadWorkflowDetails = (output: any, context: __SerdeContext): WorkflowDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -6258,6 +6284,10 @@ const deserializeAws_json1_1WorkflowDetail = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1WorkflowDetails = (output: any, context: __SerdeContext): WorkflowDetails => {
   return {
+    OnPartialUpload:
+      output.OnPartialUpload != null
+        ? deserializeAws_json1_1OnPartialUploadWorkflowDetails(output.OnPartialUpload, context)
+        : undefined,
     OnUpload:
       output.OnUpload != null ? deserializeAws_json1_1OnUploadWorkflowDetails(output.OnUpload, context) : undefined,
   } as any;

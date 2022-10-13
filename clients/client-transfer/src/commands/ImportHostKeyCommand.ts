@@ -28,7 +28,8 @@ export interface ImportHostKeyCommandInput extends ImportHostKeyRequest {}
 export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a host key to the server specified by the <code>ServerId</code> parameter.</p>
+ * <p>Adds a host key to the server that's specified by the <code>ServerId</code>
+ *       parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

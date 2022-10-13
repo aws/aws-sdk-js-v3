@@ -173,7 +173,7 @@ export class ConflictException extends __BaseException {
  */
 export interface EfsFileLocation {
   /**
-   * <p>The ID of the file system, assigned by Amazon EFS.</p>
+   * <p>The identifier of the file system, assigned by Amazon EFS.</p>
    */
   FileSystemId?: string;
 
@@ -415,13 +415,13 @@ export interface CreateAccessRequest {
 
 export interface CreateAccessResponse {
   /**
-   * <p>The ID of the server that the user is attached to.</p>
+   * <p>The identifier of the server that the user is attached to.</p>
    */
   ServerId: string | undefined;
 
   /**
-   * <p>The external ID of the group whose users have access to your Amazon S3 or Amazon EFS
-   *       resources over the enabled protocols using Transfer Family.</p>
+   * <p>The external identifier of the group whose users have access to your Amazon S3 or Amazon
+   *       EFS resources over the enabled protocols using Transfer Family.</p>
    */
   ExternalId: string | undefined;
 }
@@ -584,8 +584,7 @@ export interface CreateAgreementRequest {
   /**
    * <p>The landing directory (folder) for files transferred by using the AS2 protocol.</p>
    *          <p>A <code>BaseDirectory</code> example is
-   *           <code>/<i>DOC-EXAMPLE-BUCKET</i>/<i>home</i>/<i>mydirectory</i>
-   *             </code>.</p>
+   *           <i>DOC-EXAMPLE-BUCKET</i>/<i>home</i>/<i>mydirectory</i>.</p>
    */
   BaseDirectory: string | undefined;
 
@@ -684,8 +683,15 @@ export interface CreateProfileRequest {
   As2Id: string | undefined;
 
   /**
-   * <p>Indicates whether to list only <code>LOCAL</code> type profiles or only <code>PARTNER</code> type profiles.
-   *    If not supplied in the request, the command lists all types of profiles.</p>
+   * <p>Determines the type of profile to create:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specify <code>LOCAL</code> to create a local profile. A local profile represents the AS2-enabled Transfer Family server organization or party.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specify <code>PARTNER</code> to create a partner profile. A partner profile represents a remote organization, external to Transfer Family.</p>
+   *             </li>
+   *          </ul>
    */
   ProfileType: ProfileType | string | undefined;
 
@@ -754,7 +760,7 @@ export interface EndpointDetails {
   SubnetIds?: string[];
 
   /**
-   * <p>The ID of the VPC endpoint.</p>
+   * <p>The identifier of the VPC endpoint.</p>
    *
    *          <note>
    *             <p>This property can only be set when <code>EndpointType</code> is set to
@@ -767,7 +773,7 @@ export interface EndpointDetails {
   VpcEndpointId?: string;
 
   /**
-   * <p>The VPC ID of the VPC in which a server's endpoint will be hosted.</p>
+   * <p>The VPC identifier of the VPC in which a server's endpoint will be hosted.</p>
    *
    *          <note>
    *             <p>This property can only be set when <code>EndpointType</code> is set to
@@ -858,18 +864,25 @@ export interface ProtocolDetails {
    *       For example:
    *     </p>
    *          <p>
-   *             <code>
-   *         aws transfer update-server --protocol-details PassiveIp=<i>0.0.0.0</i>
-   *             </code>
+   *             <code>aws transfer update-server --protocol-details PassiveIp=0.0.0.0</code>
    *          </p>
-   *          <p>Replace <code>
-   *                <i>0.0.0.0</i>
-   *             </code> in the example above with the actual IP address you want to use.</p>
+   *          <p>Replace <code>0.0.0.0</code> in the example above with the actual IP address you want to use.</p>
    *          <note>
    *             <p>
    *         If you change the <code>PassiveIp</code> value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see <a href="http://aws.amazon.com/blogs/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/">Configuring your FTPS server behind a firewall or NAT with Transfer Family</a>.
    *       </p>
    *          </note>
+   *          <p>
+   *             <i>Special values</i>
+   *          </p>
+   *
+   *          <p>The <code>AUTO</code> and <code>0.0.0.0</code> are special values for the <code>PassiveIp</code> parameter. The value <code>PassiveIp=AUTO</code>
+   *       is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response.
+   *       <code>PassiveIp=0.0.0.0</code> has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment,
+   *       where you have 3 subnets, you can only specify a single IP address using the <code>PassiveIp</code> parameter. This reduces the effectiveness of having High Availability.
+   *       In this case, you can specify <code>PassiveIp=0.0.0.0</code>. This tells the client to use the same IP address as the Control connection and utilize all AZs for their
+   *       connections. Note, however, that not all FTP clients support the <code>PassiveIp=0.0.0.0</code> response. FileZilla and WinSCP do support it. If you are using other
+   *       clients, check to see if your client supports the <code>PassiveIp=0.0.0.0</code> response.</p>
    */
   PassiveIp?: string;
 
@@ -933,6 +946,9 @@ export enum Protocol {
 
 /**
  * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
+ *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
+ *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
+ *     the session disconnects.</p>
  */
 export interface WorkflowDetail {
   /**
@@ -959,7 +975,14 @@ export interface WorkflowDetails {
    *             <code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'</code>
    *          </p>
    */
-  OnUpload: WorkflowDetail[] | undefined;
+  OnUpload?: WorkflowDetail[];
+
+  /**
+   * <p>A trigger that starts a workflow if a file is only partially uploaded. You can attach a workflow to a server
+   *   that executes whenever there is a partial upload.</p>
+   *          <p>A <i>partial upload</i> occurs when a file is open when the session disconnects.</p>
+   */
+  OnPartialUpload?: WorkflowDetail[];
 }
 
 export interface CreateServerRequest {
@@ -1049,7 +1072,8 @@ export interface CreateServerRequest {
   EndpointType?: EndpointType | string;
 
   /**
-   * <p>The RSA, ECDSA, or ED25519 private key to use for your server.</p>
+   * <p>The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled server. You can add multiple host keys, in case you want
+   *      to rotate keys, or have a set of active keys that use different algorithms.</p>
    *
    *          <p>Use the following command to generate an RSA 2048 bit key with no passphrase:</p>
    *          <p>
@@ -1075,7 +1099,7 @@ export interface CreateServerRequest {
    *
    *
    *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change the host key for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Update host keys for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</p>
    */
   HostKey?: string;
 
@@ -1227,13 +1251,16 @@ export interface CreateServerRequest {
 
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
+   *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
+   *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
+   *     the session disconnects.</p>
    */
   WorkflowDetails?: WorkflowDetails;
 }
 
 export interface CreateServerResponse {
   /**
-   * <p>The service-assigned ID of the server that is created.</p>
+   * <p>The service-assigned identifier of the server that is created.</p>
    */
   ServerId: string | undefined;
 }
@@ -1373,7 +1400,7 @@ export interface CreateUserRequest {
 
 export interface CreateUserResponse {
   /**
-   * <p>The ID of the server that the user is attached to.</p>
+   * <p>The identifier of the server that the user is attached to.</p>
    */
   ServerId: string | undefined;
 
@@ -1667,14 +1694,14 @@ export interface DeleteAgreementRequest {
   AgreementId: string | undefined;
 
   /**
-   * <p>The server ID associated with the agreement that you are deleting.</p>
+   * <p>The server identifier associated with the agreement that you are deleting.</p>
    */
   ServerId: string | undefined;
 }
 
 export interface DeleteCertificateRequest {
   /**
-   * <p>The ID of the certificate object that you are deleting.</p>
+   * <p>The identifier of the certificate object that you are deleting.</p>
    */
   CertificateId: string | undefined;
 }
@@ -1688,19 +1715,19 @@ export interface DeleteConnectorRequest {
 
 export interface DeleteHostKeyRequest {
   /**
-   * <p>Provide the ID of the server that contains the host key that you are deleting.</p>
+   * <p>The identifier of the server that contains the host key that you are deleting.</p>
    */
   ServerId: string | undefined;
 
   /**
-   * <p>The ID of the host key that you are deleting.</p>
+   * <p>The identifier of the host key that you are deleting.</p>
    */
   HostKeyId: string | undefined;
 }
 
 export interface DeleteProfileRequest {
   /**
-   * <p>The ID of the profile that you are deleting.</p>
+   * <p>The identifier of the profile that you are deleting.</p>
    */
   ProfileId: string | undefined;
 }
@@ -1858,7 +1885,7 @@ export interface DescribeAccessResponse {
   ServerId: string | undefined;
 
   /**
-   * <p>The external ID of the server that the access is attached to.</p>
+   * <p>The external identifier of the server that the access is attached to.</p>
    */
   Access: DescribedAccess | undefined;
 }
@@ -1870,7 +1897,7 @@ export interface DescribeAgreementRequest {
   AgreementId: string | undefined;
 
   /**
-   * <p>The server ID that's associated with the agreement.</p>
+   * <p>The server identifier that's associated with the agreement.</p>
    */
   ServerId: string | undefined;
 }
@@ -2144,7 +2171,7 @@ export interface FileLocation {
   S3FileLocation?: S3FileLocation;
 
   /**
-   * <p>Specifies the Amazon EFS ID and the path for the file being used.</p>
+   * <p>Specifies the Amazon EFS identifier and the path for the file being used.</p>
    */
   EfsFileLocation?: EfsFileLocation;
 }
@@ -2403,24 +2430,33 @@ export interface DescribedHostKey {
   Description?: string;
 
   /**
-   * <p>The encryption algorithm used for the host key. The <code>Type</code> is one of the
+   * <p>The encryption algorithm that is used for the host key. The <code>Type</code> parameter is specified by using one of the
    *       following values:</p>
    *          <ul>
    *             <li>
-   *                <p>ssh-rsa</p>
+   *                <p>
+   *                   <code>ssh-rsa</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>ssh-ed25519</p>
+   *                <p>
+   *                   <code>ssh-ed25519</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>ecdsa-sha2-nistp256
-   *         </p>
+   *                <p>
+   *                   <code>ecdsa-sha2-nistp256</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>ecdsa-sha2-nistp384</p>
+   *                <p>
+   *                   <code>ecdsa-sha2-nistp384</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>ecdsa-sha2-nistp521</p>
+   *                <p>
+   *                   <code>ecdsa-sha2-nistp521</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -2438,8 +2474,7 @@ export interface DescribedHostKey {
 }
 
 /**
- * <p>The details for a local or partner AS2 profile.
- *       profile.</p>
+ * <p>The details for a local or partner AS2 profile. </p>
  */
 export interface DescribedProfile {
   /**
@@ -2742,6 +2777,9 @@ export interface DescribedServer {
 
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
+   *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
+   *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
+   *     the session disconnects.</p>
    */
   WorkflowDetails?: WorkflowDetails;
 }
@@ -2920,12 +2958,12 @@ export interface DescribeExecutionResponse {
 
 export interface DescribeHostKeyRequest {
   /**
-   * <p>Provide the ID of the server that contains the host key that you want described.</p>
+   * <p>The identifier of the server that contains the host key that you want described.</p>
    */
   ServerId: string | undefined;
 
   /**
-   * <p>Provide the ID of the host key that you want described.</p>
+   * <p>The identifier of the host key that you want described.</p>
    */
   HostKeyId: string | undefined;
 }
@@ -3072,7 +3110,7 @@ export interface ImportCertificateResponse {
 
 export interface ImportHostKeyRequest {
   /**
-   * <p>Provide the ID of the server that contains the host key that you are importing.</p>
+   * <p>The identifier of the server that contains the host key that you are importing.</p>
    */
   ServerId: string | undefined;
 
@@ -3083,7 +3121,7 @@ export interface ImportHostKeyRequest {
   HostKeyBody: string | undefined;
 
   /**
-   * <p>Enter a text description to identify this host key.</p>
+   * <p>The text description that identifies this host key.</p>
    */
   Description?: string;
 
@@ -3095,12 +3133,12 @@ export interface ImportHostKeyRequest {
 
 export interface ImportHostKeyResponse {
   /**
-   * <p>Returns the server ID that contains the imported key.</p>
+   * <p>Returns the server identifier that contains the imported key.</p>
    */
   ServerId: string | undefined;
 
   /**
-   * <p>Returns the host key ID for the imported key.</p>
+   * <p>Returns the host key identifier for the imported key.</p>
    */
   HostKeyId: string | undefined;
 }
@@ -3478,16 +3516,16 @@ export interface ListedExecution {
 }
 
 /**
- * <p>Returns properties of the host key that is specified.</p>
+ * <p>Returns properties of the host key that's specified.</p>
  */
 export interface ListedHostKey {
   /**
-   * <p>Specifies the unique Amazon Resource Name (ARN) of the host key.</p>
+   * <p>The unique Amazon Resource Name (ARN) of the host key.</p>
    */
   Arn: string | undefined;
 
   /**
-   * <p></p>
+   * <p>A unique identifier for the host key.</p>
    */
   HostKeyId?: string;
 
@@ -3502,24 +3540,33 @@ export interface ListedHostKey {
   Description?: string;
 
   /**
-   * <p>The encryption algorithm used for the host key. The <code>Type</code> is one of the
+   * <p>The encryption algorithm that is used for the host key. The <code>Type</code> parameter is specified by using one of the
    *       following values:</p>
    *          <ul>
    *             <li>
-   *                <p>ssh-rsa</p>
+   *                <p>
+   *                   <code>ssh-rsa</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>ssh-ed25519</p>
+   *                <p>
+   *                   <code>ssh-ed25519</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>ecdsa-sha2-nistp256
-   *         </p>
+   *                <p>
+   *                   <code>ecdsa-sha2-nistp256</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>ecdsa-sha2-nistp384</p>
+   *                <p>
+   *                   <code>ecdsa-sha2-nistp384</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>ecdsa-sha2-nistp521</p>
+   *                <p>
+   *                   <code>ecdsa-sha2-nistp521</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -3682,7 +3729,8 @@ export interface ListedUser {
 }
 
 /**
- * <p>Contains the ID, text description, and Amazon Resource Name (ARN) for the workflow.</p>
+ * <p>Contains the identifier, text description, and Amazon Resource Name (ARN) for the
+ *       workflow.</p>
  */
 export interface ListedWorkflow {
   /**
@@ -3795,7 +3843,7 @@ export interface ListHostKeysRequest {
   NextToken?: string;
 
   /**
-   * <p>Provide the ID of the server that contains the host keys that you want to view.</p>
+   * <p>The identifier of the server that contains the host keys that you want to view.</p>
    */
   ServerId: string | undefined;
 }
@@ -3808,7 +3856,7 @@ export interface ListHostKeysResponse {
   NextToken?: string;
 
   /**
-   * <p>Returns the server ID that contains the listed host keys.</p>
+   * <p>Returns the server identifier that contains the listed host keys.</p>
    */
   ServerId: string | undefined;
 
@@ -4279,13 +4327,13 @@ export interface UpdateAccessRequest {
 
 export interface UpdateAccessResponse {
   /**
-   * <p>The ID of the server that the user is attached to.</p>
+   * <p>The identifier of the server that the user is attached to.</p>
    */
   ServerId: string | undefined;
 
   /**
-   * <p>The external ID of the group whose users have access to your Amazon S3 or Amazon EFS
-   *       resources over the enabled protocols using Amazon Web ServicesTransfer Family.</p>
+   * <p>The external identifier of the group whose users have access to your Amazon S3 or Amazon
+   *       EFS resources over the enabled protocols using Amazon Web ServicesTransfer Family.</p>
    */
   ExternalId: string | undefined;
 }
@@ -4431,29 +4479,29 @@ export interface UpdateConnectorResponse {
 
 export interface UpdateHostKeyRequest {
   /**
-   * <p>Provide the ID of the server that contains the host key that you are updating.</p>
+   * <p>The identifier of the server that contains the host key that you are updating.</p>
    */
   ServerId: string | undefined;
 
   /**
-   * <p>Provide the ID of the host key that you are updating.</p>
+   * <p>The identifier of the host key that you are updating.</p>
    */
   HostKeyId: string | undefined;
 
   /**
-   * <p>Provide an updated description for the host key.</p>
+   * <p>An updated description for the host key.</p>
    */
   Description: string | undefined;
 }
 
 export interface UpdateHostKeyResponse {
   /**
-   * <p>Returns the server ID for the server that contains the updated host key.</p>
+   * <p>Returns the server identifier for the server that contains the updated host key.</p>
    */
   ServerId: string | undefined;
 
   /**
-   * <p>Returns the host key ID for the updated host key.</p>
+   * <p>Returns the host key identifier for the updated host key.</p>
    */
   HostKeyId: string | undefined;
 }
@@ -4582,7 +4630,8 @@ export interface UpdateServerRequest {
   EndpointType?: EndpointType | string;
 
   /**
-   * <p>The RSA, ECDSA, or ED25519 private key to use for your server.</p>
+   * <p>The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled server. You can add multiple host keys, in case you want
+   *      to rotate keys, or have a set of active keys that use different algorithms.</p>
    *
    *          <p>Use the following command to generate an RSA 2048 bit key with no passphrase:</p>
    *          <p>
@@ -4608,7 +4657,7 @@ export interface UpdateServerRequest {
    *
    *
    *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change the host key for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Update host keys for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</p>
    */
   HostKey?: string;
 
@@ -4712,6 +4761,9 @@ export interface UpdateServerRequest {
 
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
+   *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
+   *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
+   *     the session disconnects.</p>
    *          <p>To remove an associated workflow from a server, you can provide an empty <code>OnUpload</code> object, as in the following example.</p>
    *          <p>
    *             <code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'</code>

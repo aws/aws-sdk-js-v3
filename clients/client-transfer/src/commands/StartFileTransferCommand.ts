@@ -28,7 +28,7 @@ export interface StartFileTransferCommandInput extends StartFileTransferRequest 
 export interface StartFileTransferCommandOutput extends StartFileTransferResponse, __MetadataBearer {}
 
 /**
- * <p>Begins an outbound file transfer. You specify the <code>ConnectorId</code> and the file
+ * <p>Begins an outbound file transfer to a remote AS2 server. You specify the <code>ConnectorId</code> and the file
  *       paths for where to send the files. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

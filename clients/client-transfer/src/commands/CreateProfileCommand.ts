@@ -28,8 +28,7 @@ export interface CreateProfileCommandInput extends CreateProfileRequest {}
 export interface CreateProfileCommandOutput extends CreateProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Creates the profile for the AS2 process. The agreement is between the partner and the AS2
- *       process.</p>
+ * <p>Creates the local or partner profile to use for AS2 transfers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

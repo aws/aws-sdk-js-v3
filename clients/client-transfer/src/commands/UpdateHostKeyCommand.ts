@@ -28,7 +28,8 @@ export interface UpdateHostKeyCommandInput extends UpdateHostKeyRequest {}
 export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the description for the host key specified by the specified by the <code>ServerId</code> and <code>HostKeyId</code> parameters.</p>
+ * <p>Updates the description for the host key that's specified by the <code>ServerId</code> and
+ *         <code>HostKeyId</code> parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

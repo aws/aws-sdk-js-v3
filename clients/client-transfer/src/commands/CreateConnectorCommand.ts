@@ -29,8 +29,8 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
 
 /**
  * <p>Creates the connector, which captures the parameters for an outbound connection for the
- *       AS2 protocol. The connector is required for sending files from a
- *       customer's non Amazon Web Services server. </p>
+ *       AS2 protocol. The connector is required for sending files to an externally hosted AS2 server.
+ *       For more details about connectors, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector">Create AS2 connectors</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

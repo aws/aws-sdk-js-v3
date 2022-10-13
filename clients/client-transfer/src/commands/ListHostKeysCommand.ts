@@ -28,7 +28,8 @@ export interface ListHostKeysCommandInput extends ListHostKeysRequest {}
 export interface ListHostKeysCommandOutput extends ListHostKeysResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of host keys for the server specified by the <code>ServerId</code> paramter.</p>
+ * <p>Returns a list of host keys for the server that's specified by the <code>ServerId</code>
+ *       parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
