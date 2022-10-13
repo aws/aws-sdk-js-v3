@@ -1307,6 +1307,7 @@ export enum ItemType {
   METRIC = "METRIC",
   OTHER = "OTHER",
   PARENT = "PARENT",
+  TASK = "TASK",
 }
 
 /**
