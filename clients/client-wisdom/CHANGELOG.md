@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.188.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.187.0...v3.188.0) (2022-10-13)
+
+
+### Features
+
+* **client-wisdom:** This release updates the GetRecommendations API to include a trigger event list for classifying and grouping recommendations. ([8ea9f3c](https://github.com/aws/aws-sdk-js-v3/commit/8ea9f3c72a95206d50f657c4bd2e64c715ce72db))
+
+
+
+
+
 # [3.187.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.186.0...v3.187.0) (2022-10-07)
 
 

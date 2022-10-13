@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.188.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.187.0...v3.188.0) (2022-10-13)
+
+
+### Bug Fixes
+
+* **endpoint:** misc endpoints 2.0 fixes for s3 ([#4031](https://github.com/aws/aws-sdk-js-v3/issues/4031)) ([f8926a5](https://github.com/aws/aws-sdk-js-v3/commit/f8926a56cf9a25c2e6a5c91089543094e32d5c4b))
+
+
+### Features
+
+* **client-amplifyuibuilder:** We are releasing the ability for fields to be configured as arrays. ([af77058](https://github.com/aws/aws-sdk-js-v3/commit/af77058a27b7f6d5853ddbb23b854bfe18a166be))
+* **client-appflow:** With this update, you can choose which Salesforce API is used by Amazon AppFlow to transfer data to or from your Salesforce account. You can choose the Salesforce REST API or Bulk API 2.0. You can also choose for Amazon AppFlow to pick the API automatically. ([fa7223a](https://github.com/aws/aws-sdk-js-v3/commit/fa7223ae5add3e09649613083fb1afaaf9f5c2bf))
+* **client-connect:** This release adds support for a secondary email and a mobile number for Amazon Connect instance users. ([8c9f644](https://github.com/aws/aws-sdk-js-v3/commit/8c9f6446ab2abc76a919631009f73c0ee589c7b2))
+* **client-directory-service:** This release adds support for describing and updating AWS Managed Microsoft AD set up. ([a6042dd](https://github.com/aws/aws-sdk-js-v3/commit/a6042dd03d940ccc8a5a3cd8f78293ec7bbd3208))
+* **client-guardduty:** Add UnprocessedDataSources to CreateDetectorResponse which specifies the data sources that couldn't be enabled during the CreateDetector request. In addition, update documentations. ([f64188c](https://github.com/aws/aws-sdk-js-v3/commit/f64188c0990155930c2060582252cb16df6b4228))
+* **client-medialive:** AWS Elemental MediaLive now supports forwarding SCTE-35 messages through the Event Signaling and Management (ESAM) API, and can read those SCTE-35 messages from an inactive source. ([3e59a7a](https://github.com/aws/aws-sdk-js-v3/commit/3e59a7ac4d2d0901637af72c5312549f2309b9a7))
+* **client-mediapackage-vod:** This release adds SPEKE v2 support for MediaPackage VOD. Speke v2 is an upgrade to the existing SPEKE API to support multiple encryption keys, based on an encryption contract selected by the customer. ([f53ca0e](https://github.com/aws/aws-sdk-js-v3/commit/f53ca0e02b6ce5f6531528968097ee3d58fae493))
+* **client-panorama:** Pause and resume camera stream processing with SignalApplicationInstanceNodeInstances. Reboot an appliance with CreateJobForDevices. More application state information in DescribeApplicationInstance response. ([8e266f0](https://github.com/aws/aws-sdk-js-v3/commit/8e266f0cb38bb2acf44987f5fca8a782cabadfdb))
+* **client-ssm-incidents:** Update RelatedItem enum to support Tasks ([d89bc49](https://github.com/aws/aws-sdk-js-v3/commit/d89bc49feff3cf7283d81715572487ef4ce5d1c6))
+* **client-ssm:** Support of AmazonLinux2022 by Patch Manager ([5f08c96](https://github.com/aws/aws-sdk-js-v3/commit/5f08c9697fd82962ceee4c1f2615e9741e25085d))
+* **client-transfer:** This release adds an option for customers to configure workflows that are triggered when files are only partially received from a client due to premature session disconnect. ([d0d60da](https://github.com/aws/aws-sdk-js-v3/commit/d0d60dab0be54c0f466858f49deb4a4c8dd50fd9))
+* **client-wisdom:** This release updates the GetRecommendations API to include a trigger event list for classifying and grouping recommendations. ([8ea9f3c](https://github.com/aws/aws-sdk-js-v3/commit/8ea9f3c72a95206d50f657c4bd2e64c715ce72db))
+* **clients:** support util functions to consume response streams ([#3977](https://github.com/aws/aws-sdk-js-v3/issues/3977)) ([ad99b66](https://github.com/aws/aws-sdk-js-v3/commit/ad99b66944b6fe1ce83082c1a33193dff033cfaf))
+* **clients:** update client endpoints as of 2022-10-13 ([914798b](https://github.com/aws/aws-sdk-js-v3/commit/914798ba376b17631d02dc04a81faae63e1dce05))
+
+
+
+
+
 # [3.187.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.186.0...v3.187.0) (2022-10-07)
 
 

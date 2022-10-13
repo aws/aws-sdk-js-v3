@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.188.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.187.0...v3.188.0) (2022-10-13)
+
+
+### Features
+
+* **client-ssm-incidents:** Update RelatedItem enum to support Tasks ([d89bc49](https://github.com/aws/aws-sdk-js-v3/commit/d89bc49feff3cf7283d81715572487ef4ce5d1c6))
+
+
+
+
+
 # [3.186.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.185.0...v3.186.0) (2022-10-06)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm-incidents

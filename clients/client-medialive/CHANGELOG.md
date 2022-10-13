@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.188.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.187.0...v3.188.0) (2022-10-13)
+
+
+### Features
+
+* **client-medialive:** AWS Elemental MediaLive now supports forwarding SCTE-35 messages through the Event Signaling and Management (ESAM) API, and can read those SCTE-35 messages from an inactive source. ([3e59a7a](https://github.com/aws/aws-sdk-js-v3/commit/3e59a7ac4d2d0901637af72c5312549f2309b9a7))
+* **clients:** support util functions to consume response streams ([#3977](https://github.com/aws/aws-sdk-js-v3/issues/3977)) ([ad99b66](https://github.com/aws/aws-sdk-js-v3/commit/ad99b66944b6fe1ce83082c1a33193dff033cfaf))
+
+
+
+
+
 # [3.186.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.185.0...v3.186.0) (2022-10-06)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

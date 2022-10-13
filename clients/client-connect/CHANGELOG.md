@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.188.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.187.0...v3.188.0) (2022-10-13)
+
+
+### Features
+
+* **client-connect:** This release adds support for a secondary email and a mobile number for Amazon Connect instance users. ([8c9f644](https://github.com/aws/aws-sdk-js-v3/commit/8c9f6446ab2abc76a919631009f73c0ee589c7b2))
+
+
+
+
+
 # [3.186.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.185.0...v3.186.0) (2022-10-06)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

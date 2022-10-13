@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.188.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.187.0...v3.188.0) (2022-10-13)
+
+
+### Features
+
+* **client-mediapackage-vod:** This release adds SPEKE v2 support for MediaPackage VOD. Speke v2 is an upgrade to the existing SPEKE API to support multiple encryption keys, based on an encryption contract selected by the customer. ([f53ca0e](https://github.com/aws/aws-sdk-js-v3/commit/f53ca0e02b6ce5f6531528968097ee3d58fae493))
+
+
+
+
+
 # [3.186.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.185.0...v3.186.0) (2022-10-06)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackage-vod

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/eventstream-serde-config-resolver",
-  "version": "3.186.0",
+  "version": "3.188.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
