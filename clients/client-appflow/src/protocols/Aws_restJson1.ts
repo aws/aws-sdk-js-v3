@@ -174,6 +174,7 @@ import {
   S3SourceProperties,
   SalesforceConnectorProfileCredentials,
   SalesforceConnectorProfileProperties,
+  SalesforceDataTransferApi,
   SalesforceDestinationProperties,
   SalesforceMetadata,
   SalesforceSourceProperties,
@@ -2989,6 +2990,7 @@ const serializeAws_restJson1SalesforceDestinationProperties = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.dataTransferApi != null && { dataTransferApi: input.dataTransferApi }),
     ...(input.errorHandlingConfig != null && {
       errorHandlingConfig: serializeAws_restJson1ErrorHandlingConfig(input.errorHandlingConfig, context),
     }),
@@ -3005,6 +3007,7 @@ const serializeAws_restJson1SalesforceSourceProperties = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.dataTransferApi != null && { dataTransferApi: input.dataTransferApi }),
     ...(input.enableDynamicFieldUpdate != null && { enableDynamicFieldUpdate: input.enableDynamicFieldUpdate }),
     ...(input.includeDeletedRecords != null && { includeDeletedRecords: input.includeDeletedRecords }),
     ...(input.object != null && { object: input.object }),
@@ -4843,11 +4846,27 @@ const deserializeAws_restJson1SalesforceConnectorProfileProperties = (
   } as any;
 };
 
+const deserializeAws_restJson1SalesforceDataTransferApiList = (
+  output: any,
+  context: __SerdeContext
+): (SalesforceDataTransferApi | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1SalesforceDestinationProperties = (
   output: any,
   context: __SerdeContext
 ): SalesforceDestinationProperties => {
   return {
+    dataTransferApi: __expectString(output.dataTransferApi),
     errorHandlingConfig:
       output.errorHandlingConfig != null
         ? deserializeAws_restJson1ErrorHandlingConfig(output.errorHandlingConfig, context)
@@ -4861,6 +4880,10 @@ const deserializeAws_restJson1SalesforceDestinationProperties = (
 
 const deserializeAws_restJson1SalesforceMetadata = (output: any, context: __SerdeContext): SalesforceMetadata => {
   return {
+    dataTransferApis:
+      output.dataTransferApis != null
+        ? deserializeAws_restJson1SalesforceDataTransferApiList(output.dataTransferApis, context)
+        : undefined,
     oAuthScopes:
       output.oAuthScopes != null ? deserializeAws_restJson1OAuthScopeList(output.oAuthScopes, context) : undefined,
   } as any;
@@ -4871,6 +4894,7 @@ const deserializeAws_restJson1SalesforceSourceProperties = (
   context: __SerdeContext
 ): SalesforceSourceProperties => {
   return {
+    dataTransferApi: __expectString(output.dataTransferApi),
     enableDynamicFieldUpdate: __expectBoolean(output.enableDynamicFieldUpdate),
     includeDeletedRecords: __expectBoolean(output.includeDeletedRecords),
     object: __expectString(output.object),
