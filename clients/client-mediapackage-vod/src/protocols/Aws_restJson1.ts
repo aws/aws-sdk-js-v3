@@ -77,6 +77,7 @@ import {
   DashPackage,
   EgressAccessLogs,
   EgressEndpoint,
+  EncryptionContractConfiguration,
   ForbiddenException,
   HlsEncryption,
   HlsManifest,
@@ -1770,6 +1771,16 @@ const serializeAws_restJson1EgressAccessLogs = (input: EgressAccessLogs, context
   };
 };
 
+const serializeAws_restJson1EncryptionContractConfiguration = (
+  input: EncryptionContractConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PresetSpeke20Audio != null && { presetSpeke20Audio: input.PresetSpeke20Audio }),
+    ...(input.PresetSpeke20Video != null && { presetSpeke20Video: input.PresetSpeke20Video }),
+  };
+};
+
 const serializeAws_restJson1HlsEncryption = (input: HlsEncryption, context: __SerdeContext): any => {
   return {
     ...(input.ConstantInitializationVector != null && {
@@ -1838,6 +1849,12 @@ const serializeAws_restJson1MssPackage = (input: MssPackage, context: __SerdeCon
 
 const serializeAws_restJson1SpekeKeyProvider = (input: SpekeKeyProvider, context: __SerdeContext): any => {
   return {
+    ...(input.EncryptionContractConfiguration != null && {
+      encryptionContractConfiguration: serializeAws_restJson1EncryptionContractConfiguration(
+        input.EncryptionContractConfiguration,
+        context
+      ),
+    }),
     ...(input.RoleArn != null && { roleArn: input.RoleArn }),
     ...(input.SystemIds != null && { systemIds: serializeAws_restJson1__listOf__string(input.SystemIds, context) }),
     ...(input.Url != null && { url: input.Url }),
@@ -2088,6 +2105,16 @@ const deserializeAws_restJson1EgressEndpoint = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_restJson1EncryptionContractConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EncryptionContractConfiguration => {
+  return {
+    PresetSpeke20Audio: __expectString(output.presetSpeke20Audio),
+    PresetSpeke20Video: __expectString(output.presetSpeke20Video),
+  } as any;
+};
+
 const deserializeAws_restJson1HlsEncryption = (output: any, context: __SerdeContext): HlsEncryption => {
   return {
     ConstantInitializationVector: __expectString(output.constantInitializationVector),
@@ -2193,6 +2220,10 @@ const deserializeAws_restJson1PackagingGroup = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1SpekeKeyProvider = (output: any, context: __SerdeContext): SpekeKeyProvider => {
   return {
+    EncryptionContractConfiguration:
+      output.encryptionContractConfiguration != null
+        ? deserializeAws_restJson1EncryptionContractConfiguration(output.encryptionContractConfiguration, context)
+        : undefined,
     RoleArn: __expectString(output.roleArn),
     SystemIds:
       output.systemIds != null ? deserializeAws_restJson1__listOf__string(output.systemIds, context) : undefined,
