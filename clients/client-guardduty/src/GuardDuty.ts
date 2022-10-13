@@ -282,7 +282,7 @@ import { GuardDutyClient } from "./GuardDutyClient";
 
 /**
  * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
- *       the following data sources: VPC Flow Logs, AWS CloudTrail management event logs, CloudTrail S3 data event
+ *       the following data sources: VPC flow logs, Amazon Web Services CloudTrail management event logs, CloudTrail S3 data event
  *       logs, EKS audit logs, and DNS logs.
  *       It uses threat intelligence
  *       feeds (such as lists of malicious IPs and domains) and machine learning to identify
@@ -893,7 +893,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Returns a list of malware scans.</p>
+   * <p>Returns a list of malware scans. Each member account can view the malware scans for their
+   *       own accounts. An administrator can view the malware scans for all the member accounts.</p>
    */
   public describeMalwareScans(
     args: DescribeMalwareScansCommandInput,
@@ -1090,8 +1091,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Disassociates GuardDuty member accounts (to the current GuardDuty administrator account)
-   *       specified by the account IDs.</p>
+   * <p>Disassociates GuardDuty member accounts (to the current administrator account) specified by the account IDs.</p>
    */
   public disassociateMembers(
     args: DisassociateMembersCommandInput,

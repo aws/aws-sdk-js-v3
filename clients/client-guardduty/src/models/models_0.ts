@@ -193,7 +193,7 @@ export interface MalwareProtectionDataSourceFreeTrial {
  */
 export interface DataSourcesFreeTrial {
   /**
-   * <p>Describes whether any AWS CloudTrail management event logs are enabled as data sources.</p>
+   * <p>Describes whether any Amazon Web Services CloudTrail management event logs are enabled as data sources.</p>
    */
   CloudTrail?: DataSourceFreeTrial;
 
@@ -1029,11 +1029,67 @@ export interface CreateDetectorRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * <p>Describes the configuration of scanning EBS volumes as a data source.</p>
+ */
+export interface EbsVolumesResult {
+  /**
+   * <p>Describes whether scanning EBS volumes is enabled as a data source.</p>
+   */
+  Status?: DataSourceStatus | string;
+
+  /**
+   * <p>Specifies the reason why scanning EBS volumes (Malware Protection) was not enabled as a data source.</p>
+   */
+  Reason?: string;
+}
+
+/**
+ * <p>An object that contains information on the status of whether Malware Protection for EC2 instances with findings will be enabled as a data source.</p>
+ */
+export interface ScanEc2InstanceWithFindingsResult {
+  /**
+   * <p>Describes the configuration of scanning EBS volumes as a data source.</p>
+   */
+  EbsVolumes?: EbsVolumesResult;
+}
+
+/**
+ * <p>An object that contains information on the status of all Malware Protection data sources.</p>
+ */
+export interface MalwareProtectionConfigurationResult {
+  /**
+   * <p>Describes the configuration of Malware Protection for EC2 instances with findings.</p>
+   */
+  ScanEc2InstanceWithFindings?: ScanEc2InstanceWithFindingsResult;
+
+  /**
+   * <p>The GuardDuty Malware Protection service role.</p>
+   */
+  ServiceRole?: string;
+}
+
+/**
+ * <p>Specifies the names of the data sources that couldn't be enabled.</p>
+ */
+export interface UnprocessedDataSourcesResult {
+  /**
+   * <p>An object that contains information on the status of all Malware Protection data sources.</p>
+   */
+  MalwareProtection?: MalwareProtectionConfigurationResult;
+}
+
 export interface CreateDetectorResponse {
   /**
    * <p>The unique ID of the created detector.</p>
    */
   DetectorId?: string;
+
+  /**
+   * <p>Specifies the data sources that couldn't be enabled when GuardDuty was enabled for the
+   *     first time.</p>
+   */
+  UnprocessedDataSources?: UnprocessedDataSourcesResult;
 }
 
 export enum FilterAction {
@@ -1558,41 +1614,6 @@ export interface KubernetesConfigurationResult {
 }
 
 /**
- * <p>Describes the configuration of scanning EBS volumes as a data source.</p>
- */
-export interface EbsVolumesResult {
-  /**
-   * <p>Describes whether scanning EBS volumes is enabled as a data source.</p>
-   */
-  Status?: DataSourceStatus | string;
-}
-
-/**
- * <p>An object that contains information on the status of whether Malware Protection for EC2 instances with findings will be enabled as a data source.</p>
- */
-export interface ScanEc2InstanceWithFindingsResult {
-  /**
-   * <p>Describes the configuration of scanning EBS volumes as a data source.</p>
-   */
-  EbsVolumes?: EbsVolumesResult;
-}
-
-/**
- * <p>An object that contains information on the status of all Malware Protection data sources.</p>
- */
-export interface MalwareProtectionConfigurationResult {
-  /**
-   * <p>Describes the configuration of Malware Protection for EC2 instances with findings.</p>
-   */
-  ScanEc2InstanceWithFindings?: ScanEc2InstanceWithFindingsResult;
-
-  /**
-   * <p>The GuardDuty Malware Protection service role.</p>
-   */
-  ServiceRole?: string;
-}
-
-/**
  * <p>Describes whether S3 data event logs will be enabled as a data source.</p>
  */
 export interface S3LogsConfigurationResult {
@@ -1800,7 +1821,10 @@ export interface FilterCondition {
 }
 
 /**
- * <p>Represents a condition that when matched will be added to the response of the operation.</p>
+ * <p>Represents a condition that when matched will be added to the response of the operation.
+ *       Irrespective of using any filter criteria, an administrator account can view the scan
+ *       entries for all of its member accounts.
+ *       However, each member account can view the scan entries only for their own account.</p>
  */
 export interface FilterCriterion {
   /**
@@ -3569,7 +3593,7 @@ export interface GetMalwareScanSettingsResponse {
   ScanResourceCriteria?: ScanResourceCriteria;
 
   /**
-   * <p>An enum value representing possible snapshot preservations.</p>
+   * <p>An enum value representing possible snapshot preservation settings.</p>
    */
   EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
 }
@@ -4366,7 +4390,12 @@ export interface ListMembersRequest {
 
   /**
    * <p>Specifies whether to only return associated members or to return all members (including
-   *       members who haven't been invited yet or have been disassociated).</p>
+   *       members who haven't been invited yet or have been disassociated).
+   *       Member accounts must have been previously associated with the GuardDuty administrator account using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">
+   *                <code>Create
+   *         Members</code>
+   *             </a>.
+   *     </p>
    */
   OnlyAssociated?: string;
 }
@@ -4713,7 +4742,7 @@ export interface UpdateMalwareScanSettingsRequest {
   ScanResourceCriteria?: ScanResourceCriteria;
 
   /**
-   * <p>An enum value representing possible snapshot preservations.</p>
+   * <p>An enum value representing possible snapshot preservation settings.</p>
    */
   EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
 }
@@ -5252,6 +5281,36 @@ export const CreateDetectorRequestFilterSensitiveLog = (obj: CreateDetectorReque
 /**
  * @internal
  */
+export const EbsVolumesResultFilterSensitiveLog = (obj: EbsVolumesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanEc2InstanceWithFindingsResultFilterSensitiveLog = (obj: ScanEc2InstanceWithFindingsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MalwareProtectionConfigurationResultFilterSensitiveLog = (
+  obj: MalwareProtectionConfigurationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnprocessedDataSourcesResultFilterSensitiveLog = (obj: UnprocessedDataSourcesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateDetectorResponseFilterSensitiveLog = (obj: CreateDetectorResponse): any => ({
   ...obj,
 });
@@ -5390,29 +5449,6 @@ export const KubernetesAuditLogsConfigurationResultFilterSensitiveLog = (
  * @internal
  */
 export const KubernetesConfigurationResultFilterSensitiveLog = (obj: KubernetesConfigurationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EbsVolumesResultFilterSensitiveLog = (obj: EbsVolumesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScanEc2InstanceWithFindingsResultFilterSensitiveLog = (obj: ScanEc2InstanceWithFindingsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MalwareProtectionConfigurationResultFilterSensitiveLog = (
-  obj: MalwareProtectionConfigurationResult
-): any => ({
   ...obj,
 });
 

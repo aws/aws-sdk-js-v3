@@ -28,8 +28,7 @@ export interface DisassociateMembersCommandInput extends DisassociateMembersRequ
 export interface DisassociateMembersCommandOutput extends DisassociateMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates GuardDuty member accounts (to the current GuardDuty administrator account)
- *       specified by the account IDs.</p>
+ * <p>Disassociates GuardDuty member accounts (to the current administrator account) specified by the account IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

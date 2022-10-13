@@ -307,6 +307,7 @@ import {
   Total,
   TriggerDetails,
   UnprocessedAccount,
+  UnprocessedDataSourcesResult,
   UsageAccountResult,
   UsageCriteria,
   UsageDataSourceResult,
@@ -2196,6 +2197,12 @@ export const deserializeAws_restJson1CreateDetectorCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.detectorId != null) {
     contents.DetectorId = __expectString(data.detectorId);
+  }
+  if (data.unprocessedDataSources != null) {
+    contents.UnprocessedDataSources = deserializeAws_restJson1UnprocessedDataSourcesResult(
+      data.unprocessedDataSources,
+      context
+    );
   }
   return contents;
 };
@@ -5828,6 +5835,7 @@ const deserializeAws_restJson1EbsVolumeScanDetails = (output: any, context: __Se
 
 const deserializeAws_restJson1EbsVolumesResult = (output: any, context: __SerdeContext): EbsVolumesResult => {
   return {
+    Reason: __expectString(output.reason),
     Status: __expectString(output.status),
   } as any;
 };
@@ -7082,6 +7090,18 @@ const deserializeAws_restJson1UnprocessedAccounts = (output: any, context: __Ser
       return deserializeAws_restJson1UnprocessedAccount(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1UnprocessedDataSourcesResult = (
+  output: any,
+  context: __SerdeContext
+): UnprocessedDataSourcesResult => {
+  return {
+    MalwareProtection:
+      output.malwareProtection != null
+        ? deserializeAws_restJson1MalwareProtectionConfigurationResult(output.malwareProtection, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1UsageAccountResult = (output: any, context: __SerdeContext): UsageAccountResult => {

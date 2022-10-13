@@ -10,7 +10,7 @@
 AWS SDK for JavaScript GuardDuty Client for Node.js, Browser and React Native.
 
 <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
-the following data sources: VPC Flow Logs, AWS CloudTrail management event logs, CloudTrail S3 data event
+the following data sources: VPC flow logs, Amazon Web Services CloudTrail management event logs, CloudTrail S3 data event
 logs, EKS audit logs, and DNS logs.
 It uses threat intelligence
 feeds (such as lists of malicious IPs and domains) and machine learning to identify
