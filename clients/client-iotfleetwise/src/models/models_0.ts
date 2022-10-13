@@ -853,6 +853,7 @@ export interface CreateCampaignRequest {
 
   /**
    * <p> (Optional) A list of vehicle attributes to associate with a campaign. </p>
+   *         <p>Enrich the data with specified vehicle attributes. For example, add <code>make</code> and <code>model</code> to the campaign, and Amazon Web Services IoT FleetWise will associate the data with those attributes as dimensions in Amazon Timestream. You can then query the data against <code>make</code> and <code>model</code>.</p>
    *         <p>Default: An empty array</p>
    */
   dataExtraDimensions?: string[];
