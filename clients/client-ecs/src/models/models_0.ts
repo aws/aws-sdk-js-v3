@@ -81,15 +81,22 @@ export interface ManagedScaling {
   targetCapacity?: number;
 
   /**
-   * <p>The minimum number of container instances that Amazon ECS scales in or scales out at one
-   * 			time. If this parameter is omitted, the default value of <code>1</code> is used.</p>
+   * <p>The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale
+   * 			in process is not affected by this parameter If this parameter is omitted, the default
+   * 			value of <code>1</code> is used.</p>
+   * 		       <p>When additional capacity is required, Amazon ECS will scale up the minimum scaling step
+   * 			size even if the actual demand is less than the minimum scaling step size.</p>
+   * 		       <p>If you use a capacity provider with an Auto Scaling group configured with more than
+   * 			one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum
+   * 			scaling step size value and will ignore both the maximum scaling step size as well as
+   * 			the capacity demand.</p>
    */
   minimumScalingStepSize?: number;
 
   /**
-   * <p>The maximum number of container instances that Amazon ECS scales in or scales out at one
-   * 			time. If this parameter is omitted, the default value of <code>10000</code> is
-   * 			used.</p>
+   * <p>The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale
+   * 			in process is not affected by this parameter. If this parameter is omitted, the default
+   * 			value of <code>10000</code> is used.</p>
    */
   maximumScalingStepSize?: number;
 
@@ -2256,9 +2263,7 @@ export interface Service {
   schedulingStrategy?: SchedulingStrategy | string;
 
   /**
-   * <p>The deployment controller type the service is using. When using the DescribeServices
-   * 			API, this field is omitted if the service uses the <code>ECS</code> deployment
-   * 			controller type.</p>
+   * <p>The deployment controller type the service is using. </p>
    */
   deploymentController?: DeploymentController;
 
