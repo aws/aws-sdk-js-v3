@@ -34,7 +34,7 @@ export interface AccessDetail {
   /**
    * <p>The Region where the last service access attempt occurred.</p>
    *          <p>This field is null if no principals in the reported Organizations entity attempted to access the
-   *          service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   *          service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
    */
   Region?: string;
 
@@ -43,7 +43,7 @@ export interface AccessDetail {
    *          authenticated principal last attempted to access the service. Amazon Web Services does not report
    *          unauthenticated requests.</p>
    *          <p>This field is null if no principals (IAM users, IAM roles, or root users) in the
-   *          reported Organizations entity attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   *          reported Organizations entity attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
    */
   EntityPath?: string;
 
@@ -52,18 +52,21 @@ export interface AccessDetail {
    *             format</a>, when an authenticated principal most recently attempted to access the
    *          service. Amazon Web Services does not report unauthenticated requests.</p>
    *          <p>This field is null if no principals in the reported Organizations entity attempted to access the
-   *          service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   *          service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
    */
   LastAuthenticatedTime?: Date;
 
   /**
    * <p>The number of accounts with authenticated principals (root users, IAM users, and IAM
-   *          roles) that attempted to access the service in the reporting period.</p>
+   *          roles) that attempted to access the service in the tracking period.</p>
    */
   TotalAuthenticatedEntities?: number;
 }
 
-export type StatusType = "Active" | "Inactive";
+export enum StatusType {
+  Active = "Active",
+  Inactive = "Inactive",
+}
 
 /**
  * <p>Contains information about an Amazon Web Services access key.</p>
@@ -363,7 +366,11 @@ export interface AddUserToGroupRequest {
   UserName: string | undefined;
 }
 
-export type AssignmentStatusType = "Any" | "Assigned" | "Unassigned";
+export enum AssignmentStatusType {
+  Any = "Any",
+  Assigned = "Assigned",
+  Unassigned = "Unassigned",
+}
 
 export enum PermissionsBoundaryAttachmentType {
   Policy = "PermissionsBoundaryPolicy",
@@ -2867,33 +2874,34 @@ export interface GetAccountPasswordPolicyResponse {
   PasswordPolicy: PasswordPolicy | undefined;
 }
 
-export type SummaryKeyType =
-  | "AccessKeysPerUserQuota"
-  | "AccountAccessKeysPresent"
-  | "AccountMFAEnabled"
-  | "AccountSigningCertificatesPresent"
-  | "AttachedPoliciesPerGroupQuota"
-  | "AttachedPoliciesPerRoleQuota"
-  | "AttachedPoliciesPerUserQuota"
-  | "GlobalEndpointTokenVersion"
-  | "GroupPolicySizeQuota"
-  | "Groups"
-  | "GroupsPerUserQuota"
-  | "GroupsQuota"
-  | "MFADevices"
-  | "MFADevicesInUse"
-  | "Policies"
-  | "PoliciesQuota"
-  | "PolicySizeQuota"
-  | "PolicyVersionsInUse"
-  | "PolicyVersionsInUseQuota"
-  | "ServerCertificates"
-  | "ServerCertificatesQuota"
-  | "SigningCertificatesPerUserQuota"
-  | "UserPolicySizeQuota"
-  | "Users"
-  | "UsersQuota"
-  | "VersionsPerPolicyQuota";
+export enum SummaryKeyType {
+  AccessKeysPerUserQuota = "AccessKeysPerUserQuota",
+  AccountAccessKeysPresent = "AccountAccessKeysPresent",
+  AccountMFAEnabled = "AccountMFAEnabled",
+  AccountSigningCertificatesPresent = "AccountSigningCertificatesPresent",
+  AttachedPoliciesPerGroupQuota = "AttachedPoliciesPerGroupQuota",
+  AttachedPoliciesPerRoleQuota = "AttachedPoliciesPerRoleQuota",
+  AttachedPoliciesPerUserQuota = "AttachedPoliciesPerUserQuota",
+  GlobalEndpointTokenVersion = "GlobalEndpointTokenVersion",
+  GroupPolicySizeQuota = "GroupPolicySizeQuota",
+  Groups = "Groups",
+  GroupsPerUserQuota = "GroupsPerUserQuota",
+  GroupsQuota = "GroupsQuota",
+  MFADevices = "MFADevices",
+  MFADevicesInUse = "MFADevicesInUse",
+  Policies = "Policies",
+  PoliciesQuota = "PoliciesQuota",
+  PolicySizeQuota = "PolicySizeQuota",
+  PolicyVersionsInUse = "PolicyVersionsInUse",
+  PolicyVersionsInUseQuota = "PolicyVersionsInUseQuota",
+  ServerCertificates = "ServerCertificates",
+  ServerCertificatesQuota = "ServerCertificatesQuota",
+  SigningCertificatesPerUserQuota = "SigningCertificatesPerUserQuota",
+  UserPolicySizeQuota = "UserPolicySizeQuota",
+  Users = "Users",
+  UsersQuota = "UsersQuota",
+  VersionsPerPolicyQuota = "VersionsPerPolicyQuota",
+}
 
 /**
  * <p>Contains the response to a successful <a>GetAccountSummary</a> request.
@@ -3039,7 +3047,9 @@ export class CredentialReportNotReadyException extends __BaseException {
   }
 }
 
-export type ReportFormatType = "text/csv";
+export enum ReportFormatType {
+  text_csv = "text/csv",
+}
 
 /**
  * <p>Contains the response to a successful <a>GetCredentialReport</a> request.
@@ -3308,7 +3318,11 @@ export interface ErrorDetails {
   Code: string | undefined;
 }
 
-export type JobStatusType = "COMPLETED" | "FAILED" | "IN_PROGRESS";
+export enum JobStatusType {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+}
 
 export interface GetOrganizationsAccessReportResponse {
   /**
@@ -3659,7 +3673,7 @@ export interface TrackedActionLastAccessed {
    *             format</a>, when an authenticated entity most recently attempted to access the
    *          tracked service. Amazon Web Services does not report unauthenticated requests.</p>
    *          <p>This field is null if no IAM entities attempted to access the service within the
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
    */
   LastAccessedTime?: Date;
 
@@ -3667,7 +3681,7 @@ export interface TrackedActionLastAccessed {
    * <p>The Region from which the authenticated entity (user or role) last attempted to access
    *          the tracked action. Amazon Web Services does not report unauthenticated requests.</p>
    *          <p>This field is null if no IAM entities attempted to access the service within the
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
    */
   LastAccessedRegion?: string;
 }
@@ -3687,7 +3701,7 @@ export interface ServiceLastAccessed {
    *             format</a>, when an authenticated entity most recently attempted to access the
    *          service. Amazon Web Services does not report unauthenticated requests.</p>
    *          <p>This field is null if no IAM entities attempted to access the service within the
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
    */
   LastAuthenticated?: Date;
 
@@ -3706,7 +3720,7 @@ export interface ServiceLastAccessed {
    * <p>The ARN of the authenticated entity (user or role) that last attempted to access the
    *          service. Amazon Web Services does not report unauthenticated requests.</p>
    *          <p>This field is null if no IAM entities attempted to access the service within the
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
    */
   LastAuthenticatedEntity?: string;
 
@@ -3714,14 +3728,14 @@ export interface ServiceLastAccessed {
    * <p>The Region from which the authenticated entity (user or role) last attempted to access
    *          the service. Amazon Web Services does not report unauthenticated requests.</p>
    *          <p>This field is null if no IAM entities attempted to access the service within the
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
    */
   LastAuthenticatedRegion?: string;
 
   /**
    * <p>The total number of authenticated principals (root user, IAM users, or IAM roles)
    *          that have attempted to access the service.</p>
-   *          <p>This field is null if no principals attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   *          <p>This field is null if no principals attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
    */
   TotalAuthenticatedEntities?: number;
 
@@ -3729,7 +3743,7 @@ export interface ServiceLastAccessed {
    * <p>An object that contains details about the most recent attempt to access a tracked action
    *          within the service.</p>
    *          <p>This field is null if there no tracked actions or if the principal did not use the
-   *          tracked actions within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>. This field is also null if the report was generated at the
+   *          tracked actions within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>. This field is also null if the report was generated at the
    *          service level and not the action level. For more information, see the
    *             <code>Granularity</code> field in <a>GenerateServiceLastAccessedDetails</a>.</p>
    */
@@ -3889,7 +3903,7 @@ export interface EntityDetails {
    *             format</a>, when the authenticated entity last attempted to access Amazon Web Services. Amazon Web Services does
    *          not report unauthenticated requests.</p>
    *          <p>This field is null if no IAM entities attempted to access the service within the
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
    */
   LastAuthenticated?: Date;
 }
@@ -4009,7 +4023,10 @@ export interface GetServiceLinkedRoleDeletionStatusResponse {
   Reason?: DeletionTaskFailureReasonType;
 }
 
-export type EncodingType = "PEM" | "SSH";
+export enum EncodingType {
+  PEM = "PEM",
+  SSH = "SSH",
+}
 
 export interface GetSSHPublicKeyRequest {
   /**
@@ -4490,7 +4507,10 @@ export interface ListAttachedUserPoliciesResponse {
   Marker?: string;
 }
 
-export type PolicyUsageType = "PermissionsBoundary" | "PermissionsPolicy";
+export enum PolicyUsageType {
+  PermissionsBoundary = "PermissionsBoundary",
+  PermissionsPolicy = "PermissionsPolicy",
+}
 
 export interface ListEntitiesForPolicyRequest {
   /**
