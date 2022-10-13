@@ -1036,6 +1036,26 @@ export interface PauseStateScheduleActionSettings {
   Pipelines?: PipelinePauseStateSettings[];
 }
 
+export enum Scte35InputMode {
+  FIXED = "FIXED",
+  FOLLOW_ACTIVE = "FOLLOW_ACTIVE",
+}
+
+/**
+ * Settings for the "scte35 input" action
+ */
+export interface Scte35InputScheduleActionSettings {
+  /**
+   * In fixed mode, enter the name of the input attachment that you want to use as a SCTE-35 input. (Don't enter the ID of the input.)"
+   */
+  InputAttachmentNameReference?: string;
+
+  /**
+   * Whether the SCTE-35 input should be the active input or a fixed input.
+   */
+  Mode: Scte35InputMode | string | undefined;
+}
+
 /**
  * Settings for a SCTE-35 return_to_network message.
  */
@@ -1311,6 +1331,11 @@ export interface ScheduleActionSettings {
    * Action to pause or unpause one or both channel pipelines
    */
   PauseStateSettings?: PauseStateScheduleActionSettings;
+
+  /**
+   * Action to specify scte35 input
+   */
+  Scte35InputSettings?: Scte35InputScheduleActionSettings;
 
   /**
    * Action to insert SCTE-35 return_to_network message
@@ -2747,6 +2772,41 @@ export interface AvailBlanking {
   State?: AvailBlankingState | string;
 }
 
+/**
+ * Settings for the Esam
+ */
+export interface Esam {
+  /**
+   * Sent as acquisitionPointIdentity to identify the MediaLive channel to the POIS.
+   */
+  AcquisitionPointId: string | undefined;
+
+  /**
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+   */
+  AdAvailOffset?: number;
+
+  /**
+   * Password if credentials are required to access the POIS endpoint.  This is a reference to an AWS parameter store name from which the password can be retrieved.  AWS Parameter store format: "ssm://<parameter name>"
+   */
+  PasswordParam?: string;
+
+  /**
+   * The URL of the signal conditioner endpoint on the Placement Opportunity Information System (POIS). MediaLive sends SignalProcessingEvents here when SCTE-35 messages are read.
+   */
+  PoisEndpoint: string | undefined;
+
+  /**
+   * Username if credentials are required to access the POIS endpoint.  This can be either a plaintext username, or a reference to an AWS parameter store name from which the username can be retrieved.  AWS Parameter store format: "ssm://<parameter name>"
+   */
+  Username?: string;
+
+  /**
+   * Optional data sent as zoneIdentity to identify the MediaLive channel to the POIS.
+   */
+  ZoneIdentity?: string;
+}
+
 export enum Scte35SpliceInsertNoRegionalBlackoutBehavior {
   FOLLOW = "FOLLOW",
   IGNORE = "IGNORE",
@@ -2811,6 +2871,11 @@ export interface Scte35TimeSignalApos {
  * Avail Settings
  */
 export interface AvailSettings {
+  /**
+   * Settings for the Esam
+   */
+  Esam?: Esam;
+
   /**
    * Scte35 Splice Insert
    */
@@ -5968,91 +6033,6 @@ export interface StopMultiplexRequest {
 }
 
 /**
- * Placeholder documentation for StopMultiplexResponse
- */
-export interface StopMultiplexResponse {
-  /**
-   * The unique arn of the multiplex.
-   */
-  Arn?: string;
-
-  /**
-   * A list of availability zones for the multiplex.
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * A list of the multiplex output destinations.
-   */
-  Destinations?: MultiplexOutputDestination[];
-
-  /**
-   * The unique id of the multiplex.
-   */
-  Id?: string;
-
-  /**
-   * Configuration for a multiplex event.
-   */
-  MultiplexSettings?: MultiplexSettings;
-
-  /**
-   * The name of the multiplex.
-   */
-  Name?: string;
-
-  /**
-   * The number of currently healthy pipelines.
-   */
-  PipelinesRunningCount?: number;
-
-  /**
-   * The number of programs in the multiplex.
-   */
-  ProgramCount?: number;
-
-  /**
-   * The current state of the multiplex.
-   */
-  State?: MultiplexState | string;
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * A request to transfer an input device.
- */
-export interface TransferInputDeviceRequest {
-  /**
-   * The unique ID of this input device. For example, hd-123456789abcdef.
-   */
-  InputDeviceId: string | undefined;
-
-  /**
-   * The AWS account ID (12 digits) for the recipient of the device transfer.
-   */
-  TargetCustomerId?: string;
-
-  /**
-   * The target AWS region to transfer the device.
-   */
-  TargetRegion?: string;
-
-  /**
-   * An optional message for the recipient. Maximum 280 characters.
-   */
-  TransferMessage?: string;
-}
-
-/**
- * Placeholder documentation for TransferInputDeviceResponse
- */
-export interface TransferInputDeviceResponse {}
-
-/**
  * @internal
  */
 export const HlsGroupSettingsFilterSensitiveLog = (obj: HlsGroupSettings): any => ({
@@ -6211,6 +6191,13 @@ export const MotionGraphicsDeactivateScheduleActionSettingsFilterSensitiveLog = 
  * @internal
  */
 export const PauseStateScheduleActionSettingsFilterSensitiveLog = (obj: PauseStateScheduleActionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Scte35InputScheduleActionSettingsFilterSensitiveLog = (obj: Scte35InputScheduleActionSettings): any => ({
   ...obj,
 });
 
@@ -6479,6 +6466,13 @@ export const AcceptInputDeviceTransferResponseFilterSensitiveLog = (obj: AcceptI
  * @internal
  */
 export const AvailBlankingFilterSensitiveLog = (obj: AvailBlanking): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EsamFilterSensitiveLog = (obj: Esam): any => ({
   ...obj,
 });
 
@@ -7378,26 +7372,5 @@ export const StopChannelResponseFilterSensitiveLog = (obj: StopChannelResponse):
  * @internal
  */
 export const StopMultiplexRequestFilterSensitiveLog = (obj: StopMultiplexRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopMultiplexResponseFilterSensitiveLog = (obj: StopMultiplexResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransferInputDeviceRequestFilterSensitiveLog = (obj: TransferInputDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransferInputDeviceResponseFilterSensitiveLog = (obj: TransferInputDeviceResponse): any => ({
   ...obj,
 });

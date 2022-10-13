@@ -309,6 +309,7 @@ import {
   ConflictException,
   DolbyVision81Settings,
   EncoderSettings,
+  Esam,
   FeatureActivations,
   FixedModeScheduleActionStartSettings,
   FollowModeScheduleActionStartSettings,
@@ -372,6 +373,7 @@ import {
   Scte35DeliveryRestrictions,
   Scte35Descriptor,
   Scte35DescriptorSettings,
+  Scte35InputScheduleActionSettings,
   Scte35ReturnToNetworkScheduleActionSettings,
   Scte35SegmentationDescriptor,
   Scte35SpliceInsert,
@@ -6923,6 +6925,7 @@ const serializeAws_restJson1AvailConfiguration = (input: AvailConfiguration, con
 
 const serializeAws_restJson1AvailSettings = (input: AvailSettings, context: __SerdeContext): any => {
   return {
+    ...(input.Esam != null && { esam: serializeAws_restJson1Esam(input.Esam, context) }),
     ...(input.Scte35SpliceInsert != null && {
       scte35SpliceInsert: serializeAws_restJson1Scte35SpliceInsert(input.Scte35SpliceInsert, context),
     }),
@@ -7327,6 +7330,17 @@ const serializeAws_restJson1EncoderSettings = (input: EncoderSettings, context: 
     ...(input.VideoDescriptions != null && {
       videoDescriptions: serializeAws_restJson1__listOfVideoDescription(input.VideoDescriptions, context),
     }),
+  };
+};
+
+const serializeAws_restJson1Esam = (input: Esam, context: __SerdeContext): any => {
+  return {
+    ...(input.AcquisitionPointId != null && { acquisitionPointId: input.AcquisitionPointId }),
+    ...(input.AdAvailOffset != null && { adAvailOffset: input.AdAvailOffset }),
+    ...(input.PasswordParam != null && { passwordParam: input.PasswordParam }),
+    ...(input.PoisEndpoint != null && { poisEndpoint: input.PoisEndpoint }),
+    ...(input.Username != null && { username: input.Username }),
+    ...(input.ZoneIdentity != null && { zoneIdentity: input.ZoneIdentity }),
   };
 };
 
@@ -8657,6 +8671,9 @@ const serializeAws_restJson1ScheduleActionSettings = (input: ScheduleActionSetti
     ...(input.PauseStateSettings != null && {
       pauseStateSettings: serializeAws_restJson1PauseStateScheduleActionSettings(input.PauseStateSettings, context),
     }),
+    ...(input.Scte35InputSettings != null && {
+      scte35InputSettings: serializeAws_restJson1Scte35InputScheduleActionSettings(input.Scte35InputSettings, context),
+    }),
     ...(input.Scte35ReturnToNetworkSettings != null && {
       scte35ReturnToNetworkSettings: serializeAws_restJson1Scte35ReturnToNetworkScheduleActionSettings(
         input.Scte35ReturnToNetworkSettings,
@@ -8775,6 +8792,18 @@ const serializeAws_restJson1Scte35DescriptorSettings = (
         context
       ),
     }),
+  };
+};
+
+const serializeAws_restJson1Scte35InputScheduleActionSettings = (
+  input: Scte35InputScheduleActionSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InputAttachmentNameReference != null && {
+      inputAttachmentNameReference: input.InputAttachmentNameReference,
+    }),
+    ...(input.Mode != null && { mode: input.Mode }),
   };
 };
 
@@ -10007,6 +10036,7 @@ const deserializeAws_restJson1AvailConfiguration = (output: any, context: __Serd
 
 const deserializeAws_restJson1AvailSettings = (output: any, context: __SerdeContext): AvailSettings => {
   return {
+    Esam: output.esam != null ? deserializeAws_restJson1Esam(output.esam, context) : undefined,
     Scte35SpliceInsert:
       output.scte35SpliceInsert != null
         ? deserializeAws_restJson1Scte35SpliceInsert(output.scte35SpliceInsert, context)
@@ -10534,6 +10564,17 @@ const deserializeAws_restJson1EncoderSettings = (output: any, context: __SerdeCo
       output.videoDescriptions != null
         ? deserializeAws_restJson1__listOfVideoDescription(output.videoDescriptions, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Esam = (output: any, context: __SerdeContext): Esam => {
+  return {
+    AcquisitionPointId: __expectString(output.acquisitionPointId),
+    AdAvailOffset: __expectInt32(output.adAvailOffset),
+    PasswordParam: __expectString(output.passwordParam),
+    PoisEndpoint: __expectString(output.poisEndpoint),
+    Username: __expectString(output.username),
+    ZoneIdentity: __expectString(output.zoneIdentity),
   } as any;
 };
 
@@ -12208,6 +12249,10 @@ const deserializeAws_restJson1ScheduleActionSettings = (
       output.pauseStateSettings != null
         ? deserializeAws_restJson1PauseStateScheduleActionSettings(output.pauseStateSettings, context)
         : undefined,
+    Scte35InputSettings:
+      output.scte35InputSettings != null
+        ? deserializeAws_restJson1Scte35InputScheduleActionSettings(output.scte35InputSettings, context)
+        : undefined,
     Scte35ReturnToNetworkSettings:
       output.scte35ReturnToNetworkSettings != null
         ? deserializeAws_restJson1Scte35ReturnToNetworkScheduleActionSettings(
@@ -12327,6 +12372,16 @@ const deserializeAws_restJson1Scte35DescriptorSettings = (
             context
           )
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Scte35InputScheduleActionSettings = (
+  output: any,
+  context: __SerdeContext
+): Scte35InputScheduleActionSettings => {
+  return {
+    InputAttachmentNameReference: __expectString(output.inputAttachmentNameReference),
+    Mode: __expectString(output.mode),
   } as any;
 };
 

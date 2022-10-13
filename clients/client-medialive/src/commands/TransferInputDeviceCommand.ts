@@ -18,7 +18,7 @@ import {
   TransferInputDeviceRequestFilterSensitiveLog,
   TransferInputDeviceResponse,
   TransferInputDeviceResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1TransferInputDeviceCommand,
   serializeAws_restJson1TransferInputDeviceCommand,

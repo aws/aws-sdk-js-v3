@@ -19,6 +19,8 @@ import {
   InputWhitelistRuleCidr,
   LogLevel,
   MediaConnectFlowRequest,
+  MultiplexOutputDestination,
+  MultiplexState,
   OutputDestination,
 } from "./models_0";
 import {
@@ -33,6 +35,91 @@ import {
   RenewalSettings,
   Reservation,
 } from "./models_1";
+
+/**
+ * Placeholder documentation for StopMultiplexResponse
+ */
+export interface StopMultiplexResponse {
+  /**
+   * The unique arn of the multiplex.
+   */
+  Arn?: string;
+
+  /**
+   * A list of availability zones for the multiplex.
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * A list of the multiplex output destinations.
+   */
+  Destinations?: MultiplexOutputDestination[];
+
+  /**
+   * The unique id of the multiplex.
+   */
+  Id?: string;
+
+  /**
+   * Configuration for a multiplex event.
+   */
+  MultiplexSettings?: MultiplexSettings;
+
+  /**
+   * The name of the multiplex.
+   */
+  Name?: string;
+
+  /**
+   * The number of currently healthy pipelines.
+   */
+  PipelinesRunningCount?: number;
+
+  /**
+   * The number of programs in the multiplex.
+   */
+  ProgramCount?: number;
+
+  /**
+   * The current state of the multiplex.
+   */
+  State?: MultiplexState | string;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * A request to transfer an input device.
+ */
+export interface TransferInputDeviceRequest {
+  /**
+   * The unique ID of this input device. For example, hd-123456789abcdef.
+   */
+  InputDeviceId: string | undefined;
+
+  /**
+   * The AWS account ID (12 digits) for the recipient of the device transfer.
+   */
+  TargetCustomerId?: string;
+
+  /**
+   * The target AWS region to transfer the device.
+   */
+  TargetRegion?: string;
+
+  /**
+   * An optional message for the recipient. Maximum 280 characters.
+   */
+  TransferMessage?: string;
+}
+
+/**
+ * Placeholder documentation for TransferInputDeviceResponse
+ */
+export interface TransferInputDeviceResponse {}
 
 /**
  * A request to update a channel.
@@ -397,6 +484,27 @@ export interface UpdateReservationResponse {
    */
   Reservation?: Reservation;
 }
+
+/**
+ * @internal
+ */
+export const StopMultiplexResponseFilterSensitiveLog = (obj: StopMultiplexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransferInputDeviceRequestFilterSensitiveLog = (obj: TransferInputDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransferInputDeviceResponseFilterSensitiveLog = (obj: TransferInputDeviceResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
