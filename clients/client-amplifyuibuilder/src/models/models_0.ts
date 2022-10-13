@@ -431,7 +431,7 @@ export enum FormButtonsPosition {
 }
 
 /**
- * <p>Describes the call to action button configuration for the form..</p>
+ * <p>Describes the call to action button configuration for the form.</p>
  */
 export interface FormCTA {
   /**
@@ -592,6 +592,11 @@ export interface FieldInputConfig {
    * <p>The value for the field.</p>
    */
   value?: string;
+
+  /**
+   * <p>Specifies whether to render the field as an array. This property is ignored if the <code>dataSourceType</code> for the form is a Data Store.</p>
+   */
+  isArray?: boolean;
 }
 
 /**
