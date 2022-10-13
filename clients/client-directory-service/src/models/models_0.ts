@@ -1874,6 +1874,11 @@ export interface DirectoryConnectSettingsDescription {
   ConnectIps?: string[];
 }
 
+export enum OSVersion {
+  VERSION_2012 = "SERVER_2012",
+  VERSION_2019 = "SERVER_2019",
+}
+
 export enum RadiusAuthenticationProtocol {
   CHAP = "CHAP",
   MSCHAPV1 = "MS-CHAPv1",
@@ -2183,6 +2188,11 @@ export interface DirectoryDescription {
    * <p>Lists the Regions where the directory has replicated.</p>
    */
   RegionsInfo?: RegionsInfo;
+
+  /**
+   * <p>The operating system (OS) version of the directory.</p>
+   */
+  OsVersion?: OSVersion | string;
 }
 
 /**
@@ -2924,6 +2934,185 @@ export interface DescribeTrustsResult {
    *         <i>NextToken</i> parameter in a subsequent call to <a>DescribeTrusts</a> to retrieve the next set of items.</p>
    */
   NextToken?: string;
+}
+
+export enum UpdateType {
+  OS = "OS",
+}
+
+export interface DescribeUpdateDirectoryRequest {
+  /**
+   * <p>
+   *       The unique identifier of the directory.
+   *     </p>
+   */
+  DirectoryId: string | undefined;
+
+  /**
+   * <p>
+   *       The type of updates you want to describe for the directory.
+   *     </p>
+   */
+  UpdateType: UpdateType | string | undefined;
+
+  /**
+   * <p>
+   *       The name of the Region.
+   *     </p>
+   */
+  RegionName?: string;
+
+  /**
+   * <p>
+   *       The <code>DescribeUpdateDirectoryResult</code>. NextToken value from a previous call to <a>DescribeUpdateDirectory</a>. Pass null if this is the first call.
+   *     </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>
+ *       OS version that the directory needs to be updated to.
+ *     </p>
+ */
+export interface OSUpdateSettings {
+  /**
+   * <p>
+   *       OS version that the directory needs to be updated to.
+   *     </p>
+   */
+  OSVersion?: OSVersion | string;
+}
+
+/**
+ * <p>
+ *       The value for a given type of <code>UpdateSettings</code>.
+ *     </p>
+ */
+export interface UpdateValue {
+  /**
+   * <p>
+   *       The OS update related settings.
+   *     </p>
+   */
+  OSUpdateSettings?: OSUpdateSettings;
+}
+
+export enum UpdateStatus {
+  UPDATED = "Updated",
+  UPDATE_FAILED = "UpdateFailed",
+  UPDATING = "Updating",
+}
+
+/**
+ * <p>
+ *       An entry of update information related to a requested update type.
+ *     </p>
+ */
+export interface UpdateInfoEntry {
+  /**
+   * <p>
+   *       The name of the Region.
+   *     </p>
+   */
+  Region?: string;
+
+  /**
+   * <p>
+   *       The status of the update performed on the directory.
+   *     </p>
+   */
+  Status?: UpdateStatus | string;
+
+  /**
+   * <p>
+   *       The reason for the current status of the update type activity.
+   *     </p>
+   */
+  StatusReason?: string;
+
+  /**
+   * <p>
+   *       This specifies if the update was initiated by the customer or by the service team.
+   *     </p>
+   */
+  InitiatedBy?: string;
+
+  /**
+   * <p>
+   *       The new value of the target setting.
+   *     </p>
+   */
+  NewValue?: UpdateValue;
+
+  /**
+   * <p>
+   *       The old value of the target setting.
+   *     </p>
+   */
+  PreviousValue?: UpdateValue;
+
+  /**
+   * <p>
+   *       The start time of the <code>UpdateDirectorySetup</code> for the particular type.
+   *     </p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>
+   *       The last updated date and time of a particular directory setting.
+   *     </p>
+   */
+  LastUpdatedDateTime?: Date;
+}
+
+export interface DescribeUpdateDirectoryResult {
+  /**
+   * <p>
+   *       The list of update activities on a directory for the requested update type.
+   *     </p>
+   */
+  UpdateActivities?: UpdateInfoEntry[];
+
+  /**
+   * <p>
+   *       If not null, more results are available. Pass this value for the <code>NextToken</code> parameter.
+   *     </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>
+ *       The directory is already updated to desired update type settings.
+ *     </p>
+ */
+export class DirectoryInDesiredStateException extends __BaseException {
+  readonly name: "DirectoryInDesiredStateException" = "DirectoryInDesiredStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The descriptive message for the exception.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The Amazon Web Services request identifier.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectoryInDesiredStateException, __BaseException>) {
+    super({
+      name: "DirectoryInDesiredStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryInDesiredStateException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
@@ -4072,6 +4261,38 @@ export interface UpdateConditionalForwarderRequest {
  */
 export interface UpdateConditionalForwarderResult {}
 
+export interface UpdateDirectorySetupRequest {
+  /**
+   * <p>
+   *       The identifier of the directory on which you want to perform the update.
+   *     </p>
+   */
+  DirectoryId: string | undefined;
+
+  /**
+   * <p>
+   *       The type of update that needs to be performed on the directory. For example, OS.
+   *     </p>
+   */
+  UpdateType: UpdateType | string | undefined;
+
+  /**
+   * <p>
+   *       The settings for the OS update that needs to be performed on the directory.
+   *     </p>
+   */
+  OSUpdateSettings?: OSUpdateSettings;
+
+  /**
+   * <p>
+   *       The boolean that specifies if a snapshot for the directory needs to be taken before updating the directory.
+   *     </p>
+   */
+  CreateSnapshotBeforeUpdate?: boolean;
+}
+
+export interface UpdateDirectorySetupResult {}
+
 /**
  * <p>The maximum allowed number of domain controllers per directory was exceeded. The
  *       default limit per directory is 20 domain controllers.</p>
@@ -4952,6 +5173,41 @@ export const DescribeTrustsResultFilterSensitiveLog = (obj: DescribeTrustsResult
 /**
  * @internal
  */
+export const DescribeUpdateDirectoryRequestFilterSensitiveLog = (obj: DescribeUpdateDirectoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OSUpdateSettingsFilterSensitiveLog = (obj: OSUpdateSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateValueFilterSensitiveLog = (obj: UpdateValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInfoEntryFilterSensitiveLog = (obj: UpdateInfoEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUpdateDirectoryResultFilterSensitiveLog = (obj: DescribeUpdateDirectoryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DirectoryLimitsFilterSensitiveLog = (obj: DirectoryLimits): any => ({
   ...obj,
 });
@@ -5378,6 +5634,20 @@ export const UpdateConditionalForwarderRequestFilterSensitiveLog = (obj: UpdateC
  * @internal
  */
 export const UpdateConditionalForwarderResultFilterSensitiveLog = (obj: UpdateConditionalForwarderResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDirectorySetupRequestFilterSensitiveLog = (obj: UpdateDirectorySetupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDirectorySetupResultFilterSensitiveLog = (obj: UpdateDirectorySetupResult): any => ({
   ...obj,
 });
 

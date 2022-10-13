@@ -99,6 +99,10 @@ import {
 import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "../commands/DescribeSnapshotsCommand";
 import { DescribeTrustsCommandInput, DescribeTrustsCommandOutput } from "../commands/DescribeTrustsCommand";
 import {
+  DescribeUpdateDirectoryCommandInput,
+  DescribeUpdateDirectoryCommandOutput,
+} from "../commands/DescribeUpdateDirectoryCommand";
+import {
   DisableClientAuthenticationCommandInput,
   DisableClientAuthenticationCommandOutput,
 } from "../commands/DisableClientAuthenticationCommand";
@@ -158,6 +162,10 @@ import {
   UpdateConditionalForwarderCommandInput,
   UpdateConditionalForwarderCommandOutput,
 } from "../commands/UpdateConditionalForwarderCommand";
+import {
+  UpdateDirectorySetupCommandInput,
+  UpdateDirectorySetupCommandOutput,
+} from "../commands/UpdateDirectorySetupCommand";
 import {
   UpdateNumberOfDomainControllersCommandInput,
   UpdateNumberOfDomainControllersCommandOutput,
@@ -248,6 +256,8 @@ import {
   DescribeSnapshotsResult,
   DescribeTrustsRequest,
   DescribeTrustsResult,
+  DescribeUpdateDirectoryRequest,
+  DescribeUpdateDirectoryResult,
   DirectoryAlreadyInRegionException,
   DirectoryAlreadySharedException,
   DirectoryConfigurationStatus,
@@ -255,6 +265,7 @@ import {
   DirectoryConnectSettingsDescription,
   DirectoryDescription,
   DirectoryDoesNotExistException,
+  DirectoryInDesiredStateException,
   DirectoryLimitExceededException,
   DirectoryLimits,
   DirectoryNotSharedException,
@@ -312,6 +323,7 @@ import {
   LogSubscription,
   NoAvailableCertificateException,
   OrganizationsException,
+  OSUpdateSettings,
   OwnerDirectoryDescription,
   RadiusSettings,
   RegionDescription,
@@ -357,6 +369,9 @@ import {
   UnsupportedSettingsException,
   UpdateConditionalForwarderRequest,
   UpdateConditionalForwarderResult,
+  UpdateDirectorySetupRequest,
+  UpdateDirectorySetupResult,
+  UpdateInfoEntry,
   UpdateNumberOfDomainControllersRequest,
   UpdateNumberOfDomainControllersResult,
   UpdateRadiusRequest,
@@ -365,6 +380,7 @@ import {
   UpdateSettingsResult,
   UpdateTrustRequest,
   UpdateTrustResult,
+  UpdateValue,
   UserDoesNotExistException,
   VerifyTrustRequest,
   VerifyTrustResult,
@@ -799,6 +815,19 @@ export const serializeAws_json1_1DescribeTrustsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeUpdateDirectoryCommand = async (
+  input: DescribeUpdateDirectoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "DirectoryService_20150416.DescribeUpdateDirectory",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeUpdateDirectoryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DisableClientAuthenticationCommand = async (
   input: DisableClientAuthenticationCommandInput,
   context: __SerdeContext
@@ -1147,6 +1176,19 @@ export const serializeAws_json1_1UpdateConditionalForwarderCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateConditionalForwarderRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateDirectorySetupCommand = async (
+  input: UpdateDirectorySetupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "DirectoryService_20150416.UpdateDirectorySetup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateDirectorySetupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3018,6 +3060,62 @@ const deserializeAws_json1_1DescribeTrustsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DescribeUpdateDirectoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeUpdateDirectoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeUpdateDirectoryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeUpdateDirectoryResult(data, context);
+  const response: DescribeUpdateDirectoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeUpdateDirectoryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeUpdateDirectoryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.directoryservice#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.directoryservice#ClientException":
+      throw await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context);
+    case "DirectoryDoesNotExistException":
+    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
+      throw await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.directoryservice#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.directoryservice#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.directoryservice#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DisableClientAuthenticationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4485,6 +4583,71 @@ const deserializeAws_json1_1UpdateConditionalForwarderCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateDirectorySetupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDirectorySetupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateDirectorySetupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateDirectorySetupResult(data, context);
+  const response: UpdateDirectorySetupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateDirectorySetupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDirectorySetupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.directoryservice#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.directoryservice#ClientException":
+      throw await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context);
+    case "DirectoryDoesNotExistException":
+    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
+      throw await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(parsedOutput, context);
+    case "DirectoryInDesiredStateException":
+    case "com.amazonaws.directoryservice#DirectoryInDesiredStateException":
+      throw await deserializeAws_json1_1DirectoryInDesiredStateExceptionResponse(parsedOutput, context);
+    case "DirectoryUnavailableException":
+    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
+      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.directoryservice#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.directoryservice#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "SnapshotLimitExceededException":
+    case "com.amazonaws.directoryservice#SnapshotLimitExceededException":
+      throw await deserializeAws_json1_1SnapshotLimitExceededExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.directoryservice#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1UpdateNumberOfDomainControllersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4883,6 +5046,19 @@ const deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DirectoryDoesNotExistException(body, context);
   const exception = new DirectoryDoesNotExistException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1DirectoryInDesiredStateExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DirectoryInDesiredStateException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1DirectoryInDesiredStateException(body, context);
+  const exception = new DirectoryInDesiredStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5605,6 +5781,18 @@ const serializeAws_json1_1DescribeTrustsRequest = (input: DescribeTrustsRequest,
   };
 };
 
+const serializeAws_json1_1DescribeUpdateDirectoryRequest = (
+  input: DescribeUpdateDirectoryRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.RegionName != null && { RegionName: input.RegionName }),
+    ...(input.UpdateType != null && { UpdateType: input.UpdateType }),
+  };
+};
+
 const serializeAws_json1_1DirectoryConnectSettings = (
   input: DirectoryConnectSettings,
   context: __SerdeContext
@@ -5792,6 +5980,12 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+  };
+};
+
+const serializeAws_json1_1OSUpdateSettings = (input: OSUpdateSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.OSVersion != null && { OSVersion: input.OSVersion }),
   };
 };
 
@@ -6024,6 +6218,20 @@ const serializeAws_json1_1UpdateConditionalForwarderRequest = (
     ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
     ...(input.DnsIpAddrs != null && { DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context) }),
     ...(input.RemoteDomainName != null && { RemoteDomainName: input.RemoteDomainName }),
+  };
+};
+
+const serializeAws_json1_1UpdateDirectorySetupRequest = (
+  input: UpdateDirectorySetupRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreateSnapshotBeforeUpdate != null && { CreateSnapshotBeforeUpdate: input.CreateSnapshotBeforeUpdate }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.OSUpdateSettings != null && {
+      OSUpdateSettings: serializeAws_json1_1OSUpdateSettings(input.OSUpdateSettings, context),
+    }),
+    ...(input.UpdateType != null && { UpdateType: input.UpdateType }),
   };
 };
 
@@ -6559,6 +6767,19 @@ const deserializeAws_json1_1DescribeTrustsResult = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1DescribeUpdateDirectoryResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeUpdateDirectoryResult => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    UpdateActivities:
+      output.UpdateActivities != null
+        ? deserializeAws_json1_1UpdateActivities(output.UpdateActivities, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DirectoryAlreadyInRegionException = (
   output: any,
   context: __SerdeContext
@@ -6630,6 +6851,7 @@ const deserializeAws_json1_1DirectoryDescription = (output: any, context: __Serd
     LaunchTime:
       output.LaunchTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LaunchTime))) : undefined,
     Name: __expectString(output.Name),
+    OsVersion: __expectString(output.OsVersion),
     OwnerDirectoryDescription:
       output.OwnerDirectoryDescription != null
         ? deserializeAws_json1_1OwnerDirectoryDescription(output.OwnerDirectoryDescription, context)
@@ -6675,6 +6897,16 @@ const deserializeAws_json1_1DirectoryDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): DirectoryDoesNotExistException => {
+  return {
+    Message: __expectString(output.Message),
+    RequestId: __expectString(output.RequestId),
+  } as any;
+};
+
+const deserializeAws_json1_1DirectoryInDesiredStateException = (
+  output: any,
+  context: __SerdeContext
+): DirectoryInDesiredStateException => {
   return {
     Message: __expectString(output.Message),
     RequestId: __expectString(output.RequestId),
@@ -7157,6 +7389,12 @@ const deserializeAws_json1_1OrganizationsException = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1OSUpdateSettings = (output: any, context: __SerdeContext): OSUpdateSettings => {
+  return {
+    OSVersion: __expectString(output.OSVersion),
+  } as any;
+};
+
 const deserializeAws_json1_1OwnerDirectoryDescription = (
   output: any,
   context: __SerdeContext
@@ -7588,11 +7826,48 @@ const deserializeAws_json1_1UnsupportedSettingsException = (
   } as any;
 };
 
+const deserializeAws_json1_1UpdateActivities = (output: any, context: __SerdeContext): UpdateInfoEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1UpdateInfoEntry(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1UpdateConditionalForwarderResult = (
   output: any,
   context: __SerdeContext
 ): UpdateConditionalForwarderResult => {
   return {} as any;
+};
+
+const deserializeAws_json1_1UpdateDirectorySetupResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateDirectorySetupResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateInfoEntry = (output: any, context: __SerdeContext): UpdateInfoEntry => {
+  return {
+    InitiatedBy: __expectString(output.InitiatedBy),
+    LastUpdatedDateTime:
+      output.LastUpdatedDateTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
+        : undefined,
+    NewValue: output.NewValue != null ? deserializeAws_json1_1UpdateValue(output.NewValue, context) : undefined,
+    PreviousValue:
+      output.PreviousValue != null ? deserializeAws_json1_1UpdateValue(output.PreviousValue, context) : undefined,
+    Region: __expectString(output.Region),
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
+    Status: __expectString(output.Status),
+    StatusReason: __expectString(output.StatusReason),
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateNumberOfDomainControllersResult = (
@@ -7616,6 +7891,15 @@ const deserializeAws_json1_1UpdateTrustResult = (output: any, context: __SerdeCo
   return {
     RequestId: __expectString(output.RequestId),
     TrustId: __expectString(output.TrustId),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateValue = (output: any, context: __SerdeContext): UpdateValue => {
+  return {
+    OSUpdateSettings:
+      output.OSUpdateSettings != null
+        ? deserializeAws_json1_1OSUpdateSettings(output.OSUpdateSettings, context)
+        : undefined,
   } as any;
 };
 

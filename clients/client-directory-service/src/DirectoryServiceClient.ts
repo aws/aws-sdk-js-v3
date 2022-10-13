@@ -135,6 +135,10 @@ import {
 import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand";
 import { DescribeTrustsCommandInput, DescribeTrustsCommandOutput } from "./commands/DescribeTrustsCommand";
 import {
+  DescribeUpdateDirectoryCommandInput,
+  DescribeUpdateDirectoryCommandOutput,
+} from "./commands/DescribeUpdateDirectoryCommand";
+import {
   DisableClientAuthenticationCommandInput,
   DisableClientAuthenticationCommandOutput,
 } from "./commands/DisableClientAuthenticationCommand";
@@ -195,6 +199,10 @@ import {
   UpdateConditionalForwarderCommandOutput,
 } from "./commands/UpdateConditionalForwarderCommand";
 import {
+  UpdateDirectorySetupCommandInput,
+  UpdateDirectorySetupCommandOutput,
+} from "./commands/UpdateDirectorySetupCommand";
+import {
   UpdateNumberOfDomainControllersCommandInput,
   UpdateNumberOfDomainControllersCommandOutput,
 } from "./commands/UpdateNumberOfDomainControllersCommand";
@@ -238,6 +246,7 @@ export type ServiceInputTypes =
   | DescribeSharedDirectoriesCommandInput
   | DescribeSnapshotsCommandInput
   | DescribeTrustsCommandInput
+  | DescribeUpdateDirectoryCommandInput
   | DisableClientAuthenticationCommandInput
   | DisableLDAPSCommandInput
   | DisableRadiusCommandInput
@@ -265,6 +274,7 @@ export type ServiceInputTypes =
   | StartSchemaExtensionCommandInput
   | UnshareDirectoryCommandInput
   | UpdateConditionalForwarderCommandInput
+  | UpdateDirectorySetupCommandInput
   | UpdateNumberOfDomainControllersCommandInput
   | UpdateRadiusCommandInput
   | UpdateSettingsCommandInput
@@ -305,6 +315,7 @@ export type ServiceOutputTypes =
   | DescribeSharedDirectoriesCommandOutput
   | DescribeSnapshotsCommandOutput
   | DescribeTrustsCommandOutput
+  | DescribeUpdateDirectoryCommandOutput
   | DisableClientAuthenticationCommandOutput
   | DisableLDAPSCommandOutput
   | DisableRadiusCommandOutput
@@ -332,6 +343,7 @@ export type ServiceOutputTypes =
   | StartSchemaExtensionCommandOutput
   | UnshareDirectoryCommandOutput
   | UpdateConditionalForwarderCommandOutput
+  | UpdateDirectorySetupCommandOutput
   | UpdateNumberOfDomainControllersCommandOutput
   | UpdateRadiusCommandOutput
   | UpdateSettingsCommandOutput
