@@ -27,6 +27,26 @@ import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } 
 export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
+/**
+ * <p>Associates a specific tag with a resource. A tag is a key-value pair
+ *       that adds as a metadata to a resource.
+ *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
+ *         Tagging your resources</a>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TranslateClient, TagResourceCommand } from "@aws-sdk/client-translate"; // ES Modules import
+ * // const { TranslateClient, TagResourceCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * const client = new TranslateClient(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
+ *
+ */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,

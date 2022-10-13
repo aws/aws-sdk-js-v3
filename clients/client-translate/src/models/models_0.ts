@@ -123,8 +123,19 @@ export interface ParallelDataConfig {
   Format: ParallelDataFormat | string | undefined;
 }
 
+/**
+ * <p>A key-value pair that adds as a metadata to a resource used by Amazon Translate. </p>
+ */
 export interface Tag {
+  /**
+   * <p>The initial part of a key-value pair that forms a tag associated with a given resource.
+   *     </p>
+   */
   Key: string | undefined;
+
+  /**
+   * <p> The second part of a key-value pair that forms a tag associated with a given resource.</p>
+   */
   Value: string | undefined;
 }
 
@@ -156,6 +167,12 @@ export interface CreateParallelDataRequest {
    */
   ClientToken?: string;
 
+  /**
+   * <p>Tags to be associated with this resource. A tag is a key-value pair that
+   *       adds metadata to a resource. Each tag key for the resource must be unique.
+   *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
+   *         Tagging your resources</a>.</p>
+   */
   Tags?: Tag[];
 }
 
@@ -289,6 +306,9 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * <p>You have added too many tags to this resource. The maximum is 50 tags.</p>
+ */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
@@ -485,20 +505,21 @@ export enum Profanity {
 }
 
 /**
- * <p>Settings that configure the translation output.</p>
+ * <p>Optional settings that configure the translation output. Use these settings for
+ *       real time translations and asynchronous translation jobs.</p>
  */
 export interface TranslationSettings {
   /**
-   * <p>You can optionally specify the desired level of
-   *        formality for real-time translations to supported target languages. The formality
+   * <p>You can optionally specify the desired level of formality for translations
+   *         to supported target languages. The formality
    *       setting controls the level of formal language usage (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>) in the
    *       translation output.  You can set the value to informal or formal. If you don't specify a value for
    *       formality, or if the target language doesn't support formality, the translation will
    *       ignore the formality setting.</p>
-   *          <p>Note that asynchronous translation jobs don't support formality. If you provide a value
-   *       for formality, the <code>StartTextTranslationJob</code> API throws an exception (InvalidRequestException).</p>
-   *          <p>For target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported
-   *         Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>
+   *          <p> If you specify multiple target languages for the job, translate ignores
+   *       the formality setting for any unsupported target language.</p>
+   *          <p>For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html">Setting Formality</a>
+   *       in the Amazon Translate Developer Guide.</p>
    */
   Formality?: Formality | string;
 
@@ -509,8 +530,13 @@ export interface TranslationSettings {
    *       “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the
    *       length or number of words.</p>
    *          <p>Amazon Translate doesn't detect profanity in all of its supported languages. For languages
-   *       that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported
-   *         Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>
+   *       that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html">Masking
+   *         profanity</a> in the Amazon Translate Developer Guide.</p>
+   *          <p>If you specify multiple target languages for the job, all the
+   *       target languages must support profanity masking. If any of the
+   *       target languages don't support profanity masking, the
+   *       translation job won't mask profanity for any target
+   *       language.</p>
    */
   Profanity?: Profanity | string;
 }
@@ -963,7 +989,8 @@ export enum MergeStrategy {
 }
 
 /**
- * <p>The data associated with the custom terminology. For information about the custom terminology file, see <a href="https://docs.aws.amazon.com/translate/latest/dg/creating-custom-terminology.html">
+ * <p>The data associated with the custom terminology. For information about the custom terminology file, see
+ *       <a href="https://docs.aws.amazon.com/translate/latest/dg/creating-custom-terminology.html">
  *       Creating a Custom Terminology</a>.</p>
  */
 export interface TerminologyData {
@@ -1031,6 +1058,12 @@ export interface ImportTerminologyRequest {
    */
   EncryptionKey?: EncryptionKey;
 
+  /**
+   * <p>Tags to be associated with this resource. A tag is a key-value pair that
+   *       adds metadata to a resource. Each tag key for the resource must be unique.
+   *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
+   *         Tagging your resources</a>.</p>
+   */
   Tags?: Tag[];
 }
 
@@ -1165,10 +1198,20 @@ export interface ListParallelDataResponse {
 }
 
 export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the given Amazon Translate resource you are querying.
+   *     </p>
+   */
   ResourceArn: string | undefined;
 }
 
 export interface ListTagsForResourceResponse {
+  /**
+   * <p>Tags associated with the Amazon Translate resource being queried. A tag is a key-value
+   *       pair that adds as a metadata to a resource used by Amazon Translate. For example, a tag with
+   *       "Sales" as the key might be added to a resource to indicate its use by the sales department.
+   *     </p>
+   */
   Tags?: Tag[];
 }
 
@@ -1299,19 +1342,23 @@ export interface StartTextTranslationJobRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
-   *       that grants Amazon Translate read access to your input data. For more information, see <a>identity-and-access-management</a>.</p>
+   *       that grants Amazon Translate read access to your input data. For more information, see
+   *       <a href="https://docs.aws.amazon.com/translate/latest/dg/identity-and-access-management.html">Identity and access management </a>.</p>
    */
   DataAccessRoleArn: string | undefined;
 
   /**
-   * <p>The language code of the input language. For a list of language codes, see <a>what-is-languages</a>.</p>
-   *          <p>Amazon Translate does not automatically detect a source language during batch translation
-   *       jobs.</p>
+   * <p>The language code of the input language. For a list of language codes, see
+   *       <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
+   *          <p>Amazon Translate does not automatically detect a source language during batch translation jobs.</p>
    */
   SourceLanguageCode: string | undefined;
 
   /**
-   * <p>The language code of the output language.</p>
+   * <p>The target languages of the translation job. Enter up to 10 language codes.
+   *       Each input file is translated into each target language.</p>
+   *          <p>Each language code is two or five characters long. For a list of language codes, see
+   *       <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
    */
   TargetLanguageCodes: string[] | undefined;
 
@@ -1319,14 +1366,22 @@ export interface StartTextTranslationJobRequest {
    * <p>The name of a custom terminology resource to add to the translation job. This resource
    *       lists examples source terms and the desired translation for each term.</p>
    *          <p>This parameter accepts only one custom terminology resource.</p>
+   *          <p>If you specify multiple target languages for the
+   *       job, translate uses the designated terminology for each
+   *       requested target language that has an entry for the source term
+   *       in the terminology file.</p>
    *          <p>For a list of available custom terminology resources, use the <a>ListTerminologies</a> operation.</p>
-   *          <p>For more information, see <a>how-custom-terminology</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html">Custom terminology</a>.</p>
    */
   TerminologyNames?: string[];
 
   /**
    * <p>The name of a parallel data resource to add to the translation job. This resource consists
-   *       of examples that show how you want segments of text to be translated. When you add parallel
+   *       of examples that show how you want segments of text to be translated.
+   *       If you specify multiple target languages for
+   *       the job, the parallel data file must include translations for
+   *       all the target languages.</p>
+   *          <p>When you add parallel
    *       data to a translation job, you create an <i>Active Custom Translation</i> job. </p>
    *          <p>This parameter accepts only one parallel data resource.</p>
    *          <note>
@@ -1334,7 +1389,8 @@ export interface StartTextTranslationJobRequest {
    *         use parallel data. For more information, see <a href="http://aws.amazon.com/translate/pricing/">Amazon Translate pricing</a>.</p>
    *          </note>
    *          <p>For a list of available parallel data resources, use the <a>ListParallelData</a> operation.</p>
-   *          <p>For more information, see <a>customizing-translations-parallel-data</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-parallel-data.html">
+   *     Customizing your translations with parallel data</a>.</p>
    */
   ParallelDataNames?: string[];
 
@@ -1345,8 +1401,8 @@ export interface StartTextTranslationJobRequest {
   ClientToken?: string;
 
   /**
-   * <p>Settings to configure your translation output, including the option to mask profane words
-   *       and phrases. <code>StartTextTranslationJob</code> does not support the formality setting.</p>
+   * <p>Settings to configure your translation output, including the option to set the formality
+   *       level of the output text and the option to mask profane words and phrases.</p>
    */
   Settings?: TranslationSettings;
 }
@@ -1400,7 +1456,7 @@ export interface StartTextTranslationJobResponse {
 
 /**
  * <p>Amazon Translate does not support translation from the language of the source text into the requested
- *       target language. For more information, see <a>how-to-error-msg</a>. </p>
+ *       target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html">Error messages</a>. </p>
  */
 export class UnsupportedLanguagePairException extends __BaseException {
   readonly name: "UnsupportedLanguagePairException" = "UnsupportedLanguagePairException";
@@ -1452,7 +1508,16 @@ export interface StopTextTranslationJobResponse {
 }
 
 export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the given Amazon Translate resource to which you want
+   *       to associate the tags. </p>
+   */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>Tags being associated with a specific Amazon Translate resource. There can be a maximum
+   *       of 50 tags (both existing and pending) associated with a specific resource.</p>
+   */
   Tags: Tag[] | undefined;
 }
 
@@ -1547,7 +1612,7 @@ export interface TranslateTextRequest {
 
   /**
    * <p>The language code for the language of the source text. The language must be a language
-   *       supported by Amazon Translate. For a list of language codes, see <a>what-is-languages</a>.</p>
+   *       supported by Amazon Translate. For a list of language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
    *          <p>To have Amazon Translate determine the source language of your text, you can specify
    *         <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify
    *         <code>auto</code>, Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
@@ -1601,7 +1666,17 @@ export interface TranslateTextResponse {
 }
 
 export interface UntagResourceRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the given Amazon Translate resource from which you
+   *       want to remove the tags. </p>
+   */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>The initial part of a key-value pair that forms a tag being removed from a given resource.
+   *         Keys must be unique and cannot be duplicated for a particular resource.
+   *     </p>
+   */
   TagKeys: string[] | undefined;
 }
 

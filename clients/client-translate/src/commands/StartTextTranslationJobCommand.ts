@@ -28,9 +28,13 @@ export interface StartTextTranslationJobCommandInput extends StartTextTranslatio
 export interface StartTextTranslationJobCommandOutput extends StartTextTranslationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous batch translation job. Batch translation jobs can be used to
- *       translate large volumes of text across multiple documents at once. For more information, see
- *         <a>async</a>.</p>
+ * <p>Starts an asynchronous batch translation job. Use batch translation jobs to
+ *       translate large volumes of text across multiple documents at once.
+ *       For batch translation, the input documents must share the same source language. You can specify one
+ *       or more target languages. Batch translation translates each input document into each of the target languages.
+ *       For more information, see
+ *       <a href="https://docs.aws.amazon.com/translate/latest/dg/async.html">Asynchronous batch processing</a>
+ *          </p>
  *
  *          <p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p>
  *          <note>

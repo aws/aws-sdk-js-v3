@@ -29,7 +29,7 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
 
 /**
  * <p>Translates input text from the source language to the target language. For a list of
- *       available languages and language codes, see <a>what-is-languages</a>.</p>
+ *       available languages and language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

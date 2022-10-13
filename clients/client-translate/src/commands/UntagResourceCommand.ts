@@ -27,6 +27,25 @@ import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } 
 export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
+/**
+ * <p>Removes a specific tag associated with an Amazon Translate resource.
+ *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
+ *         Tagging your resources</a>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TranslateClient, UntagResourceCommand } from "@aws-sdk/client-translate"; // ES Modules import
+ * // const { TranslateClient, UntagResourceCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * const client = new TranslateClient(config);
+ * const command = new UntagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UntagResourceCommandInput} for command's `input` shape.
+ * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
+ *
+ */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
