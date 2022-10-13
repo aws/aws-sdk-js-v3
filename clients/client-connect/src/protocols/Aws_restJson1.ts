@@ -14741,6 +14741,8 @@ const serializeAws_restJson1UserIdentityInfo = (input: UserIdentityInfo, context
     ...(input.Email != null && { Email: input.Email }),
     ...(input.FirstName != null && { FirstName: input.FirstName }),
     ...(input.LastName != null && { LastName: input.LastName }),
+    ...(input.Mobile != null && { Mobile: input.Mobile }),
+    ...(input.SecondaryEmail != null && { SecondaryEmail: input.SecondaryEmail }),
   };
 };
 
@@ -16539,6 +16541,8 @@ const deserializeAws_restJson1UserIdentityInfo = (output: any, context: __SerdeC
     Email: __expectString(output.Email),
     FirstName: __expectString(output.FirstName),
     LastName: __expectString(output.LastName),
+    Mobile: __expectString(output.Mobile),
+    SecondaryEmail: __expectString(output.SecondaryEmail),
   } as any;
 };
 

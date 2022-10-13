@@ -1888,6 +1888,18 @@ export interface UserIdentityInfo {
    *    an error is returned.</p>
    */
   Email?: string;
+
+  /**
+   * <p>The user's secondary email address. If you provide a secondary email, the user receives email
+   *    notifications -- other than password reset notifications -- to this email address instead of to their
+   *    primary email address.</p>
+   */
+  SecondaryEmail?: string;
+
+  /**
+   * <p>The user's mobile number.</p>
+   */
+  Mobile?: string;
 }
 
 export enum PhoneType {
