@@ -1092,6 +1092,9 @@ export interface BatchExecuteStatementRequest {
 
   /**
    * <p>The name of the database schema.</p>
+   *         <note>
+   *             <p>Currently, the <code>schema</code> parameter isn't supported.</p>
+   *         </note>
    */
   schema?: string;
 
