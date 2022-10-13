@@ -890,75 +890,6 @@ export interface NotifyRecommendationsReceivedResponse {
   errors?: NotifyRecommendationsReceivedError[];
 }
 
-export enum Relevance {
-  HELPFUL = "HELPFUL",
-  NOT_HELPFUL = "NOT_HELPFUL",
-}
-
-/**
- * <p>The feedback to submit to Wisdom.</p>
- */
-export interface FeedbackData {
-  /**
-   * <p>The relevance of the target this feedback is for.</p>
-   */
-  relevance: Relevance | string | undefined;
-}
-
-export enum TargetType {
-  RECOMMENDATION = "RECOMMENDATION",
-  RESULT = "RESULT",
-}
-
-export interface PutFeedbackRequest {
-  /**
-   * <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   */
-  assistantId: string | undefined;
-
-  /**
-   * <p>The identifier of a recommendation. or The identifier of the result data.</p>
-   */
-  targetId: string | undefined;
-
-  /**
-   * <p>The type of the targetId for which The feedback. is targeted.</p>
-   */
-  targetType: TargetType | string | undefined;
-
-  /**
-   * <p>The feedback.</p>
-   */
-  feedback: FeedbackData | undefined;
-}
-
-export interface PutFeedbackResponse {
-  /**
-   * <p>The identifier of the Wisdom assistant.</p>
-   */
-  assistantId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Wisdom assistant.</p>
-   */
-  assistantArn: string | undefined;
-
-  /**
-   * <p>The identifier of a recommendation. or The identifier of the result data.</p>
-   */
-  targetId: string | undefined;
-
-  /**
-   * <p>The type of the targetId for which The feedback. is targeted.</p>
-   */
-  targetType: TargetType | string | undefined;
-
-  /**
-   * <p>The feedback.</p>
-   */
-  feedback: FeedbackData | undefined;
-}
-
 export interface QueryAssistantRequest {
   /**
    * <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -2307,27 +2238,6 @@ export const NotifyRecommendationsReceivedErrorFilterSensitiveLog = (obj: Notify
 export const NotifyRecommendationsReceivedResponseFilterSensitiveLog = (
   obj: NotifyRecommendationsReceivedResponse
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeedbackDataFilterSensitiveLog = (obj: FeedbackData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutFeedbackRequestFilterSensitiveLog = (obj: PutFeedbackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutFeedbackResponseFilterSensitiveLog = (obj: PutFeedbackResponse): any => ({
   ...obj,
 });
 

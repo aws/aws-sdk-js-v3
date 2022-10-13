@@ -103,7 +103,6 @@ import {
   NotifyRecommendationsReceivedCommandInput,
   NotifyRecommendationsReceivedCommandOutput,
 } from "./commands/NotifyRecommendationsReceivedCommand";
-import { PutFeedbackCommand, PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
 import {
   QueryAssistantCommand,
   QueryAssistantCommandInput,
@@ -870,36 +869,6 @@ export class Wisdom extends WisdomClient {
     cb?: (err: any, data?: NotifyRecommendationsReceivedCommandOutput) => void
   ): Promise<NotifyRecommendationsReceivedCommandOutput> | void {
     const command = new NotifyRecommendationsReceivedCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Submits feedback to Wisdom. The feedback is used to improve future recommendations from
-   *       <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a> or
-   *       results from <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_QueryAssistant.html">QueryAssistant</a>.
-   *       Feedback can be resubmitted up to 6 hours after submission.
-   *     </p>
-   */
-  public putFeedback(args: PutFeedbackCommandInput, options?: __HttpHandlerOptions): Promise<PutFeedbackCommandOutput>;
-  public putFeedback(args: PutFeedbackCommandInput, cb: (err: any, data?: PutFeedbackCommandOutput) => void): void;
-  public putFeedback(
-    args: PutFeedbackCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutFeedbackCommandOutput) => void
-  ): void;
-  public putFeedback(
-    args: PutFeedbackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutFeedbackCommandOutput) => void),
-    cb?: (err: any, data?: PutFeedbackCommandOutput) => void
-  ): Promise<PutFeedbackCommandOutput> | void {
-    const command = new PutFeedbackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
