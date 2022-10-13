@@ -1136,8 +1136,10 @@ export interface CreateAssociationRequest {
   TargetMaps?: Record<string, string[]>[];
 
   /**
-   * <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in
-   *         different ways, such as by purpose, owner, or environment. For example, you might want to tag an association to identify the type of resource to which it applies, the environment, or the purpose of the association.</p>
+   * <p>Adds or overwrites one or more tags for a State Manager association. <i>Tags</i>
+   *    are metadata that you can assign to your Amazon Web Services resources. Tags enable you to categorize your
+   *    resources in different ways, for example, by purpose, owner, or environment. Each tag consists of
+   *    a key and an optional value, both of which you define. </p>
    */
   Tags?: Tag[];
 
@@ -1474,7 +1476,7 @@ export class InvalidSchedule extends __BaseException {
 }
 
 /**
- * <p>The tag key or value isn't valid.</p>
+ * <p>The specified tag key or value isn't valid.</p>
  */
 export class InvalidTag extends __BaseException {
   readonly name: "InvalidTag" = "InvalidTag";
@@ -2971,6 +2973,7 @@ export interface PatchRuleGroup {
 export enum OperatingSystem {
   AmazonLinux = "AMAZON_LINUX",
   AmazonLinux2 = "AMAZON_LINUX_2",
+  AmazonLinux2022 = "AMAZON_LINUX_2022",
   CentOS = "CENTOS",
   Debian = "DEBIAN",
   MacOS = "MACOS",
@@ -5821,18 +5824,36 @@ export interface DescribeInstanceAssociationsStatusResult {
  */
 export interface InstanceInformationStringFilter {
   /**
-   * <p>The filter key name to describe your managed nodes. For example:</p>
-   *          <p>"InstanceIds" | "AgentVersion" | "PingStatus" | "PlatformTypes" | "ActivationIds" |
-   *    "IamRole" | "ResourceType" | "AssociationStatus" | "tag-key" | "tag:<code>{keyname}</code>
+   * <p>The filter key name to describe your managed nodes.</p>
+   *          <p>Valid filter key values: ActivationIds | AgentVersion | AssociationStatus | IamRole |
+   *    InstanceIds | PingStatus | PlatformTypes | ResourceType | SourceIds | SourceTypes | "tag-key" |
+   *     "tag:<code>{keyname}</code>
    *          </p>
-   *          <important>
-   *             <p>
-   *                <code>Tag Key</code> isn't a valid filter. You must specify either <code>tag-key</code> or
-   *      <code>tag:{keyname}</code> and a string. Here are some valid examples: <code>tag-key</code>,
-   *      <code>tag:123</code>, <code>tag:al!</code>, <code>tag:Windows</code>. Here are some
-   *      <i>invalid</i> examples: <code>tag-keys</code>, <code>Tag Key</code>,
-   *      <code>tag:</code>, <code>tagKey</code>, <code>abc:keyname</code>.</p>
-   *          </important>
+   *          <ul>
+   *             <li>
+   *                <p>Valid values for the <code>AssociationStatus</code> filter key: Success | Pending |
+   *      Failed</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid values for the <code>PingStatus</code> filter key: Online | ConnectionLost |
+   *      Inactive (deprecated)</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid values for the <code>PlatformType</code> filter key: Windows | Linux | MacOS</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid values for the <code>ResourceType</code> filter key: EC2Instance |
+   *      ManagedInstance</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid values for the <code>SourceType</code> filter key: AWS::EC2::Instance |
+   *      AWS::SSM::ManagedInstance | AWS::IoT::Thing</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid tag examples: <code>Key=tag-key,Values=Purpose</code> |
+   *       <code>Key=tag:Purpose,Values=Test</code>.</p>
+   *             </li>
+   *          </ul>
    */
   Key: string | undefined;
 
@@ -6440,7 +6461,7 @@ export interface InstancePatchState {
   RebootOption?: RebootOption | string;
 
   /**
-   * <p>The number of managed nodes where patches that are specified as <code>Critical</code> for
+   * <p>The number of patches per node that are specified as <code>Critical</code> for
    *    compliance reporting in the patch baseline aren't installed. These patches might be missing, have
    *    failed installation, were rejected, or were installed but awaiting a required managed node
    *    reboot. The status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
@@ -6448,7 +6469,7 @@ export interface InstancePatchState {
   CriticalNonCompliantCount?: number;
 
   /**
-   * <p>The number of managed nodes where patches that are specified as <code>Security</code> in a
+   * <p>The number of patches per node that are specified as <code>Security</code> in a
    *    patch advisory aren't installed. These patches might be missing, have failed installation, were
    *    rejected, or were installed but awaiting a required managed node reboot. The status of these
    *    managed nodes is <code>NON_COMPLIANT</code>.</p>
@@ -6456,7 +6477,7 @@ export interface InstancePatchState {
   SecurityNonCompliantCount?: number;
 
   /**
-   * <p>The number of managed nodes with patches installed that are specified as other than
+   * <p>The number of patches per node that are specified as other than
    *     <code>Critical</code> or <code>Security</code> but aren't compliant with the patch baseline. The
    *    status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
@@ -7439,7 +7460,7 @@ export enum MaintenanceWindowTaskCutoffBehavior {
  */
 export interface LoggingInfo {
   /**
-   * <p>The name of an S3 bucket where execution logs are stored .</p>
+   * <p>The name of an S3 bucket where execution logs are stored.</p>
    */
   S3BucketName: string | undefined;
 
