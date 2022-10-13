@@ -3,7 +3,7 @@ import { SignatureV4 } from "@aws-sdk/signature-v4";
 import { CredentialProvider, Credentials, HashConstructor, Provider } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 
-import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
+import { getRuntimeConfig } from "./runtimeConfig";
 
 export interface SignerConfig {
   /**
@@ -46,7 +46,7 @@ export class Signer {
   private readonly username: string;
 
   constructor(configuration: SignerConfig) {
-    const runtimeConfiguration = __getRuntimeConfig(configuration);
+    const runtimeConfiguration = getRuntimeConfig(configuration);
 
     this.credentials = runtimeConfiguration.credentials;
     this.hostname = runtimeConfiguration.hostname;

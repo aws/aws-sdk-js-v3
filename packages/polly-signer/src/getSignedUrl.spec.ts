@@ -16,7 +16,7 @@ jest.mock("@aws-sdk/util-format-url", () => ({
 
 import { RequestPresigningArguments } from "@aws-sdk/types/src";
 
-import { getSignedUrl } from "./getSignedUrls";
+import { getSignedUrl } from "./getSignedUrl";
 
 describe("getSignedUrl", () => {
   const clientParams = { region: "us-foo-1" };

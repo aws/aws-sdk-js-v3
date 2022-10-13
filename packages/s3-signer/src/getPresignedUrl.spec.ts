@@ -25,9 +25,9 @@ jest.mock("@aws-sdk/util-format-url", () => ({
 
 import { RequestPresigningArguments } from "@aws-sdk/types/src";
 
-import { getSignedUrl } from "./getSignedUrl";
+import { getPresignedUrl } from "./getPresignedUrl";
 
-describe("getSignedUrl", () => {
+describe("getPresignedUrl", () => {
   const clientParams = { region: "us-foo-1" };
 
   beforeEach(() => {
@@ -42,7 +42,7 @@ describe("getSignedUrl", () => {
       Bucket: "Bucket",
       Key: "Key",
     });
-    const presignPromise = getSignedUrl(client, command);
+    const presignPromise = getPresignedUrl(client, command);
     // do not mutate to the client or command
     expect(client.middlewareStack.remove("presignInterceptMiddleware")).toBe(false);
     expect(command.middlewareStack.remove("presignInterceptMiddleware")).toBe(false);
@@ -78,7 +78,7 @@ describe("getSignedUrl", () => {
       Bucket: "Bucket",
       Key: "Key",
     });
-    await getSignedUrl(client, command);
+    await getPresignedUrl(client, command);
     expect(mockPresign).toBeCalled();
     expect(mockPresign.mock.calls[0][1]).toMatchObject({
       signingRegion,
@@ -102,7 +102,7 @@ describe("getSignedUrl", () => {
       Bucket: "Bucket",
       Key: "Key",
     });
-    await getSignedUrl(client, command, options);
+    await getPresignedUrl(client, command, options);
     expect(mockPresign).toBeCalled();
     expect(mockPresign.mock.calls[0][1]).toMatchObject(options);
   });
@@ -116,7 +116,9 @@ describe("getSignedUrl", () => {
       Key: "Key",
     });
     const commands = [command, command];
-    return expect(Promise.all(commands.map((command) => getSignedUrl(client, command)))).resolves.toBeInstanceOf(Array);
+    return expect(Promise.all(commands.map((command) => getPresignedUrl(client, command)))).resolves.toBeInstanceOf(
+      Array
+    );
   });
 
   it.each(["amz-sdk-invocation-id", "amz-sdk-request", "x-amz-user-agent"])(
@@ -134,7 +136,7 @@ describe("getSignedUrl", () => {
         },
         { step: "serialize", priority: "low" }
       );
-      await getSignedUrl(client, command);
+      await getPresignedUrl(client, command);
       expect(mockPresign).toBeCalled();
       expect(mockPresign.mock.calls[0][0].headers[header]).toBeUndefined();
     }
@@ -148,7 +150,7 @@ describe("getSignedUrl", () => {
       Bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap",
       Key: "Key",
     });
-    await getSignedUrl(client, command);
+    await getPresignedUrl(client, command);
     expect(mockPresign).toBeCalled();
     expect(mockPresign.mock.calls[0][0]).toMatchObject({
       hostname: "mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com",
@@ -166,7 +168,7 @@ describe("getSignedUrl", () => {
       Bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap",
       Key: "Key",
     });
-    return expect(getSignedUrl(client, command)).rejects.toMatchObject({
+    return expect(getPresignedUrl(client, command)).rejects.toMatchObject({
       message: "SDK is attempting to use a MRAP ARN. Please enable to feature.",
     });
   });

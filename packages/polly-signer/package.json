@@ -1,6 +1,6 @@
 {
-  "name": "@aws-sdk/polly-request-presigner",
-  "version": "3.186.0",
+  "name": "@aws-sdk/polly-signer",
+  "version": "3.0.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -9,7 +9,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest --passWithNoTests"
+    "test": "jest"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -21,7 +21,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/client-polly": "*",
-    "@aws-sdk/polly-signer": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/signature-v4": "*",
     "@aws-sdk/types": "*",
@@ -52,10 +51,10 @@
   "files": [
     "dist-*"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/polly-request-presigner",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/polly-signer",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/polly-request-presigner"
+    "directory": "packages/polly-signer"
   }
 }
