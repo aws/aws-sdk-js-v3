@@ -3,7 +3,6 @@
 ![Build Status](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiMmtFajZWQmNUbEhidnBKN1VncjRrNVI3d0JUcFpGWUd3STh4T3N3Rnljc1BMaEIrYm9HU2t4YTV1RlE1YmlnUG9XM3luY0Ftc2tBc0xTeVFJMkVOa24wPSIsIml2UGFyYW1ldGVyU3BlYyI6IlBDMDl6UEROK1dlU1h1OWciLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
 [![codecov](https://codecov.io/gh/aws/aws-sdk-js-v3/branch/main/graph/badge.svg)](https://codecov.io/gh/aws/aws-sdk-js-v3)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=aws/aws-sdk-js-v3)](https://dependabot.com)
 
 The **AWS SDK for JavaScript v3** is a rewrite of v2 with some great new features.
 As with version 2, it enables you to easily work with [Amazon Web Services](https://aws.amazon.com/),
@@ -37,6 +36,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
    1. [How to upgrade](#other-changes)
 1. [High Level Concepts in V3](#high-level-concepts)
    1. [Generated Packages](#generated-code)
+   1. [Streams](#streams)
    1. [Paginators](#paginators)
    1. [Abort Controller](#abort-controller)
    1. [Middleware Stack](#middleware-stack)
@@ -281,6 +281,46 @@ Lastly we have higher level libraries in `/lib`. These are javascript specific l
 1. `/packages`. This sub directory is where most manual code updates are done. These are published to NPM under `@aws-sdk/XXXX` and have no special prefix.
 1. `/clients`. This sub directory is code generated and depends on code published from `/packages` . It is 1:1 with AWS services and operations. Manual edits should generally not occur here. These are published to NPM under `@aws-sdk/client-XXXX`.
 1. `/lib`. This sub directory depends on generated code published from `/clients`. It wraps existing AWS services and operations to make them easier to work with in Javascript. These are published to NPM under `@aws-sdk/lib-XXXX`
+
+### Streams
+
+Certain command outputs include streams, which have different implementations in
+Node.js and browsers. For convenience, a set of stream handling methods will be
+merged (`Object.assign`) to the output stream object, as defined in 
+[SdkStreamMixin](serde-code-url).
+
+Output types having this feature will be indicated by the `WithSdkStreamMixin<T, StreamKey>`
+[wrapper type](serde-code-url), where `T` is the original output type
+and `StreamKey` is the output property key having a stream type specific to 
+the runtime environment.
+
+[serde-code-url]: https://github.com/aws/aws-sdk-js-v3/blob/main/packages/types/src/serde.ts
+
+Here is an example using `S3::GetObject`. 
+
+```js
+import { S3 } from "@aws-sdk/client-s3";
+
+const client = new S3({});
+
+const getObjectResult = await client.getObject({
+  Bucket: "...",
+  Key: "...",
+});
+
+// env-specific stream with added mixin methods.
+const bodyStream = getObjectResult.Body; 
+
+// one-time transform.
+const bodyAsString = await bodyStream.transformToString();
+
+// throws an error on 2nd call, stream cannot be rewound.
+const __error__ = await bodyStream.transformToString();
+```
+
+Note that these methods will read the stream in order to collect it,
+so **you must save the output**. The methods cannot be called more than once
+on a stream.
 
 ### Paginators
 
