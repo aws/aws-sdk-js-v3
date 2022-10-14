@@ -32,7 +32,7 @@ describe(getNewSsoOidcToken.name, () => {
   beforeEach(() => {
     mockSend = jest.fn().mockResolvedValueOnce(mockNewToken);
     (getSsoOidcClient as jest.Mock).mockReturnValue({ send: mockSend });
-    (CreateTokenCommand as jest.Mock).mockImplementation((args) => args);
+    (CreateTokenCommand as unknown as jest.Mock).mockImplementation((args) => args);
   });
 
   describe("re-throws", () => {
@@ -68,7 +68,7 @@ describe(getNewSsoOidcToken.name, () => {
     });
 
     it("if CreateTokenCommand throws", async () => {
-      (CreateTokenCommand as jest.Mock).mockImplementation(() => {
+      (CreateTokenCommand as unknown as jest.Mock).mockImplementation(() => {
         throw mockError;
       });
       try {
