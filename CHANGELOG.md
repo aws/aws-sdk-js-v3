@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.189.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.188.0...v3.189.0) (2022-10-14)
+
+
+### Features
+
+* **client-mediaconvert:** MediaConvert now supports specifying the minimum percentage of the HRD buffer available at the end of each encoded video segment. ([4564705](https://github.com/aws/aws-sdk-js-v3/commit/4564705d7365cba6e3be2d7d828f9d50382da2a6))
+* **clients:** update client endpoints as of 2022-10-14 ([3bad6ba](https://github.com/aws/aws-sdk-js-v3/commit/3bad6ba854273cafeb687bab240e4f220c79a60b))
+
+
+
+
+
 # [3.188.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.187.0...v3.188.0) (2022-10-13)
 
 
