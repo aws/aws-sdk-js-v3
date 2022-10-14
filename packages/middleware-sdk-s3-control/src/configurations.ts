@@ -9,9 +9,9 @@ export interface S3ControlInputConfig {
 }
 
 interface PreviouslyResolved {
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   region: Provider<string>;
-  regionInfoProvider: RegionInfoProvider;
+  regionInfoProvider?: RegionInfoProvider;
   useFipsEndpoint: Provider<boolean>;
   useDualstackEndpoint: Provider<boolean>;
 }
@@ -21,7 +21,7 @@ export interface S3ControlResolvedConfig {
    * Whether the endpoint is specified by caller.
    * @internal
    */
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   /**
    * Enables FIPS compatible endpoints.
    */
@@ -42,7 +42,7 @@ export interface S3ControlResolvedConfig {
    * Fetch related hostname, signing name or signing region with given region.
    * @internal
    */
-  regionInfoProvider: RegionInfoProvider;
+  regionInfoProvider?: RegionInfoProvider;
 }
 
 export function resolveS3ControlConfig<T>(

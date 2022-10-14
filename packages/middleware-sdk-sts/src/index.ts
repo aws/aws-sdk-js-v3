@@ -6,7 +6,7 @@ export interface StsAuthInputConfig extends AwsAuthInputConfig {}
 interface PreviouslyResolved {
   credentialDefaultProvider: (input: any) => Provider<Credentials>;
   region: string | Provider<string>;
-  regionInfoProvider: RegionInfoProvider;
+  regionInfoProvider?: RegionInfoProvider;
   signingName?: string;
   serviceId: string;
   sha256: HashConstructor;

@@ -67,7 +67,7 @@ describe("fromTemporaryCredentials", () => {
     });
     expect(mockUsePlugin).toBeCalledTimes(1);
     expect(mockUsePlugin).toHaveBeenNthCalledWith(1, plugin);
-    expect(AssumeRoleCommand as jest.Mock).toBeCalledWith({
+    expect(AssumeRoleCommand as unknown as jest.Mock).toBeCalledWith({
       RoleArn,
       RoleSessionName,
     });
@@ -108,7 +108,7 @@ describe("fromTemporaryCredentials", () => {
       params: { RoleArn },
     });
     await provider();
-    expect(AssumeRoleCommand as jest.Mock).toBeCalledWith({
+    expect(AssumeRoleCommand as unknown as jest.Mock).toBeCalledWith({
       RoleArn,
       RoleSessionName: expect.stringMatching(/^aws-sdk-js-/),
     });
@@ -135,7 +135,7 @@ describe("fromTemporaryCredentials", () => {
     }));
     const credentials = await provider();
     expect(mockSend.mock.calls.length).toBe(3);
-    expect((AssumeRoleCommand as jest.Mock).mock.calls.length).toBe(3);
+    expect((AssumeRoleCommand as unknown as jest.Mock).mock.calls.length).toBe(3);
     expect(credentials.accessKeyId).toBe("access_id_from_third");
     // Creates STS Client with right master credentials and assume role with
     // expected role arn.

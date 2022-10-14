@@ -38,7 +38,7 @@ export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> 
    * Whether the endpoint is specified by caller.
    * @internal
    */
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
 
   /**
    * Resolved value for input {@link EndpointsInputConfig.useDualstackEndpoint}

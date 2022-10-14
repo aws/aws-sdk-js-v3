@@ -4,7 +4,7 @@ import { Credentials, MemoizedProvider, Provider } from "@aws-sdk/types";
 export interface EndpointDiscoveryInputConfig {}
 
 export interface PreviouslyResolved {
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   credentials: MemoizedProvider<Credentials>;
   endpointDiscoveryEnabledProvider: Provider<boolean | undefined>;
 }

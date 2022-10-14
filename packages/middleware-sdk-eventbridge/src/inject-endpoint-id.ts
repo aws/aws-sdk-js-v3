@@ -11,7 +11,7 @@ import {
 } from "@aws-sdk/types";
 
 type PreviouslyResolved = {
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   useFipsEndpoint: Provider<boolean>;
   useDualstackEndpoint: Provider<boolean>;
 };

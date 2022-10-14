@@ -5,7 +5,7 @@ import { injectEndpointIdMiddleware } from "./inject-endpoint-id";
 
 describe("injectEndpointIdMiddleware", () => {
   type InjectEndpointIdMiddlewareConfig = {
-    isCustomEndpoint: boolean;
+    isCustomEndpoint?: boolean;
     customEndpoint?: string;
     useFipsEndpoint: Provider<boolean>;
     useDualstackEndpoint: Provider<boolean>;

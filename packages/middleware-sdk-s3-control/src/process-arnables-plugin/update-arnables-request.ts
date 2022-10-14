@@ -8,7 +8,7 @@ const ACCOUNT_ID_HEADER = "x-amz-account-id";
 const OUTPOST_ID_HEADER = "x-amz-outpost-id";
 
 export interface UpdateArnablesRequestMiddlewareConfig {
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   useFipsEndpoint: Provider<boolean>;
 }
 

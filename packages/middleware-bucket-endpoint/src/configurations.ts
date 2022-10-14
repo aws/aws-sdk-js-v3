@@ -34,7 +34,7 @@ export interface BucketEndpointInputConfig {
 }
 
 interface PreviouslyResolved {
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   region: Provider<string>;
   regionInfoProvider: RegionInfoProvider;
   useFipsEndpoint: Provider<boolean>;
@@ -46,7 +46,7 @@ export interface BucketEndpointResolvedConfig {
    * Whether the endpoint is specified by caller.
    * @internal
    */
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   /**
    * Resolved value for input config {@link BucketEndpointInputConfig.bucketEndpoint}
    */
