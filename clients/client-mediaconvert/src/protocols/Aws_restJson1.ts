@@ -3924,6 +3924,9 @@ const serializeAws_restJson1H264Settings = (input: H264Settings, context: __Serd
     ...(input.GopClosedCadence != null && { gopClosedCadence: input.GopClosedCadence }),
     ...(input.GopSize != null && { gopSize: __serializeFloat(input.GopSize) }),
     ...(input.GopSizeUnits != null && { gopSizeUnits: input.GopSizeUnits }),
+    ...(input.HrdBufferFinalFillPercentage != null && {
+      hrdBufferFinalFillPercentage: input.HrdBufferFinalFillPercentage,
+    }),
     ...(input.HrdBufferInitialFillPercentage != null && {
       hrdBufferInitialFillPercentage: input.HrdBufferInitialFillPercentage,
     }),
@@ -3994,6 +3997,9 @@ const serializeAws_restJson1H265Settings = (input: H265Settings, context: __Serd
     ...(input.GopClosedCadence != null && { gopClosedCadence: input.GopClosedCadence }),
     ...(input.GopSize != null && { gopSize: __serializeFloat(input.GopSize) }),
     ...(input.GopSizeUnits != null && { gopSizeUnits: input.GopSizeUnits }),
+    ...(input.HrdBufferFinalFillPercentage != null && {
+      hrdBufferFinalFillPercentage: input.HrdBufferFinalFillPercentage,
+    }),
     ...(input.HrdBufferInitialFillPercentage != null && {
       hrdBufferInitialFillPercentage: input.HrdBufferInitialFillPercentage,
     }),
@@ -4647,6 +4653,9 @@ const serializeAws_restJson1Mpeg2Settings = (input: Mpeg2Settings, context: __Se
     ...(input.GopClosedCadence != null && { gopClosedCadence: input.GopClosedCadence }),
     ...(input.GopSize != null && { gopSize: __serializeFloat(input.GopSize) }),
     ...(input.GopSizeUnits != null && { gopSizeUnits: input.GopSizeUnits }),
+    ...(input.HrdBufferFinalFillPercentage != null && {
+      hrdBufferFinalFillPercentage: input.HrdBufferFinalFillPercentage,
+    }),
     ...(input.HrdBufferInitialFillPercentage != null && {
       hrdBufferInitialFillPercentage: input.HrdBufferInitialFillPercentage,
     }),
@@ -6962,6 +6971,7 @@ const deserializeAws_restJson1H264Settings = (output: any, context: __SerdeConte
     GopClosedCadence: __expectInt32(output.gopClosedCadence),
     GopSize: __limitedParseDouble(output.gopSize),
     GopSizeUnits: __expectString(output.gopSizeUnits),
+    HrdBufferFinalFillPercentage: __expectInt32(output.hrdBufferFinalFillPercentage),
     HrdBufferInitialFillPercentage: __expectInt32(output.hrdBufferInitialFillPercentage),
     HrdBufferSize: __expectInt32(output.hrdBufferSize),
     InterlaceMode: __expectString(output.interlaceMode),
@@ -7015,6 +7025,7 @@ const deserializeAws_restJson1H265Settings = (output: any, context: __SerdeConte
     GopClosedCadence: __expectInt32(output.gopClosedCadence),
     GopSize: __limitedParseDouble(output.gopSize),
     GopSizeUnits: __expectString(output.gopSizeUnits),
+    HrdBufferFinalFillPercentage: __expectInt32(output.hrdBufferFinalFillPercentage),
     HrdBufferInitialFillPercentage: __expectInt32(output.hrdBufferInitialFillPercentage),
     HrdBufferSize: __expectInt32(output.hrdBufferSize),
     InterlaceMode: __expectString(output.interlaceMode),
@@ -7752,6 +7763,7 @@ const deserializeAws_restJson1Mpeg2Settings = (output: any, context: __SerdeCont
     GopClosedCadence: __expectInt32(output.gopClosedCadence),
     GopSize: __limitedParseDouble(output.gopSize),
     GopSizeUnits: __expectString(output.gopSizeUnits),
+    HrdBufferFinalFillPercentage: __expectInt32(output.hrdBufferFinalFillPercentage),
     HrdBufferInitialFillPercentage: __expectInt32(output.hrdBufferInitialFillPercentage),
     HrdBufferSize: __expectInt32(output.hrdBufferSize),
     InterlaceMode: __expectString(output.interlaceMode),

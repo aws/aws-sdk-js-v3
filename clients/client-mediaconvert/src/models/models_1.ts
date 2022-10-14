@@ -1319,6 +1319,11 @@ export interface H264Settings {
   GopSizeUnits?: H264GopSizeUnits | string;
 
   /**
+   * If your downstream systems have strict buffer requirements: Specify the minimum percentage of the HRD buffer that's available at the end of each encoded video segment. For the best video quality: Set to 0 or leave blank to automatically determine the final buffer fill percentage.
+   */
+  HrdBufferFinalFillPercentage?: number;
+
+  /**
    * Percentage of the buffer that should initially be filled (HRD buffer model).
    */
   HrdBufferInitialFillPercentage?: number;
@@ -1697,6 +1702,11 @@ export interface H265Settings {
   GopSizeUnits?: H265GopSizeUnits | string;
 
   /**
+   * If your downstream systems have strict buffer requirements: Specify the minimum percentage of the HRD buffer that's available at the end of each encoded video segment. For the best video quality: Set to 0 or leave blank to automatically determine the final buffer fill percentage.
+   */
+  HrdBufferFinalFillPercentage?: number;
+
+  /**
    * Percentage of the buffer that should initially be filled (HRD buffer model).
    */
   HrdBufferInitialFillPercentage?: number;
@@ -1993,6 +2003,11 @@ export interface Mpeg2Settings {
    * Specify the units for GOP size (GopSize). If you don't specify a value here, by default the encoder measures GOP size in frames.
    */
   GopSizeUnits?: Mpeg2GopSizeUnits | string;
+
+  /**
+   * If your downstream systems have strict buffer requirements: Specify the minimum percentage of the HRD buffer that's available at the end of each encoded video segment. For the best video quality: Set to 0 or leave blank to automatically determine the final buffer fill percentage.
+   */
+  HrdBufferFinalFillPercentage?: number;
 
   /**
    * Percentage of the buffer that should initially be filled (HRD buffer model).
