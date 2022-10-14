@@ -22,7 +22,7 @@ export interface EndpointsInputConfig {
 }
 
 interface PreviouslyResolved {
-  regionInfoProvider: RegionInfoProvider;
+  regionInfoProvider?: RegionInfoProvider;
   urlParser: UrlParser;
   region: Provider<string>;
   useFipsEndpoint: Provider<boolean>;
@@ -38,7 +38,7 @@ export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> 
    * Whether the endpoint is specified by caller.
    * @internal
    */
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
 
   /**
    * Resolved value for input {@link EndpointsInputConfig.useDualstackEndpoint}
@@ -56,7 +56,7 @@ export const resolveEndpointsConfig = <T>(
     tls: input.tls ?? true,
     endpoint: endpoint
       ? normalizeProvider(typeof endpoint === "string" ? urlParser(endpoint) : endpoint)
-      : () => getEndpointFromRegion({ ...input, useDualstackEndpoint, useFipsEndpoint }),
+      : () => getEndpointFromRegion({ ...input, regionInfoProvider: input.regionInfoProvider!, useDualstackEndpoint, useFipsEndpoint }),
     isCustomEndpoint: !!endpoint,
     useDualstackEndpoint,
   };

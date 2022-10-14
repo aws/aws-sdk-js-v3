@@ -10,7 +10,7 @@ type InputType = {
 };
 
 export interface RedirectFromPostIdMiddlewareConfig {
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   useFipsEndpoint: Provider<boolean>;
 }
 

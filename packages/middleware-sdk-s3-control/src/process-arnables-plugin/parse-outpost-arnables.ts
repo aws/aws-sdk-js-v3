@@ -8,6 +8,7 @@ import {
 } from "@aws-sdk/middleware-bucket-endpoint";
 import { InitializeHandlerOptions, InitializeMiddleware } from "@aws-sdk/types";
 import { ARN, parse as parseArn, validate as validateArn } from "@aws-sdk/util-arn-parser";
+import { partition } from "@aws-sdk/util-endpoints";
 
 import { S3ControlResolvedConfig } from "../configurations";
 import { CONTEXT_ARN_REGION, CONTEXT_OUTPOST_ID, CONTEXT_SIGNING_REGION, CONTEXT_SIGNING_SERVICE } from "../constants";
@@ -38,10 +39,19 @@ export const parseOutpostArnablesMiddleaware =
     const useFipsEndpoint = await options.useFipsEndpoint();
     const useDualstackEndpoint = await options.useDualstackEndpoint();
     const baseRegion = clientRegion;
-    const { partition: clientPartition, signingRegion = baseRegion } = (await options.regionInfoProvider(baseRegion, {
-      useFipsEndpoint,
-      useDualstackEndpoint,
-    }))!;
+
+    let clientPartition: string;
+    let signingRegion: string;
+    if (options.regionInfoProvider) {
+      ({ partition: clientPartition, signingRegion = baseRegion } = (await options.regionInfoProvider(baseRegion, {
+        useFipsEndpoint,
+        useDualstackEndpoint,
+      }))!);
+    } else {
+      signingRegion = context.endpointV2?.properties?.authSchemes?.[0]?.signingScope || baseRegion;
+      clientPartition = partition(signingRegion).name;
+    }
+
     const validatorOptions: ValidateOutpostsArnOptions = {
       useFipsEndpoint,
       useDualstackEndpoint,
