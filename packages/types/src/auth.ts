@@ -3,9 +3,9 @@
  */
 export interface AuthScheme {
   /**
-   * @example "v4" for SigV4
+   * @example "sigv4a" or "sigv4"
    */
-  name: string;
+  name: "sigv4" | "sigv4a" | string;
   /**
    * @example "s3"
    */
@@ -13,6 +13,14 @@ export interface AuthScheme {
   /**
    * @example "us-east-1"
    */
-  signingScope: string;
+  signingRegion: string;
+  /**
+   * TODO usage?
+   */
+  signingRegionSet?: string[];
+  /**
+   * @deprecated this field was renamed to signingRegion.
+   */
+  signingScope?: never;
   properties: Record<string, unknown>;
 }

@@ -82,6 +82,7 @@ interface PreviouslyResolved {
   region: string | Provider<string>;
   regionInfoProvider?: RegionInfoProvider;
   signingName?: string;
+  defaultSigningName?: string;
   serviceId: string;
   sha256: HashConstructor;
   useFipsEndpoint: Provider<boolean>;
@@ -170,10 +171,18 @@ export const resolveAwsAuthConfig = <T>(
     // Handle endpoints v2 that resolved per-command
     // TODO: need total refactor for reference auth architecture.
     signer = async (authScheme?: AuthScheme) => {
-      if (!authScheme) {
-        throw new Error("Unexpected empty auth scheme config");
-      }
-      const signingRegion = authScheme.signingScope;
+      authScheme = Object.assign(
+        {},
+        {
+          name: "v4",
+          signingName: input.signingName || input.defaultSigningName!,
+          signingRegion: await normalizeProvider(input.region)(),
+          properties: {},
+        },
+        authScheme
+      );
+
+      const signingRegion = authScheme.signingRegion;
       const signingService = authScheme.signingName;
       // update client's singing region and signing service config if they are resolved.
       // signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
@@ -190,6 +199,7 @@ export const resolveAwsAuthConfig = <T>(
         sha256,
         uriEscapePath: signingEscapePath,
       };
+
       const SignerCtor = input.signerConstructor || SignatureV4;
       return new SignerCtor(params);
     };

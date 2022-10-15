@@ -5,7 +5,7 @@ import { resolveAwsAuthConfig, resolveSigV4AuthConfig } from "./configurations";
 describe("AuthConfig", () => {
   const authScheme = {
     name: "sigv4",
-    signingScope: "UNIT_TEST_REGION",
+    signingRegion: "UNIT_TEST_REGION",
     signingName: "UNIT_TEST_SERVICE_NAME",
     properties: {},
   };

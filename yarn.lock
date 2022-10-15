@@ -97,6 +97,7 @@
     "@aws-sdk/hash-node" "*"
     "@aws-sdk/invalid-dependency" "*"
     "@aws-sdk/middleware-content-length" "*"
+    "@aws-sdk/middleware-endpoint" "*"
     "@aws-sdk/middleware-host-header" "*"
     "@aws-sdk/middleware-logger" "*"
     "@aws-sdk/middleware-recursion-detection" "*"
@@ -936,6 +937,16 @@
     class-transformer "0.5.1"
     reflect-metadata "0.1.13"
     uuid "8.3.2"
+
+"@cucumber/pretty-formatter@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@cucumber/pretty-formatter/-/pretty-formatter-1.0.0.tgz#911014c8fb7472a4c54d00e60e819a7200fd9da3"
+  integrity sha512-wcnIMN94HyaHGsfq72dgCvr1d8q6VGH4Y6Gl5weJ2TNZw1qn2UY85Iki4c9VdaLUONYnyYH3+178YB+9RFe/Hw==
+  dependencies:
+    ansi-styles "^5.0.0"
+    cli-table3 "^0.6.0"
+    figures "^3.2.0"
+    ts-dedent "^2.0.0"
 
 "@cucumber/tag-expressions@4.1.0":
   version "4.1.0"
@@ -3942,6 +3953,15 @@ cli-table3@0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/cli-table3/-/cli-table3-0.6.2.tgz#aaf5df9d8b5bf12634dc8b3040806a0c07120d2a"
   integrity sha512-QyavHCaIC80cMivimWu4aWHilIpiDpfm3hGmqAmXVL1UsnbLuBSMd21hTX6VY4ZSDSM73ESLeF8TOYId3rBTbw==
+  dependencies:
+    string-width "^4.2.0"
+  optionalDependencies:
+    "@colors/colors" "1.5.0"
+
+cli-table3@^0.6.0:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/cli-table3/-/cli-table3-0.6.3.tgz#61ab765aac156b52f222954ffc607a6f01dbeeb2"
+  integrity sha512-w5Jac5SykAeZJKntOxJCrm63Eg5/4dhMWIcuTbo9rpE+brgaSZo0RuNJZeOyMgsUdhDeojvgyQLmjI+K50ZGyg==
   dependencies:
     string-width "^4.2.0"
   optionalDependencies:
@@ -11148,6 +11168,11 @@ trim-newlines@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/trim-newlines/-/trim-newlines-3.0.1.tgz#260a5d962d8b752425b32f3a7db0dcacd176c144"
   integrity sha512-c1PTsA3tYrIsLGkJkzHF+w9F2EyxfXGo4UyJc4pFL++FMjnq0HJS69T3M7d//gKrFKwy429bouPescbjecU+Zw==
+
+ts-dedent@^2.0.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/ts-dedent/-/ts-dedent-2.2.0.tgz#39e4bd297cd036292ae2394eb3412be63f563bb5"
+  integrity sha512-q5W7tVM71e2xjHZTlgfTDoPF/SmqKG5hddq9SzR49CH2hayqRKJtQ4mtRlSxKaJlR/+9rEM+mnBHf7I2/BQcpQ==
 
 ts-jest@28.0.5:
   version "28.0.5"

@@ -27,7 +27,7 @@ export const getSignedUrl = async <
     s3Presigner = new S3RequestPresigner({
       ...client.config,
       signingName: authScheme?.signingName,
-      region: async () => authScheme?.signingScope,
+      region: async () => authScheme?.signingRegion,
     });
   } else {
     s3Presigner = new S3RequestPresigner(client.config);
