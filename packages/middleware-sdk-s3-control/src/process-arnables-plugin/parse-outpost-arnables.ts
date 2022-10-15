@@ -48,7 +48,7 @@ export const parseOutpostArnablesMiddleaware =
         useDualstackEndpoint,
       }))!);
     } else {
-      signingRegion = context.endpointV2?.properties?.authSchemes?.[0]?.signingScope || baseRegion;
+      signingRegion = context.endpointV2?.properties?.authSchemes?.[0]?.signingRegion || baseRegion;
       clientPartition = partition(signingRegion).name;
     }
 

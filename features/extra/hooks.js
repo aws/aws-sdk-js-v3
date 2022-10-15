@@ -64,7 +64,7 @@ Given("I run the {string} operation with params:", function (operation, params, 
 });
 
 Then("the request should be successful", function (callback) {
-  this.assert.ok(!this.error, "Response was not successful");
+  this.assert.ok(!this.error, "Response was not successful: " + this.error);
   callback();
 });
 

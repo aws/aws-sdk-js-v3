@@ -46,7 +46,7 @@ export const endpointMiddleware = <T extends EndpointParameters>({
 
       const authScheme: AuthScheme = context.authSchemes?.[0];
       if (authScheme) {
-        context["signing_region"] = authScheme.signingScope;
+        context["signing_region"] = authScheme.signingRegion;
         context["signing_service"] = authScheme.signingName;
       }
 
