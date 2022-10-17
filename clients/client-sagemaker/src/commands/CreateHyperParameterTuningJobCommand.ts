@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,6 +36,16 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *             and values for hyperparameters within ranges that you specify. It then chooses the
  *             hyperparameter values that result in a model that performs the best, as measured by an
  *             objective metric that you choose.</p>
+ *         <p>A hyperparameter tuning job automatically creates Amazon SageMaker experiments, trials, and
+ *             trial components for each training job that it runs. You can view these entities in
+ *             Amazon SageMaker Studio. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/experiments-view-compare.html#experiments-view">View
+ *                 Experiments, Trials, and Trial Components</a>.</p>
+ *         <important>
+ *             <p>Do not include any security-sensitive information including account access
+ *                 IDs, secrets or tokens in any hyperparameter field. If the use of
+ *                 security-sensitive credentials are detected, SageMaker will reject your training
+ *                 job request and return an exception error.</p>
+ *         </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +69,15 @@ export class CreateHyperParameterTuningJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "Endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateHyperParameterTuningJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +93,9 @@ export class CreateHyperParameterTuningJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateHyperParameterTuningJobCommandInput, CreateHyperParameterTuningJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateHyperParameterTuningJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

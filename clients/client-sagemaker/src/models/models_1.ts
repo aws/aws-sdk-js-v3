@@ -824,9 +824,9 @@ export interface HyperParameterTuningJobConfig {
   /**
    * <p>Specifies whether to use early stopping for training jobs launched by the
    *             hyperparameter tuning job. Because the <code>Hyperband</code> strategy has its own
-   *             advanced internal early stopping mechanism,
-   *             <code>TrainingJobEarlyStoppingType</code> must be <code>OFF</code> to use <code>Hyperband</code>. This parameter can take on one of the following values (the
-   *             default value is <code>OFF</code>):</p>
+   *             advanced internal early stopping mechanism, <code>TrainingJobEarlyStoppingType</code>
+   *             must be <code>OFF</code> to use <code>Hyperband</code>. This parameter can take on one
+   *             of the following values (the default value is <code>OFF</code>):</p>
    *         <dl>
    *             <dt>OFF</dt>
    *             <dd>
@@ -6328,10 +6328,10 @@ export interface CreateTrainingJobRequest {
    *             key-value pair. Each key and value is limited to 256 characters, as specified by the
    *                 <code>Length Constraint</code>. </p>
    *         <important>
-   *             <p>You must not include any security-sensitive information, such as account access
-   *                 IDs, secrets, and tokens, in the dictionary for configuring hyperparameters. SageMaker
-   *                 rejects the training job request and returns an exception error for detected
-   *                 credentials, if such user input is found.</p>
+   *             <p>Do not include any security-sensitive information including account access IDs,
+   *                 secrets or tokens in any hyperparameter field. If the use of security-sensitive
+   *                 credentials are detected, SageMaker will reject your training job request and return
+   *                 an exception error.</p>
    *         </important>
    */
   HyperParameters?: Record<string, string>;

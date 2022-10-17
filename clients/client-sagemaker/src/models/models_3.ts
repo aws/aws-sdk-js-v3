@@ -3403,11 +3403,13 @@ export interface RenderUiTemplateResponse {
 }
 
 /**
- * <p>The <code>ResourceConfig</code> to update <code>KeepAlivePeriodInSeconds</code>. Other fields in the <code>ResourceConfig</code> cannot be updated.</p>
+ * <p>The <code>ResourceConfig</code> to update <code>KeepAlivePeriodInSeconds</code>. Other
+ *             fields in the <code>ResourceConfig</code> cannot be updated.</p>
  */
 export interface ResourceConfigForUpdate {
   /**
-   * <p>The <code>KeepAlivePeriodInSeconds</code> value specified in the <code>ResourceConfig</code> to update.</p>
+   * <p>The <code>KeepAlivePeriodInSeconds</code> value specified in the
+   *                 <code>ResourceConfig</code> to update.</p>
    */
   KeepAlivePeriodInSeconds: number | undefined;
 }
@@ -5308,7 +5310,8 @@ export interface UpdateTrainingJobRequest {
   ProfilerRuleConfigurations?: ProfilerRuleConfiguration[];
 
   /**
-   * <p>The training job <code>ResourceConfig</code> to update warm pool retention length.</p>
+   * <p>The training job <code>ResourceConfig</code> to update warm pool retention
+   *             length.</p>
    */
   ResourceConfig?: ResourceConfigForUpdate;
 }

@@ -275,6 +275,27 @@ export enum ProductionVariantInstanceType {
   ML_C5_9XLARGE = "ml.c5.9xlarge",
   ML_C5_LARGE = "ml.c5.large",
   ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_C6GD_12XLARGE = "ml.c6gd.12xlarge",
+  ML_C6GD_16XLARGE = "ml.c6gd.16xlarge",
+  ML_C6GD_2XLARGE = "ml.c6gd.2xlarge",
+  ML_C6GD_4XLARGE = "ml.c6gd.4xlarge",
+  ML_C6GD_8XLARGE = "ml.c6gd.8xlarge",
+  ML_C6GD_LARGE = "ml.c6gd.large",
+  ML_C6GD_XLARGE = "ml.c6gd.xlarge",
+  ML_C6GN_12XLARGE = "ml.c6gn.12xlarge",
+  ML_C6GN_16XLARGE = "ml.c6gn.16xlarge",
+  ML_C6GN_2XLARGE = "ml.c6gn.2xlarge",
+  ML_C6GN_4XLARGE = "ml.c6gn.4xlarge",
+  ML_C6GN_8XLARGE = "ml.c6gn.8xlarge",
+  ML_C6GN_LARGE = "ml.c6gn.large",
+  ML_C6GN_XLARGE = "ml.c6gn.xlarge",
+  ML_C6G_12XLARGE = "ml.c6g.12xlarge",
+  ML_C6G_16XLARGE = "ml.c6g.16xlarge",
+  ML_C6G_2XLARGE = "ml.c6g.2xlarge",
+  ML_C6G_4XLARGE = "ml.c6g.4xlarge",
+  ML_C6G_8XLARGE = "ml.c6g.8xlarge",
+  ML_C6G_LARGE = "ml.c6g.large",
+  ML_C6G_XLARGE = "ml.c6g.xlarge",
   ML_C6I_12XLARGE = "ml.c6i.12xlarge",
   ML_C6I_16XLARGE = "ml.c6i.16xlarge",
   ML_C6I_24XLARGE = "ml.c6i.24xlarge",
@@ -284,6 +305,13 @@ export enum ProductionVariantInstanceType {
   ML_C6I_8XLARGE = "ml.c6i.8xlarge",
   ML_C6I_LARGE = "ml.c6i.large",
   ML_C6I_XLARGE = "ml.c6i.xlarge",
+  ML_C7G_12XLARGE = "ml.c7g.12xlarge",
+  ML_C7G_16XLARGE = "ml.c7g.16xlarge",
+  ML_C7G_2XLARGE = "ml.c7g.2xlarge",
+  ML_C7G_4XLARGE = "ml.c7g.4xlarge",
+  ML_C7G_8XLARGE = "ml.c7g.8xlarge",
+  ML_C7G_LARGE = "ml.c7g.large",
+  ML_C7G_XLARGE = "ml.c7g.xlarge",
   ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
   ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
   ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
@@ -319,6 +347,20 @@ export enum ProductionVariantInstanceType {
   ML_M5_4XLARGE = "ml.m5.4xlarge",
   ML_M5_LARGE = "ml.m5.large",
   ML_M5_XLARGE = "ml.m5.xlarge",
+  ML_M6GD_12XLARGE = "ml.m6gd.12xlarge",
+  ML_M6GD_16XLARGE = "ml.m6gd.16xlarge",
+  ML_M6GD_2XLARGE = "ml.m6gd.2xlarge",
+  ML_M6GD_4XLARGE = "ml.m6gd.4xlarge",
+  ML_M6GD_8XLARGE = "ml.m6gd.8xlarge",
+  ML_M6GD_LARGE = "ml.m6gd.large",
+  ML_M6GD_XLARGE = "ml.m6gd.xlarge",
+  ML_M6G_12XLARGE = "ml.m6g.12xlarge",
+  ML_M6G_16XLARGE = "ml.m6g.16xlarge",
+  ML_M6G_2XLARGE = "ml.m6g.2xlarge",
+  ML_M6G_4XLARGE = "ml.m6g.4xlarge",
+  ML_M6G_8XLARGE = "ml.m6g.8xlarge",
+  ML_M6G_LARGE = "ml.m6g.large",
+  ML_M6G_XLARGE = "ml.m6g.xlarge",
   ML_P2_16XLARGE = "ml.p2.16xlarge",
   ML_P2_8XLARGE = "ml.p2.8xlarge",
   ML_P2_XLARGE = "ml.p2.xlarge",
@@ -338,6 +380,20 @@ export enum ProductionVariantInstanceType {
   ML_R5_4XLARGE = "ml.r5.4xlarge",
   ML_R5_LARGE = "ml.r5.large",
   ML_R5_XLARGE = "ml.r5.xlarge",
+  ML_R6GD_12XLARGE = "ml.r6gd.12xlarge",
+  ML_R6GD_16XLARGE = "ml.r6gd.16xlarge",
+  ML_R6GD_2XLARGE = "ml.r6gd.2xlarge",
+  ML_R6GD_4XLARGE = "ml.r6gd.4xlarge",
+  ML_R6GD_8XLARGE = "ml.r6gd.8xlarge",
+  ML_R6GD_LARGE = "ml.r6gd.large",
+  ML_R6GD_XLARGE = "ml.r6gd.xlarge",
+  ML_R6G_12XLARGE = "ml.r6g.12xlarge",
+  ML_R6G_16XLARGE = "ml.r6g.16xlarge",
+  ML_R6G_2XLARGE = "ml.r6g.2xlarge",
+  ML_R6G_4XLARGE = "ml.r6g.4xlarge",
+  ML_R6G_8XLARGE = "ml.r6g.8xlarge",
+  ML_R6G_LARGE = "ml.r6g.large",
+  ML_R6G_XLARGE = "ml.r6g.xlarge",
   ML_T2_2XLARGE = "ml.t2.2xlarge",
   ML_T2_LARGE = "ml.t2.large",
   ML_T2_MEDIUM = "ml.t2.medium",
@@ -1217,7 +1273,8 @@ export interface ResourceConfig {
   InstanceGroups?: InstanceGroup[];
 
   /**
-   * <p>The duration of time in seconds to retain configured resources in a warm pool for subsequent training jobs.</p>
+   * <p>The duration of time in seconds to retain configured resources in a warm pool for
+   *             subsequent training jobs.</p>
    */
   KeepAlivePeriodInSeconds?: number;
 }
@@ -5116,7 +5173,7 @@ export interface ClarifyInferenceConfig {
    * <p>Provides the JMESPath expression to extract the features from a model container input
    *             in JSON Lines format. For example, if <code>FeaturesAttribute</code> is the JMESPath
    *             expression <code>'myfeatures'</code>, it extracts a list of features
-   *                 <code>[1,2,3]</code> from request data <code>'{"myfeatures":[1,2,3}'</code>.</p>
+   *                 <code>[1,2,3]</code> from request data <code>'{"myfeatures":[1,2,3]}'</code>.</p>
    */
   FeaturesAttribute?: string;
 
@@ -5422,7 +5479,7 @@ export interface ClarifyShapConfig {
 export interface ClarifyExplainerConfig {
   /**
    * <p>A JMESPath boolean expression used to filter which records to explain. Explanations
-   *             are activated by default. See <a href="https://docs.aws.amazon.com/sagemaker-dg/src/AWSIronmanApiDoc/build/server-root/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable">
+   *             are activated by default. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable">
    *                 <code>EnableExplanations</code>
    *             </a>for additional information.</p>
    */
@@ -7049,7 +7106,8 @@ export interface InputConfig {
   Framework: Framework | string | undefined;
 
   /**
-   * <p>Specifies the framework version to use. This API field is only supported for the PyTorch and TensorFlow frameworks.</p>
+   * <p>Specifies the framework version to use. This API field is only supported for the MXNet,
+   * 	    PyTorch, TensorFlow and TensorFlow Lite frameworks.</p>
    *         <p>For information about framework versions supported for cloud targets and edge devices, see
    *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-cloud.html">Cloud Supported Instance Types and Frameworks</a> and
    *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-devices-edge-frameworks.html">Edge Supported Frameworks</a>.</p>

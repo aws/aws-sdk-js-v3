@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -50,11 +51,10 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *                     be tuned to optimize this learning process. For a list of hyperparameters for
  *                     each training algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. </p>
  *                 <important>
- *                     <p>You must not include any security-sensitive information, such as account
- *                         access IDs, secrets, and tokens, in the dictionary for configuring
- *                         hyperparameters. SageMaker rejects the training job request and returns an
- *                         exception error for detected credentials, if such user input is
- *                         found.</p>
+ *                     <p>Do not include any security-sensitive information including account access
+ *                         IDs, secrets or tokens in any hyperparameter field. If the use of
+ *                         security-sensitive credentials are detected, SageMaker will reject your training
+ *                         job request and return an exception error.</p>
  *                 </important>
  *             </li>
  *             <li>
@@ -131,6 +131,15 @@ export class CreateTrainingJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "Endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateTrainingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,6 +155,9 @@ export class CreateTrainingJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateTrainingJobCommandInput, CreateTrainingJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateTrainingJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
