@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.190.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.189.0...v3.190.0) (2022-10-17)
+
+
+### Bug Fixes
+
+* **endpoint:** e2e test fixes for endpoints 2.0 all services ([#4044](https://github.com/aws/aws-sdk-js-v3/issues/4044)) ([b53f5bd](https://github.com/aws/aws-sdk-js-v3/commit/b53f5bdd2bb4f0d1bab208ef2cd8f67d56291934))
+* **endpoint:** endpoints 2.0 all-service TS compilation fixes ([#4043](https://github.com/aws/aws-sdk-js-v3/issues/4043)) ([f2da618](https://github.com/aws/aws-sdk-js-v3/commit/f2da6182298d4d6b02e84fb723492c07c27469a8))
+
+
+### Features
+
+* **client-greengrass:** This change allows customers to specify FunctionRuntimeOverride in FunctionDefinitionVersion. This configuration can be used if the runtime on the device is different from the AWS Lambda runtime specified for that function. ([b2be11f](https://github.com/aws/aws-sdk-js-v3/commit/b2be11f328f5ff02e63b18b2006ff81d67092944))
+* **client-sagemaker:** This release adds support for C7g, C6g, C6gd, C6gn, M6g, M6gd, R6g, and R6gn Graviton instance types in Amazon SageMaker Inference. ([92e9095](https://github.com/aws/aws-sdk-js-v3/commit/92e9095961d0f33e9595bc0521332149267575f0))
+
+
+
+
+
 # [3.189.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.188.0...v3.189.0) (2022-10-14)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.190.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.189.0...v3.190.0) (2022-10-17)
+
+
+### Features
+
+* **client-greengrass:** This change allows customers to specify FunctionRuntimeOverride in FunctionDefinitionVersion. This configuration can be used if the runtime on the device is different from the AWS Lambda runtime specified for that function. ([b2be11f](https://github.com/aws/aws-sdk-js-v3/commit/b2be11f328f5ff02e63b18b2006ff81d67092944))
+
+
+
+
+
 # [3.188.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.187.0...v3.188.0) (2022-10-13)
 
 **Note:** Version bump only for package @aws-sdk/client-greengrass
