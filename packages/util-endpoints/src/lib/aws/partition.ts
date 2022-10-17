@@ -13,11 +13,10 @@ const DEFAULT_PARTITION = partitions.find((partition) => partition.id === "aws")
 export const partition = (value: string): EndpointPartition => {
   // Check for explicit region listed in the regions array.
   for (const partition of partitions) {
-    const { id, regions, outputs } = partition;
+    const { regions, outputs } = partition;
     for (const [region, regionData] of Object.entries(regions)) {
       if (region === value) {
         return {
-          name: id,
           ...outputs,
           ...regionData,
         };
@@ -27,10 +26,9 @@ export const partition = (value: string): EndpointPartition => {
 
   // Check for region that matches a regionRegex pattern.
   for (const partition of partitions) {
-    const { id, regionRegex, outputs } = partition;
+    const { regionRegex, outputs } = partition;
     if (new RegExp(regionRegex).test(value)) {
       return {
-        name: id,
         ...outputs,
       };
     }
@@ -45,7 +43,6 @@ export const partition = (value: string): EndpointPartition => {
 
   // Return the default partition.
   return {
-    name: DEFAULT_PARTITION.id,
     ...DEFAULT_PARTITION.outputs,
   };
 };

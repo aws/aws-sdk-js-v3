@@ -1,4 +1,4 @@
-import { EndpointParameterInstructionsSupplier } from "../adaptors";
+import { EndpointParameterInstructionsSupplier } from "@aws-sdk/middleware-endpoint";
 
 export interface EndpointTestCase {
   documentation?: string;
