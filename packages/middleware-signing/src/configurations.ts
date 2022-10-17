@@ -174,7 +174,7 @@ export const resolveAwsAuthConfig = <T>(
       authScheme = Object.assign(
         {},
         {
-          name: "v4",
+          name: "sigv4",
           signingName: input.signingName || input.defaultSigningName!,
           signingRegion: await normalizeProvider(input.region)(),
           properties: {},
