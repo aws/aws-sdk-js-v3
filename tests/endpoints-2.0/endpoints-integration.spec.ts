@@ -5,56 +5,54 @@ import * as path from "path";
 
 import { EndpointExpectation, EndpointTestCase, ErrorExpectation, ServiceNamespace } from "./integration-test-types";
 
-describe("endpoints 2.0 service integration", () => {
-  const clientList: string[] = [];
-  const root = path.join(__dirname, "..", "..");
-  const clients = fs.readdirSync(path.join(root, "clients"));
-  clientList.push(...clients);
+const clientList: string[] = [];
+const root = path.join(__dirname, "..", "..");
+const clients = fs.readdirSync(path.join(root, "clients"));
+clientList.push(...clients);
 
-  describe("client list", () => {
-    it("should be at least 300 clients", () => {
-      expect(clientList.length).toBeGreaterThan(300);
-    });
-  });
-
-  describe("endpoints tests", () => {
-    for (const client of clientList) {
-      const serviceName = client.slice(7);
-
-      let defaultEndpointResolver;
-      let namespace;
-      let model;
-
-      // this may also work with dynamic async import() in a beforeAll() block,
-      // but needs more effort than using synchronous require().
-      try {
-        defaultEndpointResolver =
-          require(`@aws-sdk/client-${serviceName}/src/endpoint/endpointResolver`).defaultEndpointResolver;
-        namespace = require(`@aws-sdk/client-${serviceName}`);
-        model = require(path.join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json"));
-      } catch (e) {
-        defaultEndpointResolver = null;
-        namespace = null;
-        model = null;
-        console.error(e);
-      }
-
-      describe(`client-${serviceName} endpoint test cases`, () => {
-        if (defaultEndpointResolver && namespace && model) {
-          const [, service] = Object.entries(model.shapes).find(([k, v]) => v?.["type"] === "service") as any;
-          const [, tests] = Object.entries(service.traits).find(([k, v]) => k === "smithy.rules#endpointTests") as any;
-          if (tests?.testCases) {
-            runTestCases(tests, service, defaultEndpointResolver, "");
-          } else {
-            it.skip("has no test cases", () => {});
-          }
-        } else {
-          it.skip("unable to load endpoint resolver, namespace, or test cases", () => {});
-        }
-      });
-    }
+describe("client list", () => {
+  it("should be at least 300 clients", () => {
+    expect(clientList.length).toBeGreaterThan(300);
   });
 });
+
+for (const client of clientList) {
+  const serviceName = client.slice(7);
+
+  let defaultEndpointResolver;
+  let namespace;
+  let model;
+
+  // this may also work with dynamic async import() in a beforeAll() block,
+  // but needs more effort than using synchronous require().
+  try {
+    defaultEndpointResolver =
+      require(`@aws-sdk/client-${serviceName}/src/endpoint/endpointResolver`).defaultEndpointResolver;
+    namespace = require(`@aws-sdk/client-${serviceName}`);
+    model = require(path.join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json"));
+  } catch (e) {
+    defaultEndpointResolver = null;
+    namespace = null;
+    model = null;
+    if (e.code !== "MODULE_NOT_FOUND") {
+      console.error(e);
+    }
+  }
+
+  describe(`client-${serviceName} endpoint test cases`, () => {
+    if (defaultEndpointResolver && namespace && model) {
+      const [, service] = Object.entries(model.shapes).find(([k, v]) => v?.["type"] === "service") as any;
+      const [, tests] = Object.entries(service.traits).find(([k, v]) => k === "smithy.rules#endpointTests") as any;
+      if (tests?.testCases) {
+        runTestCases(tests, service, defaultEndpointResolver, "");
+      } else {
+        it.skip("has no test cases", () => {});
+      }
+    } else {
+      it.skip("unable to load endpoint resolver, namespace, or test cases", () => {});
+    }
+  });
+}
 
 function runTestCases(
   { testCases }: { testCases: EndpointTestCase[] },
@@ -136,7 +134,7 @@ function assertEndpointResolvedCorrectly(expected: EndpointExpectation["endpoint
     expect(observed.headers).toEqual(headers);
   }
   if (authSchemes) {
-    // expect(observed.properties?.authSchemes).toEqual(authSchemes);
+    expect(observed.properties?.authSchemes).toEqual(authSchemes);
   }
 }
 

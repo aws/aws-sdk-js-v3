@@ -52,8 +52,7 @@ export const resolveParams = async <
   clientConfig: Partial<EndpointResolvedConfig<T>> & Config
 ) => {
   const endpointParams: EndpointParameters = {};
-  const instructions: EndpointParameterInstructions =
-    (instructionsSupplier.getEndpointParameterInstructions || (() => null))() || {};
+  const instructions: EndpointParameterInstructions = instructionsSupplier?.getEndpointParameterInstructions?.() || {};
 
   for (const [name, instruction] of Object.entries(instructions)) {
     switch (instruction.type) {
