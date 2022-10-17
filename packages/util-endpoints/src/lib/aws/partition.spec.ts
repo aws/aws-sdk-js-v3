@@ -11,6 +11,7 @@ const MOCK_DEFAULT_PARTITION = {
     "mock-region-2": {},
   },
   outputs: {
+    name: "aws",
     dnsSuffix: "mockDefaultDnsSuffix",
     dualStackDnsSuffix: "mockDefaultDualStackDnsSuffix",
     supportsFIPS: false,
@@ -23,6 +24,7 @@ const MOCK_PARTITION = {
   regionRegex: "mockRegionRegex",
   regions: {},
   outputs: {
+    name: "partitionId",
     dnsSuffix: "mockPartitionDnsSuffix",
     dualStackDnsSuffix: "mockPartitionDualStackDnsSuffix",
     supportsFIPS: true,
