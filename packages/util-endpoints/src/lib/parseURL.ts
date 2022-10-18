@@ -2,7 +2,7 @@ import { Endpoint, EndpointURL, EndpointURLScheme } from "@aws-sdk/types";
 
 import { isIpAddress } from "./isIpAddress";
 
-const DEFAULT_PORTS: Record<EndpointURLScheme, number> = {
+export const DEFAULT_PORTS: Record<EndpointURLScheme, number> = {
   [EndpointURLScheme.HTTP]: 80,
   [EndpointURLScheme.HTTPS]: 443,
 };
@@ -17,7 +17,7 @@ export const parseURL = (value: string | URL | Endpoint): EndpointURL | null => 
         return value;
       }
       if (typeof value === "object" && "hostname" in value) {
-        const { hostname, port = "", protocol = "", path = "", query = {} } = value as Endpoint;
+        const { hostname, port, protocol = "", path = "", query = {} } = value as Endpoint;
         const url = new URL(`${protocol}//${hostname}${port ? `:${port}` : ""}${path}`);
         url.search = Object.entries(query)
           .map(([k, v]) => `${k}=${v}`)
@@ -49,9 +49,12 @@ export const parseURL = (value: string | URL | Endpoint): EndpointURL | null => 
   }
 
   const isIp = isIpAddress(hostname);
-  const authority = `${host}${
-    urlString.includes(`${host}:${DEFAULT_PORTS[scheme]}`) ? `:${DEFAULT_PORTS[scheme]}` : ``
-  }`;
+
+  const inputContainsDefaultPort =
+    urlString.includes(`${host}:${DEFAULT_PORTS[scheme]}`) ||
+    (typeof value === "string" && value.includes(`${host}:${DEFAULT_PORTS[scheme]}`));
+
+  const authority = `${host}${inputContainsDefaultPort ? `:${DEFAULT_PORTS[scheme]}` : ``}`;
 
   return {
     scheme,
