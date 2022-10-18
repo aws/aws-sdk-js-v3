@@ -497,8 +497,10 @@ export interface CreateBatchImportJobRequest {
   eventTypeName: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role created for Amazon S3 bucket that holds your data file.
-   *          The IAM role must have read and write permissions to both input and output S3 buckets.</p>
+   * <p>The ARN of the IAM role created for Amazon S3 bucket that holds your data file.</p>
+   *          <p>The IAM role must have read permissions to your input S3 bucket and write permissions to your output S3 bucket.
+   *          For more information about bucket permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-policies-s3.html">User policy examples</a> in the
+   *          <i>Amazon S3 User Guide</i>.</p>
    */
   iamRoleArn: string | undefined;
 
@@ -543,6 +545,9 @@ export interface CreateBatchPredictionJobRequest {
 
   /**
    * <p>The ARN of the IAM role to use for this job request.</p>
+   *          <p>The IAM Role must have read permissions to your input S3 bucket and write permissions to your output S3 bucket.
+   *          For more information about bucket permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-policies-s3.html">User policy examples</a> in the
+   *          <i>Amazon S3 User Guide</i>.</p>
    */
   iamRoleArn: string | undefined;
 
@@ -3740,6 +3745,7 @@ export interface PutExternalModelResult {}
 export interface PutKMSEncryptionKeyRequest {
   /**
    * <p>The KMS encryption key ARN.</p>
+   *          <p>The KMS key must be single-Region key. Amazon Fraud Detector does not support multi-Region KMS key.</p>
    */
   kmsEncryptionKeyArn: string | undefined;
 }
@@ -3925,6 +3931,8 @@ export interface UpdateDetectorVersionStatusRequest {
 
   /**
    * <p>The new status.</p>
+   *          <p>The only supported values are <code>ACTIVE</code> and <code>INACTIVE</code>
+   *          </p>
    */
   status: DetectorVersionStatus | string | undefined;
 }
