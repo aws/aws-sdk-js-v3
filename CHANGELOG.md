@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.191.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.190.0...v3.191.0) (2022-10-18)
+
+
+### Features
+
+* **client-sagemaker:** This change allows customers to enable data capturing while running a batch transform job, and configure monitoring schedule to monitoring the captured data. ([0acd4a7](https://github.com/aws/aws-sdk-js-v3/commit/0acd4a73a5702dadee85a4693ee1021b816dab8a))
+* **client-servicediscovery:** Updated the ListNamespaces API to support the NAME and HTTP_NAME filters, and the BEGINS_WITH filter condition. ([cee660c](https://github.com/aws/aws-sdk-js-v3/commit/cee660cc1b524d2b03269724ff4c07d0c9870b8e))
+* **client-sesv2:** This release allows subscribers to enable Dedicated IPs (managed) to send email via a fully managed dedicated IP experience. It also adds identities' VerificationStatus in the response of GetEmailIdentity and ListEmailIdentities APIs, and ImportJobs counts in the response of ListImportJobs API. ([976549d](https://github.com/aws/aws-sdk-js-v3/commit/976549dbbf654a2978fbfd5896c6797b4824e229))
+* **clients:** update client endpoints as of 2022-10-18 ([0591a36](https://github.com/aws/aws-sdk-js-v3/commit/0591a36242fdb1a2f2545f3fcb2423498bd83aaa))
+
+
+
+
+
 # [3.190.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.189.0...v3.190.0) (2022-10-17)
 
 
