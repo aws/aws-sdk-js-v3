@@ -2,7 +2,7 @@ import { Endpoint, EndpointURL, EndpointURLScheme } from "@aws-sdk/types";
 
 import { isIpAddress } from "./isIpAddress";
 
-export const DEFAULT_PORTS: Record<EndpointURLScheme, number> = {
+const DEFAULT_PORTS: Record<EndpointURLScheme, number> = {
   [EndpointURLScheme.HTTP]: 80,
   [EndpointURLScheme.HTTPS]: 443,
 };
