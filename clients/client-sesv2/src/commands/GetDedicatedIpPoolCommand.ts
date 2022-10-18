@@ -14,40 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  GetImportJobRequest,
-  GetImportJobRequestFilterSensitiveLog,
-  GetImportJobResponse,
-  GetImportJobResponseFilterSensitiveLog,
+  GetDedicatedIpPoolRequest,
+  GetDedicatedIpPoolRequestFilterSensitiveLog,
+  GetDedicatedIpPoolResponse,
+  GetDedicatedIpPoolResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetImportJobCommand,
-  serializeAws_restJson1GetImportJobCommand,
+  deserializeAws_restJson1GetDedicatedIpPoolCommand,
+  serializeAws_restJson1GetDedicatedIpPoolCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
-export interface GetImportJobCommandInput extends GetImportJobRequest {}
-export interface GetImportJobCommandOutput extends GetImportJobResponse, __MetadataBearer {}
+export interface GetDedicatedIpPoolCommandInput extends GetDedicatedIpPoolRequest {}
+export interface GetDedicatedIpPoolCommandOutput extends GetDedicatedIpPoolResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about an import job.</p>
+ * <p>Retrieve information about the dedicated pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, GetImportJobCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, GetImportJobCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, GetDedicatedIpPoolCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, GetDedicatedIpPoolCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const command = new GetImportJobCommand(input);
+ * const command = new GetDedicatedIpPoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetImportJobCommandInput} for command's `input` shape.
- * @see {@link GetImportJobCommandOutput} for command's `response` shape.
+ * @see {@link GetDedicatedIpPoolCommandInput} for command's `input` shape.
+ * @see {@link GetDedicatedIpPoolCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
-export class GetImportJobCommand extends $Command<
-  GetImportJobCommandInput,
-  GetImportJobCommandOutput,
+export class GetDedicatedIpPoolCommand extends $Command<
+  GetDedicatedIpPoolCommandInput,
+  GetDedicatedIpPoolCommandOutput,
   SESv2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +62,7 @@ export class GetImportJobCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetImportJobCommandInput) {
+  constructor(readonly input: GetDedicatedIpPoolCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,21 +75,23 @@ export class GetImportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetImportJobCommandInput, GetImportJobCommandOutput> {
+  ): Handler<GetDedicatedIpPoolCommandInput, GetDedicatedIpPoolCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetImportJobCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetDedicatedIpPoolCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SESv2Client";
-    const commandName = "GetImportJobCommand";
+    const commandName = "GetDedicatedIpPoolCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: GetDedicatedIpPoolRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDedicatedIpPoolResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +101,12 @@ export class GetImportJobCommand extends $Command<
     );
   }
 
-  private serialize(input: GetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetImportJobCommand(input, context);
+  private serialize(input: GetDedicatedIpPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetDedicatedIpPoolCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImportJobCommandOutput> {
-    return deserializeAws_restJson1GetImportJobCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDedicatedIpPoolCommandOutput> {
+    return deserializeAws_restJson1GetDedicatedIpPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

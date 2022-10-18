@@ -183,7 +183,7 @@ export interface BlacklistEntry {
   RblName?: string;
 
   /**
-   * <p>The time when the blacklisting event occurred, shown in Unix time format.</p>
+   * <p>The time when the blacklisting event occurred.</p>
    */
   ListingTime?: Date;
 
@@ -535,8 +535,8 @@ export interface CloudWatchDimensionConfiguration {
    *             criteria:</p>
    *         <ul>
    *             <li>
-   *                 <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
-   *                     underscores (_), or dashes (-).</p>
+   *                 <p>Can only contain ASCII letters (a–z, A–Z), numbers (0–9),
+   *                     underscores (_), or dashes (-), at signs (@), and periods (.).</p>
    *             </li>
    *             <li>
    *                 <p>It can contain no more than 256 characters.</p>
@@ -1193,7 +1193,7 @@ export interface CreateCustomVerificationEmailTemplateRequest {
   /**
    * <p>The content of the custom verification email. The total size of the email must be less
    *             than 10 MB. The message body may contain HTML, with some limitations. For more
-   *             information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html#custom-verification-emails-faq">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES
+   *             information, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom-faq">Custom verification email frequently asked questions</a> in the <i>Amazon SES
    *                 Developer Guide</i>.</p>
    */
   TemplateContent: string | undefined;
@@ -1217,6 +1217,11 @@ export interface CreateCustomVerificationEmailTemplateRequest {
  */
 export interface CreateCustomVerificationEmailTemplateResponse {}
 
+export enum ScalingMode {
+  MANAGED = "MANAGED",
+  STANDARD = "STANDARD",
+}
+
 /**
  * <p>A request to create a new dedicated IP pool.</p>
  */
@@ -1231,6 +1236,11 @@ export interface CreateDedicatedIpPoolRequest {
    *             pool.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The type of scaling mode.</p>
+   */
+  ScalingMode?: ScalingMode | string;
 }
 
 /**
@@ -1508,8 +1518,9 @@ export interface CreateEmailIdentityRequest {
 
   /**
    * <p>If your request includes this object, Amazon SES configures the identity to use Bring Your
-   *             Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for
-   *             <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
+   *             Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be
+   *             used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
+   *                 DKIM</a>.</p>
    *         <p>You can only specify this object if the email identity is a domain, as opposed to an
    *             address.</p>
    */
@@ -2001,6 +2012,31 @@ export interface DedicatedIp {
 }
 
 /**
+ * <p>Contains information about a dedicated IP pool.</p>
+ */
+export interface DedicatedIpPool {
+  /**
+   * <p>The name of the dedicated IP pool.</p>
+   */
+  PoolName: string | undefined;
+
+  /**
+   * <p>The type of the dedicated IP pool.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>STANDARD</code> – A dedicated IP pool where the customer can control which IPs are part of the pool.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>MANAGED</code> – A dedicated IP pool where the reputation and number of IPs is automatically managed by Amazon SES.</p>
+   *             </li>
+   *          </ul>
+   */
+  ScalingMode: ScalingMode | string | undefined;
+}
+
+/**
  * <p>A request to delete a configuration set.</p>
  */
 export interface DeleteConfigurationSetRequest {
@@ -2202,7 +2238,7 @@ export interface DeliverabilityTestReport {
   FromEmailAddress?: string;
 
   /**
-   * <p>The date and time when the predictive inbox placement test was created, in Unix time format.</p>
+   * <p>The date and time when the predictive inbox placement test was created.</p>
    */
   CreateDate?: Date;
 
@@ -2250,14 +2286,14 @@ export interface DomainDeliverabilityCampaign {
   SendingIps?: string[];
 
   /**
-   * <p>The first time, in Unix time format, when the email message was delivered to any
+   * <p>The first time when the email message was delivered to any
    *             recipient's inbox. This value can help you determine how long it took for a campaign to
    *             deliver an email message.</p>
    */
   FirstSeenDateTime?: Date;
 
   /**
-   * <p>The last time, in Unix time format, when the email message was delivered to any
+   * <p>The last time when the email message was delivered to any
    *             recipient's inbox. This value can help you determine how long it took for a campaign to
    *             deliver an email message.</p>
    */
@@ -2338,7 +2374,7 @@ export interface DomainDeliverabilityTrackingOption {
   Domain?: string;
 
   /**
-   * <p>The date, in Unix time format, when you enabled the Deliverability dashboard for the
+   * <p>The date when you enabled the Deliverability dashboard for the
    *             domain.</p>
    */
   SubscriptionStartDate?: Date;
@@ -2448,8 +2484,8 @@ export interface GetAccountRequest {}
 export interface SendQuota {
   /**
    * <p>The maximum number of emails that you can send in the current Amazon Web Services Region over a
-   *             24-hour period. This value is also called your <i>sending
-   *             quota</i>.</p>
+   *             24-hour period. A value of -1 signifies an unlimited quota. (This value is also referred
+   *             to as your <i>sending quota</i>.)</p>
    */
   Max24HourSend?: number;
 
@@ -2836,6 +2872,26 @@ export interface GetDedicatedIpResponse {
 }
 
 /**
+ * <p>A request to obtain more information about a dedicated IP pool.</p>
+ */
+export interface GetDedicatedIpPoolRequest {
+  /**
+   * <p>The name of the dedicated IP pool to retrieve.</p>
+   */
+  PoolName: string | undefined;
+}
+
+/**
+ * <p>The following element is returned by the service.</p>
+ */
+export interface GetDedicatedIpPoolResponse {
+  /**
+   * <p>An object that contains information about a dedicated IP pool.</p>
+   */
+  DedicatedIpPool?: DedicatedIpPool;
+}
+
+/**
  * <p>A request to obtain more information about dedicated IP pools.</p>
  */
 export interface GetDedicatedIpsRequest {
@@ -2899,7 +2955,7 @@ export interface GetDeliverabilityDashboardOptionsResponse {
   DashboardEnabled: boolean | undefined;
 
   /**
-   * <p>The date, in Unix time format, when your current subscription to the Deliverability dashboard
+   * <p>The date  when your current subscription to the Deliverability dashboard
    *             is scheduled to expire, if your subscription is scheduled to expire at the end of the
    *             current calendar month. This value is null if you have an active subscription that isn’t
    *             due to expire at the end of the month.</p>
@@ -3171,9 +3227,9 @@ export interface MailFromAttributes {
 
   /**
    * <p>The action to take if the required MX record can't be found when you send an email.
-   *             When you set this value to <code>UseDefaultValue</code>, the mail is sent using
+   *             When you set this value to <code>USE_DEFAULT_VALUE</code>, the mail is sent using
    *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
-   *             to <code>RejectMessage</code>, the Amazon SES API v2 returns a
+   *             to <code>REJECT_MESSAGE</code>, the Amazon SES API v2 returns a
    *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
    *             email.</p>
    *         <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
@@ -3181,6 +3237,14 @@ export interface MailFromAttributes {
    *             states.</p>
    */
   BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
+}
+
+export enum VerificationStatus {
+  FAILED = "FAILED",
+  NOT_STARTED = "NOT_STARTED",
+  PENDING = "PENDING",
+  SUCCESS = "SUCCESS",
+  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
 }
 
 /**
@@ -3238,6 +3302,37 @@ export interface GetEmailIdentityResponse {
    * <p>The configuration set used by default when sending from this identity.</p>
    */
   ConfigurationSetName?: string;
+
+  /**
+   * <p>The verification status of the identity. The status can be one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>PENDING</code> – The verification process was initiated, but Amazon SES
+   *                     hasn't yet been able to verify the identity.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SUCCESS</code> – The verification process completed
+   *                     successfully.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FAILED</code> – The verification process failed.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES
+   *                     from determining the verification status of the identity.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>NOT_STARTED</code> – The verification process hasn't been
+   *                     initiated for the identity.</p>
+   *             </li>
+   *          </ul>
+   */
+  VerificationStatus?: VerificationStatus | string;
 }
 
 /**
@@ -3446,6 +3541,37 @@ export interface IdentityInfo {
    *             the identity, and that you authorize Amazon SES to send email from that identity.</p>
    */
   SendingEnabled?: boolean;
+
+  /**
+   * <p>The verification status of the identity. The status can be one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>PENDING</code> – The verification process was initiated, but Amazon SES
+   *                     hasn't yet been able to verify the identity.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SUCCESS</code> – The verification process completed
+   *                     successfully.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FAILED</code> – The verification process failed.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES
+   *                     from determining the verification status of the identity.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>NOT_STARTED</code> – The verification process hasn't been
+   *                     initiated for the identity.</p>
+   *             </li>
+   *          </ul>
+   */
+  VerificationStatus?: VerificationStatus | string;
 }
 
 export enum ImportDestinationType {
@@ -3477,6 +3603,17 @@ export interface ImportJobSummary {
    * <p>The date and time when the import job was created.</p>
    */
   CreatedTimestamp?: Date;
+
+  /**
+   * <p>The current number of records processed.</p>
+   */
+  ProcessedRecordsCount?: number;
+
+  /**
+   * <p>The number of records that failed processing because of invalid input or other
+   *             reasons.</p>
+   */
+  FailedRecordsCount?: number;
 }
 
 /**
@@ -3769,13 +3906,13 @@ export interface ListDeliverabilityTestReportsResponse {
  */
 export interface ListDomainDeliverabilityCampaignsRequest {
   /**
-   * <p>The first day, in Unix time format, that you want to obtain deliverability data
+   * <p>The first day that you want to obtain deliverability data
    *             for.</p>
    */
   StartDate: Date | undefined;
 
   /**
-   * <p>The last day, in Unix time format, that you want to obtain deliverability data for.
+   * <p>The last day that you want to obtain deliverability data for.
    *             This value has to be less than or equal to 30 days after the value of the
    *                 <code>StartDate</code> parameter.</p>
    */
@@ -3978,15 +4115,13 @@ export interface ListSuppressedDestinationsRequest {
 
   /**
    * <p>Used to filter the list of suppressed email destinations so that it only includes
-   *             addresses that were added to the list after a specific date. The date that you specify
-   *             should be in Unix time format.</p>
+   *             addresses that were added to the list after a specific date.</p>
    */
   StartDate?: Date;
 
   /**
    * <p>Used to filter the list of suppressed email destinations so that it only includes
-   *             addresses that were added to the list before a specific date. The date that you specify
-   *             should be in Unix time format.</p>
+   *             addresses that were added to the list before a specific date.</p>
    */
   EndDate?: Date;
 
@@ -4472,9 +4607,8 @@ export interface PutEmailIdentityDkimSigningAttributesRequest {
 
   /**
    * <p>An object that contains information about the private key and selector that you want
-   *             to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or,
-   *             configures the key length to be used for
-   *             <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
+   *             to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the
+   *             identity, or, configures the key length to be used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
    */
   SigningAttributes?: DkimSigningAttributes;
 }
@@ -5036,7 +5170,7 @@ export interface UpdateCustomVerificationEmailTemplateRequest {
   /**
    * <p>The content of the custom verification email. The total size of the email must be less
    *             than 10 MB. The message body may contain HTML, with some limitations. For more
-   *             information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html#custom-verification-emails-faq">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES
+   *             information, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom-faq">Custom verification email frequently asked questions</a> in the <i>Amazon SES
    *                 Developer Guide</i>.</p>
    */
   TemplateContent: string | undefined;
@@ -5602,6 +5736,13 @@ export const DedicatedIpFilterSensitiveLog = (obj: DedicatedIp): any => ({
 /**
  * @internal
  */
+export const DedicatedIpPoolFilterSensitiveLog = (obj: DedicatedIpPool): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteConfigurationSetRequestFilterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
   ...obj,
 });
@@ -5930,6 +6071,20 @@ export const GetDedicatedIpRequestFilterSensitiveLog = (obj: GetDedicatedIpReque
  * @internal
  */
 export const GetDedicatedIpResponseFilterSensitiveLog = (obj: GetDedicatedIpResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDedicatedIpPoolRequestFilterSensitiveLog = (obj: GetDedicatedIpPoolRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDedicatedIpPoolResponseFilterSensitiveLog = (obj: GetDedicatedIpPoolResponse): any => ({
   ...obj,
 });
 

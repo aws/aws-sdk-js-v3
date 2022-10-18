@@ -111,6 +111,7 @@ import {
   GetCustomVerificationEmailTemplateCommandOutput,
 } from "../commands/GetCustomVerificationEmailTemplateCommand";
 import { GetDedicatedIpCommandInput, GetDedicatedIpCommandOutput } from "../commands/GetDedicatedIpCommand";
+import { GetDedicatedIpPoolCommandInput, GetDedicatedIpPoolCommandOutput } from "../commands/GetDedicatedIpPoolCommand";
 import { GetDedicatedIpsCommandInput, GetDedicatedIpsCommandOutput } from "../commands/GetDedicatedIpsCommand";
 import {
   GetDeliverabilityDashboardOptionsCommandInput,
@@ -295,6 +296,7 @@ import {
   CustomVerificationEmailTemplateMetadata,
   DailyVolume,
   DedicatedIp,
+  DedicatedIpPool,
   DeliverabilityTestReport,
   DeliveryOptions,
   Destination,
@@ -546,6 +548,7 @@ export const serializeAws_restJson1CreateDedicatedIpPoolCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.PoolName != null && { PoolName: input.PoolName }),
+    ...(input.ScalingMode != null && { ScalingMode: input.ScalingMode }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
@@ -1214,6 +1217,27 @@ export const serializeAws_restJson1GetDedicatedIpCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/dedicated-ips/{Ip}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Ip", () => input.Ip!, "{Ip}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetDedicatedIpPoolCommand = async (
+  input: GetDedicatedIpPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/dedicated-ip-pools/{PoolName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "PoolName", () => input.PoolName!, "{PoolName}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -4303,6 +4327,53 @@ const deserializeAws_restJson1GetDedicatedIpCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetDedicatedIpPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDedicatedIpPoolCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetDedicatedIpPoolCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DedicatedIpPool != null) {
+    contents.DedicatedIpPool = deserializeAws_restJson1DedicatedIpPool(data.DedicatedIpPool, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetDedicatedIpPoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDedicatedIpPoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1GetDedicatedIpsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4613,6 +4684,9 @@ export const deserializeAws_restJson1GetEmailIdentityCommand = async (
   }
   if (data.Tags != null) {
     contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
+  }
+  if (data.VerificationStatus != null) {
+    contents.VerificationStatus = __expectString(data.VerificationStatus);
   }
   if (data.VerifiedForSendingStatus != null) {
     contents.VerifiedForSendingStatus = __expectBoolean(data.VerifiedForSendingStatus);
@@ -7723,6 +7797,13 @@ const deserializeAws_restJson1DedicatedIpList = (output: any, context: __SerdeCo
   return retVal;
 };
 
+const deserializeAws_restJson1DedicatedIpPool = (output: any, context: __SerdeContext): DedicatedIpPool => {
+  return {
+    PoolName: __expectString(output.PoolName),
+    ScalingMode: __expectString(output.ScalingMode),
+  } as any;
+};
+
 const deserializeAws_restJson1DeliverabilityTestReport = (
   output: any,
   context: __SerdeContext
@@ -7992,6 +8073,7 @@ const deserializeAws_restJson1IdentityInfo = (output: any, context: __SerdeConte
     IdentityName: __expectString(output.IdentityName),
     IdentityType: __expectString(output.IdentityType),
     SendingEnabled: __expectBoolean(output.SendingEnabled),
+    VerificationStatus: __expectString(output.VerificationStatus),
   } as any;
 };
 
@@ -8033,12 +8115,14 @@ const deserializeAws_restJson1ImportJobSummary = (output: any, context: __SerdeC
       output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
+    FailedRecordsCount: __expectInt32(output.FailedRecordsCount),
     ImportDestination:
       output.ImportDestination != null
         ? deserializeAws_restJson1ImportDestination(output.ImportDestination, context)
         : undefined,
     JobId: __expectString(output.JobId),
     JobStatus: __expectString(output.JobStatus),
+    ProcessedRecordsCount: __expectInt32(output.ProcessedRecordsCount),
   } as any;
 };
 

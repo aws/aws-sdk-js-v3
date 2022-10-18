@@ -28,6 +28,7 @@ export * from "./GetContactCommand";
 export * from "./GetContactListCommand";
 export * from "./GetCustomVerificationEmailTemplateCommand";
 export * from "./GetDedicatedIpCommand";
+export * from "./GetDedicatedIpPoolCommand";
 export * from "./GetDedicatedIpsCommand";
 export * from "./GetDeliverabilityDashboardOptionsCommand";
 export * from "./GetDeliverabilityTestReportCommand";

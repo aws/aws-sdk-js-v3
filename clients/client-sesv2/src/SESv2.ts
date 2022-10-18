@@ -139,6 +139,11 @@ import {
   GetDedicatedIpCommandOutput,
 } from "./commands/GetDedicatedIpCommand";
 import {
+  GetDedicatedIpPoolCommand,
+  GetDedicatedIpPoolCommandInput,
+  GetDedicatedIpPoolCommandOutput,
+} from "./commands/GetDedicatedIpPoolCommand";
+import {
   GetDedicatedIpsCommand,
   GetDedicatedIpsCommandInput,
   GetDedicatedIpsCommandOutput,
@@ -546,7 +551,8 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Creates a new custom verification email template.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
@@ -964,7 +970,8 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Deletes an existing custom verification email template.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
@@ -1373,7 +1380,8 @@ export class SESv2 extends SESv2Client {
   /**
    * <p>Returns the custom email verification template for the template name you
    *             specify.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
@@ -1430,6 +1438,38 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: GetDedicatedIpCommandOutput) => void
   ): Promise<GetDedicatedIpCommandOutput> | void {
     const command = new GetDedicatedIpCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieve information about the dedicated pool.</p>
+   */
+  public getDedicatedIpPool(
+    args: GetDedicatedIpPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDedicatedIpPoolCommandOutput>;
+  public getDedicatedIpPool(
+    args: GetDedicatedIpPoolCommandInput,
+    cb: (err: any, data?: GetDedicatedIpPoolCommandOutput) => void
+  ): void;
+  public getDedicatedIpPool(
+    args: GetDedicatedIpPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDedicatedIpPoolCommandOutput) => void
+  ): void;
+  public getDedicatedIpPool(
+    args: GetDedicatedIpPoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDedicatedIpPoolCommandOutput) => void),
+    cb?: (err: any, data?: GetDedicatedIpPoolCommandOutput) => void
+  ): Promise<GetDedicatedIpPoolCommandOutput> | void {
+    const command = new GetDedicatedIpPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1886,8 +1926,9 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Lists the existing custom verification email templates for your account in the current
-   *             Amazon Web Services Region.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 Amazon Web Services Region.</p>
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
@@ -2862,11 +2903,12 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Adds an email address to the list of identities for your Amazon SES account in the current
-   *             Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a
-   *             customized verification email is sent to the specified address.</p>
+   *                 Amazon Web Services Region and attempts to verify it. As a result of executing this
+   *             operation, a customized verification email is sent to the specified address.</p>
    *         <p>To use this operation, you must first create a custom verification email template. For
    *             more information about creating and using custom verification email templates, see
-   *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
@@ -3157,7 +3199,8 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Updates an existing custom verification email template.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+   *                 custom verification email templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
