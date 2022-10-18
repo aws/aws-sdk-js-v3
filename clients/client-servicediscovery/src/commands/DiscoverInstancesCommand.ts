@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,9 +29,9 @@ export interface DiscoverInstancesCommandInput extends DiscoverInstancesRequest 
 export interface DiscoverInstancesCommandOutput extends DiscoverInstancesResponse, __MetadataBearer {}
 
 /**
- * <p>Discovers registered instances for a specified namespace and service. You can use <code>DiscoverInstances</code>
- *    to discover instances for any type of namespace. For public and private DNS namespaces, you can also use DNS queries
- *    to discover instances.</p>
+ * <p>Discovers registered instances for a specified namespace and service. You can use
+ *     <code>DiscoverInstances</code> to discover instances for any type of namespace. For public and
+ *    private DNS namespaces, you can also use DNS queries to discover instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +55,15 @@ export class DiscoverInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "Endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DiscoverInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class DiscoverInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DiscoverInstancesCommandInput, DiscoverInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DiscoverInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

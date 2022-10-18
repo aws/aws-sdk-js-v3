@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,12 +29,17 @@ export interface CreatePublicDnsNamespaceCommandInput extends CreatePublicDnsNam
 export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a public namespace based on DNS, which is visible on the internet. The namespace defines your service
- *    naming scheme. For example, if you name your namespace <code>example.com</code> and name your service
- *     <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. You can discover
- *    instances that were registered with a public DNS namespace by using either a <code>DiscoverInstances</code> request
- *    or using DNS. For the current quota on the number of namespaces that you can create using the same account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map
- *     quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
+ * <p>Creates a public namespace based on DNS, which is visible on the internet. The namespace
+ *    defines your service naming scheme. For example, if you name your namespace
+ *     <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for
+ *    the service is <code>backend.example.com</code>. You can discover instances that were registered
+ *    with a public DNS namespace by using either a <code>DiscoverInstances</code> request or using
+ *    DNS. For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the
+ *     <i>Cloud Map Developer Guide</i>.</p>
+ *
+ *          <important>
+ *             <p>The <code>CreatePublicDnsNamespace</code> API operation is not supported in the Amazon Web Services GovCloud (US) Regions.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +63,15 @@ export class CreatePublicDnsNamespaceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "Endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreatePublicDnsNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +87,9 @@ export class CreatePublicDnsNamespaceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreatePublicDnsNamespaceCommandInput, CreatePublicDnsNamespaceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreatePublicDnsNamespaceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
