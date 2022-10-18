@@ -30,7 +30,10 @@ public class AddEndpointsV2ParameterNameMap implements TypeScriptIntegration {
             "ForcePathStyle", "forcePathStyle",
             "Accelerate", "useAccelerateEndpoint",
             "DisableMRAP", "disableMultiregionAccessPoints",
-            "UseArnRegion", "useArnRegion"
+            "DisableMultiRegionAccessPoints", "disableMultiregionAccessPoints",
+            "UseArnRegion", "useArnRegion",
+            "Endpoint", "endpoint",
+            "UseGlobalEndpoint", "useGlobalEndpoint"
         ));
     }
 }
