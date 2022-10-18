@@ -18,7 +18,7 @@ import {
   ListModelQualityJobDefinitionsRequestFilterSensitiveLog,
   ListModelQualityJobDefinitionsResponse,
   ListModelQualityJobDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_json1_1ListModelQualityJobDefinitionsCommand,
   serializeAws_json1_1ListModelQualityJobDefinitionsCommand,

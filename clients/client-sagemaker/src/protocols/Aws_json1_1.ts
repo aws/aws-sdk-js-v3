@@ -740,10 +740,12 @@ import {
   AutoMLS3DataSource,
   AutoMLSecurityConfig,
   AutoRollbackConfig,
+  BatchDataCaptureConfig,
   BatchDescribeModelPackageError,
   BatchDescribeModelPackageInput,
   BatchDescribeModelPackageOutput,
   BatchDescribeModelPackageSummary,
+  BatchTransformInput,
   Bias,
   BlueGreenUpdatePolicy,
   CacheHitResult,
@@ -814,8 +816,6 @@ import {
   CreateEndpointOutput,
   CreateExperimentRequest,
   CreateExperimentResponse,
-  CreateFeatureGroupRequest,
-  CreateFeatureGroupResponse,
   CustomImage,
   DataCaptureConfig,
   DataCatalogConfig,
@@ -837,8 +837,6 @@ import {
   FileSystemDataSource,
   FinalAutoMLJobObjectiveMetric,
   GitConfig,
-  HumanLoopActivationConditionsConfig,
-  HumanLoopActivationConfig,
   HyperParameterSpecification,
   HyperParameterTuningJobObjective,
   ImageConfig,
@@ -859,9 +857,13 @@ import {
   ModelPackageContainerDefinition,
   MonitoringClusterConfig,
   MonitoringConstraintsResource,
+  MonitoringCsvDatasetFormat,
+  MonitoringDatasetFormat,
+  MonitoringJsonDatasetFormat,
   MonitoringNetworkConfig,
   MonitoringOutput,
   MonitoringOutputConfig,
+  MonitoringParquetDatasetFormat,
   MonitoringResources,
   MonitoringS3Output,
   MonitoringStatisticsResource,
@@ -879,7 +881,6 @@ import {
   ProductionVariantCoreDumpConfig,
   ProductionVariantInstanceType,
   ProductionVariantServerlessConfig,
-  PublicWorkforceTaskPrice,
   RepositoryAuthConfig,
   ResourceConfig,
   ResourceInUse,
@@ -910,12 +911,13 @@ import {
   TransformOutput,
   TransformResources,
   TransformS3DataSource,
-  USD,
   UserContext,
   UserSettings,
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateFeatureGroupRequest,
+  CreateFeatureGroupResponse,
   CreateFlowDefinitionRequest,
   CreateFlowDefinitionResponse,
   CreateHumanTaskUiRequest,
@@ -1068,9 +1070,7 @@ import {
   DescribeEdgeDeploymentPlanResponse,
   DescribeEdgePackagingJobRequest,
   DescribeEdgePackagingJobResponse,
-  DescribeEndpointConfigInput,
   DescribeEndpointInput,
-  DescribeEndpointOutput,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1085,6 +1085,8 @@ import {
   Explainability,
   FileSource,
   FlowDefinitionOutputConfig,
+  HumanLoopActivationConditionsConfig,
+  HumanLoopActivationConfig,
   HumanLoopConfig,
   HumanLoopRequestSource,
   HumanTaskConfig,
@@ -1143,8 +1145,6 @@ import {
   ParallelismConfiguration,
   ParameterRanges,
   ParentHyperParameterTuningJob,
-  PendingDeploymentSummary,
-  PendingProductionVariantSummary,
   Phase,
   PipelineDefinitionS3Location,
   ProcessingClusterConfig,
@@ -1156,11 +1156,10 @@ import {
   ProcessingS3Input,
   ProcessingS3Output,
   ProcessingStoppingCondition,
-  ProductionVariantStatus,
-  ProductionVariantSummary,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   ProvisioningParameter,
+  PublicWorkforceTaskPrice,
   RecommendationJobCompiledOutputConfig,
   RecommendationJobContainerConfig,
   RecommendationJobInputConfig,
@@ -1186,10 +1185,13 @@ import {
   TuningJobCompletionCriteria,
   UiConfig,
   UiTemplate,
+  USD,
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DescribeEndpointConfigInput,
   DescribeEndpointConfigOutput,
+  DescribeEndpointOutput,
   DescribeExperimentRequest,
   DescribeExperimentResponse,
   DescribeFeatureGroupRequest,
@@ -1390,10 +1392,6 @@ import {
   ListModelMetadataResponse,
   ListModelPackageGroupsInput,
   ListModelPackageGroupsOutput,
-  ListModelPackagesInput,
-  ListModelPackagesOutput,
-  ListModelQualityJobDefinitionsRequest,
-  ListModelQualityJobDefinitionsResponse,
   MetricData,
   ModelConfiguration,
   ModelMetadataFilter,
@@ -1402,14 +1400,17 @@ import {
   ModelPackageGroupSummary,
   ModelPackageStatusDetails,
   ModelPackageStatusItem,
-  ModelPackageSummary,
   MonitoringExecutionSummary,
   MonitoringJobDefinitionSummary,
   MonitoringSchedule,
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   OidcConfigForResponse,
+  PendingDeploymentSummary,
+  PendingProductionVariantSummary,
   PipelineExperimentConfig,
+  ProductionVariantStatus,
+  ProductionVariantSummary,
   ProfilerRuleEvaluationStatus,
   PropertyNameQuery,
   PropertyNameSuggestion,
@@ -1430,6 +1431,10 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListModelPackagesInput,
+  ListModelPackagesOutput,
+  ListModelQualityJobDefinitionsRequest,
+  ListModelQualityJobDefinitionsResponse,
   ListModelsInput,
   ListModelsOutput,
   ListMonitoringExecutionsRequest,
@@ -1478,6 +1483,7 @@ import {
   ListWorkteamsResponse,
   ModelPackage,
   ModelPackageGroup,
+  ModelPackageSummary,
   ModelStepMetadata,
   ModelSummary,
   MonitoringScheduleSummary,
@@ -15719,6 +15725,14 @@ const serializeAws_json1_1AutoRollbackConfig = (input: AutoRollbackConfig, conte
   };
 };
 
+const serializeAws_json1_1BatchDataCaptureConfig = (input: BatchDataCaptureConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.DestinationS3Uri != null && { DestinationS3Uri: input.DestinationS3Uri }),
+    ...(input.GenerateInferenceId != null && { GenerateInferenceId: input.GenerateInferenceId }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+  };
+};
+
 const serializeAws_json1_1BatchDescribeModelPackageInput = (
   input: BatchDescribeModelPackageInput,
   context: __SerdeContext
@@ -15727,6 +15741,28 @@ const serializeAws_json1_1BatchDescribeModelPackageInput = (
     ...(input.ModelPackageArnList != null && {
       ModelPackageArnList: serializeAws_json1_1ModelPackageArnList(input.ModelPackageArnList, context),
     }),
+  };
+};
+
+const serializeAws_json1_1BatchTransformInput = (input: BatchTransformInput, context: __SerdeContext): any => {
+  return {
+    ...(input.DataCapturedDestinationS3Uri != null && {
+      DataCapturedDestinationS3Uri: input.DataCapturedDestinationS3Uri,
+    }),
+    ...(input.DatasetFormat != null && {
+      DatasetFormat: serializeAws_json1_1MonitoringDatasetFormat(input.DatasetFormat, context),
+    }),
+    ...(input.EndTimeOffset != null && { EndTimeOffset: input.EndTimeOffset }),
+    ...(input.FeaturesAttribute != null && { FeaturesAttribute: input.FeaturesAttribute }),
+    ...(input.InferenceAttribute != null && { InferenceAttribute: input.InferenceAttribute }),
+    ...(input.LocalPath != null && { LocalPath: input.LocalPath }),
+    ...(input.ProbabilityAttribute != null && { ProbabilityAttribute: input.ProbabilityAttribute }),
+    ...(input.ProbabilityThresholdAttribute != null && {
+      ProbabilityThresholdAttribute: __serializeFloat(input.ProbabilityThresholdAttribute),
+    }),
+    ...(input.S3DataDistributionType != null && { S3DataDistributionType: input.S3DataDistributionType }),
+    ...(input.S3InputMode != null && { S3InputMode: input.S3InputMode }),
+    ...(input.StartTimeOffset != null && { StartTimeOffset: input.StartTimeOffset }),
   };
 };
 
@@ -17075,6 +17111,9 @@ const serializeAws_json1_1CreateTransformJobRequest = (
 ): any => {
   return {
     ...(input.BatchStrategy != null && { BatchStrategy: input.BatchStrategy }),
+    ...(input.DataCaptureConfig != null && {
+      DataCaptureConfig: serializeAws_json1_1BatchDataCaptureConfig(input.DataCaptureConfig, context),
+    }),
     ...(input.DataProcessing != null && {
       DataProcessing: serializeAws_json1_1DataProcessing(input.DataProcessing, context),
     }),
@@ -17307,6 +17346,9 @@ const serializeAws_json1_1DataQualityBaselineConfig = (
 
 const serializeAws_json1_1DataQualityJobInput = (input: DataQualityJobInput, context: __SerdeContext): any => {
   return {
+    ...(input.BatchTransformInput != null && {
+      BatchTransformInput: serializeAws_json1_1BatchTransformInput(input.BatchTransformInput, context),
+    }),
     ...(input.EndpointInput != null && {
       EndpointInput: serializeAws_json1_1EndpointInput(input.EndpointInput, context),
     }),
@@ -20417,6 +20459,9 @@ const serializeAws_json1_1ModelBiasBaselineConfig = (input: ModelBiasBaselineCon
 
 const serializeAws_json1_1ModelBiasJobInput = (input: ModelBiasJobInput, context: __SerdeContext): any => {
   return {
+    ...(input.BatchTransformInput != null && {
+      BatchTransformInput: serializeAws_json1_1BatchTransformInput(input.BatchTransformInput, context),
+    }),
     ...(input.EndpointInput != null && {
       EndpointInput: serializeAws_json1_1EndpointInput(input.EndpointInput, context),
     }),
@@ -20479,6 +20524,9 @@ const serializeAws_json1_1ModelExplainabilityJobInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.BatchTransformInput != null && {
+      BatchTransformInput: serializeAws_json1_1BatchTransformInput(input.BatchTransformInput, context),
+    }),
     ...(input.EndpointInput != null && {
       EndpointInput: serializeAws_json1_1EndpointInput(input.EndpointInput, context),
     }),
@@ -20661,6 +20709,9 @@ const serializeAws_json1_1ModelQualityBaselineConfig = (
 
 const serializeAws_json1_1ModelQualityJobInput = (input: ModelQualityJobInput, context: __SerdeContext): any => {
   return {
+    ...(input.BatchTransformInput != null && {
+      BatchTransformInput: serializeAws_json1_1BatchTransformInput(input.BatchTransformInput, context),
+    }),
     ...(input.EndpointInput != null && {
       EndpointInput: serializeAws_json1_1EndpointInput(input.EndpointInput, context),
     }),
@@ -20732,6 +20783,25 @@ const serializeAws_json1_1MonitoringContainerArguments = (input: string[], conte
     });
 };
 
+const serializeAws_json1_1MonitoringCsvDatasetFormat = (
+  input: MonitoringCsvDatasetFormat,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Header != null && { Header: input.Header }),
+  };
+};
+
+const serializeAws_json1_1MonitoringDatasetFormat = (input: MonitoringDatasetFormat, context: __SerdeContext): any => {
+  return {
+    ...(input.Csv != null && { Csv: serializeAws_json1_1MonitoringCsvDatasetFormat(input.Csv, context) }),
+    ...(input.Json != null && { Json: serializeAws_json1_1MonitoringJsonDatasetFormat(input.Json, context) }),
+    ...(input.Parquet != null && {
+      Parquet: serializeAws_json1_1MonitoringParquetDatasetFormat(input.Parquet, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1MonitoringEnvironmentMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -20755,6 +20825,9 @@ const serializeAws_json1_1MonitoringGroundTruthS3Input = (
 
 const serializeAws_json1_1MonitoringInput = (input: MonitoringInput, context: __SerdeContext): any => {
   return {
+    ...(input.BatchTransformInput != null && {
+      BatchTransformInput: serializeAws_json1_1BatchTransformInput(input.BatchTransformInput, context),
+    }),
     ...(input.EndpointInput != null && {
       EndpointInput: serializeAws_json1_1EndpointInput(input.EndpointInput, context),
     }),
@@ -20802,6 +20875,15 @@ const serializeAws_json1_1MonitoringJobDefinition = (input: MonitoringJobDefinit
   };
 };
 
+const serializeAws_json1_1MonitoringJsonDatasetFormat = (
+  input: MonitoringJsonDatasetFormat,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Line != null && { Line: input.Line }),
+  };
+};
+
 const serializeAws_json1_1MonitoringNetworkConfig = (input: MonitoringNetworkConfig, context: __SerdeContext): any => {
   return {
     ...(input.EnableInterContainerTrafficEncryption != null && {
@@ -20833,6 +20915,13 @@ const serializeAws_json1_1MonitoringOutputs = (input: MonitoringOutput[], contex
     .map((entry) => {
       return serializeAws_json1_1MonitoringOutput(entry, context);
     });
+};
+
+const serializeAws_json1_1MonitoringParquetDatasetFormat = (
+  input: MonitoringParquetDatasetFormat,
+  context: __SerdeContext
+): any => {
+  return {};
 };
 
 const serializeAws_json1_1MonitoringResources = (input: MonitoringResources, context: __SerdeContext): any => {
@@ -23789,6 +23878,14 @@ const deserializeAws_json1_1AutoRollbackConfig = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1BatchDataCaptureConfig = (output: any, context: __SerdeContext): BatchDataCaptureConfig => {
+  return {
+    DestinationS3Uri: __expectString(output.DestinationS3Uri),
+    GenerateInferenceId: __expectBoolean(output.GenerateInferenceId),
+    KmsKeyId: __expectString(output.KmsKeyId),
+  } as any;
+};
+
 const deserializeAws_json1_1BatchDescribeModelPackageError = (
   output: any,
   context: __SerdeContext
@@ -23852,6 +23949,25 @@ const deserializeAws_json1_1BatchDescribeModelPackageSummary = (
     ModelPackageGroupName: __expectString(output.ModelPackageGroupName),
     ModelPackageStatus: __expectString(output.ModelPackageStatus),
     ModelPackageVersion: __expectInt32(output.ModelPackageVersion),
+  } as any;
+};
+
+const deserializeAws_json1_1BatchTransformInput = (output: any, context: __SerdeContext): BatchTransformInput => {
+  return {
+    DataCapturedDestinationS3Uri: __expectString(output.DataCapturedDestinationS3Uri),
+    DatasetFormat:
+      output.DatasetFormat != null
+        ? deserializeAws_json1_1MonitoringDatasetFormat(output.DatasetFormat, context)
+        : undefined,
+    EndTimeOffset: __expectString(output.EndTimeOffset),
+    FeaturesAttribute: __expectString(output.FeaturesAttribute),
+    InferenceAttribute: __expectString(output.InferenceAttribute),
+    LocalPath: __expectString(output.LocalPath),
+    ProbabilityAttribute: __expectString(output.ProbabilityAttribute),
+    ProbabilityThresholdAttribute: __limitedParseDouble(output.ProbabilityThresholdAttribute),
+    S3DataDistributionType: __expectString(output.S3DataDistributionType),
+    S3InputMode: __expectString(output.S3InputMode),
+    StartTimeOffset: __expectString(output.StartTimeOffset),
   } as any;
 };
 
@@ -25044,6 +25160,10 @@ const deserializeAws_json1_1DataQualityBaselineConfig = (
 
 const deserializeAws_json1_1DataQualityJobInput = (output: any, context: __SerdeContext): DataQualityJobInput => {
   return {
+    BatchTransformInput:
+      output.BatchTransformInput != null
+        ? deserializeAws_json1_1BatchTransformInput(output.BatchTransformInput, context)
+        : undefined,
     EndpointInput:
       output.EndpointInput != null ? deserializeAws_json1_1EndpointInput(output.EndpointInput, context) : undefined,
   } as any;
@@ -26893,6 +27013,10 @@ const deserializeAws_json1_1DescribeTransformJobResponse = (
     CreationTime:
       output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DataCaptureConfig:
+      output.DataCaptureConfig != null
+        ? deserializeAws_json1_1BatchDataCaptureConfig(output.DataCaptureConfig, context)
         : undefined,
     DataProcessing:
       output.DataProcessing != null ? deserializeAws_json1_1DataProcessing(output.DataProcessing, context) : undefined,
@@ -30134,6 +30258,10 @@ const deserializeAws_json1_1ModelBiasBaselineConfig = (
 
 const deserializeAws_json1_1ModelBiasJobInput = (output: any, context: __SerdeContext): ModelBiasJobInput => {
   return {
+    BatchTransformInput:
+      output.BatchTransformInput != null
+        ? deserializeAws_json1_1BatchTransformInput(output.BatchTransformInput, context)
+        : undefined,
     EndpointInput:
       output.EndpointInput != null ? deserializeAws_json1_1EndpointInput(output.EndpointInput, context) : undefined,
     GroundTruthS3Input:
@@ -30219,6 +30347,10 @@ const deserializeAws_json1_1ModelExplainabilityJobInput = (
   context: __SerdeContext
 ): ModelExplainabilityJobInput => {
   return {
+    BatchTransformInput:
+      output.BatchTransformInput != null
+        ? deserializeAws_json1_1BatchTransformInput(output.BatchTransformInput, context)
+        : undefined,
     EndpointInput:
       output.EndpointInput != null ? deserializeAws_json1_1EndpointInput(output.EndpointInput, context) : undefined,
   } as any;
@@ -30604,6 +30736,10 @@ const deserializeAws_json1_1ModelQualityBaselineConfig = (
 
 const deserializeAws_json1_1ModelQualityJobInput = (output: any, context: __SerdeContext): ModelQualityJobInput => {
   return {
+    BatchTransformInput:
+      output.BatchTransformInput != null
+        ? deserializeAws_json1_1BatchTransformInput(output.BatchTransformInput, context)
+        : undefined,
     EndpointInput:
       output.EndpointInput != null ? deserializeAws_json1_1EndpointInput(output.EndpointInput, context) : undefined,
     GroundTruthS3Input:
@@ -30711,6 +30847,29 @@ const deserializeAws_json1_1MonitoringContainerArguments = (output: any, context
   return retVal;
 };
 
+const deserializeAws_json1_1MonitoringCsvDatasetFormat = (
+  output: any,
+  context: __SerdeContext
+): MonitoringCsvDatasetFormat => {
+  return {
+    Header: __expectBoolean(output.Header),
+  } as any;
+};
+
+const deserializeAws_json1_1MonitoringDatasetFormat = (
+  output: any,
+  context: __SerdeContext
+): MonitoringDatasetFormat => {
+  return {
+    Csv: output.Csv != null ? deserializeAws_json1_1MonitoringCsvDatasetFormat(output.Csv, context) : undefined,
+    Json: output.Json != null ? deserializeAws_json1_1MonitoringJsonDatasetFormat(output.Json, context) : undefined,
+    Parquet:
+      output.Parquet != null
+        ? deserializeAws_json1_1MonitoringParquetDatasetFormat(output.Parquet, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1MonitoringEnvironmentMap = (
   output: any,
   context: __SerdeContext
@@ -30779,6 +30938,10 @@ const deserializeAws_json1_1MonitoringGroundTruthS3Input = (
 
 const deserializeAws_json1_1MonitoringInput = (output: any, context: __SerdeContext): MonitoringInput => {
   return {
+    BatchTransformInput:
+      output.BatchTransformInput != null
+        ? deserializeAws_json1_1BatchTransformInput(output.BatchTransformInput, context)
+        : undefined,
     EndpointInput:
       output.EndpointInput != null ? deserializeAws_json1_1EndpointInput(output.EndpointInput, context) : undefined,
   } as any;
@@ -30865,6 +31028,15 @@ const deserializeAws_json1_1MonitoringJobDefinitionSummaryList = (
   return retVal;
 };
 
+const deserializeAws_json1_1MonitoringJsonDatasetFormat = (
+  output: any,
+  context: __SerdeContext
+): MonitoringJsonDatasetFormat => {
+  return {
+    Line: __expectBoolean(output.Line),
+  } as any;
+};
+
 const deserializeAws_json1_1MonitoringNetworkConfig = (
   output: any,
   context: __SerdeContext
@@ -30902,6 +31074,13 @@ const deserializeAws_json1_1MonitoringOutputs = (output: any, context: __SerdeCo
       return deserializeAws_json1_1MonitoringOutput(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1MonitoringParquetDatasetFormat = (
+  output: any,
+  context: __SerdeContext
+): MonitoringParquetDatasetFormat => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1MonitoringResources = (output: any, context: __SerdeContext): MonitoringResources => {

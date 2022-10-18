@@ -1,8 +1,5 @@
 // smithy-typescript generated code
-import {
-  ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
-} from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
 
 import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
 
@@ -4592,6 +4589,48 @@ export enum AwsManagedHumanLoopRequestSource {
   TEXTRACT_ANALYZE_DOCUMENT_FORMS_V1 = "AWS/Textract/AnalyzeDocument/Forms/V1",
 }
 
+/**
+ * <p>Configuration to control how SageMaker captures inference data for batch transform jobs.</p>
+ */
+export interface BatchDataCaptureConfig {
+  /**
+   * <p>The Amazon S3 location being used to capture the data.</p>
+   */
+  DestinationS3Uri: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker uses to encrypt data on
+   *             the storage volume attached to the ML compute instance that hosts the batch transform job.</p>
+   *         <p>The KmsKeyId can be any of the following formats: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Key ARN:
+   *                     <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>Alias name ARN:
+   *                     <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>Flag that indicates whether to append inference id to the output.</p>
+   */
+  GenerateInferenceId?: boolean;
+}
+
 export interface BatchDescribeModelPackageInput {
   /**
    * <p>The list of Amazon Resource Name (ARN) of the model package groups.</p>
@@ -4719,6 +4758,131 @@ export interface BatchDescribeModelPackageOutput {
    *             reporting the error associated with describing the model package.</p>
    */
   BatchDescribeModelPackageErrorMap?: Record<string, BatchDescribeModelPackageError>;
+}
+
+/**
+ * <p>Represents the CSV dataset format used when running a monitoring job.</p>
+ */
+export interface MonitoringCsvDatasetFormat {
+  /**
+   * <p>Indicates if the CSV data has a header.</p>
+   */
+  Header?: boolean;
+}
+
+/**
+ * <p>Represents the JSON dataset format used when running a monitoring job.</p>
+ */
+export interface MonitoringJsonDatasetFormat {
+  /**
+   * <p>Indicates if the file should be read as a json object per line.
+   * </p>
+   */
+  Line?: boolean;
+}
+
+/**
+ * <p>Represents the Parquet dataset format used when running a monitoring job.</p>
+ */
+export interface MonitoringParquetDatasetFormat {}
+
+/**
+ * <p>Represents the dataset format used when running a monitoring job.</p>
+ */
+export interface MonitoringDatasetFormat {
+  /**
+   * <p>The CSV dataset used in the monitoring job.</p>
+   */
+  Csv?: MonitoringCsvDatasetFormat;
+
+  /**
+   * <p>The JSON dataset used in the monitoring job</p>
+   */
+  Json?: MonitoringJsonDatasetFormat;
+
+  /**
+   * <p>The Parquet dataset used in the monitoring job</p>
+   */
+  Parquet?: MonitoringParquetDatasetFormat;
+}
+
+export enum ProcessingS3DataDistributionType {
+  FULLYREPLICATED = "FullyReplicated",
+  SHARDEDBYS3KEY = "ShardedByS3Key",
+}
+
+export enum ProcessingS3InputMode {
+  FILE = "File",
+  PIPE = "Pipe",
+}
+
+/**
+ * <p>Input object for the batch transform job.</p>
+ */
+export interface BatchTransformInput {
+  /**
+   * <p>The Amazon S3 location being used to capture the data.</p>
+   */
+  DataCapturedDestinationS3Uri: string | undefined;
+
+  /**
+   * <p>The dataset format for your batch transform job.</p>
+   */
+  DatasetFormat: MonitoringDatasetFormat | undefined;
+
+  /**
+   * <p>Path to the filesystem where the batch transform data is available to the container.</p>
+   */
+  LocalPath: string | undefined;
+
+  /**
+   * <p>Whether the <code>Pipe</code> or <code>File</code> is used as the input mode for
+   *             transferring data for the monitoring job. <code>Pipe</code> mode is recommended for large
+   *             datasets. <code>File</code> mode is useful for small files that fit in memory. Defaults to
+   *             <code>File</code>.</p>
+   */
+  S3InputMode?: ProcessingS3InputMode | string;
+
+  /**
+   * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
+   *             Defaults to <code>FullyReplicated</code>
+   *          </p>
+   */
+  S3DataDistributionType?: ProcessingS3DataDistributionType | string;
+
+  /**
+   * <p>The attributes of the input data that are the input features.</p>
+   */
+  FeaturesAttribute?: string;
+
+  /**
+   * <p>The attribute of the input data that represents the ground truth label.</p>
+   */
+  InferenceAttribute?: string;
+
+  /**
+   * <p>In a classification problem, the attribute that represents the class probability.</p>
+   */
+  ProbabilityAttribute?: string;
+
+  /**
+   * <p>The threshold for the class probability to be evaluated as a positive result.</p>
+   */
+  ProbabilityThresholdAttribute?: number;
+
+  /**
+   * <p>If specified, monitoring jobs substract this time from the start time. For information
+   *             about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule Model
+   *                 Quality Monitoring Jobs</a>.</p>
+   */
+  StartTimeOffset?: string;
+
+  /**
+   * <p>If specified, monitoring jobs substract this time from the end time. For information
+   *             about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule Model
+   *                 Quality Monitoring Jobs</a>.</p>
+   */
+  EndTimeOffset?: string;
 }
 
 /**
@@ -7698,16 +7862,6 @@ export interface DataQualityBaselineConfig {
   StatisticsResource?: MonitoringStatisticsResource;
 }
 
-export enum ProcessingS3DataDistributionType {
-  FULLYREPLICATED = "FullyReplicated",
-  SHARDEDBYS3KEY = "ShardedByS3Key",
-}
-
-export enum ProcessingS3InputMode {
-  FILE = "File",
-  PIPE = "Pipe",
-}
-
 /**
  * <p>Input object for the endpoint</p>
  */
@@ -7781,7 +7935,12 @@ export interface DataQualityJobInput {
   /**
    * <p>Input object for the endpoint</p>
    */
-  EndpointInput: EndpointInput | undefined;
+  EndpointInput?: EndpointInput;
+
+  /**
+   * <p>Input object for the batch transform job.</p>
+   */
+  BatchTransformInput?: BatchTransformInput;
 }
 
 export enum ProcessingS3UploadMode {
@@ -9288,497 +9447,6 @@ export interface OnlineStoreConfig {
   EnableOnlineStore?: boolean;
 }
 
-export interface CreateFeatureGroupRequest {
-  /**
-   * <p>The name of the <code>FeatureGroup</code>. The name must be unique within an Amazon Web Services Region
-   *          in an Amazon Web Services account. The name:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must start and end with an alphanumeric character.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can only contain alphanumeric character and hyphens. Spaces are not allowed.
-   *             </p>
-   *             </li>
-   *          </ul>
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>The name of the <code>Feature</code> whose value uniquely identifies a
-   *             <code>Record</code> defined in the <code>FeatureStore</code>. Only the latest record per
-   *          identifier value will be stored in the <code>OnlineStore</code>.
-   *             <code>RecordIdentifierFeatureName</code> must be one of feature definitions'
-   *          names.</p>
-   *          <p>You use the <code>RecordIdentifierFeatureName</code> to access data in a
-   *             <code>FeatureStore</code>.</p>
-   *          <p>This name:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must start and end with an alphanumeric character.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can only contains alphanumeric characters, hyphens, underscores. Spaces are not
-   *                allowed. </p>
-   *             </li>
-   *          </ul>
-   */
-  RecordIdentifierFeatureName: string | undefined;
-
-  /**
-   * <p>The name of the feature that stores the <code>EventTime</code> of a <code>Record</code>
-   *          in a <code>FeatureGroup</code>.</p>
-   *          <p>An <code>EventTime</code> is a point in time when a new event occurs that corresponds to
-   *          the creation or update of a <code>Record</code> in a <code>FeatureGroup</code>. All
-   *             <code>Records</code> in the <code>FeatureGroup</code> must have a corresponding
-   *             <code>EventTime</code>.</p>
-   *          <p>An <code>EventTime</code> can be a <code>String</code> or <code>Fractional</code>. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Fractional</code>: <code>EventTime</code> feature values must be a Unix
-   *                timestamp in seconds.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>String</code>: <code>EventTime</code> feature values must be an ISO-8601
-   *                string in the format. The following formats are supported
-   *                   <code>yyyy-MM-dd'T'HH:mm:ssZ</code> and <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>
-   *                where <code>yyyy</code>, <code>MM</code>, and <code>dd</code> represent the year,
-   *                month, and day respectively and <code>HH</code>, <code>mm</code>, <code>ss</code>,
-   *                and if applicable, <code>SSS</code> represent the hour, month, second and
-   *                milliseconds respsectively. <code>'T'</code> and <code>Z</code> are constants.</p>
-   *             </li>
-   *          </ul>
-   */
-  EventTimeFeatureName: string | undefined;
-
-  /**
-   * <p>A list of <code>Feature</code> names and types. <code>Name</code> and <code>Type</code>
-   *          is compulsory per <code>Feature</code>. </p>
-   *          <p>Valid feature <code>FeatureType</code>s are <code>Integral</code>,
-   *             <code>Fractional</code> and <code>String</code>.</p>
-   *          <p>
-   *             <code>FeatureName</code>s cannot be any of the following: <code>is_deleted</code>,
-   *             <code>write_time</code>, <code>api_invocation_time</code>
-   *          </p>
-   *          <p>You can create up to 2,500 <code>FeatureDefinition</code>s per
-   *          <code>FeatureGroup</code>.</p>
-   */
-  FeatureDefinitions: FeatureDefinition[] | undefined;
-
-  /**
-   * <p>You can turn the <code>OnlineStore</code> on or off by specifying <code>True</code> for
-   *          the <code>EnableOnlineStore</code> flag in <code>OnlineStoreConfig</code>; the default
-   *          value is <code>False</code>.</p>
-   *          <p>You can also include an Amazon Web Services KMS key ID (<code>KMSKeyId</code>) for at-rest encryption of
-   *          the <code>OnlineStore</code>.</p>
-   */
-  OnlineStoreConfig?: OnlineStoreConfig;
-
-  /**
-   * <p>Use this to configure an <code>OfflineFeatureStore</code>. This parameter allows you to
-   *          specify:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The Amazon Simple Storage Service (Amazon S3) location of an
-   *                   <code>OfflineStore</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>A configuration for an Amazon Web Services Glue or Amazon Web Services Hive data catalog. </p>
-   *             </li>
-   *             <li>
-   *                <p>An KMS encryption key to encrypt the Amazon S3 location used for
-   *                <code>OfflineStore</code>. If KMS encryption key is not specified, by default we encrypt all data at rest using
-   *                Amazon Web Services KMS key. By defining your <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html">bucket-level key</a> for SSE,
-   *                you can reduce Amazon Web Services KMS requests costs by up to 99 percent.</p>
-   *             </li>
-   *          </ul>
-   *          <p>To learn more about this parameter, see <a>OfflineStoreConfig</a>.</p>
-   */
-  OfflineStoreConfig?: OfflineStoreConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the
-   *             <code>OfflineStore</code> if an <code>OfflineStoreConfig</code> is provided.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>A free-form description of a <code>FeatureGroup</code>.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Tags used to identify <code>Features</code> in each <code>FeatureGroup</code>.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateFeatureGroupResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the <code>FeatureGroup</code>. This is a unique
-   *          identifier for the feature group. </p>
-   */
-  FeatureGroupArn: string | undefined;
-}
-
-/**
- * <p>Defines under what conditions SageMaker creates a human loop. Used within . See  for the required
- *          format of activation conditions.</p>
- */
-export interface HumanLoopActivationConditionsConfig {
-  /**
-   * <p>JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team.
-   *          The set of conditions is different for Rekognition and Textract. For more information about how to structure the JSON, see
-   *          <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html">JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI</a>
-   *          in the <i>Amazon SageMaker Developer Guide</i>.</p>
-   */
-  HumanLoopActivationConditions: __LazyJsonString | string | undefined;
-}
-
-/**
- * <p>Provides information about how and under what conditions SageMaker creates a human loop. If <code>HumanLoopActivationConfig</code> is not given, then all requests go to humans.</p>
- */
-export interface HumanLoopActivationConfig {
-  /**
-   * <p>Container structure for defining under what conditions SageMaker creates a human
-   *          loop.</p>
-   */
-  HumanLoopActivationConditionsConfig: HumanLoopActivationConditionsConfig | undefined;
-}
-
-/**
- * <p>Represents an amount of money in United States dollars.</p>
- */
-export interface USD {
-  /**
-   * <p>The whole number of dollars in the amount.</p>
-   */
-  Dollars?: number;
-
-  /**
-   * <p>The fractional portion, in cents, of the amount. </p>
-   */
-  Cents?: number;
-
-  /**
-   * <p>Fractions of a cent, in tenths.</p>
-   */
-  TenthFractionsOfACent?: number;
-}
-
-/**
- * <p>Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. </p>
- *         <p>Use one of the following prices for bounding box tasks. Prices are in US dollars and
- *             should be based on the complexity of the task; the longer it takes in your initial
- *             testing, the more you should offer.</p>
- *         <ul>
- *             <li>
- *                 <p>0.036</p>
- *             </li>
- *             <li>
- *                 <p>0.048</p>
- *             </li>
- *             <li>
- *                 <p>0.060</p>
- *             </li>
- *             <li>
- *                 <p>0.072</p>
- *             </li>
- *             <li>
- *                 <p>0.120</p>
- *             </li>
- *             <li>
- *                 <p>0.240</p>
- *             </li>
- *             <li>
- *                 <p>0.360</p>
- *             </li>
- *             <li>
- *                 <p>0.480</p>
- *             </li>
- *             <li>
- *                 <p>0.600</p>
- *             </li>
- *             <li>
- *                 <p>0.720</p>
- *             </li>
- *             <li>
- *                 <p>0.840</p>
- *             </li>
- *             <li>
- *                 <p>0.960</p>
- *             </li>
- *             <li>
- *                 <p>1.080</p>
- *             </li>
- *             <li>
- *                 <p>1.200</p>
- *             </li>
- *          </ul>
- *         <p>Use one of the following prices for image classification, text classification, and
- *             custom tasks. Prices are in US dollars.</p>
- *         <ul>
- *             <li>
- *                 <p>0.012</p>
- *             </li>
- *             <li>
- *                 <p>0.024</p>
- *             </li>
- *             <li>
- *                 <p>0.036</p>
- *             </li>
- *             <li>
- *                 <p>0.048</p>
- *             </li>
- *             <li>
- *                 <p>0.060</p>
- *             </li>
- *             <li>
- *                 <p>0.072</p>
- *             </li>
- *             <li>
- *                 <p>0.120</p>
- *             </li>
- *             <li>
- *                 <p>0.240</p>
- *             </li>
- *             <li>
- *                 <p>0.360</p>
- *             </li>
- *             <li>
- *                 <p>0.480</p>
- *             </li>
- *             <li>
- *                 <p>0.600</p>
- *             </li>
- *             <li>
- *                 <p>0.720</p>
- *             </li>
- *             <li>
- *                 <p>0.840</p>
- *             </li>
- *             <li>
- *                 <p>0.960</p>
- *             </li>
- *             <li>
- *                 <p>1.080</p>
- *             </li>
- *             <li>
- *                 <p>1.200</p>
- *             </li>
- *          </ul>
- *         <p>Use one of the following prices for semantic segmentation tasks. Prices are in US
- *             dollars.</p>
- *         <ul>
- *             <li>
- *                 <p>0.840</p>
- *             </li>
- *             <li>
- *                 <p>0.960</p>
- *             </li>
- *             <li>
- *                 <p>1.080</p>
- *             </li>
- *             <li>
- *                 <p>1.200</p>
- *             </li>
- *          </ul>
- *         <p>Use one of the following prices for Textract AnalyzeDocument Important Form Key Amazon
- *             Augmented AI review tasks. Prices are in US dollars.</p>
- *         <ul>
- *             <li>
- *                 <p>2.400 </p>
- *             </li>
- *             <li>
- *                 <p>2.280 </p>
- *             </li>
- *             <li>
- *                 <p>2.160 </p>
- *             </li>
- *             <li>
- *                 <p>2.040 </p>
- *             </li>
- *             <li>
- *                 <p>1.920 </p>
- *             </li>
- *             <li>
- *                 <p>1.800 </p>
- *             </li>
- *             <li>
- *                 <p>1.680 </p>
- *             </li>
- *             <li>
- *                 <p>1.560 </p>
- *             </li>
- *             <li>
- *                 <p>1.440 </p>
- *             </li>
- *             <li>
- *                 <p>1.320 </p>
- *             </li>
- *             <li>
- *                 <p>1.200 </p>
- *             </li>
- *             <li>
- *                 <p>1.080 </p>
- *             </li>
- *             <li>
- *                 <p>0.960 </p>
- *             </li>
- *             <li>
- *                 <p>0.840 </p>
- *             </li>
- *             <li>
- *                 <p>0.720 </p>
- *             </li>
- *             <li>
- *                 <p>0.600 </p>
- *             </li>
- *             <li>
- *                 <p>0.480 </p>
- *             </li>
- *             <li>
- *                 <p>0.360 </p>
- *             </li>
- *             <li>
- *                 <p>0.240 </p>
- *             </li>
- *             <li>
- *                 <p>0.120 </p>
- *             </li>
- *             <li>
- *                 <p>0.072 </p>
- *             </li>
- *             <li>
- *                 <p>0.060 </p>
- *             </li>
- *             <li>
- *                 <p>0.048 </p>
- *             </li>
- *             <li>
- *                 <p>0.036 </p>
- *             </li>
- *             <li>
- *                 <p>0.024 </p>
- *             </li>
- *             <li>
- *                 <p>0.012 </p>
- *             </li>
- *          </ul>
- *         <p>Use one of the following prices for Rekognition DetectModerationLabels Amazon
- *             Augmented AI review tasks. Prices are in US dollars.</p>
- *         <ul>
- *             <li>
- *                 <p>1.200 </p>
- *             </li>
- *             <li>
- *                 <p>1.080 </p>
- *             </li>
- *             <li>
- *                 <p>0.960 </p>
- *             </li>
- *             <li>
- *                 <p>0.840 </p>
- *             </li>
- *             <li>
- *                 <p>0.720 </p>
- *             </li>
- *             <li>
- *                 <p>0.600 </p>
- *             </li>
- *             <li>
- *                 <p>0.480 </p>
- *             </li>
- *             <li>
- *                 <p>0.360 </p>
- *             </li>
- *             <li>
- *                 <p>0.240 </p>
- *             </li>
- *             <li>
- *                 <p>0.120 </p>
- *             </li>
- *             <li>
- *                 <p>0.072 </p>
- *             </li>
- *             <li>
- *                 <p>0.060 </p>
- *             </li>
- *             <li>
- *                 <p>0.048 </p>
- *             </li>
- *             <li>
- *                 <p>0.036 </p>
- *             </li>
- *             <li>
- *                 <p>0.024 </p>
- *             </li>
- *             <li>
- *                 <p>0.012 </p>
- *             </li>
- *          </ul>
- *         <p>Use one of the following prices for Amazon Augmented AI custom human review tasks.
- *             Prices are in US dollars.</p>
- *         <ul>
- *             <li>
- *                 <p>1.200 </p>
- *             </li>
- *             <li>
- *                 <p>1.080 </p>
- *             </li>
- *             <li>
- *                 <p>0.960 </p>
- *             </li>
- *             <li>
- *                 <p>0.840 </p>
- *             </li>
- *             <li>
- *                 <p>0.720 </p>
- *             </li>
- *             <li>
- *                 <p>0.600 </p>
- *             </li>
- *             <li>
- *                 <p>0.480 </p>
- *             </li>
- *             <li>
- *                 <p>0.360 </p>
- *             </li>
- *             <li>
- *                 <p>0.240 </p>
- *             </li>
- *             <li>
- *                 <p>0.120 </p>
- *             </li>
- *             <li>
- *                 <p>0.072 </p>
- *             </li>
- *             <li>
- *                 <p>0.060 </p>
- *             </li>
- *             <li>
- *                 <p>0.048 </p>
- *             </li>
- *             <li>
- *                 <p>0.036 </p>
- *             </li>
- *             <li>
- *                 <p>0.024 </p>
- *             </li>
- *             <li>
- *                 <p>0.012 </p>
- *             </li>
- *          </ul>
- */
-export interface PublicWorkforceTaskPrice {
-  /**
-   * <p>Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars.</p>
-   */
-  AmountInUsd?: USD;
-}
-
 /**
  * @internal
  */
@@ -10316,6 +9984,13 @@ export const AutoRollbackConfigFilterSensitiveLog = (obj: AutoRollbackConfig): a
 /**
  * @internal
  */
+export const BatchDataCaptureConfigFilterSensitiveLog = (obj: BatchDataCaptureConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const BatchDescribeModelPackageInputFilterSensitiveLog = (obj: BatchDescribeModelPackageInput): any => ({
   ...obj,
 });
@@ -10345,6 +10020,41 @@ export const BatchDescribeModelPackageSummaryFilterSensitiveLog = (obj: BatchDes
  * @internal
  */
 export const BatchDescribeModelPackageOutputFilterSensitiveLog = (obj: BatchDescribeModelPackageOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitoringCsvDatasetFormatFilterSensitiveLog = (obj: MonitoringCsvDatasetFormat): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitoringJsonDatasetFormatFilterSensitiveLog = (obj: MonitoringJsonDatasetFormat): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitoringParquetDatasetFormatFilterSensitiveLog = (obj: MonitoringParquetDatasetFormat): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitoringDatasetFormatFilterSensitiveLog = (obj: MonitoringDatasetFormat): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchTransformInputFilterSensitiveLog = (obj: BatchTransformInput): any => ({
   ...obj,
 });
 
@@ -11214,49 +10924,5 @@ export const OnlineStoreSecurityConfigFilterSensitiveLog = (obj: OnlineStoreSecu
  * @internal
  */
 export const OnlineStoreConfigFilterSensitiveLog = (obj: OnlineStoreConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFeatureGroupRequestFilterSensitiveLog = (obj: CreateFeatureGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFeatureGroupResponseFilterSensitiveLog = (obj: CreateFeatureGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HumanLoopActivationConditionsConfigFilterSensitiveLog = (
-  obj: HumanLoopActivationConditionsConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HumanLoopActivationConfigFilterSensitiveLog = (obj: HumanLoopActivationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const USDFilterSensitiveLog = (obj: USD): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublicWorkforceTaskPriceFilterSensitiveLog = (obj: PublicWorkforceTaskPrice): any => ({
   ...obj,
 });

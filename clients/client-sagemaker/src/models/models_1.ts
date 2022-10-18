@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { LazyJsonString as __LazyJsonString, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
   ActionSource,
@@ -16,7 +16,6 @@ import {
   AppStatus,
   AppType,
   ArtifactSource,
-  AsyncInferenceConfig,
   AthenaDatasetDefinition,
   AuthMode,
   AutoMLCandidate,
@@ -30,7 +29,9 @@ import {
   AutoMLOutputDataConfig,
   AutoMLPartialFailureReason,
   AwsManagedHumanLoopRequestSource,
+  BatchDataCaptureConfig,
   BatchStrategy,
+  BatchTransformInput,
   Bias,
   CaptureStatus,
   CategoricalParameter,
@@ -48,7 +49,6 @@ import {
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
-  DeploymentConfig,
   DeviceSelectionConfig,
   DomainSettings,
   EdgeDeploymentConfig,
@@ -56,9 +56,8 @@ import {
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   EndpointInput,
-  ExplainerConfig,
+  FeatureDefinition,
   GitConfig,
-  HumanLoopActivationConfig,
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
@@ -76,6 +75,8 @@ import {
   MonitoringStatisticsResource,
   MonitoringStoppingCondition,
   NeoVpcConfig,
+  OfflineStoreConfig,
+  OnlineStoreConfig,
   OutputConfig,
   OutputDataConfig,
   ProblemType,
@@ -83,10 +84,7 @@ import {
   ProcessingS3DataDistributionType,
   ProcessingS3InputMode,
   ProcessingS3UploadMode,
-  ProductionVariantAcceleratorType,
   ProductionVariantInstanceType,
-  ProductionVariantServerlessConfig,
-  PublicWorkforceTaskPrice,
   ResourceConfig,
   ResourceSpec,
   StoppingCondition,
@@ -102,6 +100,497 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+export interface CreateFeatureGroupRequest {
+  /**
+   * <p>The name of the <code>FeatureGroup</code>. The name must be unique within an Amazon Web Services Region
+   *          in an Amazon Web Services account. The name:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must start and end with an alphanumeric character.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can only contain alphanumeric character and hyphens. Spaces are not allowed.
+   *             </p>
+   *             </li>
+   *          </ul>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the <code>Feature</code> whose value uniquely identifies a
+   *             <code>Record</code> defined in the <code>FeatureStore</code>. Only the latest record per
+   *          identifier value will be stored in the <code>OnlineStore</code>.
+   *             <code>RecordIdentifierFeatureName</code> must be one of feature definitions'
+   *          names.</p>
+   *          <p>You use the <code>RecordIdentifierFeatureName</code> to access data in a
+   *             <code>FeatureStore</code>.</p>
+   *          <p>This name:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must start and end with an alphanumeric character.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can only contains alphanumeric characters, hyphens, underscores. Spaces are not
+   *                allowed. </p>
+   *             </li>
+   *          </ul>
+   */
+  RecordIdentifierFeatureName: string | undefined;
+
+  /**
+   * <p>The name of the feature that stores the <code>EventTime</code> of a <code>Record</code>
+   *          in a <code>FeatureGroup</code>.</p>
+   *          <p>An <code>EventTime</code> is a point in time when a new event occurs that corresponds to
+   *          the creation or update of a <code>Record</code> in a <code>FeatureGroup</code>. All
+   *             <code>Records</code> in the <code>FeatureGroup</code> must have a corresponding
+   *             <code>EventTime</code>.</p>
+   *          <p>An <code>EventTime</code> can be a <code>String</code> or <code>Fractional</code>. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Fractional</code>: <code>EventTime</code> feature values must be a Unix
+   *                timestamp in seconds.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>String</code>: <code>EventTime</code> feature values must be an ISO-8601
+   *                string in the format. The following formats are supported
+   *                   <code>yyyy-MM-dd'T'HH:mm:ssZ</code> and <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>
+   *                where <code>yyyy</code>, <code>MM</code>, and <code>dd</code> represent the year,
+   *                month, and day respectively and <code>HH</code>, <code>mm</code>, <code>ss</code>,
+   *                and if applicable, <code>SSS</code> represent the hour, month, second and
+   *                milliseconds respsectively. <code>'T'</code> and <code>Z</code> are constants.</p>
+   *             </li>
+   *          </ul>
+   */
+  EventTimeFeatureName: string | undefined;
+
+  /**
+   * <p>A list of <code>Feature</code> names and types. <code>Name</code> and <code>Type</code>
+   *          is compulsory per <code>Feature</code>. </p>
+   *          <p>Valid feature <code>FeatureType</code>s are <code>Integral</code>,
+   *             <code>Fractional</code> and <code>String</code>.</p>
+   *          <p>
+   *             <code>FeatureName</code>s cannot be any of the following: <code>is_deleted</code>,
+   *             <code>write_time</code>, <code>api_invocation_time</code>
+   *          </p>
+   *          <p>You can create up to 2,500 <code>FeatureDefinition</code>s per
+   *          <code>FeatureGroup</code>.</p>
+   */
+  FeatureDefinitions: FeatureDefinition[] | undefined;
+
+  /**
+   * <p>You can turn the <code>OnlineStore</code> on or off by specifying <code>True</code> for
+   *          the <code>EnableOnlineStore</code> flag in <code>OnlineStoreConfig</code>; the default
+   *          value is <code>False</code>.</p>
+   *          <p>You can also include an Amazon Web Services KMS key ID (<code>KMSKeyId</code>) for at-rest encryption of
+   *          the <code>OnlineStore</code>.</p>
+   */
+  OnlineStoreConfig?: OnlineStoreConfig;
+
+  /**
+   * <p>Use this to configure an <code>OfflineFeatureStore</code>. This parameter allows you to
+   *          specify:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The Amazon Simple Storage Service (Amazon S3) location of an
+   *                   <code>OfflineStore</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>A configuration for an Amazon Web Services Glue or Amazon Web Services Hive data catalog. </p>
+   *             </li>
+   *             <li>
+   *                <p>An KMS encryption key to encrypt the Amazon S3 location used for
+   *                <code>OfflineStore</code>. If KMS encryption key is not specified, by default we encrypt all data at rest using
+   *                Amazon Web Services KMS key. By defining your <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html">bucket-level key</a> for SSE,
+   *                you can reduce Amazon Web Services KMS requests costs by up to 99 percent.</p>
+   *             </li>
+   *          </ul>
+   *          <p>To learn more about this parameter, see <a>OfflineStoreConfig</a>.</p>
+   */
+  OfflineStoreConfig?: OfflineStoreConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the
+   *             <code>OfflineStore</code> if an <code>OfflineStoreConfig</code> is provided.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>A free-form description of a <code>FeatureGroup</code>.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Tags used to identify <code>Features</code> in each <code>FeatureGroup</code>.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateFeatureGroupResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the <code>FeatureGroup</code>. This is a unique
+   *          identifier for the feature group. </p>
+   */
+  FeatureGroupArn: string | undefined;
+}
+
+/**
+ * <p>Defines under what conditions SageMaker creates a human loop. Used within . See  for the required
+ *          format of activation conditions.</p>
+ */
+export interface HumanLoopActivationConditionsConfig {
+  /**
+   * <p>JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team.
+   *          The set of conditions is different for Rekognition and Textract. For more information about how to structure the JSON, see
+   *          <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html">JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI</a>
+   *          in the <i>Amazon SageMaker Developer Guide</i>.</p>
+   */
+  HumanLoopActivationConditions: __LazyJsonString | string | undefined;
+}
+
+/**
+ * <p>Provides information about how and under what conditions SageMaker creates a human loop. If <code>HumanLoopActivationConfig</code> is not given, then all requests go to humans.</p>
+ */
+export interface HumanLoopActivationConfig {
+  /**
+   * <p>Container structure for defining under what conditions SageMaker creates a human
+   *          loop.</p>
+   */
+  HumanLoopActivationConditionsConfig: HumanLoopActivationConditionsConfig | undefined;
+}
+
+/**
+ * <p>Represents an amount of money in United States dollars.</p>
+ */
+export interface USD {
+  /**
+   * <p>The whole number of dollars in the amount.</p>
+   */
+  Dollars?: number;
+
+  /**
+   * <p>The fractional portion, in cents, of the amount. </p>
+   */
+  Cents?: number;
+
+  /**
+   * <p>Fractions of a cent, in tenths.</p>
+   */
+  TenthFractionsOfACent?: number;
+}
+
+/**
+ * <p>Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. </p>
+ *         <p>Use one of the following prices for bounding box tasks. Prices are in US dollars and
+ *             should be based on the complexity of the task; the longer it takes in your initial
+ *             testing, the more you should offer.</p>
+ *         <ul>
+ *             <li>
+ *                 <p>0.036</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.048</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.060</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.072</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.120</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.240</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.360</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.480</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.600</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.720</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.840</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.960</p>
+ *             </li>
+ *             <li>
+ *                 <p>1.080</p>
+ *             </li>
+ *             <li>
+ *                 <p>1.200</p>
+ *             </li>
+ *          </ul>
+ *         <p>Use one of the following prices for image classification, text classification, and
+ *             custom tasks. Prices are in US dollars.</p>
+ *         <ul>
+ *             <li>
+ *                 <p>0.012</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.024</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.036</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.048</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.060</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.072</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.120</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.240</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.360</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.480</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.600</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.720</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.840</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.960</p>
+ *             </li>
+ *             <li>
+ *                 <p>1.080</p>
+ *             </li>
+ *             <li>
+ *                 <p>1.200</p>
+ *             </li>
+ *          </ul>
+ *         <p>Use one of the following prices for semantic segmentation tasks. Prices are in US
+ *             dollars.</p>
+ *         <ul>
+ *             <li>
+ *                 <p>0.840</p>
+ *             </li>
+ *             <li>
+ *                 <p>0.960</p>
+ *             </li>
+ *             <li>
+ *                 <p>1.080</p>
+ *             </li>
+ *             <li>
+ *                 <p>1.200</p>
+ *             </li>
+ *          </ul>
+ *         <p>Use one of the following prices for Textract AnalyzeDocument Important Form Key Amazon
+ *             Augmented AI review tasks. Prices are in US dollars.</p>
+ *         <ul>
+ *             <li>
+ *                 <p>2.400 </p>
+ *             </li>
+ *             <li>
+ *                 <p>2.280 </p>
+ *             </li>
+ *             <li>
+ *                 <p>2.160 </p>
+ *             </li>
+ *             <li>
+ *                 <p>2.040 </p>
+ *             </li>
+ *             <li>
+ *                 <p>1.920 </p>
+ *             </li>
+ *             <li>
+ *                 <p>1.800 </p>
+ *             </li>
+ *             <li>
+ *                 <p>1.680 </p>
+ *             </li>
+ *             <li>
+ *                 <p>1.560 </p>
+ *             </li>
+ *             <li>
+ *                 <p>1.440 </p>
+ *             </li>
+ *             <li>
+ *                 <p>1.320 </p>
+ *             </li>
+ *             <li>
+ *                 <p>1.200 </p>
+ *             </li>
+ *             <li>
+ *                 <p>1.080 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.960 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.840 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.720 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.600 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.480 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.360 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.240 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.120 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.072 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.060 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.048 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.036 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.024 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.012 </p>
+ *             </li>
+ *          </ul>
+ *         <p>Use one of the following prices for Rekognition DetectModerationLabels Amazon
+ *             Augmented AI review tasks. Prices are in US dollars.</p>
+ *         <ul>
+ *             <li>
+ *                 <p>1.200 </p>
+ *             </li>
+ *             <li>
+ *                 <p>1.080 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.960 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.840 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.720 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.600 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.480 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.360 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.240 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.120 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.072 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.060 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.048 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.036 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.024 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.012 </p>
+ *             </li>
+ *          </ul>
+ *         <p>Use one of the following prices for Amazon Augmented AI custom human review tasks.
+ *             Prices are in US dollars.</p>
+ *         <ul>
+ *             <li>
+ *                 <p>1.200 </p>
+ *             </li>
+ *             <li>
+ *                 <p>1.080 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.960 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.840 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.720 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.600 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.480 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.360 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.240 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.120 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.072 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.060 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.048 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.036 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.024 </p>
+ *             </li>
+ *             <li>
+ *                 <p>0.012 </p>
+ *             </li>
+ *          </ul>
+ */
+export interface PublicWorkforceTaskPrice {
+  /**
+   * <p>Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars.</p>
+   */
+  AmountInUsd?: USD;
+}
 
 /**
  * <p>Describes the work to be performed by human workers.</p>
@@ -4113,7 +4602,12 @@ export interface ModelBiasJobInput {
   /**
    * <p>Input object for the endpoint</p>
    */
-  EndpointInput: EndpointInput | undefined;
+  EndpointInput?: EndpointInput;
+
+  /**
+   * <p>Input object for the batch transform job.</p>
+   */
+  BatchTransformInput?: BatchTransformInput;
 
   /**
    * <p>Location of ground truth labels to use in model bias job.</p>
@@ -4227,7 +4721,12 @@ export interface ModelExplainabilityJobInput {
   /**
    * <p>Input object for the endpoint</p>
    */
-  EndpointInput: EndpointInput | undefined;
+  EndpointInput?: EndpointInput;
+
+  /**
+   * <p>Input object for the batch transform job.</p>
+   */
+  BatchTransformInput?: BatchTransformInput;
 }
 
 export interface CreateModelExplainabilityJobDefinitionRequest {
@@ -4785,7 +5284,12 @@ export interface ModelQualityJobInput {
   /**
    * <p>Input object for the endpoint</p>
    */
-  EndpointInput: EndpointInput | undefined;
+  EndpointInput?: EndpointInput;
+
+  /**
+   * <p>Input object for the batch transform job.</p>
+   */
+  BatchTransformInput?: BatchTransformInput;
 
   /**
    * <p>The ground truth label provided for the model.</p>
@@ -4919,7 +5423,12 @@ export interface MonitoringInput {
   /**
    * <p>The endpoint for a monitoring job.</p>
    */
-  EndpointInput: EndpointInput | undefined;
+  EndpointInput?: EndpointInput;
+
+  /**
+   * <p>Input object for the batch transform job.</p>
+   */
+  BatchTransformInput?: BatchTransformInput;
 }
 
 /**
@@ -6688,6 +7197,11 @@ export interface CreateTransformJobRequest {
    * <p>Describes the results of the transform job.</p>
    */
   TransformOutput: TransformOutput | undefined;
+
+  /**
+   * <p>Configuration to control how SageMaker captures inference data.</p>
+   */
+  DataCaptureConfig?: BatchDataCaptureConfig;
 
   /**
    * <p>Describes the resources, including
@@ -9159,335 +9673,48 @@ export enum VariantStatus {
 }
 
 /**
- * <p>Describes the status of the production variant.</p>
+ * @internal
  */
-export interface ProductionVariantStatus {
-  /**
-   * <p>The endpoint variant status which describes the current deployment stage status or
-   *             operational status.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>Creating</code>: Creating inference resources for the production
-   *                     variant.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Deleting</code>: Terminating inference resources for the production
-   *                     variant.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Updating</code>: Updating capacity for the production variant.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ActivatingTraffic</code>: Turning on traffic for the production
-   *                     variant.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Baking</code>: Waiting period to monitor the CloudWatch alarms in the
-   *                     automatic rollback configuration.</p>
-   *             </li>
-   *          </ul>
-   */
-  Status: VariantStatus | string | undefined;
-
-  /**
-   * <p>A message that describes the status of the production variant.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The start time of the current status change.</p>
-   */
-  StartTime?: Date;
-}
+export const CreateFeatureGroupRequestFilterSensitiveLog = (obj: CreateFeatureGroupRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>The production variant summary for a deployment when an endpoint is creating or
- *             updating with the <code>
- *                <a>CreateEndpoint</a>
- *             </code> or <code>
- *                <a>UpdateEndpoint</a>
- *             </code> operations. Describes the <code>VariantStatus
- *             </code>, weight and capacity for a production variant associated with an endpoint.
- *         </p>
+ * @internal
  */
-export interface PendingProductionVariantSummary {
-  /**
-   * <p>The name of the variant.</p>
-   */
-  VariantName: string | undefined;
-
-  /**
-   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container
-   *             Registry paths of the inference images deployed on instances of this
-   *                 <code>ProductionVariant</code>.</p>
-   */
-  DeployedImages?: DeployedImage[];
-
-  /**
-   * <p>The weight associated with the variant.</p>
-   */
-  CurrentWeight?: number;
-
-  /**
-   * <p>The requested weight for the variant in this deployment, as specified in the endpoint
-   *             configuration for the endpoint. The value is taken from the request to the <code>
-   *                <a>CreateEndpointConfig</a>
-   *             </code> operation.</p>
-   */
-  DesiredWeight?: number;
-
-  /**
-   * <p>The number of instances associated with the variant.</p>
-   */
-  CurrentInstanceCount?: number;
-
-  /**
-   * <p>The number of instances requested in this deployment, as specified in the endpoint
-   *             configuration for the endpoint. The value is taken from the request to the <code>
-   *                <a>CreateEndpointConfig</a>
-   *             </code> operation.</p>
-   */
-  DesiredInstanceCount?: number;
-
-  /**
-   * <p>The type of instances associated with the variant.</p>
-   */
-  InstanceType?: ProductionVariantInstanceType | string;
-
-  /**
-   * <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI
-   *             instances provide on-demand GPU computing for inference. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
-   *                 Inference in Amazon SageMaker</a>.</p>
-   */
-  AcceleratorType?: ProductionVariantAcceleratorType | string;
-
-  /**
-   * <p>The endpoint variant status which describes the current deployment stage status or
-   *             operational status.</p>
-   */
-  VariantStatus?: ProductionVariantStatus[];
-
-  /**
-   * <p>The serverless configuration for the endpoint.</p>
-   */
-  CurrentServerlessConfig?: ProductionVariantServerlessConfig;
-
-  /**
-   * <p>The serverless configuration requested for this deployment, as specified in the endpoint configuration for the endpoint.</p>
-   */
-  DesiredServerlessConfig?: ProductionVariantServerlessConfig;
-}
+export const CreateFeatureGroupResponseFilterSensitiveLog = (obj: CreateFeatureGroupResponse): any => ({
+  ...obj,
+});
 
 /**
- * <p>The summary of an in-progress deployment when an endpoint is creating or updating with
- *             a new endpoint configuration.</p>
+ * @internal
  */
-export interface PendingDeploymentSummary {
-  /**
-   * <p>The name of the endpoint configuration used in the deployment. </p>
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>List of <code>PendingProductionVariantSummary</code> objects.</p>
-   */
-  ProductionVariants?: PendingProductionVariantSummary[];
-
-  /**
-   * <p>The start time of the deployment.</p>
-   */
-  StartTime?: Date;
-}
+export const HumanLoopActivationConditionsConfigFilterSensitiveLog = (
+  obj: HumanLoopActivationConditionsConfig
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes weight and capacities for a production variant associated with an
- *             endpoint. If you sent a request to the <code>UpdateEndpointWeightsAndCapacities</code>
- *             API and the endpoint status is <code>Updating</code>, you get different desired and
- *             current values. </p>
+ * @internal
  */
-export interface ProductionVariantSummary {
-  /**
-   * <p>The name of the variant.</p>
-   */
-  VariantName: string | undefined;
+export const HumanLoopActivationConfigFilterSensitiveLog = (obj: HumanLoopActivationConfig): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the
-   *             inference images deployed on instances of this <code>ProductionVariant</code>.</p>
-   */
-  DeployedImages?: DeployedImage[];
+/**
+ * @internal
+ */
+export const USDFilterSensitiveLog = (obj: USD): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The weight associated with the variant.</p>
-   */
-  CurrentWeight?: number;
-
-  /**
-   * <p>The requested weight, as specified in the
-   *                 <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
-   */
-  DesiredWeight?: number;
-
-  /**
-   * <p>The number of instances associated with the variant.</p>
-   */
-  CurrentInstanceCount?: number;
-
-  /**
-   * <p>The number of instances requested in the
-   *                 <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
-   */
-  DesiredInstanceCount?: number;
-
-  /**
-   * <p>The endpoint variant status which describes the current deployment stage status or
-   *             operational status.</p>
-   */
-  VariantStatus?: ProductionVariantStatus[];
-
-  /**
-   * <p>The serverless configuration for the endpoint.</p>
-   */
-  CurrentServerlessConfig?: ProductionVariantServerlessConfig;
-
-  /**
-   * <p>The serverless configuration requested for the endpoint update.</p>
-   */
-  DesiredServerlessConfig?: ProductionVariantServerlessConfig;
-}
-
-export interface DescribeEndpointOutput {
-  /**
-   * <p>Name of the endpoint.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-
-  /**
-   * <p>The name of the endpoint configuration associated with this endpoint.</p>
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p> An array of <a>ProductionVariantSummary</a> objects, one for each model
-   *             hosted behind this endpoint. </p>
-   */
-  ProductionVariants?: ProductionVariantSummary[];
-
-  /**
-   * <p>The currently active data capture configuration used by your Endpoint.</p>
-   */
-  DataCaptureConfig?: DataCaptureConfigSummary;
-
-  /**
-   * <p>The status of the endpoint.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>OutOfService</code>: Endpoint is not available to take incoming
-   *                     requests.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Creating</code>: <a>CreateEndpoint</a> is executing.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Updating</code>: <a>UpdateEndpoint</a> or <a>UpdateEndpointWeightsAndCapacities</a> is executing.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be
-   *                     updated or deleted or re-scaled until it has completed. This maintenance
-   *                     operation does not change any customer-specified values such as VPC config, KMS
-   *                     encryption, model, instance type, or instance count.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>RollingBack</code>: Endpoint fails to scale up or down or change its
-   *                     variant weight and is in the process of rolling back to its previous
-   *                     configuration. Once the rollback completes, endpoint returns to an
-   *                         <code>InService</code> status. This transitional status only applies to an
-   *                     endpoint that has autoscaling enabled and is undergoing variant weight or
-   *                     capacity changes as part of an <a>UpdateEndpointWeightsAndCapacities</a> call or when the <a>UpdateEndpointWeightsAndCapacities</a> operation is called
-   *                     explicitly.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>InService</code>: Endpoint is available to process incoming
-   *                     requests.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Deleting</code>: <a>DeleteEndpoint</a> is executing.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
-   *                         <a>DescribeEndpointOutput$FailureReason</a> for information about
-   *                     the failure. <a>DeleteEndpoint</a> is the only operation that can be
-   *                     performed on a failed endpoint.</p>
-   *             </li>
-   *          </ul>
-   */
-  EndpointStatus: EndpointStatus | string | undefined;
-
-  /**
-   * <p>If the status of the endpoint is <code>Failed</code>, the reason why it failed.
-   *         </p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>A timestamp that shows when the endpoint was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp that shows when the endpoint was last modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The most recent deployment configuration for the endpoint.</p>
-   */
-  LastDeploymentConfig?: DeploymentConfig;
-
-  /**
-   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">
-   *                <code>CreateEndpointConfig</code>
-   *             </a> API.</p>
-   */
-  AsyncInferenceConfig?: AsyncInferenceConfig;
-
-  /**
-   * <p>Returns the summary of an in-progress deployment. This field is only returned when the
-   *             endpoint is creating or updating with a new endpoint configuration.</p>
-   */
-  PendingDeploymentSummary?: PendingDeploymentSummary;
-
-  /**
-   * <p>The configuration parameters for an explainer.</p>
-   */
-  ExplainerConfig?: ExplainerConfig;
-}
-
-export interface DescribeEndpointConfigInput {
-  /**
-   * <p>The name of the endpoint configuration.</p>
-   */
-  EndpointConfigName: string | undefined;
-}
+/**
+ * @internal
+ */
+export const PublicWorkforceTaskPriceFilterSensitiveLog = (obj: PublicWorkforceTaskPrice): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11409,47 +11636,5 @@ export const DescribeEdgePackagingJobResponseFilterSensitiveLog = (obj: Describe
  * @internal
  */
 export const DescribeEndpointInputFilterSensitiveLog = (obj: DescribeEndpointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProductionVariantStatusFilterSensitiveLog = (obj: ProductionVariantStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PendingProductionVariantSummaryFilterSensitiveLog = (obj: PendingProductionVariantSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PendingDeploymentSummaryFilterSensitiveLog = (obj: PendingDeploymentSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProductionVariantSummaryFilterSensitiveLog = (obj: ProductionVariantSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointOutputFilterSensitiveLog = (obj: DescribeEndpointOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointConfigInputFilterSensitiveLog = (obj: DescribeEndpointConfigInput): any => ({
   ...obj,
 });

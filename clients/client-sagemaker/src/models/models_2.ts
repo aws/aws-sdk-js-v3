@@ -20,6 +20,7 @@ import {
   AutoMLJobSummary,
   AutoMLSortBy,
   AutoMLSortOrder,
+  BatchDataCaptureConfig,
   BatchStrategy,
   CandidateSortBy,
   CandidateStatus,
@@ -34,12 +35,12 @@ import {
   ContainerDefinition,
   ContextSummary,
   DataCaptureConfig,
+  DeploymentConfig,
   EdgeOutputConfig,
   ExecutionRoleIdentityConfig,
   ExplainerConfig,
   FeatureDefinition,
   FeatureType,
-  HumanLoopActivationConfig,
   HyperParameterTuningJobObjectiveType,
   InferenceSpecification,
   MetadataProperties,
@@ -55,7 +56,9 @@ import {
   OutputDataConfig,
   OutputParameter,
   ProductionVariant,
+  ProductionVariantAcceleratorType,
   ProductionVariantInstanceType,
+  ProductionVariantServerlessConfig,
   ResourceConfig,
   ResourceSpec,
   StoppingCondition,
@@ -74,6 +77,7 @@ import {
   DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
+  DeployedImage,
   DirectInternetAccess,
   DomainStatus,
   DriftCheckBaselines,
@@ -81,6 +85,7 @@ import {
   EndpointStatus,
   ExperimentConfig,
   FlowDefinitionOutputConfig,
+  HumanLoopActivationConfig,
   HumanLoopConfig,
   HumanLoopRequestSource,
   HumanTaskConfig,
@@ -119,7 +124,6 @@ import {
   ProcessingOutputConfig,
   ProcessingResources,
   ProcessingStoppingCondition,
-  ProductionVariantSummary,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   RecommendationJobInputConfig,
@@ -138,7 +142,339 @@ import {
   TrialComponentParameterValue,
   TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
+  VariantStatus,
 } from "./models_1";
+
+/**
+ * <p>Describes the status of the production variant.</p>
+ */
+export interface ProductionVariantStatus {
+  /**
+   * <p>The endpoint variant status which describes the current deployment stage status or
+   *             operational status.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Creating</code>: Creating inference resources for the production
+   *                     variant.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Deleting</code>: Terminating inference resources for the production
+   *                     variant.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Updating</code>: Updating capacity for the production variant.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ActivatingTraffic</code>: Turning on traffic for the production
+   *                     variant.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Baking</code>: Waiting period to monitor the CloudWatch alarms in the
+   *                     automatic rollback configuration.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status: VariantStatus | string | undefined;
+
+  /**
+   * <p>A message that describes the status of the production variant.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The start time of the current status change.</p>
+   */
+  StartTime?: Date;
+}
+
+/**
+ * <p>The production variant summary for a deployment when an endpoint is creating or
+ *             updating with the <code>
+ *                <a>CreateEndpoint</a>
+ *             </code> or <code>
+ *                <a>UpdateEndpoint</a>
+ *             </code> operations. Describes the <code>VariantStatus
+ *             </code>, weight and capacity for a production variant associated with an endpoint.
+ *         </p>
+ */
+export interface PendingProductionVariantSummary {
+  /**
+   * <p>The name of the variant.</p>
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container
+   *             Registry paths of the inference images deployed on instances of this
+   *                 <code>ProductionVariant</code>.</p>
+   */
+  DeployedImages?: DeployedImage[];
+
+  /**
+   * <p>The weight associated with the variant.</p>
+   */
+  CurrentWeight?: number;
+
+  /**
+   * <p>The requested weight for the variant in this deployment, as specified in the endpoint
+   *             configuration for the endpoint. The value is taken from the request to the <code>
+   *                <a>CreateEndpointConfig</a>
+   *             </code> operation.</p>
+   */
+  DesiredWeight?: number;
+
+  /**
+   * <p>The number of instances associated with the variant.</p>
+   */
+  CurrentInstanceCount?: number;
+
+  /**
+   * <p>The number of instances requested in this deployment, as specified in the endpoint
+   *             configuration for the endpoint. The value is taken from the request to the <code>
+   *                <a>CreateEndpointConfig</a>
+   *             </code> operation.</p>
+   */
+  DesiredInstanceCount?: number;
+
+  /**
+   * <p>The type of instances associated with the variant.</p>
+   */
+  InstanceType?: ProductionVariantInstanceType | string;
+
+  /**
+   * <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI
+   *             instances provide on-demand GPU computing for inference. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
+   *                 Inference in Amazon SageMaker</a>.</p>
+   */
+  AcceleratorType?: ProductionVariantAcceleratorType | string;
+
+  /**
+   * <p>The endpoint variant status which describes the current deployment stage status or
+   *             operational status.</p>
+   */
+  VariantStatus?: ProductionVariantStatus[];
+
+  /**
+   * <p>The serverless configuration for the endpoint.</p>
+   */
+  CurrentServerlessConfig?: ProductionVariantServerlessConfig;
+
+  /**
+   * <p>The serverless configuration requested for this deployment, as specified in the endpoint configuration for the endpoint.</p>
+   */
+  DesiredServerlessConfig?: ProductionVariantServerlessConfig;
+}
+
+/**
+ * <p>The summary of an in-progress deployment when an endpoint is creating or updating with
+ *             a new endpoint configuration.</p>
+ */
+export interface PendingDeploymentSummary {
+  /**
+   * <p>The name of the endpoint configuration used in the deployment. </p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>List of <code>PendingProductionVariantSummary</code> objects.</p>
+   */
+  ProductionVariants?: PendingProductionVariantSummary[];
+
+  /**
+   * <p>The start time of the deployment.</p>
+   */
+  StartTime?: Date;
+}
+
+/**
+ * <p>Describes weight and capacities for a production variant associated with an
+ *             endpoint. If you sent a request to the <code>UpdateEndpointWeightsAndCapacities</code>
+ *             API and the endpoint status is <code>Updating</code>, you get different desired and
+ *             current values. </p>
+ */
+export interface ProductionVariantSummary {
+  /**
+   * <p>The name of the variant.</p>
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the
+   *             inference images deployed on instances of this <code>ProductionVariant</code>.</p>
+   */
+  DeployedImages?: DeployedImage[];
+
+  /**
+   * <p>The weight associated with the variant.</p>
+   */
+  CurrentWeight?: number;
+
+  /**
+   * <p>The requested weight, as specified in the
+   *                 <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
+   */
+  DesiredWeight?: number;
+
+  /**
+   * <p>The number of instances associated with the variant.</p>
+   */
+  CurrentInstanceCount?: number;
+
+  /**
+   * <p>The number of instances requested in the
+   *                 <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
+   */
+  DesiredInstanceCount?: number;
+
+  /**
+   * <p>The endpoint variant status which describes the current deployment stage status or
+   *             operational status.</p>
+   */
+  VariantStatus?: ProductionVariantStatus[];
+
+  /**
+   * <p>The serverless configuration for the endpoint.</p>
+   */
+  CurrentServerlessConfig?: ProductionVariantServerlessConfig;
+
+  /**
+   * <p>The serverless configuration requested for the endpoint update.</p>
+   */
+  DesiredServerlessConfig?: ProductionVariantServerlessConfig;
+}
+
+export interface DescribeEndpointOutput {
+  /**
+   * <p>Name of the endpoint.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * <p>The name of the endpoint configuration associated with this endpoint.</p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p> An array of <a>ProductionVariantSummary</a> objects, one for each model
+   *             hosted behind this endpoint. </p>
+   */
+  ProductionVariants?: ProductionVariantSummary[];
+
+  /**
+   * <p>The currently active data capture configuration used by your Endpoint.</p>
+   */
+  DataCaptureConfig?: DataCaptureConfigSummary;
+
+  /**
+   * <p>The status of the endpoint.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>OutOfService</code>: Endpoint is not available to take incoming
+   *                     requests.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Creating</code>: <a>CreateEndpoint</a> is executing.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Updating</code>: <a>UpdateEndpoint</a> or <a>UpdateEndpointWeightsAndCapacities</a> is executing.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be
+   *                     updated or deleted or re-scaled until it has completed. This maintenance
+   *                     operation does not change any customer-specified values such as VPC config, KMS
+   *                     encryption, model, instance type, or instance count.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RollingBack</code>: Endpoint fails to scale up or down or change its
+   *                     variant weight and is in the process of rolling back to its previous
+   *                     configuration. Once the rollback completes, endpoint returns to an
+   *                         <code>InService</code> status. This transitional status only applies to an
+   *                     endpoint that has autoscaling enabled and is undergoing variant weight or
+   *                     capacity changes as part of an <a>UpdateEndpointWeightsAndCapacities</a> call or when the <a>UpdateEndpointWeightsAndCapacities</a> operation is called
+   *                     explicitly.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>InService</code>: Endpoint is available to process incoming
+   *                     requests.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Deleting</code>: <a>DeleteEndpoint</a> is executing.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
+   *                         <a>DescribeEndpointOutput$FailureReason</a> for information about
+   *                     the failure. <a>DeleteEndpoint</a> is the only operation that can be
+   *                     performed on a failed endpoint.</p>
+   *             </li>
+   *          </ul>
+   */
+  EndpointStatus: EndpointStatus | string | undefined;
+
+  /**
+   * <p>If the status of the endpoint is <code>Failed</code>, the reason why it failed.
+   *         </p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>A timestamp that shows when the endpoint was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp that shows when the endpoint was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The most recent deployment configuration for the endpoint.</p>
+   */
+  LastDeploymentConfig?: DeploymentConfig;
+
+  /**
+   * <p>Returns the description of an endpoint configuration created using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">
+   *                <code>CreateEndpointConfig</code>
+   *             </a> API.</p>
+   */
+  AsyncInferenceConfig?: AsyncInferenceConfig;
+
+  /**
+   * <p>Returns the summary of an in-progress deployment. This field is only returned when the
+   *             endpoint is creating or updating with a new endpoint configuration.</p>
+   */
+  PendingDeploymentSummary?: PendingDeploymentSummary;
+
+  /**
+   * <p>The configuration parameters for an explainer.</p>
+   */
+  ExplainerConfig?: ExplainerConfig;
+}
+
+export interface DescribeEndpointConfigInput {
+  /**
+   * <p>The name of the endpoint configuration.</p>
+   */
+  EndpointConfigName: string | undefined;
+}
 
 export interface DescribeEndpointConfigOutput {
   /**
@@ -3750,6 +4086,11 @@ export interface DescribeTransformJobResponse {
    *             transform job.</p>
    */
   TransformOutput?: TransformOutput;
+
+  /**
+   * <p>Configuration to control how SageMaker captures inference data.</p>
+   */
+  DataCaptureConfig?: BatchDataCaptureConfig;
 
   /**
    * <p>Describes
@@ -8619,222 +8960,47 @@ export enum ModelPackageSortBy {
   NAME = "Name",
 }
 
-export interface ListModelPackagesInput {
-  /**
-   * <p>A filter that returns only model packages created after the specified time
-   *             (timestamp).</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only model packages created before the specified time
-   *             (timestamp).</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of model packages to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the model package name. This filter returns only model packages whose name
-   *             contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only the model packages with the specified approval
-   *             status.</p>
-   */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
-
-  /**
-   * <p>A filter that returns only model versions that belong to the specified model group.</p>
-   */
-  ModelPackageGroupName?: string;
-
-  /**
-   * <p>A filter that returns only the model packages of the specified type. This can be one
-   *             of the following values.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>UNVERSIONED</code> - List only unversioined models.
-   *                     This is the default value if no <code>ModelPackageType</code> is specified.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>VERSIONED</code> - List only versioned models.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>BOTH</code> - List both versioned and unversioned models.</p>
-   *             </li>
-   *          </ul>
-   */
-  ModelPackageType?: ModelPackageType | string;
-
-  /**
-   * <p>If the response to a previous <code>ListModelPackages</code> request was truncated,
-   *             the response includes a <code>NextToken</code>. To retrieve the next set of model
-   *             packages, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is
-   *             <code>CreationTime</code>.</p>
-   */
-  SortBy?: ModelPackageSortBy | string;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
+/**
+ * @internal
+ */
+export const ProductionVariantStatusFilterSensitiveLog = (obj: ProductionVariantStatus): any => ({
+  ...obj,
+});
 
 /**
- * <p>Provides summary information about a model package.</p>
+ * @internal
  */
-export interface ModelPackageSummary {
-  /**
-   * <p>The name of the model package.</p>
-   */
-  ModelPackageName: string | undefined;
+export const PendingProductionVariantSummaryFilterSensitiveLog = (obj: PendingProductionVariantSummary): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>If the model package is a versioned model, the model group that the versioned model
-   *             belongs to.</p>
-   */
-  ModelPackageGroupName?: string;
+/**
+ * @internal
+ */
+export const PendingDeploymentSummaryFilterSensitiveLog = (obj: PendingDeploymentSummary): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>If the model package is a versioned model, the version of the model.</p>
-   */
-  ModelPackageVersion?: number;
+/**
+ * @internal
+ */
+export const ProductionVariantSummaryFilterSensitiveLog = (obj: ProductionVariantSummary): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model package.</p>
-   */
-  ModelPackageArn: string | undefined;
+/**
+ * @internal
+ */
+export const DescribeEndpointOutputFilterSensitiveLog = (obj: DescribeEndpointOutput): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A brief description of the model package.</p>
-   */
-  ModelPackageDescription?: string;
-
-  /**
-   * <p>A timestamp that shows when the model package was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The overall status of the model package.</p>
-   */
-  ModelPackageStatus: ModelPackageStatus | string | undefined;
-
-  /**
-   * <p>The approval status of the model. This can be one of the following values.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>APPROVED</code> - The model is approved</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>REJECTED</code> - The model is rejected.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>PENDING_MANUAL_APPROVAL</code> - The model is waiting for manual
-   *                     approval.</p>
-   *             </li>
-   *          </ul>
-   */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
-}
-
-export interface ListModelPackagesOutput {
-  /**
-   * <p>An array of <code>ModelPackageSummary</code> objects, each of which lists a model
-   *             package.</p>
-   */
-  ModelPackageSummaryList: ModelPackageSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *             model packages, use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListModelQualityJobDefinitionsRequest {
-  /**
-   * <p>A filter that returns only model quality monitoring job definitions that are associated
-   *          with the specified endpoint.</p>
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: MonitoringJobDefinitionSortKey | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the result of the previous <code>ListModelQualityJobDefinitions</code> request was
-   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
-   *          model quality monitoring job definitions, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a call to
-   *             <code>ListModelQualityJobDefinitions</code>.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the transform job name. This filter returns only model quality monitoring
-   *          job definitions whose name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only model quality monitoring job definitions created before the
-   *          specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only model quality monitoring job definitions created after the
-   *          specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-}
-
-export interface ListModelQualityJobDefinitionsResponse {
-  /**
-   * <p>A list of summaries of model quality monitoring job definitions.</p>
-   */
-  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of model
-   *          quality monitoring job definitions, use it in the next request.</p>
-   */
-  NextToken?: string;
-}
-
-export enum ModelSortKey {
-  CreationTime = "CreationTime",
-  Name = "Name",
-}
+/**
+ * @internal
+ */
+export const DescribeEndpointConfigInputFilterSensitiveLog = (obj: DescribeEndpointConfigInput): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10545,44 +10711,5 @@ export const ModelPackageGroupSummaryFilterSensitiveLog = (obj: ModelPackageGrou
  * @internal
  */
 export const ListModelPackageGroupsOutputFilterSensitiveLog = (obj: ListModelPackageGroupsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelPackagesInputFilterSensitiveLog = (obj: ListModelPackagesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackageSummaryFilterSensitiveLog = (obj: ModelPackageSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelPackagesOutputFilterSensitiveLog = (obj: ListModelPackagesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelQualityJobDefinitionsRequestFilterSensitiveLog = (
-  obj: ListModelQualityJobDefinitionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelQualityJobDefinitionsResponseFilterSensitiveLog = (
-  obj: ListModelQualityJobDefinitionsResponse
-): any => ({
   ...obj,
 });

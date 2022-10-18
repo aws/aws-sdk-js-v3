@@ -99,9 +99,12 @@ import {
   LineageType,
   MetricData,
   ModelPackageGroupStatus,
+  ModelPackageSortBy,
   ModelPackageStatusDetails,
-  ModelSortKey,
+  ModelPackageType,
   MonitoringExecutionSummary,
+  MonitoringJobDefinitionSortKey,
+  MonitoringJobDefinitionSummary,
   NotebookInstanceStatus,
   OrderKey,
   PipelineExecutionStatus,
@@ -128,6 +131,223 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListModelPackagesInput {
+  /**
+   * <p>A filter that returns only model packages created after the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only model packages created before the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>The maximum number of model packages to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in the model package name. This filter returns only model packages whose name
+   *             contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only the model packages with the specified approval
+   *             status.</p>
+   */
+  ModelApprovalStatus?: ModelApprovalStatus | string;
+
+  /**
+   * <p>A filter that returns only model versions that belong to the specified model group.</p>
+   */
+  ModelPackageGroupName?: string;
+
+  /**
+   * <p>A filter that returns only the model packages of the specified type. This can be one
+   *             of the following values.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>UNVERSIONED</code> - List only unversioined models.
+   *                     This is the default value if no <code>ModelPackageType</code> is specified.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>VERSIONED</code> - List only versioned models.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>BOTH</code> - List both versioned and unversioned models.</p>
+   *             </li>
+   *          </ul>
+   */
+  ModelPackageType?: ModelPackageType | string;
+
+  /**
+   * <p>If the response to a previous <code>ListModelPackages</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of model
+   *             packages, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is
+   *             <code>CreationTime</code>.</p>
+   */
+  SortBy?: ModelPackageSortBy | string;
+
+  /**
+   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+/**
+ * <p>Provides summary information about a model package.</p>
+ */
+export interface ModelPackageSummary {
+  /**
+   * <p>The name of the model package.</p>
+   */
+  ModelPackageName: string | undefined;
+
+  /**
+   * <p>If the model package is a versioned model, the model group that the versioned model
+   *             belongs to.</p>
+   */
+  ModelPackageGroupName?: string;
+
+  /**
+   * <p>If the model package is a versioned model, the version of the model.</p>
+   */
+  ModelPackageVersion?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model package.</p>
+   */
+  ModelPackageArn: string | undefined;
+
+  /**
+   * <p>A brief description of the model package.</p>
+   */
+  ModelPackageDescription?: string;
+
+  /**
+   * <p>A timestamp that shows when the model package was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The overall status of the model package.</p>
+   */
+  ModelPackageStatus: ModelPackageStatus | string | undefined;
+
+  /**
+   * <p>The approval status of the model. This can be one of the following values.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>APPROVED</code> - The model is approved</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>REJECTED</code> - The model is rejected.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>PENDING_MANUAL_APPROVAL</code> - The model is waiting for manual
+   *                     approval.</p>
+   *             </li>
+   *          </ul>
+   */
+  ModelApprovalStatus?: ModelApprovalStatus | string;
+}
+
+export interface ListModelPackagesOutput {
+  /**
+   * <p>An array of <code>ModelPackageSummary</code> objects, each of which lists a model
+   *             package.</p>
+   */
+  ModelPackageSummaryList: ModelPackageSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *             model packages, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListModelQualityJobDefinitionsRequest {
+  /**
+   * <p>A filter that returns only model quality monitoring job definitions that are associated
+   *          with the specified endpoint.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: MonitoringJobDefinitionSortKey | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the result of the previous <code>ListModelQualityJobDefinitions</code> request was
+   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
+   *          model quality monitoring job definitions, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a call to
+   *             <code>ListModelQualityJobDefinitions</code>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in the transform job name. This filter returns only model quality monitoring
+   *          job definitions whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only model quality monitoring job definitions created before the
+   *          specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only model quality monitoring job definitions created after the
+   *          specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+}
+
+export interface ListModelQualityJobDefinitionsResponse {
+  /**
+   * <p>A list of summaries of model quality monitoring job definitions.</p>
+   */
+  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of model
+   *          quality monitoring job definitions, use it in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export enum ModelSortKey {
+  CreationTime = "CreationTime",
+  Name = "Name",
+}
 
 export interface ListModelsInput {
   /**
@@ -5609,6 +5829,45 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const ListModelPackagesInputFilterSensitiveLog = (obj: ListModelPackagesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModelPackageSummaryFilterSensitiveLog = (obj: ModelPackageSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListModelPackagesOutputFilterSensitiveLog = (obj: ListModelPackagesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListModelQualityJobDefinitionsRequestFilterSensitiveLog = (
+  obj: ListModelQualityJobDefinitionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListModelQualityJobDefinitionsResponseFilterSensitiveLog = (
+  obj: ListModelQualityJobDefinitionsResponse
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
