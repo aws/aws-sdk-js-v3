@@ -1,4 +1,4 @@
-import { EndpointURL, EndpointURLScheme } from "@aws-sdk/types";
+import { Endpoint, EndpointURL, EndpointURLScheme } from "@aws-sdk/types";
 
 import { isIpAddress } from "./isIpAddress";
 
@@ -8,11 +8,22 @@ const DEFAULT_PORTS: Record<EndpointURLScheme, number> = {
 };
 
 /**
- * Parses a string into it’s Endpoint URL components.
+ * Parses a string, URL, or Endpoint into it’s Endpoint URL components.
  */
-export const parseURL = (value: string): EndpointURL | null => {
+export const parseURL = (value: string | URL | Endpoint): EndpointURL | null => {
   const whatwgURL = (() => {
     try {
+      if (value instanceof URL) {
+        return value;
+      }
+      if (typeof value === "object" && "hostname" in value) {
+        const { hostname, port, protocol = "", path = "", query = {} } = value as Endpoint;
+        const url = new URL(`${protocol}//${hostname}${port ? `:${port}` : ""}${path}`);
+        url.search = Object.entries(query)
+          .map(([k, v]) => `${k}=${v}`)
+          .join("&");
+        return url;
+      }
       return new URL(value);
     } catch (error) {
       return null;
@@ -20,8 +31,11 @@ export const parseURL = (value: string): EndpointURL | null => {
   })();
 
   if (!whatwgURL) {
+    console.error(`Unable to parse ${JSON.stringify(value)} as a whatwg URL.`);
     return null;
   }
+
+  const urlString = whatwgURL.href;
 
   const { host, hostname, pathname, protocol, search } = whatwgURL;
 
@@ -35,7 +49,12 @@ export const parseURL = (value: string): EndpointURL | null => {
   }
 
   const isIp = isIpAddress(hostname);
-  const authority = `${host}${value.includes(`${host}:${DEFAULT_PORTS[scheme]}`) ? `:${DEFAULT_PORTS[scheme]}` : ``}`;
+
+  const inputContainsDefaultPort =
+    urlString.includes(`${host}:${DEFAULT_PORTS[scheme]}`) ||
+    (typeof value === "string" && value.includes(`${host}:${DEFAULT_PORTS[scheme]}`));
+
+  const authority = `${host}${inputContainsDefaultPort ? `:${DEFAULT_PORTS[scheme]}` : ``}`;
 
   return {
     scheme,

@@ -19,12 +19,11 @@ describe("endpoint", () => {
       expect(request.protocol).to.equal("http:");
       expect(request.hostname).to.equal("localhost");
       expect(request.port).to.equal(8080);
-      //query and path should not be overwritten
-      expect(request.query).not.to.contain({ foo: "bar" });
-      expect(request.path).not.to.equal("/path");
+      expect(request.path).to.equal("/path/bucket/key");
       return Promise.resolve({ output: {} as any, response: {} as any });
     };
-    const client = new S3({ endpoint: "http://localhost:8080/path?foo=bar" });
+    const client = new S3({ endpoint: "http://localhost:8080/path", forcePathStyle: true });
+
     client.middlewareStack.add(endpointValidator, {
       step: "serialize",
       name: "endpointValidator",
