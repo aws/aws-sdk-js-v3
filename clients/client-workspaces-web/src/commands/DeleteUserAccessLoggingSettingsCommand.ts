@@ -14,40 +14,42 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DeleteBrowserSettingsRequest,
-  DeleteBrowserSettingsRequestFilterSensitiveLog,
-  DeleteBrowserSettingsResponse,
-  DeleteBrowserSettingsResponseFilterSensitiveLog,
+  DeleteUserAccessLoggingSettingsRequest,
+  DeleteUserAccessLoggingSettingsRequestFilterSensitiveLog,
+  DeleteUserAccessLoggingSettingsResponse,
+  DeleteUserAccessLoggingSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteBrowserSettingsCommand,
-  serializeAws_restJson1DeleteBrowserSettingsCommand,
+  deserializeAws_restJson1DeleteUserAccessLoggingSettingsCommand,
+  serializeAws_restJson1DeleteUserAccessLoggingSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
-export interface DeleteBrowserSettingsCommandInput extends DeleteBrowserSettingsRequest {}
-export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSettingsResponse, __MetadataBearer {}
+export interface DeleteUserAccessLoggingSettingsCommandInput extends DeleteUserAccessLoggingSettingsRequest {}
+export interface DeleteUserAccessLoggingSettingsCommandOutput
+  extends DeleteUserAccessLoggingSettingsResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Deletes browser settings.</p>
+ * <p>Deletes user access logging settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, DeleteBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, DeleteBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, DeleteUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
+ * // const { WorkSpacesWebClient, DeleteUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const command = new DeleteBrowserSettingsCommand(input);
+ * const command = new DeleteUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DeleteBrowserSettingsCommandInput} for command's `input` shape.
- * @see {@link DeleteBrowserSettingsCommandOutput} for command's `response` shape.
+ * @see {@link DeleteUserAccessLoggingSettingsCommandInput} for command's `input` shape.
+ * @see {@link DeleteUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
  *
  */
-export class DeleteBrowserSettingsCommand extends $Command<
-  DeleteBrowserSettingsCommandInput,
-  DeleteBrowserSettingsCommandOutput,
+export class DeleteUserAccessLoggingSettingsCommand extends $Command<
+  DeleteUserAccessLoggingSettingsCommandInput,
+  DeleteUserAccessLoggingSettingsCommandOutput,
   WorkSpacesWebClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +64,7 @@ export class DeleteBrowserSettingsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DeleteBrowserSettingsCommandInput) {
+  constructor(readonly input: DeleteUserAccessLoggingSettingsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,23 +77,23 @@ export class DeleteBrowserSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesWebClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteBrowserSettingsCommandInput, DeleteBrowserSettingsCommandOutput> {
+  ): Handler<DeleteUserAccessLoggingSettingsCommandInput, DeleteUserAccessLoggingSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteBrowserSettingsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteUserAccessLoggingSettingsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WorkSpacesWebClient";
-    const commandName = "DeleteBrowserSettingsCommand";
+    const commandName = "DeleteUserAccessLoggingSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBrowserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBrowserSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUserAccessLoggingSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteUserAccessLoggingSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +103,18 @@ export class DeleteBrowserSettingsCommand extends $Command<
     );
   }
 
-  private serialize(input: DeleteBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBrowserSettingsCommand(input, context);
+  private serialize(
+    input: DeleteUserAccessLoggingSettingsCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeleteUserAccessLoggingSettingsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBrowserSettingsCommandOutput> {
-    return deserializeAws_restJson1DeleteBrowserSettingsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeleteUserAccessLoggingSettingsCommandOutput> {
+    return deserializeAws_restJson1DeleteUserAccessLoggingSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

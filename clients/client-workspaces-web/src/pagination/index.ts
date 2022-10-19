@@ -6,4 +6,5 @@ export * from "./ListNetworkSettingsPaginator";
 export * from "./ListPortalsPaginator";
 export * from "./ListTrustStoreCertificatesPaginator";
 export * from "./ListTrustStoresPaginator";
+export * from "./ListUserAccessLoggingSettingsPaginator";
 export * from "./ListUserSettingsPaginator";

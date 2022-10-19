@@ -14,40 +14,42 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DeleteBrowserSettingsRequest,
-  DeleteBrowserSettingsRequestFilterSensitiveLog,
-  DeleteBrowserSettingsResponse,
-  DeleteBrowserSettingsResponseFilterSensitiveLog,
+  CreateUserAccessLoggingSettingsRequest,
+  CreateUserAccessLoggingSettingsRequestFilterSensitiveLog,
+  CreateUserAccessLoggingSettingsResponse,
+  CreateUserAccessLoggingSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteBrowserSettingsCommand,
-  serializeAws_restJson1DeleteBrowserSettingsCommand,
+  deserializeAws_restJson1CreateUserAccessLoggingSettingsCommand,
+  serializeAws_restJson1CreateUserAccessLoggingSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
-export interface DeleteBrowserSettingsCommandInput extends DeleteBrowserSettingsRequest {}
-export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSettingsResponse, __MetadataBearer {}
+export interface CreateUserAccessLoggingSettingsCommandInput extends CreateUserAccessLoggingSettingsRequest {}
+export interface CreateUserAccessLoggingSettingsCommandOutput
+  extends CreateUserAccessLoggingSettingsResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Deletes browser settings.</p>
+ * <p>Creates a user access logging settings resource that can be associated with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, DeleteBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, DeleteBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, CreateUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
+ * // const { WorkSpacesWebClient, CreateUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const command = new DeleteBrowserSettingsCommand(input);
+ * const command = new CreateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DeleteBrowserSettingsCommandInput} for command's `input` shape.
- * @see {@link DeleteBrowserSettingsCommandOutput} for command's `response` shape.
+ * @see {@link CreateUserAccessLoggingSettingsCommandInput} for command's `input` shape.
+ * @see {@link CreateUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
  *
  */
-export class DeleteBrowserSettingsCommand extends $Command<
-  DeleteBrowserSettingsCommandInput,
-  DeleteBrowserSettingsCommandOutput,
+export class CreateUserAccessLoggingSettingsCommand extends $Command<
+  CreateUserAccessLoggingSettingsCommandInput,
+  CreateUserAccessLoggingSettingsCommandOutput,
   WorkSpacesWebClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +64,7 @@ export class DeleteBrowserSettingsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DeleteBrowserSettingsCommandInput) {
+  constructor(readonly input: CreateUserAccessLoggingSettingsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,23 +77,23 @@ export class DeleteBrowserSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesWebClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteBrowserSettingsCommandInput, DeleteBrowserSettingsCommandOutput> {
+  ): Handler<CreateUserAccessLoggingSettingsCommandInput, CreateUserAccessLoggingSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteBrowserSettingsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateUserAccessLoggingSettingsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WorkSpacesWebClient";
-    const commandName = "DeleteBrowserSettingsCommand";
+    const commandName = "CreateUserAccessLoggingSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBrowserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBrowserSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: CreateUserAccessLoggingSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateUserAccessLoggingSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +103,18 @@ export class DeleteBrowserSettingsCommand extends $Command<
     );
   }
 
-  private serialize(input: DeleteBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBrowserSettingsCommand(input, context);
+  private serialize(
+    input: CreateUserAccessLoggingSettingsCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1CreateUserAccessLoggingSettingsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBrowserSettingsCommandOutput> {
-    return deserializeAws_restJson1DeleteBrowserSettingsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<CreateUserAccessLoggingSettingsCommandOutput> {
+    return deserializeAws_restJson1CreateUserAccessLoggingSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

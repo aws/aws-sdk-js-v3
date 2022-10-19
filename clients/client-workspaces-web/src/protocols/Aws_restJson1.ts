@@ -34,6 +34,10 @@ import {
   AssociateTrustStoreCommandOutput,
 } from "../commands/AssociateTrustStoreCommand";
 import {
+  AssociateUserAccessLoggingSettingsCommandInput,
+  AssociateUserAccessLoggingSettingsCommandOutput,
+} from "../commands/AssociateUserAccessLoggingSettingsCommand";
+import {
   AssociateUserSettingsCommandInput,
   AssociateUserSettingsCommandOutput,
 } from "../commands/AssociateUserSettingsCommand";
@@ -51,6 +55,10 @@ import {
 } from "../commands/CreateNetworkSettingsCommand";
 import { CreatePortalCommandInput, CreatePortalCommandOutput } from "../commands/CreatePortalCommand";
 import { CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput } from "../commands/CreateTrustStoreCommand";
+import {
+  CreateUserAccessLoggingSettingsCommandInput,
+  CreateUserAccessLoggingSettingsCommandOutput,
+} from "../commands/CreateUserAccessLoggingSettingsCommand";
 import { CreateUserSettingsCommandInput, CreateUserSettingsCommandOutput } from "../commands/CreateUserSettingsCommand";
 import {
   DeleteBrowserSettingsCommandInput,
@@ -66,6 +74,10 @@ import {
 } from "../commands/DeleteNetworkSettingsCommand";
 import { DeletePortalCommandInput, DeletePortalCommandOutput } from "../commands/DeletePortalCommand";
 import { DeleteTrustStoreCommandInput, DeleteTrustStoreCommandOutput } from "../commands/DeleteTrustStoreCommand";
+import {
+  DeleteUserAccessLoggingSettingsCommandInput,
+  DeleteUserAccessLoggingSettingsCommandOutput,
+} from "../commands/DeleteUserAccessLoggingSettingsCommand";
 import { DeleteUserSettingsCommandInput, DeleteUserSettingsCommandOutput } from "../commands/DeleteUserSettingsCommand";
 import {
   DisassociateBrowserSettingsCommandInput,
@@ -79,6 +91,10 @@ import {
   DisassociateTrustStoreCommandInput,
   DisassociateTrustStoreCommandOutput,
 } from "../commands/DisassociateTrustStoreCommand";
+import {
+  DisassociateUserAccessLoggingSettingsCommandInput,
+  DisassociateUserAccessLoggingSettingsCommandOutput,
+} from "../commands/DisassociateUserAccessLoggingSettingsCommand";
 import {
   DisassociateUserSettingsCommandInput,
   DisassociateUserSettingsCommandOutput,
@@ -99,6 +115,10 @@ import {
   GetTrustStoreCertificateCommandOutput,
 } from "../commands/GetTrustStoreCertificateCommand";
 import { GetTrustStoreCommandInput, GetTrustStoreCommandOutput } from "../commands/GetTrustStoreCommand";
+import {
+  GetUserAccessLoggingSettingsCommandInput,
+  GetUserAccessLoggingSettingsCommandOutput,
+} from "../commands/GetUserAccessLoggingSettingsCommand";
 import { GetUserSettingsCommandInput, GetUserSettingsCommandOutput } from "../commands/GetUserSettingsCommand";
 import {
   ListBrowserSettingsCommandInput,
@@ -122,6 +142,10 @@ import {
   ListTrustStoreCertificatesCommandOutput,
 } from "../commands/ListTrustStoreCertificatesCommand";
 import { ListTrustStoresCommandInput, ListTrustStoresCommandOutput } from "../commands/ListTrustStoresCommand";
+import {
+  ListUserAccessLoggingSettingsCommandInput,
+  ListUserAccessLoggingSettingsCommandOutput,
+} from "../commands/ListUserAccessLoggingSettingsCommand";
 import { ListUserSettingsCommandInput, ListUserSettingsCommandOutput } from "../commands/ListUserSettingsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -139,6 +163,10 @@ import {
 } from "../commands/UpdateNetworkSettingsCommand";
 import { UpdatePortalCommandInput, UpdatePortalCommandOutput } from "../commands/UpdatePortalCommand";
 import { UpdateTrustStoreCommandInput, UpdateTrustStoreCommandOutput } from "../commands/UpdateTrustStoreCommand";
+import {
+  UpdateUserAccessLoggingSettingsCommandInput,
+  UpdateUserAccessLoggingSettingsCommandOutput,
+} from "../commands/UpdateUserAccessLoggingSettingsCommand";
 import { UpdateUserSettingsCommandInput, UpdateUserSettingsCommandOutput } from "../commands/UpdateUserSettingsCommand";
 import {
   AccessDeniedException,
@@ -161,6 +189,8 @@ import {
   TooManyTagsException,
   TrustStore,
   TrustStoreSummary,
+  UserAccessLoggingSettings,
+  UserAccessLoggingSettingsSummary,
   UserSettings,
   UserSettingsSummary,
   ValidationException,
@@ -229,6 +259,32 @@ export const serializeAws_restJson1AssociateTrustStoreCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
     trustStoreArn: [, input.trustStoreArn!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1AssociateUserAccessLoggingSettingsCommand = async (
+  input: AssociateUserAccessLoggingSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/portals/{portalArn+}/userAccessLoggingSettings";
+  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  const query: any = map({
+    userAccessLoggingSettingsArn: [, input.userAccessLoggingSettingsArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -422,6 +478,33 @@ export const serializeAws_restJson1CreateTrustStoreCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateUserAccessLoggingSettingsCommand = async (
+  input: CreateUserAccessLoggingSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/userAccessLoggingSettings";
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.kinesisStreamArn != null && { kinesisStreamArn: input.kinesisStreamArn }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateUserSettingsCommand = async (
   input: CreateUserSettingsCommandInput,
   context: __SerdeContext
@@ -588,6 +671,35 @@ export const serializeAws_restJson1DeleteTrustStoreCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteUserAccessLoggingSettingsCommand = async (
+  input: DeleteUserAccessLoggingSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "userAccessLoggingSettingsArn",
+    () => input.userAccessLoggingSettingsArn!,
+    "{userAccessLoggingSettingsArn+}",
+    true
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteUserSettingsCommand = async (
   input: DeleteUserSettingsCommandInput,
   context: __SerdeContext
@@ -666,6 +778,28 @@ export const serializeAws_restJson1DisassociateTrustStoreCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/trustStores";
+  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DisassociateUserAccessLoggingSettingsCommand = async (
+  input: DisassociateUserAccessLoggingSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/portals/{portalArn+}/userAccessLoggingSettings";
   resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
   let body: any;
   return new __HttpRequest({
@@ -884,6 +1018,35 @@ export const serializeAws_restJson1GetTrustStoreCertificateCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetUserAccessLoggingSettingsCommand = async (
+  input: GetUserAccessLoggingSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "userAccessLoggingSettingsArn",
+    () => input.userAccessLoggingSettingsArn!,
+    "{userAccessLoggingSettingsArn+}",
+    true
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetUserSettingsCommand = async (
   input: GetUserSettingsCommandInput,
   context: __SerdeContext
@@ -1071,6 +1234,31 @@ export const serializeAws_restJson1ListTrustStoresCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustStores";
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListUserAccessLoggingSettingsCommand = async (
+  input: ListUserAccessLoggingSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/userAccessLoggingSettings";
   const query: any = map({
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
@@ -1336,6 +1524,41 @@ export const serializeAws_restJson1UpdateTrustStoreCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateUserAccessLoggingSettingsCommand = async (
+  input: UpdateUserAccessLoggingSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "userAccessLoggingSettingsArn",
+    () => input.userAccessLoggingSettingsArn!,
+    "{userAccessLoggingSettingsArn+}",
+    true
+  );
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.kinesisStreamArn != null && { kinesisStreamArn: input.kinesisStreamArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateUserSettingsCommand = async (
   input: UpdateUserSettingsCommandInput,
   context: __SerdeContext
@@ -1529,6 +1752,65 @@ const deserializeAws_restJson1AssociateTrustStoreCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.workspacesweb#AccessDeniedException":
       throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspacesweb#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspacesweb#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.workspacesweb#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspacesweb#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1AssociateUserAccessLoggingSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateUserAccessLoggingSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateUserAccessLoggingSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.portalArn != null) {
+    contents.portalArn = __expectString(data.portalArn);
+  }
+  if (data.userAccessLoggingSettingsArn != null) {
+    contents.userAccessLoggingSettingsArn = __expectString(data.userAccessLoggingSettingsArn);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1AssociateUserAccessLoggingSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateUserAccessLoggingSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspacesweb#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.workspacesweb#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.workspacesweb#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1903,6 +2185,62 @@ const deserializeAws_restJson1CreateTrustStoreCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateUserAccessLoggingSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUserAccessLoggingSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateUserAccessLoggingSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.userAccessLoggingSettingsArn != null) {
+    contents.userAccessLoggingSettingsArn = __expectString(data.userAccessLoggingSettingsArn);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateUserAccessLoggingSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUserAccessLoggingSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspacesweb#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.workspacesweb#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspacesweb#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.workspacesweb#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.workspacesweb#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspacesweb#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1CreateUserSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2209,6 +2547,56 @@ const deserializeAws_restJson1DeleteTrustStoreCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DeleteUserAccessLoggingSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUserAccessLoggingSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteUserAccessLoggingSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteUserAccessLoggingSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUserAccessLoggingSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspacesweb#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.workspacesweb#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspacesweb#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.workspacesweb#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspacesweb#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1DeleteUserSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2377,6 +2765,56 @@ const deserializeAws_restJson1DisassociateTrustStoreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateTrustStoreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspacesweb#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspacesweb#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspacesweb#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.workspacesweb#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspacesweb#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DisassociateUserAccessLoggingSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateUserAccessLoggingSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateUserAccessLoggingSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DisassociateUserAccessLoggingSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateUserAccessLoggingSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2804,6 +3242,62 @@ const deserializeAws_restJson1GetTrustStoreCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTrustStoreCertificateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspacesweb#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspacesweb#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspacesweb#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.workspacesweb#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspacesweb#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetUserAccessLoggingSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUserAccessLoggingSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetUserAccessLoggingSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.userAccessLoggingSettings != null) {
+    contents.userAccessLoggingSettings = deserializeAws_restJson1UserAccessLoggingSettings(
+      data.userAccessLoggingSettings,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetUserAccessLoggingSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUserAccessLoggingSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3266,6 +3760,62 @@ const deserializeAws_restJson1ListTrustStoresCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListUserAccessLoggingSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListUserAccessLoggingSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListUserAccessLoggingSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.userAccessLoggingSettings != null) {
+    contents.userAccessLoggingSettings = deserializeAws_restJson1UserAccessLoggingSettingsList(
+      data.userAccessLoggingSettings,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListUserAccessLoggingSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListUserAccessLoggingSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspacesweb#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspacesweb#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.workspacesweb#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspacesweb#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListUserSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3673,6 +4223,62 @@ const deserializeAws_restJson1UpdateTrustStoreCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.workspacesweb#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.workspacesweb#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspacesweb#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UpdateUserAccessLoggingSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserAccessLoggingSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateUserAccessLoggingSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.userAccessLoggingSettings != null) {
+    contents.userAccessLoggingSettings = deserializeAws_restJson1UserAccessLoggingSettings(
+      data.userAccessLoggingSettings,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateUserAccessLoggingSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserAccessLoggingSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspacesweb#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspacesweb#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspacesweb#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.workspacesweb#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -4194,6 +4800,7 @@ const deserializeAws_restJson1Portal = (output: any, context: __SerdeContext): P
     rendererType: __expectString(output.rendererType),
     statusReason: __expectString(output.statusReason),
     trustStoreArn: __expectString(output.trustStoreArn),
+    userAccessLoggingSettingsArn: __expectString(output.userAccessLoggingSettingsArn),
     userSettingsArn: __expectString(output.userSettingsArn),
   } as any;
 };
@@ -4225,6 +4832,7 @@ const deserializeAws_restJson1PortalSummary = (output: any, context: __SerdeCont
     portalStatus: __expectString(output.portalStatus),
     rendererType: __expectString(output.rendererType),
     trustStoreArn: __expectString(output.trustStoreArn),
+    userAccessLoggingSettingsArn: __expectString(output.userAccessLoggingSettingsArn),
     userSettingsArn: __expectString(output.userSettingsArn),
   } as any;
 };
@@ -4298,6 +4906,45 @@ const deserializeAws_restJson1TrustStoreSummaryList = (output: any, context: __S
       return deserializeAws_restJson1TrustStoreSummary(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1UserAccessLoggingSettings = (
+  output: any,
+  context: __SerdeContext
+): UserAccessLoggingSettings => {
+  return {
+    associatedPortalArns:
+      output.associatedPortalArns != null
+        ? deserializeAws_restJson1ArnList(output.associatedPortalArns, context)
+        : undefined,
+    kinesisStreamArn: __expectString(output.kinesisStreamArn),
+    userAccessLoggingSettingsArn: __expectString(output.userAccessLoggingSettingsArn),
+  } as any;
+};
+
+const deserializeAws_restJson1UserAccessLoggingSettingsList = (
+  output: any,
+  context: __SerdeContext
+): UserAccessLoggingSettingsSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UserAccessLoggingSettingsSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1UserAccessLoggingSettingsSummary = (
+  output: any,
+  context: __SerdeContext
+): UserAccessLoggingSettingsSummary => {
+  return {
+    kinesisStreamArn: __expectString(output.kinesisStreamArn),
+    userAccessLoggingSettingsArn: __expectString(output.userAccessLoggingSettingsArn),
+  } as any;
 };
 
 const deserializeAws_restJson1UserSettings = (output: any, context: __SerdeContext): UserSettings => {
