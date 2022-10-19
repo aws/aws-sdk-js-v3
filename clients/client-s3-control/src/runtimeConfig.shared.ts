@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { S3ControlClientConfig } from "./S3ControlClient";
 
 /**
@@ -11,8 +11,8 @@ import { S3ControlClientConfig } from "./S3ControlClient";
 export const getRuntimeConfig = (config: S3ControlClientConfig) => ({
   apiVersion: "2018-08-20",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "S3 Control",
   signingEscapePath: config?.signingEscapePath ?? false,
   urlParser: config?.urlParser ?? parseUrl,

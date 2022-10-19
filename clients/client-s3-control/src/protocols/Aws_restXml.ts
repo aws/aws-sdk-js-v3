@@ -435,8 +435,7 @@ export const serializeAws_restXmlCreateBucketCommand = async (
     ],
     "x-amz-outpost-id": input.OutpostId!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   if (input.CreateBucketConfiguration !== undefined) {
@@ -743,8 +742,7 @@ export const serializeAws_restXmlDeleteBucketCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-account-id": input.AccountId!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -778,8 +776,7 @@ export const serializeAws_restXmlDeleteBucketLifecycleConfigurationCommand = asy
     "x-amz-account-id": input.AccountId!,
   });
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/lifecycleconfiguration";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -812,8 +809,7 @@ export const serializeAws_restXmlDeleteBucketPolicyCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-account-id": input.AccountId!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/policy";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/policy";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -847,7 +843,7 @@ export const serializeAws_restXmlDeleteBucketTaggingCommand = async (
     "x-amz-account-id": input.AccountId!,
   });
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/tagging";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/tagging";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1383,8 +1379,7 @@ export const serializeAws_restXmlGetBucketCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-account-id": input.AccountId!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1418,8 +1413,7 @@ export const serializeAws_restXmlGetBucketLifecycleConfigurationCommand = async 
     "x-amz-account-id": input.AccountId!,
   });
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/lifecycleconfiguration";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1452,8 +1446,7 @@ export const serializeAws_restXmlGetBucketPolicyCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-account-id": input.AccountId!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/policy";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/policy";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1487,7 +1480,7 @@ export const serializeAws_restXmlGetBucketTaggingCommand = async (
     "x-amz-account-id": input.AccountId!,
   });
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/tagging";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/tagging";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2152,8 +2145,7 @@ export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async 
     "x-amz-account-id": input.AccountId!,
   });
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/lifecycleconfiguration";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   if (input.LifecycleConfiguration !== undefined) {
@@ -2201,8 +2193,7 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
       () => input.ConfirmRemoveSelfBucketAccess!.toString(),
     ],
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/policy";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/policy";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -2245,7 +2236,7 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
     "x-amz-account-id": input.AccountId!,
   });
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/tagging";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/tagging";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   if (input.Tagging !== undefined) {
