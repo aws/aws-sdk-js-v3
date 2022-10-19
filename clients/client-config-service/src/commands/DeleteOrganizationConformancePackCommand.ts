@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,7 +29,7 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
 /**
  * <p>Deletes the specified organization conformance pack and all of the Config rules and remediation actions from
  * 			all member accounts in that organization. </p>
- *          <p> Only a master account or a delegated administrator account can delete an organization conformance pack.
+ *          <p> Only a management account or a delegated administrator account can delete an organization conformance pack.
  * 	When calling this API with a delegated administrator, you must ensure Organizations
  * 		<code>ListDelegatedAdministrator</code> permissions are added.</p>
  * 			      <p>Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion is complete.
@@ -56,6 +57,15 @@ export class DeleteOrganizationConformancePackCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: DeleteOrganizationConformancePackCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +81,9 @@ export class DeleteOrganizationConformancePackCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteOrganizationConformancePackCommandInput, DeleteOrganizationConformancePackCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteOrganizationConformancePackCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface ListConformancePackComplianceScoresCommandOutput
 /**
  * <p>Returns a list of conformance pack compliance scores.
  * 			A compliance score is the percentage of the number of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations in the conformance pack.
- * 			This metric provides you with a high-level view of the compliance state of your conformance packs, and can be used to identify, investigate, and understand
+ * 			This metric provides you with a high-level view of the compliance state of your conformance packs. You can use it to identify, investigate, and understand
  * 			the level of compliance in your conformance packs.</p>
  * 		       <note>
  *             <p>Conformance packs with no evaluation results will have a compliance score of <code>INSUFFICIENT_DATA</code>.</p>
@@ -60,6 +61,15 @@ export class ListConformancePackComplianceScoresCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListConformancePackComplianceScoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +85,9 @@ export class ListConformancePackComplianceScoresCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListConformancePackComplianceScoresCommandInput, ListConformancePackComplianceScoresCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListConformancePackComplianceScoresCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

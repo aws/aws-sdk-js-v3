@@ -29,7 +29,7 @@ export interface PutConformancePackRequest {
   ConformancePackName: string | undefined;
 
   /**
-   * <p>The location of the file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to a conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same region as the conformance pack. </p>
+   * <p>The location of the file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to a conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same Region as the conformance pack. </p>
    * 		       <note>
    *             <p>You must have access to read Amazon S3 bucket.</p>
    *          </note>
@@ -39,7 +39,7 @@ export interface PutConformancePackRequest {
   /**
    * <p>A string containing the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
    * 		       <note>
-   *             <p>You can only use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>) and remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
+   *             <p>You can use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>) and remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
    *          </note>
    */
   TemplateBody?: string;
@@ -394,7 +394,10 @@ export class ResourceConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>You have reached the limit of the number of tags you can use. You have more than 50 tags.</p>
+ * <p>You have reached the limit of the number of tags you can use.
+ * 			For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
+ *                <b>Service Limits</b>
+ *             </a> in the Config Developer Guide.</p>
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";

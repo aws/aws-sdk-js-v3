@@ -461,6 +461,8 @@ export enum ResourceType {
   AccountPublicAccessBlock = "AWS::S3::AccountPublicAccessBlock",
   Alarm = "AWS::CloudWatch::Alarm",
   Api = "AWS::ApiGatewayV2::Api",
+  AppConfigApplication = "AWS::AppConfig::Application",
+  AppSyncGraphQLApi = "AWS::AppSync::GraphQLApi",
   Application = "AWS::ElasticBeanstalk::Application",
   ApplicationVersion = "AWS::ElasticBeanstalk::ApplicationVersion",
   AssociationCompliance = "AWS::SSM::AssociationCompliance",
@@ -496,6 +498,12 @@ export enum ResourceType {
   DMSCertificate = "AWS::DMS::Certificate",
   DMSEventSubscription = "AWS::DMS::EventSubscription",
   DMSReplicationSubnetGroup = "AWS::DMS::ReplicationSubnetGroup",
+  DataSyncLocationEFS = "AWS::DataSync::LocationEFS",
+  DataSyncLocationFSxLustre = "AWS::DataSync::LocationFSxLustre",
+  DataSyncLocationNFS = "AWS::DataSync::LocationNFS",
+  DataSyncLocationS3 = "AWS::DataSync::LocationS3",
+  DataSyncLocationSMB = "AWS::DataSync::LocationSMB",
+  DataSyncTask = "AWS::DataSync::Task",
   DetectiveGraph = "AWS::Detective::Graph",
   Distribution = "AWS::CloudFront::Distribution",
   Domain = "AWS::Elasticsearch::Domain",
@@ -508,6 +516,7 @@ export enum ResourceType {
   EFSFileSystem = "AWS::EFS::FileSystem",
   EIP = "AWS::EC2::EIP",
   EKSCluster = "AWS::EKS::Cluster",
+  EKSFargateProfile = "AWS::EKS::FargateProfile",
   EMRSecurityConfiguration = "AWS::EMR::SecurityConfiguration",
   EgressOnlyInternetGateway = "AWS::EC2::EgressOnlyInternetGateway",
   EncryptionConfig = "AWS::XRay::EncryptionConfig",
@@ -519,8 +528,11 @@ export enum ResourceType {
   GlobalAcceleratorAccelerator = "AWS::GlobalAccelerator::Accelerator",
   GlobalAcceleratorEndpointGroup = "AWS::GlobalAccelerator::EndpointGroup",
   GlobalAcceleratorListener = "AWS::GlobalAccelerator::Listener",
+  GlueJob = "AWS::Glue::Job",
   Group = "AWS::IAM::Group",
   GuardDutyDetector = "AWS::GuardDuty::Detector",
+  GuardDutyIPSet = "AWS::GuardDuty::IPSet",
+  GuardDutyThreatIntelSet = "AWS::GuardDuty::ThreatIntelSet",
   Host = "AWS::EC2::Host",
   IPSetV2 = "AWS::WAFv2::IPSet",
   Instance = "AWS::EC2::Instance",
@@ -541,6 +553,7 @@ export enum ResourceType {
   NetworkFirewallFirewall = "AWS::NetworkFirewall::Firewall",
   NetworkFirewallFirewallPolicy = "AWS::NetworkFirewall::FirewallPolicy",
   NetworkFirewallRuleGroup = "AWS::NetworkFirewall::RuleGroup",
+  NetworkInsightsAccessScopeAnalysis = "AWS::EC2::NetworkInsightsAccessScopeAnalysis",
   NetworkInterface = "AWS::EC2::NetworkInterface",
   OpenSearchDomain = "AWS::OpenSearch::Domain",
   PatchCompliance = "AWS::SSM::PatchCompliance",
@@ -563,6 +576,7 @@ export enum ResourceType {
   ResourceCompliance = "AWS::Config::ResourceCompliance",
   RestApi = "AWS::ApiGateway::RestApi",
   Role = "AWS::IAM::Role",
+  Route53HostedZone = "AWS::Route53::HostedZone",
   Route53ResolverResolverEndpoint = "AWS::Route53Resolver::ResolverEndpoint",
   Route53ResolverResolverRule = "AWS::Route53Resolver::ResolverRule",
   Route53ResolverResolverRuleAssociation = "AWS::Route53Resolver::ResolverRuleAssociation",
@@ -570,12 +584,18 @@ export enum ResourceType {
   Rule = "AWS::WAF::Rule",
   RuleGroup = "AWS::WAF::RuleGroup",
   RuleGroupV2 = "AWS::WAFv2::RuleGroup",
+  SESConfigurationSet = "AWS::SES::ConfigurationSet",
+  SESContactList = "AWS::SES::ContactList",
   SageMakerCodeRepository = "AWS::SageMaker::CodeRepository",
   SageMakerModel = "AWS::SageMaker::Model",
+  SageMakerNotebookInstanceLifecycleConfig = "AWS::SageMaker::NotebookInstanceLifecycleConfig",
+  SageMakerWorkteam = "AWS::SageMaker::Workteam",
   ScalingPolicy = "AWS::AutoScaling::ScalingPolicy",
   ScheduledAction = "AWS::AutoScaling::ScheduledAction",
   Secret = "AWS::SecretsManager::Secret",
   SecurityGroup = "AWS::EC2::SecurityGroup",
+  ServiceDiscoveryPublicDnsNamespace = "AWS::ServiceDiscovery::PublicDnsNamespace",
+  ServiceDiscoveryService = "AWS::ServiceDiscovery::Service",
   Stack = "AWS::CloudFormation::Stack",
   Stage = "AWS::ApiGateway::Stage",
   StageV2 = "AWS::ApiGatewayV2::Stage",
@@ -813,7 +833,7 @@ export class NoSuchConfigurationAggregatorException extends __BaseException {
 }
 
 /**
- * <p>The requested action is not valid.</p>
+ * <p>The requested action is invalid.</p>
  * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  */
@@ -2032,7 +2052,7 @@ export interface ConformancePackComplianceFilters {
 
 /**
  * <p>A compliance score is the percentage of the number of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations in the conformance pack.
- * 			This metric provides you with a high-level view of the compliance state of your conformance packs, and can be used to identify, investigate, and understand
+ * 			This metric provides you with a high-level view of the compliance state of your conformance packs. You can use it to identify, investigate, and understand
  * 			the level of compliance in your conformance packs.</p>
  */
 export interface ConformancePackComplianceScore {
@@ -2096,14 +2116,14 @@ export interface ConformancePackInputParameter {
 
 /**
  * <p>This API allows you to create a conformance pack template with an Amazon Web Services Systems Manager document (SSM document).
- * 			To deploy a conformance pack using an SSM document, you first create an SSM document with conformance pack content, and then provide the <code>DocumentName</code> (and optionally <code>DocumentVersion</code>) in the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html">PutConformancePack API</a>.</p>
+ * 			To deploy a conformance pack using an SSM document, first create an SSM document with conformance pack content, and then provide the <code>DocumentName</code> in the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html">PutConformancePack API</a>. You can also provide the <code>DocumentVersion</code>.</p>
  *
  * 		       <p>The <code>TemplateSSMDocumentDetails</code> object contains the name of the SSM document and the version of the SSM document.</p>
  */
 export interface TemplateSSMDocumentDetails {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack.
-   * 			If you use the Document Name, Config checks only your account and region for the SSM document. If you want to use an SSM document from another region or account, you must provide the ARN.</p>
+   * 			If you use the document name, Config checks only your account and Amazon Web Services Region for the SSM document. If you want to use an SSM document from another Region or account, you must provide the ARN.</p>
    */
   DocumentName: string | undefined;
 
@@ -2325,7 +2345,7 @@ export interface ConformancePackStatusDetail {
 }
 
 /**
- * <p>You have specified a template that is not valid or supported.</p>
+ * <p>You have specified a template that is invalid or supported.</p>
  */
 export class ConformancePackTemplateValidationException extends __BaseException {
   readonly name: "ConformancePackTemplateValidationException" = "ConformancePackTemplateValidationException";
@@ -2388,7 +2408,7 @@ export interface DeleteConfigRuleRequest {
 }
 
 /**
- * <p>The Config rule in the request is not valid. Verify that the rule is an Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ * <p>The Config rule in the request is invalid. Verify that the rule is an Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  */
 export class NoSuchConfigRuleException extends __BaseException {
   readonly name: "NoSuchConfigRuleException" = "NoSuchConfigRuleException";
@@ -2591,7 +2611,7 @@ export interface DeleteOrganizationConfigRuleRequest {
 }
 
 /**
- * <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ * <p>The Config rule in the request is invalid. Verify that the rule is an organization Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  */
 export class NoSuchOrganizationConfigRuleException extends __BaseException {
   readonly name: "NoSuchOrganizationConfigRuleException" = "NoSuchOrganizationConfigRuleException";
@@ -2628,7 +2648,7 @@ export class NoSuchOrganizationConfigRuleException extends __BaseException {
  * 			Ensure that the management account registers delagated administrator for Config service principle name before the delegated administrator creates an aggregator.</p>
  *             </li>
  *          </ul>
- * 		       <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization master account.</p>
+ * 		       <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  */
 export class OrganizationAccessDeniedException extends __BaseException {
   readonly name: "OrganizationAccessDeniedException" = "OrganizationAccessDeniedException";
@@ -2713,13 +2733,13 @@ export interface DeleteRemediationConfigurationResponse {}
  *                <p>For PutOrganizationConfigRule, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *             </li>
  *             <li>
- *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have permissions: </p>
+ *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have the following permissions: </p>
  * 				           <ul>
  *                   <li>
- *                      <p>To call IAM <code>GetRole</code> action or create a service-linked role.</p>
+ *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *                   </li>
  *                   <li>
- *                      <p>To read Amazon S3 bucket or call SSM:GetDocument.</p>
+ *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
  *                   </li>
  *                </ul>
  * 			         </li>
@@ -3985,9 +4005,9 @@ export interface OrganizationConfigRuleStatus {
 
   /**
    * <p>Indicates deployment status of an organization Config rule.
-   * 			When master account calls PutOrganizationConfigRule action for the first time, Config rule status is created in all the member accounts.
-   * 			When master account calls PutOrganizationConfigRule action for the second time, Config rule status is updated in all the member accounts. Additionally, Config rule status is updated when one or more member accounts join or leave an organization.
-   * 			Config rule status is deleted when the master account deletes OrganizationConfigRule in all the member accounts and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.</p>
+   * 			When management account calls PutOrganizationConfigRule action for the first time, Config rule status is created in all the member accounts.
+   * 			When management account calls PutOrganizationConfigRule action for the second time, Config rule status is updated in all the member accounts. Additionally, Config rule status is updated when one or more member accounts join or leave an organization.
+   * 			Config rule status is deleted when the management account deletes OrganizationConfigRule in all the member accounts and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.</p>
    * 			      <p>Config sets the state of the rule to:</p>
    * 		       <ul>
    *             <li>
@@ -4178,13 +4198,13 @@ export interface OrganizationConformancePackStatus {
 
   /**
    * <p>Indicates deployment status of an organization conformance pack.
-   * 			When master account calls PutOrganizationConformancePack for the first time,
+   * 			When management account calls PutOrganizationConformancePack for the first time,
    * 			conformance pack status is created in all the member accounts.
-   * 			When master account calls PutOrganizationConformancePack for the second time,
+   * 			When management account calls PutOrganizationConformancePack for the second time,
    * 			conformance pack status is updated in all the member accounts.
    * 			Additionally, conformance pack status is updated when one or more member accounts join or leave an
    * 			organization.
-   * 			Conformance pack status is deleted when the master account deletes
+   * 			Conformance pack status is deleted when the management account deletes
    * 			OrganizationConformancePack in all the member accounts and disables service
    * 			access for <code>config-multiaccountsetup.amazonaws.com</code>.</p>
    * 		       <p>Config sets the state of the conformance pack to:</p>
@@ -5494,9 +5514,9 @@ export interface StatusDetailFilters {
 
   /**
    * <p>Indicates deployment status for Config rule in the member account.
-   * 			When master account calls <code>PutOrganizationConfigRule</code> action for the first time, Config rule status is created in the member account.
-   * 			When master account calls <code>PutOrganizationConfigRule</code> action for the second time, Config rule status is updated in the member account.
-   * 			Config rule status is deleted when the master account deletes <code>OrganizationConfigRule</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
+   * 			When management account calls <code>PutOrganizationConfigRule</code> action for the first time, Config rule status is created in the member account.
+   * 			When management account calls <code>PutOrganizationConfigRule</code> action for the second time, Config rule status is updated in the member account.
+   * 			Config rule status is deleted when the management account deletes <code>OrganizationConfigRule</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
    * 			</p>
    * 		       <p>Config sets the state of the rule to:</p>
    * 		       <ul>
@@ -5579,9 +5599,9 @@ export interface MemberAccountStatus {
 
   /**
    * <p>Indicates deployment status for Config rule in the member account.
-   * 			When master account calls <code>PutOrganizationConfigRule</code> action for the first time, Config rule status is created in the member account.
-   * 			When master account calls <code>PutOrganizationConfigRule</code> action for the second time, Config rule status is updated in the member account.
-   * 			Config rule status is deleted when the master account deletes <code>OrganizationConfigRule</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
+   * 			When management account calls <code>PutOrganizationConfigRule</code> action for the first time, Config rule status is created in the member account.
+   * 			When management account calls <code>PutOrganizationConfigRule</code> action for the second time, Config rule status is updated in the member account.
+   * 			Config rule status is deleted when the management account deletes <code>OrganizationConfigRule</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
    * 		</p>
    * 		       <p> Config sets the state of the rule to:</p>
    * 		       <ul>
@@ -5676,9 +5696,9 @@ export interface OrganizationResourceDetailedStatusFilters {
 
   /**
    * <p>Indicates deployment status for conformance pack in a member account.
-   * 			When master account calls <code>PutOrganizationConformancePack</code> action for the first time, conformance pack status is created in the member account.
-   * 			When master account calls <code>PutOrganizationConformancePack</code> action for the second time, conformance pack status is updated in the member account.
-   * 			Conformance pack status is deleted when the master account deletes <code>OrganizationConformancePack</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
+   * 			When management account calls <code>PutOrganizationConformancePack</code> action for the first time, conformance pack status is created in the member account.
+   * 			When management account calls <code>PutOrganizationConformancePack</code> action for the second time, conformance pack status is updated in the member account.
+   * 			Conformance pack status is deleted when the management account deletes <code>OrganizationConformancePack</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
    * 		</p>
    * 		       <p> Config sets the state of the conformance pack to:</p>
    * 		       <ul>
@@ -5764,9 +5784,9 @@ export interface OrganizationConformancePackDetailedStatus {
 
   /**
    * <p>Indicates deployment status for conformance pack in a member account.
-   * 			When master account calls <code>PutOrganizationConformancePack</code> action for the first time, conformance pack status is created in the member account.
-   * 			When master account calls <code>PutOrganizationConformancePack</code> action for the second time, conformance pack status is updated in the member account.
-   * 			Conformance pack status is deleted when the master account deletes <code>OrganizationConformancePack</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
+   * 			When management account calls <code>PutOrganizationConformancePack</code> action for the first time, conformance pack status is created in the member account.
+   * 			When management account calls <code>PutOrganizationConformancePack</code> action for the second time, conformance pack status is updated in the member account.
+   * 			Conformance pack status is deleted when the management account deletes <code>OrganizationConformancePack</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
    * 		</p>
    * 		       <p> Config sets the state of the conformance pack to:</p>
    * 		       <ul>
@@ -5925,7 +5945,7 @@ export interface GetResourceConfigHistoryResponse {
 }
 
 /**
- * <p>The specified time range is not valid. The earlier time is not
+ * <p>The specified time range is invalid. The earlier time is not
  * 			chronologically before the later time.</p>
  */
 export class InvalidTimeRangeException extends __BaseException {
@@ -6036,7 +6056,7 @@ export class InvalidConfigurationRecorderNameException extends __BaseException {
 }
 
 /**
- * <p>The specified delivery channel name is not valid.</p>
+ * <p>The specified delivery channel name is invalid.</p>
  */
 export class InvalidDeliveryChannelNameException extends __BaseException {
   readonly name: "InvalidDeliveryChannelNameException" = "InvalidDeliveryChannelNameException";
@@ -6131,7 +6151,7 @@ export class InvalidRoleException extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon S3 key prefix is not valid.</p>
+ * <p>The specified Amazon S3 key prefix is invalid.</p>
  */
 export class InvalidS3KeyPrefixException extends __BaseException {
   readonly name: "InvalidS3KeyPrefixException" = "InvalidS3KeyPrefixException";
@@ -6150,7 +6170,7 @@ export class InvalidS3KeyPrefixException extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon KMS Key ARN is not valid.</p>
+ * <p>The specified Amazon KMS Key ARN is invalid.</p>
  */
 export class InvalidS3KmsKeyArnException extends __BaseException {
   readonly name: "InvalidS3KmsKeyArnException" = "InvalidS3KmsKeyArnException";
@@ -6292,13 +6312,17 @@ export interface ListConformancePackComplianceScoresRequest {
 
   /**
    * <p>Determines the order in which conformance pack compliance scores are sorted. Either in ascending or descending order.</p>
-   * 		       <p>Conformance packs with a compliance score of <code>INSUFFICIENT_DATA</code> will be first when sorting by ascending order and last when sorting by descending order.</p>
+   *
+   * 		       <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack. Conformance pack compliance scores are sorted in reverse alphabetical order if you enter <code>DESCENDING</code>.</p>
+   *
+   * 		       <p>You can sort conformance pack compliance scores by the numerical value of the compliance score by entering <code>SCORE</code> in the <code>SortBy</code> action. When compliance scores are sorted by <code>SCORE</code>, conformance packs with a compliance score of <code>INSUFFICIENT_DATA</code> will be last when sorting by ascending order and first when sorting by descending order.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
    * <p>Sorts your conformance pack compliance scores in either ascending or descending order, depending on <code>SortOrder</code>.</p>
-   * 		       <p>By default, conformance pack compliance scores are sorted in ascending order by compliance score and alphabetically by name of the conformance pack if there is more than one conformance pack with the same compliance score.</p>
+   * 		       <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack.
+   * 			Enter <code>SCORE</code>, to sort conformance pack compliance scores by the numerical value of the compliance score.</p>
    */
   SortBy?: SortBy | string;
 
@@ -6512,8 +6536,9 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * <p>You have reached the limit (100,000) of active custom resource types in your account.
- * 			Delete unused resources using <code>DeleteResourceConfig</code>.</p>
+ * <p>You have reached the limit of active custom resource types in your account. There is a limit of 100,000.
+ * 			Delete unused resources using <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteResourceConfig.html">DeleteResourceConfig</a>
+ *             <code></code>.</p>
  */
 export class MaxActiveResourcesExceededException extends __BaseException {
   readonly name: "MaxActiveResourcesExceededException" = "MaxActiveResourcesExceededException";
@@ -6574,7 +6599,9 @@ export class MaxNumberOfConfigurationRecordersExceededException extends __BaseEx
 }
 
 /**
- * <p>You have reached the limit (6) of the number of conformance packs in an account (6 conformance pack with 25 Config rules per pack).</p>
+ * <p>You have reached the limit of the number of conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
+ *                <b>Service Limits</b>
+ *             </a> in the Config Developer Guide.</p>
  */
 export class MaxNumberOfConformancePacksExceededException extends __BaseException {
   readonly name: "MaxNumberOfConformancePacksExceededException" = "MaxNumberOfConformancePacksExceededException";
@@ -6613,7 +6640,9 @@ export class MaxNumberOfDeliveryChannelsExceededException extends __BaseExceptio
 }
 
 /**
- * <p>You have reached the limit of the number of organization Config rules you can create.</p>
+ * <p>You have reached the limit of the number of organization Config rules you can create. For more information, see see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
+ *                <b>Service Limits</b>
+ *             </a> in the Config Developer Guide.</p>
  */
 export class MaxNumberOfOrganizationConfigRulesExceededException extends __BaseException {
   readonly name: "MaxNumberOfOrganizationConfigRulesExceededException" =
@@ -6633,7 +6662,9 @@ export class MaxNumberOfOrganizationConfigRulesExceededException extends __BaseE
 }
 
 /**
- * <p>You have reached the limit (6) of the number of organization conformance packs in an account (6 conformance pack with 25 Config rules per pack per account).</p>
+ * <p>You have reached the limit of the number of organization conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
+ *                <b>Service Limits</b>
+ *             </a> in the Config Developer Guide.</p>
  */
 export class MaxNumberOfOrganizationConformancePacksExceededException extends __BaseException {
   readonly name: "MaxNumberOfOrganizationConformancePacksExceededException" =
@@ -6750,7 +6781,7 @@ export class OrganizationAllFeaturesNotEnabledException extends __BaseException 
 }
 
 /**
- * <p>You have specified a template that is not valid or supported.</p>
+ * <p>You have specified a template that is invalid or supported.</p>
  */
 export class OrganizationConformancePackTemplateValidationException extends __BaseException {
   readonly name: "OrganizationConformancePackTemplateValidationException" =
