@@ -18,7 +18,9 @@ export interface AbortIncompleteMultipartUpload {
   DaysAfterInitiation?: number;
 }
 
-export type RequestCharged = "requester";
+export enum RequestCharged {
+  requester = "requester",
+}
 
 export interface AbortMultipartUploadOutput {
   /**
@@ -28,7 +30,9 @@ export interface AbortMultipartUploadOutput {
   RequestCharged?: RequestCharged | string;
 }
 
-export type RequestPayer = "requester";
+export enum RequestPayer {
+  requester = "requester",
+}
 
 export interface AbortMultipartUploadRequest {
   /**
@@ -84,7 +88,10 @@ export class NoSuchUpload extends __BaseException {
   }
 }
 
-export type BucketAccelerateStatus = "Enabled" | "Suspended";
+export enum BucketAccelerateStatus {
+  Enabled = "Enabled",
+  Suspended = "Suspended",
+}
 
 /**
  * <p>Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see
@@ -98,7 +105,11 @@ export interface AccelerateConfiguration {
   Status?: BucketAccelerateStatus | string;
 }
 
-export type Type = "AmazonCustomerByEmail" | "CanonicalUser" | "Group";
+export enum Type {
+  AmazonCustomerByEmail = "AmazonCustomerByEmail",
+  CanonicalUser = "CanonicalUser",
+  Group = "Group",
+}
 
 /**
  * <p>Container for the person being granted permissions.</p>
@@ -160,7 +171,13 @@ export interface Grantee {
   Type: Type | string | undefined;
 }
 
-export type Permission = "FULL_CONTROL" | "READ" | "READ_ACP" | "WRITE" | "WRITE_ACP";
+export enum Permission {
+  FULL_CONTROL = "FULL_CONTROL",
+  READ = "READ",
+  READ_ACP = "READ_ACP",
+  WRITE = "WRITE",
+  WRITE_ACP = "WRITE_ACP",
+}
 
 /**
  * <p>Container for grant information.</p>
@@ -207,7 +224,9 @@ export interface AccessControlPolicy {
   Owner?: Owner;
 }
 
-export type OwnerOverride = "Destination";
+export enum OwnerOverride {
+  Destination = "Destination",
+}
 
 /**
  * <p>A container for information about access control for replicas.</p>
@@ -220,7 +239,10 @@ export interface AccessControlTranslation {
   Owner: OwnerOverride | string | undefined;
 }
 
-export type ServerSideEncryption = "AES256" | "aws:kms";
+export enum ServerSideEncryption {
+  AES256 = "AES256",
+  aws_kms = "aws:kms",
+}
 
 export interface CompleteMultipartUploadOutput {
   /**
@@ -592,14 +614,15 @@ export interface CopyObjectOutput {
   RequestCharged?: RequestCharged | string;
 }
 
-export type ObjectCannedACL =
-  | "authenticated-read"
-  | "aws-exec-read"
-  | "bucket-owner-full-control"
-  | "bucket-owner-read"
-  | "private"
-  | "public-read"
-  | "public-read-write";
+export enum ObjectCannedACL {
+  authenticated_read = "authenticated-read",
+  aws_exec_read = "aws-exec-read",
+  bucket_owner_full_control = "bucket-owner-full-control",
+  bucket_owner_read = "bucket-owner-read",
+  private = "private",
+  public_read = "public-read",
+  public_read_write = "public-read-write",
+}
 
 export enum ChecksumAlgorithm {
   CRC32 = "CRC32",
@@ -608,24 +631,37 @@ export enum ChecksumAlgorithm {
   SHA256 = "SHA256",
 }
 
-export type MetadataDirective = "COPY" | "REPLACE";
+export enum MetadataDirective {
+  COPY = "COPY",
+  REPLACE = "REPLACE",
+}
 
-export type ObjectLockLegalHoldStatus = "OFF" | "ON";
+export enum ObjectLockLegalHoldStatus {
+  OFF = "OFF",
+  ON = "ON",
+}
 
-export type ObjectLockMode = "COMPLIANCE" | "GOVERNANCE";
+export enum ObjectLockMode {
+  COMPLIANCE = "COMPLIANCE",
+  GOVERNANCE = "GOVERNANCE",
+}
 
-export type StorageClass =
-  | "DEEP_ARCHIVE"
-  | "GLACIER"
-  | "GLACIER_IR"
-  | "INTELLIGENT_TIERING"
-  | "ONEZONE_IA"
-  | "OUTPOSTS"
-  | "REDUCED_REDUNDANCY"
-  | "STANDARD"
-  | "STANDARD_IA";
+export enum StorageClass {
+  DEEP_ARCHIVE = "DEEP_ARCHIVE",
+  GLACIER = "GLACIER",
+  GLACIER_IR = "GLACIER_IR",
+  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
+  ONEZONE_IA = "ONEZONE_IA",
+  OUTPOSTS = "OUTPOSTS",
+  REDUCED_REDUNDANCY = "REDUCED_REDUNDANCY",
+  STANDARD = "STANDARD",
+  STANDARD_IA = "STANDARD_IA",
+}
 
-export type TaggingDirective = "COPY" | "REPLACE";
+export enum TaggingDirective {
+  COPY = "COPY",
+  REPLACE = "REPLACE",
+}
 
 export interface CopyObjectRequest {
   /**
@@ -974,34 +1010,41 @@ export interface CreateBucketOutput {
   Location?: string;
 }
 
-export type BucketCannedACL = "authenticated-read" | "private" | "public-read" | "public-read-write";
+export enum BucketCannedACL {
+  authenticated_read = "authenticated-read",
+  private = "private",
+  public_read = "public-read",
+  public_read_write = "public-read-write",
+}
 
-export type BucketLocationConstraint =
-  | "EU"
-  | "af-south-1"
-  | "ap-east-1"
-  | "ap-northeast-1"
-  | "ap-northeast-2"
-  | "ap-northeast-3"
-  | "ap-south-1"
-  | "ap-southeast-1"
-  | "ap-southeast-2"
-  | "ca-central-1"
-  | "cn-north-1"
-  | "cn-northwest-1"
-  | "eu-central-1"
-  | "eu-north-1"
-  | "eu-south-1"
-  | "eu-west-1"
-  | "eu-west-2"
-  | "eu-west-3"
-  | "me-south-1"
-  | "sa-east-1"
-  | "us-east-2"
-  | "us-gov-east-1"
-  | "us-gov-west-1"
-  | "us-west-1"
-  | "us-west-2";
+export enum BucketLocationConstraint {
+  EU = "EU",
+  af_south_1 = "af-south-1",
+  ap_east_1 = "ap-east-1",
+  ap_northeast_1 = "ap-northeast-1",
+  ap_northeast_2 = "ap-northeast-2",
+  ap_northeast_3 = "ap-northeast-3",
+  ap_south_1 = "ap-south-1",
+  ap_southeast_1 = "ap-southeast-1",
+  ap_southeast_2 = "ap-southeast-2",
+  ap_southeast_3 = "ap-southeast-3",
+  ca_central_1 = "ca-central-1",
+  cn_north_1 = "cn-north-1",
+  cn_northwest_1 = "cn-northwest-1",
+  eu_central_1 = "eu-central-1",
+  eu_north_1 = "eu-north-1",
+  eu_south_1 = "eu-south-1",
+  eu_west_1 = "eu-west-1",
+  eu_west_2 = "eu-west-2",
+  eu_west_3 = "eu-west-3",
+  me_south_1 = "me-south-1",
+  sa_east_1 = "sa-east-1",
+  us_east_2 = "us-east-2",
+  us_gov_east_1 = "us-gov-east-1",
+  us_gov_west_1 = "us-gov-west-1",
+  us_west_1 = "us-west-1",
+  us_west_2 = "us-west-2",
+}
 
 /**
  * <p>The configuration information for the bucket.</p>
@@ -1014,7 +1057,11 @@ export interface CreateBucketConfiguration {
   LocationConstraint?: BucketLocationConstraint | string;
 }
 
-export type ObjectOwnership = "BucketOwnerEnforced" | "BucketOwnerPreferred" | "ObjectWriter";
+export enum ObjectOwnership {
+  BucketOwnerEnforced = "BucketOwnerEnforced",
+  BucketOwnerPreferred = "BucketOwnerPreferred",
+  ObjectWriter = "ObjectWriter",
+}
 
 export interface CreateBucketRequest {
   /**
@@ -3852,7 +3899,9 @@ export namespace AnalyticsFilter {
   };
 }
 
-export type AnalyticsS3ExportFileFormat = "CSV";
+export enum AnalyticsS3ExportFileFormat {
+  CSV = "CSV",
+}
 
 /**
  * <p>Contains information about where to publish the analytics results.</p>
@@ -3894,7 +3943,9 @@ export interface AnalyticsExportDestination {
   S3BucketDestination: AnalyticsS3BucketDestination | undefined;
 }
 
-export type StorageClassAnalysisSchemaVersion = "V_1";
+export enum StorageClassAnalysisSchemaVersion {
+  V_1 = "V_1",
+}
 
 /**
  * <p>Container for data related to the storage class analysis for an Amazon S3 bucket for
@@ -4179,9 +4230,15 @@ export interface IntelligentTieringFilter {
   And?: IntelligentTieringAndOperator;
 }
 
-export type IntelligentTieringStatus = "Disabled" | "Enabled";
+export enum IntelligentTieringStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
-export type IntelligentTieringAccessTier = "ARCHIVE_ACCESS" | "DEEP_ARCHIVE_ACCESS";
+export enum IntelligentTieringAccessTier {
+  ARCHIVE_ACCESS = "ARCHIVE_ACCESS",
+  DEEP_ARCHIVE_ACCESS = "DEEP_ARCHIVE_ACCESS",
+}
 
 /**
  * <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by
@@ -4286,7 +4343,11 @@ export interface InventoryEncryption {
   SSEKMS?: SSEKMS;
 }
 
-export type InventoryFormat = "CSV" | "ORC" | "Parquet";
+export enum InventoryFormat {
+  CSV = "CSV",
+  ORC = "ORC",
+  Parquet = "Parquet",
+}
 
 /**
  * <p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional)
@@ -4348,24 +4409,31 @@ export interface InventoryFilter {
   Prefix: string | undefined;
 }
 
-export type InventoryIncludedObjectVersions = "All" | "Current";
+export enum InventoryIncludedObjectVersions {
+  All = "All",
+  Current = "Current",
+}
 
-export type InventoryOptionalField =
-  | "BucketKeyStatus"
-  | "ChecksumAlgorithm"
-  | "ETag"
-  | "EncryptionStatus"
-  | "IntelligentTieringAccessTier"
-  | "IsMultipartUploaded"
-  | "LastModifiedDate"
-  | "ObjectLockLegalHoldStatus"
-  | "ObjectLockMode"
-  | "ObjectLockRetainUntilDate"
-  | "ReplicationStatus"
-  | "Size"
-  | "StorageClass";
+export enum InventoryOptionalField {
+  BucketKeyStatus = "BucketKeyStatus",
+  ChecksumAlgorithm = "ChecksumAlgorithm",
+  ETag = "ETag",
+  EncryptionStatus = "EncryptionStatus",
+  IntelligentTieringAccessTier = "IntelligentTieringAccessTier",
+  IsMultipartUploaded = "IsMultipartUploaded",
+  LastModifiedDate = "LastModifiedDate",
+  ObjectLockLegalHoldStatus = "ObjectLockLegalHoldStatus",
+  ObjectLockMode = "ObjectLockMode",
+  ObjectLockRetainUntilDate = "ObjectLockRetainUntilDate",
+  ReplicationStatus = "ReplicationStatus",
+  Size = "Size",
+  StorageClass = "StorageClass",
+}
 
-export type InventoryFrequency = "Daily" | "Weekly";
+export enum InventoryFrequency {
+  Daily = "Daily",
+  Weekly = "Weekly",
+}
 
 /**
  * <p>Specifies the schedule for generating inventory results.</p>
@@ -4636,13 +4704,14 @@ export interface NoncurrentVersionExpiration {
   NewerNoncurrentVersions?: number;
 }
 
-export type TransitionStorageClass =
-  | "DEEP_ARCHIVE"
-  | "GLACIER"
-  | "GLACIER_IR"
-  | "INTELLIGENT_TIERING"
-  | "ONEZONE_IA"
-  | "STANDARD_IA";
+export enum TransitionStorageClass {
+  DEEP_ARCHIVE = "DEEP_ARCHIVE",
+  GLACIER = "GLACIER",
+  GLACIER_IR = "GLACIER_IR",
+  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
+  ONEZONE_IA = "ONEZONE_IA",
+  STANDARD_IA = "STANDARD_IA",
+}
 
 /**
  * <p>Container for the transition rule that describes when noncurrent objects transition to
@@ -4677,7 +4746,10 @@ export interface NoncurrentVersionTransition {
   NewerNoncurrentVersions?: number;
 }
 
-export type ExpirationStatus = "Disabled" | "Enabled";
+export enum ExpirationStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
 /**
  * <p>Specifies when an object transitions to a specified storage class. For more information
@@ -4821,7 +4893,11 @@ export interface GetBucketLocationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export type BucketLogsPermission = "FULL_CONTROL" | "READ" | "WRITE";
+export enum BucketLogsPermission {
+  FULL_CONTROL = "FULL_CONTROL",
+  READ = "READ",
+  WRITE = "WRITE",
+}
 
 /**
  * <p>Container for granting information.</p>
@@ -5096,7 +5172,10 @@ export type Event =
   | "s3:Replication:OperationNotTracked"
   | "s3:Replication:OperationReplicatedAfterThreshold";
 
-export type FilterRuleName = "prefix" | "suffix";
+export enum FilterRuleName {
+  prefix = "prefix",
+  suffix = "suffix",
+}
 
 /**
  * <p>Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or
@@ -5368,7 +5447,10 @@ export interface GetBucketPolicyStatusRequest {
   ExpectedBucketOwner?: string;
 }
 
-export type DeleteMarkerReplicationStatus = "Disabled" | "Enabled";
+export enum DeleteMarkerReplicationStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
 /**
  * <p>Specifies whether Amazon S3 replicates delete markers. If you specify a <code>Filter</code>
@@ -5421,7 +5503,10 @@ export interface ReplicationTimeValue {
   Minutes?: number;
 }
 
-export type MetricsStatus = "Disabled" | "Enabled";
+export enum MetricsStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
 /**
  * <p> A container specifying replication metrics-related settings enabling replication
@@ -5440,7 +5525,10 @@ export interface Metrics {
   EventThreshold?: ReplicationTimeValue;
 }
 
-export type ReplicationTimeStatus = "Disabled" | "Enabled";
+export enum ReplicationTimeStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
 /**
  * <p> A container specifying S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC is
@@ -5516,7 +5604,10 @@ export interface Destination {
   Metrics?: Metrics;
 }
 
-export type ExistingObjectReplicationStatus = "Disabled" | "Enabled";
+export enum ExistingObjectReplicationStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
 /**
  * <p>Optional configuration to replicate existing source bucket objects. For more
@@ -5641,7 +5732,10 @@ export namespace ReplicationRuleFilter {
   };
 }
 
-export type ReplicaModificationsStatus = "Disabled" | "Enabled";
+export enum ReplicaModificationsStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
 /**
  * <p>A filter that you can specify for selection for modifications on replicas. Amazon S3 doesn't
@@ -5661,7 +5755,10 @@ export interface ReplicaModifications {
   Status: ReplicaModificationsStatus | string | undefined;
 }
 
-export type SseKmsEncryptedObjectsStatus = "Disabled" | "Enabled";
+export enum SseKmsEncryptedObjectsStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
 /**
  * <p>A container for filter information for the selection of S3 objects encrypted with Amazon Web Services
@@ -5704,7 +5801,10 @@ export interface SourceSelectionCriteria {
   ReplicaModifications?: ReplicaModifications;
 }
 
-export type ReplicationRuleStatus = "Disabled" | "Enabled";
+export enum ReplicationRuleStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
 /**
  * <p>Specifies which Amazon S3 objects to replicate and where to store the replicas.</p>
@@ -5830,7 +5930,10 @@ export interface GetBucketReplicationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export type Payer = "BucketOwner" | "Requester";
+export enum Payer {
+  BucketOwner = "BucketOwner",
+  Requester = "Requester",
+}
 
 export interface GetBucketRequestPaymentOutput {
   /**
@@ -5874,9 +5977,15 @@ export interface GetBucketTaggingRequest {
   ExpectedBucketOwner?: string;
 }
 
-export type MFADeleteStatus = "Disabled" | "Enabled";
+export enum MFADeleteStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
-export type BucketVersioningStatus = "Enabled" | "Suspended";
+export enum BucketVersioningStatus {
+  Enabled = "Enabled",
+  Suspended = "Suspended",
+}
 
 export interface GetBucketVersioningOutput {
   /**
@@ -5939,7 +6048,10 @@ export interface IndexDocument {
   Suffix: string | undefined;
 }
 
-export type Protocol = "http" | "https";
+export enum Protocol {
+  http = "http",
+  https = "https",
+}
 
 /**
  * <p>Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3
@@ -6102,7 +6214,12 @@ export interface GetBucketWebsiteRequest {
   ExpectedBucketOwner?: string;
 }
 
-export type ReplicationStatus = "COMPLETE" | "FAILED" | "PENDING" | "REPLICA";
+export enum ReplicationStatus {
+  COMPLETE = "COMPLETE",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  REPLICA = "REPLICA",
+}
 
 export interface GetObjectOutput {
   /**
@@ -6862,9 +6979,14 @@ export interface GetObjectLegalHoldRequest {
   ExpectedBucketOwner?: string;
 }
 
-export type ObjectLockEnabled = "Enabled";
+export enum ObjectLockEnabled {
+  Enabled = "Enabled",
+}
 
-export type ObjectLockRetentionMode = "COMPLIANCE" | "GOVERNANCE";
+export enum ObjectLockRetentionMode {
+  COMPLIANCE = "COMPLIANCE",
+  GOVERNANCE = "GOVERNANCE",
+}
 
 /**
  * <p>The container element for specifying the default Object Lock retention settings for new
@@ -7214,7 +7336,10 @@ export class NotFound extends __BaseException {
   }
 }
 
-export type ArchiveStatus = "ARCHIVE_ACCESS" | "DEEP_ARCHIVE_ACCESS";
+export enum ArchiveStatus {
+  ARCHIVE_ACCESS = "ARCHIVE_ACCESS",
+  DEEP_ARCHIVE_ACCESS = "DEEP_ARCHIVE_ACCESS",
+}
 
 export interface HeadObjectOutput {
   /**
@@ -7817,7 +7942,9 @@ export interface CommonPrefix {
   Prefix?: string;
 }
 
-export type EncodingType = "url";
+export enum EncodingType {
+  url = "url",
+}
 
 /**
  * <p>Container element that identifies who initiated the multipart upload. </p>
@@ -8026,16 +8153,17 @@ export interface ListMultipartUploadsRequest {
   ExpectedBucketOwner?: string;
 }
 
-export type ObjectStorageClass =
-  | "DEEP_ARCHIVE"
-  | "GLACIER"
-  | "GLACIER_IR"
-  | "INTELLIGENT_TIERING"
-  | "ONEZONE_IA"
-  | "OUTPOSTS"
-  | "REDUCED_REDUNDANCY"
-  | "STANDARD"
-  | "STANDARD_IA";
+export enum ObjectStorageClass {
+  DEEP_ARCHIVE = "DEEP_ARCHIVE",
+  GLACIER = "GLACIER",
+  GLACIER_IR = "GLACIER_IR",
+  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
+  ONEZONE_IA = "ONEZONE_IA",
+  OUTPOSTS = "OUTPOSTS",
+  REDUCED_REDUNDANCY = "REDUCED_REDUNDANCY",
+  STANDARD = "STANDARD",
+  STANDARD_IA = "STANDARD_IA",
+}
 
 /**
  * <p>An object consists of data and its descriptive metadata.</p>
@@ -8446,7 +8574,9 @@ export interface DeleteMarkerEntry {
   LastModified?: Date;
 }
 
-export type ObjectVersionStorageClass = "STANDARD";
+export enum ObjectVersionStorageClass {
+  STANDARD = "STANDARD",
+}
 
 /**
  * <p>The version of an object.</p>
@@ -9485,7 +9615,10 @@ export interface PutBucketTaggingRequest {
   ExpectedBucketOwner?: string;
 }
 
-export type MFADelete = "Disabled" | "Enabled";
+export enum MFADelete {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
 /**
  * <p>Describes the versioning state of an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html">PUT

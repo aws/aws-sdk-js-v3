@@ -226,7 +226,11 @@ export interface RestoreObjectOutput {
   RestoreOutputPath?: string;
 }
 
-export type Tier = "Bulk" | "Expedited" | "Standard";
+export enum Tier {
+  Bulk = "Bulk",
+  Expedited = "Expedited",
+  Standard = "Standard",
+}
 
 /**
  * <p>Container for S3 Glacier job parameters.</p>
@@ -334,9 +338,15 @@ export interface OutputLocation {
   S3?: S3Location;
 }
 
-export type ExpressionType = "SQL";
+export enum ExpressionType {
+  SQL = "SQL",
+}
 
-export type CompressionType = "BZIP2" | "GZIP" | "NONE";
+export enum CompressionType {
+  BZIP2 = "BZIP2",
+  GZIP = "GZIP",
+  NONE = "NONE",
+}
 
 export enum FileHeaderInfo {
   IGNORE = "IGNORE",
