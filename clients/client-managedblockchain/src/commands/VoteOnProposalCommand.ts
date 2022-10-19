@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,7 +33,7 @@ export interface VoteOnProposalCommandInput extends VoteOnProposalInput {}
 export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __MetadataBearer {}
 
 /**
- * <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account as the principal that calls the action.</p>
+ * <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same Amazon Web Services account as the principal that calls the action.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +58,15 @@ export class VoteOnProposalCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: VoteOnProposalCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,9 @@ export class VoteOnProposalCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<VoteOnProposalCommandInput, VoteOnProposalCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, VoteOnProposalCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

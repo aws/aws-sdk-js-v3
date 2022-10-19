@@ -11,7 +11,7 @@ AWS SDK for JavaScript ManagedBlockchain Client for Node.js, Browser and React N
 
 <p></p>
 <p>Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open-source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority.</p>
-<p>Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source frameworks. Because of fundamental differences between the frameworks, some API actions or data types may only apply in the context of one framework and not the other. For example, actions related to Hyperledger Fabric network members such as <code>CreateMember</code> and <code>DeleteMember</code> do not apply to Ethereum.</p>
+<p>Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source frameworks. Because of fundamental differences between the frameworks, some API actions or data types may only apply in the context of one framework and not the other. For example, actions related to Hyperledger Fabric network members such as <code>CreateMember</code> and <code>DeleteMember</code> don't apply to Ethereum.</p>
 <p>The description for each action indicates the framework or frameworks to which it applies. Data types and properties that apply only in the context of a particular framework are similarly indicated.</p>
 
 ## Installing
@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ManagedBlockchainClient` and
-the commands you need, for example `CreateMemberCommand`:
+the commands you need, for example `CreateAccessorCommand`:
 
 ```js
 // ES5 example
-const { ManagedBlockchainClient, CreateMemberCommand } = require("@aws-sdk/client-managedblockchain");
+const { ManagedBlockchainClient, CreateAccessorCommand } = require("@aws-sdk/client-managedblockchain");
 ```
 
 ```ts
 // ES6+ example
-import { ManagedBlockchainClient, CreateMemberCommand } from "@aws-sdk/client-managedblockchain";
+import { ManagedBlockchainClient, CreateAccessorCommand } from "@aws-sdk/client-managedblockchain";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new ManagedBlockchainClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateMemberCommand(params);
+const command = new CreateAccessorCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.ManagedBlockchain({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createMember(params);
+  const data = await client.createAccessor(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .createMember(params)
+  .createAccessor(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.createMember(params, (err, data) => {
+client.createAccessor(params, (err, data) => {
   // process err and data.
 });
 ```

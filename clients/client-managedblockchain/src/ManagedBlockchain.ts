@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  CreateAccessorCommand,
+  CreateAccessorCommandInput,
+  CreateAccessorCommandOutput,
+} from "./commands/CreateAccessorCommand";
+import {
   CreateMemberCommand,
   CreateMemberCommandInput,
   CreateMemberCommandOutput,
@@ -18,15 +23,26 @@ import {
   CreateProposalCommandOutput,
 } from "./commands/CreateProposalCommand";
 import {
+  DeleteAccessorCommand,
+  DeleteAccessorCommandInput,
+  DeleteAccessorCommandOutput,
+} from "./commands/DeleteAccessorCommand";
+import {
   DeleteMemberCommand,
   DeleteMemberCommandInput,
   DeleteMemberCommandOutput,
 } from "./commands/DeleteMemberCommand";
 import { DeleteNodeCommand, DeleteNodeCommandInput, DeleteNodeCommandOutput } from "./commands/DeleteNodeCommand";
+import { GetAccessorCommand, GetAccessorCommandInput, GetAccessorCommandOutput } from "./commands/GetAccessorCommand";
 import { GetMemberCommand, GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
 import { GetNetworkCommand, GetNetworkCommandInput, GetNetworkCommandOutput } from "./commands/GetNetworkCommand";
 import { GetNodeCommand, GetNodeCommandInput, GetNodeCommandOutput } from "./commands/GetNodeCommand";
 import { GetProposalCommand, GetProposalCommandInput, GetProposalCommandOutput } from "./commands/GetProposalCommand";
+import {
+  ListAccessorsCommand,
+  ListAccessorsCommandInput,
+  ListAccessorsCommandOutput,
+} from "./commands/ListAccessorsCommand";
 import {
   ListInvitationsCommand,
   ListInvitationsCommandInput,
@@ -81,10 +97,48 @@ import { ManagedBlockchainClient } from "./ManagedBlockchainClient";
 /**
  * <p></p>
  *          <p>Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open-source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority.</p>
- *         <p>Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source frameworks. Because of fundamental differences between the frameworks, some API actions or data types may only apply in the context of one framework and not the other. For example, actions related to Hyperledger Fabric network members such as <code>CreateMember</code> and <code>DeleteMember</code> do not apply to Ethereum.</p>
+ *         <p>Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source frameworks. Because of fundamental differences between the frameworks, some API actions or data types may only apply in the context of one framework and not the other. For example, actions related to Hyperledger Fabric network members such as <code>CreateMember</code> and <code>DeleteMember</code> don't apply to Ethereum.</p>
  *         <p>The description for each action indicates the framework or frameworks to which it applies. Data types and properties that apply only in the context of a particular framework are similarly indicated.</p>
  */
 export class ManagedBlockchain extends ManagedBlockchainClient {
+  /**
+   * <important>
+   *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
+   *         subject to change. We recommend that you use this feature only with
+   *         test scenarios, and not in production environments.</p>
+   *          </important>
+   *          <p>Creates a new accessor for use with Managed Blockchain Ethereum nodes. An accessor object is a container that has the information
+   *          required for token based access to your Ethereum nodes.</p>
+   */
+  public createAccessor(
+    args: CreateAccessorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccessorCommandOutput>;
+  public createAccessor(
+    args: CreateAccessorCommandInput,
+    cb: (err: any, data?: CreateAccessorCommandOutput) => void
+  ): void;
+  public createAccessor(
+    args: CreateAccessorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccessorCommandOutput) => void
+  ): void;
+  public createAccessor(
+    args: CreateAccessorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccessorCommandOutput) => void),
+    cb?: (err: any, data?: CreateAccessorCommandOutput) => void
+  ): Promise<CreateAccessorCommandOutput> | void {
+    const command = new CreateAccessorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates a member within a Managed Blockchain network.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
@@ -209,7 +263,50 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Deletes a member. Deleting a member removes the member and all associated resources from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code> if the principal performing the action is associated with the AWS account that owns the member. In all other cases, the <code>DeleteMember</code> action is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code> is the last member in a network specified by the last AWS account, the network is deleted also.</p>
+   * <important>
+   *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
+   *         subject to change. We recommend that you use this feature only with
+   *         test scenarios, and not in production environments.</p>
+   *          </important>
+   *          <p>Deletes an accessor that your Amazon Web Services account owns. An accessor object is a container that has the
+   *          information required for token based access to your Ethereum nodes including, the
+   *          <code>BILLING_TOKEN</code>. After an accessor is deleted, the status of the accessor changes
+   *          from <code>AVAILABLE</code> to <code>PENDING_DELETION</code>. An accessor in the
+   *          <code>PENDING_DELETION</code> state can’t be used for new WebSocket requests or
+   *          HTTP requests. However, WebSocket connections that are initiated while the accessor was in the
+   *          <code>AVAILABLE</code> state remain open until they expire (up to 2 hours).</p>
+   */
+  public deleteAccessor(
+    args: DeleteAccessorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessorCommandOutput>;
+  public deleteAccessor(
+    args: DeleteAccessorCommandInput,
+    cb: (err: any, data?: DeleteAccessorCommandOutput) => void
+  ): void;
+  public deleteAccessor(
+    args: DeleteAccessorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessorCommandOutput) => void
+  ): void;
+  public deleteAccessor(
+    args: DeleteAccessorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccessorCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAccessorCommandOutput) => void
+  ): Promise<DeleteAccessorCommandOutput> | void {
+    const command = new DeleteAccessorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a member. Deleting a member removes the member and all associated resources from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code> if the principal performing the action is associated with the Amazon Web Services account that owns the member. In all other cases, the <code>DeleteMember</code> action is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code> is the last member in a network specified by the last Amazon Web Services account, the network is deleted also.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public deleteMember(
@@ -239,7 +336,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Deletes a node that your AWS account owns. All data on the node is lost and cannot be recovered.</p>
+   * <p>Deletes a node that your Amazon Web Services account owns. All data on the node is lost and cannot be recovered.</p>
    *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
    */
   public deleteNode(args: DeleteNodeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteNodeCommandOutput>;
@@ -255,6 +352,38 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
     cb?: (err: any, data?: DeleteNodeCommandOutput) => void
   ): Promise<DeleteNodeCommandOutput> | void {
     const command = new DeleteNodeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <important>
+   *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
+   *         subject to change. We recommend that you use this feature only with
+   *         test scenarios, and not in production environments.</p>
+   *          </important>
+   *          <p>Returns detailed information about an accessor. An accessor object is a container that has the
+   *          information required for token based access to your Ethereum nodes.</p>
+   */
+  public getAccessor(args: GetAccessorCommandInput, options?: __HttpHandlerOptions): Promise<GetAccessorCommandOutput>;
+  public getAccessor(args: GetAccessorCommandInput, cb: (err: any, data?: GetAccessorCommandOutput) => void): void;
+  public getAccessor(
+    args: GetAccessorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccessorCommandOutput) => void
+  ): void;
+  public getAccessor(
+    args: GetAccessorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccessorCommandOutput) => void),
+    cb?: (err: any, data?: GetAccessorCommandOutput) => void
+  ): Promise<GetAccessorCommandOutput> | void {
+    const command = new GetAccessorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -374,7 +503,45 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Returns a list of all invitations for the current AWS account.</p>
+   * <important>
+   *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
+   *         subject to change. We recommend that you use this feature only with
+   *         test scenarios, and not in production environments.</p>
+   *          </important>
+   *          <p>Returns a list of the accessors and their properties. Accessor objects are containers that have the
+   *          information required for token based access to your Ethereum nodes.</p>
+   */
+  public listAccessors(
+    args: ListAccessorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessorsCommandOutput>;
+  public listAccessors(
+    args: ListAccessorsCommandInput,
+    cb: (err: any, data?: ListAccessorsCommandOutput) => void
+  ): void;
+  public listAccessors(
+    args: ListAccessorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccessorsCommandOutput) => void
+  ): void;
+  public listAccessors(
+    args: ListAccessorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccessorsCommandOutput) => void),
+    cb?: (err: any, data?: ListAccessorsCommandOutput) => void
+  ): Promise<ListAccessorsCommandOutput> | void {
+    const command = new ListAccessorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of all invitations for the current Amazon Web Services account.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public listInvitations(
@@ -434,7 +601,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Returns information about the networks in which the current AWS account participates.</p>
+   * <p>Returns information about the networks in which the current Amazon Web Services account participates.</p>
    *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
    */
   public listNetworks(
@@ -590,7 +757,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Rejects an invitation to join a network. This action can be called by a principal in an AWS account that has received an invitation to create a member and join a network.</p>
+   * <p>Rejects an invitation to join a network. This action can be called by a principal in an Amazon Web Services account that has received an invitation to create a member and join a network.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public rejectInvitation(
@@ -742,7 +909,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account as the principal that calls the action.</p>
+   * <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same Amazon Web Services account as the principal that calls the action.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public voteOnProposal(

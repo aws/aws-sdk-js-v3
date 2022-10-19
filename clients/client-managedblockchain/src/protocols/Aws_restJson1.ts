@@ -20,16 +20,20 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { CreateAccessorCommandInput, CreateAccessorCommandOutput } from "../commands/CreateAccessorCommand";
 import { CreateMemberCommandInput, CreateMemberCommandOutput } from "../commands/CreateMemberCommand";
 import { CreateNetworkCommandInput, CreateNetworkCommandOutput } from "../commands/CreateNetworkCommand";
 import { CreateNodeCommandInput, CreateNodeCommandOutput } from "../commands/CreateNodeCommand";
 import { CreateProposalCommandInput, CreateProposalCommandOutput } from "../commands/CreateProposalCommand";
+import { DeleteAccessorCommandInput, DeleteAccessorCommandOutput } from "../commands/DeleteAccessorCommand";
 import { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "../commands/DeleteMemberCommand";
 import { DeleteNodeCommandInput, DeleteNodeCommandOutput } from "../commands/DeleteNodeCommand";
+import { GetAccessorCommandInput, GetAccessorCommandOutput } from "../commands/GetAccessorCommand";
 import { GetMemberCommandInput, GetMemberCommandOutput } from "../commands/GetMemberCommand";
 import { GetNetworkCommandInput, GetNetworkCommandOutput } from "../commands/GetNetworkCommand";
 import { GetNodeCommandInput, GetNodeCommandOutput } from "../commands/GetNodeCommand";
 import { GetProposalCommandInput, GetProposalCommandOutput } from "../commands/GetProposalCommand";
+import { ListAccessorsCommandInput, ListAccessorsCommandOutput } from "../commands/ListAccessorsCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "../commands/ListInvitationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import { ListNetworksCommandInput, ListNetworksCommandOutput } from "../commands/ListNetworksCommand";
@@ -49,6 +53,8 @@ import { VoteOnProposalCommandInput, VoteOnProposalCommandOutput } from "../comm
 import { ManagedBlockchainServiceException as __BaseException } from "../models/ManagedBlockchainServiceException";
 import {
   AccessDeniedException,
+  Accessor,
+  AccessorSummary,
   ApprovalThresholdPolicy,
   IllegalActionException,
   InternalServiceErrorException,
@@ -94,6 +100,31 @@ import {
   VoteSummary,
   VotingPolicy,
 } from "../models/models_0";
+
+export const serializeAws_restJson1CreateAccessorCommand = async (
+  input: CreateAccessorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accessors";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccessorType != null && { AccessorType: input.AccessorType }),
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateMemberCommand = async (
   input: CreateMemberCommandInput,
@@ -227,6 +258,26 @@ export const serializeAws_restJson1CreateProposalCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteAccessorCommand = async (
+  input: DeleteAccessorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accessors/{AccessorId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "AccessorId", () => input.AccessorId!, "{AccessorId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteMemberCommand = async (
   input: DeleteMemberCommandInput,
   context: __SerdeContext
@@ -271,6 +322,26 @@ export const serializeAws_restJson1DeleteNodeCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetAccessorCommand = async (
+  input: GetAccessorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accessors/{AccessorId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "AccessorId", () => input.AccessorId!, "{AccessorId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -362,6 +433,30 @@ export const serializeAws_restJson1GetProposalCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAccessorsCommand = async (
+  input: ListAccessorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accessors";
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -719,6 +814,65 @@ export const serializeAws_restJson1VoteOnProposalCommand = async (
   });
 };
 
+export const deserializeAws_restJson1CreateAccessorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateAccessorCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AccessorId != null) {
+    contents.AccessorId = __expectString(data.AccessorId);
+  }
+  if (data.BillingToken != null) {
+    contents.BillingToken = __expectString(data.BillingToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateAccessorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.managedblockchain#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
+      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.managedblockchain#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.managedblockchain#ResourceAlreadyExistsException":
+      throw await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.managedblockchain#ResourceLimitExceededException":
+      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.managedblockchain#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1CreateMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -970,6 +1124,56 @@ const deserializeAws_restJson1CreateProposalCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DeleteAccessorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteAccessorCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteAccessorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.managedblockchain#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
+      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.managedblockchain#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.managedblockchain#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1DeleteMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1062,6 +1266,59 @@ const deserializeAws_restJson1DeleteNodeCommandError = async (
     case "ResourceNotReadyException":
     case "com.amazonaws.managedblockchain#ResourceNotReadyException":
       throw await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.managedblockchain#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetAccessorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetAccessorCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Accessor != null) {
+    contents.Accessor = deserializeAws_restJson1Accessor(data.Accessor, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetAccessorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.managedblockchain#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
+      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.managedblockchain#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -1274,6 +1531,59 @@ const deserializeAws_restJson1GetProposalCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.managedblockchain#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListAccessorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAccessorsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Accessors != null) {
+    contents.Accessors = deserializeAws_restJson1AccessorSummaryList(data.Accessors, context);
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListAccessorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.managedblockchain#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
+      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.managedblockchain#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -2319,6 +2629,41 @@ const serializeAws_restJson1VotingPolicy = (input: VotingPolicy, context: __Serd
       ApprovalThresholdPolicy: serializeAws_restJson1ApprovalThresholdPolicy(input.ApprovalThresholdPolicy, context),
     }),
   };
+};
+
+const deserializeAws_restJson1Accessor = (output: any, context: __SerdeContext): Accessor => {
+  return {
+    Arn: __expectString(output.Arn),
+    BillingToken: __expectString(output.BillingToken),
+    CreationDate:
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
+    Id: __expectString(output.Id),
+    Status: __expectString(output.Status),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1AccessorSummary = (output: any, context: __SerdeContext): AccessorSummary => {
+  return {
+    Arn: __expectString(output.Arn),
+    CreationDate:
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
+    Id: __expectString(output.Id),
+    Status: __expectString(output.Status),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1AccessorSummaryList = (output: any, context: __SerdeContext): AccessorSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AccessorSummary(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1ApprovalThresholdPolicy = (

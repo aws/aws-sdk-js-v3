@@ -19,40 +19,45 @@ import {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import {
-  ListProposalsInput,
-  ListProposalsInputFilterSensitiveLog,
-  ListProposalsOutput,
-  ListProposalsOutputFilterSensitiveLog,
+  ListAccessorsInput,
+  ListAccessorsInputFilterSensitiveLog,
+  ListAccessorsOutput,
+  ListAccessorsOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListProposalsCommand,
-  serializeAws_restJson1ListProposalsCommand,
+  deserializeAws_restJson1ListAccessorsCommand,
+  serializeAws_restJson1ListAccessorsCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListProposalsCommandInput extends ListProposalsInput {}
-export interface ListProposalsCommandOutput extends ListProposalsOutput, __MetadataBearer {}
+export interface ListAccessorsCommandInput extends ListAccessorsInput {}
+export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of proposals for the network.</p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * <important>
+ *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
+ *         subject to change. We recommend that you use this feature only with
+ *         test scenarios, and not in production environments.</p>
+ *          </important>
+ *          <p>Returns a list of the accessors and their properties. Accessor objects are containers that have the
+ *          information required for token based access to your Ethereum nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, ListProposalsCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, ListProposalsCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, ListAccessorsCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
+ * // const { ManagedBlockchainClient, ListAccessorsCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
- * const command = new ListProposalsCommand(input);
+ * const command = new ListAccessorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListProposalsCommandInput} for command's `input` shape.
- * @see {@link ListProposalsCommandOutput} for command's `response` shape.
+ * @see {@link ListAccessorsCommandInput} for command's `input` shape.
+ * @see {@link ListAccessorsCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  */
-export class ListProposalsCommand extends $Command<
-  ListProposalsCommandInput,
-  ListProposalsCommandOutput,
+export class ListAccessorsCommand extends $Command<
+  ListAccessorsCommandInput,
+  ListAccessorsCommandOutput,
   ManagedBlockchainClientResolvedConfig
 > {
   // Start section: command_properties
@@ -67,7 +72,7 @@ export class ListProposalsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListProposalsCommandInput) {
+  constructor(readonly input: ListAccessorsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -80,21 +85,21 @@ export class ListProposalsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListProposalsCommandInput, ListProposalsCommandOutput> {
+  ): Handler<ListAccessorsCommandInput, ListAccessorsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListProposalsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListAccessorsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ManagedBlockchainClient";
-    const commandName = "ListProposalsCommand";
+    const commandName = "ListAccessorsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProposalsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProposalsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: ListAccessorsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAccessorsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +109,12 @@ export class ListProposalsCommand extends $Command<
     );
   }
 
-  private serialize(input: ListProposalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProposalsCommand(input, context);
+  private serialize(input: ListAccessorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListAccessorsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProposalsCommandOutput> {
-    return deserializeAws_restJson1ListProposalsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessorsCommandOutput> {
+    return deserializeAws_restJson1ListAccessorsCommand(output, context);
   }
 
   // Start section: command_body_extra
