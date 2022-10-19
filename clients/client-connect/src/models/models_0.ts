@@ -399,7 +399,7 @@ export interface LexBot {
   Name?: string;
 
   /**
-   * <p>The Region that the Amazon Lex bot was created in.</p>
+   * <p>The Amazon Web Services Region where the Amazon Lex bot was created.</p>
    */
   LexRegion?: string;
 }
@@ -799,7 +799,7 @@ export interface AssociateSecurityKeyResponse {
 
 export interface ClaimPhoneNumberRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
    */
   TargetArn: string | undefined;
 
@@ -821,7 +821,9 @@ export interface ClaimPhoneNumberRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
 }
@@ -948,7 +950,8 @@ export interface CreateContactFlowRequest {
   Name: string | undefined;
 
   /**
-   * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator
+   *    Guide</i>.</p>
    */
   Type: ContactFlowType | string | undefined;
 
@@ -1042,7 +1045,9 @@ export interface CreateContactFlowModuleRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
 }
@@ -1758,7 +1763,9 @@ export interface CreateTaskTemplateRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
 }
@@ -1827,6 +1834,72 @@ export class PropertyValidationException extends __BaseException {
   }
 }
 
+export interface CreateTrafficDistributionGroupRequest {
+  /**
+   * <p>The name for the traffic distribution group. </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description for the traffic distribution group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance that has been replicated. You can find the
+   *     <code>instanceId</code> in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export interface CreateTrafficDistributionGroupResponse {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * <p>The resource is not ready.</p>
+ */
+export class ResourceNotReadyException extends __BaseException {
+  readonly name: "ResourceNotReadyException" = "ResourceNotReadyException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotReadyException, __BaseException>) {
+    super({
+      name: "ResourceNotReadyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotReadyException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 export enum UseCaseType {
   CONNECT_CAMPAIGNS = "CONNECT_CAMPAIGNS",
   RULES_EVALUATION = "RULES_EVALUATION",
@@ -1891,8 +1964,10 @@ export interface UserIdentityInfo {
 
   /**
    * <p>The user's secondary email address. If you provide a secondary email, the user receives email
-   *    notifications -- other than password reset notifications -- to this email address instead of to their
-   *    primary email address.</p>
+   *    notifications - other than password reset notifications - to this email address instead of to
+   *    their primary email address.</p>
+   *          <p>Pattern: <code>(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}</code>
+   *          </p>
    */
   SecondaryEmail?: string;
 
@@ -1923,6 +1998,11 @@ export interface UserPhoneConfig {
 
   /**
    * <p>The After Call Work (ACW) timeout setting, in seconds.</p>
+   *
+   *          <note>
+   *             <p>When returned by a <code>SearchUsers</code> call, <code>AfterContactWorkTimeLimit</code> is
+   *     returned in milliseconds. </p>
+   *          </note>
    */
   AfterContactWorkTimeLimit?: number;
 
@@ -1941,8 +2021,7 @@ export interface CreateUserRequest {
   Username: string | undefined;
 
   /**
-   * <p>The password for the user account. A password is required if you are using Amazon Connect for
-   *    identity management. Otherwise, it is an error to include a password.</p>
+   * <p>The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.</p>
    */
   Password?: string;
 
@@ -1957,13 +2036,13 @@ export interface CreateUserRequest {
   PhoneConfig: UserPhoneConfig | undefined;
 
   /**
-   * <p>The identifier of the user account in the directory used for identity management. If Amazon Connect
-   *    cannot access the directory, you can specify this identifier to authenticate users. If you
-   *    include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity
-   *    information is used to authenticate users from your directory.</p>
+   * <p>The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users.
+   *    If you include the identifier, we assume that Amazon Connect cannot access the directory.
+   *    Otherwise, the identity information is used to authenticate users from your directory.</p>
    *          <p>This parameter is required if you are using an existing directory for identity management in
-   *    Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for
-   *    identity management and include this parameter, an error is returned.</p>
+   *     Amazon Connect when Amazon Connect cannot access your directory to authenticate users.
+   *    If you are using SAML for identity management and include this parameter, an error is
+   *    returned.</p>
    */
   DirectoryUserId?: string;
 
@@ -2043,7 +2122,9 @@ export interface CreateUserHierarchyGroupResponse {
 export interface CreateVocabularyRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If a create request is received more than once with same client token,
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>. If a create request is received more than once with same client token,
    *    subsequent requests return the previous response without creating a vocabulary again.</p>
    */
   ClientToken?: string;
@@ -2241,6 +2322,17 @@ export interface DeleteTaskTemplateRequest {
 
 export interface DeleteTaskTemplateResponse {}
 
+export interface DeleteTrafficDistributionGroupRequest {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region.</p>
+   */
+  TrafficDistributionGroupId: string | undefined;
+}
+
+export interface DeleteTrafficDistributionGroupResponse {}
+
 export interface DeleteUseCaseRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -2347,7 +2439,7 @@ export interface DescribeContactRequest {
  */
 export interface QueueInfo {
   /**
-   * <p>The identifier of the agent who accepted the contact.</p>
+   * <p>The unique identifier for the queue.</p>
    */
   Id?: string;
 
@@ -2502,7 +2594,8 @@ export interface ContactFlow {
   Name?: string;
 
   /**
-   * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator
+   *    Guide</i>.</p>
    */
   Type?: ContactFlowType | string;
 
@@ -3081,6 +3174,30 @@ export enum PhoneNumberWorkflowStatus {
 
 /**
  * <p>The status of the phone number.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>CLAIMED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or
+ *       <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation succeeded.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>IN_PROGRESS</code> means a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or
+ *       <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation is still in progress and has not yet completed. You can
+ *      call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> at a later time to verify if the previous operation has
+ *      completed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or
+ *       <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the
+ *      failure reason. A common reason for a failure may be that the <code>TargetArn</code> value you
+ *      are claiming or updating a phone number to has reached its limit of total claimed numbers. If
+ *      you received a <code>FAILED</code> status from a <code>ClaimPhoneNumber</code> API call, you
+ *      have one day to retry claiming the phone number before the number is released back to the
+ *      inventory for other customers to claim.</p>
+ *             </li>
+ *          </ul>
  */
 export interface PhoneNumberStatus {
   /**
@@ -3100,7 +3217,8 @@ export enum PhoneNumberType {
 }
 
 /**
- * <p>Information about a phone number that has been claimed to your Amazon Connect instance.</p>
+ * <p>Information about a phone number that has been claimed to your Amazon Connect instance
+ *    or traffic distribution group.</p>
  */
 export interface ClaimedPhoneNumberSummary {
   /**
@@ -3134,7 +3252,7 @@ export interface ClaimedPhoneNumberSummary {
   PhoneNumberDescription?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
    */
   TargetArn?: string;
 
@@ -3145,13 +3263,41 @@ export interface ClaimedPhoneNumberSummary {
 
   /**
    * <p>The status of the phone number.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CLAIMED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or
+   *       <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code> means a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or
+   *       <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation is still in progress and has not yet completed. You can
+   *      call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> at a later time to verify if the previous operation has
+   *      completed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or
+   *       <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the
+   *      failure reason. A common reason for a failure may be that the <code>TargetArn</code> value you
+   *      are claiming or updating a phone number to has reached its limit of total claimed numbers. If
+   *      you received a <code>FAILED</code> status from a <code>ClaimPhoneNumber</code> API call, you
+   *      have one day to retry claiming the phone number before the number is released back to the
+   *      inventory for other customers to claim.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>You will not be billed for the phone number during the 1-day period if number claiming fails. </p>
+   *          </note>
    */
   PhoneNumberStatus?: PhoneNumberStatus;
 }
 
 export interface DescribePhoneNumberResponse {
   /**
-   * <p>Information about a phone number that's been claimed to your Amazon Connect instance.</p>
+   * <p>Information about a phone number that's been claimed to your Amazon Connect instance or
+   *    traffic distribution group.</p>
    */
   ClaimedPhoneNumberSummary?: ClaimedPhoneNumberSummary;
 }
@@ -3413,6 +3559,102 @@ export interface DescribeSecurityProfileResponse {
   SecurityProfile?: SecurityProfile;
 }
 
+export interface DescribeTrafficDistributionGroupRequest {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region.</p>
+   */
+  TrafficDistributionGroupId: string | undefined;
+}
+
+export enum TrafficDistributionGroupStatus {
+  ACTIVE = "ACTIVE",
+  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
+  DELETION_FAILED = "DELETION_FAILED",
+  PENDING_DELETION = "PENDING_DELETION",
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
+}
+
+/**
+ * <p>Information about a traffic distribution group.</p>
+ */
+export interface TrafficDistributionGroup {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the traffic distribution group.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the traffic distribution group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN).</p>
+   */
+  InstanceArn?: string;
+
+  /**
+   * <p>The status of the traffic distribution group.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation is still in progress and has not yet
+   *      completed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_DELETION</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation is still in progress and has not yet
+   *     completed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETION_FAILED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistributionGroup.html">UpdateTrafficDistributionGroup</a> operation is still in progress and has not yet
+   *     completed.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: TrafficDistributionGroupStatus | string;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export interface DescribeTrafficDistributionGroupResponse {
+  /**
+   * <p>Information about the traffic distribution group.</p>
+   */
+  TrafficDistributionGroup?: TrafficDistributionGroup;
+}
+
 export interface DescribeUserRequest {
   /**
    * <p>The identifier of the user account.</p>
@@ -3426,7 +3668,7 @@ export interface DescribeUserRequest {
 }
 
 /**
- * <p>Contains information about a user account for a Amazon Connect instance.</p>
+ * <p>Contains information about a user account for an Amazon Connect instance.</p>
  */
 export interface User {
   /**
@@ -3803,7 +4045,7 @@ export interface DisassociateLexBotRequest {
   BotName: string | undefined;
 
   /**
-   * <p>The Region in which the Amazon Lex bot has been created.</p>
+   * <p>The Amazon Web Services Region in which the Amazon Lex bot has been created.</p>
    */
   LexRegion: string | undefined;
 }
@@ -3909,7 +4151,7 @@ export enum Unit {
 
 /**
  * <p>Contains information about a real-time metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics Definitions</a> in the <i>Amazon Connect Administrator
- *    Guide</i>.</p>
+ *     Guide</i>.</p>
  */
 export interface CurrentMetric {
   /**
@@ -4277,8 +4519,8 @@ export interface UserReference {
  */
 export interface UserData {
   /**
-   * <p>Information about the user for the data that is returned. It contains resourceId and ARN of
-   *    the user. </p>
+   * <p>Information about the user for the data that is returned. It contains the
+   *     <code>resourceId</code> and ARN of the user. </p>
    */
   User?: UserReference;
 
@@ -4307,7 +4549,7 @@ export interface UserData {
   /**
    * <p>A map of maximum slots by channel. The key is a channel name. The value is an integer: the
    *    maximum number of slots. This is calculated from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html">MediaConcurrency</a> of the
-   *    RoutingProfile assigned to the agent. </p>
+   *     <code>RoutingProfile</code> assigned to the agent. </p>
    */
   MaxSlotsByChannel?: Record<string, number>;
 
@@ -4352,8 +4594,7 @@ export interface Credentials {
   AccessToken?: string;
 
   /**
-   * <p>A token generated with an expiration time for the session a user is logged in to
-   *    Amazon Connect.</p>
+   * <p>A token generated with an expiration time for the session a user is logged in to Amazon Connect.</p>
    */
   AccessTokenExpiration?: Date;
 
@@ -4451,7 +4692,7 @@ export interface Threshold {
 
 /**
  * <p>Contains information about a historical metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator
- *    Guide</i>.</p>
+ *     Guide</i>.</p>
  */
 export interface HistoricalMetric {
   /**
@@ -4521,7 +4762,7 @@ export interface GetMetricDataRequest {
   /**
    * <p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The
    *    following historical metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator
-   *    Guide</i>.</p>
+   *     Guide</i>.</p>
    *          <note>
    *             <p>This API does not support a contacts
    *     incoming metric (there's no CONTACTS_INCOMING metric missing from the documented list). </p>
@@ -4805,6 +5046,57 @@ export interface GetTaskTemplateResponse {
   Tags?: Record<string, string>;
 }
 
+export interface GetTrafficDistributionRequest {
+  /**
+   * <p>The identifier of the traffic distribution group.</p>
+   */
+  Id: string | undefined;
+}
+
+/**
+ * <p>Information about a traffic distribution.</p>
+ */
+export interface Distribution {
+  /**
+   * <p>The Amazon Web Services Region where the traffic is distributed.</p>
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>The percentage of the traffic that is distributed, in increments of 10.</p>
+   */
+  Percentage: number | undefined;
+}
+
+/**
+ * <p>The distribution of traffic between the instance and its replicas.</p>
+ */
+export interface TelephonyConfig {
+  /**
+   * <p>Information about traffic distributions.</p>
+   */
+  Distributions: Distribution[] | undefined;
+}
+
+export interface GetTrafficDistributionResponse {
+  /**
+   * <p>The distribution of traffic between the instance and its replicas.</p>
+   */
+  TelephonyConfig?: TelephonyConfig;
+
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
+   */
+  Arn?: string;
+}
+
 export interface ListAgentStatusRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -4915,8 +5207,8 @@ export interface LexBotConfig {
 
 export interface ListBotsResponse {
   /**
-   * <p>The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated with the specified
-   *    instance.</p>
+   * <p>The names and Amazon Web Services Regions of the Amazon Lex or Amazon Lex V2 bots associated with the
+   *    specified instance.</p>
    */
   LexBots?: LexBotConfig[];
 
@@ -5721,280 +6013,6 @@ export interface ListLexBotsRequest {
   MaxResults?: number;
 }
 
-export interface ListLexBotsResponse {
-  /**
-   * <p>The names and Regions of the Amazon Lex bots associated with the specified instance.</p>
-   */
-  LexBots?: LexBot[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListPhoneNumbersRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The type of phone number.</p>
-   */
-  PhoneNumberTypes?: (PhoneNumberType | string)[];
-
-  /**
-   * <p>The ISO country code.</p>
-   */
-  PhoneNumberCountryCodes?: (PhoneNumberCountryCode | string)[];
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>Contains summary information about a phone number for a contact center.</p>
- */
-export interface PhoneNumberSummary {
-  /**
-   * <p>The identifier of the phone number.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the phone number.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The phone number.</p>
-   */
-  PhoneNumber?: string;
-
-  /**
-   * <p>The type of phone number.</p>
-   */
-  PhoneNumberType?: PhoneNumberType | string;
-
-  /**
-   * <p>The ISO country code.</p>
-   */
-  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
-}
-
-export interface ListPhoneNumbersResponse {
-  /**
-   * <p>Information about the phone numbers.</p>
-   */
-  PhoneNumberSummaryList?: PhoneNumberSummary[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListPhoneNumbersV2Request {
-  /**
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to. If <code>TargetArn</code> input is not provided, this API lists numbers claimed
-   *    to all the Amazon Connect instances belonging to your account.</p>
-   */
-  TargetArn?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ISO country code.</p>
-   */
-  PhoneNumberCountryCodes?: (PhoneNumberCountryCode | string)[];
-
-  /**
-   * <p>The type of phone number.</p>
-   */
-  PhoneNumberTypes?: (PhoneNumberType | string)[];
-
-  /**
-   * <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
-   */
-  PhoneNumberPrefix?: string;
-}
-
-/**
- * <p>Information about phone numbers that have been claimed to your Amazon Connect instance.</p>
- */
-export interface ListPhoneNumbersSummary {
-  /**
-   * <p>A unique identifier for the phone number.</p>
-   */
-  PhoneNumberId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the phone number.</p>
-   */
-  PhoneNumberArn?: string;
-
-  /**
-   * <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
-   */
-  PhoneNumber?: string;
-
-  /**
-   * <p>The ISO country code.</p>
-   */
-  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
-
-  /**
-   * <p>The type of phone number.</p>
-   */
-  PhoneNumberType?: PhoneNumberType | string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
-   */
-  TargetArn?: string;
-}
-
-export interface ListPhoneNumbersV2Response {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about phone numbers that have been claimed to your Amazon Connect instances.</p>
-   */
-  ListPhoneNumbersSummaryList?: ListPhoneNumbersSummary[];
-}
-
-export interface ListPromptsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in
-   *    the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>Contains information about the prompt.</p>
- */
-export interface PromptSummary {
-  /**
-   * <p>The identifier of the prompt.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the prompt.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the prompt.</p>
-   */
-  Name?: string;
-}
-
-export interface ListPromptsResponse {
-  /**
-   * <p>Information about the prompts.</p>
-   */
-  PromptSummaryList?: PromptSummary[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListQueueQuickConnectsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the queue.</p>
-   */
-  QueueId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>Contains summary information about a quick connect.</p>
- */
-export interface QuickConnectSummary {
-  /**
-   * <p>The identifier for the quick connect.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the quick connect.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the quick connect.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are
-   *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
-   */
-  QuickConnectType?: QuickConnectType | string;
-}
-
-export interface ListQueueQuickConnectsResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the quick connects.</p>
-   */
-  QuickConnectSummaryList?: QuickConnectSummary[];
-}
-
 /**
  * @internal
  */
@@ -6510,6 +6528,24 @@ export const PropertyValidationExceptionPropertyFilterSensitiveLog = (
 /**
  * @internal
  */
+export const CreateTrafficDistributionGroupRequestFilterSensitiveLog = (
+  obj: CreateTrafficDistributionGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTrafficDistributionGroupResponseFilterSensitiveLog = (
+  obj: CreateTrafficDistributionGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateUseCaseRequestFilterSensitiveLog = (obj: CreateUseCaseRequest): any => ({
   ...obj,
 });
@@ -6646,6 +6682,24 @@ export const DeleteTaskTemplateRequestFilterSensitiveLog = (obj: DeleteTaskTempl
  * @internal
  */
 export const DeleteTaskTemplateResponseFilterSensitiveLog = (obj: DeleteTaskTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTrafficDistributionGroupRequestFilterSensitiveLog = (
+  obj: DeleteTrafficDistributionGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTrafficDistributionGroupResponseFilterSensitiveLog = (
+  obj: DeleteTrafficDistributionGroupResponse
+): any => ({
   ...obj,
 });
 
@@ -6967,6 +7021,31 @@ export const SecurityProfileFilterSensitiveLog = (obj: SecurityProfile): any => 
  * @internal
  */
 export const DescribeSecurityProfileResponseFilterSensitiveLog = (obj: DescribeSecurityProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrafficDistributionGroupRequestFilterSensitiveLog = (
+  obj: DescribeTrafficDistributionGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrafficDistributionGroupFilterSensitiveLog = (obj: TrafficDistributionGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrafficDistributionGroupResponseFilterSensitiveLog = (
+  obj: DescribeTrafficDistributionGroupResponse
+): any => ({
   ...obj,
 });
 
@@ -7359,6 +7438,34 @@ export const GetTaskTemplateResponseFilterSensitiveLog = (obj: GetTaskTemplateRe
 /**
  * @internal
  */
+export const GetTrafficDistributionRequestFilterSensitiveLog = (obj: GetTrafficDistributionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DistributionFilterSensitiveLog = (obj: Distribution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TelephonyConfigFilterSensitiveLog = (obj: TelephonyConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTrafficDistributionResponseFilterSensitiveLog = (obj: GetTrafficDistributionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListAgentStatusRequestFilterSensitiveLog = (obj: ListAgentStatusRequest): any => ({
   ...obj,
 });
@@ -7655,96 +7762,5 @@ export const ListLambdaFunctionsResponseFilterSensitiveLog = (obj: ListLambdaFun
  * @internal
  */
 export const ListLexBotsRequestFilterSensitiveLog = (obj: ListLexBotsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLexBotsResponseFilterSensitiveLog = (obj: ListLexBotsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPhoneNumbersRequestFilterSensitiveLog = (obj: ListPhoneNumbersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PhoneNumberSummaryFilterSensitiveLog = (obj: PhoneNumberSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPhoneNumbersResponseFilterSensitiveLog = (obj: ListPhoneNumbersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPhoneNumbersV2RequestFilterSensitiveLog = (obj: ListPhoneNumbersV2Request): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPhoneNumbersSummaryFilterSensitiveLog = (obj: ListPhoneNumbersSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPhoneNumbersV2ResponseFilterSensitiveLog = (obj: ListPhoneNumbersV2Response): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPromptsRequestFilterSensitiveLog = (obj: ListPromptsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PromptSummaryFilterSensitiveLog = (obj: PromptSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPromptsResponseFilterSensitiveLog = (obj: ListPromptsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListQueueQuickConnectsRequestFilterSensitiveLog = (obj: ListQueueQuickConnectsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QuickConnectSummaryFilterSensitiveLog = (obj: QuickConnectSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListQueueQuickConnectsResponseFilterSensitiveLog = (obj: ListQueueQuickConnectsResponse): any => ({
   ...obj,
 });

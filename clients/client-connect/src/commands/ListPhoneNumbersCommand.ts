@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
   ListPhoneNumbersRequestFilterSensitiveLog,
   ListPhoneNumbersResponse,
   ListPhoneNumbersResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListPhoneNumbersCommand,
   serializeAws_restJson1ListPhoneNumbersCommand,
@@ -30,7 +31,15 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
 /**
  * <p>Provides information about the phone numbers for the specified Amazon Connect instance. </p>
  *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
- *     Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *     Contact Center</a> in the <i>Amazon Connect Administrator
+ *    Guide</i>.</p>
+ *
+ *          <important>
+ *             <p>The phone number <code>Arn</code> value that is returned from each of the items in the
+ *      <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList">PhoneNumberSummaryList</a> cannot be used to tag phone number resources. It will fail with
+ *     a <code>ResourceNotFoundException</code>. Instead, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> API.
+ *     It returns the new phone number ARN that can be used to tag phone number resources.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +63,15 @@ export class ListPhoneNumbersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListPhoneNumbersCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +87,9 @@ export class ListPhoneNumbersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListPhoneNumbersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

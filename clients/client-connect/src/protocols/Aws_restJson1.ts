@@ -86,6 +86,10 @@ import {
   CreateSecurityProfileCommandOutput,
 } from "../commands/CreateSecurityProfileCommand";
 import { CreateTaskTemplateCommandInput, CreateTaskTemplateCommandOutput } from "../commands/CreateTaskTemplateCommand";
+import {
+  CreateTrafficDistributionGroupCommandInput,
+  CreateTrafficDistributionGroupCommandOutput,
+} from "../commands/CreateTrafficDistributionGroupCommand";
 import { CreateUseCaseCommandInput, CreateUseCaseCommandOutput } from "../commands/CreateUseCaseCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
 import {
@@ -113,6 +117,10 @@ import {
   DeleteSecurityProfileCommandOutput,
 } from "../commands/DeleteSecurityProfileCommand";
 import { DeleteTaskTemplateCommandInput, DeleteTaskTemplateCommandOutput } from "../commands/DeleteTaskTemplateCommand";
+import {
+  DeleteTrafficDistributionGroupCommandInput,
+  DeleteTrafficDistributionGroupCommandOutput,
+} from "../commands/DeleteTrafficDistributionGroupCommand";
 import { DeleteUseCaseCommandInput, DeleteUseCaseCommandOutput } from "../commands/DeleteUseCaseCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
 import {
@@ -163,6 +171,10 @@ import {
   DescribeSecurityProfileCommandInput,
   DescribeSecurityProfileCommandOutput,
 } from "../commands/DescribeSecurityProfileCommand";
+import {
+  DescribeTrafficDistributionGroupCommandInput,
+  DescribeTrafficDistributionGroupCommandOutput,
+} from "../commands/DescribeTrafficDistributionGroupCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "../commands/DescribeUserCommand";
 import {
   DescribeUserHierarchyGroupCommandInput,
@@ -215,6 +227,10 @@ import { GetCurrentUserDataCommandInput, GetCurrentUserDataCommandOutput } from 
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "../commands/GetFederationTokenCommand";
 import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "../commands/GetMetricDataCommand";
 import { GetTaskTemplateCommandInput, GetTaskTemplateCommandOutput } from "../commands/GetTaskTemplateCommand";
+import {
+  GetTrafficDistributionCommandInput,
+  GetTrafficDistributionCommandOutput,
+} from "../commands/GetTrafficDistributionCommand";
 import { ListAgentStatusesCommandInput, ListAgentStatusesCommandOutput } from "../commands/ListAgentStatusesCommand";
 import {
   ListApprovedOriginsCommandInput,
@@ -287,6 +303,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { ListTaskTemplatesCommandInput, ListTaskTemplatesCommandOutput } from "../commands/ListTaskTemplatesCommand";
+import {
+  ListTrafficDistributionGroupsCommandInput,
+  ListTrafficDistributionGroupsCommandOutput,
+} from "../commands/ListTrafficDistributionGroupsCommand";
 import { ListUseCasesCommandInput, ListUseCasesCommandOutput } from "../commands/ListUseCasesCommand";
 import {
   ListUserHierarchyGroupsCommandInput,
@@ -295,6 +315,7 @@ import {
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
 import { PutUserStatusCommandInput, PutUserStatusCommandOutput } from "../commands/PutUserStatusCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "../commands/ReleasePhoneNumberCommand";
+import { ReplicateInstanceCommandInput, ReplicateInstanceCommandOutput } from "../commands/ReplicateInstanceCommand";
 import {
   ResumeContactRecordingCommandInput,
   ResumeContactRecordingCommandOutput,
@@ -431,6 +452,10 @@ import {
 } from "../commands/UpdateSecurityProfileCommand";
 import { UpdateTaskTemplateCommandInput, UpdateTaskTemplateCommandOutput } from "../commands/UpdateTaskTemplateCommand";
 import {
+  UpdateTrafficDistributionCommandInput,
+  UpdateTrafficDistributionCommandOutput,
+} from "../commands/UpdateTrafficDistributionCommand";
+import {
   UpdateUserHierarchyCommandInput,
   UpdateUserHierarchyCommandOutput,
 } from "../commands/UpdateUserHierarchyCommand";
@@ -485,6 +510,7 @@ import {
   DateReference,
   DefaultVocabulary,
   Dimensions,
+  Distribution,
   DuplicateResourceException,
   EmailReference,
   EncryptionConfig,
@@ -523,17 +549,14 @@ import {
   LexBotConfig,
   LexV2Bot,
   LimitExceededException,
-  ListPhoneNumbersSummary,
   MediaConcurrency,
   NumberReference,
   OutboundCallerConfig,
   PhoneNumberCountryCode,
   PhoneNumberQuickConnectConfig,
   PhoneNumberStatus,
-  PhoneNumberSummary,
   PhoneNumberType,
   ProblemDetail,
-  PromptSummary,
   PropertyValidationException,
   PropertyValidationExceptionProperty,
   Queue,
@@ -542,13 +565,13 @@ import {
   QueueReference,
   QuickConnect,
   QuickConnectConfig,
-  QuickConnectSummary,
   ReadOnlyFieldInfo,
   ReferenceSummary,
   RequiredFieldInfo,
   ResourceConflictException,
   ResourceInUseException,
   ResourceNotFoundException,
+  ResourceNotReadyException,
   RoutingProfile,
   RoutingProfileQueueConfig,
   RoutingProfileQueueReference,
@@ -562,8 +585,10 @@ import {
   TaskTemplateDefaults,
   TaskTemplateField,
   TaskTemplateFieldIdentifier,
+  TelephonyConfig,
   Threshold,
   ThrottlingException,
+  TrafficDistributionGroup,
   UrlReference,
   User,
   UserData,
@@ -586,11 +611,15 @@ import {
   HierarchyGroupCondition,
   HierarchyLevelUpdate,
   HierarchyStructureUpdate,
+  ListPhoneNumbersSummary,
   OutboundContactNotPermittedException,
   ParticipantDetails,
+  PhoneNumberSummary,
+  PromptSummary,
   QueueSearchCriteria,
   QueueSearchFilter,
   QueueSummary,
+  QuickConnectSummary,
   Reference,
   RoutingProfileQueueConfigSummary,
   RoutingProfileSearchCriteria,
@@ -604,6 +633,7 @@ import {
   StringCondition,
   TagCondition,
   TaskTemplateMetadata,
+  TrafficDistributionGroupSummary,
   UseCase,
   UserIdentityInfoLite,
   UserSearchCriteria,
@@ -1287,6 +1317,35 @@ export const serializeAws_restJson1CreateTaskTemplateCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateTrafficDistributionGroupCommand = async (
+  input: CreateTrafficDistributionGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/traffic-distribution-group";
+  let body: any;
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateUseCaseCommand = async (
   input: CreateUseCaseCommandInput,
   context: __SerdeContext
@@ -1635,6 +1694,35 @@ export const serializeAws_restJson1DeleteTaskTemplateCommand = async (
     "TaskTemplateId",
     () => input.TaskTemplateId!,
     "{TaskTemplateId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteTrafficDistributionGroupCommand = async (
+  input: DeleteTrafficDistributionGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/traffic-distribution-group/{TrafficDistributionGroupId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "TrafficDistributionGroupId",
+    () => input.TrafficDistributionGroupId!,
+    "{TrafficDistributionGroupId}",
     false
   );
   let body: any;
@@ -2116,6 +2204,35 @@ export const serializeAws_restJson1DescribeSecurityProfileCommand = async (
     false
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeTrafficDistributionGroupCommand = async (
+  input: DescribeTrafficDistributionGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/traffic-distribution-group/{TrafficDistributionGroupId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "TrafficDistributionGroupId",
+    () => input.TrafficDistributionGroupId!,
+    "{TrafficDistributionGroupId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2672,6 +2789,27 @@ export const serializeAws_restJson1GetTaskTemplateCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetTrafficDistributionCommand = async (
+  input: GetTrafficDistributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/traffic-distribution/{Id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -3433,6 +3571,32 @@ export const serializeAws_restJson1ListTaskTemplatesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListTrafficDistributionGroupsCommand = async (
+  input: ListTrafficDistributionGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/traffic-distribution-groups";
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+    instanceId: [, input.InstanceId!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListUseCasesCommand = async (
   input: ListUseCasesCommandInput,
   context: __SerdeContext
@@ -3576,6 +3740,34 @@ export const serializeAws_restJson1ReleasePhoneNumberCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ReplicateInstanceCommand = async (
+  input: ReplicateInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/replicate";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.ReplicaAlias != null && { ReplicaAlias: input.ReplicaAlias }),
+    ...(input.ReplicaRegion != null && { ReplicaRegion: input.ReplicaRegion }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -5042,6 +5234,34 @@ export const serializeAws_restJson1UpdateTaskTemplateCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateTrafficDistributionCommand = async (
+  input: UpdateTrafficDistributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/traffic-distribution/{Id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.TelephonyConfig != null && {
+      TelephonyConfig: serializeAws_restJson1TelephonyConfig(input.TelephonyConfig, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -6535,6 +6755,71 @@ const deserializeAws_restJson1CreateTaskTemplateCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateTrafficDistributionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTrafficDistributionGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateTrafficDistributionGroupCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn != null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.Id != null) {
+    contents.Id = __expectString(data.Id);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateTrafficDistributionGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTrafficDistributionGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceNotReadyException":
+    case "com.amazonaws.connect#ResourceNotReadyException":
+      throw await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connect#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1CreateUseCaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7169,6 +7454,56 @@ const deserializeAws_restJson1DeleteTaskTemplateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DeleteTrafficDistributionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTrafficDistributionGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteTrafficDistributionGroupCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteTrafficDistributionGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTrafficDistributionGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -8067,6 +8402,62 @@ const deserializeAws_restJson1DescribeSecurityProfileCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.connect#InvalidParameterException":
       throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DescribeTrafficDistributionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrafficDistributionGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeTrafficDistributionGroupCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.TrafficDistributionGroup != null) {
+    contents.TrafficDistributionGroup = deserializeAws_restJson1TrafficDistributionGroup(
+      data.TrafficDistributionGroup,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeTrafficDistributionGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrafficDistributionGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
@@ -9089,6 +9480,65 @@ const deserializeAws_restJson1GetTaskTemplateCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.connect#InvalidParameterException":
       throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetTrafficDistributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTrafficDistributionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetTrafficDistributionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn != null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.Id != null) {
+    contents.Id = __expectString(data.Id);
+  }
+  if (data.TelephonyConfig != null) {
+    contents.TelephonyConfig = deserializeAws_restJson1TelephonyConfig(data.TelephonyConfig, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetTrafficDistributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTrafficDistributionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
@@ -10639,6 +11089,62 @@ const deserializeAws_restJson1ListTaskTemplatesCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListTrafficDistributionGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTrafficDistributionGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListTrafficDistributionGroupsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.TrafficDistributionGroupSummaryList != null) {
+    contents.TrafficDistributionGroupSummaryList = deserializeAws_restJson1TrafficDistributionGroupSummaryList(
+      data.TrafficDistributionGroupSummaryList,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListTrafficDistributionGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTrafficDistributionGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListUseCasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -10902,6 +11408,71 @@ const deserializeAws_restJson1ReleasePhoneNumberCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ReplicateInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReplicateInstanceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ReplicateInstanceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn != null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.Id != null) {
+    contents.Id = __expectString(data.Id);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ReplicateInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReplicateInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceNotReadyException":
+    case "com.amazonaws.connect#ResourceNotReadyException":
+      throw await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connect#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -13310,6 +13881,59 @@ const deserializeAws_restJson1UpdateTaskTemplateCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateTrafficDistributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTrafficDistributionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateTrafficDistributionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateTrafficDistributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTrafficDistributionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdateUserHierarchyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -13948,6 +14572,22 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1ResourceNotReadyExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotReadyException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new ResourceNotReadyException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -14098,6 +14738,21 @@ const serializeAws_restJson1CurrentMetrics = (input: CurrentMetric[], context: _
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_restJson1CurrentMetric(entry, context);
+    });
+};
+
+const serializeAws_restJson1Distribution = (input: Distribution, context: __SerdeContext): any => {
+  return {
+    ...(input.Percentage != null && { Percentage: input.Percentage }),
+    ...(input.Region != null && { Region: input.Region }),
+  };
+};
+
+const serializeAws_restJson1DistributionList = (input: Distribution[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Distribution(entry, context);
     });
 };
 
@@ -14720,6 +15375,14 @@ const serializeAws_restJson1TaskTemplateFields = (input: TaskTemplateField[], co
     });
 };
 
+const serializeAws_restJson1TelephonyConfig = (input: TelephonyConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.Distributions != null && {
+      Distributions: serializeAws_restJson1DistributionList(input.Distributions, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1Threshold = (input: Threshold, context: __SerdeContext): any => {
   return {
     ...(input.Comparison != null && { Comparison: input.Comparison }),
@@ -15193,6 +15856,25 @@ const deserializeAws_restJson1Dimensions = (output: any, context: __SerdeContext
     Channel: __expectString(output.Channel),
     Queue: output.Queue != null ? deserializeAws_restJson1QueueReference(output.Queue, context) : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1Distribution = (output: any, context: __SerdeContext): Distribution => {
+  return {
+    Percentage: __expectInt32(output.Percentage),
+    Region: __expectString(output.Region),
+  } as any;
+};
+
+const deserializeAws_restJson1DistributionList = (output: any, context: __SerdeContext): Distribution[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Distribution(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1EmailReference = (output: any, context: __SerdeContext): EmailReference => {
@@ -16441,11 +17123,63 @@ const deserializeAws_restJson1TaskTemplateMetadata = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_restJson1TelephonyConfig = (output: any, context: __SerdeContext): TelephonyConfig => {
+  return {
+    Distributions:
+      output.Distributions != null
+        ? deserializeAws_restJson1DistributionList(output.Distributions, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Threshold = (output: any, context: __SerdeContext): Threshold => {
   return {
     Comparison: __expectString(output.Comparison),
     ThresholdValue: __limitedParseDouble(output.ThresholdValue),
   } as any;
+};
+
+const deserializeAws_restJson1TrafficDistributionGroup = (
+  output: any,
+  context: __SerdeContext
+): TrafficDistributionGroup => {
+  return {
+    Arn: __expectString(output.Arn),
+    Description: __expectString(output.Description),
+    Id: __expectString(output.Id),
+    InstanceArn: __expectString(output.InstanceArn),
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TrafficDistributionGroupSummary = (
+  output: any,
+  context: __SerdeContext
+): TrafficDistributionGroupSummary => {
+  return {
+    Arn: __expectString(output.Arn),
+    Id: __expectString(output.Id),
+    InstanceArn: __expectString(output.InstanceArn),
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_restJson1TrafficDistributionGroupSummaryList = (
+  output: any,
+  context: __SerdeContext
+): TrafficDistributionGroupSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TrafficDistributionGroupSummary(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1UrlReference = (output: any, context: __SerdeContext): UrlReference => {

@@ -1,13 +1,7 @@
 // smithy-typescript generated code
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@aws-sdk/middleware-endpoint";
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -41,13 +35,13 @@ import {
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
@@ -114,6 +108,10 @@ import {
   CreateSecurityProfileCommandOutput,
 } from "./commands/CreateSecurityProfileCommand";
 import { CreateTaskTemplateCommandInput, CreateTaskTemplateCommandOutput } from "./commands/CreateTaskTemplateCommand";
+import {
+  CreateTrafficDistributionGroupCommandInput,
+  CreateTrafficDistributionGroupCommandOutput,
+} from "./commands/CreateTrafficDistributionGroupCommand";
 import { CreateUseCaseCommandInput, CreateUseCaseCommandOutput } from "./commands/CreateUseCaseCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
@@ -141,6 +139,10 @@ import {
   DeleteSecurityProfileCommandOutput,
 } from "./commands/DeleteSecurityProfileCommand";
 import { DeleteTaskTemplateCommandInput, DeleteTaskTemplateCommandOutput } from "./commands/DeleteTaskTemplateCommand";
+import {
+  DeleteTrafficDistributionGroupCommandInput,
+  DeleteTrafficDistributionGroupCommandOutput,
+} from "./commands/DeleteTrafficDistributionGroupCommand";
 import { DeleteUseCaseCommandInput, DeleteUseCaseCommandOutput } from "./commands/DeleteUseCaseCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
@@ -191,6 +193,10 @@ import {
   DescribeSecurityProfileCommandInput,
   DescribeSecurityProfileCommandOutput,
 } from "./commands/DescribeSecurityProfileCommand";
+import {
+  DescribeTrafficDistributionGroupCommandInput,
+  DescribeTrafficDistributionGroupCommandOutput,
+} from "./commands/DescribeTrafficDistributionGroupCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import {
   DescribeUserHierarchyGroupCommandInput,
@@ -243,6 +249,10 @@ import { GetCurrentUserDataCommandInput, GetCurrentUserDataCommandOutput } from 
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand";
 import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
 import { GetTaskTemplateCommandInput, GetTaskTemplateCommandOutput } from "./commands/GetTaskTemplateCommand";
+import {
+  GetTrafficDistributionCommandInput,
+  GetTrafficDistributionCommandOutput,
+} from "./commands/GetTrafficDistributionCommand";
 import { ListAgentStatusesCommandInput, ListAgentStatusesCommandOutput } from "./commands/ListAgentStatusesCommand";
 import {
   ListApprovedOriginsCommandInput,
@@ -315,6 +325,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListTaskTemplatesCommandInput, ListTaskTemplatesCommandOutput } from "./commands/ListTaskTemplatesCommand";
+import {
+  ListTrafficDistributionGroupsCommandInput,
+  ListTrafficDistributionGroupsCommandOutput,
+} from "./commands/ListTrafficDistributionGroupsCommand";
 import { ListUseCasesCommandInput, ListUseCasesCommandOutput } from "./commands/ListUseCasesCommand";
 import {
   ListUserHierarchyGroupsCommandInput,
@@ -323,6 +337,7 @@ import {
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import { PutUserStatusCommandInput, PutUserStatusCommandOutput } from "./commands/PutUserStatusCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "./commands/ReleasePhoneNumberCommand";
+import { ReplicateInstanceCommandInput, ReplicateInstanceCommandOutput } from "./commands/ReplicateInstanceCommand";
 import {
   ResumeContactRecordingCommandInput,
   ResumeContactRecordingCommandOutput,
@@ -459,6 +474,10 @@ import {
 } from "./commands/UpdateSecurityProfileCommand";
 import { UpdateTaskTemplateCommandInput, UpdateTaskTemplateCommandOutput } from "./commands/UpdateTaskTemplateCommand";
 import {
+  UpdateTrafficDistributionCommandInput,
+  UpdateTrafficDistributionCommandOutput,
+} from "./commands/UpdateTrafficDistributionCommand";
+import {
   UpdateUserHierarchyCommandInput,
   UpdateUserHierarchyCommandOutput,
 } from "./commands/UpdateUserHierarchyCommand";
@@ -486,6 +505,12 @@ import {
   UpdateUserSecurityProfilesCommandInput,
   UpdateUserSecurityProfilesCommandOutput,
 } from "./commands/UpdateUserSecurityProfilesCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -511,6 +536,7 @@ export type ServiceInputTypes =
   | CreateRoutingProfileCommandInput
   | CreateSecurityProfileCommandInput
   | CreateTaskTemplateCommandInput
+  | CreateTrafficDistributionGroupCommandInput
   | CreateUseCaseCommandInput
   | CreateUserCommandInput
   | CreateUserHierarchyGroupCommandInput
@@ -523,6 +549,7 @@ export type ServiceInputTypes =
   | DeleteQuickConnectCommandInput
   | DeleteSecurityProfileCommandInput
   | DeleteTaskTemplateCommandInput
+  | DeleteTrafficDistributionGroupCommandInput
   | DeleteUseCaseCommandInput
   | DeleteUserCommandInput
   | DeleteUserHierarchyGroupCommandInput
@@ -540,6 +567,7 @@ export type ServiceInputTypes =
   | DescribeQuickConnectCommandInput
   | DescribeRoutingProfileCommandInput
   | DescribeSecurityProfileCommandInput
+  | DescribeTrafficDistributionGroupCommandInput
   | DescribeUserCommandInput
   | DescribeUserHierarchyGroupCommandInput
   | DescribeUserHierarchyStructureCommandInput
@@ -559,6 +587,7 @@ export type ServiceInputTypes =
   | GetFederationTokenCommandInput
   | GetMetricDataCommandInput
   | GetTaskTemplateCommandInput
+  | GetTrafficDistributionCommandInput
   | ListAgentStatusesCommandInput
   | ListApprovedOriginsCommandInput
   | ListBotsCommandInput
@@ -586,11 +615,13 @@ export type ServiceInputTypes =
   | ListSecurityProfilesCommandInput
   | ListTagsForResourceCommandInput
   | ListTaskTemplatesCommandInput
+  | ListTrafficDistributionGroupsCommandInput
   | ListUseCasesCommandInput
   | ListUserHierarchyGroupsCommandInput
   | ListUsersCommandInput
   | PutUserStatusCommandInput
   | ReleasePhoneNumberCommandInput
+  | ReplicateInstanceCommandInput
   | ResumeContactRecordingCommandInput
   | SearchAvailablePhoneNumbersCommandInput
   | SearchQueuesCommandInput
@@ -636,6 +667,7 @@ export type ServiceInputTypes =
   | UpdateRoutingProfileQueuesCommandInput
   | UpdateSecurityProfileCommandInput
   | UpdateTaskTemplateCommandInput
+  | UpdateTrafficDistributionCommandInput
   | UpdateUserHierarchyCommandInput
   | UpdateUserHierarchyGroupNameCommandInput
   | UpdateUserHierarchyStructureCommandInput
@@ -667,6 +699,7 @@ export type ServiceOutputTypes =
   | CreateRoutingProfileCommandOutput
   | CreateSecurityProfileCommandOutput
   | CreateTaskTemplateCommandOutput
+  | CreateTrafficDistributionGroupCommandOutput
   | CreateUseCaseCommandOutput
   | CreateUserCommandOutput
   | CreateUserHierarchyGroupCommandOutput
@@ -679,6 +712,7 @@ export type ServiceOutputTypes =
   | DeleteQuickConnectCommandOutput
   | DeleteSecurityProfileCommandOutput
   | DeleteTaskTemplateCommandOutput
+  | DeleteTrafficDistributionGroupCommandOutput
   | DeleteUseCaseCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserHierarchyGroupCommandOutput
@@ -696,6 +730,7 @@ export type ServiceOutputTypes =
   | DescribeQuickConnectCommandOutput
   | DescribeRoutingProfileCommandOutput
   | DescribeSecurityProfileCommandOutput
+  | DescribeTrafficDistributionGroupCommandOutput
   | DescribeUserCommandOutput
   | DescribeUserHierarchyGroupCommandOutput
   | DescribeUserHierarchyStructureCommandOutput
@@ -715,6 +750,7 @@ export type ServiceOutputTypes =
   | GetFederationTokenCommandOutput
   | GetMetricDataCommandOutput
   | GetTaskTemplateCommandOutput
+  | GetTrafficDistributionCommandOutput
   | ListAgentStatusesCommandOutput
   | ListApprovedOriginsCommandOutput
   | ListBotsCommandOutput
@@ -742,11 +778,13 @@ export type ServiceOutputTypes =
   | ListSecurityProfilesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTaskTemplatesCommandOutput
+  | ListTrafficDistributionGroupsCommandOutput
   | ListUseCasesCommandOutput
   | ListUserHierarchyGroupsCommandOutput
   | ListUsersCommandOutput
   | PutUserStatusCommandOutput
   | ReleasePhoneNumberCommandOutput
+  | ReplicateInstanceCommandOutput
   | ResumeContactRecordingCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
   | SearchQueuesCommandOutput
@@ -792,6 +830,7 @@ export type ServiceOutputTypes =
   | UpdateRoutingProfileQueuesCommandOutput
   | UpdateSecurityProfileCommandOutput
   | UpdateTaskTemplateCommandOutput
+  | UpdateTrafficDistributionCommandOutput
   | UpdateUserHierarchyCommandOutput
   | UpdateUserHierarchyGroupNameCommandOutput
   | UpdateUserHierarchyStructureCommandOutput
@@ -910,12 +949,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -930,11 +963,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 type ConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
  * The configuration interface of ConnectClient class constructor that set the region, credentials and other options.
  */
@@ -943,29 +977,32 @@ export interface ConnectClientConfig extends ConnectClientConfigType {}
 type ConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * The resolved configuration interface of ConnectClient class. This is resolved and normalized from the {@link ConnectClientConfig | constructor configuration interface}.
  */
 export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfigType {}
 
 /**
- * <p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer
- *    contact center and provide reliable customer engagement at any scale.</p>
- *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing.
- *    You can also resolve customer issues more efficiently by getting customers in touch with the
- *    appropriate agents.</p>
- *          <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits
- *    to the number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect
- *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * <p>Amazon Connect is a cloud-based contact center solution that you use to set up and
+ *    manage a customer contact center and provide reliable customer engagement at any scale.</p>
+ *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize
+ *    contact routing. You can also resolve customer issues more efficiently by getting customers in
+ *    touch with the appropriate agents.</p>
+ *          <p>There are limits to the number of Amazon Connect resources that you can create. There
+ *    are also limits to the number of requests that you can make per second. For more information, see
+ *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator
+ *     Guide</i>.</p>
  *          <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For
  *    a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
  *          <note>
- *             <p>Working with flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
+ *             <p>Working with flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow
+ *     language</a>.</p>
  *          </note>
  */
 export class ConnectClient extends __Client<
@@ -981,14 +1018,15 @@ export class ConnectClient extends __Client<
 
   constructor(configuration: ConnectClientConfig) {
     const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

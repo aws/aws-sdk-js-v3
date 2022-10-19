@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -35,11 +36,12 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  *    For example, while the call is active, you can update the customer's name or the reason the
  *    customer called. You can add notes about steps that the agent took during the call that display
  *    to the next agent that takes the call. You can also update attributes for a contact using data
- *    from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls
- *    for additional analysis, such as legal review or to identify abusive callers.</p>
- *          <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted. For
- *    information about contact record retention and the maximum size of the contact record attributes
- *    section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
+ *    from your CRM application and save the data with the contact in Amazon Connect. You could
+ *    also flag calls for additional analysis, such as legal review or to identify abusive
+ *    callers.</p>
+ *          <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.
+ *    For information about contact record retention and the maximum size of the contact record
+ *    attributes section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
  *     specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +66,15 @@ export class UpdateContactAttributesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateContactAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +90,9 @@ export class UpdateContactAttributesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateContactAttributesCommandInput, UpdateContactAttributesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateContactAttributesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -29,8 +30,9 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
 
 /**
  * <p>Creates a user account for the specified Amazon Connect instance.</p>
- *          <p>For information about how to create user accounts using the Amazon Connect console, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add Users</a> in
- *    the <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>For information about how to create user accounts using the Amazon Connect console, see
+ *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add
+ *     Users</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +56,15 @@ export class CreateUserCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +80,7 @@ export class CreateUserCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateUserCommandInput, CreateUserCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateUserCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 

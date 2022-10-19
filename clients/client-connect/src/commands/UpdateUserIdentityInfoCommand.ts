@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,8 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  *     of other users by changing their email address. This poses a security risk to your organization.
  *     They can change the email address of a user to the attacker's email address, and then reset the
  *     password through email. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html">Best Practices for
- *      Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *      Security Profiles</a> in the <i>Amazon Connect Administrator
+ *     Guide</i>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +57,15 @@ export class UpdateUserIdentityInfoCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: UpdateUserIdentityInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +81,9 @@ export class UpdateUserIdentityInfoCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateUserIdentityInfoCommandInput, UpdateUserIdentityInfoCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateUserIdentityInfoCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

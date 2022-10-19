@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,8 @@ export interface SearchVocabulariesCommandInput extends SearchVocabulariesReques
 export interface SearchVocabulariesCommandOutput extends SearchVocabulariesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for vocabularies within a specific Amazon Connect instance using <code>State</code>,
- *     <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
+ * <p>Searches for vocabularies within a specific Amazon Connect instance using
+ *     <code>State</code>, <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +54,15 @@ export class SearchVocabulariesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SearchVocabulariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +78,9 @@ export class SearchVocabulariesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SearchVocabulariesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

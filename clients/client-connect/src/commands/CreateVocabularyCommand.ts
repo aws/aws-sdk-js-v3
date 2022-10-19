@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,8 +29,8 @@ export interface CreateVocabularyCommandInput extends CreateVocabularyRequest {}
 export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a custom vocabulary associated with your Amazon Connect instance. You can set a custom
- *    vocabulary to be your default vocabulary for a given language. Contact Lens for Amazon Connect uses the default
+ * <p>Creates a custom vocabulary associated with your Amazon Connect instance. You can set a
+ *    custom vocabulary to be your default vocabulary for a given language. Contact Lens for Amazon Connect uses the default
  *    vocabulary in post-call and real-time contact analysis sessions for that language.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +55,15 @@ export class CreateVocabularyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +79,9 @@ export class CreateVocabularyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateVocabularyCommandInput, CreateVocabularyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateVocabularyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

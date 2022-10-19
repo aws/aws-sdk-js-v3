@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -28,10 +29,9 @@ export interface ListSecurityProfilesCommandInput extends ListSecurityProfilesRe
 export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Provides summary information about the security profiles for the specified Amazon Connect
- *    instance.</p>
+ * <p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p>
  *          <p>For more information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the
- *     <i>Amazon Connect Administrator Guide</i>.</p>
+ *      <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +55,15 @@ export class ListSecurityProfilesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ListSecurityProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +79,9 @@ export class ListSecurityProfilesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListSecurityProfilesCommandInput, ListSecurityProfilesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListSecurityProfilesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

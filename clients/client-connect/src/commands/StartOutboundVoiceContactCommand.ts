@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -40,7 +41,8 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  *          <note>
  *             <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK
  *     mobile numbers, you must submit a service quota increase request. For more information, see
- *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator
+ *      Guide</i>. </p>
  *          </note>
  *          <note>
  *             <p>Campaign calls are not allowed by default. Before you can make a call with
@@ -70,6 +72,15 @@ export class StartOutboundVoiceContactCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartOutboundVoiceContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,6 +96,9 @@ export class StartOutboundVoiceContactCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartOutboundVoiceContactCommandInput, StartOutboundVoiceContactCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartOutboundVoiceContactCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

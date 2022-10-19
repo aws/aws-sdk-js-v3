@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -30,7 +31,8 @@ export interface CreateIntegrationAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>
+ * <p>Creates an Amazon Web Services resource association with an Amazon Connect
+ *    instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +56,15 @@ export class CreateIntegrationAssociationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: CreateIntegrationAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +80,9 @@ export class CreateIntegrationAssociationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateIntegrationAssociationCommandInput, CreateIntegrationAssociationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateIntegrationAssociationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
