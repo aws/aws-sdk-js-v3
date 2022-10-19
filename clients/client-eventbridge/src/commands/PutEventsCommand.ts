@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getInjectEndpointIdPlugin } from "@aws-sdk/middleware-sdk-eventbridge";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -53,6 +54,16 @@ export class PutEventsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      EndpointId: { type: "contextParams", name: "EndpointId" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: PutEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +79,7 @@ export class PutEventsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutEventsCommandInput, PutEventsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PutEventsCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getInjectEndpointIdPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
