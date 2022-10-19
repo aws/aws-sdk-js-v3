@@ -2,8 +2,8 @@
 import { EndpointV2, Logger } from "@aws-sdk/types";
 import { EndpointParams, resolveEndpoint } from "@aws-sdk/util-endpoints";
 
-import { EndpointParameters } from "../endpoint/EndpointParameters";
-import { ruleSet } from "../endpoint/ruleset";
+import { EndpointParameters } from "./EndpointParameters";
+import { ruleSet } from "./ruleset";
 
 export const defaultEndpointResolver = (
   endpointParams: EndpointParameters,
