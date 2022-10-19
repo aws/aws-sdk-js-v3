@@ -24,6 +24,8 @@ export const awsAuthMiddleware =
 
       // TODO(identityandauth): call authScheme resolver
       const authScheme: AuthScheme | undefined = context.endpointV2?.properties?.authSchemes?.[0];
+      const multiRegionOverride: string | undefined =
+        authScheme?.name === "sigv4a" && authScheme?.signingRegionSet?.[0];
 
       const signer = await options.signer(authScheme);
 
@@ -31,7 +33,7 @@ export const awsAuthMiddleware =
         ...args,
         request: await signer.sign(args.request, {
           signingDate: getSkewCorrectedDate(options.systemClockOffset),
-          signingRegion: context["signing_region"],
+          signingRegion: multiRegionOverride || context["signing_region"],
           signingService: context["signing_service"],
         }),
       }).catch((error) => {
