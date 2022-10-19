@@ -42,6 +42,11 @@ import {
   PutAccountAliasCommandOutput,
 } from "./commands/PutAccountAliasCommand";
 import {
+  RegisterSlackWorkspaceForOrganizationCommand,
+  RegisterSlackWorkspaceForOrganizationCommandInput,
+  RegisterSlackWorkspaceForOrganizationCommandOutput,
+} from "./commands/RegisterSlackWorkspaceForOrganizationCommand";
+import {
   UpdateSlackChannelConfigurationCommand,
   UpdateSlackChannelConfigurationCommandInput,
   UpdateSlackChannelConfigurationCommandOutput,
@@ -92,7 +97,6 @@ import { SupportAppClient } from "./SupportAppClient";
  *          <p>You can also use the Amazon Web Services Management Console instead of the Amazon Web Services Support App API to manage your Slack
  *       configurations. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/authorize-slack-workspace.html">Authorize a
  *         Slack workspace to enable the Amazon Web Services Support App</a>.</p>
- *
  *          <note>
  *             <ul>
  *                <li>
@@ -378,6 +382,69 @@ export class SupportApp extends SupportAppClient {
     cb?: (err: any, data?: PutAccountAliasCommandOutput) => void
   ): Promise<PutAccountAliasCommandOutput> | void {
     const command = new PutAccountAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Registers a Slack workspace for your Amazon Web Services account. To call this API, your account must be
+   *       part of an organization in Organizations.</p>
+   *          <p>If you're the <i>management account</i> and you want to register Slack
+   *       workspaces for your organization, you must complete the following tasks:</p>
+   *          <ol>
+   *             <li>
+   *                <p>Sign in to the <a href="https://console.aws.amazon.com/support/app">Amazon Web Services Support Center</a> and
+   *           authorize the Slack workspaces where you want your organization to have access to. See
+   *             <a href="https://docs.aws.amazon.com/awssupport/latest/user/authorize-slack-workspace.html">Authorize a Slack workspace</a> in the <i>Amazon Web Services Support User
+   *           Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API to authorize each
+   *           Slack workspace for the organization.</p>
+   *             </li>
+   *          </ol>
+   *          <p>After the management account authorizes the Slack workspace, member accounts can call this
+   *       API to authorize the same Slack workspace for their individual accounts. Member accounts don't
+   *       need to authorize the Slack workspace manually through the <a href="https://console.aws.amazon.com/support/app">Amazon Web Services Support Center</a>.</p>
+   *          <p>To use the Amazon Web Services Support App, each account must then complete the following tasks:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Create an Identity and Access Management (IAM) role with the required permission. For more information,
+   *           see <a href="https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html">Managing access to the Amazon Web Services Support App</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Configure a Slack channel to use the Amazon Web Services Support App for support cases for that account. For
+   *           more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/add-your-slack-channel.html">Configuring a Slack channel</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  public registerSlackWorkspaceForOrganization(
+    args: RegisterSlackWorkspaceForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterSlackWorkspaceForOrganizationCommandOutput>;
+  public registerSlackWorkspaceForOrganization(
+    args: RegisterSlackWorkspaceForOrganizationCommandInput,
+    cb: (err: any, data?: RegisterSlackWorkspaceForOrganizationCommandOutput) => void
+  ): void;
+  public registerSlackWorkspaceForOrganization(
+    args: RegisterSlackWorkspaceForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterSlackWorkspaceForOrganizationCommandOutput) => void
+  ): void;
+  public registerSlackWorkspaceForOrganization(
+    args: RegisterSlackWorkspaceForOrganizationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RegisterSlackWorkspaceForOrganizationCommandOutput) => void),
+    cb?: (err: any, data?: RegisterSlackWorkspaceForOrganizationCommandOutput) => void
+  ): Promise<RegisterSlackWorkspaceForOrganizationCommandOutput> | void {
+    const command = new RegisterSlackWorkspaceForOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

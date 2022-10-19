@@ -22,6 +22,11 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+export enum AccountType {
+  MANAGEMENT = "management",
+  MEMBER = "member",
+}
+
 /**
  * <p>Your request has a conflict. For example, you might receive this error if you try the
  *       following:</p>
@@ -39,6 +44,15 @@ export class AccessDeniedException extends __BaseException {
  *             <li>
  *                <p>Delete a Slack workspace from your Amazon Web Services account that has an active live chat
  *           channel.</p>
+ *             </li>
+ *             <li>
+ *                <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API from an Amazon Web Services account
+ *           that doesn't belong to an organization.</p>
+ *             </li>
+ *             <li>
+ *                <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API from a member account,
+ *           but the management account hasn't registered that workspace yet for the
+ *           organization.</p>
  *             </li>
  *          </ul>
  */
@@ -66,7 +80,8 @@ export enum NotificationSeverityLevel {
 
 export interface CreateSlackChannelConfigurationRequest {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace.</p>
+   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
+   * <code>T012ABCDEFG</code>.</p>
    */
   teamId: string | undefined;
 
@@ -97,7 +112,6 @@ export interface CreateSlackChannelConfigurationRequest {
 
   /**
    * <p>The case severity for a support case that you want to receive notifications.</p>
-   *
    *          <p>If you specify <code>high</code> or <code>all</code>, you must specify <code>true</code>
    *       for at least one of the following parameters:</p>
    *          <ul>
@@ -117,10 +131,8 @@ export interface CreateSlackChannelConfigurationRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>If you specify <code>none</code>, the following parameters must be null or
    *         <code>false</code>:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -138,7 +150,6 @@ export interface CreateSlackChannelConfigurationRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>If you don't specify these parameters in your request, they default to
    *           <code>false</code>.</p>
@@ -220,8 +231,8 @@ export interface DeleteAccountAliasRequest {}
 export interface DeleteAccountAliasResult {}
 
 /**
- * <p>The specified resource is missing or doesn't exist, such as an account alias or Slack
- *       channel configuration.</p>
+ * <p>The specified resource is missing or doesn't exist, such as an account alias, Slack
+ *       channel configuration, or Slack workspace configuration.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -241,7 +252,8 @@ export class ResourceNotFoundException extends __BaseException {
 
 export interface DeleteSlackChannelConfigurationRequest {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace.</p>
+   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
+   * <code>T012ABCDEFG</code>.</p>
    */
   teamId: string | undefined;
 
@@ -255,7 +267,8 @@ export interface DeleteSlackChannelConfigurationResult {}
 
 export interface DeleteSlackWorkspaceConfigurationRequest {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace.</p>
+   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
+   * <code>T012ABCDEFG</code>.</p>
    */
   teamId: string | undefined;
 }
@@ -281,11 +294,12 @@ export interface ListSlackChannelConfigurationsRequest {
 }
 
 /**
- * <p>The configuration for a Slack channel that you added to an Amazon Web Services account.</p>
+ * <p>The configuration for a Slack channel that you added for your Amazon Web Services account.</p>
  */
 export interface SlackChannelConfiguration {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace.</p>
+   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
+   * <code>T012ABCDEFG</code>.</p>
    */
   teamId: string | undefined;
 
@@ -295,7 +309,8 @@ export interface SlackChannelConfiguration {
   channelId: string | undefined;
 
   /**
-   * <p>The name of the Slack channel that you configured with the Amazon Web Services Support App.</p>
+   * <p>The name of the Slack channel that you configured with the Amazon Web Services Support App for your
+   *       Amazon Web Services account.</p>
    */
   channelName?: string;
 
@@ -354,9 +369,21 @@ export interface ListSlackWorkspaceConfigurationsRequest {
  */
 export interface SlackWorkspaceConfiguration {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace.</p>
+   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
+   * <code>T012ABCDEFG</code>.</p>
    */
   teamId: string | undefined;
+
+  /**
+   * <p>The name of the Slack workspace.</p>
+   */
+  teamName?: string;
+
+  /**
+   * <p>Whether to allow member accounts to authorize Slack workspaces. Member accounts must be
+   *       part of an organization in Organizations.</p>
+   */
+  allowOrganizationMemberAccount?: boolean;
 }
 
 export interface ListSlackWorkspaceConfigurationsResult {
@@ -381,9 +408,37 @@ export interface PutAccountAliasRequest {
 
 export interface PutAccountAliasResult {}
 
+export interface RegisterSlackWorkspaceForOrganizationRequest {
+  /**
+   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
+   * <code>T012ABCDEFG</code>. Specify the Slack workspace that you want to use for your organization.</p>
+   */
+  teamId: string | undefined;
+}
+
+export interface RegisterSlackWorkspaceForOrganizationResult {
+  /**
+   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
+   * <code>T012ABCDEFG</code>.</p>
+   */
+  teamId?: string;
+
+  /**
+   * <p>The name of the Slack workspace.</p>
+   */
+  teamName?: string;
+
+  /**
+   * <p>Whether the Amazon Web Services account is a management or member account that's part of an organization
+   *       in Organizations.</p>
+   */
+  accountType?: AccountType | string;
+}
+
 export interface UpdateSlackChannelConfigurationRequest {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace.</p>
+   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
+   * <code>T012ABCDEFG</code>.</p>
    */
   teamId: string | undefined;
 
@@ -414,7 +469,6 @@ export interface UpdateSlackChannelConfigurationRequest {
 
   /**
    * <p>The case severity for a support case that you want to receive notifications.</p>
-   *
    *          <p>If you specify <code>high</code> or <code>all</code>, at least one of the following
    *       parameters must be <code>true</code>:</p>
    *          <ul>
@@ -434,11 +488,8 @@ export interface UpdateSlackChannelConfigurationRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *
    *          <p>If you specify <code>none</code>, any of the following parameters that you specify in your
    *       request must be <code>false</code>:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -456,7 +507,6 @@ export interface UpdateSlackChannelConfigurationRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>If you don't specify these parameters in your request, the Amazon Web Services Support App uses the current
    *         values by default.</p>
@@ -474,7 +524,8 @@ export interface UpdateSlackChannelConfigurationRequest {
 
 export interface UpdateSlackChannelConfigurationResult {
   /**
-   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace.</p>
+   * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
+   * <code>T012ABCDEFG</code>.</p>
    */
   teamId?: string;
 
@@ -659,6 +710,24 @@ export const PutAccountAliasRequestFilterSensitiveLog = (obj: PutAccountAliasReq
  * @internal
  */
 export const PutAccountAliasResultFilterSensitiveLog = (obj: PutAccountAliasResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterSlackWorkspaceForOrganizationRequestFilterSensitiveLog = (
+  obj: RegisterSlackWorkspaceForOrganizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterSlackWorkspaceForOrganizationResultFilterSensitiveLog = (
+  obj: RegisterSlackWorkspaceForOrganizationResult
+): any => ({
   ...obj,
 });
 

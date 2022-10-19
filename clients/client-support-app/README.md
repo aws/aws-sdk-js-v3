@@ -53,7 +53,6 @@ documentation in the <i>Amazon Web Services Support User Guide</i>:</p>
 <p>You can also use the Amazon Web Services Management Console instead of the Amazon Web Services Support App API to manage your Slack
 configurations. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/authorize-slack-workspace.html">Authorize a
 Slack workspace to enable the Amazon Web Services Support App</a>.</p>
-
 <note>
 <ul>
 <li>

@@ -1,13 +1,7 @@
 // smithy-typescript generated code
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@aws-sdk/middleware-endpoint";
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -41,13 +35,13 @@ import {
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
@@ -77,9 +71,19 @@ import {
 } from "./commands/ListSlackWorkspaceConfigurationsCommand";
 import { PutAccountAliasCommandInput, PutAccountAliasCommandOutput } from "./commands/PutAccountAliasCommand";
 import {
+  RegisterSlackWorkspaceForOrganizationCommandInput,
+  RegisterSlackWorkspaceForOrganizationCommandOutput,
+} from "./commands/RegisterSlackWorkspaceForOrganizationCommand";
+import {
   UpdateSlackChannelConfigurationCommandInput,
   UpdateSlackChannelConfigurationCommandOutput,
 } from "./commands/UpdateSlackChannelConfigurationCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -91,6 +95,7 @@ export type ServiceInputTypes =
   | ListSlackChannelConfigurationsCommandInput
   | ListSlackWorkspaceConfigurationsCommandInput
   | PutAccountAliasCommandInput
+  | RegisterSlackWorkspaceForOrganizationCommandInput
   | UpdateSlackChannelConfigurationCommandInput;
 
 export type ServiceOutputTypes =
@@ -102,6 +107,7 @@ export type ServiceOutputTypes =
   | ListSlackChannelConfigurationsCommandOutput
   | ListSlackWorkspaceConfigurationsCommandOutput
   | PutAccountAliasCommandOutput
+  | RegisterSlackWorkspaceForOrganizationCommandOutput
   | UpdateSlackChannelConfigurationCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -214,12 +220,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -234,11 +234,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 type SupportAppClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
  * The configuration interface of SupportAppClient class constructor that set the region, credentials and other options.
  */
@@ -247,11 +248,12 @@ export interface SupportAppClientConfig extends SupportAppClientConfigType {}
 type SupportAppClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * The resolved configuration interface of SupportAppClient class. This is resolved and normalized from the {@link SupportAppClientConfig | constructor configuration interface}.
  */
@@ -301,7 +303,6 @@ export interface SupportAppClientResolvedConfig extends SupportAppClientResolved
  *          <p>You can also use the Amazon Web Services Management Console instead of the Amazon Web Services Support App API to manage your Slack
  *       configurations. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/authorize-slack-workspace.html">Authorize a
  *         Slack workspace to enable the Amazon Web Services Support App</a>.</p>
- *
  *          <note>
  *             <ul>
  *                <li>
@@ -327,14 +328,15 @@ export class SupportAppClient extends __Client<
 
   constructor(configuration: SupportAppClientConfig) {
     const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

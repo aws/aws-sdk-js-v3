@@ -39,6 +39,10 @@ import {
 } from "../commands/ListSlackWorkspaceConfigurationsCommand";
 import { PutAccountAliasCommandInput, PutAccountAliasCommandOutput } from "../commands/PutAccountAliasCommand";
 import {
+  RegisterSlackWorkspaceForOrganizationCommandInput,
+  RegisterSlackWorkspaceForOrganizationCommandOutput,
+} from "../commands/RegisterSlackWorkspaceForOrganizationCommand";
+import {
   UpdateSlackChannelConfigurationCommandInput,
   UpdateSlackChannelConfigurationCommandOutput,
 } from "../commands/UpdateSlackChannelConfigurationCommand";
@@ -253,6 +257,32 @@ export const serializeAws_restJson1PutAccountAliasCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.accountAlias != null && { accountAlias: input.accountAlias }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand = async (
+  input: RegisterSlackWorkspaceForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/control/register-slack-workspace-for-organization";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.teamId != null && { teamId: input.teamId }),
   });
   return new __HttpRequest({
     protocol,
@@ -679,6 +709,65 @@ const deserializeAws_restJson1PutAccountAliasCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterSlackWorkspaceForOrganizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.accountType != null) {
+    contents.accountType = __expectString(data.accountType);
+  }
+  if (data.teamId != null) {
+    contents.teamId = __expectString(data.teamId);
+  }
+  if (data.teamName != null) {
+    contents.teamName = __expectString(data.teamName);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterSlackWorkspaceForOrganizationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.supportapp#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.supportapp#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.supportapp#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.supportapp#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.supportapp#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdateSlackChannelConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -886,7 +975,9 @@ const deserializeAws_restJson1SlackWorkspaceConfiguration = (
   context: __SerdeContext
 ): SlackWorkspaceConfiguration => {
   return {
+    allowOrganizationMemberAccount: __expectBoolean(output.allowOrganizationMemberAccount),
     teamId: __expectString(output.teamId),
+    teamName: __expectString(output.teamName),
   } as any;
 };
 
