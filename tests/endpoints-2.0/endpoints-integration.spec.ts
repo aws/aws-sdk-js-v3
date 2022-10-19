@@ -127,7 +127,7 @@ function assertEndpointResolvedCorrectly(expected: EndpointExpectation["endpoint
   const { url, headers, properties } = expected;
   const { authSchemes } = properties || {};
   if (url) {
-    expect(observed.url.href).toContain(url);
+    expect(observed.url.href).toContain(new URL(url).href);
     expect(Math.abs(observed.url.href.length - url.length)).toBeLessThan(2);
   }
   if (headers) {
