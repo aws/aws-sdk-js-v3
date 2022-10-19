@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -32,8 +33,7 @@ export interface SearchChannelsCommandInput extends SearchChannelsRequest {}
 export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __MetadataBearer {}
 
 /**
- * <p>Allows an <code>AppInstanceUser</code> to search the channels that they belong to. The <code>AppInstanceUser</code> can search by membership or external ID.
- *          An <code>AppInstanceAdmin</code> can search across all channels within the <code>AppInstance</code>.</p>
+ * <p>Allows <code>ChimeBearer</code> to search channels by channel members. AppInstanceUsers can search across the channels that they belong to. AppInstanceAdmins can search across all channels.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +57,15 @@ export class SearchChannelsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SearchChannelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +81,9 @@ export class SearchChannelsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SearchChannelsCommandInput, SearchChannelsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SearchChannelsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -833,7 +833,7 @@ export interface ChannelSummary {
   Metadata?: string;
 
   /**
-   * <p>The time at which the last message in a channel was sent.</p>
+   * <p>The time at which the last persistent message in a channel was sent.</p>
    */
   LastMessageTimestamp?: Date;
 }
