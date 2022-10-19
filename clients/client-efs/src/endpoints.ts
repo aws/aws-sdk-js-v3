@@ -147,6 +147,14 @@ const regionHash: RegionHash = {
       },
     ],
   },
+  "me-central-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.me-central-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "me-south-1": {
     variants: [
       {
@@ -264,6 +272,7 @@ const partitionHash: PartitionHash = {
       "fips-eu-west-1",
       "fips-eu-west-2",
       "fips-eu-west-3",
+      "fips-me-central-1",
       "fips-me-south-1",
       "fips-sa-east-1",
       "fips-us-east-1",

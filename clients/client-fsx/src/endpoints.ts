@@ -43,6 +43,14 @@ const regionHash: RegionHash = {
       },
     ],
   },
+  "us-west-1": {
+    variants: [
+      {
+        hostname: "fsx-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-west-2": {
     variants: [
       {
@@ -76,15 +84,18 @@ const partitionHash: PartitionHash = {
       "fips-prod-ca-central-1",
       "fips-prod-us-east-1",
       "fips-prod-us-east-2",
+      "fips-prod-us-west-1",
       "fips-prod-us-west-2",
       "fips-us-east-1",
       "fips-us-east-2",
+      "fips-us-west-1",
       "fips-us-west-2",
       "me-central-1",
       "me-south-1",
       "prod-ca-central-1",
       "prod-us-east-1",
       "prod-us-east-2",
+      "prod-us-west-1",
       "prod-us-west-2",
       "sa-east-1",
       "us-east-1",

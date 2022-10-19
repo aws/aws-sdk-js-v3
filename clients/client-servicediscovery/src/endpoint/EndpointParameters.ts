@@ -5,7 +5,7 @@ export interface ClientInputEndpointParameters {
   region?: string | Provider<string>;
   useDualstackEndpoint?: boolean | Provider<boolean>;
   useFipsEndpoint?: boolean | Provider<boolean>;
-  Endpoint?: string | Provider<string>;
+  endpoint?: string | Provider<string>;
 }
 
 export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
