@@ -839,15 +839,11 @@ export class QueryIdNotFoundException extends __BaseException {
 }
 
 /**
- * <p>
- *          Contains information about a returned CloudTrail channel.
- *       </p>
+ * <p>Contains information about a returned CloudTrail channel.</p>
  */
 export interface Channel {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the channel.
-   *       </p>
+   * <p>The Amazon Resource Name (ARN) of a channel.</p>
    */
   ChannelArn?: string;
 
@@ -861,9 +857,7 @@ export interface Channel {
 }
 
 /**
- * <p>
- *          The specified channel ARN is not valid or does not map to a channel in your account.
- *       </p>
+ * <p>This exception is thrown when the specified value of <code>ChannelARN</code> is not valid.</p>
  */
 export class ChannelARNInvalidException extends __BaseException {
   readonly name: "ChannelARNInvalidException" = "ChannelARNInvalidException";
@@ -1299,23 +1293,31 @@ export interface CreateTrailRequest {
 
   /**
    * <p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The
-   *          value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully
+   *          value can be an alias name prefixed by <code>alias/</code>, a fully specified ARN to an alias, a fully
    *          specified ARN to a key, or a globally unique identifier.</p>
    *          <p>CloudTrail also supports KMS multi-Region keys. For more information about multi-Region keys,
    *          see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          <p>Examples:</p>
    *          <ul>
    *             <li>
-   *                <p>alias/MyAliasName</p>
+   *                <p>
+   *                   <code>alias/MyAliasName</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</p>
+   *                <p>
+   *                   <code>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</p>
+   *                <p>
+   *                   <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>12345678-1234-1234-1234-123456789012</p>
+   *                <p>
+   *                   <code>12345678-1234-1234-1234-123456789012</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -1404,7 +1406,7 @@ export interface CreateTrailResponse {
   CloudWatchLogsRoleArn?: string;
 
   /**
-   * <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail.
+   * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail.
    *          The value is a fully specified ARN to a KMS key in the following format.</p>
    *          <p>
    *             <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
@@ -1419,7 +1421,7 @@ export interface CreateTrailResponse {
 }
 
 /**
- * <p>This exception is thrown when the policy on the S3 bucket or KMS key is not sufficient.</p>
+ * <p>This exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p>
  */
 export class InsufficientEncryptionPolicyException extends __BaseException {
   readonly name: "InsufficientEncryptionPolicyException" = "InsufficientEncryptionPolicyException";
@@ -1967,6 +1969,18 @@ export interface DescribeQueryRequest {
   QueryId: string | undefined;
 }
 
+export enum DeliveryStatus {
+  ACCESS_DENIED = "ACCESS_DENIED",
+  ACCESS_DENIED_SIGNING_FILE = "ACCESS_DENIED_SIGNING_FILE",
+  CANCELLED = "CANCELLED",
+  FAILED = "FAILED",
+  FAILED_SIGNING_FILE = "FAILED_SIGNING_FILE",
+  PENDING = "PENDING",
+  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
+  SUCCESS = "SUCCESS",
+  UNKNOWN = "UNKNOWN",
+}
+
 /**
  * <p>Gets metadata about a query, including the number of events that were matched, the total number of events scanned, the query run time
  *          in milliseconds, and the query's creation time.</p>
@@ -2027,6 +2041,16 @@ export interface DescribeQueryResponse {
    * <p>The error message returned if a query failed.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>The URI for the S3 bucket where CloudTrail delivered query results, if applicable.</p>
+   */
+  DeliveryS3Uri?: string;
+
+  /**
+   * <p>The delivery status.</p>
+   */
+  DeliveryStatus?: DeliveryStatus | string;
 }
 
 /**
@@ -2179,9 +2203,7 @@ export interface DescribeTrailsResponse {
 
 export interface GetChannelRequest {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the CloudTrail service-linked channel.
-   *       </p>
+   * <p>The ARN or <code>UUID</code> of a channel.</p>
    */
   Channel: string | undefined;
 }
@@ -2192,58 +2214,49 @@ export enum DestinationType {
 }
 
 /**
- * <p>
- *          Contains information about the service where CloudTrail delivers events.
- *       </p>
+ * <p>Contains information about the service where CloudTrail delivers events.</p>
  */
 export interface Destination {
   /**
-   * <p>
-   *          The type of service. For service-linked channels, the value is <code>AWS_SERVICE</code>.
-   *       </p>
+   * <p>The type of destination for events arriving from a channel. For service-linked channels,
+   *          the value is <code>AWS_SERVICE</code>.</p>
    */
   Type: DestinationType | string | undefined;
 
   /**
-   * <p>
-   *          The location of the service. For service-linked channels, this is the name of the Amazon Web Services service.
-   *       </p>
+   * <p>For service-linked channels, the value is the name of the Amazon Web Services service.</p>
    */
   Location: string | undefined;
 }
 
 /**
  * <p>
- *          Contains configuration information about the service-linked channel.
+ *          Contains configuration information about the channel.
  *       </p>
  */
 export interface SourceConfig {
   /**
    * <p>
-   *          Specifies whether the service-linked channel applies to one region or all regions.
-   *       </p>
+   *          Specifies whether the channel applies to a single region or to all regions.</p>
    */
   ApplyToAllRegions?: boolean;
 
   /**
    * <p>
-   *          The advanced event selectors configured for the service-linked channel.
-   *       </p>
+   *          The advanced event selectors that are configured for the channel.</p>
    */
   AdvancedEventSelectors?: AdvancedEventSelector[];
 }
 
 export interface GetChannelResponse {
   /**
-   * <p>
-   *          The ARN of the CloudTrail service-linked channel.
-   *       </p>
+   * <p>The ARN of an channel returned by a <code>GetChannel</code> request.</p>
    */
   ChannelArn?: string;
 
   /**
    * <p>
-   *          The name of the CloudTrail service-linked channel. For service-linked channels, the value is <code>aws-service-channel/service-name/custom-suffix</code>
+   *          The name of the CloudTrail channel. For service-linked channels, the value is <code>aws-service-channel/service-name/custom-suffix</code>
    *          where <code>service-name</code> represents the name of the
    *          Amazon Web Services service that created the channel and <code>custom-suffix</code> represents the suffix generated by the Amazon Web Services service.
    *       </p>
@@ -2251,23 +2264,20 @@ export interface GetChannelResponse {
   Name?: string;
 
   /**
-   * <p>
-   *          The trail or event data store for the CloudTrail service-linked channel.
-   *       </p>
+   * <p>The event source for the CloudTrail channel.</p>
    */
   Source?: string;
 
   /**
    * <p>
-   *          Provides information about the advanced event selectors configured for the service-linked channel, and whether the service-linked channel applies to all regions or one region.
+   *          Provides information about the advanced event selectors configured for the channel, and
+   *          whether the channel applies to all regions or a single region.
    *       </p>
    */
   SourceConfig?: SourceConfig;
 
   /**
-   * <p>
-   *          The Amazon Web Services service that created the CloudTrail service-linked channel.
-   *       </p>
+   * <p>The Amazon Web Services service that created the service-linked channel.</p>
    */
   Destinations?: Destination[];
 }
@@ -2437,7 +2447,7 @@ export interface DataResource {
    *             </li>
    *          </ul>
    *
-   *          <p>The following resource types are also availble through <i>advanced</i> event selectors.
+   *          <p>The following resource types are also available through <i>advanced</i> event selectors.
    *          Basic event selector resource types are valid in advanced event selectors, but
    *          advanced event selector resource types are not valid in basic event selectors.
    *          For more information, see <a>AdvancedFieldSelector$Field</a>.</p>
@@ -2658,7 +2668,9 @@ export interface ImportSource {
 
 /**
  * <p>
- *         Provides statistics for the specified <code>ImportID</code>.
+ *          Provides statistics for the specified <code>ImportID</code>. CloudTrail does not update import statistics in real-time.
+ *          Returned values for parameters such as <code>EventsCompleted</code> may be lower than the actual value, because
+ *          CloudTrail updates statistics incrementally over the course of the import.
  *       </p>
  */
 export interface ImportStatistics {
@@ -2677,13 +2689,13 @@ export interface ImportStatistics {
   PrefixesCompleted?: number;
 
   /**
-   * <p>The number of files that completed import.</p>
+   * <p>The number of log files that completed import.</p>
    */
   FilesCompleted?: number;
 
   /**
    * <p>
-   *          The number of trail events imported.
+   *          The number of trail events imported into the event data store.
    *       </p>
    */
   EventsCompleted?: number;
@@ -2714,7 +2726,7 @@ export interface GetImportResponse {
 
   /**
    * <p>
-   *          The destination event data store.
+   *          The ARN of the destination event data store.
    *       </p>
    */
   Destinations?: string[];
@@ -2765,7 +2777,9 @@ export interface GetImportResponse {
 
   /**
    * <p>
-   *          Provides statistics for the import.
+   *          Provides statistics for the import. CloudTrail does not update import statistics in real-time.
+   *          Returned values for parameters such as <code>EventsCompleted</code> may be lower than the actual value, because
+   *          CloudTrail updates statistics incrementally over the course of the import.
    *       </p>
    */
   ImportStatistics?: ImportStatistics;
@@ -3143,9 +3157,10 @@ export interface ListChannelsRequest {
   MaxResults?: number;
 
   /**
-   * <p>
-   *          A token you can use to get the next page of results.
-   *       </p>
+   * <p>The token to use to get the next page of results after a previous API call. This token must be
+   *          passed in with the same parameters that were specified in the original call.
+   *          For example, if the original call specified an AttributeKey of 'Username' with a value of 'root',
+   *          the call with NextToken should include those same parameters.</p>
    */
   NextToken?: string;
 }
@@ -3153,15 +3168,13 @@ export interface ListChannelsRequest {
 export interface ListChannelsResponse {
   /**
    * <p>
-   *          The list of CloudTrail channels.
+   *          The list of channels in the account.
    *       </p>
    */
   Channels?: Channel[];
 
   /**
-   * <p>
-   *          A token used to get the next page of results.
-   *       </p>
+   * <p>The token to use to get the next page of results after a previous API call.</p>
    */
   NextToken?: string;
 }
@@ -3361,7 +3374,7 @@ export interface ListImportsRequest {
 
   /**
    * <p>
-   *          The destination event data store.
+   *          The ARN of the destination event data store.
    *       </p>
    */
   Destination?: string;
@@ -3403,7 +3416,7 @@ export interface ImportsListItem {
 
   /**
    * <p>
-   *          The destination event data store.
+   *          The ARN of the destination event data store.
    *       </p>
    */
   Destinations?: string[];
@@ -4241,9 +4254,7 @@ export interface RestoreEventDataStoreResponse {
 }
 
 /**
- * <p>
- *          This exception is thrown when the event data store category is not valid for the import.
- *       </p>
+ * <p>This exception is thrown when event categories of specified event data stores are not valid.</p>
  */
 export class InvalidEventDataStoreCategoryException extends __BaseException {
   readonly name: "InvalidEventDataStoreCategoryException" = "InvalidEventDataStoreCategoryException";
@@ -4295,7 +4306,7 @@ export class InvalidImportSourceException extends __BaseException {
 export interface StartImportRequest {
   /**
    * <p>
-   *          The destination event data store. Use this parameter for a new import.
+   *          The ARN of the destination event data store. Use this parameter for a new import.
    *       </p>
    */
   Destinations?: string[];
@@ -4310,7 +4321,9 @@ export interface StartImportRequest {
   /**
    * <p>
    *          Use with <code>EndEventTime</code> to bound a <code>StartImport</code> request, and limit imported trail events
-   *          to only those events logged within a specified time period.
+   *          to only those events logged within a specified time period. When you specify a time range, CloudTrail checks the prefix and log
+   *          file names to verify the names contain a date between the specified <code>StartEventTime</code> and <code>EndEventTime</code> before attempting
+   *          to import events.
    *       </p>
    */
   StartEventTime?: Date;
@@ -4318,7 +4331,9 @@ export interface StartImportRequest {
   /**
    * <p>
    *          Use with <code>StartEventTime</code> to bound a <code>StartImport</code> request, and limit imported trail events
-   *          to only those events logged within a specified time period.
+   *          to only those events logged within a specified time period. When you specify a time range, CloudTrail checks the prefix and log
+   *          file names to verify the names contain a date between the specified <code>StartEventTime</code> and <code>EndEventTime</code> before attempting
+   *          to import events.
    *       </p>
    */
   EndEventTime?: Date;
@@ -4341,14 +4356,14 @@ export interface StartImportResponse {
 
   /**
    * <p>
-   *          The destination event data store.
+   *          The ARN of the destination event data store.
    *       </p>
    */
   Destinations?: string[];
 
   /**
    * <p>
-   *          The source S3 bucket.
+   *          The source S3 bucket for the import.
    *       </p>
    */
   ImportSource?: ImportSource;
@@ -4467,6 +4482,13 @@ export interface StartQueryRequest {
    * <p>The SQL code of your query.</p>
    */
   QueryStatement: string | undefined;
+
+  /**
+   * <p>
+   *          The URI for the S3 bucket where CloudTrail delivers the query results.
+   *       </p>
+   */
+  DeliveryS3Uri?: string;
 }
 
 export interface StartQueryResponse {
@@ -4495,14 +4517,14 @@ export interface StopImportResponse {
 
   /**
    * <p>
-   *          The source S3 bucket.
+   *          The source S3 bucket for the import.
    *       </p>
    */
   ImportSource?: ImportSource;
 
   /**
    * <p>
-   *          The destination event data store.
+   *          The ARN of the destination event data store.
    *       </p>
    */
   Destinations?: string[];

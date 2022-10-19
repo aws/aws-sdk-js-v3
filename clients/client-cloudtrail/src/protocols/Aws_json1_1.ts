@@ -2646,18 +2646,30 @@ const deserializeAws_json1_1StartQueryCommandError = async (
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
       throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
+    case "InsufficientS3BucketPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientS3BucketPolicyException":
+      throw await deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidQueryStatementException":
     case "com.amazonaws.cloudtrail#InvalidQueryStatementException":
       throw await deserializeAws_json1_1InvalidQueryStatementExceptionResponse(parsedOutput, context);
+    case "InvalidS3BucketNameException":
+    case "com.amazonaws.cloudtrail#InvalidS3BucketNameException":
+      throw await deserializeAws_json1_1InvalidS3BucketNameExceptionResponse(parsedOutput, context);
+    case "InvalidS3PrefixException":
+    case "com.amazonaws.cloudtrail#InvalidS3PrefixException":
+      throw await deserializeAws_json1_1InvalidS3PrefixExceptionResponse(parsedOutput, context);
     case "MaxConcurrentQueriesException":
     case "com.amazonaws.cloudtrail#MaxConcurrentQueriesException":
       throw await deserializeAws_json1_1MaxConcurrentQueriesExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
+    case "S3BucketDoesNotExistException":
+    case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
+      throw await deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
@@ -4278,6 +4290,7 @@ const serializeAws_json1_1StartLoggingRequest = (input: StartLoggingRequest, con
 
 const serializeAws_json1_1StartQueryRequest = (input: StartQueryRequest, context: __SerdeContext): any => {
   return {
+    ...(input.DeliveryS3Uri != null && { DeliveryS3Uri: input.DeliveryS3Uri }),
     ...(input.QueryStatement != null && { QueryStatement: input.QueryStatement }),
   };
 };
@@ -4594,6 +4607,8 @@ const deserializeAws_json1_1DeleteTrailResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1DescribeQueryResponse = (output: any, context: __SerdeContext): DescribeQueryResponse => {
   return {
+    DeliveryS3Uri: __expectString(output.DeliveryS3Uri),
+    DeliveryStatus: __expectString(output.DeliveryStatus),
     ErrorMessage: __expectString(output.ErrorMessage),
     QueryId: __expectString(output.QueryId),
     QueryStatistics:
