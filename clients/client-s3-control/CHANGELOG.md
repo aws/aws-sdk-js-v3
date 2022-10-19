@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.192.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.191.0...v3.192.0) (2022-10-19)
+
+
+### Features
+
+* **client-s3-control:** Updates internal logic for constructing API endpoints. We have added rule-based endpoints and internal model parameters. ([3aad5b0](https://github.com/aws/aws-sdk-js-v3/commit/3aad5b064347f18803810f5009f0784875dc69d6))
+
+
+
+
+
 # [3.190.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.189.0...v3.190.0) (2022-10-17)
 
 **Note:** Version bump only for package @aws-sdk/client-s3-control

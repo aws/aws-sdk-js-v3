@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.192.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.191.0...v3.192.0) (2022-10-19)
+
+
+### Bug Fixes
+
+* **endpoint:** dedupe clientContext/builtIn params, fix s3 unit test ([#4051](https://github.com/aws/aws-sdk-js-v3/issues/4051)) ([947c8bc](https://github.com/aws/aws-sdk-js-v3/commit/947c8bce2798ae5ddc022d34f62aeeb60b4e6fde))
+* **endpoint:** use sigv4a signing region override ([#4054](https://github.com/aws/aws-sdk-js-v3/issues/4054)) ([a24892f](https://github.com/aws/aws-sdk-js-v3/commit/a24892f1ffc5a321b8f8d43a94e0df19bfa0e15a))
+
+
+### Features
+
+* **client-cloudtrail:** This release includes support for exporting CloudTrail Lake query results to an Amazon S3 bucket. ([6a91fad](https://github.com/aws/aws-sdk-js-v3/commit/6a91fad22b52a040b463344cacb7b77bbee17418))
+* **client-config-service:** This release adds resourceType enums for AppConfig, AppSync, DataSync, EC2, EKS, Glue, GuardDuty, SageMaker, ServiceDiscovery, SES, Route53 types. ([4ceb486](https://github.com/aws/aws-sdk-js-v3/commit/4ceb4868bf61c201e48ad325c956d6e05ccb8d54))
+* **client-connect:** This release adds API support for managing phone numbers that can be used across multiple AWS regions through telephony traffic distribution. ([74a0d2e](https://github.com/aws/aws-sdk-js-v3/commit/74a0d2e55ee32e641514fd55e0efa517bfade677))
+* **client-eventbridge:** Updates internal logic for constructing API endpoints. We have added rule-based endpoints and internal model parameters. ([437f3e3](https://github.com/aws/aws-sdk-js-v3/commit/437f3e33f42dbe847ca397c3d0b0ef7cda6eddce))
+* **client-managedblockchain:** Adding new Accessor APIs for Amazon Managed Blockchain ([db0e989](https://github.com/aws/aws-sdk-js-v3/commit/db0e98960c98283471b7690bd80df917c0539128))
+* **client-s3-control:** Updates internal logic for constructing API endpoints. We have added rule-based endpoints and internal model parameters. ([3aad5b0](https://github.com/aws/aws-sdk-js-v3/commit/3aad5b064347f18803810f5009f0784875dc69d6))
+* **client-s3:** Updates internal logic for constructing API endpoints. We have added rule-based endpoints and internal model parameters. ([6e4371e](https://github.com/aws/aws-sdk-js-v3/commit/6e4371eade7c2da3e3a930e1a14a52c88af8ad54))
+* **client-support-app:** This release adds the RegisterSlackWorkspaceForOrganization API. You can use the API to register a Slack workspace for an AWS account that is part of an organization. ([40db0f5](https://github.com/aws/aws-sdk-js-v3/commit/40db0f59635a80e6399b1584046dd6ec65740665))
+* **client-workspaces-web:** WorkSpaces Web now supports user access logging for recording session start, stop, and URL navigation. ([b84f8b8](https://github.com/aws/aws-sdk-js-v3/commit/b84f8b8928e02f3996eec93c6552e20006a08588))
+* **clients:** update client endpoints as of 2022-10-19 ([ec747ca](https://github.com/aws/aws-sdk-js-v3/commit/ec747cabfe8231ff6382ab958ddbefa84a974280))
+
+
+
+
+
 # [3.191.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.190.0...v3.191.0) (2022-10-18)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.192.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.191.0...v3.192.0) (2022-10-19)
+
+
+### Features
+
+* **client-cloudtrail:** This release includes support for exporting CloudTrail Lake query results to an Amazon S3 bucket. ([6a91fad](https://github.com/aws/aws-sdk-js-v3/commit/6a91fad22b52a040b463344cacb7b77bbee17418))
+
+
+
+
+
 # [3.190.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.189.0...v3.190.0) (2022-10-17)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudtrail

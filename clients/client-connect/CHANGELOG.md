@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.192.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.191.0...v3.192.0) (2022-10-19)
+
+
+### Features
+
+* **client-connect:** This release adds API support for managing phone numbers that can be used across multiple AWS regions through telephony traffic distribution. ([74a0d2e](https://github.com/aws/aws-sdk-js-v3/commit/74a0d2e55ee32e641514fd55e0efa517bfade677))
+
+
+
+
+
 # [3.190.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.189.0...v3.190.0) (2022-10-17)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.192.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.191.0...v3.192.0) (2022-10-19)
+
+
+### Bug Fixes
+
+* **endpoint:** use sigv4a signing region override ([#4054](https://github.com/aws/aws-sdk-js-v3/issues/4054)) ([a24892f](https://github.com/aws/aws-sdk-js-v3/commit/a24892f1ffc5a321b8f8d43a94e0df19bfa0e15a))
+
+
+
+
+
 # [3.190.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.189.0...v3.190.0) (2022-10-17)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.192.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.191.0...v3.192.0) (2022-10-19)
+
+
+### Features
+
+* **client-support-app:** This release adds the RegisterSlackWorkspaceForOrganization API. You can use the API to register a Slack workspace for an AWS account that is part of an organization. ([40db0f5](https://github.com/aws/aws-sdk-js-v3/commit/40db0f59635a80e6399b1584046dd6ec65740665))
+
+
+
+
+
 # [3.190.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.189.0...v3.190.0) (2022-10-17)
 
 **Note:** Version bump only for package @aws-sdk/client-support-app
