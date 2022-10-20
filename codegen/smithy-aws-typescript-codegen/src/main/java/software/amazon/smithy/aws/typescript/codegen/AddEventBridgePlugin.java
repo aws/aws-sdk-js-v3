@@ -39,18 +39,6 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public final class AddEventBridgePlugin implements TypeScriptIntegration {
-
-    @Override
-    public List<RuntimeClientPlugin> getClientPlugins() {
-        return ListUtils.of(
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.EVENTBRIDGE_MIDDLEWARE.dependency, "InjectEndpointId",
-                                HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> testServiceId(s) && o.getId().getName(s).equals("PutEvents"))
-                        .build()
-        );
-    }
-
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(TypeScriptSettings settings, Model model,
             SymbolProvider symbolProvider, LanguageTarget target) {
         if (!testServiceId(settings.getService(model))) {
