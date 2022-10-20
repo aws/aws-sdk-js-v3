@@ -32,7 +32,7 @@ const getSdkId = (model) => {
       return value.sdkId;
     }
   }
-  return "unknown";
+  throw new Error("unable to find SDK ID in model file");
 };
 
 const getWireProtocol = (model) => {
@@ -40,10 +40,13 @@ const getWireProtocol = (model) => {
   const service = Object.values(shapes).find((shape) => shape.type === "service") || {};
   for (const trait of Object.keys(service.traits || {})) {
     if (trait.startsWith("aws.protocols#")) {
-      return trait.split("aws.protocols#").pop() || "unknown";
+      const parts = trait.split("aws.protocols#");
+      if (parts.length !== 0) {
+        return parts.pop();
+      }
     }
   }
-  return "unknown";
+  throw new Error("unable to determine wire protocol in model file");
 };
 
 (async () => {
