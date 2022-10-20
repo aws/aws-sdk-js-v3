@@ -18,14 +18,15 @@ describe("EventBridge", () => {
   client.middlewareStack.add(interceptionMiddleware, { step: "finalizeRequest", name: "interceptionMiddleware" });
   describe("putEvents", () => {
     it("should use sign request with sigv4a with EventId presents", async () => {
+      const endpointId = "endpoint.id";
       const {
         // @ts-ignore request is set in $metadata by interception middleware.
         $metadata: { request },
       } = await client.putEvents({
         Entries: [],
-        EndpointId: "endpointId",
+        EndpointId: endpointId,
       });
-      expect(request.hostname).eql("endpointId.endpoint.events.amazonaws.com");
+      expect(request.hostname).eql(`${endpointId}.endpoint.events.amazonaws.com`);
       expect(request.headers["X-Amz-Region-Set"]).eql("*");
       expect(request.headers["Authorization"]).includes("AWS4-ECDSA-P256-SHA256");
     });
