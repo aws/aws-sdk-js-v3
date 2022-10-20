@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
+
+
+### Features
+
+* **client-resiliencehub:** In this release, we are introducing support for regional optimization for AWS Resilience Hub applications. It also includes a few documentation updates to improve clarity. ([81b5510](https://github.com/aws/aws-sdk-js-v3/commit/81b55109a02baf2f59052681a8cf67bf4fc8c8e2))
+
+
+
+
+
 # [3.192.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.191.0...v3.192.0) (2022-10-19)
 
 **Note:** Version bump only for package @aws-sdk/client-resiliencehub

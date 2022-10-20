@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
+
+
+### Bug Fixes
+
+* **clients:** add @aws-sdk/util-endpoints dependency ([#4058](https://github.com/aws/aws-sdk-js-v3/issues/4058)) ([e8d7c68](https://github.com/aws/aws-sdk-js-v3/commit/e8d7c68b427897188cdc8de20d502cb0b26fbe9a))
+* **endpoint:** s3 control tests to unblock CI ([#4063](https://github.com/aws/aws-sdk-js-v3/issues/4063)) ([0090e1c](https://github.com/aws/aws-sdk-js-v3/commit/0090e1cd8806239d9ff842105939e8e022a98f2b))
+* **endpoint:** test fixes for s3-control related to endpoints 2.0 ([#4065](https://github.com/aws/aws-sdk-js-v3/issues/4065)) ([25af672](https://github.com/aws/aws-sdk-js-v3/commit/25af672e313406dcc331e154c385fc325b93a4a2))
+
+
+
+
+
 # [3.192.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.191.0...v3.192.0) (2022-10-19)
 
 

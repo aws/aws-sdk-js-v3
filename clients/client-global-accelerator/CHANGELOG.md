@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
+
+
+### Features
+
+* **client-global-accelerator:** Global Accelerator now supports AddEndpoints and RemoveEndpoints operations for standard endpoint groups. ([d7d6077](https://github.com/aws/aws-sdk-js-v3/commit/d7d60777e4a7c3ba86b41db54a4a0b02e4946f9b))
+
+
+
+
+
 # [3.192.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.191.0...v3.192.0) (2022-10-19)
 
 **Note:** Version bump only for package @aws-sdk/client-global-accelerator

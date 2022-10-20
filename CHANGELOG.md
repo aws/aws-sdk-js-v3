@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
+
+
+### Bug Fixes
+
+* **client-eventbridge:** remove middleware-sdk-eventbridge ([#4059](https://github.com/aws/aws-sdk-js-v3/issues/4059)) ([7b1f599](https://github.com/aws/aws-sdk-js-v3/commit/7b1f599991c193c3a7d3a514c1bdb5042a88e302))
+* **clients:** add @aws-sdk/util-endpoints dependency ([#4058](https://github.com/aws/aws-sdk-js-v3/issues/4058)) ([e8d7c68](https://github.com/aws/aws-sdk-js-v3/commit/e8d7c68b427897188cdc8de20d502cb0b26fbe9a))
+* **endpoint:** join authScheme signingRegionSet values instead of taking first only ([#4056](https://github.com/aws/aws-sdk-js-v3/issues/4056)) ([751245a](https://github.com/aws/aws-sdk-js-v3/commit/751245afc26dbedcc477be3bc2f830e18d765e1d))
+* **endpoint:** s3 control tests to unblock CI ([#4063](https://github.com/aws/aws-sdk-js-v3/issues/4063)) ([0090e1c](https://github.com/aws/aws-sdk-js-v3/commit/0090e1cd8806239d9ff842105939e8e022a98f2b))
+* **endpoint:** test fixes for s3-control related to endpoints 2.0 ([#4065](https://github.com/aws/aws-sdk-js-v3/issues/4065)) ([25af672](https://github.com/aws/aws-sdk-js-v3/commit/25af672e313406dcc331e154c385fc325b93a4a2))
+
+
+### Features
+
+* **client-devops-guru:** This release adds information about the resources DevOps Guru is analyzing. ([991855c](https://github.com/aws/aws-sdk-js-v3/commit/991855cbf29a3ae873e3acffb740220c9bbdd506))
+* **client-global-accelerator:** Global Accelerator now supports AddEndpoints and RemoveEndpoints operations for standard endpoint groups. ([d7d6077](https://github.com/aws/aws-sdk-js-v3/commit/d7d60777e4a7c3ba86b41db54a4a0b02e4946f9b))
+* **client-resiliencehub:** In this release, we are introducing support for regional optimization for AWS Resilience Hub applications. It also includes a few documentation updates to improve clarity. ([81b5510](https://github.com/aws/aws-sdk-js-v3/commit/81b55109a02baf2f59052681a8cf67bf4fc8c8e2))
+* **client-rum:** CloudWatch RUM now supports Extended CloudWatch Metrics with Additional Dimensions ([0932dce](https://github.com/aws/aws-sdk-js-v3/commit/0932dcee1a92904c3cf1647da34c3deeee3af62a))
+* **clients:** update client endpoints as of 2022-10-20 ([688454b](https://github.com/aws/aws-sdk-js-v3/commit/688454b703fe7590d8b9630ceeb332efd56e52e3))
+
+
+
+
+
 # [3.192.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.191.0...v3.192.0) (2022-10-19)
 
 

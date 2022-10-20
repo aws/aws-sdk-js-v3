@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
+
+
+### Features
+
+* **client-devops-guru:** This release adds information about the resources DevOps Guru is analyzing. ([991855c](https://github.com/aws/aws-sdk-js-v3/commit/991855cbf29a3ae873e3acffb740220c9bbdd506))
+
+
+
+
+
 # [3.192.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.191.0...v3.192.0) (2022-10-19)
 
 **Note:** Version bump only for package @aws-sdk/client-devops-guru

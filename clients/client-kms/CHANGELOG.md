@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
+
+
+### Features
+
+* **clients:** update client endpoints as of 2022-10-20 ([688454b](https://github.com/aws/aws-sdk-js-v3/commit/688454b703fe7590d8b9630ceeb332efd56e52e3))
+
+
+
+
+
 # [3.192.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.191.0...v3.192.0) (2022-10-19)
 
 **Note:** Version bump only for package @aws-sdk/client-kms

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
+
+
+### Features
+
+* **client-rum:** CloudWatch RUM now supports Extended CloudWatch Metrics with Additional Dimensions ([0932dce](https://github.com/aws/aws-sdk-js-v3/commit/0932dcee1a92904c3cf1647da34c3deeee3af62a))
+
+
+
+
+
 # [3.192.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.191.0...v3.192.0) (2022-10-19)
 
 **Note:** Version bump only for package @aws-sdk/client-rum
