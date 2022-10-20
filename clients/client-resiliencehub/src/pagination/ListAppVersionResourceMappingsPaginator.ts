@@ -43,6 +43,7 @@ export async function* paginateListAppVersionResourceMappings(
   let page: ListAppVersionResourceMappingsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
+    input["maxResults"] = config.pageSize;
     if (config.client instanceof Resiliencehub) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof ResiliencehubClient) {

@@ -3926,6 +3926,7 @@ const deserializeAws_restJson1AppSummary = (output: any, context: __SerdeContext
     description: __expectString(output.description),
     name: __expectString(output.name),
     resiliencyScore: __limitedParseDouble(output.resiliencyScore),
+    status: __expectString(output.status),
   } as any;
 };
 

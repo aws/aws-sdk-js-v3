@@ -443,7 +443,7 @@ export interface App {
   creationTime: Date | undefined;
 
   /**
-   * <p>The status of the action.</p>
+   * <p>The status of the application.</p>
    */
   status?: AppStatusType | string;
 
@@ -1008,6 +1008,11 @@ export interface AppSummary {
    *     </p>
    */
   assessmentSchedule?: AppAssessmentScheduleType | string;
+
+  /**
+   * <p>The status of the application.</p>
+   */
+  status?: AppStatusType | string;
 }
 
 /**
@@ -1920,6 +1925,7 @@ export enum HaArchitecture {
 export enum ConfigRecommendationOptimizationType {
   BEST_ATTAINABLE = "BestAttainable",
   BEST_AZ_RECOVERY = "BestAZRecovery",
+  BEST_REGION_RECOVERY = "BestRegionRecovery",
   LEAST_CHANGE = "LeastChange",
   LEAST_COST = "LeastCost",
   LEAST_ERRORS = "LeastErrors",
@@ -2971,10 +2977,6 @@ export interface UpdateResiliencyPolicyRequest {
   /**
    * <p>The type of resiliency policy to be created, including the recovery time objective (RTO)
    *       and recovery point objective (RPO) in seconds.</p>
-   *          <note>
-   *             <p>If you do not want to specify regional targets for a regional policy, you must set the
-   *         values of <code>rpoInSecs</code> and <code>rtoInSecs</code> to <code>-1</code>.</p>
-   *          </note>
    */
   policy?: Record<string, FailurePolicy>;
 }
