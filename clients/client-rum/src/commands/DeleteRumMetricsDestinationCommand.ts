@@ -14,40 +14,43 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  UntagResourceRequest,
-  UntagResourceRequestFilterSensitiveLog,
-  UntagResourceResponse,
-  UntagResourceResponseFilterSensitiveLog,
+  DeleteRumMetricsDestinationRequest,
+  DeleteRumMetricsDestinationRequestFilterSensitiveLog,
+  DeleteRumMetricsDestinationResponse,
+  DeleteRumMetricsDestinationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UntagResourceCommand,
-  serializeAws_restJson1UntagResourceCommand,
+  deserializeAws_restJson1DeleteRumMetricsDestinationCommand,
+  serializeAws_restJson1DeleteRumMetricsDestinationCommand,
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
-export interface UntagResourceCommandInput extends UntagResourceRequest {}
-export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
+export interface DeleteRumMetricsDestinationCommandInput extends DeleteRumMetricsDestinationRequest {}
+export interface DeleteRumMetricsDestinationCommandOutput
+  extends DeleteRumMetricsDestinationResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from the specified resource.</p>
+ * <p>Deletes a destination for CloudWatch RUM extended metrics, so that the specified app monitor stops
+ *          sending extended metrics to that destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RUMClient, UntagResourceCommand } from "@aws-sdk/client-rum"; // ES Modules import
- * // const { RUMClient, UntagResourceCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * import { RUMClient, DeleteRumMetricsDestinationCommand } from "@aws-sdk/client-rum"; // ES Modules import
+ * // const { RUMClient, DeleteRumMetricsDestinationCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
- * const command = new UntagResourceCommand(input);
+ * const command = new DeleteRumMetricsDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UntagResourceCommandInput} for command's `input` shape.
- * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @see {@link DeleteRumMetricsDestinationCommandInput} for command's `input` shape.
+ * @see {@link DeleteRumMetricsDestinationCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
  *
  */
-export class UntagResourceCommand extends $Command<
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+export class DeleteRumMetricsDestinationCommand extends $Command<
+  DeleteRumMetricsDestinationCommandInput,
+  DeleteRumMetricsDestinationCommandOutput,
   RUMClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +65,7 @@ export class UntagResourceCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UntagResourceCommandInput) {
+  constructor(readonly input: DeleteRumMetricsDestinationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,21 +78,23 @@ export class UntagResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RUMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
+  ): Handler<DeleteRumMetricsDestinationCommandInput, DeleteRumMetricsDestinationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UntagResourceCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteRumMetricsDestinationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RUMClient";
-    const commandName = "UntagResourceCommand";
+    const commandName = "DeleteRumMetricsDestinationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UntagResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRumMetricsDestinationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRumMetricsDestinationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +104,15 @@ export class UntagResourceCommand extends $Command<
     );
   }
 
-  private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UntagResourceCommand(input, context);
+  private serialize(input: DeleteRumMetricsDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeleteRumMetricsDestinationCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
-    return deserializeAws_restJson1UntagResourceCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeleteRumMetricsDestinationCommandOutput> {
+    return deserializeAws_restJson1DeleteRumMetricsDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

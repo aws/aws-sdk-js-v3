@@ -14,40 +14,42 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  UntagResourceRequest,
-  UntagResourceRequestFilterSensitiveLog,
-  UntagResourceResponse,
-  UntagResourceResponseFilterSensitiveLog,
+  BatchGetRumMetricDefinitionsRequest,
+  BatchGetRumMetricDefinitionsRequestFilterSensitiveLog,
+  BatchGetRumMetricDefinitionsResponse,
+  BatchGetRumMetricDefinitionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UntagResourceCommand,
-  serializeAws_restJson1UntagResourceCommand,
+  deserializeAws_restJson1BatchGetRumMetricDefinitionsCommand,
+  serializeAws_restJson1BatchGetRumMetricDefinitionsCommand,
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
-export interface UntagResourceCommandInput extends UntagResourceRequest {}
-export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
+export interface BatchGetRumMetricDefinitionsCommandInput extends BatchGetRumMetricDefinitionsRequest {}
+export interface BatchGetRumMetricDefinitionsCommandOutput
+  extends BatchGetRumMetricDefinitionsResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from the specified resource.</p>
+ * <p>Retrieves the list of metrics and dimensions that a RUM app monitor is sending to a single destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RUMClient, UntagResourceCommand } from "@aws-sdk/client-rum"; // ES Modules import
- * // const { RUMClient, UntagResourceCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * import { RUMClient, BatchGetRumMetricDefinitionsCommand } from "@aws-sdk/client-rum"; // ES Modules import
+ * // const { RUMClient, BatchGetRumMetricDefinitionsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
- * const command = new UntagResourceCommand(input);
+ * const command = new BatchGetRumMetricDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UntagResourceCommandInput} for command's `input` shape.
- * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @see {@link BatchGetRumMetricDefinitionsCommandInput} for command's `input` shape.
+ * @see {@link BatchGetRumMetricDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
  *
  */
-export class UntagResourceCommand extends $Command<
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+export class BatchGetRumMetricDefinitionsCommand extends $Command<
+  BatchGetRumMetricDefinitionsCommandInput,
+  BatchGetRumMetricDefinitionsCommandOutput,
   RUMClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +64,7 @@ export class UntagResourceCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UntagResourceCommandInput) {
+  constructor(readonly input: BatchGetRumMetricDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,21 +77,23 @@ export class UntagResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RUMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
+  ): Handler<BatchGetRumMetricDefinitionsCommandInput, BatchGetRumMetricDefinitionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UntagResourceCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchGetRumMetricDefinitionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RUMClient";
-    const commandName = "UntagResourceCommand";
+    const commandName = "BatchGetRumMetricDefinitionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UntagResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetRumMetricDefinitionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetRumMetricDefinitionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +103,15 @@ export class UntagResourceCommand extends $Command<
     );
   }
 
-  private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UntagResourceCommand(input, context);
+  private serialize(input: BatchGetRumMetricDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1BatchGetRumMetricDefinitionsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
-    return deserializeAws_restJson1UntagResourceCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<BatchGetRumMetricDefinitionsCommandOutput> {
+    return deserializeAws_restJson1BatchGetRumMetricDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra
