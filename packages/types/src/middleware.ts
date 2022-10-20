@@ -1,3 +1,4 @@
+import { AuthScheme } from "./auth";
 import { EndpointV2 } from "./endpoint";
 import { Logger } from "./logger";
 import { UserAgent } from "./util";
@@ -400,6 +401,11 @@ export interface HandlerExecutionContext {
    * in the serialization stage.
    */
   endpointV2?: EndpointV2;
+
+  /**
+   * Set at the same time as endpointV2.
+   */
+  authSchemes?: AuthScheme[];
 
   [key: string]: any;
 }
