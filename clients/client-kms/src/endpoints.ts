@@ -232,6 +232,7 @@ const regionHash: RegionHash = {
 const partitionHash: PartitionHash = {
   aws: {
     regions: [
+      "ProdFips",
       "af-south-1",
       "af-south-1-fips",
       "ap-east-1",
@@ -254,6 +255,7 @@ const partitionHash: PartitionHash = {
       "ca-central-1-fips",
       "eu-central-1",
       "eu-central-1-fips",
+      "eu-central-2-fips",
       "eu-north-1",
       "eu-north-1-fips",
       "eu-south-1",
