@@ -24,8 +24,9 @@ export const awsAuthMiddleware =
 
       // TODO(identityandauth): call authScheme resolver
       const authScheme: AuthScheme | undefined = context.endpointV2?.properties?.authSchemes?.[0];
+
       const multiRegionOverride: string | undefined =
-        authScheme?.name === "sigv4a" ? authScheme?.signingRegionSet?.[0] : undefined;
+        authScheme?.name === "sigv4a" ? authScheme?.signingRegionSet?.join(",") : undefined;
 
       const signer = await options.signer(authScheme);
 
