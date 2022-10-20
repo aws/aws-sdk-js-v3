@@ -24,6 +24,7 @@ import {
   AddCustomRoutingEndpointsCommandInput,
   AddCustomRoutingEndpointsCommandOutput,
 } from "../commands/AddCustomRoutingEndpointsCommand";
+import { AddEndpointsCommandInput, AddEndpointsCommandOutput } from "../commands/AddEndpointsCommand";
 import { AdvertiseByoipCidrCommandInput, AdvertiseByoipCidrCommandOutput } from "../commands/AdvertiseByoipCidrCommand";
 import {
   AllowCustomRoutingTrafficCommandInput,
@@ -135,6 +136,7 @@ import {
   RemoveCustomRoutingEndpointsCommandInput,
   RemoveCustomRoutingEndpointsCommandOutput,
 } from "../commands/RemoveCustomRoutingEndpointsCommand";
+import { RemoveEndpointsCommandInput, RemoveEndpointsCommandOutput } from "../commands/RemoveEndpointsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -170,6 +172,8 @@ import {
   AccessDeniedException,
   AddCustomRoutingEndpointsRequest,
   AddCustomRoutingEndpointsResponse,
+  AddEndpointsRequest,
+  AddEndpointsResponse,
   AdvertiseByoipCidrRequest,
   AdvertiseByoipCidrResponse,
   AllowCustomRoutingTrafficRequest,
@@ -233,6 +237,7 @@ import {
   EndpointGroup,
   EndpointGroupAlreadyExistsException,
   EndpointGroupNotFoundException,
+  EndpointIdentifier,
   EndpointNotFoundException,
   IncorrectCidrStateException,
   InternalServiceErrorException,
@@ -270,10 +275,12 @@ import {
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResponse,
   RemoveCustomRoutingEndpointsRequest,
+  RemoveEndpointsRequest,
   SocketAddress,
   Tag,
   TagResourceRequest,
   TagResourceResponse,
+  TransactionInProgressException,
   UntagResourceRequest,
   UntagResourceResponse,
   UpdateAcceleratorAttributesRequest,
@@ -304,6 +311,19 @@ export const serializeAws_json1_1AddCustomRoutingEndpointsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AddCustomRoutingEndpointsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1AddEndpointsCommand = async (
+  input: AddEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GlobalAccelerator_V20180706.AddEndpoints",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AddEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -775,6 +795,19 @@ export const serializeAws_json1_1RemoveCustomRoutingEndpointsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1RemoveEndpointsCommand = async (
+  input: RemoveEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GlobalAccelerator_V20180706.RemoveEndpoints",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RemoveEndpointsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
@@ -953,6 +986,62 @@ const deserializeAws_json1_1AddCustomRoutingEndpointsCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.globalaccelerator#LimitExceededException":
       throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1AddEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AddEndpointsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AddEndpointsResponse(data, context);
+  const response: AddEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AddEndpointsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddEndpointsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "EndpointGroupNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
+      throw await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "TransactionInProgressException":
+    case "com.amazonaws.globalaccelerator#TransactionInProgressException":
+      throw await deserializeAws_json1_1TransactionInProgressExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2740,6 +2829,56 @@ const deserializeAws_json1_1RemoveCustomRoutingEndpointsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1RemoveEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RemoveEndpointsCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemoveEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RemoveEndpointsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveEndpointsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "EndpointGroupNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
+      throw await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+    case "TransactionInProgressException":
+    case "com.amazonaws.globalaccelerator#TransactionInProgressException":
+      throw await deserializeAws_json1_1TransactionInProgressExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3477,6 +3616,19 @@ const deserializeAws_json1_1ListenerNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1TransactionInProgressExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TransactionInProgressException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1TransactionInProgressException(body, context);
+  const exception = new TransactionInProgressException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const serializeAws_json1_1AddCustomRoutingEndpointsRequest = (
   input: AddCustomRoutingEndpointsRequest,
   context: __SerdeContext
@@ -3487,6 +3639,15 @@ const serializeAws_json1_1AddCustomRoutingEndpointsRequest = (
         input.EndpointConfigurations,
         context
       ),
+    }),
+    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
+  };
+};
+
+const serializeAws_json1_1AddEndpointsRequest = (input: AddEndpointsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.EndpointConfigurations != null && {
+      EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context),
     }),
     ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
   };
@@ -3852,6 +4013,23 @@ const serializeAws_json1_1EndpointConfigurations = (input: EndpointConfiguration
     });
 };
 
+const serializeAws_json1_1EndpointIdentifier = (input: EndpointIdentifier, context: __SerdeContext): any => {
+  return {
+    ...(input.ClientIPPreservationEnabled != null && {
+      ClientIPPreservationEnabled: input.ClientIPPreservationEnabled,
+    }),
+    ...(input.EndpointId != null && { EndpointId: input.EndpointId }),
+  };
+};
+
+const serializeAws_json1_1EndpointIdentifiers = (input: EndpointIdentifier[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1EndpointIdentifier(entry, context);
+    });
+};
+
 const serializeAws_json1_1EndpointIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -4015,6 +4193,15 @@ const serializeAws_json1_1RemoveCustomRoutingEndpointsRequest = (
   return {
     ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
     ...(input.EndpointIds != null && { EndpointIds: serializeAws_json1_1EndpointIds(input.EndpointIds, context) }),
+  };
+};
+
+const serializeAws_json1_1RemoveEndpointsRequest = (input: RemoveEndpointsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointIdentifiers != null && {
+      EndpointIdentifiers: serializeAws_json1_1EndpointIdentifiers(input.EndpointIdentifiers, context),
+    }),
   };
 };
 
@@ -4248,6 +4435,16 @@ const deserializeAws_json1_1AddCustomRoutingEndpointsResponse = (
     EndpointDescriptions:
       output.EndpointDescriptions != null
         ? deserializeAws_json1_1CustomRoutingEndpointDescriptions(output.EndpointDescriptions, context)
+        : undefined,
+    EndpointGroupArn: __expectString(output.EndpointGroupArn),
+  } as any;
+};
+
+const deserializeAws_json1_1AddEndpointsResponse = (output: any, context: __SerdeContext): AddEndpointsResponse => {
+  return {
+    EndpointDescriptions:
+      output.EndpointDescriptions != null
+        ? deserializeAws_json1_1EndpointDescriptions(output.EndpointDescriptions, context)
         : undefined,
     EndpointGroupArn: __expectString(output.EndpointGroupArn),
   } as any;
@@ -5129,6 +5326,15 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[]
       return deserializeAws_json1_1Tag(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1TransactionInProgressException = (
+  output: any,
+  context: __SerdeContext
+): TransactionInProgressException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {

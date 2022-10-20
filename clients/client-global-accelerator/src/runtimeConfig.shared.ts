@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { GlobalAcceleratorClientConfig } from "./GlobalAcceleratorClient";
 
 /**
@@ -11,8 +11,8 @@ import { GlobalAcceleratorClientConfig } from "./GlobalAcceleratorClient";
 export const getRuntimeConfig = (config: GlobalAcceleratorClientConfig) => ({
   apiVersion: "2018-08-08",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "Global Accelerator",
   urlParser: config?.urlParser ?? parseUrl,
 });

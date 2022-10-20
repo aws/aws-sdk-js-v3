@@ -54,7 +54,10 @@ export interface IpSet {
   IpAddressFamily?: IpAddressFamily | string;
 }
 
-export type AcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
+export enum AcceleratorStatus {
+  DEPLOYED = "DEPLOYED",
+  IN_PROGRESS = "IN_PROGRESS",
+}
 
 /**
  * <p>An accelerator is a complex type that includes one or more listeners that process inbound connections and then direct
@@ -93,10 +96,10 @@ export interface Accelerator {
    * 		       <p>The naming convention for the DNS name for an accelerator is the following: A lowercase letter a,
    * 			followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example:
    * 			a1234567890abcdef.awsglobalaccelerator.com.</p>
-   *          <p>If you have a dual-stack accelerator, you also have a second DNS name, DualStackDnsName, that points to both the A record and the AAAA record for all four
-   * 			static addresses for the accelerator (two IPv4 addresses and two IPv6 addresses).</p>
+   *          <p>If you have a dual-stack accelerator, you also have a second DNS name, <code>DualStackDnsName</code>, that points to both
+   *  			the A record and the AAAA record for all four static addresses for the accelerator: two IPv4 addresses and two IPv6 addresses.</p>
    * 		       <p>For more information about the default DNS name, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html">
-   * 			Support for DNS Addressing in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+   * 			Support for DNS addressing in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   DnsName?: string;
 
@@ -121,9 +124,9 @@ export interface Accelerator {
    * 		       <p>The naming convention for the dual-stack DNS name is the following: A lowercase letter a,
    * 			followed by a 16-bit random hex string, followed by .dualstack.awsglobalaccelerator.com. For example:
    * 			a1234567890abcdef.dualstack.awsglobalaccelerator.com.</p>
-   * 		       <p>Note: Global Accelerator also assigns a default DNS name, DnsName, to your accelerator that points just to the static IPv4 addresses. </p>
+   * 		       <p>Note: Global Accelerator also assigns a default DNS name, <code>DnsName</code>, to your accelerator that points just to the static IPv4 addresses. </p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
-   * 			Support for DNS Addressing in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+   * 			Support for DNS addressing in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   DualStackDnsName?: string;
 
@@ -393,6 +396,142 @@ export class LimitExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>A complex type for endpoints. A resource must be valid and active when you add it as an endpoint.</p>
+ */
+export interface EndpointConfiguration {
+  /**
+   * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
+   * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
+   * 			allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. A resource must be valid and active
+   * 			when you add it as an endpoint.</p>
+   * 		       <p>An Application Load Balancer can be either internal or internet-facing.</p>
+   */
+  EndpointId?: string;
+
+  /**
+   * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure Global Accelerator to route traffic
+   * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
+   * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
+   * 			and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint weights</a> in the
+   * 	        <i>Global Accelerator Developer Guide</i>.</p>
+   */
+  Weight?: number;
+
+  /**
+   * <p>Indicates whether client IP address preservation is enabled for an endpoint.
+   * 			The value is true or false. The default value is true for new accelerators. </p>
+   * 		       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
+   * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
+   *
+   *
+   * 		       <p>Client IP address preservation is supported, in specific Amazon Web Services Regions, for endpoints that are Application Load
+   * 			Balancers and Amazon EC2 instances.</p>
+   *
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html">
+   * 			Preserve client IP addresses in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+   */
+  ClientIPPreservationEnabled?: boolean;
+}
+
+export interface AddEndpointsRequest {
+  /**
+   * <p>The list of endpoint objects.</p>
+   */
+  EndpointConfigurations: EndpointConfiguration[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
+   */
+  EndpointGroupArn: string | undefined;
+}
+
+export enum HealthState {
+  HEALTHY = "HEALTHY",
+  INITIAL = "INITIAL",
+  UNHEALTHY = "UNHEALTHY",
+}
+
+/**
+ * <p>A complex type for an endpoint. Each endpoint group can include one or more endpoints, such as load
+ * 			balancers.</p>
+ */
+export interface EndpointDescription {
+  /**
+   * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
+   * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
+   * 			allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. </p>
+   * 		       <p>An Application Load Balancer can be either internal or internet-facing.</p>
+   */
+  EndpointId?: string;
+
+  /**
+   * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure Global Accelerator to route traffic
+   * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
+   * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
+   * 			and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint weights</a> in the
+   * 	        <i>Global Accelerator Developer Guide</i>. </p>
+   */
+  Weight?: number;
+
+  /**
+   * <p>The health status of the endpoint.</p>
+   */
+  HealthState?: HealthState | string;
+
+  /**
+   * <p>Returns a null result.</p>
+   */
+  HealthReason?: string;
+
+  /**
+   * <p>Indicates whether client IP address preservation is enabled for an endpoint.
+   * 			The value is true or false. The default value is true for new accelerators. </p>
+   * 		       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
+   * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
+   *
+   * 		       <p>Client IP address preservation is supported, in specific Amazon Web Services Regions, for endpoints that are Application Load
+   * 			Balancers and Amazon EC2 instances.</p>
+   *
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html">
+   * 			Preserve client IP addresses in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+   */
+  ClientIPPreservationEnabled?: boolean;
+}
+
+export interface AddEndpointsResponse {
+  /**
+   * <p>The list of endpoint objects.</p>
+   */
+  EndpointDescriptions?: EndpointDescription[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
+   */
+  EndpointGroupArn?: string;
+}
+
+/**
+ * <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+ */
+export class TransactionInProgressException extends __BaseException {
+  readonly name: "TransactionInProgressException" = "TransactionInProgressException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TransactionInProgressException, __BaseException>) {
+    super({
+      name: "TransactionInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TransactionInProgressException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -678,7 +817,10 @@ export interface CidrAuthorizationContext {
   Signature: string | undefined;
 }
 
-export type ClientAffinity = "NONE" | "SOURCE_IP";
+export enum ClientAffinity {
+  NONE = "NONE",
+  SOURCE_IP = "SOURCE_IP",
+}
 
 /**
  * <p>A complex type that contains a <code>Tag</code> key and <code>Tag</code> value.</p>
@@ -798,7 +940,10 @@ export interface CreateCustomRoutingAcceleratorRequest {
   Tags?: Tag[];
 }
 
-export type CustomRoutingAcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
+export enum CustomRoutingAcceleratorStatus {
+  DEPLOYED = "DEPLOYED",
+  IN_PROGRESS = "IN_PROGRESS",
+}
 
 /**
  * <p>Attributes of a custom routing accelerator.</p>
@@ -836,10 +981,11 @@ export interface CustomRoutingAccelerator {
    * 		       <p>The naming convention for the DNS name is the following: A lowercase letter a,
    * 			followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example:
    * 			a1234567890abcdef.awsglobalaccelerator.com.</p>
-   * 		       <p>If you have a dual-stack accelerator, you also have a second DNS name, DualStackDnsName, that points to both the A record and the AAAA record for all four
-   * 			static addresses for the accelerator (two IPv4 addresses and two IPv6 addresses).</p>
+   *
+   * 		       <p>If you have a dual-stack accelerator, you also have a second DNS name, <code>DualStackDnsName</code>, that points to both the A record
+   * 			and the AAAA record for all four static addresses for the accelerator: two IPv4 addresses and two IPv6 addresses.</p>
    * 		       <p>For more information about the default DNS name, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html">
-   * 			Support for DNS Addressing in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+   * 			Support for DNS addressing in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   DnsName?: string;
 
@@ -1100,42 +1246,6 @@ export interface CreateCustomRoutingListenerResponse {
   Listener?: CustomRoutingListener;
 }
 
-/**
- * <p>A complex type for endpoints. A resource must be valid and active when you add it as an endpoint.</p>
- */
-export interface EndpointConfiguration {
-  /**
-   * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
-   * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
-   * 			allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. A resource must be valid and active
-   * 			when you add it as an endpoint.</p>
-   * 		       <p>An Application Load Balancer can be either internal or internet-facing.</p>
-   */
-  EndpointId?: string;
-
-  /**
-   * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure Global Accelerator to route traffic
-   * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
-   * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
-   * 			and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint weights</a> in the
-   * 	        <i>Global Accelerator Developer Guide</i>.</p>
-   */
-  Weight?: number;
-
-  /**
-   * <p>Indicates whether client IP address preservation is enabled for an endpoint.
-   * 			The value is true or false. The default value is true for new accelerators. </p>
-   * 		       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
-   * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
-   *
-   * 		       <p>Client IP address preservation is supported, in specific Amazon Web Services Regions, for endpoints that are Application Load
-   * 			Balancers and Amazon EC2 instances.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html">
-   * 			Preserve client IP addresses in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
-   */
-  ClientIPPreservationEnabled?: boolean;
-}
-
 export enum HealthCheckProtocol {
   HTTP = "HTTP",
   HTTPS = "HTTPS",
@@ -1235,54 +1345,6 @@ export interface CreateEndpointGroupRequest {
    * 			Overriding listener ports</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   PortOverrides?: PortOverride[];
-}
-
-export type HealthState = "HEALTHY" | "INITIAL" | "UNHEALTHY";
-
-/**
- * <p>A complex type for an endpoint. Each endpoint group can include one or more endpoints, such as load
- * 			balancers.</p>
- */
-export interface EndpointDescription {
-  /**
-   * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
-   * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
-   * 			allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. </p>
-   * 		       <p>An Application Load Balancer can be either internal or internet-facing.</p>
-   */
-  EndpointId?: string;
-
-  /**
-   * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure Global Accelerator to route traffic
-   * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
-   * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
-   * 			and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint weights</a> in the
-   * 	        <i>Global Accelerator Developer Guide</i>. </p>
-   */
-  Weight?: number;
-
-  /**
-   * <p>The health status of the endpoint.</p>
-   */
-  HealthState?: HealthState | string;
-
-  /**
-   * <p>Returns a null result.</p>
-   */
-  HealthReason?: string;
-
-  /**
-   * <p>Indicates whether client IP address preservation is enabled for an endpoint.
-   * 			The value is true or false. The default value is true for new accelerators. </p>
-   * 		       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
-   * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
-   *
-   * 		       <p>Client IP address preservation is supported, in specific Amazon Web Services Regions, for endpoints that are Application Load
-   * 			Balancers and Amazon EC2 instances.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html">
-   * 			Preserve client IP addresses in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
-   */
-  ClientIPPreservationEnabled?: boolean;
 }
 
 /**
@@ -1747,6 +1809,26 @@ export interface DestinationPortMapping {
 }
 
 /**
+ * <p>A complex type for an endpoint. Specifies information about the endpoint to remove from the endpoint group.</p>
+ */
+export interface EndpointIdentifier {
+  /**
+   * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
+   * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
+   * 			allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. </p>
+   * 		       <p>An Application Load Balancer can be either internal or internet-facing.</p>
+   */
+  EndpointId: string | undefined;
+
+  /**
+   * <p>Indicates whether client IP address preservation is enabled for an endpoint. The value is true or false. </p>
+   * 		       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
+   * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
+   */
+  ClientIPPreservationEnabled?: boolean;
+}
+
+/**
  * <p>The endpoint that you specified doesn't exist.</p>
  */
 export class EndpointNotFoundException extends __BaseException {
@@ -2135,6 +2217,18 @@ export interface RemoveCustomRoutingEndpointsRequest {
   EndpointGroupArn: string | undefined;
 }
 
+export interface RemoveEndpointsRequest {
+  /**
+   * <p>The identifiers of the endpoints that you want to remove.</p>
+   */
+  EndpointIdentifiers: EndpointIdentifier[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
+   */
+  EndpointGroupArn: string | undefined;
+}
+
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Global Accelerator resource to add tags to. An ARN uniquely identifies a resource.</p>
@@ -2504,6 +2598,34 @@ export const AddCustomRoutingEndpointsResponseFilterSensitiveLog = (obj: AddCust
 /**
  * @internal
  */
+export const EndpointConfigurationFilterSensitiveLog = (obj: EndpointConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddEndpointsRequestFilterSensitiveLog = (obj: AddEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointDescriptionFilterSensitiveLog = (obj: EndpointDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddEndpointsResponseFilterSensitiveLog = (obj: AddEndpointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const AdvertiseByoipCidrRequestFilterSensitiveLog = (obj: AdvertiseByoipCidrRequest): any => ({
   ...obj,
 });
@@ -2665,13 +2787,6 @@ export const CreateCustomRoutingListenerResponseFilterSensitiveLog = (
 /**
  * @internal
  */
-export const EndpointConfigurationFilterSensitiveLog = (obj: EndpointConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PortOverrideFilterSensitiveLog = (obj: PortOverride): any => ({
   ...obj,
 });
@@ -2680,13 +2795,6 @@ export const PortOverrideFilterSensitiveLog = (obj: PortOverride): any => ({
  * @internal
  */
 export const CreateEndpointGroupRequestFilterSensitiveLog = (obj: CreateEndpointGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointDescriptionFilterSensitiveLog = (obj: EndpointDescription): any => ({
   ...obj,
 });
 
@@ -2948,6 +3056,13 @@ export const DestinationPortMappingFilterSensitiveLog = (obj: DestinationPortMap
 /**
  * @internal
  */
+export const EndpointIdentifierFilterSensitiveLog = (obj: EndpointIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListAcceleratorsRequestFilterSensitiveLog = (obj: ListAcceleratorsRequest): any => ({
   ...obj,
 });
@@ -3128,6 +3243,13 @@ export const ProvisionByoipCidrResponseFilterSensitiveLog = (obj: ProvisionByoip
 export const RemoveCustomRoutingEndpointsRequestFilterSensitiveLog = (
   obj: RemoveCustomRoutingEndpointsRequest
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveEndpointsRequestFilterSensitiveLog = (obj: RemoveEndpointsRequest): any => ({
   ...obj,
 });
 

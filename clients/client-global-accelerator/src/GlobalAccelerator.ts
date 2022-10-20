@@ -7,6 +7,11 @@ import {
   AddCustomRoutingEndpointsCommandOutput,
 } from "./commands/AddCustomRoutingEndpointsCommand";
 import {
+  AddEndpointsCommand,
+  AddEndpointsCommandInput,
+  AddEndpointsCommandOutput,
+} from "./commands/AddEndpointsCommand";
+import {
   AdvertiseByoipCidrCommand,
   AdvertiseByoipCidrCommandInput,
   AdvertiseByoipCidrCommandOutput,
@@ -186,6 +191,11 @@ import {
   RemoveCustomRoutingEndpointsCommandInput,
   RemoveCustomRoutingEndpointsCommandOutput,
 } from "./commands/RemoveCustomRoutingEndpointsCommand";
+import {
+  RemoveEndpointsCommand,
+  RemoveEndpointsCommandInput,
+  RemoveEndpointsCommandOutput,
+} from "./commands/RemoveEndpointsCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -322,6 +332,50 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
     cb?: (err: any, data?: AddCustomRoutingEndpointsCommandOutput) => void
   ): Promise<AddCustomRoutingEndpointsCommandOutput> | void {
     const command = new AddCustomRoutingEndpointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Add endpoints to an endpoint group. The <code>AddEndpoints</code> API operation is the recommended option for adding endpoints. The
+   * 			alternative options are to add endpoints when you create an endpoint group (with the
+   * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html">CreateEndpointGroup</a> API)
+   * 			or when you update an endpoint group (with the
+   * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html">UpdateEndpointGroup</a> API). </p>
+   * 		       <p>There are two advantages to using <code>AddEndpoints</code> to add endpoints:</p>
+   * 			      <ul>
+   *             <li>
+   *                <p>It's faster, because Global Accelerator only has to resolve the new endpoints that
+   * 					you're adding.</p>
+   *             </li>
+   *             <li>
+   *                <p>It's more convenient, because you don't need to specify all of the current
+   * 					endpoints that are already in the endpoint group in addition to the new endpoints that you want to add.</p>
+   *             </li>
+   *          </ul>
+   */
+  public addEndpoints(
+    args: AddEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddEndpointsCommandOutput>;
+  public addEndpoints(args: AddEndpointsCommandInput, cb: (err: any, data?: AddEndpointsCommandOutput) => void): void;
+  public addEndpoints(
+    args: AddEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddEndpointsCommandOutput) => void
+  ): void;
+  public addEndpoints(
+    args: AddEndpointsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddEndpointsCommandOutput) => void),
+    cb?: (err: any, data?: AddEndpointsCommandOutput) => void
+  ): Promise<AddEndpointsCommandOutput> | void {
+    const command = new AddEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1567,6 +1621,54 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
     cb?: (err: any, data?: RemoveCustomRoutingEndpointsCommandOutput) => void
   ): Promise<RemoveCustomRoutingEndpointsCommandOutput> | void {
     const command = new RemoveCustomRoutingEndpointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Remove endpoints from an endpoint group. </p>
+   * 		       <p>The <code>RemoveEndpoints</code> API operation is the recommended option for removing endpoints. The alternative is to remove
+   * 			endpoints by updating an endpoint group by using the
+   * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html">UpdateEndpointGroup</a>
+   * 			API operation. There are two advantages to using <code>AddEndpoints</code> to remove endpoints instead:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>It's more convenient, because you only need to specify the endpoints that you want to remove. With the
+   * 				<code>UpdateEndpointGroup</code> API operation, you must specify all of the endpoints in the
+   * 				endpoint group except the ones that you want to remove from the group.</p>
+   *             </li>
+   *             <li>
+   *                <p>It's faster, because Global Accelerator doesn't need to resolve any endpoints. With the
+   * 				<code>UpdateEndpointGroup</code> API operation, Global Accelerator must resolve all of the endpoints that
+   * 				remain in the group.</p>
+   *             </li>
+   *          </ul>
+   */
+  public removeEndpoints(
+    args: RemoveEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveEndpointsCommandOutput>;
+  public removeEndpoints(
+    args: RemoveEndpointsCommandInput,
+    cb: (err: any, data?: RemoveEndpointsCommandOutput) => void
+  ): void;
+  public removeEndpoints(
+    args: RemoveEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveEndpointsCommandOutput) => void
+  ): void;
+  public removeEndpoints(
+    args: RemoveEndpointsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveEndpointsCommandOutput) => void),
+    cb?: (err: any, data?: RemoveEndpointsCommandOutput) => void
+  ): Promise<RemoveEndpointsCommandOutput> | void {
+    const command = new RemoveEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
