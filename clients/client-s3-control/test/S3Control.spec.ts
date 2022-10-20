@@ -123,8 +123,10 @@ describe("S3Control Client", () => {
     it("should populate correct endpoint and signing region if Bucket name is ARN", async () => {
       const {
         // @ts-ignore request is set in $metadata by interception middleware.
-        $metadata: { request },
+        $metadata: { request, context },
       } = await s3Control.getBucket({ Bucket: bucketArn });
+
+      context.endpointV2DecisionLog.forEach((i) => console.log(i));
 
       expect(request.hostname).eql(`s3-outposts.${region}.amazonaws.com`);
       expect(request.headers[HEADER_OUTPOST_ID]).eql(OutpostId);

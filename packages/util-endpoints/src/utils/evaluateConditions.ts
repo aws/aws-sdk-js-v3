@@ -1,7 +1,9 @@
 import { ConditionObject, EvaluateOptions, FunctionReturn } from "../types";
 import { evaluateCondition } from "./evaluateCondition";
+import { toDebugString } from "./toDebugString";
 
 export const evaluateConditions = (conditions: ConditionObject[] = [], options: EvaluateOptions) => {
+  const {decisionLog} = options;
   const conditionsReferenceRecord: Record<string, FunctionReturn> = {};
 
   for (const condition of conditions) {
@@ -19,6 +21,7 @@ export const evaluateConditions = (conditions: ConditionObject[] = [], options: 
 
     if (toAssign) {
       conditionsReferenceRecord[toAssign.name] = toAssign.value;
+      decisionLog.push(`assign: ${toAssign.name} := ${toDebugString(toAssign.value)}`)
     }
   }
 
