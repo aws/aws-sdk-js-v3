@@ -1,4 +1,5 @@
 import { EndpointError } from "../types";
+import { toDebugString } from "../utils/toDebugString";
 import { getAttrPathList } from "./getAttrPathList";
 
 export type GetAttrValue = string | boolean | { [key: string]: GetAttrValue } | Array<GetAttrValue>;
@@ -9,7 +10,7 @@ export type GetAttrValue = string | boolean | { [key: string]: GetAttrValue } | 
 export const getAttr = (value: GetAttrValue, path: string): GetAttrValue =>
   getAttrPathList(path).reduce((acc, index) => {
     if (typeof acc !== "object") {
-      throw new EndpointError(`Index '${index}' in '${path}' not found in '${JSON.stringify(value)}'`);
+      throw new EndpointError(`Index '${index}' in '${path}' not found in '${toDebugString(value)}'`);
     } else if (Array.isArray(acc)) {
       return acc[parseInt(index)];
     }

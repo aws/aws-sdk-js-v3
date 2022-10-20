@@ -2,13 +2,16 @@ import { EndpointV2 } from "@aws-sdk/types";
 
 import { EndpointError, EndpointResolverOptions, RuleSetObject } from "./types";
 import { evaluateRules } from "./utils";
+import { toDebugString } from "./utils/toDebugString";
 
 /**
  * Resolves an endpoint URL by processing the endpoints ruleset and options.
  */
 export const resolveEndpoint = (ruleSetObject: RuleSetObject, options: EndpointResolverOptions): EndpointV2 => {
-  const { endpointParams, logger } = options;
+  const { endpointParams, logger, decisionLog = [] } = options;
   const { parameters, rules } = ruleSetObject;
+
+  decisionLog.push(`Initial EndpointParams: ${toDebugString(endpointParams)}`);
 
   // @ts-ignore Type 'undefined' is not assignable to type 'string | boolean' (2322)
   const paramsWithDefault: [string, string | boolean][] = Object.entries(parameters)
@@ -31,7 +34,7 @@ export const resolveEndpoint = (ruleSetObject: RuleSetObject, options: EndpointR
     }
   }
 
-  const endpoint = evaluateRules(rules, { endpointParams, logger, referenceRecord: {} });
+  const endpoint = evaluateRules(rules, { endpointParams, logger, decisionLog, referenceRecord: {} });
 
   if (options.endpointParams?.Endpoint) {
     // take protocol and port from custom Endpoint if present.
@@ -40,10 +43,12 @@ export const resolveEndpoint = (ruleSetObject: RuleSetObject, options: EndpointR
       const { protocol, port } = givenEndpoint;
       endpoint.url.protocol = protocol;
       endpoint.url.port = port;
+      decisionLog.push(`Set protocol/port from custom endpoint.`);
     } catch (e) {
       // ignored
     }
   }
 
+  decisionLog.push(`Resolved endpoint: ${toDebugString(endpoint)}`);
   return endpoint;
 };

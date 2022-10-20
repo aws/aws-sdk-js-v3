@@ -5,14 +5,17 @@ import { evaluateConditions } from "./evaluateConditions";
 import { getEndpointHeaders } from "./getEndpointHeaders";
 import { getEndpointProperties } from "./getEndpointProperties";
 import { getEndpointUrl } from "./getEndpointUrl";
+import { toDebugString } from "./toDebugString";
 
 export const evaluateEndpointRule = (
   endpointRule: EndpointRuleObject,
   options: EvaluateOptions
 ): EndpointV2 | undefined => {
   const { conditions, endpoint } = endpointRule;
+  const { decisionLog } = options;
 
   const { result, referenceRecord } = evaluateConditions(conditions, options);
+
   if (!result) {
     return;
   }
@@ -23,6 +26,9 @@ export const evaluateEndpointRule = (
   };
 
   const { url, properties, headers } = endpoint;
+
+  decisionLog.push(`Resolving endpoint from template: ${toDebugString(endpoint)}`);
+
   return {
     ...(headers != undefined && {
       headers: getEndpointHeaders(headers, endpointRuleOptions),

@@ -14,9 +14,11 @@ export type EndpointParams = Record<string, string | boolean>;
 export type EndpointResolverOptions = {
   endpointParams: EndpointParams;
   logger?: Logger;
+  decisionLog?: string[]
 };
 
 export type ReferenceRecord = Record<string, FunctionReturn>;
 export type EvaluateOptions = EndpointResolverOptions & {
   referenceRecord: ReferenceRecord;
+  decisionLog: string[]
 };
