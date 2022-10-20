@@ -125,6 +125,7 @@ describe("S3Control Client", () => {
         // @ts-ignore request is set in $metadata by interception middleware.
         $metadata: { request },
       } = await s3Control.getBucket({ Bucket: bucketArn });
+
       expect(request.hostname).eql(`s3-outposts.${region}.amazonaws.com`);
       expect(request.headers[HEADER_OUTPOST_ID]).eql(OutpostId);
       expect(request.headers[HEADER_ACCOUNT_ID]).eql(AccountId);
