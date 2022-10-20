@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -44,24 +44,6 @@
     },
     "com.amazonaws.route53#AWSDnsV20130401": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "Route 53",
-          "arnNamespace": "route53",
-          "cloudFormationName": "Route53",
-          "cloudTrailEventSource": "route53.amazonaws.com",
-          "endpointPrefix": "route53"
-        },
-        "aws.auth#sigv4": {
-          "name": "route53"
-        },
-        "aws.protocols#restXml": {},
-        "smithy.api#documentation": "<p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web\n\t\t\tservice.</p>",
-        "smithy.api#title": "Amazon Route 53",
-        "smithy.api#xmlNamespace": {
-          "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
-        }
-      },
       "version": "2013-04-01",
       "operations": [
         {
@@ -274,7 +256,1615 @@
         {
           "target": "com.amazonaws.route53#UpdateTrafficPolicyInstance"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Route 53",
+          "arnNamespace": "route53",
+          "cloudFormationName": "Route53",
+          "cloudTrailEventSource": "route53.amazonaws.com",
+          "endpointPrefix": "route53"
+        },
+        "aws.auth#sigv4": {
+          "name": "route53"
+        },
+        "aws.protocols#restXml": {},
+        "smithy.api#documentation": "<p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web\n\t\t\tservice.</p>",
+        "smithy.api#title": "Amazon Route 53",
+        "smithy.api#xmlNamespace": {
+          "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "stringEquals",
+                      "argv": [
+                        {
+                          "fn": "getAttr",
+                          "argv": [
+                            {
+                              "ref": "PartitionResult"
+                            },
+                            "name"
+                          ]
+                        },
+                        "aws"
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route-53-fips.{Region}.api.aws",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "route53",
+                                      "signingRegion": "us-east-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route53-fips.amazonaws.com",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "route53",
+                                      "signingRegion": "us-east-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route-53.{Region}.api.aws",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "route53",
+                                      "signingRegion": "us-east-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://route53.amazonaws.com",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "route53",
+                              "signingRegion": "us-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "stringEquals",
+                      "argv": [
+                        {
+                          "fn": "getAttr",
+                          "argv": [
+                            {
+                              "ref": "PartitionResult"
+                            },
+                            "name"
+                          ]
+                        },
+                        "aws-cn"
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route-53-fips.{Region}.api.amazonwebservices.com.cn",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "route53",
+                                      "signingRegion": "cn-northwest-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route-53-fips.{Region}.amazonaws.com.cn",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "route53",
+                                      "signingRegion": "cn-northwest-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route-53.{Region}.api.amazonwebservices.com.cn",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "route53",
+                                      "signingRegion": "cn-northwest-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://route53.amazonaws.com.cn",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "route53",
+                              "signingRegion": "cn-northwest-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "stringEquals",
+                      "argv": [
+                        {
+                          "fn": "getAttr",
+                          "argv": [
+                            {
+                              "ref": "PartitionResult"
+                            },
+                            "name"
+                          ]
+                        },
+                        "aws-us-gov"
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route-53-fips.{Region}.api.aws",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "route53",
+                                      "signingRegion": "us-gov-west-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route53.us-gov.amazonaws.com",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "route53",
+                                      "signingRegion": "us-gov-west-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route-53.{Region}.api.aws",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "route53",
+                                      "signingRegion": "us-gov-west-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://route53.us-gov.amazonaws.com",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "route53",
+                              "signingRegion": "us-gov-west-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "stringEquals",
+                      "argv": [
+                        {
+                          "fn": "getAttr",
+                          "argv": [
+                            {
+                              "ref": "PartitionResult"
+                            },
+                            "name"
+                          ]
+                        },
+                        "aws-iso"
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route-53-fips.{Region}.c2s.ic.gov",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "route53",
+                                      "signingRegion": "us-iso-east-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://route53.c2s.ic.gov",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "route53",
+                              "signingRegion": "us-iso-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "stringEquals",
+                      "argv": [
+                        {
+                          "fn": "getAttr",
+                          "argv": [
+                            {
+                              "ref": "PartitionResult"
+                            },
+                            "name"
+                          ]
+                        },
+                        "aws-iso-b"
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route-53-fips.{Region}.sc2s.sgov.gov",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "route53",
+                                      "signingRegion": "us-isob-east-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://route53.sc2s.sgov.gov",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "route53",
+                              "signingRegion": "us-isob-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://route53-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    {
+                                      "ref": "Region"
+                                    },
+                                    "aws-global"
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://route53-fips.amazonaws.com",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "route53",
+                                      "signingRegion": "us-east-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    {
+                                      "ref": "Region"
+                                    },
+                                    "aws-us-gov-global"
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://route53.us-gov.amazonaws.com",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "route53",
+                                      "signingRegion": "us-gov-west-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route53-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://route53.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "aws-global"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://route53.amazonaws.com",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "route53",
+                              "signingRegion": "us-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "aws-cn-global"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://route53.amazonaws.com.cn",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "route53",
+                              "signingRegion": "cn-northwest-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "aws-us-gov-global"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://route53.us-gov.amazonaws.com",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "route53",
+                              "signingRegion": "us-gov-west-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "aws-iso-global"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://route53.c2s.ic.gov",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "route53",
+                              "signingRegion": "us-iso-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "aws-iso-b-global"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://route53.sc2s.sgov.gov",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "route53",
+                              "signingRegion": "us-isob-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://route53.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region aws-cn-global with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "route53",
+                        "signingRegion": "cn-northwest-1"
+                      }
+                    ]
+                  },
+                  "url": "https://route53.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "aws-cn-global",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region aws-global with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "route53",
+                        "signingRegion": "us-east-1"
+                      }
+                    ]
+                  },
+                  "url": "https://route53.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "aws-global",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region aws-iso-global with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "route53",
+                        "signingRegion": "us-iso-east-1"
+                      }
+                    ]
+                  },
+                  "url": "https://route53.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "aws-iso-global",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region aws-iso-b-global with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "route53",
+                        "signingRegion": "us-isob-east-1"
+                      }
+                    ]
+                  },
+                  "url": "https://route53.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "aws-iso-b-global",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region aws-us-gov-global with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "route53",
+                        "signingRegion": "us-gov-west-1"
+                      }
+                    ]
+                  },
+                  "url": "https://route53.us-gov.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "aws-us-gov-global",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.route53#AccountLimit": {
       "type": "structure",
@@ -289,6 +1879,7 @@
         "Value": {
           "target": "com.amazonaws.route53#LimitValue",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The current value for the limit that is specified by <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_AccountLimit.html#Route53-Type-AccountLimit-Type\">Type</a>.</p>",
             "smithy.api#required": {}
           }
@@ -426,7 +2017,10 @@
       }
     },
     "com.amazonaws.route53#AliasHealthEnabled": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.route53#AliasTarget": {
       "type": "structure",
@@ -448,6 +2042,7 @@
         "EvaluateTargetHealth": {
           "target": "com.amazonaws.route53#AliasHealthEnabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>\n            <i>Applies only to alias, failover alias, geolocation alias, latency alias, and\n\t\t\t\tweighted alias resource record sets:</i> When\n\t\t\t\t<code>EvaluateTargetHealth</code> is <code>true</code>, an alias resource record set\n\t\t\tinherits the health of the referenced Amazon Web Services resource, such as an ELB load\n\t\t\tbalancer or another resource record set in the hosted zone.</p>\n\t\t       <p>Note the following:</p>\n\t\t       <dl>\n            <dt>CloudFront distributions</dt>\n            <dd>\n\t\t\t\t\t          <p>You can't set <code>EvaluateTargetHealth</code> to <code>true</code> when\n\t\t\t\t\t\tthe alias target is a CloudFront distribution.</p>\n\t\t\t\t        </dd>\n            <dt>Elastic Beanstalk environments that have regionalized subdomains</dt>\n            <dd>\n\t\t\t\t\t          <p>If you specify an Elastic Beanstalk environment in <code>DNSName</code>\n\t\t\t\t\t\tand the environment contains an ELB load balancer, Elastic Load Balancing\n\t\t\t\t\t\troutes queries only to the healthy Amazon EC2 instances that are registered\n\t\t\t\t\t\twith the load balancer. (An environment automatically contains an ELB load\n\t\t\t\t\t\tbalancer if it includes more than one Amazon EC2 instance.) If you set\n\t\t\t\t\t\t\t<code>EvaluateTargetHealth</code> to <code>true</code> and either no\n\t\t\t\t\t\tAmazon EC2 instances are healthy or the load balancer itself is unhealthy,\n\t\t\t\t\t\tRoute 53 routes queries to other available resources that are healthy, if\n\t\t\t\t\t\tany. </p>\n\t\t\t\t\t          <p>If the environment contains a single Amazon EC2 instance, there are no\n\t\t\t\t\t\tspecial requirements.</p>\n\t\t\t\t        </dd>\n            <dt>ELB load balancers</dt>\n            <dd>\n\t\t\t\t\t          <p>Health checking behavior depends on the type of load balancer:</p>\n\t\t\t\t\t          <ul>\n                  <li>\n\t\t\t\t\t\t\t              <p>\n                        <b>Classic Load Balancers</b>: If you\n\t\t\t\t\t\t\t\tspecify an ELB Classic Load Balancer in <code>DNSName</code>,\n\t\t\t\t\t\t\t\tElastic Load Balancing routes queries only to the healthy Amazon EC2\n\t\t\t\t\t\t\t\tinstances that are registered with the load balancer. If you set\n\t\t\t\t\t\t\t\t\t<code>EvaluateTargetHealth</code> to <code>true</code> and\n\t\t\t\t\t\t\t\teither no EC2 instances are healthy or the load balancer itself is\n\t\t\t\t\t\t\t\tunhealthy, Route 53 routes queries to other resources.</p>\n\t\t\t\t\t\t            </li>\n                  <li>\n\t\t\t\t\t\t\t              <p>\n                        <b>Application and Network Load\n\t\t\t\t\t\t\t\t\tBalancers</b>: If you specify an ELB Application or\n\t\t\t\t\t\t\t\tNetwork Load Balancer and you set <code>EvaluateTargetHealth</code>\n\t\t\t\t\t\t\t\tto <code>true</code>, Route 53 routes queries to the load balancer\n\t\t\t\t\t\t\t\tbased on the health of the target groups that are associated with\n\t\t\t\t\t\t\t\tthe load balancer:</p>\n\t\t\t\t\t\t\t              <ul>\n                        <li>\n\t\t\t\t\t\t\t\t\t                  <p>For an Application or Network Load Balancer to be\n\t\t\t\t\t\t\t\t\t\tconsidered healthy, every target group that contains targets\n\t\t\t\t\t\t\t\t\t\tmust contain at least one healthy target. If any target\n\t\t\t\t\t\t\t\t\t\tgroup contains only unhealthy targets, the load balancer is\n\t\t\t\t\t\t\t\t\t\tconsidered unhealthy, and Route 53 routes queries to other\n\t\t\t\t\t\t\t\t\t\tresources.</p>\n\t\t\t\t\t\t\t\t                </li>\n                        <li>\n\t\t\t\t\t\t\t\t\t                  <p>A target group that has no registered targets is\n\t\t\t\t\t\t\t\t\t\tconsidered unhealthy.</p>\n\t\t\t\t\t\t\t\t                </li>\n                     </ul>\n\t\t\t\t\t\t            </li>\n               </ul>\n\t\t\t\t\t          <note>\n\t\t\t\t\t\t            <p>When you create a load balancer, you configure settings for Elastic\n\t\t\t\t\t\t\tLoad Balancing health checks; they're not Route 53 health checks, but\n\t\t\t\t\t\t\tthey perform a similar function. Do not create Route 53 health checks\n\t\t\t\t\t\t\tfor the EC2 instances that you register with an ELB load balancer.\n\t\t\t\t\t\t</p>\n\t\t\t\t\t          </note>\n\t\t\t\t        </dd>\n            <dt>S3 buckets</dt>\n            <dd>\n\t\t\t\t\t          <p>There are no special requirements for setting\n\t\t\t\t\t\t\t<code>EvaluateTargetHealth</code> to <code>true</code> when the alias\n\t\t\t\t\t\ttarget is an S3 bucket.</p>\n\t\t\t\t        </dd>\n            <dt>Other records in the same hosted zone</dt>\n            <dd>\n\t\t\t\t\t          <p>If the Amazon Web Services resource that you specify in\n\t\t\t\t\t\t\t<code>DNSName</code> is a record or a group of records (for example, a\n\t\t\t\t\t\tgroup of weighted records) but is not another alias record, we recommend\n\t\t\t\t\t\tthat you associate a health check with all of the records in the alias\n\t\t\t\t\t\ttarget. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html#dns-failover-complex-configs-hc-omitting\">What Happens When You Omit Health Checks?</a> in the\n\t\t\t\t\t\t\t<i>Amazon Route 53 Developer Guide</i>.</p>\n\t\t\t\t        </dd>\n         </dl>\n\t\t       <p>For more information and examples, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html\">Amazon Route 53 Health Checks\n\t\t\t\tand DNS Failover</a> in the <i>Amazon Route 53 Developer\n\t\t\tGuide</i>.</p>",
             "smithy.api#required": {}
           }
@@ -1417,7 +3012,6 @@
     "com.amazonaws.route53#CollectionVersion": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -3241,10 +4835,7 @@
       }
     },
     "com.amazonaws.route53#Disabled": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.route53#DisassociateVPCComment": {
       "type": "string"
@@ -3398,10 +4989,7 @@
       }
     },
     "com.amazonaws.route53#EnableSNI": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.route53#ErrorMessage": {
       "type": "string"
@@ -3418,7 +5006,6 @@
     "com.amazonaws.route53#EvaluationPeriods": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -3427,7 +5014,6 @@
     "com.amazonaws.route53#FailureThreshold": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10
@@ -3627,6 +5213,7 @@
         "Count": {
           "target": "com.amazonaws.route53#UsageCount",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The current number of entities that you have created of the specified type. For\n\t\t\texample, if you specified <code>MAX_HEALTH_CHECKS_BY_OWNER</code> for the value of\n\t\t\t\t<code>Type</code> in the request, the value of <code>Count</code> is the current\n\t\t\tnumber of health checks that you have created using the current account.</p>",
             "smithy.api#required": {}
           }
@@ -4221,6 +5808,7 @@
         "Count": {
           "target": "com.amazonaws.route53#UsageCount",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The current number of entities that you have created of the specified type. For\n\t\t\texample, if you specified <code>MAX_RRSETS_BY_ZONE</code> for the value of\n\t\t\t\t<code>Type</code> in the request, the value of <code>Count</code> is the current\n\t\t\tnumber of records that you have created in the specified hosted zone.</p>",
             "smithy.api#required": {}
           }
@@ -4413,6 +6001,7 @@
         "Count": {
           "target": "com.amazonaws.route53#UsageCount",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The current number of hosted zones that you can associate with the specified reusable\n\t\t\tdelegation set.</p>",
             "smithy.api#required": {}
           }
@@ -4794,10 +6383,7 @@
       }
     },
     "com.amazonaws.route53#HealthCheckCount": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.route53#HealthCheckId": {
       "type": "string",
@@ -4969,7 +6555,6 @@
     "com.amazonaws.route53#HealthCheckVersion": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -5000,7 +6585,6 @@
     "com.amazonaws.route53#HealthThreshold": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 256
@@ -5082,6 +6666,7 @@
         "PrivateZone": {
           "target": "com.amazonaws.route53#IsPrivateZone",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A value that indicates whether this is a private hosted zone.</p>"
           }
         }
@@ -5091,10 +6676,7 @@
       }
     },
     "com.amazonaws.route53#HostedZoneCount": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.route53#HostedZoneLimit": {
       "type": "structure",
@@ -5109,6 +6691,7 @@
         "Value": {
           "target": "com.amazonaws.route53#LimitValue",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The current value for the limit that is specified by <code>Type</code>.</p>",
             "smithy.api#required": {}
           }
@@ -5221,10 +6804,7 @@
       }
     },
     "com.amazonaws.route53#HostedZoneRRSetCount": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.route53#HostedZoneSummaries": {
       "type": "list",
@@ -5492,13 +7072,13 @@
       }
     },
     "com.amazonaws.route53#Inverted": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.route53#IsPrivateZone": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.route53#KeySigningKey": {
       "type": "structure",
@@ -5518,6 +7098,7 @@
         "Flag": {
           "target": "com.amazonaws.route53#SigningKeyInteger",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>An integer that specifies how the key is used. For key-signing key (KSK), this value\n\t\t\tis always 257.</p>"
           }
         },
@@ -5530,6 +7111,7 @@
         "SigningAlgorithmType": {
           "target": "com.amazonaws.route53#SigningKeyInteger",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>An integer used to represent the signing algorithm. This value must follow the\n\t\t\tguidelines provided by <a href=\"https://tools.ietf.org/html/rfc8624#section-3.1\">RFC-8624 Section 3.1</a>. </p>"
           }
         },
@@ -5542,12 +7124,14 @@
         "DigestAlgorithmType": {
           "target": "com.amazonaws.route53#SigningKeyInteger",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>An integer used to represent the delegation signer digest algorithm. This value must\n\t\t\tfollow the guidelines provided by <a href=\"https://tools.ietf.org/html/rfc8624#section-3.3\">RFC-8624 Section\n\t\t\t3.3</a>.</p>"
           }
         },
         "KeyTag": {
           "target": "com.amazonaws.route53#SigningKeyTag",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>An integer used to identify the DNSSEC record for the domain name. The process used to\n\t\t\tcalculate the value is described in <a href=\"https://tools.ietf.org/rfc/rfc4034.txt\">RFC-4034 Appendix B</a>.</p>"
           }
         },
@@ -5679,6 +7263,7 @@
     "com.amazonaws.route53#LimitValue": {
       "type": "long",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1
         }
@@ -6014,6 +7599,7 @@
         "IsTruncated": {
           "target": "com.amazonaws.route53#PageTruncated",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A value that indicates whether more locations remain to be listed after the last\n\t\t\tlocation in this response. If so, the value of <code>IsTruncated</code> is\n\t\t\t\t<code>true</code>. To get more values, submit another request and include the values\n\t\t\tof <code>NextContinentCode</code>, <code>NextCountryCode</code>, and\n\t\t\t\t<code>NextSubdivisionCode</code> in the <code>startcontinentcode</code>,\n\t\t\t\t<code>startcountrycode</code>, and <code>startsubdivisioncode</code>, as\n\t\t\tapplicable.</p>",
             "smithy.api#required": {}
           }
@@ -6121,6 +7707,7 @@
         "IsTruncated": {
           "target": "com.amazonaws.route53#PageTruncated",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag that indicates whether there are more health checks to be listed. If the\n\t\t\tresponse was truncated, you can get the next group of health checks by submitting\n\t\t\tanother <code>ListHealthChecks</code> request and specifying the value of\n\t\t\t\t<code>NextMarker</code> in the <code>marker</code> parameter.</p>",
             "smithy.api#required": {}
           }
@@ -6256,6 +7843,7 @@
         "IsTruncated": {
           "target": "com.amazonaws.route53#PageTruncated",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag that indicates whether there are more hosted zones to be listed. If the\n\t\t\tresponse was truncated, you can get the next group of <code>maxitems</code> hosted zones\n\t\t\tby calling <code>ListHostedZonesByName</code> again and specifying the values of\n\t\t\t\t<code>NextDNSName</code> and <code>NextHostedZoneId</code> elements in the\n\t\t\t\t<code>dnsname</code> and <code>hostedzoneid</code> parameters.</p>",
             "smithy.api#required": {}
           }
@@ -6421,6 +8009,7 @@
         "IsTruncated": {
           "target": "com.amazonaws.route53#PageTruncated",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag indicating whether there are more hosted zones to be listed. If the response\n\t\t\twas truncated, you can get more hosted zones by submitting another\n\t\t\t\t<code>ListHostedZones</code> request and specifying the value of\n\t\t\t\t<code>NextMarker</code> in the <code>marker</code> parameter.</p>",
             "smithy.api#required": {}
           }
@@ -6600,6 +8189,7 @@
         "IsTruncated": {
           "target": "com.amazonaws.route53#PageTruncated",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag that indicates whether more resource record sets remain to be listed. If your\n\t\t\tresults were truncated, you can make a follow-up pagination request by using the\n\t\t\t\t<code>NextRecordName</code> element.</p>",
             "smithy.api#required": {}
           }
@@ -6698,6 +8288,7 @@
         "IsTruncated": {
           "target": "com.amazonaws.route53#PageTruncated",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag that indicates whether there are more reusable delegation sets to be\n\t\t\tlisted.</p>",
             "smithy.api#required": {}
           }
@@ -6922,6 +8513,7 @@
         "IsTruncated": {
           "target": "com.amazonaws.route53#PageTruncated",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag that indicates whether there are more traffic policies to be listed. If the\n\t\t\tresponse was truncated, you can get the next group of traffic policies by submitting\n\t\t\tanother <code>ListTrafficPolicies</code> request and specifying the value of\n\t\t\t\t<code>TrafficPolicyIdMarker</code> in the <code>TrafficPolicyIdMarker</code> request\n\t\t\tparameter.</p>",
             "smithy.api#required": {}
           }
@@ -7060,6 +8652,7 @@
         "IsTruncated": {
           "target": "com.amazonaws.route53#PageTruncated",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag that indicates whether there are more traffic policy instances to be listed. If\n\t\t\tthe response was truncated, you can get the next group of traffic policy instances by\n\t\t\tsubmitting another <code>ListTrafficPolicyInstancesByHostedZone</code> request and\n\t\t\tspecifying the values of <code>HostedZoneIdMarker</code>,\n\t\t\t\t<code>TrafficPolicyInstanceNameMarker</code>, and\n\t\t\t\t<code>TrafficPolicyInstanceTypeMarker</code> in the corresponding request\n\t\t\tparameters.</p>",
             "smithy.api#required": {}
           }
@@ -7187,6 +8780,7 @@
         "IsTruncated": {
           "target": "com.amazonaws.route53#PageTruncated",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag that indicates whether there are more traffic policy instances to be listed. If\n\t\t\tthe response was truncated, you can get the next group of traffic policy instances by\n\t\t\tcalling <code>ListTrafficPolicyInstancesByPolicy</code> again and specifying the values\n\t\t\tof the <code>HostedZoneIdMarker</code>, <code>TrafficPolicyInstanceNameMarker</code>,\n\t\t\tand <code>TrafficPolicyInstanceTypeMarker</code> elements in the corresponding request\n\t\t\tparameters.</p>",
             "smithy.api#required": {}
           }
@@ -7270,6 +8864,7 @@
         "IsTruncated": {
           "target": "com.amazonaws.route53#PageTruncated",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag that indicates whether there are more traffic policy instances to be listed. If\n\t\t\tthe response was truncated, you can get more traffic policy instances by calling\n\t\t\t\t<code>ListTrafficPolicyInstances</code> again and specifying the values of the\n\t\t\t\t<code>HostedZoneIdMarker</code>, <code>TrafficPolicyInstanceNameMarker</code>, and\n\t\t\t\t<code>TrafficPolicyInstanceTypeMarker</code> in the corresponding request\n\t\t\tparameters.</p>",
             "smithy.api#required": {}
           }
@@ -7354,6 +8949,7 @@
         "IsTruncated": {
           "target": "com.amazonaws.route53#PageTruncated",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A flag that indicates whether there are more traffic policies to be listed. If the\n\t\t\tresponse was truncated, you can get the next group of traffic policies by submitting\n\t\t\tanother <code>ListTrafficPolicyVersions</code> request and specifying the value of\n\t\t\t\t<code>NextMarker</code> in the <code>marker</code> parameter.</p>",
             "smithy.api#required": {}
           }
@@ -7484,10 +9080,7 @@
       }
     },
     "com.amazonaws.route53#MeasureLatency": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.route53#Message": {
       "type": "string",
@@ -7733,7 +9326,10 @@
       }
     },
     "com.amazonaws.route53#PageTruncated": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.route53#PaginationToken": {
       "type": "string",
@@ -7747,7 +9343,6 @@
     "com.amazonaws.route53#Period": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 60
         }
@@ -7756,7 +9351,6 @@
     "com.amazonaws.route53#Port": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 65535
@@ -7942,7 +9536,6 @@
     "com.amazonaws.route53#RequestInterval": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 10,
           "max": 30
@@ -8149,10 +9742,7 @@
       }
     },
     "com.amazonaws.route53#ResourceRecordSetMultiValueAnswer": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.route53#ResourceRecordSetRegion": {
       "type": "string",
@@ -8264,7 +9854,6 @@
     "com.amazonaws.route53#ResourceRecordSetWeight": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 255
@@ -8351,6 +9940,7 @@
         "Value": {
           "target": "com.amazonaws.route53#LimitValue",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The current value for the <code>MAX_ZONES_BY_REUSABLE_DELEGATION_SET</code>\n\t\t\tlimit.</p>",
             "smithy.api#required": {}
           }
@@ -8408,7 +9998,10 @@
       }
     },
     "com.amazonaws.route53#SigningKeyInteger": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.route53#SigningKeyName": {
       "type": "string",
@@ -8443,6 +10036,7 @@
     "com.amazonaws.route53#SigningKeyTag": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 65536
@@ -8511,7 +10105,6 @@
     "com.amazonaws.route53#TTL": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 2147483647
@@ -8754,10 +10347,7 @@
       }
     },
     "com.amazonaws.route53#Threshold": {
-      "type": "double",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "double"
     },
     "com.amazonaws.route53#ThrottlingException": {
       "type": "structure",
@@ -9084,10 +10674,7 @@
       }
     },
     "com.amazonaws.route53#TrafficPolicyInstanceCount": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.route53#TrafficPolicyInstanceId": {
       "type": "string",
@@ -9174,7 +10761,6 @@
     "com.amazonaws.route53#TrafficPolicyVersion": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 1000
@@ -9582,6 +11168,7 @@
     "com.amazonaws.route53#UsageCount": {
       "type": "long",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0
         }
