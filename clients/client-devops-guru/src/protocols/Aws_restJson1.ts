@@ -1182,6 +1182,9 @@ export const deserializeAws_restJson1DescribeAccountHealthCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AnalyzedResourceCount != null) {
+    contents.AnalyzedResourceCount = __expectLong(data.AnalyzedResourceCount);
+  }
   if (data.MetricsAnalyzed != null) {
     contents.MetricsAnalyzed = __expectInt32(data.MetricsAnalyzed);
   }
@@ -3596,6 +3599,7 @@ const deserializeAws_restJson1CloudFormationCostEstimationResourceCollectionFilt
 
 const deserializeAws_restJson1CloudFormationHealth = (output: any, context: __SerdeContext): CloudFormationHealth => {
   return {
+    AnalyzedResourceCount: __expectLong(output.AnalyzedResourceCount),
     Insight: output.Insight != null ? deserializeAws_restJson1InsightHealth(output.Insight, context) : undefined,
     StackName: __expectString(output.StackName),
   } as any;
@@ -3900,7 +3904,15 @@ const deserializeAws_restJson1MonitoredResourceIdentifier = (
   context: __SerdeContext
 ): MonitoredResourceIdentifier => {
   return {
+    LastUpdated:
+      output.LastUpdated != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdated)))
+        : undefined,
     MonitoredResourceName: __expectString(output.MonitoredResourceName),
+    ResourceCollection:
+      output.ResourceCollection != null
+        ? deserializeAws_restJson1ResourceCollection(output.ResourceCollection, context)
+        : undefined,
     ResourcePermission: __expectString(output.ResourcePermission),
     Type: __expectString(output.Type),
   } as any;
@@ -4791,6 +4803,7 @@ const deserializeAws_restJson1ServiceCollection = (output: any, context: __Serde
 
 const deserializeAws_restJson1ServiceHealth = (output: any, context: __SerdeContext): ServiceHealth => {
   return {
+    AnalyzedResourceCount: __expectLong(output.AnalyzedResourceCount),
     Insight: output.Insight != null ? deserializeAws_restJson1ServiceInsightHealth(output.Insight, context) : undefined,
     ServiceName: __expectString(output.ServiceName),
   } as any;
@@ -4947,6 +4960,7 @@ const deserializeAws_restJson1TagCostEstimationResourceCollectionFilters = (
 
 const deserializeAws_restJson1TagHealth = (output: any, context: __SerdeContext): TagHealth => {
   return {
+    AnalyzedResourceCount: __expectLong(output.AnalyzedResourceCount),
     AppBoundaryKey: __expectString(output.AppBoundaryKey),
     Insight: output.Insight != null ? deserializeAws_restJson1InsightHealth(output.Insight, context) : undefined,
     TagValue: __expectString(output.TagValue),

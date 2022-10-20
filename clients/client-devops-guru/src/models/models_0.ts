@@ -1165,6 +1165,13 @@ export interface DescribeAccountHealthResponse {
    * 			the last hour. </p>
    */
   ResourceHours: number | undefined;
+
+  /**
+   * <p>
+   * 			Number of resources that DevOps Guru is monitoring in your Amazon Web Services account.
+   * 		</p>
+   */
+  AnalyzedResourceCount?: number;
 }
 
 export interface DescribeAccountOverviewRequest {
@@ -1924,6 +1931,13 @@ export interface CloudFormationHealth {
    * 			insights, and the Mean Time to Recover (MTTR) of closed insights. </p>
    */
   Insight?: InsightHealth;
+
+  /**
+   * <p>
+   * 			Number of resources that DevOps Guru is monitoring in your account that are specified by an Amazon Web Services CloudFormation stack.
+   * 		</p>
+   */
+  AnalyzedResourceCount?: number;
 }
 
 /**
@@ -1985,6 +1999,13 @@ export interface ServiceHealth {
    * 			service.</p>
    */
   Insight?: ServiceInsightHealth;
+
+  /**
+   * <p>
+   * 			Number of resources that DevOps Guru is monitoring in an analyzed Amazon Web Services service.
+   * 		</p>
+   */
+  AnalyzedResourceCount?: number;
 }
 
 /**
@@ -2027,6 +2048,13 @@ export interface TagHealth {
    * 			Mean Time to Recover (MTTR) of closed insights. </p>
    */
   Insight?: InsightHealth;
+
+  /**
+   * <p>
+   * 			Number of resources that DevOps Guru is monitoring in your account that are specified by an Amazon Web Services tag.
+   * 		</p>
+   */
+  AnalyzedResourceCount?: number;
 }
 
 export interface DescribeOrganizationResourceCollectionHealthResponse {
@@ -3315,7 +3343,33 @@ export enum ResourcePermission {
 }
 
 export enum ResourceTypeFilter {
+  CLOUDFRONT_DISTRIBUTION = "CLOUDFRONT_DISTRIBUTION",
+  DYNAMODB_TABLE = "DYNAMODB_TABLE",
+  EC2_NAT_GATEWAY = "EC2_NAT_GATEWAY",
+  ECS_CLUSTER = "ECS_CLUSTER",
+  ECS_SERVICE = "ECS_SERVICE",
+  EKS_CLUSTER = "EKS_CLUSTER",
+  ELASTICACHE_CACHE_CLUSTER = "ELASTICACHE_CACHE_CLUSTER",
+  ELASTICSEARCH_DOMAIN = "ELASTICSEARCH_DOMAIN",
+  ELASTIC_BEANSTALK_ENVIRONMENT = "ELASTIC_BEANSTALK_ENVIRONMENT",
+  ELASTIC_LOAD_BALANCER_LOAD_BALANCER = "ELASTIC_LOAD_BALANCER_LOAD_BALANCER",
+  ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER = "ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER",
+  ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP = "ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP",
+  KINESIS_STREAM = "KINESIS_STREAM",
+  LAMBDA_FUNCTION = "LAMBDA_FUNCTION",
   LOG_GROUPS = "LOG_GROUPS",
+  OPEN_SEARCH_SERVICE_DOMAIN = "OPEN_SEARCH_SERVICE_DOMAIN",
+  RDS_DB_CLUSTER = "RDS_DB_CLUSTER",
+  RDS_DB_INSTANCE = "RDS_DB_INSTANCE",
+  REDSHIFT_CLUSTER = "REDSHIFT_CLUSTER",
+  ROUTE53_HEALTH_CHECK = "ROUTE53_HEALTH_CHECK",
+  ROUTE53_HOSTED_ZONE = "ROUTE53_HOSTED_ZONE",
+  S3_BUCKET = "S3_BUCKET",
+  SAGEMAKER_ENDPOINT = "SAGEMAKER_ENDPOINT",
+  SNS_TOPIC = "SNS_TOPIC",
+  SQS_QUEUE = "SQS_QUEUE",
+  STEP_FUNCTIONS_ACTIVITY = "STEP_FUNCTIONS_ACTIVITY",
+  STEP_FUNCTIONS_STATE_MACHINE = "STEP_FUNCTIONS_STATE_MACHINE",
 }
 
 /**
@@ -3345,7 +3399,7 @@ export interface ListMonitoredResourcesRequest {
    * 			Filters to determine which monitored resources you want to retrieve. You can filter by resource type or resource permission status.
    * 		</p>
    */
-  Filters: ListMonitoredResourcesFilters | undefined;
+  Filters?: ListMonitoredResourcesFilters;
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -3386,6 +3440,21 @@ export interface MonitoredResourceIdentifier {
    * 		</p>
    */
   ResourcePermission?: ResourcePermission | string;
+
+  /**
+   * <p>
+   * 			The time at which DevOps Guru last updated this resource.
+   * 		</p>
+   */
+  LastUpdated?: Date;
+
+  /**
+   * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   */
+  ResourceCollection?: ResourceCollection;
 }
 
 export interface ListMonitoredResourcesResponse {
