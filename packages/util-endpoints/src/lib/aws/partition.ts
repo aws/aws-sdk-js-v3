@@ -1,7 +1,8 @@
 import { EndpointPartition } from "@aws-sdk/types";
 
-import { partitions } from "./partitions.json";
+import partitionsInfo from "./partitions.json";
 
+const { partitions } = partitionsInfo;
 const DEFAULT_PARTITION = partitions.find((partition) => partition.id === "aws");
 
 /**
