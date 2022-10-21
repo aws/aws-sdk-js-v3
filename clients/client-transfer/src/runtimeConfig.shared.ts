@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { TransferClientConfig } from "./TransferClient";
 
 /**
@@ -11,8 +11,8 @@ import { TransferClientConfig } from "./TransferClient";
 export const getRuntimeConfig = (config: TransferClientConfig) => ({
   apiVersion: "2018-11-05",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "Transfer",
   urlParser: config?.urlParser ?? parseUrl,
 });

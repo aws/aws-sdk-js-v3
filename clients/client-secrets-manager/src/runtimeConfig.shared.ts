@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { SecretsManagerClientConfig } from "./SecretsManagerClient";
 
 /**
@@ -11,8 +11,8 @@ import { SecretsManagerClientConfig } from "./SecretsManagerClient";
 export const getRuntimeConfig = (config: SecretsManagerClientConfig) => ({
   apiVersion: "2017-10-17",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "Secrets Manager",
   urlParser: config?.urlParser ?? parseUrl,
 });

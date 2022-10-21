@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { FSxClientConfig } from "./FSxClient";
 
 /**
@@ -11,8 +11,8 @@ import { FSxClientConfig } from "./FSxClient";
 export const getRuntimeConfig = (config: FSxClientConfig) => ({
   apiVersion: "2018-03-01",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "FSx",
   urlParser: config?.urlParser ?? parseUrl,
 });

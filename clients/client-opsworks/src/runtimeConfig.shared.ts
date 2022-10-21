@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { OpsWorksClientConfig } from "./OpsWorksClient";
 
 /**
@@ -11,8 +11,8 @@ import { OpsWorksClientConfig } from "./OpsWorksClient";
 export const getRuntimeConfig = (config: OpsWorksClientConfig) => ({
   apiVersion: "2013-02-18",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "OpsWorks",
   urlParser: config?.urlParser ?? parseUrl,
 });

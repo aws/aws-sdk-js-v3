@@ -1666,9 +1666,9 @@ export interface TransformResources {
   /**
    * <p>The number of
    *             ML
-   *             compute instances to use in the transform job. For distributed
-   *             transform jobs, specify a value greater than 1. The default value is
-   *             <code>1</code>.</p>
+   *             compute instances to use in the transform job. The default value is
+   *                 <code>1</code>, and the maximum is <code>100</code>. For distributed transform jobs,
+   *             specify a value greater than <code>1</code>.</p>
    */
   InstanceCount: number | undefined;
 

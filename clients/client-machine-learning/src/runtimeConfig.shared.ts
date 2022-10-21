@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { MachineLearningClientConfig } from "./MachineLearningClient";
 
 /**
@@ -11,8 +11,8 @@ import { MachineLearningClientConfig } from "./MachineLearningClient";
 export const getRuntimeConfig = (config: MachineLearningClientConfig) => ({
   apiVersion: "2014-12-12",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "Machine Learning",
   urlParser: config?.urlParser ?? parseUrl,
 });

@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { IoTSecureTunnelingClientConfig } from "./IoTSecureTunnelingClient";
 
 /**
@@ -11,8 +11,8 @@ import { IoTSecureTunnelingClientConfig } from "./IoTSecureTunnelingClient";
 export const getRuntimeConfig = (config: IoTSecureTunnelingClientConfig) => ({
   apiVersion: "2018-10-05",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "IoTSecureTunneling",
   urlParser: config?.urlParser ?? parseUrl,
 });
