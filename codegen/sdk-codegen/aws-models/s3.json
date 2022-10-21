@@ -650,6 +650,329 @@
                                   "ref": "Bucket"
                                 }
                               ]
+                            },
+                            {
+                              "fn": "substring",
+                              "argv": [
+                                {
+                                  "ref": "Bucket"
+                                },
+                                49,
+                                50,
+                                true
+                              ],
+                              "assign": "hardwareType"
+                            },
+                            {
+                              "fn": "substring",
+                              "argv": [
+                                {
+                                  "ref": "Bucket"
+                                },
+                                8,
+                                12,
+                                true
+                              ],
+                              "assign": "regionPrefix"
+                            },
+                            {
+                              "fn": "substring",
+                              "argv": [
+                                {
+                                  "ref": "Bucket"
+                                },
+                                0,
+                                7,
+                                true
+                              ],
+                              "assign": "abbaSuffix"
+                            },
+                            {
+                              "fn": "substring",
+                              "argv": [
+                                {
+                                  "ref": "Bucket"
+                                },
+                                32,
+                                49,
+                                true
+                              ],
+                              "assign": "outpostId"
+                            },
+                            {
+                              "fn": "aws.partition",
+                              "argv": [
+                                {
+                                  "ref": "Region"
+                                }
+                              ],
+                              "assign": "regionPartition"
+                            },
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "ref": "abbaSuffix"
+                                },
+                                "--op-s3"
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "isValidHostLabel",
+                                  "argv": [
+                                    {
+                                      "ref": "outpostId"
+                                    },
+                                    false
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "stringEquals",
+                                          "argv": [
+                                            {
+                                              "ref": "hardwareType"
+                                            },
+                                            "e"
+                                          ]
+                                        }
+                                      ],
+                                      "type": "tree",
+                                      "rules": [
+                                        {
+                                          "conditions": [
+                                            {
+                                              "fn": "stringEquals",
+                                              "argv": [
+                                                {
+                                                  "ref": "regionPrefix"
+                                                },
+                                                "beta"
+                                              ]
+                                            }
+                                          ],
+                                          "type": "tree",
+                                          "rules": [
+                                            {
+                                              "conditions": [
+                                                {
+                                                  "fn": "not",
+                                                  "argv": [
+                                                    {
+                                                      "fn": "isSet",
+                                                      "argv": [
+                                                        {
+                                                          "ref": "Endpoint"
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ],
+                                              "error": "Expected a endpoint to be specified but no endpoint was found",
+                                              "type": "error"
+                                            },
+                                            {
+                                              "conditions": [
+                                                {
+                                                  "fn": "isSet",
+                                                  "argv": [
+                                                    {
+                                                      "ref": "Endpoint"
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "fn": "parseURL",
+                                                  "argv": [
+                                                    {
+                                                      "ref": "Endpoint"
+                                                    }
+                                                  ],
+                                                  "assign": "url"
+                                                }
+                                              ],
+                                              "endpoint": {
+                                                "url": "https://{Bucket}.ec2.{url#authority}",
+                                                "properties": {
+                                                  "authSchemes": [
+                                                    {
+                                                      "name": "sigv4",
+                                                      "signingName": "s3-outposts",
+                                                      "disableDoubleEncoding": true,
+                                                      "signingRegion": "{Region}"
+                                                    }
+                                                  ]
+                                                },
+                                                "headers": {}
+                                              },
+                                              "type": "endpoint"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "conditions": [],
+                                          "endpoint": {
+                                            "url": "https://{Bucket}.ec2.s3-outposts.{Region}.{regionPartition#dnsSuffix}",
+                                            "properties": {
+                                              "authSchemes": [
+                                                {
+                                                  "name": "sigv4",
+                                                  "signingName": "s3-outposts",
+                                                  "disableDoubleEncoding": true,
+                                                  "signingRegion": "{Region}"
+                                                }
+                                              ]
+                                            },
+                                            "headers": {}
+                                          },
+                                          "type": "endpoint"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "stringEquals",
+                                          "argv": [
+                                            {
+                                              "ref": "hardwareType"
+                                            },
+                                            "o"
+                                          ]
+                                        }
+                                      ],
+                                      "type": "tree",
+                                      "rules": [
+                                        {
+                                          "conditions": [
+                                            {
+                                              "fn": "stringEquals",
+                                              "argv": [
+                                                {
+                                                  "ref": "regionPrefix"
+                                                },
+                                                "beta"
+                                              ]
+                                            }
+                                          ],
+                                          "type": "tree",
+                                          "rules": [
+                                            {
+                                              "conditions": [
+                                                {
+                                                  "fn": "not",
+                                                  "argv": [
+                                                    {
+                                                      "fn": "isSet",
+                                                      "argv": [
+                                                        {
+                                                          "ref": "Endpoint"
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ],
+                                              "error": "Expected a endpoint to be specified but no endpoint was found",
+                                              "type": "error"
+                                            },
+                                            {
+                                              "conditions": [
+                                                {
+                                                  "fn": "isSet",
+                                                  "argv": [
+                                                    {
+                                                      "ref": "Endpoint"
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "fn": "parseURL",
+                                                  "argv": [
+                                                    {
+                                                      "ref": "Endpoint"
+                                                    }
+                                                  ],
+                                                  "assign": "url"
+                                                }
+                                              ],
+                                              "endpoint": {
+                                                "url": "https://{Bucket}.op-{outpostId}.{url#authority}",
+                                                "properties": {
+                                                  "authSchemes": [
+                                                    {
+                                                      "name": "sigv4",
+                                                      "signingName": "s3-outposts",
+                                                      "disableDoubleEncoding": true,
+                                                      "signingRegion": "{Region}"
+                                                    }
+                                                  ]
+                                                },
+                                                "headers": {}
+                                              },
+                                              "type": "endpoint"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "conditions": [],
+                                          "endpoint": {
+                                            "url": "https://{Bucket}.op-{outpostId}.s3-outposts.{Region}.{regionPartition#dnsSuffix}",
+                                            "properties": {
+                                              "authSchemes": [
+                                                {
+                                                  "name": "sigv4",
+                                                  "signingName": "s3-outposts",
+                                                  "disableDoubleEncoding": true,
+                                                  "signingRegion": "{Region}"
+                                                }
+                                              ]
+                                            },
+                                            "headers": {}
+                                          },
+                                          "type": "endpoint"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "conditions": [],
+                                      "error": "Unrecognized hardware type: \"Expected hardware type o or e but got {hardwareType}\"",
+                                      "type": "error"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "Invalid ARN: The outpost Id must only contain a-z, A-Z, 0-9 and `-`.",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "isSet",
+                              "argv": [
+                                {
+                                  "ref": "Bucket"
+                                }
+                              ]
                             }
                           ],
                           "type": "tree",
@@ -865,9 +1188,9 @@
                                                                               "authSchemes": [
                                                                                 {
                                                                                   "name": "sigv4",
-                                                                                  "signingRegion": "us-east-1",
+                                                                                  "signingName": "s3",
                                                                                   "disableDoubleEncoding": true,
-                                                                                  "signingName": "s3"
+                                                                                  "signingRegion": "us-east-1"
                                                                                 }
                                                                               ]
                                                                             },
@@ -915,9 +1238,9 @@
                                                                               "authSchemes": [
                                                                                 {
                                                                                   "name": "sigv4",
-                                                                                  "signingRegion": "us-east-1",
+                                                                                  "signingName": "s3",
                                                                                   "disableDoubleEncoding": true,
-                                                                                  "signingName": "s3"
+                                                                                  "signingRegion": "us-east-1"
                                                                                 }
                                                                               ]
                                                                             },
@@ -983,9 +1306,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "{Region}",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "{Region}"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -1049,9 +1372,9 @@
                                                                               "authSchemes": [
                                                                                 {
                                                                                   "name": "sigv4",
-                                                                                  "signingRegion": "{Region}",
+                                                                                  "signingName": "s3",
                                                                                   "disableDoubleEncoding": true,
-                                                                                  "signingName": "s3"
+                                                                                  "signingRegion": "{Region}"
                                                                                 }
                                                                               ]
                                                                             },
@@ -1103,9 +1426,9 @@
                                                                               "authSchemes": [
                                                                                 {
                                                                                   "name": "sigv4",
-                                                                                  "signingRegion": "us-east-1",
+                                                                                  "signingName": "s3",
                                                                                   "disableDoubleEncoding": true,
-                                                                                  "signingName": "s3"
+                                                                                  "signingRegion": "us-east-1"
                                                                                 }
                                                                               ]
                                                                             },
@@ -1157,9 +1480,9 @@
                                                                               "authSchemes": [
                                                                                 {
                                                                                   "name": "sigv4",
-                                                                                  "signingRegion": "us-east-1",
+                                                                                  "signingName": "s3",
                                                                                   "disableDoubleEncoding": true,
-                                                                                  "signingName": "s3"
+                                                                                  "signingRegion": "us-east-1"
                                                                                 }
                                                                               ]
                                                                             },
@@ -1239,9 +1562,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "{Region}",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "{Region}"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -1257,9 +1580,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "{Region}",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "{Region}"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -1327,9 +1650,9 @@
                                                                               "authSchemes": [
                                                                                 {
                                                                                   "name": "sigv4",
-                                                                                  "signingRegion": "{Region}",
+                                                                                  "signingName": "s3",
                                                                                   "disableDoubleEncoding": true,
-                                                                                  "signingName": "s3"
+                                                                                  "signingRegion": "{Region}"
                                                                                 }
                                                                               ]
                                                                             },
@@ -1377,9 +1700,9 @@
                                                                               "authSchemes": [
                                                                                 {
                                                                                   "name": "sigv4",
-                                                                                  "signingRegion": "us-east-1",
+                                                                                  "signingName": "s3",
                                                                                   "disableDoubleEncoding": true,
-                                                                                  "signingName": "s3"
+                                                                                  "signingRegion": "us-east-1"
                                                                                 }
                                                                               ]
                                                                             },
@@ -1427,9 +1750,9 @@
                                                                               "authSchemes": [
                                                                                 {
                                                                                   "name": "sigv4",
-                                                                                  "signingRegion": "us-east-1",
+                                                                                  "signingName": "s3",
                                                                                   "disableDoubleEncoding": true,
-                                                                                  "signingName": "s3"
+                                                                                  "signingRegion": "us-east-1"
                                                                                 }
                                                                               ]
                                                                             },
@@ -1505,9 +1828,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "{Region}",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "{Region}"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -1523,9 +1846,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "{Region}",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "{Region}"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -1589,9 +1912,9 @@
                                                                               "authSchemes": [
                                                                                 {
                                                                                   "name": "sigv4",
-                                                                                  "signingRegion": "{Region}",
+                                                                                  "signingName": "s3",
                                                                                   "disableDoubleEncoding": true,
-                                                                                  "signingName": "s3"
+                                                                                  "signingRegion": "{Region}"
                                                                                 }
                                                                               ]
                                                                             },
@@ -1919,9 +2242,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -1987,9 +2310,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -2073,9 +2396,9 @@
                                                                                       "authSchemes": [
                                                                                         {
                                                                                           "name": "sigv4",
-                                                                                          "signingRegion": "{Region}",
+                                                                                          "signingName": "s3",
                                                                                           "disableDoubleEncoding": true,
-                                                                                          "signingName": "s3"
+                                                                                          "signingRegion": "{Region}"
                                                                                         }
                                                                                       ]
                                                                                     },
@@ -2157,9 +2480,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "{Region}",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "{Region}"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -2225,9 +2548,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -2293,9 +2616,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -2379,9 +2702,9 @@
                                                                                       "authSchemes": [
                                                                                         {
                                                                                           "name": "sigv4",
-                                                                                          "signingRegion": "{Region}",
+                                                                                          "signingName": "s3",
                                                                                           "disableDoubleEncoding": true,
-                                                                                          "signingName": "s3"
+                                                                                          "signingRegion": "{Region}"
                                                                                         }
                                                                                       ]
                                                                                     },
@@ -2463,9 +2786,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "{Region}",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "{Region}"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -2531,9 +2854,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -2599,9 +2922,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -2685,9 +3008,9 @@
                                                                                       "authSchemes": [
                                                                                         {
                                                                                           "name": "sigv4",
-                                                                                          "signingRegion": "{Region}",
+                                                                                          "signingName": "s3",
                                                                                           "disableDoubleEncoding": true,
-                                                                                          "signingName": "s3"
+                                                                                          "signingRegion": "{Region}"
                                                                                         }
                                                                                       ]
                                                                                     },
@@ -2769,9 +3092,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "{Region}",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "{Region}"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -2837,9 +3160,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -2905,9 +3228,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -2991,9 +3314,9 @@
                                                                                       "authSchemes": [
                                                                                         {
                                                                                           "name": "sigv4",
-                                                                                          "signingRegion": "{Region}",
+                                                                                          "signingName": "s3",
                                                                                           "disableDoubleEncoding": true,
-                                                                                          "signingName": "s3"
+                                                                                          "signingRegion": "{Region}"
                                                                                         }
                                                                                       ]
                                                                                     },
@@ -3075,9 +3398,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "{Region}",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "{Region}"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -3162,9 +3485,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -3249,9 +3572,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -3336,9 +3659,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -3423,9 +3746,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -3538,9 +3861,9 @@
                                                                                       "authSchemes": [
                                                                                         {
                                                                                           "name": "sigv4",
-                                                                                          "signingRegion": "{Region}",
+                                                                                          "signingName": "s3",
                                                                                           "disableDoubleEncoding": true,
-                                                                                          "signingName": "s3"
+                                                                                          "signingRegion": "{Region}"
                                                                                         }
                                                                                       ]
                                                                                     },
@@ -3556,9 +3879,9 @@
                                                                                       "authSchemes": [
                                                                                         {
                                                                                           "name": "sigv4",
-                                                                                          "signingRegion": "{Region}",
+                                                                                          "signingName": "s3",
                                                                                           "disableDoubleEncoding": true,
-                                                                                          "signingName": "s3"
+                                                                                          "signingRegion": "{Region}"
                                                                                         }
                                                                                       ]
                                                                                     },
@@ -3673,9 +3996,9 @@
                                                                                       "authSchemes": [
                                                                                         {
                                                                                           "name": "sigv4",
-                                                                                          "signingRegion": "{Region}",
+                                                                                          "signingName": "s3",
                                                                                           "disableDoubleEncoding": true,
-                                                                                          "signingName": "s3"
+                                                                                          "signingRegion": "{Region}"
                                                                                         }
                                                                                       ]
                                                                                     },
@@ -3691,9 +4014,9 @@
                                                                                       "authSchemes": [
                                                                                         {
                                                                                           "name": "sigv4",
-                                                                                          "signingRegion": "{Region}",
+                                                                                          "signingName": "s3",
                                                                                           "disableDoubleEncoding": true,
-                                                                                          "signingName": "s3"
+                                                                                          "signingRegion": "{Region}"
                                                                                         }
                                                                                       ]
                                                                                     },
@@ -3794,9 +4117,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "{Region}",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "{Region}"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -3895,9 +4218,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "{Region}",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "{Region}"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -3963,9 +4286,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -4031,9 +4354,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -4127,9 +4450,9 @@
                                                                                       "authSchemes": [
                                                                                         {
                                                                                           "name": "sigv4",
-                                                                                          "signingRegion": "{Region}",
+                                                                                          "signingName": "s3",
                                                                                           "disableDoubleEncoding": true,
-                                                                                          "signingName": "s3"
+                                                                                          "signingRegion": "{Region}"
                                                                                         }
                                                                                       ]
                                                                                     },
@@ -4145,9 +4468,9 @@
                                                                                       "authSchemes": [
                                                                                         {
                                                                                           "name": "sigv4",
-                                                                                          "signingRegion": "{Region}",
+                                                                                          "signingName": "s3",
                                                                                           "disableDoubleEncoding": true,
-                                                                                          "signingName": "s3"
+                                                                                          "signingRegion": "{Region}"
                                                                                         }
                                                                                       ]
                                                                                     },
@@ -4229,9 +4552,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "{Region}",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "{Region}"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -4297,9 +4620,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -4365,9 +4688,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "us-east-1",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "us-east-1"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -4461,9 +4784,9 @@
                                                                                       "authSchemes": [
                                                                                         {
                                                                                           "name": "sigv4",
-                                                                                          "signingRegion": "{Region}",
+                                                                                          "signingName": "s3",
                                                                                           "disableDoubleEncoding": true,
-                                                                                          "signingName": "s3"
+                                                                                          "signingRegion": "{Region}"
                                                                                         }
                                                                                       ]
                                                                                     },
@@ -4479,9 +4802,9 @@
                                                                                       "authSchemes": [
                                                                                         {
                                                                                           "name": "sigv4",
-                                                                                          "signingRegion": "{Region}",
+                                                                                          "signingName": "s3",
                                                                                           "disableDoubleEncoding": true,
-                                                                                          "signingName": "s3"
+                                                                                          "signingRegion": "{Region}"
                                                                                         }
                                                                                       ]
                                                                                     },
@@ -4563,9 +4886,9 @@
                                                                                   "authSchemes": [
                                                                                     {
                                                                                       "name": "sigv4",
-                                                                                      "signingRegion": "{Region}",
+                                                                                      "signingName": "s3",
                                                                                       "disableDoubleEncoding": true,
-                                                                                      "signingName": "s3"
+                                                                                      "signingRegion": "{Region}"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -4718,9 +5041,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "{Region}",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "{Region}"
                                                         }
                                                       ]
                                                     },
@@ -5258,9 +5581,9 @@
                                                                                                                                                               "authSchemes": [
                                                                                                                                                                 {
                                                                                                                                                                   "name": "sigv4",
-                                                                                                                                                                  "signingRegion": "{bucketArn#region}",
+                                                                                                                                                                  "signingName": "s3-object-lambda",
                                                                                                                                                                   "disableDoubleEncoding": true,
-                                                                                                                                                                  "signingName": "s3-object-lambda"
+                                                                                                                                                                  "signingRegion": "{bucketArn#region}"
                                                                                                                                                                 }
                                                                                                                                                               ]
                                                                                                                                                             },
@@ -5286,9 +5609,9 @@
                                                                                                                                                               "authSchemes": [
                                                                                                                                                                 {
                                                                                                                                                                   "name": "sigv4",
-                                                                                                                                                                  "signingRegion": "{bucketArn#region}",
+                                                                                                                                                                  "signingName": "s3-object-lambda",
                                                                                                                                                                   "disableDoubleEncoding": true,
-                                                                                                                                                                  "signingName": "s3-object-lambda"
+                                                                                                                                                                  "signingRegion": "{bucketArn#region}"
                                                                                                                                                                 }
                                                                                                                                                               ]
                                                                                                                                                             },
@@ -5304,9 +5627,9 @@
                                                                                                                                                               "authSchemes": [
                                                                                                                                                                 {
                                                                                                                                                                   "name": "sigv4",
-                                                                                                                                                                  "signingRegion": "{bucketArn#region}",
+                                                                                                                                                                  "signingName": "s3-object-lambda",
                                                                                                                                                                   "disableDoubleEncoding": true,
-                                                                                                                                                                  "signingName": "s3-object-lambda"
+                                                                                                                                                                  "signingRegion": "{bucketArn#region}"
                                                                                                                                                                 }
                                                                                                                                                               ]
                                                                                                                                                             },
@@ -5898,9 +6221,9 @@
                                                                                                                                                                   "authSchemes": [
                                                                                                                                                                     {
                                                                                                                                                                       "name": "sigv4",
-                                                                                                                                                                      "signingRegion": "{bucketArn#region}",
+                                                                                                                                                                      "signingName": "s3",
                                                                                                                                                                       "disableDoubleEncoding": true,
-                                                                                                                                                                      "signingName": "s3"
+                                                                                                                                                                      "signingRegion": "{bucketArn#region}"
                                                                                                                                                                     }
                                                                                                                                                                   ]
                                                                                                                                                                 },
@@ -5935,9 +6258,9 @@
                                                                                                                                                                   "authSchemes": [
                                                                                                                                                                     {
                                                                                                                                                                       "name": "sigv4",
-                                                                                                                                                                      "signingRegion": "{bucketArn#region}",
+                                                                                                                                                                      "signingName": "s3",
                                                                                                                                                                       "disableDoubleEncoding": true,
-                                                                                                                                                                      "signingName": "s3"
+                                                                                                                                                                      "signingRegion": "{bucketArn#region}"
                                                                                                                                                                     }
                                                                                                                                                                   ]
                                                                                                                                                                 },
@@ -5972,9 +6295,9 @@
                                                                                                                                                                   "authSchemes": [
                                                                                                                                                                     {
                                                                                                                                                                       "name": "sigv4",
-                                                                                                                                                                      "signingRegion": "{bucketArn#region}",
+                                                                                                                                                                      "signingName": "s3",
                                                                                                                                                                       "disableDoubleEncoding": true,
-                                                                                                                                                                      "signingName": "s3"
+                                                                                                                                                                      "signingRegion": "{bucketArn#region}"
                                                                                                                                                                     }
                                                                                                                                                                   ]
                                                                                                                                                                 },
@@ -6026,9 +6349,9 @@
                                                                                                                                                                   "authSchemes": [
                                                                                                                                                                     {
                                                                                                                                                                       "name": "sigv4",
-                                                                                                                                                                      "signingRegion": "{bucketArn#region}",
+                                                                                                                                                                      "signingName": "s3",
                                                                                                                                                                       "disableDoubleEncoding": true,
-                                                                                                                                                                      "signingName": "s3"
+                                                                                                                                                                      "signingRegion": "{bucketArn#region}"
                                                                                                                                                                     }
                                                                                                                                                                   ]
                                                                                                                                                                 },
@@ -6063,9 +6386,9 @@
                                                                                                                                                                   "authSchemes": [
                                                                                                                                                                     {
                                                                                                                                                                       "name": "sigv4",
-                                                                                                                                                                      "signingRegion": "{bucketArn#region}",
+                                                                                                                                                                      "signingName": "s3",
                                                                                                                                                                       "disableDoubleEncoding": true,
-                                                                                                                                                                      "signingName": "s3"
+                                                                                                                                                                      "signingRegion": "{bucketArn#region}"
                                                                                                                                                                     }
                                                                                                                                                                   ]
                                                                                                                                                                 },
@@ -6320,11 +6643,11 @@
                                                                                                       "authSchemes": [
                                                                                                         {
                                                                                                           "name": "sigv4a",
+                                                                                                          "signingName": "s3",
+                                                                                                          "disableDoubleEncoding": true,
                                                                                                           "signingRegionSet": [
                                                                                                             "*"
-                                                                                                          ],
-                                                                                                          "disableDoubleEncoding": true,
-                                                                                                          "signingName": "s3"
+                                                                                                          ]
                                                                                                         }
                                                                                                       ]
                                                                                                     },
@@ -6767,9 +7090,9 @@
                                                                                                                                                           "authSchemes": [
                                                                                                                                                             {
                                                                                                                                                               "name": "sigv4",
-                                                                                                                                                              "signingRegion": "{bucketArn#region}",
+                                                                                                                                                              "signingName": "s3-outposts",
                                                                                                                                                               "disableDoubleEncoding": true,
-                                                                                                                                                              "signingName": "s3-outposts"
+                                                                                                                                                              "signingRegion": "{bucketArn#region}"
                                                                                                                                                             }
                                                                                                                                                           ]
                                                                                                                                                         },
@@ -6785,9 +7108,9 @@
                                                                                                                                                           "authSchemes": [
                                                                                                                                                             {
                                                                                                                                                               "name": "sigv4",
-                                                                                                                                                              "signingRegion": "{bucketArn#region}",
+                                                                                                                                                              "signingName": "s3-outposts",
                                                                                                                                                               "disableDoubleEncoding": true,
-                                                                                                                                                              "signingName": "s3-outposts"
+                                                                                                                                                              "signingRegion": "{bucketArn#region}"
                                                                                                                                                             }
                                                                                                                                                           ]
                                                                                                                                                         },
@@ -7093,9 +7416,9 @@
                                                                       "authSchemes": [
                                                                         {
                                                                           "name": "sigv4",
-                                                                          "signingRegion": "us-east-1",
+                                                                          "signingName": "s3",
                                                                           "disableDoubleEncoding": true,
-                                                                          "signingName": "s3"
+                                                                          "signingRegion": "us-east-1"
                                                                         }
                                                                       ]
                                                                     },
@@ -7143,9 +7466,9 @@
                                                                       "authSchemes": [
                                                                         {
                                                                           "name": "sigv4",
-                                                                          "signingRegion": "us-east-1",
+                                                                          "signingName": "s3",
                                                                           "disableDoubleEncoding": true,
-                                                                          "signingName": "s3"
+                                                                          "signingRegion": "us-east-1"
                                                                         }
                                                                       ]
                                                                     },
@@ -7211,9 +7534,9 @@
                                                                           "authSchemes": [
                                                                             {
                                                                               "name": "sigv4",
-                                                                              "signingRegion": "{Region}",
+                                                                              "signingName": "s3",
                                                                               "disableDoubleEncoding": true,
-                                                                              "signingName": "s3"
+                                                                              "signingRegion": "{Region}"
                                                                             }
                                                                           ]
                                                                         },
@@ -7277,9 +7600,9 @@
                                                                       "authSchemes": [
                                                                         {
                                                                           "name": "sigv4",
-                                                                          "signingRegion": "{Region}",
+                                                                          "signingName": "s3",
                                                                           "disableDoubleEncoding": true,
-                                                                          "signingName": "s3"
+                                                                          "signingRegion": "{Region}"
                                                                         }
                                                                       ]
                                                                     },
@@ -7331,9 +7654,9 @@
                                                                       "authSchemes": [
                                                                         {
                                                                           "name": "sigv4",
-                                                                          "signingRegion": "us-east-1",
+                                                                          "signingName": "s3",
                                                                           "disableDoubleEncoding": true,
-                                                                          "signingName": "s3"
+                                                                          "signingRegion": "us-east-1"
                                                                         }
                                                                       ]
                                                                     },
@@ -7385,9 +7708,9 @@
                                                                       "authSchemes": [
                                                                         {
                                                                           "name": "sigv4",
-                                                                          "signingRegion": "us-east-1",
+                                                                          "signingName": "s3",
                                                                           "disableDoubleEncoding": true,
-                                                                          "signingName": "s3"
+                                                                          "signingRegion": "us-east-1"
                                                                         }
                                                                       ]
                                                                     },
@@ -7467,9 +7790,9 @@
                                                                           "authSchemes": [
                                                                             {
                                                                               "name": "sigv4",
-                                                                              "signingRegion": "{Region}",
+                                                                              "signingName": "s3",
                                                                               "disableDoubleEncoding": true,
-                                                                              "signingName": "s3"
+                                                                              "signingRegion": "{Region}"
                                                                             }
                                                                           ]
                                                                         },
@@ -7485,9 +7808,9 @@
                                                                           "authSchemes": [
                                                                             {
                                                                               "name": "sigv4",
-                                                                              "signingRegion": "{Region}",
+                                                                              "signingName": "s3",
                                                                               "disableDoubleEncoding": true,
-                                                                              "signingName": "s3"
+                                                                              "signingRegion": "{Region}"
                                                                             }
                                                                           ]
                                                                         },
@@ -7555,9 +7878,9 @@
                                                                       "authSchemes": [
                                                                         {
                                                                           "name": "sigv4",
-                                                                          "signingRegion": "{Region}",
+                                                                          "signingName": "s3",
                                                                           "disableDoubleEncoding": true,
-                                                                          "signingName": "s3"
+                                                                          "signingRegion": "{Region}"
                                                                         }
                                                                       ]
                                                                     },
@@ -7605,9 +7928,9 @@
                                                                       "authSchemes": [
                                                                         {
                                                                           "name": "sigv4",
-                                                                          "signingRegion": "us-east-1",
+                                                                          "signingName": "s3",
                                                                           "disableDoubleEncoding": true,
-                                                                          "signingName": "s3"
+                                                                          "signingRegion": "us-east-1"
                                                                         }
                                                                       ]
                                                                     },
@@ -7655,9 +7978,9 @@
                                                                       "authSchemes": [
                                                                         {
                                                                           "name": "sigv4",
-                                                                          "signingRegion": "us-east-1",
+                                                                          "signingName": "s3",
                                                                           "disableDoubleEncoding": true,
-                                                                          "signingName": "s3"
+                                                                          "signingRegion": "us-east-1"
                                                                         }
                                                                       ]
                                                                     },
@@ -7733,9 +8056,9 @@
                                                                           "authSchemes": [
                                                                             {
                                                                               "name": "sigv4",
-                                                                              "signingRegion": "{Region}",
+                                                                              "signingName": "s3",
                                                                               "disableDoubleEncoding": true,
-                                                                              "signingName": "s3"
+                                                                              "signingRegion": "{Region}"
                                                                             }
                                                                           ]
                                                                         },
@@ -7751,9 +8074,9 @@
                                                                           "authSchemes": [
                                                                             {
                                                                               "name": "sigv4",
-                                                                              "signingRegion": "{Region}",
+                                                                              "signingName": "s3",
                                                                               "disableDoubleEncoding": true,
-                                                                              "signingName": "s3"
+                                                                              "signingRegion": "{Region}"
                                                                             }
                                                                           ]
                                                                         },
@@ -7817,9 +8140,9 @@
                                                                       "authSchemes": [
                                                                         {
                                                                           "name": "sigv4",
-                                                                          "signingRegion": "{Region}",
+                                                                          "signingName": "s3",
                                                                           "disableDoubleEncoding": true,
-                                                                          "signingName": "s3"
+                                                                          "signingRegion": "{Region}"
                                                                         }
                                                                       ]
                                                                     },
@@ -8018,9 +8341,9 @@
                                                               "authSchemes": [
                                                                 {
                                                                   "name": "sigv4",
-                                                                  "signingRegion": "{Region}",
+                                                                  "signingName": "s3-object-lambda",
                                                                   "disableDoubleEncoding": true,
-                                                                  "signingName": "s3-object-lambda"
+                                                                  "signingRegion": "{Region}"
                                                                 }
                                                               ]
                                                             },
@@ -8046,9 +8369,9 @@
                                                               "authSchemes": [
                                                                 {
                                                                   "name": "sigv4",
-                                                                  "signingRegion": "{Region}",
+                                                                  "signingName": "s3-object-lambda",
                                                                   "disableDoubleEncoding": true,
-                                                                  "signingName": "s3-object-lambda"
+                                                                  "signingRegion": "{Region}"
                                                                 }
                                                               ]
                                                             },
@@ -8064,9 +8387,9 @@
                                                               "authSchemes": [
                                                                 {
                                                                   "name": "sigv4",
-                                                                  "signingRegion": "{Region}",
+                                                                  "signingName": "s3-object-lambda",
                                                                   "disableDoubleEncoding": true,
-                                                                  "signingName": "s3-object-lambda"
+                                                                  "signingRegion": "{Region}"
                                                                 }
                                                               ]
                                                             },
@@ -8241,9 +8564,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -8304,9 +8627,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -8385,9 +8708,9 @@
                                                           "authSchemes": [
                                                             {
                                                               "name": "sigv4",
-                                                              "signingRegion": "{Region}",
+                                                              "signingName": "s3",
                                                               "disableDoubleEncoding": true,
-                                                              "signingName": "s3"
+                                                              "signingRegion": "{Region}"
                                                             }
                                                           ]
                                                         },
@@ -8464,9 +8787,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "{Region}",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "{Region}"
                                                         }
                                                       ]
                                                     },
@@ -8523,9 +8846,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -8582,9 +8905,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -8659,9 +8982,9 @@
                                                           "authSchemes": [
                                                             {
                                                               "name": "sigv4",
-                                                              "signingRegion": "{Region}",
+                                                              "signingName": "s3",
                                                               "disableDoubleEncoding": true,
-                                                              "signingName": "s3"
+                                                              "signingRegion": "{Region}"
                                                             }
                                                           ]
                                                         },
@@ -8734,9 +9057,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "{Region}",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "{Region}"
                                                         }
                                                       ]
                                                     },
@@ -8797,9 +9120,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -8860,9 +9183,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -8941,9 +9264,9 @@
                                                           "authSchemes": [
                                                             {
                                                               "name": "sigv4",
-                                                              "signingRegion": "{Region}",
+                                                              "signingName": "s3",
                                                               "disableDoubleEncoding": true,
-                                                              "signingName": "s3"
+                                                              "signingRegion": "{Region}"
                                                             }
                                                           ]
                                                         },
@@ -9020,9 +9343,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "{Region}",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "{Region}"
                                                         }
                                                       ]
                                                     },
@@ -9079,9 +9402,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -9138,9 +9461,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -9215,9 +9538,9 @@
                                                           "authSchemes": [
                                                             {
                                                               "name": "sigv4",
-                                                              "signingRegion": "{Region}",
+                                                              "signingName": "s3",
                                                               "disableDoubleEncoding": true,
-                                                              "signingName": "s3"
+                                                              "signingRegion": "{Region}"
                                                             }
                                                           ]
                                                         },
@@ -9290,9 +9613,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "{Region}",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "{Region}"
                                                         }
                                                       ]
                                                     },
@@ -9353,9 +9676,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -9416,9 +9739,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -9497,9 +9820,9 @@
                                                           "authSchemes": [
                                                             {
                                                               "name": "sigv4",
-                                                              "signingRegion": "{Region}",
+                                                              "signingName": "s3",
                                                               "disableDoubleEncoding": true,
-                                                              "signingName": "s3"
+                                                              "signingRegion": "{Region}"
                                                             }
                                                           ]
                                                         },
@@ -9576,9 +9899,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "{Region}",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "{Region}"
                                                         }
                                                       ]
                                                     },
@@ -9635,9 +9958,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -9694,9 +10017,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -9771,9 +10094,9 @@
                                                           "authSchemes": [
                                                             {
                                                               "name": "sigv4",
-                                                              "signingRegion": "{Region}",
+                                                              "signingName": "s3",
                                                               "disableDoubleEncoding": true,
-                                                              "signingName": "s3"
+                                                              "signingRegion": "{Region}"
                                                             }
                                                           ]
                                                         },
@@ -9846,9 +10169,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "{Region}",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "{Region}"
                                                         }
                                                       ]
                                                     },
@@ -9909,9 +10232,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -9972,9 +10295,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -10063,9 +10386,9 @@
                                                           "authSchemes": [
                                                             {
                                                               "name": "sigv4",
-                                                              "signingRegion": "{Region}",
+                                                              "signingName": "s3",
                                                               "disableDoubleEncoding": true,
-                                                              "signingName": "s3"
+                                                              "signingRegion": "{Region}"
                                                             }
                                                           ]
                                                         },
@@ -10081,9 +10404,9 @@
                                                           "authSchemes": [
                                                             {
                                                               "name": "sigv4",
-                                                              "signingRegion": "{Region}",
+                                                              "signingName": "s3",
                                                               "disableDoubleEncoding": true,
-                                                              "signingName": "s3"
+                                                              "signingRegion": "{Region}"
                                                             }
                                                           ]
                                                         },
@@ -10160,9 +10483,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "{Region}",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "{Region}"
                                                         }
                                                       ]
                                                     },
@@ -10219,9 +10542,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -10278,9 +10601,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "us-east-1",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "us-east-1"
                                                         }
                                                       ]
                                                     },
@@ -10365,9 +10688,9 @@
                                                           "authSchemes": [
                                                             {
                                                               "name": "sigv4",
-                                                              "signingRegion": "{Region}",
+                                                              "signingName": "s3",
                                                               "disableDoubleEncoding": true,
-                                                              "signingName": "s3"
+                                                              "signingRegion": "{Region}"
                                                             }
                                                           ]
                                                         },
@@ -10383,9 +10706,9 @@
                                                           "authSchemes": [
                                                             {
                                                               "name": "sigv4",
-                                                              "signingRegion": "{Region}",
+                                                              "signingName": "s3",
                                                               "disableDoubleEncoding": true,
-                                                              "signingName": "s3"
+                                                              "signingRegion": "{Region}"
                                                             }
                                                           ]
                                                         },
@@ -10458,9 +10781,9 @@
                                                       "authSchemes": [
                                                         {
                                                           "name": "sigv4",
-                                                          "signingRegion": "{Region}",
+                                                          "signingName": "s3",
                                                           "disableDoubleEncoding": true,
-                                                          "signingName": "s3"
+                                                          "signingRegion": "{Region}"
                                                         }
                                                       ]
                                                     },
@@ -10900,9 +11223,7 @@
                     "authSchemes": [
                       {
                         "name": "sigv4a",
-                        "signingRegionSet": [
-                          "*"
-                        ],
+                        "signingRegionSet": ["*"],
                         "signingName": "s3",
                         "disableDoubleEncoding": true
                       }
@@ -16765,6 +17086,197 @@
                 "UseDualStack": false,
                 "UseFIPS": false
               }
+            },
+            {
+              "documentation": "S3 Outposts Abba Real Outpost Prod us-west-1",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "s3-outposts",
+                        "signingRegion": "us-west-1",
+                        "disableDoubleEncoding": true
+                      }
+                    ]
+                  },
+                  "url": "https://test-accessp-o0b1d075431d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3.op-0b1d075431d83bebd.s3-outposts.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "Bucket": "test-accessp-o0b1d075431d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Accelerate": false
+              }
+            },
+            {
+              "documentation": "S3 Outposts Abba Real Outpost Prod ap-east-1",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "s3-outposts",
+                        "signingRegion": "ap-east-1",
+                        "disableDoubleEncoding": true
+                      }
+                    ]
+                  },
+                  "url": "https://test-accessp-o0b1d075431d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3.op-0b1d075431d83bebd.s3-outposts.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "Bucket": "test-accessp-o0b1d075431d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Accelerate": false
+              }
+            },
+            {
+              "documentation": "S3 Outposts Abba Ec2 Outpost Prod us-east-1",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "s3-outposts",
+                        "signingRegion": "us-east-1",
+                        "disableDoubleEncoding": true
+                      }
+                    ]
+                  },
+                  "url": "https://test-accessp-e0000075431d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3.ec2.s3-outposts.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "Bucket": "test-accessp-e0000075431d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Accelerate": false
+              }
+            },
+            {
+              "documentation": "S3 Outposts Abba Ec2 Outpost Prod me-south-1",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "s3-outposts",
+                        "signingRegion": "me-south-1",
+                        "disableDoubleEncoding": true
+                      }
+                    ]
+                  },
+                  "url": "https://test-accessp-e0000075431d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3.ec2.s3-outposts.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "Bucket": "test-accessp-e0000075431d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Accelerate": false
+              }
+            },
+            {
+              "documentation": "S3 Outposts Abba Real Outpost Beta",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "s3-outposts",
+                        "signingRegion": "us-east-1",
+                        "disableDoubleEncoding": true
+                      }
+                    ]
+                  },
+                  "url": "https://test-accessp-o0b1d075431d83bebde8xz5w8ijx1qzlbp3i3kbeta0--op-s3.op-0b1d075431d83bebd.example.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "Bucket": "test-accessp-o0b1d075431d83bebde8xz5w8ijx1qzlbp3i3kbeta0--op-s3",
+                "Endpoint": "https://example.amazonaws.com",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Accelerate": false
+              }
+            },
+            {
+              "documentation": "S3 Outposts Abba Ec2 Outpost Beta",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "s3-outposts",
+                        "signingRegion": "us-east-1",
+                        "disableDoubleEncoding": true
+                      }
+                    ]
+                  },
+                  "url": "https://161743052723-e00000136899934034jeahy1t8gpzpbwjj8kb7beta0--op-s3.ec2.example.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "Bucket": "161743052723-e00000136899934034jeahy1t8gpzpbwjj8kb7beta0--op-s3",
+                "Endpoint": "https://example.amazonaws.com",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Accelerate": false
+              }
+            },
+            {
+              "documentation": "S3 Outposts Abba - No endpoint set for beta",
+              "expect": {
+                "error": "Expected a endpoint to be specified but no endpoint was found"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "Bucket": "test-accessp-o0b1d075431d83bebde8xz5w8ijx1qzlbp3i3kbeta0--op-s3",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Accelerate": false
+              }
+            },
+            {
+              "documentation": "S3 Outposts Abba Invalid hardware type",
+              "expect": {
+                "error": "Unrecognized hardware type: \"Expected hardware type o or e but got h\""
+              },
+              "params": {
+                "Region": "us-east-1",
+                "Bucket": "test-accessp-h0000075431d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Accelerate": false
+              }
+            },
+            {
+              "documentation": "S3 Outposts Abba Special character in Outpost Arn",
+              "expect": {
+                "error": "Invalid ARN: The outpost Id must only contain a-z, A-Z, 0-9 and `-`."
+              },
+              "params": {
+                "Region": "us-east-1",
+                "Bucket": "test-accessp-o00000754%1d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Accelerate": false
+              }
             }
           ],
           "version": "1.0"
@@ -21587,12 +22099,7 @@
       "traits": {
         "aws.protocols#httpChecksum": {
           "requestValidationModeMember": "ChecksumMode",
-          "responseAlgorithms": [
-            "CRC32",
-            "CRC32C",
-            "SHA256",
-            "SHA1"
-          ]
+          "responseAlgorithms": ["CRC32", "CRC32C", "SHA256", "SHA1"]
         },
         "smithy.api#documentation": "<p>Retrieves objects from Amazon S3. To use <code>GET</code>, you must have <code>READ</code>\n         access to the object. If you grant <code>READ</code> access to the anonymous user, you can\n         return the object without using an authorization header.</p>\n\n         <p>An Amazon S3 bucket has no directory hierarchy such as you would find in a typical computer\n         file system. You can, however, create a logical hierarchy by using object key names that\n         imply a folder structure. For example, instead of naming an object <code>sample.jpg</code>,\n         you can name it <code>photos/2006/February/sample.jpg</code>.</p>\n\n         <p>To get an object from such a logical hierarchy, specify the full key name for the object\n         in the <code>GET</code> operation. For a virtual hosted-style request example, if you have\n         the object <code>photos/2006/February/sample.jpg</code>, specify the resource as\n            <code>/photos/2006/February/sample.jpg</code>. For a path-style request example, if you\n         have the object <code>photos/2006/February/sample.jpg</code> in the bucket named\n            <code>examplebucket</code>, specify the resource as\n            <code>/examplebucket/photos/2006/February/sample.jpg</code>. For more information about\n         request types, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingSpecifyBucket\">HTTP Host Header Bucket Specification</a>.</p>\n\n         <p>For more information about returning the ACL of an object, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html\">GetObjectAcl</a>.</p>\n\n         <p>If the object you are retrieving is stored in the S3 Glacier or\n         S3 Glacier Deep Archive storage class, or S3 Intelligent-Tiering Archive or\n         S3 Intelligent-Tiering Deep Archive tiers, before you can retrieve the object you must first restore a\n         copy using <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html\">RestoreObject</a>. Otherwise, this action returns an\n            <code>InvalidObjectStateError</code> error. For information about restoring archived\n         objects, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html\">Restoring Archived\n            Objects</a>.</p>\n\n         <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should not\n         be sent for GET requests if your object uses server-side encryption with KMS keys (SSE-KMS) \n         or server-side encryption with Amazon S3–managed encryption keys (SSE-S3). If your\n         object does use these types of keys, you’ll get an HTTP 400 BadRequest error.</p>\n         <p>If you encrypt an object by using server-side encryption with customer-provided\n         encryption keys (SSE-C) when you store the object in Amazon S3, then when you GET the object,\n         you must use the following headers:</p>\n         <ul>\n            <li>\n               <p>x-amz-server-side-encryption-customer-algorithm</p>\n            </li>\n            <li>\n               <p>x-amz-server-side-encryption-customer-key</p>\n            </li>\n            <li>\n               <p>x-amz-server-side-encryption-customer-key-MD5</p>\n            </li>\n         </ul>\n         <p>For more information about SSE-C, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\">Server-Side Encryption (Using\n            Customer-Provided Encryption Keys)</a>.</p>\n\n         <p>Assuming you have the relevant permission to read object tags, the response also returns the\n            <code>x-amz-tagging-count</code> header that provides the count of number of tags\n         associated with the object. You can use <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html\">GetObjectTagging</a> to retrieve\n         the tag set associated with an object.</p>\n\n         <p>\n            <b>Permissions</b>\n         </p>\n         <p>You need the relevant read object (or version) permission for this operation. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html\">Specifying Permissions\n            in a Policy</a>. If the object you request does not exist, the error Amazon S3 returns\n         depends on whether you also have the <code>s3:ListBucket</code> permission.</p>\n         <ul>\n            <li>\n               <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3 will\n               return an HTTP status code 404 (\"no such key\") error.</p>\n            </li>\n            <li>\n               <p>If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 will return an\n               HTTP status code 403 (\"access denied\") error.</p>\n            </li>\n         </ul>\n\n\n         <p>\n            <b>Versioning</b>\n         </p>\n         <p>By default, the GET action returns the current version of an object. To return a\n         different version, use the <code>versionId</code> subresource.</p>\n\n         <note>\n            <ul>\n               <li>\n                  <p>\n                    If you supply a <code>versionId</code>, you need the <code>s3:GetObjectVersion</code> permission to\n                    access a specific version of an object. If you request a specific version, you do not need to have\n                    the <code>s3:GetObject</code> permission.\n                </p>\n               </li>\n               <li>\n                  <p>If the current version of the object is a delete marker, Amazon S3 behaves as if the\n                  object was deleted and includes <code>x-amz-delete-marker: true</code> in the\n                  response.</p>\n               </li>\n            </ul>\n         </note>\n\n\n         <p>For more information about versioning, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html\">PutBucketVersioning</a>. </p>\n\n         <p>\n            <b>Overriding Response Header Values</b>\n         </p>\n         <p>There are times when you want to override certain response header values in a GET\n         response. For example, you might override the <code>Content-Disposition</code> response\n         header value in your GET request.</p>\n\n         <p>You can override values for a set of response headers using the following query\n         parameters. These response header values are sent only on a successful request, that is,\n         when status code 200 OK is returned. The set of headers you can override using these\n         parameters is a subset of the headers that Amazon S3 accepts when you create an object. The\n         response headers that you can override for the GET response are <code>Content-Type</code>,\n            <code>Content-Language</code>, <code>Expires</code>, <code>Cache-Control</code>,\n            <code>Content-Disposition</code>, and <code>Content-Encoding</code>. To override these\n         header values in the GET response, you use the following request parameters.</p>\n\n         <note>\n            <p>You must sign the request, either using an Authorization header or a presigned URL,\n            when using these parameters. They cannot be used with an unsigned (anonymous)\n            request.</p>\n         </note>\n         <ul>\n            <li>\n               <p>\n                  <code>response-content-type</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>response-content-language</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>response-expires</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>response-cache-control</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>response-content-disposition</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>response-content-encoding</code>\n               </p>\n            </li>\n         </ul>\n\n         <p>\n            <b>Additional Considerations about Request Headers</b>\n         </p>\n\n         <p>If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code> headers are\n         present in the request as follows: <code>If-Match</code> condition evaluates to\n            <code>true</code>, and; <code>If-Unmodified-Since</code> condition evaluates to\n            <code>false</code>; then, S3 returns 200 OK and the data requested. </p>\n\n         <p>If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code> headers are\n         present in the request as follows:<code> If-None-Match</code> condition evaluates to\n            <code>false</code>, and; <code>If-Modified-Since</code> condition evaluates to\n            <code>true</code>; then, S3 returns 304 Not Modified response code.</p>\n\n         <p>For more information about conditional requests, see <a href=\"https://tools.ietf.org/html/rfc7232\">RFC 7232</a>.</p>\n\n         <p>The following operations are related to <code>GetObject</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html\">ListBuckets</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html\">GetObjectAcl</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#http": {
@@ -31336,9 +31843,7 @@
       },
       "traits": {
         "aws.auth#unsignedPayload": {},
-        "smithy.api#auth": [
-          "aws.auth#sigv4"
-        ],
+        "smithy.api#auth": ["aws.auth#sigv4"],
         "smithy.api#documentation": "<p>Passes transformed\n         objects to a <code>GetObject</code> operation when using Object Lambda access points. For information about\n         Object Lambda access points, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html\">Transforming objects with\n            Object Lambda access points</a> in the <i>Amazon S3 User Guide</i>.</p>\n         <p>This operation supports metadata that can be returned by <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html\">GetObject</a>, in addition to\n           <code>RequestRoute</code>, <code>RequestToken</code>, <code>StatusCode</code>,\n           <code>ErrorCode</code>, and <code>ErrorMessage</code>. The <code>GetObject</code>\n        response metadata is supported so that the <code>WriteGetObjectResponse</code> caller,\n        typically an Lambda function, can provide the same metadata when it internally invokes\n           <code>GetObject</code>. When <code>WriteGetObjectResponse</code> is called by a\n        customer-owned Lambda function, the metadata returned to the end user\n           <code>GetObject</code> call might differ from what Amazon S3 would normally return.</p>\n         <p>You can include any number of metadata headers. When including a metadata header, it should be\n         prefaced with <code>x-amz-meta</code>. For example, <code>x-amz-meta-my-custom-header: MyCustomValue</code>.\n         The primary use case for this is to forward <code>GetObject</code> metadata.</p>\n         <p>Amazon Web Services provides some prebuilt Lambda functions that you can use with S3 Object Lambda to detect and redact\n         personally identifiable information (PII) and decompress S3 objects. These Lambda functions\n         are available in the Amazon Web Services Serverless Application Repository, and can be selected through the Amazon Web Services Management Console when you create your\n         Object Lambda access point.</p>\n         <p>Example 1: PII Access Control - This Lambda function uses Amazon Comprehend, a natural language processing (NLP) service using machine learning to find insights and relationships in text. It automatically detects personally identifiable information (PII) such as names, addresses, dates, credit card numbers, and social security numbers from documents in your Amazon S3 bucket. </p>\n         <p>Example 2: PII Redaction - This Lambda function uses Amazon Comprehend, a natural language processing (NLP) service using machine learning to find insights and relationships in text. It automatically redacts personally identifiable information (PII) such as names, addresses, dates, credit card numbers, and social security numbers from documents in your Amazon S3 bucket. </p>\n         <p>Example 3: Decompression - The Lambda function S3ObjectLambdaDecompression, is equipped to decompress objects stored in S3 in one of six compressed file formats including bzip2, gzip, snappy, zlib, zstandard and ZIP. </p>\n         <p>For information on how to view and use these functions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-examples.html\">Using Amazon Web Services built Lambda functions</a> in the <i>Amazon S3 User Guide</i>.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "{RequestRoute}."
