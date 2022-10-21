@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -34,10 +35,8 @@ export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __Met
 
 /**
  * <p>Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito
- *             has issued to a user. The user's current access and ID tokens remain valid until their
- *             expiry. By default, access and ID tokens expire one hour after Amazon Cognito issues them. A user
- *             can still use a hosted UI cookie to retrieve new tokens for the duration of the cookie
- *             validity period of 1 hour.</p>
+ *             has issued to a user. A user can still use a hosted UI cookie to retrieve new tokens
+ *             for the duration of the 1-hour cookie validity period.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +60,15 @@ export class GlobalSignOutCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: GlobalSignOutCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +84,7 @@ export class GlobalSignOutCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GlobalSignOutCommandInput, GlobalSignOutCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GlobalSignOutCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

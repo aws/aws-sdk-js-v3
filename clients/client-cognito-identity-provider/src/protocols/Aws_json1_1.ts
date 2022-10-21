@@ -522,7 +522,6 @@ import {
   SetUserPoolMfaConfigResponse,
   SetUserSettingsRequest,
   SetUserSettingsResponse,
-  SignUpRequest,
   SmsConfigurationType,
   SmsMfaConfigType,
   SMSMfaSettingsType,
@@ -564,6 +563,7 @@ import {
 } from "../models/models_0";
 import {
   EnableSoftwareTokenMFAException,
+  SignUpRequest,
   SignUpResponse,
   StartUserImportJobRequest,
   StartUserImportJobResponse,
@@ -4453,6 +4453,9 @@ const deserializeAws_json1_1DeleteIdentityProviderCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -4736,6 +4739,9 @@ const deserializeAws_json1_1DeleteUserPoolClientCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -7604,6 +7610,9 @@ const deserializeAws_json1_1UpdateIdentityProviderCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
@@ -9427,6 +9436,7 @@ const serializeAws_json1_1CreateUserPoolRequest = (input: CreateUserPoolRequest,
     ...(input.AutoVerifiedAttributes != null && {
       AutoVerifiedAttributes: serializeAws_json1_1VerifiedAttributesListType(input.AutoVerifiedAttributes, context),
     }),
+    ...(input.DeletionProtection != null && { DeletionProtection: input.DeletionProtection }),
     ...(input.DeviceConfiguration != null && {
       DeviceConfiguration: serializeAws_json1_1DeviceConfigurationType(input.DeviceConfiguration, context),
     }),
@@ -10603,6 +10613,7 @@ const serializeAws_json1_1UpdateUserPoolRequest = (input: UpdateUserPoolRequest,
     ...(input.AutoVerifiedAttributes != null && {
       AutoVerifiedAttributes: serializeAws_json1_1VerifiedAttributesListType(input.AutoVerifiedAttributes, context),
     }),
+    ...(input.DeletionProtection != null && { DeletionProtection: input.DeletionProtection }),
     ...(input.DeviceConfiguration != null && {
       DeviceConfiguration: serializeAws_json1_1DeviceConfigurationType(input.DeviceConfiguration, context),
     }),
@@ -13161,6 +13172,7 @@ const deserializeAws_json1_1UserPoolType = (output: any, context: __SerdeContext
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     CustomDomain: __expectString(output.CustomDomain),
+    DeletionProtection: __expectString(output.DeletionProtection),
     DeviceConfiguration:
       output.DeviceConfiguration != null
         ? deserializeAws_json1_1DeviceConfigurationType(output.DeviceConfiguration, context)

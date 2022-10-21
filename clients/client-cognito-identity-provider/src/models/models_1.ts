@@ -6,10 +6,12 @@ import {
   AccountRecoverySettingType,
   AdminCreateUserConfigType,
   AnalyticsConfigurationType,
+  AnalyticsMetadataType,
   AttributeType,
   AttributeTypeFilterSensitiveLog,
   CodeDeliveryDetailsType,
   CustomDomainConfigType,
+  DeletionProtectionType,
   DeviceConfigurationType,
   DeviceRememberedStatusType,
   EmailConfigurationType,
@@ -25,6 +27,7 @@ import {
   SmsConfigurationType,
   TokenValidityUnitsType,
   UserAttributeUpdateSettingsType,
+  UserContextDataType,
   UserImportJobType,
   UserPoolAddOnsType,
   UserPoolClientType,
@@ -34,6 +37,95 @@ import {
   VerificationMessageTemplateType,
   VerifiedAttributeType,
 } from "./models_0";
+
+/**
+ * <p>Represents the request to register a user.</p>
+ */
+export interface SignUpRequest {
+  /**
+   * <p>The ID of the client associated with the user pool.</p>
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a
+   *             user pool client and username plus the client ID in the message.</p>
+   */
+  SecretHash?: string;
+
+  /**
+   * <p>The user name of the user you want to register.</p>
+   */
+  Username: string | undefined;
+
+  /**
+   * <p>The password of the user you want to register.</p>
+   */
+  Password: string | undefined;
+
+  /**
+   * <p>An array of name-value pairs representing user attributes.</p>
+   *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
+   *             attribute name.</p>
+   */
+  UserAttributes?: AttributeType[];
+
+  /**
+   * <p>The validation data in the request to register a user.</p>
+   */
+  ValidationData?: AttributeType[];
+
+  /**
+   * <p>The Amazon Pinpoint analytics metadata that contributes to your metrics for
+   *                 <code>SignUp</code> calls.</p>
+   */
+  AnalyticsMetadata?: AnalyticsMetadataType;
+
+  /**
+   * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
+   * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
+   * when it makes API requests.</p>
+   */
+  UserContextData?: UserContextDataType;
+
+  /**
+   * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
+   *             that this action triggers.</p>
+   *         <p>You create custom workflows by assigning Lambda functions to user pool triggers.
+   *             When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the
+   *             following triggers: <i>pre sign-up</i>, <i>custom
+   *                 message</i>, and <i>post confirmation</i>. When Amazon Cognito invokes
+   *             any of these functions, it passes a JSON payload, which the function receives as input.
+   *             This payload contains a <code>clientMetadata</code> attribute, which provides the data
+   *             that you assigned to the ClientMetadata parameter in your SignUp request. In your
+   *             function code in Lambda, you can process the <code>clientMetadata</code> value to enhance
+   *             your workflow for your specific needs.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *
+   *         <note>
+   *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
+   *                 following:</p>
+   *             <ul>
+   *                <li>
+   *                     <p>Store the ClientMetadata value. This data is available only to Lambda
+   *                         triggers that are assigned to a user pool to support custom workflows. If
+   *                         your user pool configuration doesn't include triggers, the ClientMetadata
+   *                         parameter serves no purpose.</p>
+   *                 </li>
+   *                <li>
+   *                     <p>Validate the ClientMetadata value.</p>
+   *                 </li>
+   *                <li>
+   *                     <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive
+   *                         information.</p>
+   *                 </li>
+   *             </ul>
+   *         </note>
+   */
+  ClientMetadata?: Record<string, string>;
+}
 
 /**
  * <p>The response from the server for a registration request.</p>
@@ -260,7 +352,7 @@ export interface UpdateIdentityProviderRequest {
 
 export interface UpdateIdentityProviderResponse {
   /**
-   * <p>The IdP object.</p>
+   * <p>The identity provider details.</p>
    */
   IdentityProvider: IdentityProviderType | undefined;
 }
@@ -379,6 +471,17 @@ export interface UpdateUserPoolRequest {
    * <p>A container with the policies you want to update in a user pool.</p>
    */
   Policies?: UserPoolPolicyType;
+
+  /**
+   * <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user
+   *         pool. Before you can delete a user pool that you have protected against deletion, you
+   *         must deactivate this feature.</p>
+   *         <p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request,
+   *         Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool,
+   *         send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
+   *         <code>UpdateUserPool</code> API request.</p>
+   */
+  DeletionProtection?: DeletionProtectionType | string;
 
   /**
    * <p>The Lambda configuration information from the request to update the user pool.</p>
@@ -538,6 +641,8 @@ export interface UpdateUserPoolClientRequest {
    *         You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides the
    *         value with the default value of 30 days. <i>Valid range</i> is displayed below
    *         in seconds.</p>
+   *         <p>If you don't specify otherwise in the configuration of your app client, your refresh
+   *         tokens are valid for 30 days.</p>
    */
   RefreshTokenValidity?: number;
 
@@ -551,6 +656,8 @@ export interface UpdateUserPoolClientRequest {
    *         their access token for 10 hours.</p>
    *         <p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours.
    *         <i>Valid range</i> is displayed below in seconds.</p>
+   *         <p>If you don't specify otherwise in the configuration of your app client, your access
+   *         tokens are valid for one hour.</p>
    */
   AccessTokenValidity?: number;
 
@@ -564,6 +671,8 @@ export interface UpdateUserPoolClientRequest {
    *         session with their ID token for 10 hours.</p>
    *         <p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours.
    *         <i>Valid range</i> is displayed below in seconds.</p>
+   *         <p>If you don't specify otherwise in the configuration of your app client, your ID
+   *         tokens are valid for one hour.</p>
    */
   IdTokenValidity?: number;
 
@@ -584,41 +693,46 @@ export interface UpdateUserPoolClientRequest {
   WriteAttributes?: string[];
 
   /**
-   * <p>The authentication flows that are supported by the user pool clients. Flow names
-   *             without the <code>ALLOW_</code> prefix are no longer supported in favor of new names
-   *             with the <code>ALLOW_</code> prefix. Note that values with <code>ALLOW_</code> prefix
-   *             must be used only along with values with the <code>ALLOW_</code> prefix.</p>
-   *         <p>Valid values include:</p>
-   *         <ul>
+   * <p>The authentication flows that you want your user pool client to support. For each app client in your user pool, you can sign in
+   * your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and
+   * password, or a custom authentication process that you define with Lambda functions.</p>
+   *          <note>
+   *             <p>If you don't specify a value for <code>ExplicitAuthFlows</code>, your user client supports <code>ALLOW_REFRESH_TOKEN_AUTH</code>, <code>ALLOW_USER_SRP_AUTH</code>, and <code>ALLOW_CUSTOM_AUTH</code>.</p>
+   *          </note>
+   *          <p>Valid values include:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password
-   *                     authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces
-   *                     the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, Amazon Cognito
-   *                     receives the password in the request instead of using the Secure Remote Password
-   *                     (SRP) protocol to verify passwords.</p>
+   *             authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces
+   *             the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, your app
+   *             passes a user name and password to Amazon Cognito in the request, instead of using the Secure
+   *             Remote Password (SRP) protocol to securely transmit the password.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based
-   *                     authentication.</p>
+   *             authentication.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based
-   *                     authentication. In this flow, Amazon Cognito receives the password in the request instead
-   *                     of using the SRP protocol to verify passwords.</p>
+   *             authentication. In this flow, Amazon Cognito receives the password in the request instead
+   *             of using the SRP protocol to verify passwords.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh
-   *                     tokens.</p>
+   *             tokens.</p>
    *             </li>
    *          </ul>
+   *          <p>In some environments, you will see the values <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code>, or <code>USER_PASSWORD_AUTH</code>.
+   * You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>,
+   * like <code>ALLOW_USER_SRP_AUTH</code>.</p>
    */
   ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
 
@@ -911,6 +1025,23 @@ export interface VerifyUserAttributeRequest {
  *             attributes.</p>
  */
 export interface VerifyUserAttributeResponse {}
+
+/**
+ * @internal
+ */
+export const SignUpRequestFilterSensitiveLog = (obj: SignUpRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+  ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+  ...(obj.UserAttributes && {
+    UserAttributes: obj.UserAttributes.map((item) => AttributeTypeFilterSensitiveLog(item)),
+  }),
+  ...(obj.ValidationData && {
+    ValidationData: obj.ValidationData.map((item) => AttributeTypeFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal
