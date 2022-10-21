@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -58,6 +58,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ActivityTaskStarted</code> event recorded in the history.</p>",
             "smithy.api#required": {}
           }
@@ -93,6 +94,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>RequestCancelActivityTask</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -121,6 +123,7 @@
         "scheduledEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -128,6 +131,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ActivityTaskStarted</code> event recorded when this activity task was started. This\n      information can be useful for diagnosing problems by tracing back the chain of events leading up to this\n      event.</p>",
             "smithy.api#required": {}
           }
@@ -135,6 +139,7 @@
         "latestCancelRequestedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>If set, contains the ID of the last <code>ActivityTaskCancelRequested</code> event recorded for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>"
           }
         }
@@ -155,6 +160,7 @@
         "scheduledEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -162,6 +168,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ActivityTaskStarted</code> event recorded when this activity task was started. This\n      information can be useful for diagnosing problems by tracing back the chain of events leading up to this\n      event.</p>",
             "smithy.api#required": {}
           }
@@ -189,6 +196,7 @@
         "scheduledEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -196,6 +204,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ActivityTaskStarted</code> event recorded when this activity task was started. This\n      information can be useful for diagnosing problems by tracing back the chain of events leading up to this\n      event.</p>",
             "smithy.api#required": {}
           }
@@ -268,6 +277,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision that resulted in the scheduling of this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -295,6 +305,7 @@
         "scheduledEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -310,6 +321,7 @@
         "cancelRequested": {
           "target": "com.amazonaws.swf#Canceled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Set to <code>true</code> if cancellation of the task is requested.</p>",
             "smithy.api#required": {}
           }
@@ -332,6 +344,7 @@
         "scheduledEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -339,6 +352,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ActivityTaskStarted</code> event recorded when this activity task was started. This\n      information can be useful for diagnosing problems by tracing back the chain of events leading up to this\n      event.</p>",
             "smithy.api#required": {}
           }
@@ -592,6 +606,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the <code>CancelTimer</code> decision to cancel this timer. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -643,6 +658,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the <code>CancelWorkflowExecution</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -653,7 +669,10 @@
       }
     },
     "com.amazonaws.swf#Canceled": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.swf#CauseMessage": {
       "type": "string",
@@ -709,6 +728,7 @@
         "initiatedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>StartChildWorkflowExecutionInitiated</code> event corresponding to the\n      <code>StartChildWorkflowExecution</code> \n            <a>Decision</a> to start this child workflow execution.\n      This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -716,6 +736,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ChildWorkflowExecutionStarted</code> event recorded when this child workflow execution was\n      started. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -751,6 +772,7 @@
         "initiatedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>StartChildWorkflowExecutionInitiated</code> event corresponding to the <code>StartChildWorkflowExecution</code> \n            <a>Decision</a> to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -758,6 +780,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ChildWorkflowExecutionStarted</code> event recorded when this child workflow execution was\n      started. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -799,6 +822,7 @@
         "initiatedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>StartChildWorkflowExecutionInitiated</code> event corresponding to the\n      <code>StartChildWorkflowExecution</code> \n            <a>Decision</a> to start this child workflow execution.\n      This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -806,6 +830,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ChildWorkflowExecutionStarted</code> event recorded when this child workflow execution was\n      started. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -835,6 +860,7 @@
         "initiatedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>StartChildWorkflowExecutionInitiated</code> event corresponding to the\n      <code>StartChildWorkflowExecution</code> \n            <a>Decision</a> to start this child workflow execution.\n      This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -864,6 +890,7 @@
         "initiatedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>StartChildWorkflowExecutionInitiated</code> event corresponding to the\n      <code>StartChildWorkflowExecution</code> \n            <a>Decision</a> to start this child workflow execution.\n      This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -871,6 +898,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ChildWorkflowExecutionStarted</code> event recorded when this child workflow execution was\n      started. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -907,6 +935,7 @@
         "initiatedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>StartChildWorkflowExecutionInitiated</code> event corresponding to the\n      <code>StartChildWorkflowExecution</code> \n            <a>Decision</a> to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -914,6 +943,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ChildWorkflowExecutionStarted</code> event recorded when this child workflow execution was\n      started. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -1011,6 +1041,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>CompleteWorkflowExecution</code> decision to complete this execution. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -1138,6 +1169,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>ContinueAsNewWorkflowExecution</code> decision that started this execution. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -1150,6 +1182,7 @@
     "com.amazonaws.swf#Count": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0
         }
@@ -1479,6 +1512,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskStarted</code> event recorded in the history.</p>",
             "smithy.api#required": {}
           }
@@ -1513,6 +1547,7 @@
         "previousStartedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the DecisionTaskStarted event of the previous decision task of this workflow execution that was processed by the decider. This can be used to determine the events in the history new since the last decision task received by the decider.</p>"
           }
         }
@@ -1533,6 +1568,7 @@
         "scheduledEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskScheduled</code> event that was recorded when this decision task was scheduled.\n      This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -1540,6 +1576,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskStarted</code> event recorded when this decision task was started.\n      This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -1588,6 +1625,7 @@
         "scheduledEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskScheduled</code> event that was recorded when this decision task was scheduled.\n      This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -1610,6 +1648,7 @@
         "scheduledEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskScheduled</code> event that was recorded when this decision task was scheduled.\n      This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -1617,6 +1656,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskStarted</code> event recorded when this decision task was started. This\n      information can be useful for diagnosing problems by tracing back the chain of events leading up to this\n      event.</p>",
             "smithy.api#required": {}
           }
@@ -1713,6 +1753,9 @@
       "input": {
         "target": "com.amazonaws.swf#DeprecateActivityTypeInput"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.swf#OperationNotPermittedFault"
@@ -1752,6 +1795,9 @@
       "input": {
         "target": "com.amazonaws.swf#DeprecateDomainInput"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.swf#DomainDeprecatedFault"
@@ -1783,6 +1829,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.swf#DeprecateWorkflowTypeInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -2144,7 +2193,10 @@
       "type": "string"
     },
     "com.amazonaws.swf#EventId": {
-      "type": "long"
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.swf#EventType": {
       "type": "string",
@@ -2418,6 +2470,7 @@
         "initiatedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>RequestCancelExternalWorkflowExecutionInitiated</code> event corresponding to the\n      <code>RequestCancelExternalWorkflowExecution</code> decision to cancel this external workflow execution. This\n      information can be useful for diagnosing problems by tracing back the chain of events leading up to this\n      event.</p>",
             "smithy.api#required": {}
           }
@@ -2440,6 +2493,7 @@
         "initiatedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>SignalExternalWorkflowExecutionInitiated</code> event corresponding to the\n      <code>SignalExternalWorkflowExecution</code> decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -2497,6 +2551,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>FailWorkflowExecution</code> decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -2594,12 +2649,14 @@
         "maximumPageSize": {
           "target": "com.amazonaws.swf#PageSize",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results that are returned per call.\n  Use <code>nextPageToken</code> to obtain further pages of results. </p>"
           }
         },
         "reverseOrder": {
           "target": "com.amazonaws.swf#ReverseOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>When set to <code>true</code>, returns the events in reverse order. By default the\n      results are returned in ascending order of the <code>eventTimeStamp</code> of the\n      events.</p>"
           }
         }
@@ -2646,6 +2703,7 @@
         "eventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The system generated ID of the event. This ID uniquely identifies the event with in the workflow execution history.</p>",
             "smithy.api#required": {}
           }
@@ -3000,6 +3058,7 @@
         "scheduledEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>LambdaFunctionScheduled</code> event that was recorded when this\n      Lambda task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -3007,6 +3066,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>LambdaFunctionStarted</code> event recorded when this activity task\n      started. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -3028,6 +3088,7 @@
         "scheduledEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>LambdaFunctionScheduled</code> event that was recorded when this\n      activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -3035,6 +3096,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>LambdaFunctionStarted</code> event recorded when this activity task\n      started. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -3094,6 +3156,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>LambdaFunctionCompleted</code> event corresponding to the decision\n      that resulted in scheduling this activity task. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -3109,6 +3172,7 @@
         "scheduledEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>LambdaFunctionScheduled</code> event that was recorded when this\n      activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -3124,6 +3188,7 @@
         "scheduledEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>LambdaFunctionScheduled</code> event that was recorded when this\n      activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -3131,6 +3196,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ActivityTaskStarted</code> event that was recorded when this\n      activity task started. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -3239,12 +3305,14 @@
         "maximumPageSize": {
           "target": "com.amazonaws.swf#PageSize",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results that are returned per call.\n  Use <code>nextPageToken</code> to obtain further pages of results. </p>"
           }
         },
         "reverseOrder": {
           "target": "com.amazonaws.swf#ReverseOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>When set to <code>true</code>, returns the results in reverse order. By default, the\n      results are returned in ascending alphabetical order by <code>name</code> of the activity\n      types.</p>"
           }
         }
@@ -3331,12 +3399,14 @@
         "maximumPageSize": {
           "target": "com.amazonaws.swf#PageSize",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results that are returned per call.\n  Use <code>nextPageToken</code> to obtain further pages of results. </p>"
           }
         },
         "reverseOrder": {
           "target": "com.amazonaws.swf#ReverseOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>When set to <code>true</code>, returns the results in reverse order. By default the\n      results are returned in descending order of the start or the close time of the\n      executions.</p>"
           }
         }
@@ -3384,12 +3454,14 @@
         "maximumPageSize": {
           "target": "com.amazonaws.swf#PageSize",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results that are returned per call.\n  Use <code>nextPageToken</code> to obtain further pages of results. </p>"
           }
         },
         "reverseOrder": {
           "target": "com.amazonaws.swf#ReverseOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>When set to <code>true</code>, returns the results in reverse order. By default, the\n      results are returned in ascending alphabetical order by <code>name</code> of the\n      domains.</p>"
           }
         }
@@ -3459,12 +3531,14 @@
         "maximumPageSize": {
           "target": "com.amazonaws.swf#PageSize",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results that are returned per call.\n  Use <code>nextPageToken</code> to obtain further pages of results. </p>"
           }
         },
         "reverseOrder": {
           "target": "com.amazonaws.swf#ReverseOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>When set to <code>true</code>, returns the results in reverse order. By default the\n      results are returned in descending order of the start time of the executions.</p>"
           }
         },
@@ -3580,12 +3654,14 @@
         "maximumPageSize": {
           "target": "com.amazonaws.swf#PageSize",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results that are returned per call.\n  Use <code>nextPageToken</code> to obtain further pages of results. </p>"
           }
         },
         "reverseOrder": {
           "target": "com.amazonaws.swf#ReverseOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>When set to <code>true</code>, returns the results in reverse order. By default the\n      results are returned in ascending alphabetical order of the <code>name</code> of the workflow\n      types.</p>"
           }
         }
@@ -3619,6 +3695,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>RecordMarker</code> decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -3640,6 +3717,7 @@
     "com.amazonaws.swf#OpenDecisionTasksCount": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 1
@@ -3664,6 +3742,7 @@
     "com.amazonaws.swf#PageSize": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 1000
@@ -3685,6 +3764,7 @@
         "count": {
           "target": "com.amazonaws.swf#Count",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of tasks in the task list.</p>",
             "smithy.api#required": {}
           }
@@ -3692,6 +3772,7 @@
         "truncated": {
           "target": "com.amazonaws.swf#Truncated",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If set to true, indicates that the actual count was more than the maximum supported by this API and the count returned is the truncated value.</p>"
           }
         }
@@ -3809,12 +3890,14 @@
         "maximumPageSize": {
           "target": "com.amazonaws.swf#PageSize",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results that are returned per call.\n  Use <code>nextPageToken</code> to obtain further pages of results. </p>  \n         <p>This\n      is an upper limit only; the actual number of results returned per call may be fewer than the\n      specified maximum.</p>"
           }
         },
         "reverseOrder": {
           "target": "com.amazonaws.swf#ReverseOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>When set to <code>true</code>, returns the events in reverse order. By default the\n      results are returned in ascending order of the <code>eventTimestamp</code> of the\n      events.</p>"
           }
         }
@@ -3910,6 +3993,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>RecordMarkerFailed</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -3923,6 +4007,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.swf#RegisterActivityTypeInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -4015,6 +4102,9 @@
       "input": {
         "target": "com.amazonaws.swf#RegisterDomainInput"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.swf#DomainAlreadyExistsFault"
@@ -4068,6 +4158,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.swf#RegisterWorkflowTypeInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -4220,6 +4313,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>RequestCancelActivityTask</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -4301,6 +4395,7 @@
         "initiatedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>RequestCancelExternalWorkflowExecutionInitiated</code> event corresponding to the\n      <code>RequestCancelExternalWorkflowExecution</code> decision to cancel this external workflow execution. This\n      information can be useful for diagnosing problems by tracing back the chain of events leading up to this\n      event.</p>",
             "smithy.api#required": {}
           }
@@ -4308,6 +4403,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>RequestCancelExternalWorkflowExecution</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -4342,6 +4438,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>RequestCancelExternalWorkflowExecution</code> decision for this cancellation request.\n      This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -4361,6 +4458,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.swf#RequestCancelWorkflowExecutionInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -4455,6 +4555,9 @@
       "input": {
         "target": "com.amazonaws.swf#RespondActivityTaskCanceledInput"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.swf#OperationNotPermittedFault"
@@ -4490,6 +4593,9 @@
       "input": {
         "target": "com.amazonaws.swf#RespondActivityTaskCompletedInput"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.swf#OperationNotPermittedFault"
@@ -4524,6 +4630,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.swf#RespondActivityTaskFailedInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -4566,6 +4675,9 @@
       "input": {
         "target": "com.amazonaws.swf#RespondDecisionTaskCompletedInput"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.swf#OperationNotPermittedFault"
@@ -4606,7 +4718,10 @@
       }
     },
     "com.amazonaws.swf#ReverseOrder": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.swf#Run": {
       "type": "structure",
@@ -4770,6 +4885,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision that resulted in the\n      scheduling of this activity task. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -4869,6 +4985,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>LambdaFunctionCompleted</code> event corresponding to the decision\n      that resulted in scheduling this Lambda task. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -4963,6 +5080,7 @@
         "initiatedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>SignalExternalWorkflowExecutionInitiated</code> event corresponding to the\n      <code>SignalExternalWorkflowExecution</code> decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -4970,6 +5088,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>SignalExternalWorkflowExecution</code> decision for this signal. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -5017,6 +5136,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>SignalExternalWorkflowExecution</code> decision for this signal. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -5045,6 +5165,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.swf#SignalWorkflowExecutionInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -5228,6 +5351,2120 @@
         "smithy.api#title": "Amazon Simple Workflow Service",
         "smithy.api#xmlNamespace": {
           "uri": "http://swf.amazonaws.com/doc/2012-01-25"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://swf-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://swf-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://swf.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://swf.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-south-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-south-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-south-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-south-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-south-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.me-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.me-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-iso-west-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-iso-west-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-central-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-central-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-central-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-central-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-southeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-southeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-southeast-4.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-4",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.ap-southeast-4.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-4",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-southeast-4.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-4",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.ap-southeast-4.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-4",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://swf.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
         }
       }
     },
@@ -5385,6 +7622,7 @@
         "initiatedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>When the <code>cause</code> is <code>WORKFLOW_ALREADY_RUNNING</code>, <code>initiatedEventId</code> is the ID of the <code>StartChildWorkflowExecutionInitiated</code>\n          event that corresponds to the <code>StartChildWorkflowExecution</code> \n            <a>Decision</a> to start the workflow execution. You can use this information to diagnose\n          problems by tracing back the chain of events leading up to this event.</p>\n         <p>When the <code>cause</code> isn't <code>WORKFLOW_ALREADY_RUNNING</code>, <code>initiatedEventId</code> is set to <code>0</code> because the \n          <code>StartChildWorkflowExecutionInitiated</code> event doesn't exist.</p>",
             "smithy.api#required": {}
           }
@@ -5392,6 +7630,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the <code>StartChildWorkflowExecution</code> \n            <a>Decision</a> to request this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events.</p>",
             "smithy.api#required": {}
           }
@@ -5458,6 +7697,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>StartChildWorkflowExecution</code> \n            <a>Decision</a> to request this child workflow execution. This\n      information can be useful for diagnosing problems by tracing back the cause of events.</p>",
             "smithy.api#required": {}
           }
@@ -5509,6 +7749,7 @@
         "scheduledEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when this\n      activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>"
           }
         },
@@ -5600,6 +7841,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>StartTimer</code> decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -5756,6 +7998,9 @@
       "input": {
         "target": "com.amazonaws.swf#TagResourceInput"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.swf#LimitExceededFault"
@@ -5834,6 +8079,9 @@
       "input": {
         "target": "com.amazonaws.swf#TerminateWorkflowExecutionInput"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.swf#OperationNotPermittedFault"
@@ -5902,6 +8150,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>TimerStarted</code> event that was recorded when this timer was started.\n      This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -5909,6 +8158,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>CancelTimer</code> decision to cancel this timer. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -5931,6 +8181,7 @@
         "startedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>TimerStarted</code> event that was recorded when this timer was started.\n      This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -5975,6 +8226,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>StartTimer</code> decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -6001,7 +8253,10 @@
       }
     },
     "com.amazonaws.swf#Truncated": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.swf#TypeAlreadyExistsFault": {
       "type": "structure",
@@ -6037,6 +8292,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.swf#UndeprecateActivityTypeInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -6077,6 +8335,9 @@
       "input": {
         "target": "com.amazonaws.swf#UndeprecateDomainInput"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.swf#DomainAlreadyExistsFault"
@@ -6108,6 +8369,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.swf#UndeprecateWorkflowTypeInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -6162,6 +8426,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.swf#UntagResourceInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -6275,6 +8542,7 @@
         "externalInitiatedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>RequestCancelExternalWorkflowExecutionInitiated</code> event corresponding to the\n      <code>RequestCancelExternalWorkflowExecution</code> decision to cancel this workflow execution.The source event\n      with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>"
           }
         },
@@ -6301,6 +8569,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>CancelWorkflowExecution</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -6322,6 +8591,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>CompleteWorkflowExecution</code> decision to complete this execution. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -6391,6 +8661,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>ContinueAsNewWorkflowExecution</code> decision that started this execution. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -6464,6 +8735,7 @@
         "count": {
           "target": "com.amazonaws.swf#Count",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of workflow executions.</p>",
             "smithy.api#required": {}
           }
@@ -6471,6 +8743,7 @@
         "truncated": {
           "target": "com.amazonaws.swf#Truncated",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If set to true, indicates that the actual count was more than the maximum supported by this API and the count returned is the truncated value.</p>"
           }
         }
@@ -6538,6 +8811,7 @@
         "decisionTaskCompletedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the\n      <code>FailWorkflowExecution</code> decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>",
             "smithy.api#required": {}
           }
@@ -6620,6 +8894,7 @@
         "cancelRequested": {
           "target": "com.amazonaws.swf#Canceled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Set to true if a cancellation is requested for this workflow execution.</p>"
           }
         }
@@ -6661,6 +8936,7 @@
         "openActivityTasks": {
           "target": "com.amazonaws.swf#Count",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The count of activity tasks whose status is <code>OPEN</code>.</p>",
             "smithy.api#required": {}
           }
@@ -6668,6 +8944,7 @@
         "openDecisionTasks": {
           "target": "com.amazonaws.swf#OpenDecisionTasksCount",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The count of decision tasks whose status is OPEN. A workflow execution can have at most one open decision task.</p>",
             "smithy.api#required": {}
           }
@@ -6675,6 +8952,7 @@
         "openTimers": {
           "target": "com.amazonaws.swf#Count",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The count of timers started by this workflow execution that have not fired yet.</p>",
             "smithy.api#required": {}
           }
@@ -6682,6 +8960,7 @@
         "openChildWorkflowExecutions": {
           "target": "com.amazonaws.swf#Count",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The count of child workflow executions whose status is <code>OPEN</code>.</p>",
             "smithy.api#required": {}
           }
@@ -6689,6 +8968,7 @@
         "openLambdaFunctions": {
           "target": "com.amazonaws.swf#Count",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The count of Lambda tasks whose status is <code>OPEN</code>.</p>"
           }
         }
@@ -6722,6 +9002,7 @@
         "externalInitiatedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>SignalExternalWorkflowExecutionInitiated</code> event corresponding to the\n      <code>SignalExternalWorkflow</code> decision to signal this workflow execution.The source event with this ID can\n      be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event. This field is set only if\n      the signal was initiated by another workflow execution.</p>"
           }
         }
@@ -6799,6 +9080,7 @@
         "parentInitiatedEventId": {
           "target": "com.amazonaws.swf#EventId",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The ID of the <code>StartChildWorkflowExecutionInitiated</code> event corresponding to the\n      <code>StartChildWorkflowExecution</code> \n            <a>Decision</a> to start this workflow execution. The source event with\n      this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of\n  events leading up to this event.</p>"
           }
         },

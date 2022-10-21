@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { SWFClientConfig } from "./SWFClient";
 
 /**
@@ -11,8 +11,8 @@ import { SWFClientConfig } from "./SWFClient";
 export const getRuntimeConfig = (config: SWFClientConfig) => ({
   apiVersion: "2012-01-25",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "SWF",
   urlParser: config?.urlParser ?? parseUrl,
 });
