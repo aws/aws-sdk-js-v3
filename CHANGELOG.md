@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.194.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.193.0...v3.194.0) (2022-10-21)
+
+
+### Bug Fixes
+
+* **util-endpoints:** use default import for partitions.json ([#4072](https://github.com/aws/aws-sdk-js-v3/issues/4072)) ([f9bc7af](https://github.com/aws/aws-sdk-js-v3/commit/f9bc7afd7af7535c0de8123d0820faa8ebec7e16))
+
+
+### Features
+
+* **client-cognito-identity-provider:** This release adds a new "DeletionProtection" field to the UserPool in Cognito. Application admins can configure this value with either ACTIVE or INACTIVE value. Setting this field to ACTIVE will prevent a user pool from accidental deletion. ([58004ad](https://github.com/aws/aws-sdk-js-v3/commit/58004ada2ea68ed5085d29e73f1da7fee2f08723))
+* **client-s3:** S3 on Outposts launches support for automatic bucket-style alias. You can use the automatic access point alias instead of an access point ARN for any object-level operation in an Outposts bucket. ([1437c0f](https://github.com/aws/aws-sdk-js-v3/commit/1437c0f4fcace57b3a027c54f9fb12bbcee04195))
+* **client-sagemaker:** CreateInferenceRecommenderjob API now supports passing endpoint details directly, that will help customers to identify the max invocation and max latency they can achieve for their model and the associated endpoint along with getting recommendations on other instances. ([d7d3486](https://github.com/aws/aws-sdk-js-v3/commit/d7d3486d1f1bbb7d2210c22c41c4719c742f3ef8))
+* **endpoint:** add restXml endpoints 2.0 models ([#4069](https://github.com/aws/aws-sdk-js-v3/issues/4069)) ([4da5ff3](https://github.com/aws/aws-sdk-js-v3/commit/4da5ff38e5bf2b0b371f29cdbec6ee65a8fb5909))
+* **endpoint:** add wire protocol filtering option to copy models script ([#4068](https://github.com/aws/aws-sdk-js-v3/issues/4068)) ([1acd79a](https://github.com/aws/aws-sdk-js-v3/commit/1acd79a5db52d8b5e7fc96a1848110ba7aa8e6e6))
+* **endpoint:** endpoint models for awsquery protocol ([#4070](https://github.com/aws/aws-sdk-js-v3/issues/4070)) ([41bb10d](https://github.com/aws/aws-sdk-js-v3/commit/41bb10dc09390b4fe0a6578feb6584c15b8b8186))
+
+
+
+
+
 # [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
 
 
