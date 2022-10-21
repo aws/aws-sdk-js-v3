@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSendMessagePlugin } from "@aws-sdk/middleware-sdk-sqs";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -57,6 +58,15 @@ export class SendMessageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: SendMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +82,7 @@ export class SendMessageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SendMessageCommandInput, SendMessageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, SendMessageCommand.getEndpointParameterInstructions()));
     this.middlewareStack.use(getSendMessagePlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
