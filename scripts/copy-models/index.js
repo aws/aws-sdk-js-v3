@@ -60,7 +60,7 @@ const getWireProtocol = (model) => {
     .filter((file) => file.isDirectory())
     .map((dir) => join(models.toString(), dir.name, `smithy/model.json`));
 
-  const observedProtocols = new Set();
+  const observedProtocols = {};
 
   for (const smithyModelsFile of smithyModelsFiles) {
     try {
@@ -74,7 +74,8 @@ const getWireProtocol = (model) => {
         const sdkId = getSdkId(model).toLowerCase().replace(/\s/g, "-");
         const protocol = getWireProtocol(model);
 
-        observedProtocols.add(protocol);
+        observedProtocols[protocol] |= 0;
+        observedProtocols[protocol]++;
 
         if (!protocols || protocols.split(",").includes(protocol)) {
           // Copy file.

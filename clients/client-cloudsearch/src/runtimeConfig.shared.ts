@@ -3,7 +3,7 @@ import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
 import { CloudSearchClientConfig } from "./CloudSearchClient";
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 
 /**
  * @internal
@@ -11,8 +11,8 @@ import { defaultRegionInfoProvider } from "./endpoints";
 export const getRuntimeConfig = (config: CloudSearchClientConfig) => ({
   apiVersion: "2013-01-01",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "CloudSearch",
   urlParser: config?.urlParser ?? parseUrl,
 });

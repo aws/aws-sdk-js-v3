@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { RDSClientConfig } from "./RDSClient";
 
 /**
@@ -11,8 +11,8 @@ import { RDSClientConfig } from "./RDSClient";
 export const getRuntimeConfig = (config: RDSClientConfig) => ({
   apiVersion: "2014-10-31",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "RDS",
   urlParser: config?.urlParser ?? parseUrl,
 });

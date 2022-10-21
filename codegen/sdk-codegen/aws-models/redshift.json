@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -924,6 +924,7 @@
         "Force": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A boolean value indicating whether to override an exception if the retention period\n            has passed. </p>"
           }
         }
@@ -965,13 +966,13 @@
       }
     },
     "com.amazonaws.redshift#Boolean": {
-      "type": "boolean"
-    },
-    "com.amazonaws.redshift#BooleanOptional": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": {}
+        "smithy.api#default": false
       }
+    },
+    "com.amazonaws.redshift#BooleanOptional": {
+      "type": "boolean"
     },
     "com.amazonaws.redshift#BucketNotFoundFault": {
       "type": "structure",
@@ -1088,12 +1089,14 @@
         "AutomatedSnapshotRetentionPeriod": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of days that automatic cluster snapshots are retained.</p>"
           }
         },
         "ManualSnapshotRetentionPeriod": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The default number of days to retain a manual snapshot. If the value is -1, the\n            snapshot is retained indefinitely. This setting doesn't change the retention period\n            of existing snapshots.</p>\n        <p>The value must be either -1 or an integer between 1 and 3,653.</p>"
           }
         },
@@ -1154,24 +1157,28 @@
         "AllowVersionUpgrade": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A boolean value that, if <code>true</code>, indicates that major version upgrades\n            will be applied automatically to the cluster during the maintenance window. </p>"
           }
         },
         "NumberOfNodes": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of compute nodes in the cluster.</p>"
           }
         },
         "PubliclyAccessible": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A boolean value that, if <code>true</code>, indicates that the cluster can be\n            accessed from a public network.</p>"
           }
         },
         "Encrypted": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A boolean value that, if <code>true</code>, indicates that data in the cluster is\n            encrypted at rest.</p>"
           }
         },
@@ -1238,6 +1245,7 @@
         "EnhancedVpcRouting": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>An option that specifies whether to create the cluster with enhanced VPC routing\n            enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a\n            VPC. For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in\n            the Amazon Redshift Cluster Management Guide.</p>\n        <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>\n        <p>Default: false</p>"
           }
         },
@@ -2014,12 +2022,14 @@
         "RetentionPeriod": {
           "target": "com.amazonaws.redshift#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of days that automated snapshots are retained in the destination region\n            after they are copied from a source region.</p>"
           }
         },
         "ManualSnapshotRetentionPeriod": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of days that automated snapshots are retained in the destination region\n            after they are copied from a source region. If the value is -1, the manual snapshot is\n            retained indefinitely. </p>\n        <p>The value must be either -1 or an integer between 1 and 3,653.</p>"
           }
         },
@@ -3702,6 +3712,7 @@
         "Amount": {
           "target": "com.amazonaws.redshift#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB).\n            The value must be a positive number.\n            </p>",
             "smithy.api#required": {}
           }
@@ -3732,12 +3743,14 @@
         "TotalBackupSizeInMegaBytes": {
           "target": "com.amazonaws.redshift#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total amount of storage currently used for snapshots.</p>"
           }
         },
         "TotalProvisionedStorageInMegaBytes": {
           "target": "com.amazonaws.redshift#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total amount of storage currently provisioned.</p>"
           }
         }
@@ -3761,6 +3774,7 @@
         "AllowPubliclyAccessibleConsumers": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A value that specifies whether the datashare can be shared to a publicly accessible  cluster.</p>"
           }
         },
@@ -3919,12 +3933,14 @@
         "TotalDataInMegaBytes": {
           "target": "com.amazonaws.redshift#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Describes the total amount of data to be transfered in megabytes.</p>"
           }
         },
         "DataTransferredInMegaBytes": {
           "target": "com.amazonaws.redshift#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Describes the total amount of data that has been transfered in MB's.</p>"
           }
         },
@@ -4136,6 +4152,7 @@
         "SkipFinalClusterSnapshot": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Determines whether a final snapshot of the cluster is created before Amazon Redshift\n            deletes the cluster. If <code>true</code>, a final cluster snapshot is not created. If\n                <code>false</code>, a final cluster snapshot is created before the cluster is\n            deleted. </p>\n        <note>\n            <p>The <i>FinalClusterSnapshotIdentifier</i> parameter must be\n                specified if <i>SkipFinalClusterSnapshot</i> is\n                <code>false</code>.</p>\n        </note>\n        <p>Default: <code>false</code>\n        </p>"
           }
         },
@@ -5346,7 +5363,9 @@
           "items": "Clusters",
           "pageSize": "MaxRecords"
         },
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "ClusterAvailable": {
             "acceptors": [
@@ -7165,13 +7184,13 @@
       }
     },
     "com.amazonaws.redshift#Double": {
-      "type": "double"
-    },
-    "com.amazonaws.redshift#DoubleOptional": {
       "type": "double",
       "traits": {
-        "smithy.api#box": {}
+        "smithy.api#default": 0
       }
+    },
+    "com.amazonaws.redshift#DoubleOptional": {
+      "type": "double"
     },
     "com.amazonaws.redshift#EC2SecurityGroup": {
       "type": "structure",
@@ -7421,6 +7440,7 @@
         "Port": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The port that the database engine is listening on.</p>"
           }
         },
@@ -7477,6 +7497,7 @@
         "Port": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The port number on which the cluster accepts incoming connections.</p>"
           }
         },
@@ -7582,6 +7603,7 @@
         "AllowedAllVPCs": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether all VPCs in the grantee account are allowed access to the cluster.</p>"
           }
         },
@@ -7594,6 +7616,7 @@
         "EndpointCount": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of Redshift-managed VPC endpoints created for the authorization.</p>"
           }
         }
@@ -7939,6 +7962,7 @@
         "Enabled": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A boolean value indicating whether the subscription is enabled; <code>true</code>\n            indicates that the subscription is enabled.</p>"
           }
         },
@@ -8692,13 +8716,13 @@
       }
     },
     "com.amazonaws.redshift#Integer": {
-      "type": "integer"
-    },
-    "com.amazonaws.redshift#IntegerOptional": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {}
+        "smithy.api#default": 0
       }
+    },
+    "com.amazonaws.redshift#IntegerOptional": {
+      "type": "integer"
     },
     "com.amazonaws.redshift#InvalidAuthenticationProfileRequestFault": {
       "type": "structure",
@@ -9254,6 +9278,7 @@
         "LoggingEnabled": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>\n            <code>true</code> if logging is on, <code>false</code> if logging is off.</p>"
           }
         },
@@ -9305,13 +9330,13 @@
       }
     },
     "com.amazonaws.redshift#Long": {
-      "type": "long"
-    },
-    "com.amazonaws.redshift#LongOptional": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {}
+        "smithy.api#default": 0
       }
+    },
+    "com.amazonaws.redshift#LongOptional": {
+      "type": "long"
     },
     "com.amazonaws.redshift#MaintenanceTrack": {
       "type": "structure",
@@ -9968,6 +9993,7 @@
         "Force": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A Boolean option to override an exception if the retention period has already\n            passed.</p>"
           }
         }
@@ -10371,6 +10397,7 @@
         "RetentionPeriod": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of days to retain automated snapshots in the destination Amazon Web Services Region\n            after they are copied from the source Amazon Web Services Region.</p>\n        <p>By default, this only changes the retention period of copied automated snapshots. </p>\n        <p>If you decrease the retention period for automated snapshots that are copied to a\n            destination Amazon Web Services Region, Amazon Redshift deletes any existing automated snapshots that were\n            copied to the destination Amazon Web Services Region and that fall outside of the new retention\n            period.</p>\n        <p>Constraints: Must be at least 1 and no more than 35 for automated snapshots. </p>\n        <p>If you specify the <code>manual</code> option, only newly copied manual snapshots will\n            have the new retention period. </p>\n        <p>If you specify the value of -1 newly copied manual snapshots are retained\n            indefinitely.</p>\n        <p>Constraints: The number of days must be either -1 or an integer between 1 and 3,653\n            for manual snapshots.</p>",
             "smithy.api#required": {}
           }
@@ -10378,6 +10405,7 @@
         "Manual": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether to apply the snapshot retention period to newly copied manual\n            snapshots instead of automated snapshots.</p>"
           }
         }
@@ -10536,6 +10564,7 @@
         "NumberOfNodes": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of nodes.</p>"
           }
         },
@@ -10819,6 +10848,7 @@
         "IsModifiable": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If <code>true</code>, the parameter can be modified. Some parameters have security\n            or operational implications that prevent them from being changed. </p>"
           }
         },
@@ -11286,6 +11316,7 @@
         "RecurringChargeAmount": {
           "target": "com.amazonaws.redshift#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The amount charged per the period of time specified by the recurring charge\n            frequency.</p>"
           }
         },
@@ -11311,24 +11342,6 @@
     },
     "com.amazonaws.redshift#RedshiftServiceVersion20121201": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "Redshift",
-          "arnNamespace": "redshift",
-          "cloudFormationName": "Redshift",
-          "cloudTrailEventSource": "redshift.amazonaws.com",
-          "endpointPrefix": "redshift"
-        },
-        "aws.auth#sigv4": {
-          "name": "redshift"
-        },
-        "aws.protocols#awsQuery": {},
-        "smithy.api#documentation": "<fullname>Amazon Redshift</fullname>\n        <p>\n            <b>Overview</b>\n        </p>\n        <p>This is an interface reference for Amazon Redshift. It contains documentation for one of\n            the programming or command line interfaces you can use to manage Amazon Redshift clusters.\n            Note that Amazon Redshift is asynchronous, which means that some interfaces may require\n            techniques, such as polling or asynchronous callback handlers, to determine when a\n            command has been applied. In this reference, the parameter descriptions indicate whether\n            a change is applied immediately, on the next instance reboot, or during the next\n            maintenance window. For a summary of the Amazon Redshift cluster management interfaces, go to\n                <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/using-aws-sdk.html\">Using the\n                Amazon Redshift Management Interfaces</a>.</p>\n        <p>Amazon Redshift manages all the work of setting up, operating, and scaling a data\n            warehouse: provisioning capacity, monitoring and backing up the cluster, and applying\n            patches and upgrades to the Amazon Redshift engine. You can focus on using your data to\n            acquire new insights for your business and customers.</p>\n        <p>If you are a first-time user of Amazon Redshift, we recommend that you begin by reading\n            the <a href=\"https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html\">Amazon Redshift Getting Started Guide</a>.</p>\n\n        <p>If you are a database developer, the <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/welcome.html\">Amazon Redshift Database Developer Guide</a> explains how to design,\n            build, query, and maintain the databases that make up your data warehouse. </p>",
-        "smithy.api#title": "Amazon Redshift",
-        "smithy.api#xmlNamespace": {
-          "uri": "http://redshift.amazonaws.com/doc/2012-12-01/"
-        }
-      },
       "version": "2012-12-01",
       "operations": [
         {
@@ -11688,7 +11701,2139 @@
         {
           "target": "com.amazonaws.redshift#UpdatePartnerStatus"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Redshift",
+          "arnNamespace": "redshift",
+          "cloudFormationName": "Redshift",
+          "cloudTrailEventSource": "redshift.amazonaws.com",
+          "endpointPrefix": "redshift"
+        },
+        "aws.auth#sigv4": {
+          "name": "redshift"
+        },
+        "aws.protocols#awsQuery": {},
+        "smithy.api#documentation": "<fullname>Amazon Redshift</fullname>\n        <p>\n            <b>Overview</b>\n        </p>\n        <p>This is an interface reference for Amazon Redshift. It contains documentation for one of\n            the programming or command line interfaces you can use to manage Amazon Redshift clusters.\n            Note that Amazon Redshift is asynchronous, which means that some interfaces may require\n            techniques, such as polling or asynchronous callback handlers, to determine when a\n            command has been applied. In this reference, the parameter descriptions indicate whether\n            a change is applied immediately, on the next instance reboot, or during the next\n            maintenance window. For a summary of the Amazon Redshift cluster management interfaces, go to\n                <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/using-aws-sdk.html\">Using the\n                Amazon Redshift Management Interfaces</a>.</p>\n        <p>Amazon Redshift manages all the work of setting up, operating, and scaling a data\n            warehouse: provisioning capacity, monitoring and backing up the cluster, and applying\n            patches and upgrades to the Amazon Redshift engine. You can focus on using your data to\n            acquire new insights for your business and customers.</p>\n        <p>If you are a first-time user of Amazon Redshift, we recommend that you begin by reading\n            the <a href=\"https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html\">Amazon Redshift Getting Started Guide</a>.</p>\n\n        <p>If you are a database developer, the <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/welcome.html\">Amazon Redshift Database Developer Guide</a> explains how to design,\n            build, query, and maintain the databases that make up your data warehouse. </p>",
+        "smithy.api#title": "Amazon Redshift",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://redshift.amazonaws.com/doc/2012-12-01/"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://redshift-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://redshift-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://redshift.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://redshift.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-south-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-south-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-south-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-south-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-south-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.me-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.me-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-iso-west-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-iso-west-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-central-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-central-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-central-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-central-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-southeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-southeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-southeast-4.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-4",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.ap-southeast-4.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-4",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-southeast-4.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-4",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.ap-southeast-4.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-4",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://redshift.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.redshift#RejectDataShare": {
       "type": "operation",
@@ -11749,18 +13894,21 @@
         "Duration": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The duration of the node reservation in seconds.</p>"
           }
         },
         "FixedPrice": {
           "target": "com.amazonaws.redshift#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The fixed cost Amazon Redshift charges you for this reserved node.</p>"
           }
         },
         "UsagePrice": {
           "target": "com.amazonaws.redshift#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The hourly rate Amazon Redshift charges you for this reserved node.</p>"
           }
         },
@@ -11773,6 +13921,7 @@
         "NodeCount": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of reserved compute nodes.</p>"
           }
         },
@@ -11848,6 +13997,7 @@
         "TargetReservedNodeCount": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The target reserved-node count.</p>"
           }
         },
@@ -11936,6 +14086,7 @@
         "SourceReservedNodeCount": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The source reserved-node count in the cluster.</p>"
           }
         },
@@ -11954,6 +14105,7 @@
         "TargetReservedNodeCount": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The count of target reserved nodes in the cluster.</p>"
           }
         }
@@ -12046,18 +14198,21 @@
         "Duration": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The duration, in seconds, for which the offering will reserve the node.</p>"
           }
         },
         "FixedPrice": {
           "target": "com.amazonaws.redshift#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The upfront fixed charge you will pay to purchase the specific reserved node\n            offering.</p>"
           }
         },
         "UsagePrice": {
           "target": "com.amazonaws.redshift#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The rate you are charged for each hour the cluster that is using the offering is\n            running.</p>"
           }
         },
@@ -12221,6 +14376,7 @@
         "ResetAllParameters": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If <code>true</code>, all parameters in the specified parameter group will be reset\n            to their default values. </p>\n        <p>Default: <code>true</code>\n        </p>"
           }
         },
@@ -12365,6 +14521,7 @@
         "AllowCancelResize": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A boolean value indicating if the resize operation can be cancelled.</p>"
           }
         }
@@ -12857,30 +15014,35 @@
         "CurrentRestoreRateInMegaBytesPerSecond": {
           "target": "com.amazonaws.redshift#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of megabytes per second being transferred from the backup storage.\n            Returns the average rate for a completed backup.\n            This field is only updated when you restore to DC2 and DS2 node types. </p>"
           }
         },
         "SnapshotSizeInMegaBytes": {
           "target": "com.amazonaws.redshift#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The size of the set of snapshot data used to restore the cluster.\n            This field is only updated when you restore to DC2 and DS2 node types. </p>"
           }
         },
         "ProgressInMegaBytes": {
           "target": "com.amazonaws.redshift#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of megabytes that have been transferred from snapshot storage.\n            This field is only updated when you restore to DC2 and DS2 node types. </p>"
           }
         },
         "ElapsedTimeInSeconds": {
           "target": "com.amazonaws.redshift#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The amount of time an in-progress restore has been running, or the amount of time\n            it took a completed restore to finish.\n            This field is only updated when you restore to DC2 and DS2 node types. </p>"
           }
         },
         "EstimatedTimeToCompletionInSeconds": {
           "target": "com.amazonaws.redshift#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The estimate of the time remaining before the restore will complete. Returns 0 for\n            a completed restore.\n            This field is only updated when you restore to DC2 and DS2 node types. </p>"
           }
         }
@@ -13203,6 +15365,7 @@
         "Force": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether to force the revoke action. \n           If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.</p>"
           }
         }
@@ -13733,6 +15896,7 @@
         "Port": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The port that the cluster is listening on.</p>"
           }
         },
@@ -13781,6 +15945,7 @@
         "NumberOfNodes": {
           "target": "com.amazonaws.redshift#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of nodes in the cluster.</p>"
           }
         },
@@ -13799,6 +15964,7 @@
         "Encrypted": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If <code>true</code>, the data in the snapshot is encrypted at rest.</p>"
           }
         },
@@ -13811,6 +15977,7 @@
         "EncryptedWithHSM": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A boolean that indicates whether the snapshot data is encrypted using the HSM keys\n            of the source cluster. <code>true</code> indicates that the data is encrypted using HSM\n            keys.</p>"
           }
         },
@@ -13829,36 +15996,42 @@
         "TotalBackupSizeInMegaBytes": {
           "target": "com.amazonaws.redshift#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The size of the complete set of backup data that would be used to restore the\n            cluster.</p>"
           }
         },
         "ActualIncrementalBackupSizeInMegaBytes": {
           "target": "com.amazonaws.redshift#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The size of the incremental backup.</p>"
           }
         },
         "BackupProgressInMegaBytes": {
           "target": "com.amazonaws.redshift#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of megabytes that have been transferred to the snapshot\n            backup.</p>"
           }
         },
         "CurrentBackupRateInMegaBytesPerSecond": {
           "target": "com.amazonaws.redshift#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of megabytes per second being transferred to the snapshot backup.\n            Returns <code>0</code> for a completed backup. </p>"
           }
         },
         "EstimatedSecondsToCompletion": {
           "target": "com.amazonaws.redshift#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The estimate of the time remaining before the snapshot backup will complete.\n            Returns <code>0</code> for a completed backup. </p>"
           }
         },
         "ElapsedTimeInSeconds": {
           "target": "com.amazonaws.redshift#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The amount of time an in-progress snapshot backup has been running, or the amount\n            of time it took a completed backup to finish.</p>"
           }
         },
@@ -13883,6 +16056,7 @@
         "EnhancedVpcRouting": {
           "target": "com.amazonaws.redshift#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>An option that specifies whether to create the cluster with enhanced VPC routing\n            enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a\n            VPC. For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in\n            the Amazon Redshift Cluster Management Guide.</p>\n        <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>\n        <p>Default: false</p>"
           }
         },
@@ -15127,6 +17301,7 @@
         "Amount": {
           "target": "com.amazonaws.redshift#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB).</p>"
           }
         },
