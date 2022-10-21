@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { Route53ClientConfig } from "./Route53Client";
 
 /**
@@ -11,8 +11,8 @@ import { Route53ClientConfig } from "./Route53Client";
 export const getRuntimeConfig = (config: Route53ClientConfig) => ({
   apiVersion: "2013-04-01",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "Route 53",
   urlParser: config?.urlParser ?? parseUrl,
 });

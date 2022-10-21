@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getChangeResourceRecordSetsPlugin, getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -144,6 +145,15 @@ export class ChangeResourceRecordSetsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: ChangeResourceRecordSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,6 +169,9 @@ export class ChangeResourceRecordSetsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ChangeResourceRecordSetsCommandInput, ChangeResourceRecordSetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ChangeResourceRecordSetsCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getChangeResourceRecordSetsPlugin(configuration));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
