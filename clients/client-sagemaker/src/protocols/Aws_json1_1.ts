@@ -1079,6 +1079,7 @@ import {
   EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
+  EndpointInfo,
   EndpointInputConfiguration,
   EnvironmentParameterRanges,
   ExperimentConfig,
@@ -1283,6 +1284,7 @@ import {
   Endpoint,
   EndpointConfigSummary,
   EndpointOutputConfiguration,
+  EndpointPerformance,
   EndpointSummary,
   EnvironmentParameter,
   Experiment,
@@ -1313,6 +1315,7 @@ import {
   HyperParameterTuningJobSummary,
   Image,
   ImageVersion,
+  InferenceMetrics,
   InferenceRecommendation,
   InferenceRecommendationsJob,
   LabelCounters,
@@ -1391,7 +1394,6 @@ import {
   ListModelMetadataRequest,
   ListModelMetadataResponse,
   ListModelPackageGroupsInput,
-  ListModelPackageGroupsOutput,
   MetricData,
   ModelConfiguration,
   ModelMetadataFilter,
@@ -1431,6 +1433,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListModelPackageGroupsOutput,
   ListModelPackagesInput,
   ListModelPackagesOutput,
   ListModelQualityJobDefinitionsRequest,
@@ -18421,6 +18424,12 @@ const serializeAws_json1_1EnableSagemakerServicecatalogPortfolioInput = (
   return {};
 };
 
+const serializeAws_json1_1EndpointInfo = (input: EndpointInfo, context: __SerdeContext): any => {
+  return {
+    ...(input.EndpointName != null && { EndpointName: input.EndpointName }),
+  };
+};
+
 const serializeAws_json1_1EndpointInput = (input: EndpointInput, context: __SerdeContext): any => {
   return {
     ...(input.EndTimeOffset != null && { EndTimeOffset: input.EndTimeOffset }),
@@ -18462,6 +18471,14 @@ const serializeAws_json1_1EndpointInputConfigurations = (
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_json1_1EndpointInputConfiguration(entry, context);
+    });
+};
+
+const serializeAws_json1_1Endpoints = (input: EndpointInfo[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1EndpointInfo(entry, context);
     });
 };
 
@@ -21662,6 +21679,7 @@ const serializeAws_json1_1RecommendationJobInputConfig = (
     ...(input.EndpointConfigurations != null && {
       EndpointConfigurations: serializeAws_json1_1EndpointInputConfigurations(input.EndpointConfigurations, context),
     }),
+    ...(input.Endpoints != null && { Endpoints: serializeAws_json1_1Endpoints(input.Endpoints, context) }),
     ...(input.JobDurationInSeconds != null && { JobDurationInSeconds: input.JobDurationInSeconds }),
     ...(input.ModelPackageVersionArn != null && { ModelPackageVersionArn: input.ModelPackageVersionArn }),
     ...(input.ResourceLimit != null && {
@@ -26246,6 +26264,10 @@ const deserializeAws_json1_1DescribeInferenceRecommendationsJobResponse = (
       output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
+    EndpointPerformances:
+      output.EndpointPerformances != null
+        ? deserializeAws_json1_1EndpointPerformances(output.EndpointPerformances, context)
+        : undefined,
     FailureReason: __expectString(output.FailureReason),
     InferenceRecommendations:
       output.InferenceRecommendations != null
@@ -27739,6 +27761,12 @@ const deserializeAws_json1_1EndpointConfigSummaryList = (
   return retVal;
 };
 
+const deserializeAws_json1_1EndpointInfo = (output: any, context: __SerdeContext): EndpointInfo => {
+  return {
+    EndpointName: __expectString(output.EndpointName),
+  } as any;
+};
+
 const deserializeAws_json1_1EndpointInput = (output: any, context: __SerdeContext): EndpointInput => {
   return {
     EndTimeOffset: __expectString(output.EndTimeOffset),
@@ -27793,6 +27821,38 @@ const deserializeAws_json1_1EndpointOutputConfiguration = (
     InstanceType: __expectString(output.InstanceType),
     VariantName: __expectString(output.VariantName),
   } as any;
+};
+
+const deserializeAws_json1_1EndpointPerformance = (output: any, context: __SerdeContext): EndpointPerformance => {
+  return {
+    EndpointInfo:
+      output.EndpointInfo != null ? deserializeAws_json1_1EndpointInfo(output.EndpointInfo, context) : undefined,
+    Metrics: output.Metrics != null ? deserializeAws_json1_1InferenceMetrics(output.Metrics, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EndpointPerformances = (output: any, context: __SerdeContext): EndpointPerformance[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EndpointPerformance(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1Endpoints = (output: any, context: __SerdeContext): EndpointInfo[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EndpointInfo(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1EndpointSummary = (output: any, context: __SerdeContext): EndpointSummary => {
@@ -28879,6 +28939,13 @@ const deserializeAws_json1_1InferenceExecutionConfig = (
 ): InferenceExecutionConfig => {
   return {
     Mode: __expectString(output.Mode),
+  } as any;
+};
+
+const deserializeAws_json1_1InferenceMetrics = (output: any, context: __SerdeContext): InferenceMetrics => {
+  return {
+    MaxInvocations: __expectInt32(output.MaxInvocations),
+    ModelLatency: __expectInt32(output.ModelLatency),
   } as any;
 };
 
@@ -32554,6 +32621,7 @@ const deserializeAws_json1_1RecommendationJobInputConfig = (
       output.EndpointConfigurations != null
         ? deserializeAws_json1_1EndpointInputConfigurations(output.EndpointConfigurations, context)
         : undefined,
+    Endpoints: output.Endpoints != null ? deserializeAws_json1_1Endpoints(output.Endpoints, context) : undefined,
     JobDurationInSeconds: __expectInt32(output.JobDurationInSeconds),
     ModelPackageVersionArn: __expectString(output.ModelPackageVersionArn),
     ResourceLimit:

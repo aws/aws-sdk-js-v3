@@ -99,9 +99,8 @@ import {
   LineageType,
   MetricData,
   ModelPackageGroupStatus,
-  ModelPackageSortBy,
+  ModelPackageGroupSummary,
   ModelPackageStatusDetails,
-  ModelPackageType,
   MonitoringExecutionSummary,
   MonitoringJobDefinitionSortKey,
   MonitoringJobDefinitionSummary,
@@ -131,6 +130,30 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListModelPackageGroupsOutput {
+  /**
+   * <p>A list of summaries of the model groups in your Amazon Web Services account.</p>
+   */
+  ModelPackageGroupSummaryList: ModelPackageGroupSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set
+   *             of model groups, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export enum ModelPackageType {
+  BOTH = "Both",
+  UNVERSIONED = "Unversioned",
+  VERSIONED = "Versioned",
+}
+
+export enum ModelPackageSortBy {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name",
+}
 
 export interface ListModelPackagesInput {
   /**
@@ -5829,6 +5852,13 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const ListModelPackageGroupsOutputFilterSensitiveLog = (obj: ListModelPackageGroupsOutput): any => ({
+  ...obj,
+});
 
 /**
  * @internal

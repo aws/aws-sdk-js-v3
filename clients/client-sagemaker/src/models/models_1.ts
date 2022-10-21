@@ -2012,6 +2012,16 @@ export interface EndpointInputConfiguration {
 }
 
 /**
+ * <p>Details about a customer endpoint that was compared in an Inference Recommender job.</p>
+ */
+export interface EndpointInfo {
+  /**
+   * <p>The name of a customer's endpoint.</p>
+   */
+  EndpointName: string | undefined;
+}
+
+/**
  * <p>Specifies the maximum number of jobs that can run in parallel
  *     and the maximum number of jobs that can run.</p>
  */
@@ -2143,6 +2153,11 @@ export interface RecommendationJobInputConfig {
    *          override the corresponding fields in the model package.</p>
    */
   ContainerConfig?: RecommendationJobContainerConfig;
+
+  /**
+   * <p>Existing customer endpoints on which to run an Inference Recommender job.</p>
+   */
+  Endpoints?: EndpointInfo[];
 }
 
 export enum RecommendationJobType {
@@ -9664,14 +9679,6 @@ export enum EndpointStatus {
   UPDATING = "Updating",
 }
 
-export enum VariantStatus {
-  ACTIVATING_TRAFFIC = "ActivatingTraffic",
-  BAKING = "Baking",
-  CREATING = "Creating",
-  DELETING = "Deleting",
-  UPDATING = "Updating",
-}
-
 /**
  * @internal
  */
@@ -9949,6 +9956,13 @@ export const EnvironmentParameterRangesFilterSensitiveLog = (obj: EnvironmentPar
  * @internal
  */
 export const EndpointInputConfigurationFilterSensitiveLog = (obj: EndpointInputConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointInfoFilterSensitiveLog = (obj: EndpointInfo): any => ({
   ...obj,
 });
 

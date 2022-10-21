@@ -82,6 +82,7 @@ import {
   DomainStatus,
   DriftCheckBaselines,
   EdgePackagingJobStatus,
+  EndpointInfo,
   EndpointStatus,
   ExperimentConfig,
   FlowDefinitionOutputConfig,
@@ -142,8 +143,15 @@ import {
   TrialComponentParameterValue,
   TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
-  VariantStatus,
 } from "./models_1";
+
+export enum VariantStatus {
+  ACTIVATING_TRAFFIC = "ActivatingTraffic",
+  BAKING = "Baking",
+  CREATING = "Creating",
+  DELETING = "Deleting",
+  UPDATING = "Updating",
+}
 
 /**
  * <p>Describes the status of the production variant.</p>
@@ -1414,6 +1422,36 @@ export interface DescribeInferenceRecommendationsJobRequest {
 }
 
 /**
+ * <p>The metrics for an existing endpoint compared in an Inference Recommender job.</p>
+ */
+export interface InferenceMetrics {
+  /**
+   * <p>The expected maximum number of requests per minute for the instance.</p>
+   */
+  MaxInvocations: number | undefined;
+
+  /**
+   * <p>The expected model latency at maximum invocations per minute for the instance.</p>
+   */
+  ModelLatency: number | undefined;
+}
+
+/**
+ * <p>The performance results from running an Inference Recommender job on an existing endpoint.</p>
+ */
+export interface EndpointPerformance {
+  /**
+   * <p>The metrics for an existing endpoint.</p>
+   */
+  Metrics: InferenceMetrics | undefined;
+
+  /**
+   * <p>Details about a customer endpoint that was compared in an Inference Recommender job.</p>
+   */
+  EndpointInfo: EndpointInfo | undefined;
+}
+
+/**
  * <p>The endpoint configuration made by Inference Recommender during a recommendation job.</p>
  */
 export interface EndpointOutputConfiguration {
@@ -1595,6 +1633,11 @@ export interface DescribeInferenceRecommendationsJobResponse {
    * <p>The recommendations made by Inference Recommender.</p>
    */
   InferenceRecommendations?: InferenceRecommendation[];
+
+  /**
+   * <p>The performance results from running an Inference Recommender job on an existing endpoint.</p>
+   */
+  EndpointPerformances?: EndpointPerformance[];
 }
 
 export interface DescribeLabelingJobRequest {
@@ -8936,30 +8979,6 @@ export interface ModelPackageGroupSummary {
   ModelPackageGroupStatus: ModelPackageGroupStatus | string | undefined;
 }
 
-export interface ListModelPackageGroupsOutput {
-  /**
-   * <p>A list of summaries of the model groups in your Amazon Web Services account.</p>
-   */
-  ModelPackageGroupSummaryList: ModelPackageGroupSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set
-   *             of model groups, use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export enum ModelPackageType {
-  BOTH = "Both",
-  UNVERSIONED = "Unversioned",
-  VERSIONED = "Versioned",
-}
-
-export enum ModelPackageSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
-
 /**
  * @internal
  */
@@ -9196,6 +9215,20 @@ export const DescribeImageVersionResponseFilterSensitiveLog = (obj: DescribeImag
 export const DescribeInferenceRecommendationsJobRequestFilterSensitiveLog = (
   obj: DescribeInferenceRecommendationsJobRequest
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceMetricsFilterSensitiveLog = (obj: InferenceMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointPerformanceFilterSensitiveLog = (obj: EndpointPerformance): any => ({
   ...obj,
 });
 
@@ -10704,12 +10737,5 @@ export const ListModelPackageGroupsInputFilterSensitiveLog = (obj: ListModelPack
  * @internal
  */
 export const ModelPackageGroupSummaryFilterSensitiveLog = (obj: ModelPackageGroupSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelPackageGroupsOutputFilterSensitiveLog = (obj: ListModelPackageGroupsOutput): any => ({
   ...obj,
 });
