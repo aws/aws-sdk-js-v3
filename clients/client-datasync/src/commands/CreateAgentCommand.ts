@@ -29,11 +29,11 @@ export interface CreateAgentCommandInput extends CreateAgentRequest {}
 export interface CreateAgentCommandOutput extends CreateAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Activates an DataSync agent that you have deployed on your host. The activation
- *       process associates your agent with your account. In the activation process, you specify
- *       information such as the Amazon Web Services Region that you want to activate the agent in. You activate the
- *       agent in the Amazon Web Services Region where your target locations (in Amazon S3 or Amazon EFS) reside. Your
- *       tasks are created in this Amazon Web Services Region.</p>
+ * <p>Activates an DataSync agent that you have deployed in your storage
+ *       environment. The activation process associates your agent with your account. In the activation
+ *       process, you specify information such as the Amazon Web Services Region that you want to
+ *       activate the agent in. You activate the agent in the Amazon Web Services Region where your
+ *       target locations (in Amazon S3 or Amazon EFS) reside. Your tasks are created in this Amazon Web Services Region.</p>
  *          <p>You can activate the agent in a VPC (virtual private cloud) or provide the agent access to
  *       a VPC endpoint so you can run tasks without going over the public internet.</p>
  *          <p>You can use an agent for more than one location. If a task uses multiple agents, all of
@@ -43,7 +43,6 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  *
  *          <p>Agents are automatically updated by Amazon Web Services on a regular basis, using a mechanism that
  *       ensures minimal interruption to your tasks.</p>
- *          <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

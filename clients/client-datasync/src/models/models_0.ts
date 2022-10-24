@@ -41,7 +41,7 @@ export enum Atime {
  */
 export interface CancelTaskExecutionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the task execution to cancel.</p>
+   * <p>The Amazon Resource Name (ARN) of the task execution to stop.</p>
    */
   TaskExecutionArn: string | undefined;
 }
@@ -917,6 +917,14 @@ export interface CreateLocationObjectStorageRequest {
    * <p>Specifies the key-value pair that represents a tag that you want to add to the resource. Tags can help you manage, filter, and search for your resources. We recommend creating a name tag for your location.</p>
    */
   Tags?: TagListEntry[];
+
+  /**
+   * <p>Specifies a certificate to authenticate with an object storage system that uses a private
+   *       or self-signed certificate authority (CA). You must specify a Base64-encoded <code>.pem</code>
+   *       file (for example, <code>file:///home/user/.ssh/storage_sys_certificate.pem</code>). The certificate can be up to 32768 bytes (before Base64 encoding).</p>
+   *          <p>To use this parameter, configure <code>ServerProtocol</code> to <code>HTTPS</code>.</p>
+   */
+  ServerCertificate?: Uint8Array;
 }
 
 /**
@@ -2026,7 +2034,8 @@ export interface DescribeLocationObjectStorageResponse {
   LocationUri?: string;
 
   /**
-   * <p>The access key (for example, a user name) required to authenticate with the object storage server.</p>
+   * <p>The access key (for example, a user name) required to authenticate with the object storage
+   *       system.</p>
    */
   AccessKey?: string;
 
@@ -2036,7 +2045,7 @@ export interface DescribeLocationObjectStorageResponse {
   ServerPort?: number;
 
   /**
-   * <p>The protocol that your object storage server uses to communicate.</p>
+   * <p>The protocol that your object storage system uses to communicate.</p>
    */
   ServerProtocol?: ObjectStorageServerProtocol | string;
 
@@ -2049,6 +2058,12 @@ export interface DescribeLocationObjectStorageResponse {
    * <p>The time that the location was created.</p>
    */
   CreationTime?: Date;
+
+  /**
+   * <p>The self-signed certificate that DataSync uses to securely authenticate with
+   *       your object storage system.</p>
+   */
+  ServerCertificate?: Uint8Array;
 }
 
 /**
@@ -2411,8 +2426,6 @@ export interface DescribeTaskExecutionResponse {
    *       contain a single filter string that consists of the patterns to exclude. The patterns are
    *       delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code>
    *          </p>
-   *          <p>
-   *     </p>
    */
   Excludes?: FilterRule[];
 
@@ -2421,8 +2434,6 @@ export interface DescribeTaskExecutionResponse {
    *       list should contain a single filter string that consists of the patterns to include. The
    *       patterns are delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code>
    *          </p>
-   *          <p>
-   *     </p>
    */
   Includes?: FilterRule[];
 
@@ -2472,6 +2483,12 @@ export interface DescribeTaskExecutionResponse {
    * <p>The result of the task execution.</p>
    */
   Result?: TaskExecutionResultDetail;
+
+  /**
+   * <p>The physical number of bytes transferred over the network after compression was applied.
+   *       In most cases, this number is less than <code>BytesTransferred</code>.</p>
+   */
+  BytesCompressed?: number;
 }
 
 /**
@@ -3043,50 +3060,54 @@ export interface UpdateLocationNfsResponse {}
 
 export interface UpdateLocationObjectStorageRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the self-managed object storage server location to be updated.</p>
+   * <p>Specifies the ARN of the object storage system location that you're updating.</p>
    */
   LocationArn: string | undefined;
 
   /**
-   * <p>The port that your self-managed object storage server accepts inbound network traffic on.
-   *       The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS). You can
-   *       specify a custom port if your self-managed object storage server requires one.</p>
+   * <p>Specifies the port that your object storage server accepts inbound network traffic on (for
+   *       example, port 443).</p>
    */
   ServerPort?: number;
 
   /**
-   * <p>The protocol that the object storage server uses to communicate. Valid values are
-   *         <code>HTTP</code> or <code>HTTPS</code>.</p>
+   * <p>Specifies the protocol that your object storage server uses to communicate.</p>
    */
   ServerProtocol?: ObjectStorageServerProtocol | string;
 
   /**
-   * <p>The subdirectory in the self-managed object storage server that is used
-   *       to read data from.</p>
+   * <p>Specifies the object prefix for your object storage server. If this is a source location,
+   *       DataSync only copies objects with this prefix. If this is a destination location, DataSync
+   *       writes all objects with this prefix.</p>
    */
   Subdirectory?: string;
 
   /**
-   * <p>Optional. The access key is used if credentials are required to access the self-managed
-   *       object storage server. If your object storage requires a user name and password to
-   *       authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the user name
-   *       and password, respectively.</p>
+   * <p>Specifies the access key (for example, a user name) if credentials are required to
+   *       authenticate with the object storage server.</p>
    */
   AccessKey?: string;
 
   /**
-   * <p>Optional. The secret key is used if credentials are required to access the self-managed
-   *       object storage server. If your object storage requires a user name and password to
-   *       authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the user name
-   *       and password, respectively.</p>
+   * <p>Specifies the secret key (for example, a password) if credentials are required to
+   *       authenticate with the object storage server.</p>
    */
   SecretKey?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the agents associated with the
-   *       self-managed object storage server location.</p>
+   * <p>Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can securely connect with
+   *       your location.</p>
    */
   AgentArns?: string[];
+
+  /**
+   * <p>Specifies a certificate to authenticate with an object storage system that uses a private
+   *       or self-signed certificate authority (CA). You must specify a Base64-encoded <code>.pem</code>
+   *       file (for example, <code>file:///home/user/.ssh/storage_sys_certificate.pem</code>). The certificate can be up to 32768 bytes (before Base64 encoding).</p>
+   *          <p>To use this parameter, configure <code>ServerProtocol</code> to <code>HTTPS</code>.</p>
+   *          <p>Updating the certificate doesn't interfere with tasks that you have in progress.</p>
+   */
+  ServerCertificate?: Uint8Array;
 }
 
 export interface UpdateLocationObjectStorageResponse {}

@@ -30,6 +30,10 @@ export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationF
 
 /**
  * <p>Provides details about how an DataSync location for an Amazon FSx for NetApp ONTAP file system is configured.</p>
+ *          <note>
+ *             <p>If your location uses SMB, the <code>DescribeLocationFsxOntap</code> operation doesn't
+ *         actually return a <code>Password</code>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

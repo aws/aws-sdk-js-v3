@@ -29,8 +29,11 @@ export interface DescribeLocationFsxOpenZfsCommandInput extends DescribeLocation
 export interface DescribeLocationFsxOpenZfsCommandOutput extends DescribeLocationFsxOpenZfsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata about an Amazon FSx for OpenZFS
- *       location, such as information about its path.</p>
+ * <p>Provides details about how an DataSync location for an Amazon FSx for OpenZFS file system is configured.</p>
+ *          <note>
+ *             <p>Response elements related to <code>SMB</code> aren't supported with the
+ *         <code>DescribeLocationFsxOpenZfs</code> operation.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

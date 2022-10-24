@@ -29,8 +29,7 @@ export interface DescribeLocationFsxLustreCommandInput extends DescribeLocationF
 export interface DescribeLocationFsxLustreCommandOutput extends DescribeLocationFsxLustreResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata about an Amazon FSx for Lustre
- *       location, such as information about its path.</p>
+ * <p>Provides details about how an DataSync location for an Amazon FSx for Lustre file system is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

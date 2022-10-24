@@ -29,7 +29,7 @@ export interface CreateLocationS3CommandInput extends CreateLocationS3Request {}
 export interface CreateLocationS3CommandOutput extends CreateLocationS3Response, __MetadataBearer {}
 
 /**
- * <p>Creates an endpoint for an Amazon S3 bucket.</p>
+ * <p>Creates an endpoint for an Amazon S3 bucket that DataSync can access for a transfer.</p>
  *
  *
  *          <p>For

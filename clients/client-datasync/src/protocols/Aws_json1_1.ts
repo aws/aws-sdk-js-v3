@@ -2921,6 +2921,7 @@ const serializeAws_json1_1CreateLocationObjectStorageRequest = (
     ...(input.AgentArns != null && { AgentArns: serializeAws_json1_1AgentArnList(input.AgentArns, context) }),
     ...(input.BucketName != null && { BucketName: input.BucketName }),
     ...(input.SecretKey != null && { SecretKey: input.SecretKey }),
+    ...(input.ServerCertificate != null && { ServerCertificate: context.base64Encoder(input.ServerCertificate) }),
     ...(input.ServerHostname != null && { ServerHostname: input.ServerHostname }),
     ...(input.ServerPort != null && { ServerPort: input.ServerPort }),
     ...(input.ServerProtocol != null && { ServerProtocol: input.ServerProtocol }),
@@ -3438,6 +3439,7 @@ const serializeAws_json1_1UpdateLocationObjectStorageRequest = (
     ...(input.AgentArns != null && { AgentArns: serializeAws_json1_1AgentArnList(input.AgentArns, context) }),
     ...(input.LocationArn != null && { LocationArn: input.LocationArn }),
     ...(input.SecretKey != null && { SecretKey: input.SecretKey }),
+    ...(input.ServerCertificate != null && { ServerCertificate: context.base64Encoder(input.ServerCertificate) }),
     ...(input.ServerPort != null && { ServerPort: input.ServerPort }),
     ...(input.ServerProtocol != null && { ServerProtocol: input.ServerProtocol }),
     ...(input.Subdirectory != null && { Subdirectory: input.Subdirectory }),
@@ -3810,6 +3812,7 @@ const deserializeAws_json1_1DescribeLocationObjectStorageResponse = (
         : undefined,
     LocationArn: __expectString(output.LocationArn),
     LocationUri: __expectString(output.LocationUri),
+    ServerCertificate: output.ServerCertificate != null ? context.base64Decoder(output.ServerCertificate) : undefined,
     ServerPort: __expectInt32(output.ServerPort),
     ServerProtocol: __expectString(output.ServerProtocol),
   } as any;
@@ -3856,6 +3859,7 @@ const deserializeAws_json1_1DescribeTaskExecutionResponse = (
   context: __SerdeContext
 ): DescribeTaskExecutionResponse => {
   return {
+    BytesCompressed: __expectLong(output.BytesCompressed),
     BytesTransferred: __expectLong(output.BytesTransferred),
     BytesWritten: __expectLong(output.BytesWritten),
     EstimatedBytesToTransfer: __expectLong(output.EstimatedBytesToTransfer),
