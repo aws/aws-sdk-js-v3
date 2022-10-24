@@ -366,7 +366,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Metadata about the detection source that generates proactive anomalies. The anomaly is\n\t\t\tdetected using analysis of the metric data\u2028 over a period of time</p>"
+        "smithy.api#documentation": "<p>Metadata about the detection source that generates proactive anomalies. The anomaly is\n\t\t\tdetected using analysis of the metric data  over a period of time</p>"
       }
     },
     "com.amazonaws.devopsguru#AnomalyStatus": {
