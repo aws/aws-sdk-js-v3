@@ -1991,6 +1991,7 @@ const serializeAws_json1_1CreateCertificateAuthorityRequest = (
       RevocationConfiguration: serializeAws_json1_1RevocationConfiguration(input.RevocationConfiguration, context),
     }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.UsageMode != null && { UsageMode: input.UsageMode }),
   };
 };
 
@@ -2506,6 +2507,7 @@ const deserializeAws_json1_1CertificateAuthority = (output: any, context: __Serd
     Serial: __expectString(output.Serial),
     Status: __expectString(output.Status),
     Type: __expectString(output.Type),
+    UsageMode: __expectString(output.UsageMode),
   } as any;
 };
 

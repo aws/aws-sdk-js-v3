@@ -115,7 +115,7 @@ export interface ASN1Subject {
    * <p></p>
    * 		       <p>Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of
    * 			which consists of an object identifier (OID) and a value. For more information, see
-   * 			NIST’s definition of  <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier (OID)</a>.</p>
+   * 			NIST’s definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier (OID)</a>.</p>
    * 		       <note>
    * 			         <p>Custom attributes cannot be used in combination with standard attributes.</p>
    * 		       </note>
@@ -499,7 +499,7 @@ export enum S3ObjectAcl {
  * 			-noout</code>
  *          </p>
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html">Planning a certificate revocation list
- * 				(CRL)</a> in the <i>Certificate Manager Private Certificate Authority (PCA) User Guide</i>
+ * 				(CRL)</a> in the <i>Private Certificate Authority (PCA) User Guide</i>
  *          </p>
  */
 export interface CrlConfiguration {
@@ -573,7 +573,7 @@ export interface OcspConfiguration {
    * 		       <p>Note: The value of the CNAME must not include a protocol prefix such as "http://" or
    * 			"https://".</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/ocsp-customize.html">Customizing Online Certificate Status Protocol
-   * 				(OCSP) </a> in the <i>Certificate Manager Private Certificate Authority (PCA) User Guide</i>.</p>
+   * 				(OCSP) </a> in the <i>Private Certificate Authority (PCA) User Guide</i>.</p>
    */
   OcspCustomCname?: string;
 }
@@ -584,7 +584,7 @@ export interface OcspConfiguration {
  * 			certificate revocation list (CRL). OCSP returns validation information about
  * 			certificates as requested by clients, and a CRL contains an updated list of certificates
  * 			revoked by your CA. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> and <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/revocation-setup.html">Setting up a
- * 				certificate revocation method</a> in the <i>Certificate Manager Private Certificate Authority (PCA) User
+ * 				certificate revocation method</a> in the <i>Private Certificate Authority (PCA) User
  * 				Guide</i>.</p>
  */
 export interface RevocationConfiguration {
@@ -620,6 +620,11 @@ export interface Tag {
    * <p>Value of the tag.</p>
    */
   Value?: string;
+}
+
+export enum CertificateAuthorityUsageMode {
+  GENERAL_PURPOSE = "GENERAL_PURPOSE",
+  SHORT_LIVED_CERTIFICATE = "SHORT_LIVED_CERTIFICATE",
 }
 
 export interface CreateCertificateAuthorityRequest {
@@ -683,6 +688,14 @@ export interface CreateCertificateAuthorityRequest {
    * 			see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling Access Using IAM Tags</a>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Specifies whether the CA issues general-purpose certificates that typically require a
+   *                         revocation mechanism, or short-lived certificates that may optionally omit revocation because
+   *                         they expire quickly. Short-lived certificate validity is limited to seven days.</p>
+   *                 <p>The default value is GENERAL_PURPOSE.</p>
+   */
+  UsageMode?: CertificateAuthorityUsageMode | string;
 }
 
 export interface CreateCertificateAuthorityResponse {
@@ -1176,6 +1189,14 @@ export interface CertificateAuthority {
    * 			be created in this region with the specified security standard."</p>
    */
   KeyStorageSecurityStandard?: KeyStorageSecurityStandard | string;
+
+  /**
+   * <p>Specifies whether the CA issues general-purpose certificates that typically require a
+   * 			revocation mechanism, or short-lived certificates that may optionally omit revocation because
+   * 			they expire quickly. Short-lived certificate validity is limited to seven days.</p>
+   * 		       <p>The default value is GENERAL_PURPOSE.</p>
+   */
+  UsageMode?: CertificateAuthorityUsageMode | string;
 }
 
 export interface DescribeCertificateAuthorityResponse {
@@ -1476,8 +1497,8 @@ export interface PolicyInformation {
 export interface CustomExtension {
   /**
    * <p></p>
-   * 		       <p>Specifies the object identifier (OID) of the X.509 extension. For more information, see the
-   * 				<a href="https://oidref.com/2.5.29">Global OID reference database.</a>
+   * 		       <p>Specifies the object identifier (OID) of the X.509 extension. For more information,
+   * 			see the <a href="https://oidref.com/2.5.29">Global OID reference database.</a>
    * 		       </p>
    */
   ObjectIdentifier: string | undefined;
@@ -1607,8 +1628,7 @@ export enum ValidityPeriodType {
  * <p>Validity specifies the period of time during which a certificate is valid. Validity
  * 			can be expressed as an explicit date and time when the validity of a certificate starts
  * 			or expires, or as a span of time after issuance, stated in days, months, or years. For
- * 			more information, see <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5">Validity</a>
- * 			in RFC 5280.</p>
+ * 			more information, see <a href="https://tools.ietf.org/html/rfc5280#section-4.1.2.5">Validity</a> in RFC 5280.</p>
  * 		       <p>ACM Private CA API consumes the <code>Validity</code> data type differently in two
  * 			distinct parameters of the <code>IssueCertificate</code> action. The required parameter
  * 				<code>IssueCertificate</code>:<code>Validity</code> specifies the end of a

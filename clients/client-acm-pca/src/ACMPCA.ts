@@ -107,7 +107,7 @@ import {
 } from "./commands/UpdateCertificateAuthorityCommand";
 
 /**
- * <p>This is the <i>Certificate Manager Private Certificate Authority (PCA) API Reference</i>. It provides descriptions,
+ * <p>This is the <i>Private Certificate Authority (PCA) API Reference</i>. It provides descriptions,
  * 			syntax, and usage examples for each of the actions and data types involved in creating
  * 			and managing a private certificate authority (CA) for your organization.</p>
  * 		       <p>The documentation for each action shows the API request parameters and the JSON
