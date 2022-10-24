@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.195.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.194.0...v3.195.0) (2022-10-24)
+
+
+### Features
+
+* **endpoint:** endpoints models for awsJson1.1 ([#4079](https://github.com/aws/aws-sdk-js-v3/issues/4079)) ([246d653](https://github.com/aws/aws-sdk-js-v3/commit/246d6534c53dcf9bd2eb6a620cb5b6c04b27451a))
+
+
+
+
+
 # [3.194.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.193.0...v3.194.0) (2022-10-21)
 
 **Note:** Version bump only for package @aws-sdk/client-application-discovery-service

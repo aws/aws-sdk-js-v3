@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.195.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.194.0...v3.195.0) (2022-10-24)
+
+
+### Features
+
+* **endpoint:** endpoints models for awsJson1.0 ([#4078](https://github.com/aws/aws-sdk-js-v3/issues/4078)) ([eb9ec5e](https://github.com/aws/aws-sdk-js-v3/commit/eb9ec5ec8928744d3ba484b507393cd86e3b2414))
+
+
+
+
+
 # [3.194.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.193.0...v3.194.0) (2022-10-21)
 
 **Note:** Version bump only for package @aws-sdk/client-codestar-connections

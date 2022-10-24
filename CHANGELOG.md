@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.195.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.194.0...v3.195.0) (2022-10-24)
+
+
+### Features
+
+* **client-acm-pca:** AWS Private Certificate Authority (AWS Private CA) now offers usage modes which are combination of features to address specific use cases. ([d70854b](https://github.com/aws/aws-sdk-js-v3/commit/d70854bff81ffb2a493579ebceca518342204bc6))
+* **client-batch:** This release adds support for AWS Batch on Amazon EKS. ([2b91525](https://github.com/aws/aws-sdk-js-v3/commit/2b91525666ff3378fc6d1d77752a17618c38b823))
+* **client-datasync:** Added support for self-signed certificates when using object storage locations; added BytesCompressed to the TaskExecution response. ([dfc62aa](https://github.com/aws/aws-sdk-js-v3/commit/dfc62aa9cdeb69e156afcd750feb64da66b18e04))
+* **client-sagemaker:** SageMaker Inference Recommender now supports a new API ListInferenceRecommendationJobSteps to return the details of all the benchmark we create for an inference recommendation job. ([e174937](https://github.com/aws/aws-sdk-js-v3/commit/e17493782387fd23f413414de3fb2a632dd74795))
+* **clients:** update client endpoints as of 2022-10-24 ([cd9c9c2](https://github.com/aws/aws-sdk-js-v3/commit/cd9c9c215b5b5ee79d3c9c38e94fc2bee342c297))
+* **endpoint:** endpoints models for awsJson1.0 ([#4078](https://github.com/aws/aws-sdk-js-v3/issues/4078)) ([eb9ec5e](https://github.com/aws/aws-sdk-js-v3/commit/eb9ec5ec8928744d3ba484b507393cd86e3b2414))
+* **endpoint:** endpoints models for awsJson1.1 ([#4079](https://github.com/aws/aws-sdk-js-v3/issues/4079)) ([246d653](https://github.com/aws/aws-sdk-js-v3/commit/246d6534c53dcf9bd2eb6a620cb5b6c04b27451a))
+
+
+
+
+
 # [3.194.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.193.0...v3.194.0) (2022-10-21)
 
 

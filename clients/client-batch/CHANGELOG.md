@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.195.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.194.0...v3.195.0) (2022-10-24)
+
+
+### Features
+
+* **client-batch:** This release adds support for AWS Batch on Amazon EKS. ([2b91525](https://github.com/aws/aws-sdk-js-v3/commit/2b91525666ff3378fc6d1d77752a17618c38b823))
+
+
+
+
+
 # [3.194.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.193.0...v3.194.0) (2022-10-21)
 
 **Note:** Version bump only for package @aws-sdk/client-batch
