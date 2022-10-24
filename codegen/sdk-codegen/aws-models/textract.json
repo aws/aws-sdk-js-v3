@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -490,24 +490,28 @@
         "Width": {
           "target": "com.amazonaws.textract#Float",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The width of the bounding box as a ratio of the overall document page\n         width.</p>"
           }
         },
         "Height": {
           "target": "com.amazonaws.textract#Float",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The height of the bounding box as a ratio of the overall document page\n         height.</p>"
           }
         },
         "Left": {
           "target": "com.amazonaws.textract#Float",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The left coordinate of the bounding box as a ratio of overall document page\n         width.</p>"
           }
         },
         "Top": {
           "target": "com.amazonaws.textract#Float",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The top coordinate of the bounding box as a ratio of overall document page\n         height.</p>"
           }
         }
@@ -871,7 +875,10 @@
       }
     },
     "com.amazonaws.textract#Float": {
-      "type": "float"
+      "type": "float",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.textract#FlowDefinitionArn": {
       "type": "string",
@@ -1632,7 +1639,6 @@
     "com.amazonaws.textract#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -1726,7 +1732,6 @@
     "com.amazonaws.textract#Percent": {
       "type": "float",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 100
@@ -1739,12 +1744,14 @@
         "X": {
           "target": "com.amazonaws.textract#Float",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The value of the X coordinate for a point on a <code>Polygon</code>.</p>"
           }
         },
         "Y": {
           "target": "com.amazonaws.textract#Float",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The value of the Y coordinate for a point on a <code>Polygon</code>.</p>"
           }
         }
@@ -2358,21 +2365,6 @@
     },
     "com.amazonaws.textract#Textract": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "Textract",
-          "arnNamespace": "textract",
-          "cloudFormationName": "Textract",
-          "cloudTrailEventSource": "textract.amazonaws.com",
-          "endpointPrefix": "textract"
-        },
-        "aws.auth#sigv4": {
-          "name": "textract"
-        },
-        "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<p>Amazon Textract detects and analyzes text in documents and converts it\n         into machine-readable text. This is the API reference documentation for\n         Amazon Textract.</p>",
-        "smithy.api#title": "Amazon Textract"
-      },
       "version": "2018-06-27",
       "operations": [
         {
@@ -2405,7 +2397,1208 @@
         {
           "target": "com.amazonaws.textract#StartExpenseAnalysis"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Textract",
+          "arnNamespace": "textract",
+          "cloudFormationName": "Textract",
+          "cloudTrailEventSource": "textract.amazonaws.com",
+          "endpointPrefix": "textract"
+        },
+        "aws.auth#sigv4": {
+          "name": "textract"
+        },
+        "aws.protocols#awsJson1_1": {},
+        "smithy.api#documentation": "<p>Amazon Textract detects and analyzes text in documents and converts it\n         into machine-readable text. This is the API reference documentation for\n         Amazon Textract.</p>",
+        "smithy.api#title": "Amazon Textract",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://textract-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://textract-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://textract.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://textract.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://textract.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.textract#ThrottlingException": {
       "type": "structure",
@@ -2425,7 +3618,6 @@
     "com.amazonaws.textract#UInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0
         }

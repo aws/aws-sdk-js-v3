@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -31,24 +31,6 @@
   "shapes": {
     "com.amazonaws.support#AWSSupport_20130415": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "Support",
-          "arnNamespace": "support",
-          "cloudFormationName": "Support",
-          "cloudTrailEventSource": "support.amazonaws.com",
-          "endpointPrefix": "support"
-        },
-        "aws.auth#sigv4": {
-          "name": "support"
-        },
-        "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<fullname>Amazon Web Services Support</fullname>\n        <p>The <i>Amazon Web Services Support API Reference</i> is intended for programmers who need detailed\n            information about the Amazon Web Services Support operations and data types. You can use the API to manage\n            your support cases programmatically. The Amazon Web Services Support API uses HTTP methods that return\n            results in JSON format.</p>\n        <note>\n            <ul>\n               <li>\n                    <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support\n                        API. </p>\n                </li>\n               <li>\n                    <p>If you call the Amazon Web Services Support API from an account that does not have a\n                        Business, Enterprise On-Ramp, or Enterprise Support plan, the\n                            <code>SubscriptionRequiredException</code> error message appears. For\n                        information about changing your support plan, see <a href=\"http://aws.amazon.com/premiumsupport/\">Amazon Web Services Support</a>.</p>\n                </li>\n            </ul>\n        </note>\n        <p>The Amazon Web Services Support service also exposes a set of <a href=\"http://aws.amazon.com/premiumsupport/trustedadvisor/\">Trusted Advisor</a> features. You can\n            retrieve a list of checks and their descriptions, get check results, specify checks to\n            refresh, and get the refresh status of checks.</p>\n        <p>The following list describes the Amazon Web Services Support case management operations:</p>\n        <ul>\n            <li>\n                <p> Service names, issue categories, and available severity levels  - The\n                        <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return Amazon Web Services service names,\n                    service codes, service categories, and problem severity levels. You use these\n                    values when you call the <a>CreateCase</a> operation.</p>\n            </li>\n            <li>\n                <p> Case creation, case details, and case resolution - The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations\n                    create Amazon Web Services Support cases, retrieve information about cases, and resolve cases.</p>\n            </li>\n            <li>\n                <p> Case communication - The <a>DescribeCommunications</a>,\n                        <a>AddCommunicationToCase</a>, and <a>AddAttachmentsToSet</a> operations retrieve and add communications\n                    and attachments to Amazon Web Services Support cases.</p>\n            </li>\n         </ul>\n        <p>The following list describes the operations available from the Amazon Web Services Support service for\n            Trusted Advisor:</p>\n        <ul>\n            <li>\n                <p>\n                    <a>DescribeTrustedAdvisorChecks</a> returns the list of checks that\n                    run against your Amazon Web Services resources.</p>\n            </li>\n            <li>\n                <p>Using the <code>checkId</code> for a specific check returned by <a>DescribeTrustedAdvisorChecks</a>, you can call <a>DescribeTrustedAdvisorCheckResult</a> to obtain the results for the\n                    check that you specified.</p>\n            </li>\n            <li>\n                <p>\n                    <a>DescribeTrustedAdvisorCheckSummaries</a> returns summarized\n                    results for one or more Trusted Advisor checks.</p>\n            </li>\n            <li>\n                <p>\n                    <a>RefreshTrustedAdvisorCheck</a> requests that Trusted Advisor rerun a\n                    specified check.</p>\n            </li>\n            <li>\n                <p>\n                    <a>DescribeTrustedAdvisorCheckRefreshStatuses</a> reports the refresh\n                    status of one or more checks.</p>\n            </li>\n         </ul>\n        <p>For authentication of requests, Amazon Web Services Support uses <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4 Signing\n                Process</a>.</p>\n        <p>See <a href=\"https://docs.aws.amazon.com/awssupport/latest/user/Welcome.html\">About the\n            Amazon Web Services Support API</a> in the <i>Amazon Web Services Support User Guide</i> for\n            information about how to use this service to create and manage your support cases, and\n            how to call Trusted Advisor for results of checks on your resources.</p>",
-        "smithy.api#title": "AWS Support",
-        "smithy.api#xmlNamespace": {
-          "uri": "http://support.amazonaws.com/doc/2013-04-15/"
-        }
-      },
       "version": "2013-04-15",
       "operations": [
         {
@@ -93,7 +75,705 @@
         {
           "target": "com.amazonaws.support#ResolveCase"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Support",
+          "arnNamespace": "support",
+          "cloudFormationName": "Support",
+          "cloudTrailEventSource": "support.amazonaws.com",
+          "endpointPrefix": "support"
+        },
+        "aws.auth#sigv4": {
+          "name": "support"
+        },
+        "aws.protocols#awsJson1_1": {},
+        "smithy.api#documentation": "<fullname>Amazon Web Services Support</fullname>\n        <p>The <i>Amazon Web Services Support API Reference</i> is intended for programmers who need detailed\n            information about the Amazon Web Services Support operations and data types. You can use the API to manage\n            your support cases programmatically. The Amazon Web Services Support API uses HTTP methods that return\n            results in JSON format.</p>\n        <note>\n            <ul>\n               <li>\n                    <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support\n                        API. </p>\n                </li>\n               <li>\n                    <p>If you call the Amazon Web Services Support API from an account that does not have a\n                        Business, Enterprise On-Ramp, or Enterprise Support plan, the\n                            <code>SubscriptionRequiredException</code> error message appears. For\n                        information about changing your support plan, see <a href=\"http://aws.amazon.com/premiumsupport/\">Amazon Web Services Support</a>.</p>\n                </li>\n            </ul>\n        </note>\n        <p>The Amazon Web Services Support service also exposes a set of <a href=\"http://aws.amazon.com/premiumsupport/trustedadvisor/\">Trusted Advisor</a> features. You can\n            retrieve a list of checks and their descriptions, get check results, specify checks to\n            refresh, and get the refresh status of checks.</p>\n        <p>The following list describes the Amazon Web Services Support case management operations:</p>\n        <ul>\n            <li>\n                <p> Service names, issue categories, and available severity levels  - The\n                        <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return Amazon Web Services service names,\n                    service codes, service categories, and problem severity levels. You use these\n                    values when you call the <a>CreateCase</a> operation.</p>\n            </li>\n            <li>\n                <p> Case creation, case details, and case resolution - The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations\n                    create Amazon Web Services Support cases, retrieve information about cases, and resolve cases.</p>\n            </li>\n            <li>\n                <p> Case communication - The <a>DescribeCommunications</a>,\n                        <a>AddCommunicationToCase</a>, and <a>AddAttachmentsToSet</a> operations retrieve and add communications\n                    and attachments to Amazon Web Services Support cases.</p>\n            </li>\n         </ul>\n        <p>The following list describes the operations available from the Amazon Web Services Support service for\n            Trusted Advisor:</p>\n        <ul>\n            <li>\n                <p>\n                    <a>DescribeTrustedAdvisorChecks</a> returns the list of checks that\n                    run against your Amazon Web Services resources.</p>\n            </li>\n            <li>\n                <p>Using the <code>checkId</code> for a specific check returned by <a>DescribeTrustedAdvisorChecks</a>, you can call <a>DescribeTrustedAdvisorCheckResult</a> to obtain the results for the\n                    check that you specified.</p>\n            </li>\n            <li>\n                <p>\n                    <a>DescribeTrustedAdvisorCheckSummaries</a> returns summarized\n                    results for one or more Trusted Advisor checks.</p>\n            </li>\n            <li>\n                <p>\n                    <a>RefreshTrustedAdvisorCheck</a> requests that Trusted Advisor rerun a\n                    specified check.</p>\n            </li>\n            <li>\n                <p>\n                    <a>DescribeTrustedAdvisorCheckRefreshStatuses</a> reports the refresh\n                    status of one or more checks.</p>\n            </li>\n         </ul>\n        <p>For authentication of requests, Amazon Web Services Support uses <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4 Signing\n                Process</a>.</p>\n        <p>See <a href=\"https://docs.aws.amazon.com/awssupport/latest/user/Welcome.html\">About the\n            Amazon Web Services Support API</a> in the <i>Amazon Web Services Support User Guide</i> for\n            information about how to use this service to create and manage your support cases, and\n            how to call Trusted Advisor for results of checks on your resources.</p>",
+        "smithy.api#title": "AWS Support",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://support.amazonaws.com/doc/2013-04-15/"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://support-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    {
+                                      "ref": "Region"
+                                    },
+                                    "us-gov-west-1"
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://support.us-gov-west-1.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://support-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://support.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "aws-global"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://support.us-east-1.amazonaws.com",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "support",
+                              "signingRegion": "us-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "aws-cn-global"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://support.cn-north-1.amazonaws.com.cn",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "support",
+                              "signingRegion": "cn-north-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "aws-us-gov-global"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://support.us-gov-west-1.amazonaws.com",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "support",
+                              "signingRegion": "us-gov-west-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "aws-iso-global"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://support.us-iso-east-1.c2s.ic.gov",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "support",
+                              "signingRegion": "us-iso-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "aws-iso-b-global"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://support.us-isob-east-1.sc2s.sgov.gov",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "support",
+                              "signingRegion": "us-isob-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://support.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region aws-cn-global with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "support",
+                        "signingRegion": "cn-north-1"
+                      }
+                    ]
+                  },
+                  "url": "https://support.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "aws-cn-global",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region aws-global with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "support",
+                        "signingRegion": "us-east-1"
+                      }
+                    ]
+                  },
+                  "url": "https://support.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "aws-global",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region aws-iso-global with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "support",
+                        "signingRegion": "us-iso-east-1"
+                      }
+                    ]
+                  },
+                  "url": "https://support.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "aws-iso-global",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://support-fips.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://support.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://support.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://support.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region aws-iso-b-global with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "support",
+                        "signingRegion": "us-isob-east-1"
+                      }
+                    ]
+                  },
+                  "url": "https://support.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "aws-iso-b-global",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region aws-us-gov-global with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "support",
+                        "signingRegion": "us-gov-west-1"
+                      }
+                    ]
+                  },
+                  "url": "https://support.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "aws-us-gov-global",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.support#AddAttachmentsToSet": {
       "type": "operation",
@@ -224,6 +904,7 @@
         "result": {
           "target": "com.amazonaws.support#Result",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>True if <a>AddCommunicationToCase</a> succeeds. Otherwise, returns an\n            error.</p>"
           }
         }
@@ -372,7 +1053,10 @@
       "type": "string"
     },
     "com.amazonaws.support#Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.support#CaseCreationLimitExceeded": {
       "type": "structure",
@@ -820,6 +1504,7 @@
         "includeResolvedCases": {
           "target": "com.amazonaws.support#IncludeResolvedCases",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether to include resolved support cases in the <code>DescribeCases</code>\n            response. By default, resolved cases aren't included.</p>"
           }
         },
@@ -1229,7 +1914,10 @@
       "type": "string"
     },
     "com.amazonaws.support#Double": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.support#ErrorMessage": {
       "type": "string"
@@ -1241,13 +1929,13 @@
       "type": "string"
     },
     "com.amazonaws.support#IncludeCommunications": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.support#IncludeResolvedCases": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.support#InternalServerError": {
       "type": "structure",
@@ -1271,12 +1959,14 @@
       "type": "string"
     },
     "com.amazonaws.support#Long": {
-      "type": "long"
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.support#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 10,
           "max": 100
@@ -1405,7 +2095,10 @@
       }
     },
     "com.amazonaws.support#Result": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.support#Service": {
       "type": "structure",
@@ -1599,6 +2292,7 @@
         "millisUntilNextRefreshable": {
           "target": "com.amazonaws.support#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The amount of time, in milliseconds, until the Trusted Advisor check is eligible for\n            refresh.</p>",
             "smithy.api#required": {}
           }
@@ -1690,6 +2384,7 @@
         "hasFlaggedResources": {
           "target": "com.amazonaws.support#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the Trusted Advisor check has flagged resources.</p>"
           }
         },
@@ -1723,6 +2418,7 @@
         "estimatedMonthlySavings": {
           "target": "com.amazonaws.support#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The estimated monthly savings that might be realized if the recommended operations are\n            taken.</p>",
             "smithy.api#required": {}
           }
@@ -1730,6 +2426,7 @@
         "estimatedPercentMonthlySavings": {
           "target": "com.amazonaws.support#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The estimated percentage of savings that might be realized if the recommended\n            operations are taken.</p>",
             "smithy.api#required": {}
           }
@@ -1765,6 +2462,7 @@
         "isSuppressed": {
           "target": "com.amazonaws.support#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the Amazon Web Services resource was ignored by Trusted Advisor because it was\n            marked as suppressed by the user.</p>"
           }
         },
@@ -1792,6 +2490,7 @@
         "resourcesProcessed": {
           "target": "com.amazonaws.support#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of Amazon Web Services resources that were analyzed by the Trusted Advisor check.</p>",
             "smithy.api#required": {}
           }
@@ -1799,6 +2498,7 @@
         "resourcesFlagged": {
           "target": "com.amazonaws.support#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of Amazon Web Services resources that were flagged (listed) by the Trusted Advisor\n            check.</p>",
             "smithy.api#required": {}
           }
@@ -1806,6 +2506,7 @@
         "resourcesIgnored": {
           "target": "com.amazonaws.support#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of Amazon Web Services resources ignored by Trusted Advisor because information was\n            unavailable.</p>",
             "smithy.api#required": {}
           }
@@ -1813,6 +2514,7 @@
         "resourcesSuppressed": {
           "target": "com.amazonaws.support#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of Amazon Web Services resources ignored by Trusted Advisor because they were marked as\n            suppressed by the user.</p>",
             "smithy.api#required": {}
           }

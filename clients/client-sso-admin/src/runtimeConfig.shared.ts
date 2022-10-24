@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { SSOAdminClientConfig } from "./SSOAdminClient";
 
 /**
@@ -11,8 +11,8 @@ import { SSOAdminClientConfig } from "./SSOAdminClient";
 export const getRuntimeConfig = (config: SSOAdminClientConfig) => ({
   apiVersion: "2020-07-20",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "SSO Admin",
   urlParser: config?.urlParser ?? parseUrl,
 });

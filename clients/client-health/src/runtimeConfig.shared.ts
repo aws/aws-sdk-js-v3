@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { HealthClientConfig } from "./HealthClient";
 
 /**
@@ -11,8 +11,8 @@ import { HealthClientConfig } from "./HealthClient";
 export const getRuntimeConfig = (config: HealthClientConfig) => ({
   apiVersion: "2016-08-04",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "Health",
   urlParser: config?.urlParser ?? parseUrl,
 });

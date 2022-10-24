@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -33,6 +33,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.kinesis#AddTagsToStreamInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -75,10 +78,7 @@
       }
     },
     "com.amazonaws.kinesis#BooleanObject": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.kinesis#ChildShard": {
       "type": "structure",
@@ -163,7 +163,6 @@
     "com.amazonaws.kinesis#ConsumerCountObject": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 1000000
@@ -253,6 +252,9 @@
       "input": {
         "target": "com.amazonaws.kinesis#CreateStreamInput"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.kinesis#InvalidArgumentException"
@@ -309,6 +311,9 @@
       "input": {
         "target": "com.amazonaws.kinesis#DecreaseStreamRetentionPeriodInput"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.kinesis#InvalidArgumentException"
@@ -354,6 +359,9 @@
       "input": {
         "target": "com.amazonaws.kinesis#DeleteStreamInput"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.kinesis#LimitExceededException"
@@ -394,6 +402,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.kinesis#DeregisterStreamConsumerInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -623,7 +634,6 @@
     "com.amazonaws.kinesis#DescribeStreamInputLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10000
@@ -947,7 +957,6 @@
     "com.amazonaws.kinesis#GetRecordsInputLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10000
@@ -1097,6 +1106,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.kinesis#IncreaseStreamRetentionPeriodInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -1266,27 +1278,6 @@
     },
     "com.amazonaws.kinesis#Kinesis_20131202": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "Kinesis",
-          "arnNamespace": "kinesis",
-          "cloudFormationName": "Kinesis",
-          "cloudTrailEventSource": "kinesis.amazonaws.com",
-          "endpointPrefix": "kinesis"
-        },
-        "aws.auth#sigv4": {
-          "name": "kinesis"
-        },
-        "aws.protocols#awsJson1_1": {
-          "http": ["http/1.1", "h2"],
-          "eventStreamHttp": ["h2"]
-        },
-        "smithy.api#documentation": "<fullname>Amazon Kinesis Data Streams Service API Reference</fullname>\n        <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time\n            processing of streaming big data.</p>",
-        "smithy.api#title": "Amazon Kinesis",
-        "smithy.api#xmlNamespace": {
-          "uri": "http://kinesis.amazonaws.com/doc/2013-12-02"
-        }
-      },
       "version": "2013-12-02",
       "operations": [
         {
@@ -1376,7 +1367,2251 @@
         {
           "target": "com.amazonaws.kinesis#UpdateStreamMode"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Kinesis",
+          "arnNamespace": "kinesis",
+          "cloudFormationName": "Kinesis",
+          "cloudTrailEventSource": "kinesis.amazonaws.com",
+          "endpointPrefix": "kinesis"
+        },
+        "aws.auth#sigv4": {
+          "name": "kinesis"
+        },
+        "aws.protocols#awsJson1_1": {
+          "http": [
+            "http/1.1",
+            "h2"
+          ],
+          "eventStreamHttp": [
+            "h2"
+          ]
+        },
+        "smithy.api#documentation": "<fullname>Amazon Kinesis Data Streams Service API Reference</fullname>\n        <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time\n            processing of streaming big data.</p>",
+        "smithy.api#title": "Amazon Kinesis",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://kinesis.amazonaws.com/doc/2013-12-02"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://kinesis-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://kinesis-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://kinesis.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://kinesis.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-south-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-south-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-south-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-south-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-south-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.me-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.me-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-iso-west-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-iso-west-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-central-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-central-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-central-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-central-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ca-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ca-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ca-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ca-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-southeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-southeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-southeast-4.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-4",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-southeast-4.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-4",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-southeast-4.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-4",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-southeast-4.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-4",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-5 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-southeast-5.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-5",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-5 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.ap-southeast-5.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-5",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-5 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-southeast-5.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-5",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-5 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.ap-southeast-5.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-5",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.kinesis#LimitExceededException": {
       "type": "structure",
@@ -1466,7 +3701,6 @@
     "com.amazonaws.kinesis#ListShardsInputLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10000
@@ -1557,7 +3791,6 @@
     "com.amazonaws.kinesis#ListStreamConsumersInputLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10000
@@ -1621,7 +3854,6 @@
     "com.amazonaws.kinesis#ListStreamsInputLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10000
@@ -1703,7 +3935,6 @@
     "com.amazonaws.kinesis#ListTagsForStreamInputLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 50
@@ -1736,6 +3967,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.kinesis#MergeShardsInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -1841,7 +4075,6 @@
     "com.amazonaws.kinesis#MillisBehindLatest": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0
         }
@@ -1859,7 +4092,6 @@
     "com.amazonaws.kinesis#OnDemandStreamCountLimitObject": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 1000000
@@ -1869,7 +4101,6 @@
     "com.amazonaws.kinesis#OnDemandStreamCountObject": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 1000000
@@ -1888,7 +4119,6 @@
     "com.amazonaws.kinesis#PositiveIntegerObject": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -2302,6 +4532,9 @@
       "input": {
         "target": "com.amazonaws.kinesis#RemoveTagsFromStreamInput"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.kinesis#InvalidArgumentException"
@@ -2373,10 +4606,7 @@
       }
     },
     "com.amazonaws.kinesis#RetentionPeriodHours": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.kinesis#ScalingType": {
       "type": "string",
@@ -2460,7 +4690,6 @@
     "com.amazonaws.kinesis#ShardCountObject": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 1000000
@@ -2588,6 +4817,9 @@
       "input": {
         "target": "com.amazonaws.kinesis#SplitShardInput"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.kinesis#InvalidArgumentException"
@@ -2642,6 +4874,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.kinesis#StartStreamEncryptionInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -2736,6 +4971,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.kinesis#StopStreamEncryptionInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -3330,6 +5568,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.kinesis#UpdateStreamModeInput"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {

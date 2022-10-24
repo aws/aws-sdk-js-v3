@@ -152,7 +152,955 @@
         },
         "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>You can use the Cost Explorer API to programmatically query your cost and usage data. You\n      can query for aggregated data such as total monthly costs or total daily usage. You can also\n      query for granular data. This might include the number of daily write operations for Amazon\n      DynamoDB database tables in your production environment. </p>\n\t\t       <p>Service Endpoint</p>\n\t\t       <p>The Cost Explorer API provides the following endpoint:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>\n                  <code>https://ce.us-east-1.amazonaws.com</code>\n               </p>\n\t\t\t         </li>\n         </ul>\n\t\t       <p>For information about the costs that are associated with the Cost Explorer API, see\n        <a href=\"http://aws.amazon.com/aws-cost-management/pricing/\">Amazon Web Services Cost\n        Management Pricing</a>.</p>",
-        "smithy.api#title": "AWS Cost Explorer Service"
+        "smithy.api#title": "AWS Cost Explorer Service",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "stringEquals",
+                      "argv": [
+                        {
+                          "fn": "getAttr",
+                          "argv": [
+                            {
+                              "ref": "PartitionResult"
+                            },
+                            "name"
+                          ]
+                        },
+                        "aws"
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://cost-explorer-fips.{Region}.api.aws",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "ce",
+                                      "signingRegion": "us-east-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://cost-explorer-fips.{Region}.amazonaws.com",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "ce",
+                                      "signingRegion": "us-east-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://cost-explorer.{Region}.api.aws",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "ce",
+                                      "signingRegion": "us-east-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://ce.us-east-1.amazonaws.com",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "ce",
+                              "signingRegion": "us-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "stringEquals",
+                      "argv": [
+                        {
+                          "fn": "getAttr",
+                          "argv": [
+                            {
+                              "ref": "PartitionResult"
+                            },
+                            "name"
+                          ]
+                        },
+                        "aws-cn"
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://cost-explorer-fips.{Region}.api.amazonwebservices.com.cn",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "ce",
+                                      "signingRegion": "cn-northwest-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://cost-explorer-fips.{Region}.amazonaws.com.cn",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "ce",
+                                      "signingRegion": "cn-northwest-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://cost-explorer.{Region}.api.amazonwebservices.com.cn",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "ce",
+                                      "signingRegion": "cn-northwest-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://ce.cn-northwest-1.amazonaws.com.cn",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "ce",
+                              "signingRegion": "cn-northwest-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://ce-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://ce-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://ce.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "aws-global"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://ce.us-east-1.amazonaws.com",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "ce",
+                              "signingRegion": "us-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "aws-cn-global"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://ce.cn-northwest-1.amazonaws.com.cn",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "ce",
+                              "signingRegion": "cn-northwest-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://ce.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region aws-cn-global with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "ce",
+                        "signingRegion": "cn-northwest-1"
+                      }
+                    ]
+                  },
+                  "url": "https://ce.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "aws-cn-global",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region aws-global with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "ce",
+                        "signingRegion": "us-east-1"
+                      }
+                    ]
+                  },
+                  "url": "https://ce.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "aws-global",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
       }
     },
     "com.amazonaws.costexplorer#AccountScope": {
@@ -3207,8 +4155,6 @@
         "Context": {
           "target": "com.amazonaws.costexplorer#Context",
           "traits": {
-            "smithy.api#addedDefault": {},
-            "smithy.api#default": "COST_AND_USAGE",
             "smithy.api#documentation": "<p>The context for the call to <code>GetDimensionValues</code>. This can be <code>RESERVATIONS</code> or <code>COST_AND_USAGE</code>. \n\t\t\tThe default value is <code>COST_AND_USAGE</code>. If the context is set to <code>RESERVATIONS</code>, the resulting dimension values \n\t\t\tcan be used in the <code>GetReservationUtilization</code> operation. If the context is set to <code>COST_AND_USAGE</code>, \n\t\t\tthe resulting dimension values can be used in the <code>GetCostAndUsage</code> operation.</p>\n\t\t       <p>If you set the context to <code>COST_AND_USAGE</code>, you can use the following \n           dimensions for searching:</p>\n           <ul>\n            <li>\n               <p>AZ - The Availability Zone. An example is <code>us-east-1a</code>.</p>\n            </li>\n            <li>\n               <p>BILLING_ENTITY - The Amazon Web Services seller that your account is with. Possible values are the following:</p>\n               <p>- Amazon Web Services(Amazon Web Services): The entity that sells Amazon Web Services.</p>\n               <p>- AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian entity that's an\n          acting reseller for Amazon Web Services in India.</p>\n               <p>- Amazon Web Services Marketplace: The entity that supports the sale of solutions that are\n          built on Amazon Web Services by third-party software providers.</p>\n             </li>\n            <li>\n               <p>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or Linux.</p>\n            </li>\n            <li>\n               <p>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments. Valid values are <code>SingleAZ</code> and <code>MultiAZ</code>.</p>\n            </li>\n            <li>\n               <p>DATABASE_ENGINE - The Amazon Relational Database Service database. Examples are Aurora or MySQL.</p>\n            </li>\n            <li>\n               <p>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <code>m4.xlarge</code>.</p>\n            </li>\n            <li>\n               <p>INSTANCE_TYPE_FAMILY - A family of instance types optimized to fit different use cases.\n          Examples are <code>Compute Optimized</code> (for example, <code>C4</code>,\n          <code>C5</code>, <code>C6g</code>, and <code>C7g</code>), <code>Memory Optimization</code>\n          (for example, <code>R4</code>, <code>R5n</code>, <code>R5b</code>, and\n          <code>R6g</code>).</p>\n            </li>\n            <li>\n               <p>INVOICING_ENTITY - The name of the entity that issues the Amazon Web Services\n          invoice.</p>\n            </li>\n            <li>\n               <p>LEGAL_ENTITY_NAME - The name of the organization that sells you Amazon Web Services services, such as Amazon Web Services.</p>\n            </li>\n            <li>\n               <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name of the member account. The value \n               field contains the Amazon Web Services ID of the member account.</p>\n            </li>\n            <li>\n               <p>OPERATING_SYSTEM - The operating system. Examples are Windows or Linux.</p>\n            </li>\n            <li>\n               <p>OPERATION - The action performed. Examples include <code>RunInstance</code> and <code>CreateBucket</code>.</p>\n            </li>\n            <li>\n               <p>PLATFORM - The Amazon EC2 operating system. Examples are Windows or Linux.</p>\n            </li>\n            <li>\n               <p>PURCHASE_TYPE - The reservation type of the purchase that this usage is related to.\n          Examples include On-Demand Instances and Standard Reserved Instances.</p>\n            </li>\n            <li>\n               <p>RESERVATION_ID - The unique identifier for an Amazon Web Services Reservation Instance.</p>\n            </li>\n            <li>\n               <p>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.</p>\n            </li>\n            <li>\n               <p>SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or Compute).</p>\n            </li>\n            <li>\n               <p>SERVICE - The Amazon Web Services service such as Amazon DynamoDB.</p>\n            </li>\n            <li>\n               <p>TENANCY - The tenancy of a resource. Examples are shared or dedicated.</p>\n            </li>\n            <li>\n               <p>USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes. The response for the <code>GetDimensionValues</code> operation\n           includes a unit attribute. Examples include GB and Hrs.</p>\n            </li>\n            <li>\n               <p>USAGE_TYPE_GROUP - The grouping of common usage types. An example is Amazon EC2: CloudWatch – Alarms. The response for this \n               operation includes a unit attribute.</p>\n            </li>\n            <li>\n               <p>REGION - The Amazon Web Services Region.</p>\n            </li>\n            <li>\n               <p>RECORD_TYPE - The different types of charges such as Reserved Instance (RI) fees, usage\n          costs, tax refunds, and credits.</p>\n            </li>\n            <li>\n               <p>RESOURCE_ID - The unique identifier of the resource. ResourceId is an opt-in feature only available for last 14 days for EC2-Compute Service.</p>\n            </li>\n         </ul>\n         <p>If you set the context to <code>RESERVATIONS</code>, you can use the following \n           dimensions for searching:</p>\n         <ul>\n            <li>\n               <p>AZ - The Availability Zone. An example is <code>us-east-1a</code>.</p>\n            </li>\n            <li>\n               <p>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or Linux.</p>\n            </li>\n            <li>\n               <p>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments. Valid values are <code>SingleAZ</code> and <code>MultiAZ</code>.</p>\n            </li>\n            <li>\n               <p>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <code>m4.xlarge</code>.</p>\n            </li>\n            <li>\n               <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name of the member account. The value \n               field contains the Amazon Web Services ID of the member account.</p>\n            </li>\n            <li>\n               <p>PLATFORM - The Amazon EC2 operating system. Examples are Windows or Linux.</p>\n            </li>\n            <li>\n               <p>REGION - The Amazon Web Services Region.</p>\n            </li>\n            <li>\n               <p>SCOPE (Utilization only) - The scope of a Reserved Instance (RI). Values are regional or a single Availability Zone.</p>\n            </li>\n            <li>\n               <p>TAG (Coverage only) - The tags that are associated with a Reserved Instance (RI).</p>\n            </li>\n            <li>\n               <p>TENANCY - The tenancy of a resource. Examples are shared or dedicated.</p>\n            </li>\n         </ul>\n         <p>If you set the context to <code>SAVINGS_PLANS</code>, you can use the following dimensions for searching:</p>\n         <ul>\n            <li>\n               <p>SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or Compute)</p>\n            </li>\n            <li>\n               <p>PAYMENT_OPTION - The payment option for the given Savings Plans (for example, All\n          Upfront)</p>\n            </li>\n            <li>\n               <p>REGION - The Amazon Web Services Region.</p>\n            </li>\n            <li>\n               <p>INSTANCE_TYPE_FAMILY - The family of instances (For example, <code>m5</code>)</p>\n            </li>\n            <li>\n               <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name of the member account. The value \n               field contains the Amazon Web Services ID of the member account.</p>\n            </li>\n            <li>\n               <p>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.</p>\n            </li>\n         </ul>"
           }
         },
@@ -3525,8 +4471,6 @@
         "Granularity": {
           "target": "com.amazonaws.costexplorer#Granularity",
           "traits": {
-            "smithy.api#addedDefault": {},
-            "smithy.api#default": "DAILY",
             "smithy.api#documentation": "<p>If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't set, \n\t\t\tthe response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>. \n\t\t\tIf both <code>GroupBy</code> and <code>Granularity</code> aren't set, <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.</p>\n\t\t       <p>The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code> granularities.</p>"
           }
         },
@@ -4901,7 +5845,7 @@
       "type": "double",
       "traits": {
         "smithy.api#range": {
-          "min": 0.0
+          "min": 0
         }
       }
     },
@@ -5877,8 +6821,6 @@
         "RecommendationTarget": {
           "target": "com.amazonaws.costexplorer#RecommendationTarget",
           "traits": {
-            "smithy.api#addedDefault": {},
-            "smithy.api#default": "SAME_INSTANCE_FAMILY",
             "smithy.api#documentation": "<p>The option to see recommendations within the same instance family or recommendations\n            for instances across other families. The default value is\n                <code>SAME_INSTANCE_FAMILY</code>. </p>",
             "smithy.api#required": {}
           }

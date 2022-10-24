@@ -13306,7 +13306,9 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Returns the description of an endpoint.</p>",
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "EndpointDeleted": {
             "acceptors": [
@@ -14185,7 +14187,9 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>Describes a SageMaker image.</p>",
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "ImageCreated": {
             "acceptors": [
@@ -14365,7 +14369,9 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>Describes a version of a SageMaker image.</p>",
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "ImageVersionCreated": {
             "acceptors": [
@@ -15612,7 +15618,9 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Returns information about a notebook instance.</p>",
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "NotebookInstanceDeleted": {
             "acceptors": [
@@ -16166,7 +16174,9 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns a description of a processing job.</p>",
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "ProcessingJobCompletedOrStopped": {
             "acceptors": [
@@ -16577,7 +16587,9 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns information about a training job. </p>\n        <p>Some of the attributes below only appear if the training job successfully starts.\n            If the training job fails, <code>TrainingJobStatus</code> is <code>Failed</code> and,\n            depending on the <code>FailureReason</code>, attributes like\n                <code>TrainingStartTime</code>, <code>TrainingTimeInSeconds</code>,\n                <code>TrainingEndTime</code>, and <code>BillableTimeInSeconds</code> may not be\n            present in the response.</p>",
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "TrainingJobCompletedOrStopped": {
             "acceptors": [
@@ -16898,7 +16910,9 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns information about a transform job.</p>",
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "TransformJobCompletedOrStopped": {
             "acceptors": [

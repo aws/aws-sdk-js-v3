@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { TranslateClientConfig } from "./TranslateClient";
 
 /**
@@ -11,8 +11,8 @@ import { TranslateClientConfig } from "./TranslateClient";
 export const getRuntimeConfig = (config: TranslateClientConfig) => ({
   apiVersion: "2017-07-01",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "Translate",
   urlParser: config?.urlParser ?? parseUrl,
 });

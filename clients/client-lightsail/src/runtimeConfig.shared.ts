@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { LightsailClientConfig } from "./LightsailClient";
 
 /**
@@ -11,8 +11,8 @@ import { LightsailClientConfig } from "./LightsailClient";
 export const getRuntimeConfig = (config: LightsailClientConfig) => ({
   apiVersion: "2016-11-28",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "Lightsail",
   urlParser: config?.urlParser ?? parseUrl,
 });

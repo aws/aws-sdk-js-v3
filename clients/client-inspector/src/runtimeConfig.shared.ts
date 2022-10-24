@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { InspectorClientConfig } from "./InspectorClient";
 
 /**
@@ -11,8 +11,8 @@ import { InspectorClientConfig } from "./InspectorClient";
 export const getRuntimeConfig = (config: InspectorClientConfig) => ({
   apiVersion: "2016-02-16",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "Inspector",
   urlParser: config?.urlParser ?? parseUrl,
 });
