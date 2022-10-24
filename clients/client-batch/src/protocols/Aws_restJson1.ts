@@ -105,6 +105,26 @@ import {
   Ec2Configuration,
   EFSAuthorizationConfig,
   EFSVolumeConfiguration,
+  EksAttemptContainerDetail,
+  EksAttemptDetail,
+  EksConfiguration,
+  EksContainer,
+  EksContainerDetail,
+  EksContainerEnvironmentVariable,
+  EksContainerOverride,
+  EksContainerResourceRequirements,
+  EksContainerSecurityContext,
+  EksContainerVolumeMount,
+  EksEmptyDir,
+  EksHostPath,
+  EksPodProperties,
+  EksPodPropertiesDetail,
+  EksPodPropertiesOverride,
+  EksProperties,
+  EksPropertiesDetail,
+  EksPropertiesOverride,
+  EksSecret,
+  EksVolume,
   EvaluateOnExit,
   FairsharePolicy,
   FargatePlatformConfiguration,
@@ -183,6 +203,9 @@ export const serializeAws_restJson1CreateComputeEnvironmentCommand = async (
     ...(input.computeEnvironmentName != null && { computeEnvironmentName: input.computeEnvironmentName }),
     ...(input.computeResources != null && {
       computeResources: serializeAws_restJson1ComputeResource(input.computeResources, context),
+    }),
+    ...(input.eksConfiguration != null && {
+      eksConfiguration: serializeAws_restJson1EksConfiguration(input.eksConfiguration, context),
     }),
     ...(input.serviceRole != null && { serviceRole: input.serviceRole }),
     ...(input.state != null && { state: input.state }),
@@ -586,6 +609,9 @@ export const serializeAws_restJson1RegisterJobDefinitionCommand = async (
     ...(input.containerProperties != null && {
       containerProperties: serializeAws_restJson1ContainerProperties(input.containerProperties, context),
     }),
+    ...(input.eksProperties != null && {
+      eksProperties: serializeAws_restJson1EksProperties(input.eksProperties, context),
+    }),
     ...(input.jobDefinitionName != null && { jobDefinitionName: input.jobDefinitionName }),
     ...(input.nodeProperties != null && {
       nodeProperties: serializeAws_restJson1NodeProperties(input.nodeProperties, context),
@@ -632,6 +658,9 @@ export const serializeAws_restJson1SubmitJobCommand = async (
       containerOverrides: serializeAws_restJson1ContainerOverrides(input.containerOverrides, context),
     }),
     ...(input.dependsOn != null && { dependsOn: serializeAws_restJson1JobDependencyList(input.dependsOn, context) }),
+    ...(input.eksPropertiesOverride != null && {
+      eksPropertiesOverride: serializeAws_restJson1EksPropertiesOverride(input.eksPropertiesOverride, context),
+    }),
     ...(input.jobDefinition != null && { jobDefinition: input.jobDefinition }),
     ...(input.jobName != null && { jobName: input.jobName }),
     ...(input.jobQueue != null && { jobQueue: input.jobQueue }),
@@ -2109,6 +2138,7 @@ const serializeAws_restJson1DevicesList = (input: Device[], context: __SerdeCont
 const serializeAws_restJson1Ec2Configuration = (input: Ec2Configuration, context: __SerdeContext): any => {
   return {
     ...(input.imageIdOverride != null && { imageIdOverride: input.imageIdOverride }),
+    ...(input.imageKubernetesVersion != null && { imageKubernetesVersion: input.imageKubernetesVersion }),
     ...(input.imageType != null && { imageType: input.imageType }),
   };
 };
@@ -2138,6 +2168,228 @@ const serializeAws_restJson1EFSVolumeConfiguration = (input: EFSVolumeConfigurat
     ...(input.transitEncryption != null && { transitEncryption: input.transitEncryption }),
     ...(input.transitEncryptionPort != null && { transitEncryptionPort: input.transitEncryptionPort }),
   };
+};
+
+const serializeAws_restJson1EksConfiguration = (input: EksConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.eksClusterArn != null && { eksClusterArn: input.eksClusterArn }),
+    ...(input.kubernetesNamespace != null && { kubernetesNamespace: input.kubernetesNamespace }),
+  };
+};
+
+const serializeAws_restJson1EksContainer = (input: EksContainer, context: __SerdeContext): any => {
+  return {
+    ...(input.args != null && { args: serializeAws_restJson1StringList(input.args, context) }),
+    ...(input.command != null && { command: serializeAws_restJson1StringList(input.command, context) }),
+    ...(input.env != null && { env: serializeAws_restJson1EksContainerEnvironmentVariables(input.env, context) }),
+    ...(input.image != null && { image: input.image }),
+    ...(input.imagePullPolicy != null && { imagePullPolicy: input.imagePullPolicy }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.resources != null && {
+      resources: serializeAws_restJson1EksContainerResourceRequirements(input.resources, context),
+    }),
+    ...(input.securityContext != null && {
+      securityContext: serializeAws_restJson1EksContainerSecurityContext(input.securityContext, context),
+    }),
+    ...(input.volumeMounts != null && {
+      volumeMounts: serializeAws_restJson1EksContainerVolumeMounts(input.volumeMounts, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1EksContainerEnvironmentVariable = (
+  input: EksContainerEnvironmentVariable,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.name != null && { name: input.name }),
+    ...(input.value != null && { value: input.value }),
+  };
+};
+
+const serializeAws_restJson1EksContainerEnvironmentVariables = (
+  input: EksContainerEnvironmentVariable[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1EksContainerEnvironmentVariable(entry, context);
+    });
+};
+
+const serializeAws_restJson1EksContainerOverride = (input: EksContainerOverride, context: __SerdeContext): any => {
+  return {
+    ...(input.args != null && { args: serializeAws_restJson1StringList(input.args, context) }),
+    ...(input.command != null && { command: serializeAws_restJson1StringList(input.command, context) }),
+    ...(input.env != null && { env: serializeAws_restJson1EksContainerEnvironmentVariables(input.env, context) }),
+    ...(input.image != null && { image: input.image }),
+    ...(input.resources != null && {
+      resources: serializeAws_restJson1EksContainerResourceRequirements(input.resources, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1EksContainerOverrideList = (
+  input: EksContainerOverride[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1EksContainerOverride(entry, context);
+    });
+};
+
+const serializeAws_restJson1EksContainerResourceRequirements = (
+  input: EksContainerResourceRequirements,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.limits != null && { limits: serializeAws_restJson1EksLimits(input.limits, context) }),
+    ...(input.requests != null && { requests: serializeAws_restJson1EksRequests(input.requests, context) }),
+  };
+};
+
+const serializeAws_restJson1EksContainers = (input: EksContainer[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1EksContainer(entry, context);
+    });
+};
+
+const serializeAws_restJson1EksContainerSecurityContext = (
+  input: EksContainerSecurityContext,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.privileged != null && { privileged: input.privileged }),
+    ...(input.readOnlyRootFilesystem != null && { readOnlyRootFilesystem: input.readOnlyRootFilesystem }),
+    ...(input.runAsGroup != null && { runAsGroup: input.runAsGroup }),
+    ...(input.runAsNonRoot != null && { runAsNonRoot: input.runAsNonRoot }),
+    ...(input.runAsUser != null && { runAsUser: input.runAsUser }),
+  };
+};
+
+const serializeAws_restJson1EksContainerVolumeMount = (
+  input: EksContainerVolumeMount,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.mountPath != null && { mountPath: input.mountPath }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.readOnly != null && { readOnly: input.readOnly }),
+  };
+};
+
+const serializeAws_restJson1EksContainerVolumeMounts = (
+  input: EksContainerVolumeMount[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1EksContainerVolumeMount(entry, context);
+    });
+};
+
+const serializeAws_restJson1EksEmptyDir = (input: EksEmptyDir, context: __SerdeContext): any => {
+  return {
+    ...(input.medium != null && { medium: input.medium }),
+    ...(input.sizeLimit != null && { sizeLimit: input.sizeLimit }),
+  };
+};
+
+const serializeAws_restJson1EksHostPath = (input: EksHostPath, context: __SerdeContext): any => {
+  return {
+    ...(input.path != null && { path: input.path }),
+  };
+};
+
+const serializeAws_restJson1EksLimits = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
+const serializeAws_restJson1EksPodProperties = (input: EksPodProperties, context: __SerdeContext): any => {
+  return {
+    ...(input.containers != null && { containers: serializeAws_restJson1EksContainers(input.containers, context) }),
+    ...(input.dnsPolicy != null && { dnsPolicy: input.dnsPolicy }),
+    ...(input.hostNetwork != null && { hostNetwork: input.hostNetwork }),
+    ...(input.serviceAccountName != null && { serviceAccountName: input.serviceAccountName }),
+    ...(input.volumes != null && { volumes: serializeAws_restJson1EksVolumes(input.volumes, context) }),
+  };
+};
+
+const serializeAws_restJson1EksPodPropertiesOverride = (
+  input: EksPodPropertiesOverride,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.containers != null && {
+      containers: serializeAws_restJson1EksContainerOverrideList(input.containers, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1EksProperties = (input: EksProperties, context: __SerdeContext): any => {
+  return {
+    ...(input.podProperties != null && {
+      podProperties: serializeAws_restJson1EksPodProperties(input.podProperties, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1EksPropertiesOverride = (input: EksPropertiesOverride, context: __SerdeContext): any => {
+  return {
+    ...(input.podProperties != null && {
+      podProperties: serializeAws_restJson1EksPodPropertiesOverride(input.podProperties, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1EksRequests = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
+const serializeAws_restJson1EksSecret = (input: EksSecret, context: __SerdeContext): any => {
+  return {
+    ...(input.optional != null && { optional: input.optional }),
+    ...(input.secretName != null && { secretName: input.secretName }),
+  };
+};
+
+const serializeAws_restJson1EksVolume = (input: EksVolume, context: __SerdeContext): any => {
+  return {
+    ...(input.emptyDir != null && { emptyDir: serializeAws_restJson1EksEmptyDir(input.emptyDir, context) }),
+    ...(input.hostPath != null && { hostPath: serializeAws_restJson1EksHostPath(input.hostPath, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.secret != null && { secret: serializeAws_restJson1EksSecret(input.secret, context) }),
+  };
+};
+
+const serializeAws_restJson1EksVolumes = (input: EksVolume[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1EksVolume(entry, context);
+    });
 };
 
 const serializeAws_restJson1EnvironmentVariables = (input: KeyValuePair[], context: __SerdeContext): any => {
@@ -2605,7 +2857,12 @@ const deserializeAws_restJson1ComputeEnvironmentDetail = (
       output.computeResources != null
         ? deserializeAws_restJson1ComputeResource(output.computeResources, context)
         : undefined,
+    containerOrchestrationType: __expectString(output.containerOrchestrationType),
     ecsClusterArn: __expectString(output.ecsClusterArn),
+    eksConfiguration:
+      output.eksConfiguration != null
+        ? deserializeAws_restJson1EksConfiguration(output.eksConfiguration, context)
+        : undefined,
     serviceRole: __expectString(output.serviceRole),
     state: __expectString(output.state),
     status: __expectString(output.status),
@@ -2615,6 +2872,7 @@ const deserializeAws_restJson1ComputeEnvironmentDetail = (
     unmanagedvCpus: __expectInt32(output.unmanagedvCpus),
     updatePolicy:
       output.updatePolicy != null ? deserializeAws_restJson1UpdatePolicy(output.updatePolicy, context) : undefined,
+    uuid: __expectString(output.uuid),
   } as any;
 };
 
@@ -2835,6 +3093,7 @@ const deserializeAws_restJson1DevicesList = (output: any, context: __SerdeContex
 const deserializeAws_restJson1Ec2Configuration = (output: any, context: __SerdeContext): Ec2Configuration => {
   return {
     imageIdOverride: __expectString(output.imageIdOverride),
+    imageKubernetesVersion: __expectString(output.imageKubernetesVersion),
     imageType: __expectString(output.imageType),
   } as any;
 };
@@ -2875,6 +3134,320 @@ const deserializeAws_restJson1EFSVolumeConfiguration = (
     transitEncryption: __expectString(output.transitEncryption),
     transitEncryptionPort: __expectInt32(output.transitEncryptionPort),
   } as any;
+};
+
+const deserializeAws_restJson1EksAttemptContainerDetail = (
+  output: any,
+  context: __SerdeContext
+): EksAttemptContainerDetail => {
+  return {
+    exitCode: __expectInt32(output.exitCode),
+    reason: __expectString(output.reason),
+  } as any;
+};
+
+const deserializeAws_restJson1EksAttemptContainerDetails = (
+  output: any,
+  context: __SerdeContext
+): EksAttemptContainerDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EksAttemptContainerDetail(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1EksAttemptDetail = (output: any, context: __SerdeContext): EksAttemptDetail => {
+  return {
+    containers:
+      output.containers != null
+        ? deserializeAws_restJson1EksAttemptContainerDetails(output.containers, context)
+        : undefined,
+    nodeName: __expectString(output.nodeName),
+    podName: __expectString(output.podName),
+    startedAt: __expectLong(output.startedAt),
+    statusReason: __expectString(output.statusReason),
+    stoppedAt: __expectLong(output.stoppedAt),
+  } as any;
+};
+
+const deserializeAws_restJson1EksAttemptDetails = (output: any, context: __SerdeContext): EksAttemptDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EksAttemptDetail(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1EksConfiguration = (output: any, context: __SerdeContext): EksConfiguration => {
+  return {
+    eksClusterArn: __expectString(output.eksClusterArn),
+    kubernetesNamespace: __expectString(output.kubernetesNamespace),
+  } as any;
+};
+
+const deserializeAws_restJson1EksContainer = (output: any, context: __SerdeContext): EksContainer => {
+  return {
+    args: output.args != null ? deserializeAws_restJson1StringList(output.args, context) : undefined,
+    command: output.command != null ? deserializeAws_restJson1StringList(output.command, context) : undefined,
+    env: output.env != null ? deserializeAws_restJson1EksContainerEnvironmentVariables(output.env, context) : undefined,
+    image: __expectString(output.image),
+    imagePullPolicy: __expectString(output.imagePullPolicy),
+    name: __expectString(output.name),
+    resources:
+      output.resources != null
+        ? deserializeAws_restJson1EksContainerResourceRequirements(output.resources, context)
+        : undefined,
+    securityContext:
+      output.securityContext != null
+        ? deserializeAws_restJson1EksContainerSecurityContext(output.securityContext, context)
+        : undefined,
+    volumeMounts:
+      output.volumeMounts != null
+        ? deserializeAws_restJson1EksContainerVolumeMounts(output.volumeMounts, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EksContainerDetail = (output: any, context: __SerdeContext): EksContainerDetail => {
+  return {
+    args: output.args != null ? deserializeAws_restJson1StringList(output.args, context) : undefined,
+    command: output.command != null ? deserializeAws_restJson1StringList(output.command, context) : undefined,
+    env: output.env != null ? deserializeAws_restJson1EksContainerEnvironmentVariables(output.env, context) : undefined,
+    exitCode: __expectInt32(output.exitCode),
+    image: __expectString(output.image),
+    imagePullPolicy: __expectString(output.imagePullPolicy),
+    name: __expectString(output.name),
+    reason: __expectString(output.reason),
+    resources:
+      output.resources != null
+        ? deserializeAws_restJson1EksContainerResourceRequirements(output.resources, context)
+        : undefined,
+    securityContext:
+      output.securityContext != null
+        ? deserializeAws_restJson1EksContainerSecurityContext(output.securityContext, context)
+        : undefined,
+    volumeMounts:
+      output.volumeMounts != null
+        ? deserializeAws_restJson1EksContainerVolumeMounts(output.volumeMounts, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EksContainerDetails = (output: any, context: __SerdeContext): EksContainerDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EksContainerDetail(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1EksContainerEnvironmentVariable = (
+  output: any,
+  context: __SerdeContext
+): EksContainerEnvironmentVariable => {
+  return {
+    name: __expectString(output.name),
+    value: __expectString(output.value),
+  } as any;
+};
+
+const deserializeAws_restJson1EksContainerEnvironmentVariables = (
+  output: any,
+  context: __SerdeContext
+): EksContainerEnvironmentVariable[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EksContainerEnvironmentVariable(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1EksContainerResourceRequirements = (
+  output: any,
+  context: __SerdeContext
+): EksContainerResourceRequirements => {
+  return {
+    limits: output.limits != null ? deserializeAws_restJson1EksLimits(output.limits, context) : undefined,
+    requests: output.requests != null ? deserializeAws_restJson1EksRequests(output.requests, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EksContainers = (output: any, context: __SerdeContext): EksContainer[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EksContainer(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1EksContainerSecurityContext = (
+  output: any,
+  context: __SerdeContext
+): EksContainerSecurityContext => {
+  return {
+    privileged: __expectBoolean(output.privileged),
+    readOnlyRootFilesystem: __expectBoolean(output.readOnlyRootFilesystem),
+    runAsGroup: __expectLong(output.runAsGroup),
+    runAsNonRoot: __expectBoolean(output.runAsNonRoot),
+    runAsUser: __expectLong(output.runAsUser),
+  } as any;
+};
+
+const deserializeAws_restJson1EksContainerVolumeMount = (
+  output: any,
+  context: __SerdeContext
+): EksContainerVolumeMount => {
+  return {
+    mountPath: __expectString(output.mountPath),
+    name: __expectString(output.name),
+    readOnly: __expectBoolean(output.readOnly),
+  } as any;
+};
+
+const deserializeAws_restJson1EksContainerVolumeMounts = (
+  output: any,
+  context: __SerdeContext
+): EksContainerVolumeMount[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EksContainerVolumeMount(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1EksEmptyDir = (output: any, context: __SerdeContext): EksEmptyDir => {
+  return {
+    medium: __expectString(output.medium),
+    sizeLimit: __expectString(output.sizeLimit),
+  } as any;
+};
+
+const deserializeAws_restJson1EksHostPath = (output: any, context: __SerdeContext): EksHostPath => {
+  return {
+    path: __expectString(output.path),
+  } as any;
+};
+
+const deserializeAws_restJson1EksLimits = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1EksPodProperties = (output: any, context: __SerdeContext): EksPodProperties => {
+  return {
+    containers:
+      output.containers != null ? deserializeAws_restJson1EksContainers(output.containers, context) : undefined,
+    dnsPolicy: __expectString(output.dnsPolicy),
+    hostNetwork: __expectBoolean(output.hostNetwork),
+    serviceAccountName: __expectString(output.serviceAccountName),
+    volumes: output.volumes != null ? deserializeAws_restJson1EksVolumes(output.volumes, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EksPodPropertiesDetail = (
+  output: any,
+  context: __SerdeContext
+): EksPodPropertiesDetail => {
+  return {
+    containers:
+      output.containers != null ? deserializeAws_restJson1EksContainerDetails(output.containers, context) : undefined,
+    dnsPolicy: __expectString(output.dnsPolicy),
+    hostNetwork: __expectBoolean(output.hostNetwork),
+    nodeName: __expectString(output.nodeName),
+    podName: __expectString(output.podName),
+    serviceAccountName: __expectString(output.serviceAccountName),
+    volumes: output.volumes != null ? deserializeAws_restJson1EksVolumes(output.volumes, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EksProperties = (output: any, context: __SerdeContext): EksProperties => {
+  return {
+    podProperties:
+      output.podProperties != null
+        ? deserializeAws_restJson1EksPodProperties(output.podProperties, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EksPropertiesDetail = (output: any, context: __SerdeContext): EksPropertiesDetail => {
+  return {
+    podProperties:
+      output.podProperties != null
+        ? deserializeAws_restJson1EksPodPropertiesDetail(output.podProperties, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EksRequests = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1EksSecret = (output: any, context: __SerdeContext): EksSecret => {
+  return {
+    optional: __expectBoolean(output.optional),
+    secretName: __expectString(output.secretName),
+  } as any;
+};
+
+const deserializeAws_restJson1EksVolume = (output: any, context: __SerdeContext): EksVolume => {
+  return {
+    emptyDir: output.emptyDir != null ? deserializeAws_restJson1EksEmptyDir(output.emptyDir, context) : undefined,
+    hostPath: output.hostPath != null ? deserializeAws_restJson1EksHostPath(output.hostPath, context) : undefined,
+    name: __expectString(output.name),
+    secret: output.secret != null ? deserializeAws_restJson1EksSecret(output.secret, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EksVolumes = (output: any, context: __SerdeContext): EksVolume[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EksVolume(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1EnvironmentVariables = (output: any, context: __SerdeContext): KeyValuePair[] => {
@@ -2938,10 +3511,13 @@ const deserializeAws_restJson1Host = (output: any, context: __SerdeContext): Hos
 
 const deserializeAws_restJson1JobDefinition = (output: any, context: __SerdeContext): JobDefinition => {
   return {
+    containerOrchestrationType: __expectString(output.containerOrchestrationType),
     containerProperties:
       output.containerProperties != null
         ? deserializeAws_restJson1ContainerProperties(output.containerProperties, context)
         : undefined,
+    eksProperties:
+      output.eksProperties != null ? deserializeAws_restJson1EksProperties(output.eksProperties, context) : undefined,
     jobDefinitionArn: __expectString(output.jobDefinitionArn),
     jobDefinitionName: __expectString(output.jobDefinitionName),
     nodeProperties:
@@ -3009,6 +3585,12 @@ const deserializeAws_restJson1JobDetail = (output: any, context: __SerdeContext)
     createdAt: __expectLong(output.createdAt),
     dependsOn:
       output.dependsOn != null ? deserializeAws_restJson1JobDependencyList(output.dependsOn, context) : undefined,
+    eksAttempts:
+      output.eksAttempts != null ? deserializeAws_restJson1EksAttemptDetails(output.eksAttempts, context) : undefined,
+    eksProperties:
+      output.eksProperties != null
+        ? deserializeAws_restJson1EksPropertiesDetail(output.eksProperties, context)
+        : undefined,
     jobArn: __expectString(output.jobArn),
     jobDefinition: __expectString(output.jobDefinition),
     jobId: __expectString(output.jobId),
