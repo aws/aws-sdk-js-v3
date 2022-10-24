@@ -3878,6 +3878,7 @@ export enum AutoMLMetricExtendedEnum {
   BALANCED_ACCURACY = "BalancedAccuracy",
   F1 = "F1",
   F1_MACRO = "F1macro",
+  INFERENCE_LATENCY = "InferenceLatency",
   LogLoss = "LogLoss",
   MAE = "MAE",
   MSE = "MSE",

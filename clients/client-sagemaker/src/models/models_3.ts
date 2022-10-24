@@ -99,7 +99,6 @@ import {
   LineageType,
   MetricData,
   ModelPackageGroupStatus,
-  ModelPackageGroupSummary,
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
   MonitoringJobDefinitionSortKey,
@@ -130,6 +129,123 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * <p>A summary of the model metadata.</p>
+ */
+export interface ModelMetadataSummary {
+  /**
+   * <p>The machine learning domain of the model.</p>
+   */
+  Domain: string | undefined;
+
+  /**
+   * <p>The machine learning framework of the model.</p>
+   */
+  Framework: string | undefined;
+
+  /**
+   * <p>The machine learning task of the model.</p>
+   */
+  Task: string | undefined;
+
+  /**
+   * <p>The name of the model.</p>
+   */
+  Model: string | undefined;
+
+  /**
+   * <p>The framework version of the model.</p>
+   */
+  FrameworkVersion: string | undefined;
+}
+
+export interface ListModelMetadataResponse {
+  /**
+   * <p>A structure that holds model metadata.</p>
+   */
+  ModelMetadataSummaries: ModelMetadataSummary[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of recommendations, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+export enum ModelPackageGroupSortBy {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name",
+}
+
+export interface ListModelPackageGroupsInput {
+  /**
+   * <p>A filter that returns only model groups created after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only model groups created before the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in the model group name. This filter returns only model groups whose name
+   *             contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>If the result of the previous <code>ListModelPackageGroups</code> request was
+   *             truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
+   *             model groups, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: ModelPackageGroupSortBy | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+/**
+ * <p>Summary information about a model group.</p>
+ */
+export interface ModelPackageGroupSummary {
+  /**
+   * <p>The name of the model group.</p>
+   */
+  ModelPackageGroupName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model group.</p>
+   */
+  ModelPackageGroupArn: string | undefined;
+
+  /**
+   * <p>A description of the model group.</p>
+   */
+  ModelPackageGroupDescription?: string;
+
+  /**
+   * <p>The time that the model group was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The status of the model group.</p>
+   */
+  ModelPackageGroupStatus: ModelPackageGroupStatus | string | undefined;
+}
 
 export interface ListModelPackageGroupsOutput {
   /**
@@ -5852,6 +5968,34 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const ModelMetadataSummaryFilterSensitiveLog = (obj: ModelMetadataSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListModelMetadataResponseFilterSensitiveLog = (obj: ListModelMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListModelPackageGroupsInputFilterSensitiveLog = (obj: ListModelPackageGroupsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModelPackageGroupSummaryFilterSensitiveLog = (obj: ModelPackageGroupSummary): any => ({
+  ...obj,
+});
 
 /**
  * @internal

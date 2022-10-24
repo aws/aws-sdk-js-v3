@@ -833,6 +833,11 @@ import {
   ListInferenceRecommendationsJobsCommandOutput,
 } from "./commands/ListInferenceRecommendationsJobsCommand";
 import {
+  ListInferenceRecommendationsJobStepsCommand,
+  ListInferenceRecommendationsJobStepsCommandInput,
+  ListInferenceRecommendationsJobStepsCommandOutput,
+} from "./commands/ListInferenceRecommendationsJobStepsCommand";
+import {
   ListLabelingJobsCommand,
   ListLabelingJobsCommandInput,
   ListLabelingJobsCommandOutput,
@@ -7612,6 +7617,39 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: ListInferenceRecommendationsJobsCommandOutput) => void
   ): Promise<ListInferenceRecommendationsJobsCommandOutput> | void {
     const command = new ListInferenceRecommendationsJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of the subtasks for an Inference Recommender job.</p>
+   *          <p>The supported subtasks are benchmarks, which evaluate the performance of your model on different instance types.</p>
+   */
+  public listInferenceRecommendationsJobSteps(
+    args: ListInferenceRecommendationsJobStepsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInferenceRecommendationsJobStepsCommandOutput>;
+  public listInferenceRecommendationsJobSteps(
+    args: ListInferenceRecommendationsJobStepsCommandInput,
+    cb: (err: any, data?: ListInferenceRecommendationsJobStepsCommandOutput) => void
+  ): void;
+  public listInferenceRecommendationsJobSteps(
+    args: ListInferenceRecommendationsJobStepsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInferenceRecommendationsJobStepsCommandOutput) => void
+  ): void;
+  public listInferenceRecommendationsJobSteps(
+    args: ListInferenceRecommendationsJobStepsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInferenceRecommendationsJobStepsCommandOutput) => void),
+    cb?: (err: any, data?: ListInferenceRecommendationsJobStepsCommandOutput) => void
+  ): Promise<ListInferenceRecommendationsJobStepsCommandOutput> | void {
+    const command = new ListInferenceRecommendationsJobStepsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

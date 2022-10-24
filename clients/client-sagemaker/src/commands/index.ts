@@ -177,6 +177,7 @@ export * from "./ListHumanTaskUisCommand";
 export * from "./ListHyperParameterTuningJobsCommand";
 export * from "./ListImageVersionsCommand";
 export * from "./ListImagesCommand";
+export * from "./ListInferenceRecommendationsJobStepsCommand";
 export * from "./ListInferenceRecommendationsJobsCommand";
 export * from "./ListLabelingJobsCommand";
 export * from "./ListLabelingJobsForWorkteamCommand";

@@ -13,8 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListModelPackageGroupsInput, ListModelPackageGroupsInputFilterSensitiveLog } from "../models/models_2";
-import { ListModelPackageGroupsOutput, ListModelPackageGroupsOutputFilterSensitiveLog } from "../models/models_3";
+import {
+  ListModelPackageGroupsInput,
+  ListModelPackageGroupsInputFilterSensitiveLog,
+  ListModelPackageGroupsOutput,
+  ListModelPackageGroupsOutputFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_json1_1ListModelPackageGroupsCommand,
   serializeAws_json1_1ListModelPackageGroupsCommand,

@@ -6632,6 +6632,63 @@ export interface InferenceRecommendationsJob {
 }
 
 /**
+ * <p>The details for a specific benchmark from an Inference Recommender job.</p>
+ */
+export interface RecommendationJobInferenceBenchmark {
+  /**
+   * <p>The metrics of recommendations.</p>
+   */
+  Metrics?: RecommendationMetrics;
+
+  /**
+   * <p>The endpoint configuration made by Inference Recommender during a recommendation job.</p>
+   */
+  EndpointConfiguration?: EndpointOutputConfiguration;
+
+  /**
+   * <p>Defines the model configuration. Includes the specification name and environment parameters.</p>
+   */
+  ModelConfiguration: ModelConfiguration | undefined;
+
+  /**
+   * <p>The reason why a benchmark failed.</p>
+   */
+  FailureReason?: string;
+}
+
+export enum RecommendationStepType {
+  BENCHMARK = "BENCHMARK",
+}
+
+/**
+ * <p>A returned array object for the <code>Steps</code> response field in the
+ *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InferenceRecommendationsJobStep.html">ListInferenceRecommendationsJobSteps</a> API command.</p>
+ */
+export interface InferenceRecommendationsJobStep {
+  /**
+   * <p>The type of the subtask.</p>
+   *          <p>
+   *             <code>BENCHMARK</code>: Evaluate the performance of your model on different instance types.</p>
+   */
+  StepType: RecommendationStepType | string | undefined;
+
+  /**
+   * <p>The name of the Inference Recommender job.</p>
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The current status of the benchmark.</p>
+   */
+  Status: RecommendationJobStatus | string | undefined;
+
+  /**
+   * <p>The details for a specific benchmark.</p>
+   */
+  InferenceBenchmark?: RecommendationJobInferenceBenchmark;
+}
+
+/**
  * <p>Provides counts for human-labeled tasks in the labeling job.</p>
  */
 export interface LabelCountersForWorkteam {
@@ -8488,6 +8545,47 @@ export interface ListInferenceRecommendationsJobsResponse {
   NextToken?: string;
 }
 
+export interface ListInferenceRecommendationsJobStepsRequest {
+  /**
+   * <p>The name for the Inference Recommender job.</p>
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>A filter to return benchmarks of a specified status. If this field is left empty, then all benchmarks are returned.</p>
+   */
+  Status?: RecommendationJobStatus | string;
+
+  /**
+   * <p>A filter to return details about the specified type of subtask.</p>
+   *          <p>
+   *             <code>BENCHMARK</code>: Evaluate the performance of your model on different instance types.</p>
+   */
+  StepType?: RecommendationStepType | string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token that you can specify to return more results from the list. Specify this field if you have a token that was returned from a previous request.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListInferenceRecommendationsJobStepsResponse {
+  /**
+   * <p>A list of all subtask details in Inference Recommender.</p>
+   */
+  Steps?: InferenceRecommendationsJobStep[];
+
+  /**
+   * <p>A token that you can specify in your next request to return more results from the list.</p>
+   */
+  NextToken?: string;
+}
+
 export enum SortBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
@@ -8860,123 +8958,6 @@ export interface ListModelMetadataRequest {
    * <p>The maximum number of models to return in the response.</p>
    */
   MaxResults?: number;
-}
-
-/**
- * <p>A summary of the model metadata.</p>
- */
-export interface ModelMetadataSummary {
-  /**
-   * <p>The machine learning domain of the model.</p>
-   */
-  Domain: string | undefined;
-
-  /**
-   * <p>The machine learning framework of the model.</p>
-   */
-  Framework: string | undefined;
-
-  /**
-   * <p>The machine learning task of the model.</p>
-   */
-  Task: string | undefined;
-
-  /**
-   * <p>The name of the model.</p>
-   */
-  Model: string | undefined;
-
-  /**
-   * <p>The framework version of the model.</p>
-   */
-  FrameworkVersion: string | undefined;
-}
-
-export interface ListModelMetadataResponse {
-  /**
-   * <p>A structure that holds model metadata.</p>
-   */
-  ModelMetadataSummaries: ModelMetadataSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of recommendations, if there are any.</p>
-   */
-  NextToken?: string;
-}
-
-export enum ModelPackageGroupSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
-
-export interface ListModelPackageGroupsInput {
-  /**
-   * <p>A filter that returns only model groups created after the specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only model groups created before the specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the model group name. This filter returns only model groups whose name
-   *             contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>If the result of the previous <code>ListModelPackageGroups</code> request was
-   *             truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
-   *             model groups, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: ModelPackageGroupSortBy | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
-
-/**
- * <p>Summary information about a model group.</p>
- */
-export interface ModelPackageGroupSummary {
-  /**
-   * <p>The name of the model group.</p>
-   */
-  ModelPackageGroupName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model group.</p>
-   */
-  ModelPackageGroupArn: string | undefined;
-
-  /**
-   * <p>A description of the model group.</p>
-   */
-  ModelPackageGroupDescription?: string;
-
-  /**
-   * <p>The time that the model group was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The status of the model group.</p>
-   */
-  ModelPackageGroupStatus: ModelPackageGroupStatus | string | undefined;
 }
 
 /**
@@ -10184,6 +10165,22 @@ export const InferenceRecommendationsJobFilterSensitiveLog = (obj: InferenceReco
 /**
  * @internal
  */
+export const RecommendationJobInferenceBenchmarkFilterSensitiveLog = (
+  obj: RecommendationJobInferenceBenchmark
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceRecommendationsJobStepFilterSensitiveLog = (obj: InferenceRecommendationsJobStep): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const LabelCountersForWorkteamFilterSensitiveLog = (obj: LabelCountersForWorkteam): any => ({
   ...obj,
 });
@@ -10616,6 +10613,24 @@ export const ListInferenceRecommendationsJobsResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const ListInferenceRecommendationsJobStepsRequestFilterSensitiveLog = (
+  obj: ListInferenceRecommendationsJobStepsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInferenceRecommendationsJobStepsResponseFilterSensitiveLog = (
+  obj: ListInferenceRecommendationsJobStepsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListLabelingJobsRequestFilterSensitiveLog = (obj: ListLabelingJobsRequest): any => ({
   ...obj,
 });
@@ -10709,33 +10724,5 @@ export const ModelMetadataSearchExpressionFilterSensitiveLog = (obj: ModelMetada
  * @internal
  */
 export const ListModelMetadataRequestFilterSensitiveLog = (obj: ListModelMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelMetadataSummaryFilterSensitiveLog = (obj: ModelMetadataSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelMetadataResponseFilterSensitiveLog = (obj: ListModelMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelPackageGroupsInputFilterSensitiveLog = (obj: ListModelPackageGroupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackageGroupSummaryFilterSensitiveLog = (obj: ModelPackageGroupSummary): any => ({
   ...obj,
 });

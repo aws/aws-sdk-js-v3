@@ -511,6 +511,10 @@ import {
   ListInferenceRecommendationsJobsCommandInput,
   ListInferenceRecommendationsJobsCommandOutput,
 } from "./commands/ListInferenceRecommendationsJobsCommand";
+import {
+  ListInferenceRecommendationsJobStepsCommandInput,
+  ListInferenceRecommendationsJobStepsCommandOutput,
+} from "./commands/ListInferenceRecommendationsJobStepsCommand";
 import { ListLabelingJobsCommandInput, ListLabelingJobsCommandOutput } from "./commands/ListLabelingJobsCommand";
 import {
   ListLabelingJobsForWorkteamCommandInput,
@@ -902,6 +906,7 @@ export type ServiceInputTypes =
   | ListHyperParameterTuningJobsCommandInput
   | ListImageVersionsCommandInput
   | ListImagesCommandInput
+  | ListInferenceRecommendationsJobStepsCommandInput
   | ListInferenceRecommendationsJobsCommandInput
   | ListLabelingJobsCommandInput
   | ListLabelingJobsForWorkteamCommandInput
@@ -1167,6 +1172,7 @@ export type ServiceOutputTypes =
   | ListHyperParameterTuningJobsCommandOutput
   | ListImageVersionsCommandOutput
   | ListImagesCommandOutput
+  | ListInferenceRecommendationsJobStepsCommandOutput
   | ListInferenceRecommendationsJobsCommandOutput
   | ListLabelingJobsCommandOutput
   | ListLabelingJobsForWorkteamCommandOutput

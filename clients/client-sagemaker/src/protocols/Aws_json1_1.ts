@@ -488,6 +488,10 @@ import {
   ListInferenceRecommendationsJobsCommandInput,
   ListInferenceRecommendationsJobsCommandOutput,
 } from "../commands/ListInferenceRecommendationsJobsCommand";
+import {
+  ListInferenceRecommendationsJobStepsCommandInput,
+  ListInferenceRecommendationsJobStepsCommandOutput,
+} from "../commands/ListInferenceRecommendationsJobStepsCommand";
 import { ListLabelingJobsCommandInput, ListLabelingJobsCommandOutput } from "../commands/ListLabelingJobsCommand";
 import {
   ListLabelingJobsForWorkteamCommandInput,
@@ -1318,6 +1322,7 @@ import {
   InferenceMetrics,
   InferenceRecommendation,
   InferenceRecommendationsJob,
+  InferenceRecommendationsJobStep,
   LabelCounters,
   LabelCountersForWorkteam,
   LabelingJobForWorkteamSummary,
@@ -1381,6 +1386,8 @@ import {
   ListImageVersionsResponse,
   ListInferenceRecommendationsJobsRequest,
   ListInferenceRecommendationsJobsResponse,
+  ListInferenceRecommendationsJobStepsRequest,
+  ListInferenceRecommendationsJobStepsResponse,
   ListLabelingJobsForWorkteamRequest,
   ListLabelingJobsForWorkteamResponse,
   ListLabelingJobsRequest,
@@ -1392,14 +1399,10 @@ import {
   ListModelExplainabilityJobDefinitionsRequest,
   ListModelExplainabilityJobDefinitionsResponse,
   ListModelMetadataRequest,
-  ListModelMetadataResponse,
-  ListModelPackageGroupsInput,
   MetricData,
   ModelConfiguration,
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
-  ModelMetadataSummary,
-  ModelPackageGroupSummary,
   ModelPackageStatusDetails,
   ModelPackageStatusItem,
   MonitoringExecutionSummary,
@@ -1416,6 +1419,7 @@ import {
   ProfilerRuleEvaluationStatus,
   PropertyNameQuery,
   PropertyNameSuggestion,
+  RecommendationJobInferenceBenchmark,
   RecommendationMetrics,
   RStudioServerProDomainSettingsForUpdate,
   SecondaryStatusTransition,
@@ -1433,6 +1437,8 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListModelMetadataResponse,
+  ListModelPackageGroupsInput,
   ListModelPackageGroupsOutput,
   ListModelPackagesInput,
   ListModelPackagesOutput,
@@ -1484,8 +1490,10 @@ import {
   ListWorkforcesResponse,
   ListWorkteamsRequest,
   ListWorkteamsResponse,
+  ModelMetadataSummary,
   ModelPackage,
   ModelPackageGroup,
+  ModelPackageGroupSummary,
   ModelPackageSummary,
   ModelStepMetadata,
   ModelSummary,
@@ -3945,6 +3953,19 @@ export const serializeAws_json1_1ListInferenceRecommendationsJobsCommand = async
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListInferenceRecommendationsJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListInferenceRecommendationsJobStepsCommand = async (
+  input: ListInferenceRecommendationsJobStepsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListInferenceRecommendationsJobSteps",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListInferenceRecommendationsJobStepsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -12067,6 +12088,41 @@ const deserializeAws_json1_1ListInferenceRecommendationsJobsCommandError = async
   });
 };
 
+export const deserializeAws_json1_1ListInferenceRecommendationsJobStepsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceRecommendationsJobStepsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListInferenceRecommendationsJobStepsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListInferenceRecommendationsJobStepsResponse(data, context);
+  const response: ListInferenceRecommendationsJobStepsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListInferenceRecommendationsJobStepsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceRecommendationsJobStepsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_json1_1ListLabelingJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -19830,6 +19886,19 @@ const serializeAws_json1_1ListInferenceRecommendationsJobsRequest = (
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
     ...(input.StatusEquals != null && { StatusEquals: input.StatusEquals }),
+  };
+};
+
+const serializeAws_json1_1ListInferenceRecommendationsJobStepsRequest = (
+  input: ListInferenceRecommendationsJobStepsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobName != null && { JobName: input.JobName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.StepType != null && { StepType: input.StepType }),
   };
 };
 
@@ -29023,6 +29092,36 @@ const deserializeAws_json1_1InferenceRecommendationsJobs = (
   return retVal;
 };
 
+const deserializeAws_json1_1InferenceRecommendationsJobStep = (
+  output: any,
+  context: __SerdeContext
+): InferenceRecommendationsJobStep => {
+  return {
+    InferenceBenchmark:
+      output.InferenceBenchmark != null
+        ? deserializeAws_json1_1RecommendationJobInferenceBenchmark(output.InferenceBenchmark, context)
+        : undefined,
+    JobName: __expectString(output.JobName),
+    Status: __expectString(output.Status),
+    StepType: __expectString(output.StepType),
+  } as any;
+};
+
+const deserializeAws_json1_1InferenceRecommendationsJobSteps = (
+  output: any,
+  context: __SerdeContext
+): InferenceRecommendationsJobStep[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1InferenceRecommendationsJobStep(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1InferenceSpecification = (output: any, context: __SerdeContext): InferenceSpecification => {
   return {
     Containers:
@@ -29814,6 +29913,17 @@ const deserializeAws_json1_1ListInferenceRecommendationsJobsResponse = (
         ? deserializeAws_json1_1InferenceRecommendationsJobs(output.InferenceRecommendationsJobs, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListInferenceRecommendationsJobStepsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListInferenceRecommendationsJobStepsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    Steps:
+      output.Steps != null ? deserializeAws_json1_1InferenceRecommendationsJobSteps(output.Steps, context) : undefined,
   } as any;
 };
 
@@ -32605,6 +32715,24 @@ const deserializeAws_json1_1RecommendationJobContainerConfig = (
         ? deserializeAws_json1_1RecommendationJobSupportedInstanceTypes(output.SupportedInstanceTypes, context)
         : undefined,
     Task: __expectString(output.Task),
+  } as any;
+};
+
+const deserializeAws_json1_1RecommendationJobInferenceBenchmark = (
+  output: any,
+  context: __SerdeContext
+): RecommendationJobInferenceBenchmark => {
+  return {
+    EndpointConfiguration:
+      output.EndpointConfiguration != null
+        ? deserializeAws_json1_1EndpointOutputConfiguration(output.EndpointConfiguration, context)
+        : undefined,
+    FailureReason: __expectString(output.FailureReason),
+    Metrics: output.Metrics != null ? deserializeAws_json1_1RecommendationMetrics(output.Metrics, context) : undefined,
+    ModelConfiguration:
+      output.ModelConfiguration != null
+        ? deserializeAws_json1_1ModelConfiguration(output.ModelConfiguration, context)
+        : undefined,
   } as any;
 };
 
