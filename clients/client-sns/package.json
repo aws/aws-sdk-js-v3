@@ -57,7 +57,7 @@
     "@aws-sdk/service-client-documentation-generator": "*",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^12.7.5",
-    "concurrently": "7.0.0",
+    "concurrently": "7.4.0",
     "downlevel-dts": "0.7.0",
     "rimraf": "3.0.2",
     "typedoc": "0.19.2",

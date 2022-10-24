@@ -62,7 +62,7 @@
     "async": "3.2.4",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "concurrently": "7.0.0",
+    "concurrently": "7.4.0",
     "cucumber": "6.0.7",
     "downlevel-dts": "0.7.0",
     "eslint": "8.17.0",
