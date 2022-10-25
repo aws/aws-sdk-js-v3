@@ -91,6 +91,9 @@ import {
   Configuration,
   ConflictException,
   Criterion,
+  EbsSnapshotConfiguration,
+  EcrRepositoryConfiguration,
+  EfsFileSystemConfiguration,
   Finding,
   FindingSource,
   FindingSourceDetail,
@@ -114,6 +117,10 @@ import {
   PolicyGeneration,
   PolicyGenerationDetails,
   Position,
+  RdsDbClusterSnapshotAttributeValue,
+  RdsDbClusterSnapshotConfiguration,
+  RdsDbSnapshotAttributeValue,
+  RdsDbSnapshotConfiguration,
   ResourceNotFoundException,
   S3AccessPointConfiguration,
   S3BucketAclGrantConfiguration,
@@ -121,6 +128,7 @@ import {
   S3PublicAccessBlockConfiguration,
   SecretsManagerSecretConfiguration,
   ServiceQuotaExceededException,
+  SnsTopicConfiguration,
   SortCriteria,
   Span,
   SqsQueueConfiguration,
@@ -771,6 +779,7 @@ export const serializeAws_restJson1StartResourceScanCommand = async (
   body = JSON.stringify({
     ...(input.analyzerArn != null && { analyzerArn: input.analyzerArn }),
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.resourceOwnerAccount != null && { resourceOwnerAccount: input.resourceOwnerAccount }),
   });
   return new __HttpRequest({
     protocol,
@@ -2578,12 +2587,20 @@ const serializeAws_restJson1CloudTrailDetails = (input: CloudTrailDetails, conte
 
 const serializeAws_restJson1Configuration = (input: Configuration, context: __SerdeContext): any => {
   return Configuration.visit(input, {
+    ebsSnapshot: (value) => ({ ebsSnapshot: serializeAws_restJson1EbsSnapshotConfiguration(value, context) }),
+    ecrRepository: (value) => ({ ecrRepository: serializeAws_restJson1EcrRepositoryConfiguration(value, context) }),
+    efsFileSystem: (value) => ({ efsFileSystem: serializeAws_restJson1EfsFileSystemConfiguration(value, context) }),
     iamRole: (value) => ({ iamRole: serializeAws_restJson1IamRoleConfiguration(value, context) }),
     kmsKey: (value) => ({ kmsKey: serializeAws_restJson1KmsKeyConfiguration(value, context) }),
+    rdsDbClusterSnapshot: (value) => ({
+      rdsDbClusterSnapshot: serializeAws_restJson1RdsDbClusterSnapshotConfiguration(value, context),
+    }),
+    rdsDbSnapshot: (value) => ({ rdsDbSnapshot: serializeAws_restJson1RdsDbSnapshotConfiguration(value, context) }),
     s3Bucket: (value) => ({ s3Bucket: serializeAws_restJson1S3BucketConfiguration(value, context) }),
     secretsManagerSecret: (value) => ({
       secretsManagerSecret: serializeAws_restJson1SecretsManagerSecretConfiguration(value, context),
     }),
+    snsTopic: (value) => ({ snsTopic: serializeAws_restJson1SnsTopicConfiguration(value, context) }),
     sqsQueue: (value) => ({ sqsQueue: serializeAws_restJson1SqsQueueConfiguration(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
@@ -2610,6 +2627,51 @@ const serializeAws_restJson1Criterion = (input: Criterion, context: __SerdeConte
     ...(input.eq != null && { eq: serializeAws_restJson1ValueList(input.eq, context) }),
     ...(input.exists != null && { exists: input.exists }),
     ...(input.neq != null && { neq: serializeAws_restJson1ValueList(input.neq, context) }),
+  };
+};
+
+const serializeAws_restJson1EbsGroupList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1EbsSnapshotConfiguration = (
+  input: EbsSnapshotConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.groups != null && { groups: serializeAws_restJson1EbsGroupList(input.groups, context) }),
+    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
+    ...(input.userIds != null && { userIds: serializeAws_restJson1EbsUserIdList(input.userIds, context) }),
+  };
+};
+
+const serializeAws_restJson1EbsUserIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1EcrRepositoryConfiguration = (
+  input: EcrRepositoryConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.repositoryPolicy != null && { repositoryPolicy: input.repositoryPolicy }),
+  };
+};
+
+const serializeAws_restJson1EfsFileSystemConfiguration = (
+  input: EfsFileSystemConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.fileSystemPolicy != null && { fileSystemPolicy: input.fileSystemPolicy }),
   };
 };
 
@@ -2760,6 +2822,96 @@ const serializeAws_restJson1PolicyGenerationDetails = (
   };
 };
 
+const serializeAws_restJson1RdsDbClusterSnapshotAccountIdsList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1RdsDbClusterSnapshotAttributesMap = (
+  input: Record<string, RdsDbClusterSnapshotAttributeValue>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1RdsDbClusterSnapshotAttributeValue(value, context),
+    };
+  }, {});
+};
+
+const serializeAws_restJson1RdsDbClusterSnapshotAttributeValue = (
+  input: RdsDbClusterSnapshotAttributeValue,
+  context: __SerdeContext
+): any => {
+  return RdsDbClusterSnapshotAttributeValue.visit(input, {
+    accountIds: (value) => ({ accountIds: serializeAws_restJson1RdsDbClusterSnapshotAccountIdsList(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+const serializeAws_restJson1RdsDbClusterSnapshotConfiguration = (
+  input: RdsDbClusterSnapshotConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.attributes != null && {
+      attributes: serializeAws_restJson1RdsDbClusterSnapshotAttributesMap(input.attributes, context),
+    }),
+    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
+  };
+};
+
+const serializeAws_restJson1RdsDbSnapshotAccountIdsList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1RdsDbSnapshotAttributesMap = (
+  input: Record<string, RdsDbSnapshotAttributeValue>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1RdsDbSnapshotAttributeValue(value, context),
+    };
+  }, {});
+};
+
+const serializeAws_restJson1RdsDbSnapshotAttributeValue = (
+  input: RdsDbSnapshotAttributeValue,
+  context: __SerdeContext
+): any => {
+  return RdsDbSnapshotAttributeValue.visit(input, {
+    accountIds: (value) => ({ accountIds: serializeAws_restJson1RdsDbSnapshotAccountIdsList(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+const serializeAws_restJson1RdsDbSnapshotConfiguration = (
+  input: RdsDbSnapshotConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.attributes != null && {
+      attributes: serializeAws_restJson1RdsDbSnapshotAttributesMap(input.attributes, context),
+    }),
+    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
+  };
+};
+
 const serializeAws_restJson1RegionList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -2854,6 +3006,12 @@ const serializeAws_restJson1SecretsManagerSecretConfiguration = (
   return {
     ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
     ...(input.secretPolicy != null && { secretPolicy: input.secretPolicy }),
+  };
+};
+
+const serializeAws_restJson1SnsTopicConfiguration = (input: SnsTopicConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.topicPolicy != null && { topicPolicy: input.topicPolicy }),
   };
 };
 
@@ -3138,6 +3296,21 @@ const deserializeAws_restJson1ConditionKeyMap = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1Configuration = (output: any, context: __SerdeContext): Configuration => {
+  if (output.ebsSnapshot != null) {
+    return {
+      ebsSnapshot: deserializeAws_restJson1EbsSnapshotConfiguration(output.ebsSnapshot, context),
+    };
+  }
+  if (output.ecrRepository != null) {
+    return {
+      ecrRepository: deserializeAws_restJson1EcrRepositoryConfiguration(output.ecrRepository, context),
+    };
+  }
+  if (output.efsFileSystem != null) {
+    return {
+      efsFileSystem: deserializeAws_restJson1EfsFileSystemConfiguration(output.efsFileSystem, context),
+    };
+  }
   if (output.iamRole != null) {
     return {
       iamRole: deserializeAws_restJson1IamRoleConfiguration(output.iamRole, context),
@@ -3146,6 +3319,19 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
   if (output.kmsKey != null) {
     return {
       kmsKey: deserializeAws_restJson1KmsKeyConfiguration(output.kmsKey, context),
+    };
+  }
+  if (output.rdsDbClusterSnapshot != null) {
+    return {
+      rdsDbClusterSnapshot: deserializeAws_restJson1RdsDbClusterSnapshotConfiguration(
+        output.rdsDbClusterSnapshot,
+        context
+      ),
+    };
+  }
+  if (output.rdsDbSnapshot != null) {
+    return {
+      rdsDbSnapshot: deserializeAws_restJson1RdsDbSnapshotConfiguration(output.rdsDbSnapshot, context),
     };
   }
   if (output.s3Bucket != null) {
@@ -3159,6 +3345,11 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
         output.secretsManagerSecret,
         context
       ),
+    };
+  }
+  if (output.snsTopic != null) {
+    return {
+      snsTopic: deserializeAws_restJson1SnsTopicConfiguration(output.snsTopic, context),
     };
   }
   if (output.sqsQueue != null) {
@@ -3190,6 +3381,59 @@ const deserializeAws_restJson1Criterion = (output: any, context: __SerdeContext)
     eq: output.eq != null ? deserializeAws_restJson1ValueList(output.eq, context) : undefined,
     exists: __expectBoolean(output.exists),
     neq: output.neq != null ? deserializeAws_restJson1ValueList(output.neq, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EbsGroupList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1EbsSnapshotConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EbsSnapshotConfiguration => {
+  return {
+    groups: output.groups != null ? deserializeAws_restJson1EbsGroupList(output.groups, context) : undefined,
+    kmsKeyId: __expectString(output.kmsKeyId),
+    userIds: output.userIds != null ? deserializeAws_restJson1EbsUserIdList(output.userIds, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EbsUserIdList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1EcrRepositoryConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EcrRepositoryConfiguration => {
+  return {
+    repositoryPolicy: __expectString(output.repositoryPolicy),
+  } as any;
+};
+
+const deserializeAws_restJson1EfsFileSystemConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EfsFileSystemConfiguration => {
+  return {
+    fileSystemPolicy: __expectString(output.fileSystemPolicy),
   } as any;
 };
 
@@ -3552,6 +3796,116 @@ const deserializeAws_restJson1PrincipalMap = (output: any, context: __SerdeConte
   }, {});
 };
 
+const deserializeAws_restJson1RdsDbClusterSnapshotAccountIdsList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1RdsDbClusterSnapshotAttributesMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, RdsDbClusterSnapshotAttributeValue> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, RdsDbClusterSnapshotAttributeValue>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1RdsDbClusterSnapshotAttributeValue(__expectUnion(value), context),
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1RdsDbClusterSnapshotAttributeValue = (
+  output: any,
+  context: __SerdeContext
+): RdsDbClusterSnapshotAttributeValue => {
+  if (output.accountIds != null) {
+    return {
+      accountIds: deserializeAws_restJson1RdsDbClusterSnapshotAccountIdsList(output.accountIds, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1RdsDbClusterSnapshotConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RdsDbClusterSnapshotConfiguration => {
+  return {
+    attributes:
+      output.attributes != null
+        ? deserializeAws_restJson1RdsDbClusterSnapshotAttributesMap(output.attributes, context)
+        : undefined,
+    kmsKeyId: __expectString(output.kmsKeyId),
+  } as any;
+};
+
+const deserializeAws_restJson1RdsDbSnapshotAccountIdsList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1RdsDbSnapshotAttributesMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, RdsDbSnapshotAttributeValue> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, RdsDbSnapshotAttributeValue>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1RdsDbSnapshotAttributeValue(__expectUnion(value), context),
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1RdsDbSnapshotAttributeValue = (
+  output: any,
+  context: __SerdeContext
+): RdsDbSnapshotAttributeValue => {
+  if (output.accountIds != null) {
+    return {
+      accountIds: deserializeAws_restJson1RdsDbSnapshotAccountIdsList(output.accountIds, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1RdsDbSnapshotConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RdsDbSnapshotConfiguration => {
+  return {
+    attributes:
+      output.attributes != null
+        ? deserializeAws_restJson1RdsDbSnapshotAttributesMap(output.attributes, context)
+        : undefined,
+    kmsKeyId: __expectString(output.kmsKeyId),
+  } as any;
+};
+
 const deserializeAws_restJson1RegionList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -3673,6 +4027,12 @@ const deserializeAws_restJson1SharedViaList = (output: any, context: __SerdeCont
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1SnsTopicConfiguration = (output: any, context: __SerdeContext): SnsTopicConfiguration => {
+  return {
+    topicPolicy: __expectString(output.topicPolicy),
+  } as any;
 };
 
 const deserializeAws_restJson1Span = (output: any, context: __SerdeContext): Span => {
