@@ -28,7 +28,7 @@
     "local-publish": "node ./scripts/verdaccio-publish/index.js",
     "test:all": "yarn build:all && jest --coverage --passWithNoTests && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}' && yarn test:versions",
     "test:e2e": "yarn build:e2e && node ./tests/e2e/index.js",
-    "test:functional": "jest --config tests/functional/jest.config.js && lerna run test:unit --scope \"@aws-sdk/client-*\"",
+    "test:functional": "jest --passWithNoTests --config tests/functional/jest.config.js && lerna run test:unit --scope \"@aws-sdk/client-*\"",
     "test:integration": "jest --config jest.config.integ.js --passWithNoTests",
     "test:integration:legacy": "cucumber-js --fail-fast",
     "test:integration:legacy:since:release": "./tests/integ-legacy/index.js",
