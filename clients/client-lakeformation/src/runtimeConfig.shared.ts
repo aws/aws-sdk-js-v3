@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { LakeFormationClientConfig } from "./LakeFormationClient";
 
 /**
@@ -11,8 +11,8 @@ import { LakeFormationClientConfig } from "./LakeFormationClient";
 export const getRuntimeConfig = (config: LakeFormationClientConfig) => ({
   apiVersion: "2017-03-31",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "LakeFormation",
   urlParser: config?.urlParser ?? parseUrl,
 });

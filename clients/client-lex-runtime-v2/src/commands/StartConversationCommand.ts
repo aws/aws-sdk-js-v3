@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -113,6 +114,15 @@ export class StartConversationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
   constructor(readonly input: StartConversationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class StartConversationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartConversationCommandInput, StartConversationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartConversationCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getEventStreamPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

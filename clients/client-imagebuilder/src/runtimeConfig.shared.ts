@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { ImagebuilderClientConfig } from "./ImagebuilderClient";
 
 /**
@@ -11,8 +11,8 @@ import { ImagebuilderClientConfig } from "./ImagebuilderClient";
 export const getRuntimeConfig = (config: ImagebuilderClientConfig) => ({
   apiVersion: "2019-12-02",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "imagebuilder",
   urlParser: config?.urlParser ?? parseUrl,
 });

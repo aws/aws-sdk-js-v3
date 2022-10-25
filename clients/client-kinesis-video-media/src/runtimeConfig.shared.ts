@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { KinesisVideoMediaClientConfig } from "./KinesisVideoMediaClient";
 
 /**
@@ -11,8 +11,8 @@ import { KinesisVideoMediaClientConfig } from "./KinesisVideoMediaClient";
 export const getRuntimeConfig = (config: KinesisVideoMediaClientConfig) => ({
   apiVersion: "2017-09-30",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "Kinesis Video Media",
   urlParser: config?.urlParser ?? parseUrl,
 });

@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { NetworkManagerClientConfig } from "./NetworkManagerClient";
 
 /**
@@ -11,8 +11,8 @@ import { NetworkManagerClientConfig } from "./NetworkManagerClient";
 export const getRuntimeConfig = (config: NetworkManagerClientConfig) => ({
   apiVersion: "2019-07-05",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "NetworkManager",
   urlParser: config?.urlParser ?? parseUrl,
 });

@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { QuickSightClientConfig } from "./QuickSightClient";
 
 /**
@@ -11,8 +11,8 @@ import { QuickSightClientConfig } from "./QuickSightClient";
 export const getRuntimeConfig = (config: QuickSightClientConfig) => ({
   apiVersion: "2018-04-01",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "QuickSight",
   urlParser: config?.urlParser ?? parseUrl,
 });

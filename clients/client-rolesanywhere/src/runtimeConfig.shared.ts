@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { RolesAnywhereClientConfig } from "./RolesAnywhereClient";
 
 /**
@@ -11,8 +11,8 @@ import { RolesAnywhereClientConfig } from "./RolesAnywhereClient";
 export const getRuntimeConfig = (config: RolesAnywhereClientConfig) => ({
   apiVersion: "2018-05-10",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "RolesAnywhere",
   urlParser: config?.urlParser ?? parseUrl,
 });
