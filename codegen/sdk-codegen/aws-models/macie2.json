@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -106,6 +106,7 @@
         "allowsPublicReadAccess": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the ACL grants the general public with read access permissions for the bucket.</p>",
             "smithy.api#jsonName": "allowsPublicReadAccess"
           }
@@ -113,6 +114,7 @@
         "allowsPublicWriteAccess": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the ACL grants the general public with write access permissions for the bucket.</p>",
             "smithy.api#jsonName": "allowsPublicWriteAccess"
           }
@@ -522,6 +524,7 @@
         "deleted": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the custom data identifier was deleted. If you delete a custom data identifier, Amazon Macie doesn't delete it permanently. Instead, it soft deletes the identifier.</p>",
             "smithy.api#jsonName": "deleted"
           }
@@ -629,6 +632,7 @@
         "blockPublicAcls": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether Amazon S3 blocks public access control lists (ACLs) for the bucket and objects in the bucket.</p>",
             "smithy.api#jsonName": "blockPublicAcls"
           }
@@ -636,6 +640,7 @@
         "blockPublicPolicy": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether Amazon S3 blocks public bucket policies for the bucket.</p>",
             "smithy.api#jsonName": "blockPublicPolicy"
           }
@@ -643,6 +648,7 @@
         "ignorePublicAcls": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether Amazon S3 ignores public ACLs for the bucket and objects in the bucket.</p>",
             "smithy.api#jsonName": "ignorePublicAcls"
           }
@@ -650,6 +656,7 @@
         "restrictPublicBuckets": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether Amazon S3 restricts public bucket policies for the bucket.</p>",
             "smithy.api#jsonName": "restrictPublicBuckets"
           }
@@ -665,6 +672,7 @@
         "publiclyAccessible": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets that allow the general public to have read or write access to the bucket.</p>",
             "smithy.api#jsonName": "publiclyAccessible"
           }
@@ -672,6 +680,7 @@
         "publiclyReadable": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets that allow the general public to have read access to the bucket.</p>",
             "smithy.api#jsonName": "publiclyReadable"
           }
@@ -679,6 +688,7 @@
         "publiclyWritable": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets that allow the general public to have write access to the bucket.</p>",
             "smithy.api#jsonName": "publiclyWritable"
           }
@@ -686,6 +696,7 @@
         "unknown": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets that Amazon Macie wasn't able to evaluate permissions settings for. Macie can't determine whether these buckets are publicly accessible.</p>",
             "smithy.api#jsonName": "unknown"
           }
@@ -701,6 +712,7 @@
         "kmsManaged": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets that use an KMS key to encrypt new objects by default, either an Amazon Web Services managed key or a customer managed key. These buckets use KMS encryption (SSE-KMS) by default.</p>",
             "smithy.api#jsonName": "kmsManaged"
           }
@@ -708,6 +720,7 @@
         "s3Managed": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets that use an Amazon S3 managed key to encrypt new objects by default. These buckets use Amazon S3 managed encryption (SSE-S3) by default.</p>",
             "smithy.api#jsonName": "s3Managed"
           }
@@ -715,6 +728,7 @@
         "unencrypted": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets that don't encrypt new objects by default. Default encryption is disabled for these buckets.</p>",
             "smithy.api#jsonName": "unencrypted"
           }
@@ -722,6 +736,7 @@
         "unknown": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets that Amazon Macie doesn't have current encryption metadata for. Macie can't provide current data about the default encryption settings for these buckets.</p>",
             "smithy.api#jsonName": "unknown"
           }
@@ -737,6 +752,7 @@
         "external": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets that are shared with an Amazon Web Services account that isn't part of the same Amazon Macie organization.</p>",
             "smithy.api#jsonName": "external"
           }
@@ -744,6 +760,7 @@
         "internal": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets that are shared with an Amazon Web Services account that's part of the same Amazon Macie organization.</p>",
             "smithy.api#jsonName": "internal"
           }
@@ -751,6 +768,7 @@
         "notShared": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets that aren't shared with other Amazon Web Services accounts.</p>",
             "smithy.api#jsonName": "notShared"
           }
@@ -758,6 +776,7 @@
         "unknown": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets that Amazon Macie wasn't able to evaluate shared access settings for. Macie can't determine whether these buckets are shared with other Amazon Web Services accounts.</p>",
             "smithy.api#jsonName": "unknown"
           }
@@ -773,6 +792,7 @@
         "allowsUnencryptedObjectUploads": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets that don't have a bucket policy or have a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, the policy doesn't require PutObject requests to include the x-amz-server-side-encryption header and it doesn't require the value for that header to be AES256 or aws:kms.</p>",
             "smithy.api#jsonName": "allowsUnencryptedObjectUploads"
           }
@@ -780,6 +800,7 @@
         "deniesUnencryptedObjectUploads": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets whose bucket policies require server-side encryption of new objects. PutObject requests for these buckets must include the x-amz-server-side-encryption header and the value for that header must be AES256 or aws:kms.</p>",
             "smithy.api#jsonName": "deniesUnencryptedObjectUploads"
           }
@@ -787,6 +808,7 @@
         "unknown": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets that Amazon Macie wasn't able to evaluate server-side encryption requirements for. Macie can't determine whether the bucket policies for these buckets require server-side encryption of new objects.</p>",
             "smithy.api#jsonName": "unknown"
           }
@@ -821,6 +843,7 @@
         "gt": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The value for the property is greater than the specified value.</p>",
             "smithy.api#jsonName": "gt"
           }
@@ -828,6 +851,7 @@
         "gte": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The value for the property is greater than or equal to the specified value.</p>",
             "smithy.api#jsonName": "gte"
           }
@@ -835,6 +859,7 @@
         "lt": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The value for the property is less than the specified value.</p>",
             "smithy.api#jsonName": "lt"
           }
@@ -842,6 +867,7 @@
         "lte": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The value for the property is less than or equal to the specified value.</p>",
             "smithy.api#jsonName": "lte"
           }
@@ -935,6 +961,7 @@
         "classifiableObjectCount": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p>",
             "smithy.api#jsonName": "classifiableObjectCount"
           }
@@ -942,6 +969,7 @@
         "classifiableSizeInBytes": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total storage size, in bytes, of the objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p> <p>If versioning is enabled for the bucket, Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>",
             "smithy.api#jsonName": "classifiableSizeInBytes"
           }
@@ -977,6 +1005,7 @@
         "objectCount": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of objects in the bucket.</p>",
             "smithy.api#jsonName": "objectCount"
           }
@@ -1026,6 +1055,7 @@
         "sizeInBytes": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total storage size, in bytes, of the bucket.</p> <p>If versioning is enabled for the bucket, Amazon Macie calculates this value based on the size of the latest version of each object in the bucket. This value doesn't reflect the storage size of all versions of each object in the bucket.</p>",
             "smithy.api#jsonName": "sizeInBytes"
           }
@@ -1033,6 +1063,7 @@
         "sizeInBytesCompressed": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the bucket.</p> <p>If versioning is enabled for the bucket, Amazon Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>",
             "smithy.api#jsonName": "sizeInBytesCompressed"
           }
@@ -1061,6 +1092,7 @@
         "versioning": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether versioning is enabled for the bucket.</p>",
             "smithy.api#jsonName": "versioning"
           }
@@ -1110,6 +1142,7 @@
         "allowsPublicReadAccess": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the bucket policy allows the general public to have read access to the bucket.</p>",
             "smithy.api#jsonName": "allowsPublicReadAccess"
           }
@@ -1117,6 +1150,7 @@
         "allowsPublicWriteAccess": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the bucket policy allows the general public to have write access to the bucket.</p>",
             "smithy.api#jsonName": "allowsPublicWriteAccess"
           }
@@ -1205,6 +1239,7 @@
         "column": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The column number of the column that contains the sensitive data. For a Microsoft Excel workbook, this value correlates to the alphabetical character(s) for a column identifier, for example: 1 for column A, 2 for column B, and so on.</p>",
             "smithy.api#jsonName": "column"
           }
@@ -1219,6 +1254,7 @@
         "row": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The row number of the row that contains the sensitive data.</p>",
             "smithy.api#jsonName": "row"
           }
@@ -1301,6 +1337,7 @@
         "additionalOccurrences": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether Amazon Macie detected additional occurrences of sensitive data in the S3 object. A finding includes location data for a maximum of 15 occurrences of sensitive data.</p> <p>This value can help you determine whether to investigate additional occurrences of sensitive data in an object. You can do this by referring to the corresponding sensitive data discovery result for the finding (ClassificationDetails.detailedResultsLocation).</p>",
             "smithy.api#jsonName": "additionalOccurrences"
           }
@@ -1329,6 +1366,7 @@
         "sizeClassified": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total size, in bytes, of the data that the finding applies to.</p>",
             "smithy.api#jsonName": "sizeClassified"
           }
@@ -1563,6 +1601,7 @@
         "initialRun": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>For a recurring job, specifies whether to analyze all existing, eligible objects immediately after the job is created (true). To analyze only those objects that are created or changed after you create the job and before the job's first scheduled run, set this value to false.</p> <p>If you configure the job to run only once, don't specify a value for this property.</p>",
             "smithy.api#jsonName": "initialRun"
           }
@@ -1608,6 +1647,7 @@
         "samplingPercentage": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The sampling depth, as a percentage, for the job to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.</p>",
             "smithy.api#jsonName": "samplingPercentage"
           }
@@ -1722,6 +1762,7 @@
         "maximumMatchDistance": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of characters that can exist between the end of at least one complete character sequence specified by the keywords array and the end of the text that matches the regex pattern. If a complete keyword precedes all the text that matches the pattern and the keyword is within the specified distance, Amazon Macie includes the result. The distance can be 1-300 characters. The default value is 50.</p>",
             "smithy.api#jsonName": "maximumMatchDistance"
           }
@@ -1855,6 +1896,7 @@
         "position": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>",
             "smithy.api#jsonName": "position"
           }
@@ -1941,6 +1983,7 @@
         "disableEmailNotification": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether to send the invitation as an email message. If this value is false, Amazon Macie sends the invitation (as an email message) to the email address that you specified for the recipient's account when you associated the account with your account. The default value is false.</p>",
             "smithy.api#jsonName": "disableEmailNotification"
           }
@@ -2163,6 +2206,7 @@
         "gt": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The value for the property is greater than the specified value.</p>",
             "smithy.api#jsonName": "gt"
           }
@@ -2170,6 +2214,7 @@
         "gte": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The value for the property is greater than or equal to the specified value.</p>",
             "smithy.api#jsonName": "gte"
           }
@@ -2177,6 +2222,7 @@
         "lt": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The value for the property is less than the specified value.</p>",
             "smithy.api#jsonName": "lt"
           }
@@ -2184,6 +2230,7 @@
         "lte": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The value for the property is less than or equal to the specified value.</p>",
             "smithy.api#jsonName": "lte"
           }
@@ -2268,6 +2315,7 @@
         "totalCount": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of occurrences of the data that was detected by the custom data identifiers and produced the finding.</p>",
             "smithy.api#jsonName": "totalCount"
           }
@@ -2290,6 +2338,7 @@
         "count": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of occurrences of the sensitive data that the custom data identifier detected.</p>",
             "smithy.api#jsonName": "count"
           }
@@ -2455,6 +2504,7 @@
         "count": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of occurrences of the type of sensitive data that was detected.</p>",
             "smithy.api#jsonName": "count"
           }
@@ -2840,6 +2890,7 @@
         "maxResults": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of items to include in each page of the response. The default value is 50.</p>",
             "smithy.api#jsonName": "maxResults"
           }
@@ -2974,6 +3025,7 @@
         "initialRun": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>For a recurring job, specifies whether you configured the job to analyze all existing, eligible objects immediately after the job was created (true). If you configured the job to analyze only those objects that were created or changed after the job was created and before the job's first scheduled run, this value is false. This value is also false for a one-time job.</p>",
             "smithy.api#jsonName": "initialRun"
           }
@@ -3051,6 +3103,7 @@
         "samplingPercentage": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The sampling depth, as a percentage, that determines the percentage of eligible objects that the job analyzes.</p>",
             "smithy.api#jsonName": "samplingPercentage"
           }
@@ -3135,6 +3188,7 @@
         "autoEnable": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether Amazon Macie is enabled automatically for accounts that are added to the organization.</p>",
             "smithy.api#jsonName": "autoEnable"
           }
@@ -3142,6 +3196,7 @@
         "maxAccountLimitReached": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the maximum number of Amazon Macie member accounts are part of the organization.</p>",
             "smithy.api#jsonName": "maxAccountLimitReached"
           }
@@ -3688,6 +3743,7 @@
         "archived": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the finding is archived (suppressed).</p>",
             "smithy.api#jsonName": "archived"
           }
@@ -3709,6 +3765,7 @@
         "count": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of occurrences of the finding. For sensitive data findings, this value is always 1. All sensitive data findings are considered new (unique) because they derive from individual classification jobs.</p>",
             "smithy.api#jsonName": "count"
           }
@@ -3765,6 +3822,7 @@
         "sample": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the finding is a sample finding. A <i>sample finding</i> is a finding that uses example data to demonstrate what a finding might contain.</p>",
             "smithy.api#jsonName": "sample"
           }
@@ -4297,6 +4355,7 @@
         "bucketCount": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of buckets.</p>",
             "smithy.api#jsonName": "bucketCount"
           }
@@ -4332,6 +4391,7 @@
         "classifiableObjectCount": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of objects that Amazon Macie can analyze in the buckets. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p>",
             "smithy.api#jsonName": "classifiableObjectCount"
           }
@@ -4339,6 +4399,7 @@
         "classifiableSizeInBytes": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total storage size, in bytes, of all the objects that Amazon Macie can analyze in the buckets. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p> <p>If versioning is enabled for any of the buckets, Macie calculates this value based on the size of the latest version of each applicable object in those buckets. This value doesn't reflect the storage size of all versions of all applicable objects in the buckets.</p>",
             "smithy.api#jsonName": "classifiableSizeInBytes"
           }
@@ -4353,6 +4414,7 @@
         "objectCount": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of objects in the buckets.</p>",
             "smithy.api#jsonName": "objectCount"
           }
@@ -4360,6 +4422,7 @@
         "sizeInBytes": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total storage size, in bytes, of the buckets.</p> <p>If versioning is enabled for any of the buckets, Amazon Macie calculates this value based on the size of the latest version of each object in those buckets. This value doesn't reflect the storage size of all versions of the objects in the buckets.</p>",
             "smithy.api#jsonName": "sizeInBytes"
           }
@@ -4367,6 +4430,7 @@
         "sizeInBytesCompressed": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the buckets.</p> <p>If versioning is enabled for any of the buckets, Amazon Macie calculates this value based on the size of the latest version of each applicable object in those buckets. This value doesn't reflect the storage size of all versions of the applicable objects in the buckets.</p>",
             "smithy.api#jsonName": "sizeInBytesCompressed"
           }
@@ -4516,6 +4580,7 @@
         "deleted": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the custom data identifier was deleted. If you delete a custom data identifier, Amazon Macie doesn't delete it permanently. Instead, it soft deletes the identifier.</p>",
             "smithy.api#jsonName": "deleted"
           }
@@ -4551,6 +4616,7 @@
         "maximumMatchDistance": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of characters that can exist between the end of at least one complete character sequence specified by the keywords array and the end of the text that matches the regex pattern. If a complete keyword precedes all the text that matches the pattern and the keyword is within the specified distance, Amazon Macie includes the result. Otherwise, Macie excludes the result.</p>",
             "smithy.api#jsonName": "maximumMatchDistance"
           }
@@ -4646,6 +4712,7 @@
         "size": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of items to include in each page of the response.</p>",
             "smithy.api#jsonName": "size"
           }
@@ -4812,6 +4879,7 @@
         "position": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>",
             "smithy.api#jsonName": "position"
           }
@@ -4963,6 +5031,7 @@
         "invitationsCount": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of invitations that were received by the account, not including the currently accepted invitation.</p>",
             "smithy.api#jsonName": "invitationsCount"
           }
@@ -5502,6 +5571,7 @@
         "maxResults": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of items to include in each page of the response.</p>",
             "smithy.api#jsonName": "maxResults"
           }
@@ -5655,6 +5725,7 @@
         "count": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of findings in the group of query results.</p>",
             "smithy.api#jsonName": "count"
           }
@@ -5846,6 +5917,7 @@
         "lat": {
           "target": "com.amazonaws.macie2#__double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The latitude coordinate of the location, rounded to four decimal places.</p>",
             "smithy.api#jsonName": "lat"
           }
@@ -5853,6 +5925,7 @@
         "lon": {
           "target": "com.amazonaws.macie2#__double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The longitude coordinate of the location, rounded to four decimal places.</p>",
             "smithy.api#jsonName": "lon"
           }
@@ -6296,6 +6369,7 @@
         "maxResults": {
           "target": "com.amazonaws.macie2#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of items to include in each page of a paginated response.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -6387,6 +6461,7 @@
         "maxResults": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of items to include in each page of the response.</p>",
             "smithy.api#jsonName": "maxResults"
           }
@@ -6478,6 +6553,7 @@
         "maxResults": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of items to include in each page of the response.</p>",
             "smithy.api#jsonName": "maxResults"
           }
@@ -6608,6 +6684,7 @@
         "maxResults": {
           "target": "com.amazonaws.macie2#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of items to include in each page of a paginated response.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -6653,6 +6730,7 @@
         "maxResults": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of items to include in each page of the response.</p>",
             "smithy.api#jsonName": "maxResults"
           }
@@ -6744,6 +6822,7 @@
         "maxResults": {
           "target": "com.amazonaws.macie2#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of items to include in each page of a paginated response.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -6997,6 +7076,7 @@
         "maxResults": {
           "target": "com.amazonaws.macie2#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of items to include in each page of a paginated response.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -7088,6 +7168,7 @@
         "maxResults": {
           "target": "com.amazonaws.macie2#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of items to include in each page of a paginated response.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -7164,21 +7245,6 @@
     },
     "com.amazonaws.macie2#Macie2": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "Macie2",
-          "arnNamespace": "macie2",
-          "cloudFormationName": "Macie2",
-          "cloudTrailEventSource": "macie2.amazonaws.com",
-          "endpointPrefix": "macie2"
-        },
-        "aws.auth#sigv4": {
-          "name": "macie2"
-        },
-        "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect your sensitive data in AWS. Macie automates the discovery of sensitive data, such as PII and intellectual property, to provide you with insight into the data that your organization stores in AWS. Macie also provides an inventory of your Amazon S3 buckets, which it continually monitors for you. If Macie detects sensitive data or potential data access issues, it generates detailed findings for you to review and act upon as necessary.</p>",
-        "smithy.api#title": "Amazon Macie 2"
-      },
       "version": "2020-01-01",
       "operations": [
         {
@@ -7379,7 +7445,1472 @@
         {
           "target": "com.amazonaws.macie2#UpdateRevealConfiguration"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Macie2",
+          "arnNamespace": "macie2",
+          "cloudFormationName": "Macie2",
+          "cloudTrailEventSource": "macie2.amazonaws.com",
+          "endpointPrefix": "macie2"
+        },
+        "aws.auth#sigv4": {
+          "name": "macie2"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<p>Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect your sensitive data in AWS. Macie automates the discovery of sensitive data, such as PII and intellectual property, to provide you with insight into the data that your organization stores in AWS. Macie also provides an inventory of your Amazon S3 buckets, which it continually monitors for you. If Macie detects sensitive data or potential data access issues, it generates detailed findings for you to review and act upon as necessary.</p>",
+        "smithy.api#title": "Amazon Macie 2",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://macie2-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://macie2-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://macie2.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://macie2.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.eu-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.af-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ap-northeast-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://macie2.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.macie2#MacieStatus": {
       "type": "string",
@@ -7463,6 +8994,7 @@
         "classifiableObjectCount": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p>",
             "smithy.api#jsonName": "classifiableObjectCount"
           }
@@ -7470,6 +9002,7 @@
         "classifiableSizeInBytes": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total storage size, in bytes, of the objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p> <p>If versioning is enabled for the bucket, Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>",
             "smithy.api#jsonName": "classifiableSizeInBytes"
           }
@@ -7498,6 +9031,7 @@
         "objectCount": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of objects in the bucket.</p>",
             "smithy.api#jsonName": "objectCount"
           }
@@ -7512,6 +9046,7 @@
         "sizeInBytes": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total storage size, in bytes, of the bucket.</p> <p>If versioning is enabled for the bucket, Amazon Macie calculates this value based on the size of the latest version of each object in the bucket. This value doesn't reflect the storage size of all versions of each object in the bucket.</p>",
             "smithy.api#jsonName": "sizeInBytes"
           }
@@ -7519,6 +9054,7 @@
         "sizeInBytesCompressed": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the bucket.</p> <p>If versioning is enabled for the bucket, Amazon Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>",
             "smithy.api#jsonName": "sizeInBytesCompressed"
           }
@@ -7560,6 +9096,7 @@
     "com.amazonaws.macie2#MaxResults": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 25
@@ -7643,6 +9180,7 @@
         "dayOfMonth": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The numeric day of the month when Amazon Macie runs the job. This value can be an integer from 1 through 31.</p> <p>If this value exceeds the number of days in a certain month, Macie doesn't run the job that month. Macie runs the job only during months that have the specified day. For example, if this value is 31 and a month has only 30 days, Macie doesn't run the job that month. To run the job every month, specify a value that's less than 29.</p>",
             "smithy.api#jsonName": "dayOfMonth"
           }
@@ -7658,6 +9196,7 @@
         "customerManaged": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of objects that are encrypted with a customer-provided key. The objects use customer-provided server-side encryption (SSE-C).</p>",
             "smithy.api#jsonName": "customerManaged"
           }
@@ -7665,6 +9204,7 @@
         "kmsManaged": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of objects that are encrypted with an KMS key, either an Amazon Web Services managed key or a customer managed key. The objects use KMS encryption (SSE-KMS).</p>",
             "smithy.api#jsonName": "kmsManaged"
           }
@@ -7672,6 +9212,7 @@
         "s3Managed": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of objects that are encrypted with an Amazon S3 managed key. The objects use Amazon S3 managed encryption (SSE-S3).</p>",
             "smithy.api#jsonName": "s3Managed"
           }
@@ -7679,6 +9220,7 @@
         "unencrypted": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of objects that aren't encrypted or use client-side encryption.</p>",
             "smithy.api#jsonName": "unencrypted"
           }
@@ -7686,6 +9228,7 @@
         "unknown": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of objects that Amazon Macie doesn't have current encryption metadata for. Macie can't provide current data about the encryption settings for these objects.</p>",
             "smithy.api#jsonName": "unknown"
           }
@@ -7701,6 +9244,7 @@
         "fileType": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total storage size (in bytes) or number of objects that Amazon Macie can't analyze because the objects don't have a file name extension for a supported file or storage format.</p>",
             "smithy.api#jsonName": "fileType"
           }
@@ -7708,6 +9252,7 @@
         "storageClass": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total storage size (in bytes) or number of objects that Amazon Macie can't analyze because the objects use an unsupported storage class.</p>",
             "smithy.api#jsonName": "storageClass"
           }
@@ -7715,6 +9260,7 @@
         "total": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total storage size (in bytes) or number of objects that Amazon Macie can't analyze because the objects use an unsupported storage class or don't have a file name extension for a supported file or storage format.</p>",
             "smithy.api#jsonName": "total"
           }
@@ -7814,6 +9360,7 @@
         "pageNumber": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The page number of the page that contains the sensitive data.</p>",
             "smithy.api#jsonName": "pageNumber"
           }
@@ -7989,6 +9536,7 @@
         "end": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of lines from the beginning of the file to the end of the sensitive data.</p>",
             "smithy.api#jsonName": "end"
           }
@@ -7996,6 +9544,7 @@
         "start": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of lines from the beginning of the file to the beginning of the sensitive data.</p>",
             "smithy.api#jsonName": "start"
           }
@@ -8003,6 +9552,7 @@
         "startColumn": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of characters, with spaces and starting from 1, from the beginning of the first line that contains the sensitive data (start) to the beginning of the sensitive data.</p>",
             "smithy.api#jsonName": "startColumn"
           }
@@ -8034,6 +9584,7 @@
         "recordIndex": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>For an Avro object container or Parquet file, the record index, starting from 0, for the record that contains the sensitive data. For a JSON Lines file, the line index, starting from 0, for the line that contains the sensitive data. This value is always 0 for JSON files.</p>",
             "smithy.api#jsonName": "recordIndex"
           }
@@ -8106,6 +9657,7 @@
         "replicated": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the bucket is configured to replicate one or more objects to any destination.</p>",
             "smithy.api#jsonName": "replicated"
           }
@@ -8113,6 +9665,7 @@
         "replicatedExternally": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the bucket is configured to replicate one or more objects to an Amazon Web Services account that isn't part of the same Amazon Macie organization.</p>",
             "smithy.api#jsonName": "replicatedExternally"
           }
@@ -8467,6 +10020,7 @@
         "publicAccess": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the object is publicly accessible due to the combination of permissions settings that apply to the object.</p>",
             "smithy.api#jsonName": "publicAccess"
           }
@@ -8481,6 +10035,7 @@
         "size": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total storage size, in bytes, of the object.</p>",
             "smithy.api#jsonName": "size"
           }
@@ -8715,6 +10270,7 @@
         "maxResults": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of items to include in each page of the response. The default value is 50.</p>",
             "smithy.api#jsonName": "maxResults"
           }
@@ -8903,6 +10459,7 @@
         "publishClassificationFindings": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether to publish sensitive data findings to Security Hub. If you set this value to true, Amazon Macie automatically publishes all sensitive data findings that weren't suppressed by a findings filter. The default value is false.</p>",
             "smithy.api#jsonName": "publishClassificationFindings",
             "smithy.api#required": {}
@@ -8911,6 +10468,7 @@
         "publishPolicyFindings": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether to publish policy findings to Security Hub. If you set this value to true, Amazon Macie automatically publishes all new and updated policy findings that weren't suppressed by a findings filter. The default value is true.</p>",
             "smithy.api#jsonName": "publishPolicyFindings",
             "smithy.api#required": {}
@@ -8950,6 +10508,7 @@
         "totalCount": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of occurrences of the sensitive data that was detected.</p>",
             "smithy.api#jsonName": "totalCount"
           }
@@ -9023,6 +10582,7 @@
         "isServiceLimited": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the account has met the quota that corresponds to the metric specified by the UsageByAccount.type field in the response.</p>",
             "smithy.api#jsonName": "isServiceLimited"
           }
@@ -9037,6 +10597,7 @@
         "value": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The value for the metric specified by the UsageByAccount.type field in the response.</p>",
             "smithy.api#jsonName": "value"
           }
@@ -9098,6 +10659,7 @@
         "mfaAuthenticated": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the credentials were authenticated with a multi-factor authentication (MFA) device.</p>",
             "smithy.api#jsonName": "mfaAuthenticated"
           }
@@ -9163,6 +10725,7 @@
         "score": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The numerical representation of the finding's severity, ranging from 1 (least severe) to 3 (most severe).</p>",
             "smithy.api#jsonName": "score"
           }
@@ -9198,6 +10761,7 @@
         "occurrencesThreshold": {
           "target": "com.amazonaws.macie2#__long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The minimum number of occurrences of text that must match the custom data identifier's detection criteria in order to produce a finding with the specified severity (severity).</p>",
             "smithy.api#jsonName": "occurrencesThreshold",
             "smithy.api#required": {}
@@ -9358,6 +10922,7 @@
         "approximateNumberOfObjectsToProcess": {
           "target": "com.amazonaws.macie2#__double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The approximate number of objects that the job has yet to process during its current run.</p>",
             "smithy.api#jsonName": "approximateNumberOfObjectsToProcess"
           }
@@ -9365,6 +10930,7 @@
         "numberOfRuns": {
           "target": "com.amazonaws.macie2#__double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of times that the job has run.</p>",
             "smithy.api#jsonName": "numberOfRuns"
           }
@@ -9638,6 +11204,7 @@
         "maximumMatchDistance": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of characters that can exist between the end of at least one complete character sequence specified by the keywords array and the end of the text that matches the regex pattern. If a complete keyword precedes all the text that matches the pattern and the keyword is within the specified distance, Amazon Macie includes the result. The distance can be 1-300 characters. The default value is 50.</p>",
             "smithy.api#jsonName": "maximumMatchDistance"
           }
@@ -9666,6 +11233,7 @@
         "matchCount": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of occurrences of sample text that matched the criteria specified by the custom data identifier.</p>",
             "smithy.api#jsonName": "matchCount"
           }
@@ -10088,6 +11656,7 @@
         "position": {
           "target": "com.amazonaws.macie2#__integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>",
             "smithy.api#jsonName": "position"
           }
@@ -10295,6 +11864,7 @@
         "autoEnable": {
           "target": "com.amazonaws.macie2#__boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether to enable Amazon Macie automatically for an account when the account is added to the organization in Organizations.</p>",
             "smithy.api#jsonName": "autoEnable",
             "smithy.api#required": {}
@@ -10787,13 +12357,22 @@
       }
     },
     "com.amazonaws.macie2#__boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.macie2#__double": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.macie2#__integer": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.macie2#__listOfAdminAccount": {
       "type": "list",
@@ -10987,7 +12566,10 @@
       }
     },
     "com.amazonaws.macie2#__long": {
-      "type": "long"
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.macie2#__string": {
       "type": "string"

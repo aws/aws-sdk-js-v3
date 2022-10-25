@@ -309,7 +309,10 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to create a launch profile",
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "aws.iam#requiredActions": [
           "ec2:CreateNetworkInterface",
           "ec2:RunInstances",
@@ -454,7 +457,10 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to create a streaming image",
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "aws.iam#requiredActions": [
           "ec2:ModifyInstanceAttribute",
           "ec2:ModifySnapshotAttribute",
@@ -575,7 +581,10 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to create a streaming session",
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "aws.iam#requiredActions": [
           "ec2:CreateNetworkInterface",
           "ec2:CreateNetworkInterfacePermission",
@@ -697,7 +706,9 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to create a streaming session stream",
-        "aws.iam#conditionKeys": ["nimble:requesterPrincipalId"],
+        "aws.iam#conditionKeys": [
+          "nimble:requesterPrincipalId"
+        ],
         "smithy.api#documentation": "<p>Creates a streaming session stream for a streaming session.</p>\n        <p>After invoking this API, invoke GetStreamingSessionStream with the returned streamId\n            to poll the resource until it is in state READY.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -798,8 +809,14 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to create a studio",
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
-        "aws.iam#requiredActions": ["sso:CreateManagedApplicationInstance", "iam:PassRole"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
+        "aws.iam#requiredActions": [
+          "sso:CreateManagedApplicationInstance",
+          "iam:PassRole"
+        ],
         "smithy.api#documentation": "<p>Create a new Studio.</p>\n        <p>When creating a Studio, two IAM roles must be provided: the admin role and the user\n            Role. These roles are assumed by your users when they log in to the Nimble Studio\n            portal.</p>\n        <p>The user role must have the AmazonNimbleStudio-StudioUser managed policy attached for\n            the portal to function properly.</p>\n        <p>The Admin Role must have the AmazonNimbleStudio-StudioAdmin managed policy attached\n            for the portal to function properly.</p>\n        <p>You may optionally specify a KMS key in the StudioEncryptionConfiguration.</p>\n        <p>In Nimble Studio, resource names, descriptions, initialization scripts, and other\n            data you provide are always encrypted at rest using an KMS key. By default, this key is\n            owned by Amazon Web Services and managed on your behalf. You may provide your own KMS\n            key when calling CreateStudio to encrypt this data using a key you own and\n            manage.</p>\n        <p>When providing an KMS key during studio creation, Nimble Studio creates KMS\n            grants in your account to provide your studio user and admin roles access to these KMS\n            keys.</p>\n        <p>If you delete this grant, the studio will no longer be accessible to your portal\n            users.</p>\n        <p>If you delete the studio KMS key, your studio will no longer be accessible.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -841,7 +858,10 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to create a studio component. A studio component designates a network resource to which a launch profile will provide access",
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "aws.iam#requiredActions": [
           "ec2:DescribeSecurityGroups",
           "fsx:DescribeFileSystems",
@@ -1353,8 +1373,12 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to delete a streaming session",
-        "aws.iam#conditionKeys": ["nimble:requesterPrincipalId"],
-        "aws.iam#requiredActions": ["ec2:DeleteNetworkInterface"],
+        "aws.iam#conditionKeys": [
+          "nimble:requesterPrincipalId"
+        ],
+        "aws.iam#requiredActions": [
+          "ec2:DeleteNetworkInterface"
+        ],
         "smithy.api#documentation": "<p>Deletes streaming session resource.</p>\n        <p>After invoking this operation, use GetStreamingSession to poll the resource until it\n            transitions to a DELETED state.</p>\n        <p>A streaming session will count against your streaming session quota until it is marked\n            DELETED.</p>",
         "smithy.api#http": {
           "method": "DELETE",
@@ -1443,7 +1467,9 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to delete a studio",
-        "aws.iam#requiredActions": ["sso:DeleteManagedApplicationInstance"],
+        "aws.iam#requiredActions": [
+          "sso:DeleteManagedApplicationInstance"
+        ],
         "smithy.api#documentation": "<p>Delete a studio resource.</p>",
         "smithy.api#http": {
           "method": "DELETE",
@@ -1858,7 +1884,11 @@
         "aws.api#arn": {
           "template": "eula/{eulaId}"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}", "aws:RequestTag/${TagKey}", "aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "eula"
@@ -2183,7 +2213,11 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to get a launch profile initialization. A launch profile initialization is a dereferenced version of a launch profile, including attached studio component connection information",
-        "aws.iam#requiredActions": ["ec2:DescribeSecurityGroups", "fsx:DescribeFileSystems", "ds:DescribeDirectories"],
+        "aws.iam#requiredActions": [
+          "ec2:DescribeSecurityGroups",
+          "fsx:DescribeFileSystems",
+          "ds:DescribeDirectories"
+        ],
         "smithy.api#documentation": "<p>Get a launch profile initialization.</p>",
         "smithy.api#http": {
           "method": "GET",
@@ -2558,7 +2592,9 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to get a streaming session",
-        "aws.iam#conditionKeys": ["nimble:requesterPrincipalId"],
+        "aws.iam#conditionKeys": [
+          "nimble:requesterPrincipalId"
+        ],
         "smithy.api#documentation": "<p>Gets StreamingSession resource.</p>\n        <p>Invoke this operation to poll for a streaming session state while creating or deleting\n            a session.</p>",
         "smithy.api#http": {
           "method": "GET",
@@ -2732,7 +2768,9 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to get a streaming session",
-        "aws.iam#conditionKeys": ["nimble:requesterPrincipalId"],
+        "aws.iam#conditionKeys": [
+          "nimble:requesterPrincipalId"
+        ],
         "smithy.api#documentation": "<p>Gets a StreamingSessionStream for a streaming session.</p>\n        <p>Invoke this operation to poll the resource after invoking\n            CreateStreamingSessionStream.</p>\n        <p>After the StreamingSessionStream changes to the state READY, the url property will\n            contain a stream to be used with the DCV streaming client.</p>",
         "smithy.api#http": {
           "method": "GET",
@@ -3664,7 +3702,9 @@
         },
         "aws.cloudformation#cfnResource": {
           "name": "LaunchProfile",
-          "additionalSchemas": ["com.amazonaws.nimble#LaunchProfile"]
+          "additionalSchemas": [
+            "com.amazonaws.nimble#LaunchProfile"
+          ]
         },
         "aws.iam#conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -4275,7 +4315,10 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to list launch profiles",
-        "aws.iam#conditionKeys": ["nimble:principalId", "nimble:requesterPrincipalId"],
+        "aws.iam#conditionKeys": [
+          "nimble:principalId",
+          "nimble:requesterPrincipalId"
+        ],
         "smithy.api#documentation": "<p>List all the launch profiles a studio.</p>",
         "smithy.api#http": {
           "method": "GET",
@@ -4486,7 +4529,11 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to list streaming sessions",
-        "aws.iam#conditionKeys": ["nimble:createdBy", "nimble:ownedBy", "nimble:requesterPrincipalId"],
+        "aws.iam#conditionKeys": [
+          "nimble:createdBy",
+          "nimble:ownedBy",
+          "nimble:requesterPrincipalId"
+        ],
         "smithy.api#documentation": "<p>Lists the streaming sessions in a studio.</p>",
         "smithy.api#http": {
           "method": "GET",
@@ -5075,7 +5122,9 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to add/update launch profile members",
-        "aws.iam#requiredActions": ["sso-directory:DescribeUsers"],
+        "aws.iam#requiredActions": [
+          "sso-directory:DescribeUsers"
+        ],
         "smithy.api#documentation": "<p>Add/update users with given persona to launch profile membership.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -5170,7 +5219,9 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to add/update studio members",
-        "aws.iam#requiredActions": ["sso-directory:DescribeUsers"],
+        "aws.iam#requiredActions": [
+          "sso-directory:DescribeUsers"
+        ],
         "smithy.api#documentation": "<p>Add/update users with given persona to studio membership.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -5420,8 +5471,13 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to start a streaming session",
-        "aws.iam#conditionKeys": ["nimble:requesterPrincipalId"],
-        "aws.iam#requiredActions": ["nimble:GetLaunchProfile", "nimble:GetLaunchProfileMember"],
+        "aws.iam#conditionKeys": [
+          "nimble:requesterPrincipalId"
+        ],
+        "aws.iam#requiredActions": [
+          "nimble:GetLaunchProfile",
+          "nimble:GetLaunchProfileMember"
+        ],
         "smithy.api#documentation": "<p> Transitions sessions from the STOPPED state into the READY state. The\n            START_IN_PROGRESS state is the intermediate state between the STOPPED and READY\n            states.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -5507,7 +5563,10 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to repair the studio's AWS SSO configuration",
-        "aws.iam#requiredActions": ["sso:CreateManagedApplicationInstance", "sso:GetManagedApplicationInstance"],
+        "aws.iam#requiredActions": [
+          "sso:CreateManagedApplicationInstance",
+          "sso:GetManagedApplicationInstance"
+        ],
         "smithy.api#documentation": "<p>Repairs the IAM Identity Center configuration for a given studio.</p>\n        <p>If the studio has a valid IAM Identity Center configuration currently associated with\n            it, this operation will fail with a validation error.</p>\n        <p>If the studio does not have a valid IAM Identity Center configuration currently\n            associated with it, then a new IAM Identity Center application is created for the studio\n            and the studio is changed to the READY state.</p>\n        <p>After the IAM Identity Center application is repaired, you must use the Amazon Nimble Studio console to add administrators and users to your studio.</p>",
         "smithy.api#http": {
           "method": "PUT",
@@ -5589,8 +5648,12 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to stop a streaming session",
-        "aws.iam#conditionKeys": ["nimble:requesterPrincipalId"],
-        "aws.iam#requiredActions": ["nimble:GetLaunchProfile"],
+        "aws.iam#conditionKeys": [
+          "nimble:requesterPrincipalId"
+        ],
+        "aws.iam#requiredActions": [
+          "nimble:GetLaunchProfile"
+        ],
         "smithy.api#documentation": "<p>Transitions sessions from the READY state into the STOPPED state. The STOP_IN_PROGRESS\n            state is the intermediate state between the READY and STOPPED states.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -6028,7 +6091,9 @@
         },
         "aws.cloudformation#cfnResource": {
           "name": "StreamingImage",
-          "additionalSchemas": ["com.amazonaws.nimble#StreamingImage"]
+          "additionalSchemas": [
+            "com.amazonaws.nimble#StreamingImage"
+          ]
         },
         "aws.iam#conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -6178,7 +6243,9 @@
             "name": "g5_16xlarge"
           }
         ],
-        "smithy.api#suppress": ["EnumTrait"]
+        "smithy.api#suppress": [
+          "EnumTrait"
+        ]
       }
     },
     "com.amazonaws.nimble#StreamingInstanceTypeList": {
@@ -7133,7 +7200,9 @@
         },
         "aws.cloudformation#cfnResource": {
           "name": "StudioComponent",
-          "additionalSchemas": ["com.amazonaws.nimble#StudioComponent"]
+          "additionalSchemas": [
+            "com.amazonaws.nimble#StudioComponent"
+          ]
         },
         "aws.iam#conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -7567,7 +7636,9 @@
         },
         "aws.cloudformation#cfnResource": {
           "name": "Studio",
-          "additionalSchemas": ["com.amazonaws.nimble#Studio"]
+          "additionalSchemas": [
+            "com.amazonaws.nimble#Studio"
+          ]
         },
         "aws.iam#conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -8313,7 +8384,9 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to update a studio",
-        "aws.iam#requiredActions": ["iam:PassRole"],
+        "aws.iam#requiredActions": [
+          "iam:PassRole"
+        ],
         "smithy.api#documentation": "<p>Update a Studio resource.</p>\n        <p>Currently, this operation only supports updating the displayName of your\n            studio.</p>",
         "smithy.api#http": {
           "method": "PATCH",
@@ -8715,11 +8788,686 @@
             "x-amz-client-token",
             "x-api-key"
           ],
-          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id", "x-amz-apigw-id"],
+          "additionalExposedHeaders": [
+            "x-amzn-errortype",
+            "x-amzn-requestid",
+            "x-amzn-trace-id",
+            "x-amz-apigw-id"
+          ],
           "maxAge": 600
         },
         "smithy.api#documentation": "<p>Welcome to the Amazon Nimble Studio API reference. This API reference provides\n            methods, schema, resources, parameters, and more to help you get the most out of Nimble\n            Studio.</p>\n        <p>Nimble Studio is a virtual studio that empowers visual effects, animation, and\n            interactive content teams to create content securely within a scalable, private cloud\n            service.</p>",
-        "smithy.api#title": "AmazonNimbleStudio"
+        "smithy.api#title": "AmazonNimbleStudio",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://nimble-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://nimble-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://nimble.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://nimble.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble-fips.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble-fips.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://nimble.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
       }
     }
   }

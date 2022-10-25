@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -95,7 +95,10 @@
       }
     },
     "com.amazonaws.iotwireless#AccountLinked": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iotwireless#Accuracy": {
       "type": "structure",
@@ -120,7 +123,6 @@
     "com.amazonaws.iotwireless#AckModeRetryDurationSecs": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 604800
@@ -128,7 +130,10 @@
       }
     },
     "com.amazonaws.iotwireless#AddGwMetadata": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iotwireless#AmazonId": {
       "type": "string",
@@ -625,7 +630,10 @@
       "members": {}
     },
     "com.amazonaws.iotwireless#AutoCreateTasks": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iotwireless#BatteryLevel": {
       "type": "string",
@@ -670,7 +678,6 @@
     "com.amazonaws.iotwireless#BeaconingDataRate": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 15
@@ -692,7 +699,6 @@
     "com.amazonaws.iotwireless#BeaconingFrequency": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 100000000,
           "max": 1000000000
@@ -806,7 +812,6 @@
     "com.amazonaws.iotwireless#ClassBTimeout": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 1000
@@ -816,7 +821,6 @@
     "com.amazonaws.iotwireless#ClassCTimeout": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 1000
@@ -911,7 +915,6 @@
     "com.amazonaws.iotwireless#Crc": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 4294967295
@@ -1708,6 +1711,7 @@
         "AutoCreateTasks": {
           "target": "com.amazonaws.iotwireless#AutoCreateTasks",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Whether to automatically create tasks using this task definition for all gateways with the specified current version. If <code>false</code>, the task must me created by calling <code>CreateWirelessGatewayTask</code>.</p>",
             "smithy.api#required": {}
           }
@@ -2475,7 +2479,6 @@
     "com.amazonaws.iotwireless#DevStatusReqFreq": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 2147483647
@@ -2994,7 +2997,6 @@
     "com.amazonaws.iotwireless#DlBucketSize": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 2147483647
@@ -3024,7 +3026,6 @@
     "com.amazonaws.iotwireless#DlDr": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#documentation": "<p>Downlink data rate.</p>",
         "smithy.api#range": {
           "min": 0,
@@ -3035,7 +3036,6 @@
     "com.amazonaws.iotwireless#DlFreq": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#documentation": "<p>Downlink frequency.</p>",
         "smithy.api#range": {
           "min": 100000000,
@@ -3046,7 +3046,6 @@
     "com.amazonaws.iotwireless#DlRate": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 2147483647
@@ -3063,15 +3062,11 @@
       }
     },
     "com.amazonaws.iotwireless#Double": {
-      "type": "double",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "double"
     },
     "com.amazonaws.iotwireless#DownlinkFrequency": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 100000000,
           "max": 1000000000
@@ -3135,6 +3130,7 @@
     "com.amazonaws.iotwireless#DrMax": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 15
@@ -3144,7 +3140,6 @@
     "com.amazonaws.iotwireless#DrMaxBox": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 15
@@ -3154,6 +3149,7 @@
     "com.amazonaws.iotwireless#DrMin": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 15
@@ -3163,7 +3159,6 @@
     "com.amazonaws.iotwireless#DrMinBox": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 15
@@ -3352,7 +3347,6 @@
     "com.amazonaws.iotwireless#FCntStart": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#documentation": "<p>The FCnt init value.</p>",
         "smithy.api#range": {
           "min": 0,
@@ -3369,7 +3363,6 @@
     "com.amazonaws.iotwireless#FPort": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#documentation": "<p>The Fport value.</p>",
         "smithy.api#range": {
           "min": 1,
@@ -4248,6 +4241,7 @@
         "AccountLinked": {
           "target": "com.amazonaws.iotwireless#AccountLinked",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Whether the partner account is linked to the AWS account.</p>"
           }
         }
@@ -5299,6 +5293,7 @@
         "AutoCreateTasks": {
           "target": "com.amazonaws.iotwireless#AutoCreateTasks",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Whether to automatically create tasks using this task definition for all gateways with the specified current version. If <code>false</code>, the task must me created by calling <code>CreateWirelessGatewayTask</code>.</p>"
           }
         },
@@ -5373,14 +5368,16 @@
     "com.amazonaws.iotwireless#HorizontalAccuracy": {
       "type": "float",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0
         }
       }
     },
     "com.amazonaws.iotwireless#HrAllowed": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iotwireless#ISODateTimeString": {
       "type": "string",
@@ -5425,10 +5422,7 @@
       }
     },
     "com.amazonaws.iotwireless#Integer": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iotwireless#InternalServerException": {
       "type": "structure",
@@ -5560,6 +5554,7 @@
         "MaxResults": {
           "target": "com.amazonaws.iotwireless#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results to return in this operation.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -5639,6 +5634,7 @@
         "MaxResults": {
           "target": "com.amazonaws.iotwireless#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results to return in this operation.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -5707,6 +5703,7 @@
         "MaxResults": {
           "target": "com.amazonaws.iotwireless#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#httpQuery": "maxResults"
           }
         },
@@ -5785,6 +5782,7 @@
         "MaxResults": {
           "target": "com.amazonaws.iotwireless#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#httpQuery": "maxResults"
           }
         }
@@ -5899,6 +5897,7 @@
         "MaxResults": {
           "target": "com.amazonaws.iotwireless#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#httpQuery": "maxResults"
           }
         }
@@ -5931,6 +5930,7 @@
         "MaxResults": {
           "target": "com.amazonaws.iotwireless#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#httpQuery": "maxResults"
           }
         }
@@ -5992,6 +5992,7 @@
         "MaxResults": {
           "target": "com.amazonaws.iotwireless#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#httpQuery": "maxResults"
           }
         },
@@ -6065,6 +6066,7 @@
         "MaxResults": {
           "target": "com.amazonaws.iotwireless#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results to return in this operation.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -6137,6 +6139,7 @@
         "MaxResults": {
           "target": "com.amazonaws.iotwireless#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#httpQuery": "maxResults"
           }
         },
@@ -6226,6 +6229,7 @@
         "MaxResults": {
           "target": "com.amazonaws.iotwireless#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results to return in this operation.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -6305,6 +6309,7 @@
         "MaxResults": {
           "target": "com.amazonaws.iotwireless#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results to return in this operation.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -6428,6 +6433,7 @@
         "MaxResults": {
           "target": "com.amazonaws.iotwireless#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results to return in this operation.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -6535,6 +6541,7 @@
         "MaxResults": {
           "target": "com.amazonaws.iotwireless#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results to return in this operation.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -6621,6 +6628,7 @@
         "MaxResults": {
           "target": "com.amazonaws.iotwireless#MaxResults",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results to return in this operation.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -6775,6 +6783,7 @@
         "SupportsClassB": {
           "target": "com.amazonaws.iotwireless#SupportsClassB",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>The SupportsClassB value.</p>"
           }
         },
@@ -6805,6 +6814,7 @@
         "SupportsClassC": {
           "target": "com.amazonaws.iotwireless#SupportsClassC",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>The SupportsClassC value.</p>"
           }
         },
@@ -6883,6 +6893,7 @@
         "Supports32BitFCnt": {
           "target": "com.amazonaws.iotwireless#Supports32BitFCnt",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>The Supports32BitFCnt value.</p>"
           }
         }
@@ -7065,6 +7076,7 @@
         "AddGwMetadata": {
           "target": "com.amazonaws.iotwireless#AddGwMetadata",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>The AddGWMetaData value.</p>"
           }
         },
@@ -7077,24 +7089,28 @@
         "ReportDevStatusBattery": {
           "target": "com.amazonaws.iotwireless#ReportDevStatusBattery",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>The ReportDevStatusBattery value.</p>"
           }
         },
         "ReportDevStatusMargin": {
           "target": "com.amazonaws.iotwireless#ReportDevStatusMargin",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>The ReportDevStatusMargin value.</p>"
           }
         },
         "DrMin": {
           "target": "com.amazonaws.iotwireless#DrMin",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The DRMin value.</p>"
           }
         },
         "DrMax": {
           "target": "com.amazonaws.iotwireless#DrMax",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The DRMax value.</p>"
           }
         },
@@ -7107,30 +7123,35 @@
         "PrAllowed": {
           "target": "com.amazonaws.iotwireless#PrAllowed",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>The PRAllowed value that describes whether passive roaming is allowed.</p>"
           }
         },
         "HrAllowed": {
           "target": "com.amazonaws.iotwireless#HrAllowed",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>The HRAllowed value that describes whether handover roaming is allowed.</p>"
           }
         },
         "RaAllowed": {
           "target": "com.amazonaws.iotwireless#RaAllowed",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>The RAAllowed value that describes whether roaming activation is allowed.</p>"
           }
         },
         "NwkGeoLoc": {
           "target": "com.amazonaws.iotwireless#NwkGeoLoc",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>The NwkGeoLoc value.</p>"
           }
         },
         "TargetPer": {
           "target": "com.amazonaws.iotwireless#TargetPer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The TargetPER value.</p>"
           }
         },
@@ -7275,6 +7296,7 @@
         "AddGwMetadata": {
           "target": "com.amazonaws.iotwireless#AddGwMetadata",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>The AddGWMetaData value.</p>"
           }
         },
@@ -7428,7 +7450,6 @@
     "com.amazonaws.iotwireless#MaxDutyCycle": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 100
@@ -7438,7 +7459,6 @@
     "com.amazonaws.iotwireless#MaxEirp": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 15
@@ -7448,6 +7468,7 @@
     "com.amazonaws.iotwireless#MaxResults": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#documentation": "<p>The maximum number of results to return in this operation.</p>",
         "smithy.api#range": {
           "min": 0,
@@ -7458,7 +7479,6 @@
     "com.amazonaws.iotwireless#McGroupId": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#documentation": "<p>Id of the multicast group.</p>",
         "smithy.api#range": {
           "min": 1,
@@ -7533,7 +7553,6 @@
     "com.amazonaws.iotwireless#MinGwDiversity": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -7740,19 +7759,20 @@
     "com.amazonaws.iotwireless#NumberOfDevicesInGroup": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#documentation": "<p>Number of devices that are associated to the multicast group.</p>"
       }
     },
     "com.amazonaws.iotwireless#NumberOfDevicesRequested": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#documentation": "<p>Number of devices that are requested to be associated with the multicast group.</p>"
       }
     },
     "com.amazonaws.iotwireless#NwkGeoLoc": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iotwireless#NwkKey": {
       "type": "string",
@@ -7899,7 +7919,6 @@
     "com.amazonaws.iotwireless#PingSlotDr": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 15
@@ -7909,7 +7928,6 @@
     "com.amazonaws.iotwireless#PingSlotFreq": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1000000,
           "max": 16700000
@@ -7919,7 +7937,6 @@
     "com.amazonaws.iotwireless#PingSlotPeriod": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 128,
           "max": 4096
@@ -8001,10 +8018,7 @@
       }
     },
     "com.amazonaws.iotwireless#PositionCoordinateValue": {
-      "type": "float",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "float"
     },
     "com.amazonaws.iotwireless#PositionResourceIdentifier": {
       "type": "string",
@@ -8104,11 +8118,15 @@
       }
     },
     "com.amazonaws.iotwireless#PrAllowed": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iotwireless#PresetFreq": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1000000,
           "max": 16700000
@@ -8295,7 +8313,10 @@
       }
     },
     "com.amazonaws.iotwireless#RaAllowed": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iotwireless#RegParamsRevision": {
       "type": "string",
@@ -8307,10 +8328,16 @@
       }
     },
     "com.amazonaws.iotwireless#ReportDevStatusBattery": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iotwireless#ReportDevStatusMargin": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iotwireless#ResetAllResourceLogLevels": {
       "type": "operation",
@@ -8484,7 +8511,6 @@
     "com.amazonaws.iotwireless#RxDataRate2": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 15
@@ -8494,7 +8520,6 @@
     "com.amazonaws.iotwireless#RxDelay1": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 15
@@ -8504,7 +8529,6 @@
     "com.amazonaws.iotwireless#RxDrOffset1": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 7
@@ -8514,7 +8538,6 @@
     "com.amazonaws.iotwireless#RxFreq2": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1000000,
           "max": 16700000
@@ -8727,7 +8750,6 @@
     "com.amazonaws.iotwireless#Seq": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 16383
@@ -8849,7 +8871,6 @@
     "com.amazonaws.iotwireless#SessionTimeout": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#documentation": "<p>How long before a multicast group session is to timeout.</p>",
         "smithy.api#range": {
           "min": 60,
@@ -9348,6 +9369,7 @@
     "com.amazonaws.iotwireless#SubBand": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#documentation": "<p>A subset of supported frequency channels in a certain RFRegion.</p>",
         "smithy.api#range": {
           "min": 1,
@@ -9393,19 +9415,25 @@
       }
     },
     "com.amazonaws.iotwireless#Supports32BitFCnt": {
-      "type": "boolean"
-    },
-    "com.amazonaws.iotwireless#SupportsClassB": {
-      "type": "boolean"
-    },
-    "com.amazonaws.iotwireless#SupportsClassC": {
-      "type": "boolean"
-    },
-    "com.amazonaws.iotwireless#SupportsJoin": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": {}
+        "smithy.api#default": false
       }
+    },
+    "com.amazonaws.iotwireless#SupportsClassB": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.iotwireless#SupportsClassC": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.iotwireless#SupportsJoin": {
+      "type": "boolean"
     },
     "com.amazonaws.iotwireless#Tag": {
       "type": "structure",
@@ -9536,6 +9564,7 @@
     "com.amazonaws.iotwireless#TargetPer": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 100
@@ -9652,7 +9681,6 @@
     "com.amazonaws.iotwireless#TransmissionInterval": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 604800
@@ -9662,7 +9690,6 @@
     "com.amazonaws.iotwireless#TransmitMode": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 1
@@ -9672,7 +9699,6 @@
     "com.amazonaws.iotwireless#UlBucketSize": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 2147483647
@@ -9682,7 +9708,6 @@
     "com.amazonaws.iotwireless#UlRate": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 2147483647
@@ -10667,7 +10692,6 @@
     "com.amazonaws.iotwireless#VerticalAccuracy": {
       "type": "float",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0
         }
@@ -11217,21 +11241,6 @@
     },
     "com.amazonaws.iotwireless#iotwireless": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "IoT Wireless",
-          "arnNamespace": "iotwireless",
-          "cloudFormationName": "IoTWireless",
-          "cloudTrailEventSource": "iotwireless.amazonaws.com",
-          "endpointPrefix": "api.iotwireless"
-        },
-        "aws.auth#sigv4": {
-          "name": "iotwireless"
-        },
-        "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>AWS IoT Wireless provides bi-directional communication between internet-connected wireless\n\t        devices and the AWS Cloud. To onboard both LoRaWAN and Sidewalk devices to AWS IoT, use the \n\t        IoT Wireless API. These wireless devices use the Low Power Wide Area Networking (LPWAN) \n\t        communication protocol to communicate with AWS IoT.</p>\n\t        <p>Using the API, you can perform create, read, update, and delete operations for your wireless\n\t        devices, gateways, destinations, and profiles. After onboarding your devices, you \n\t        can use the API operations to set log levels and monitor your devices with CloudWatch.</p>\n\t        <p>You can also use the API operations to create multicast groups and schedule a multicast session for\n\t        sending a downlink message to devices in the group. By using Firmware Updates Over-The-Air\n\t        (FUOTA) API operations, you can create a FUOTA task and schedule a session to update the firmware\n\t        of individual devices or an entire group of devices in a multicast group.</p>",
-        "smithy.api#title": "AWS IoT Wireless"
-      },
       "version": "2020-11-22",
       "operations": [
         {
@@ -11528,7 +11537,900 @@
         {
           "target": "com.amazonaws.iotwireless#UpdateWirelessGateway"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "IoT Wireless",
+          "arnNamespace": "iotwireless",
+          "cloudFormationName": "IoTWireless",
+          "cloudTrailEventSource": "iotwireless.amazonaws.com",
+          "endpointPrefix": "api.iotwireless"
+        },
+        "aws.auth#sigv4": {
+          "name": "iotwireless"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<p>AWS IoT Wireless provides bi-directional communication between internet-connected wireless\n\t        devices and the AWS Cloud. To onboard both LoRaWAN and Sidewalk devices to AWS IoT, use the \n\t        IoT Wireless API. These wireless devices use the Low Power Wide Area Networking (LPWAN) \n\t        communication protocol to communicate with AWS IoT.</p>\n\t        <p>Using the API, you can perform create, read, update, and delete operations for your wireless\n\t        devices, gateways, destinations, and profiles. After onboarding your devices, you \n\t        can use the API operations to set log levels and monitor your devices with CloudWatch.</p>\n\t        <p>You can also use the API operations to create multicast groups and schedule a multicast session for\n\t        sending a downlink message to devices in the group. By using Firmware Updates Over-The-Air\n\t        (FUOTA) API operations, you can create a FUOTA task and schedule a session to update the firmware\n\t        of individual devices or an entire group of devices in a multicast group.</p>",
+        "smithy.api#title": "AWS IoT Wireless",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://api.iotwireless-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://api.iotwireless-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://api.iotwireless.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://api.iotwireless.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.iotwireless.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     }
   }
 }

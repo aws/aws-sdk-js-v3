@@ -3,7 +3,7 @@ import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
 import { EMRContainersClientConfig } from "./EMRContainersClient";
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 
 /**
  * @internal
@@ -11,8 +11,8 @@ import { defaultRegionInfoProvider } from "./endpoints";
 export const getRuntimeConfig = (config: EMRContainersClientConfig) => ({
   apiVersion: "2020-10-01",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "EMR containers",
   urlParser: config?.urlParser ?? parseUrl,
 });

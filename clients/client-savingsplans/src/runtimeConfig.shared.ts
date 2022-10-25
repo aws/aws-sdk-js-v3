@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { SavingsplansClientConfig } from "./SavingsplansClient";
 
 /**
@@ -11,8 +11,8 @@ import { SavingsplansClientConfig } from "./SavingsplansClient";
 export const getRuntimeConfig = (config: SavingsplansClientConfig) => ({
   apiVersion: "2019-06-28",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "savingsplans",
   urlParser: config?.urlParser ?? parseUrl,
 });

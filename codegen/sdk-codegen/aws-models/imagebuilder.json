@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -172,7 +172,10 @@
       "type": "string"
     },
     "com.amazonaws.imagebuilder#Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.imagebuilder#BuildType": {
       "type": "string",
@@ -2782,7 +2785,6 @@
     "com.amazonaws.imagebuilder#DistributionTimeoutMinutes": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 30,
           "max": 720
@@ -2851,7 +2853,6 @@
     "com.amazonaws.imagebuilder#EbsIopsInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 100,
           "max": 64000
@@ -2861,7 +2862,6 @@
     "com.amazonaws.imagebuilder#EbsVolumeSizeInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 16000
@@ -2871,7 +2871,6 @@
     "com.amazonaws.imagebuilder#EbsVolumeThroughput": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 125,
           "max": 1000
@@ -2931,6 +2930,7 @@
         "enabled": {
           "target": "com.amazonaws.imagebuilder#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A Boolean that represents the current state of faster launching for the \n\t\t\tWindows AMI. Set to <code>true</code> to start using Windows faster launching, or \n\t\t\t<code>false</code> to stop using it.</p>",
             "smithy.api#required": {}
           }
@@ -3831,7 +3831,6 @@
     "com.amazonaws.imagebuilder#HttpPutResponseHopLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 64
@@ -4473,7 +4472,6 @@
     "com.amazonaws.imagebuilder#ImageTestsTimeoutMinutes": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 60,
           "max": 1440
@@ -5265,6 +5263,7 @@
         "setDefaultVersion": {
           "target": "com.amazonaws.imagebuilder#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Set the specified Amazon EC2 launch template as the default launch template for the specified account.</p>"
           }
         }
@@ -5367,7 +5366,7 @@
         "maxResults": {
           "target": "com.amazonaws.imagebuilder#RestrictedInteger",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum items to return in a request.</p>"
           }
         },
@@ -5465,13 +5464,14 @@
         "byName": {
           "target": "com.amazonaws.imagebuilder#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Returns the list of component build versions for the specified name.</p>"
           }
         },
         "maxResults": {
           "target": "com.amazonaws.imagebuilder#RestrictedInteger",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum items to return in a request.</p>"
           }
         },
@@ -5569,7 +5569,7 @@
         "maxResults": {
           "target": "com.amazonaws.imagebuilder#RestrictedInteger",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum number of results to return in the list.</p>"
           }
         },
@@ -5661,7 +5661,7 @@
         "maxResults": {
           "target": "com.amazonaws.imagebuilder#RestrictedInteger",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum items to return in a request.</p>"
           }
         },
@@ -5760,7 +5760,7 @@
         "maxResults": {
           "target": "com.amazonaws.imagebuilder#RestrictedInteger",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum items to return in a request.</p>"
           }
         },
@@ -5856,7 +5856,7 @@
         "maxResults": {
           "target": "com.amazonaws.imagebuilder#RestrictedInteger",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maxiumum number of results to return from the ListImagePackages request.</p>"
           }
         },
@@ -5958,7 +5958,7 @@
         "maxResults": {
           "target": "com.amazonaws.imagebuilder#RestrictedInteger",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum items to return in a request.</p>"
           }
         },
@@ -6050,7 +6050,7 @@
         "maxResults": {
           "target": "com.amazonaws.imagebuilder#RestrictedInteger",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum items to return in a request.</p>"
           }
         },
@@ -6148,7 +6148,7 @@
         "maxResults": {
           "target": "com.amazonaws.imagebuilder#RestrictedInteger",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum items to return in a request.</p>"
           }
         },
@@ -6246,13 +6246,14 @@
         "byName": {
           "target": "com.amazonaws.imagebuilder#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Requests a list of images with a specific recipe name.</p>"
           }
         },
         "maxResults": {
           "target": "com.amazonaws.imagebuilder#RestrictedInteger",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum items to return in a request.</p>"
           }
         },
@@ -6350,7 +6351,7 @@
         "maxResults": {
           "target": "com.amazonaws.imagebuilder#RestrictedInteger",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum items to return in a request.</p>"
           }
         },
@@ -6454,7 +6455,6 @@
     "com.amazonaws.imagebuilder#MaxParallelLaunches": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10000
@@ -6471,10 +6471,7 @@
       }
     },
     "com.amazonaws.imagebuilder#NullableBoolean": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.imagebuilder#OrganizationArn": {
       "type": "string",
@@ -7032,6 +7029,7 @@
     "com.amazonaws.imagebuilder#RestrictedInteger": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 25
@@ -7402,7 +7400,6 @@
     "com.amazonaws.imagebuilder#TargetResourceCount": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10000
@@ -7889,21 +7886,6 @@
     },
     "com.amazonaws.imagebuilder#imagebuilder": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "imagebuilder",
-          "arnNamespace": "imagebuilder",
-          "cloudFormationName": "Imagebuilder",
-          "cloudTrailEventSource": "imagebuilder.amazonaws.com",
-          "endpointPrefix": "imagebuilder"
-        },
-        "aws.auth#sigv4": {
-          "name": "imagebuilder"
-        },
-        "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the \n      creation, management, and deployment of customized, secure, and up-to-date \"golden\" server \n      images that are pre-installed and pre-configured with software and settings to meet specific\n      IT standards.</p>",
-        "smithy.api#title": "EC2 Image Builder"
-      },
       "version": "2019-12-02",
       "operations": [
         {
@@ -8056,7 +8038,374 @@
         {
           "target": "com.amazonaws.imagebuilder#UpdateInfrastructureConfiguration"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "imagebuilder",
+          "arnNamespace": "imagebuilder",
+          "cloudFormationName": "Imagebuilder",
+          "cloudTrailEventSource": "imagebuilder.amazonaws.com",
+          "endpointPrefix": "imagebuilder"
+        },
+        "aws.auth#sigv4": {
+          "name": "imagebuilder"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<p>EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the \n      creation, management, and deployment of customized, secure, and up-to-date \"golden\" server \n      images that are pre-installed and pre-configured with software and settings to meet specific\n      IT standards.</p>",
+        "smithy.api#title": "EC2 Image Builder",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://imagebuilder-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://imagebuilder-fips.{Region}.{PartitionResult#dnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://imagebuilder.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://imagebuilder.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     }
   }
 }

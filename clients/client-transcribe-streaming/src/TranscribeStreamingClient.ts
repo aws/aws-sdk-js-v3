@@ -1,18 +1,12 @@
 // smithy-typescript generated code
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@aws-sdk/config-resolver";
 import {
   EventStreamSerdeInputConfig,
   EventStreamSerdeResolvedConfig,
   resolveEventStreamSerdeConfig,
 } from "@aws-sdk/eventstream-serde-config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@aws-sdk/middleware-endpoint";
 import {
   EventStreamInputConfig,
   EventStreamResolvedConfig,
@@ -57,6 +51,7 @@ import {
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   EventStreamPayloadHandlerProvider as __EventStreamPayloadHandlerProvider,
   EventStreamSerdeProvider as __EventStreamSerdeProvider,
   Hash as __Hash,
@@ -65,7 +60,6 @@ import {
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
@@ -79,6 +73,12 @@ import {
   StartStreamTranscriptionCommandInput,
   StartStreamTranscriptionCommandOutput,
 } from "./commands/StartStreamTranscriptionCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes = StartMedicalStreamTranscriptionCommandInput | StartStreamTranscriptionCommandInput;
@@ -195,12 +195,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
    * The function that provides necessary utilities for handling request event stream.
    * @internal
    */
@@ -226,14 +220,15 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 type TranscribeStreamingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   EventStreamInputConfig &
   WebSocketInputConfig &
   UserAgentInputConfig &
-  EventStreamSerdeInputConfig;
+  EventStreamSerdeInputConfig &
+  ClientInputEndpointParameters;
 /**
  * The configuration interface of TranscribeStreamingClient class constructor that set the region, credentials and other options.
  */
@@ -242,14 +237,15 @@ export interface TranscribeStreamingClientConfig extends TranscribeStreamingClie
 type TranscribeStreamingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   EventStreamResolvedConfig &
   WebSocketResolvedConfig &
   UserAgentResolvedConfig &
-  EventStreamSerdeResolvedConfig;
+  EventStreamSerdeResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * The resolved configuration interface of TranscribeStreamingClient class. This is resolved and normalized from the {@link TranscribeStreamingClientConfig | constructor configuration interface}.
  */
@@ -271,17 +267,18 @@ export class TranscribeStreamingClient extends __Client<
 
   constructor(configuration: TranscribeStreamingClientConfig) {
     const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveEventStreamConfig(_config_5);
-    const _config_7 = resolveWebSocketConfig(_config_6);
-    const _config_8 = resolveUserAgentConfig(_config_7);
-    const _config_9 = resolveEventStreamSerdeConfig(_config_8);
-    super(_config_9);
-    this.config = _config_9;
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveEventStreamConfig(_config_6);
+    const _config_8 = resolveWebSocketConfig(_config_7);
+    const _config_9 = resolveUserAgentConfig(_config_8);
+    const _config_10 = resolveEventStreamSerdeConfig(_config_9);
+    super(_config_10);
+    this.config = _config_10;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

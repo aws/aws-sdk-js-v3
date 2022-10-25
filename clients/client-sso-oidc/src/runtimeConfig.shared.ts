@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { SSOOIDCClientConfig } from "./SSOOIDCClient";
 
 /**
@@ -11,8 +11,8 @@ import { SSOOIDCClientConfig } from "./SSOOIDCClient";
 export const getRuntimeConfig = (config: SSOOIDCClientConfig) => ({
   apiVersion: "2019-06-10",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "SSO OIDC",
   urlParser: config?.urlParser ?? parseUrl,
 });

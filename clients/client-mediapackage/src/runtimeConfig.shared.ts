@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { MediaPackageClientConfig } from "./MediaPackageClient";
 
 /**
@@ -11,8 +11,8 @@ import { MediaPackageClientConfig } from "./MediaPackageClient";
 export const getRuntimeConfig = (config: MediaPackageClientConfig) => ({
   apiVersion: "2017-10-12",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "MediaPackage",
   urlParser: config?.urlParser ?? parseUrl,
 });

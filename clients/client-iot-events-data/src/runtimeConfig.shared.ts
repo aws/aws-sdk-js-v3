@@ -2,7 +2,7 @@
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { IoTEventsDataClientConfig } from "./IoTEventsDataClient";
 
 /**
@@ -11,8 +11,8 @@ import { IoTEventsDataClientConfig } from "./IoTEventsDataClient";
 export const getRuntimeConfig = (config: IoTEventsDataClientConfig) => ({
   apiVersion: "2018-10-23",
   disableHostPrefix: config?.disableHostPrefix ?? false,
+  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? ({} as __Logger),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "IoT Events Data",
   urlParser: config?.urlParser ?? parseUrl,
 });

@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -31,21 +31,6 @@
   "shapes": {
     "com.amazonaws.iot#AWSIotService": {
       "type": "service",
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "IoT",
-          "arnNamespace": "iot",
-          "cloudFormationName": "IoT",
-          "cloudTrailEventSource": "iot.amazonaws.com",
-          "endpointPrefix": "iot"
-        },
-        "aws.auth#sigv4": {
-          "name": "execute-api"
-        },
-        "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<fullname>IoT</fullname>\n        <p>IoT provides secure, bi-directional communication between Internet-connected\n            devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services\n            cloud. You can discover your custom IoT-Data endpoint to communicate with, configure\n            rules for data processing and integration with other services, organize resources\n            associated with each device (Registry), configure logging, and create and manage\n            policies and credentials to authenticate devices.</p>\n        <p>The service endpoints that expose this API are listed in\n            <a href=\"https://docs.aws.amazon.com/general/latest/gr/iot-core.html\">Amazon Web Services IoT Core Endpoints and Quotas</a>.\n            You must use the endpoint for the region that has the resources you want to access.</p>\n        <p>The service name used by <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Amazon Web Services\n                Signature Version 4</a> to sign the request is:\n            <i>execute-api</i>.</p>\n        <p>For more information about how IoT works, see the <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\">Developer\n            Guide</a>.</p>\n        <p>For information about how to use the credentials provider for IoT, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html\">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>",
-        "smithy.api#title": "AWS IoT"
-      },
       "version": "2015-05-28",
       "operations": [
         {
@@ -759,7 +744,1672 @@
         {
           "target": "com.amazonaws.iot#ValidateSecurityProfileBehaviors"
         }
-      ]
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "IoT",
+          "arnNamespace": "iot",
+          "cloudFormationName": "IoT",
+          "cloudTrailEventSource": "iot.amazonaws.com",
+          "endpointPrefix": "iot"
+        },
+        "aws.auth#sigv4": {
+          "name": "execute-api"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<fullname>IoT</fullname>\n        <p>IoT provides secure, bi-directional communication between Internet-connected\n            devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services\n            cloud. You can discover your custom IoT-Data endpoint to communicate with, configure\n            rules for data processing and integration with other services, organize resources\n            associated with each device (Registry), configure logging, and create and manage\n            policies and credentials to authenticate devices.</p>\n        <p>The service endpoints that expose this API are listed in\n            <a href=\"https://docs.aws.amazon.com/general/latest/gr/iot-core.html\">Amazon Web Services IoT Core Endpoints and Quotas</a>.\n            You must use the endpoint for the region that has the resources you want to access.</p>\n        <p>The service name used by <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Amazon Web Services\n                Signature Version 4</a> to sign the request is:\n            <i>execute-api</i>.</p>\n        <p>For more information about how IoT works, see the <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\">Developer\n            Guide</a>.</p>\n        <p>For information about how to use the credentials provider for IoT, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html\">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>",
+        "smithy.api#title": "AWS IoT",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://iot-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://iot-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://iot.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": "https://iot.{Region}.{PartitionResult#dnsSuffix}",
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.ap-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.me-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.me-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.ca-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.eu-central-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.eu-north-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.eu-west-3.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.eu-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.eu-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.ap-northeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.ap-northeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.me-south-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.sa-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.ap-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.us-gov-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.ap-southeast-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.ap-southeast-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.us-east-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://iot.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
+      }
     },
     "com.amazonaws.iot#AbortAction": {
       "type": "string",
@@ -837,7 +2487,6 @@
     "com.amazonaws.iot#AbortThresholdPercentage": {
       "type": "double",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "max": 100
         }
@@ -897,6 +2546,7 @@
         "setAsActive": {
           "target": "com.amazonaws.iot#SetAsActive",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the certificate is active.</p>",
             "smithy.api#httpQuery": "setAsActive"
           }
@@ -1290,6 +2940,7 @@
         "overrideDynamicGroups": {
           "target": "com.amazonaws.iot#OverrideDynamicGroups",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Override dynamic thing groups with static thing groups when 10-group limit is\n\t\t\treached. If a thing belongs to 10 thing groups, and one or more of those groups are\n\t\t\tdynamic thing groups, adding a thing to a static group removes the thing from the last\n\t\t\tdynamic group.</p>"
           }
         }
@@ -1455,10 +3106,16 @@
       }
     },
     "com.amazonaws.iot#AllowAuthorizerOverride": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#AllowAutoRegistration": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#Allowed": {
       "type": "structure",
@@ -1475,13 +3132,13 @@
       }
     },
     "com.amazonaws.iot#ApproximateSecondsBeforeTimedOut": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#AscendingOrder": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#AssetId": {
       "type": "string"
@@ -1989,6 +3646,7 @@
         "merge": {
           "target": "com.amazonaws.iot#Flag",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the list of attributes provided in the <code>AttributePayload</code> is merged with\n\t\t\tthe attributes stored in the registry, instead of overwriting them.</p>\n\t\t       <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p>\n\t\t       <note>\n\t\t\t         <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code> or <code>UpdateThingGroup</code>.</p>\n\t\t       </note>"
           }
         }
@@ -2031,6 +3689,7 @@
         "enabled": {
           "target": "com.amazonaws.iot#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>True if this audit check is enabled for this account.</p>"
           }
         }
@@ -2505,6 +4164,7 @@
         "enabled": {
           "target": "com.amazonaws.iot#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>True if notifications to the target are enabled.</p>"
           }
         }
@@ -2774,7 +4434,7 @@
         "allowAuthorizerOverride": {
           "target": "com.amazonaws.iot#AllowAuthorizerOverride",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>A Boolean that specifies whether the domain configuration's authorization service can be overridden.</p>"
           }
         }
@@ -2928,7 +4588,10 @@
       }
     },
     "com.amazonaws.iot#Average": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.iot#AwsAccountId": {
       "type": "string",
@@ -3017,7 +4680,6 @@
     "com.amazonaws.iot#AwsJobAbortCriteriaAbortThresholdPercentage": {
       "type": "double",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "max": 100
         }
@@ -3060,7 +4722,6 @@
     "com.amazonaws.iot#AwsJobAbortCriteriaMinimumNumberOfExecutedThings": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -3099,6 +4760,7 @@
         "incrementFactor": {
           "target": "com.amazonaws.iot#AwsJobRolloutIncrementFactor",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The rate of increase for a job rollout. The number of things notified is multiplied by this \n            factor.</p>",
             "smithy.api#required": {}
           }
@@ -3152,19 +4814,20 @@
     "com.amazonaws.iot#AwsJobRateIncreaseCriteriaNumberOfThings": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
       }
     },
     "com.amazonaws.iot#AwsJobRolloutIncrementFactor": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.iot#AwsJobRolloutRatePerMinute": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 1000
@@ -3186,16 +4849,10 @@
       }
     },
     "com.amazonaws.iot#AwsJobTimeoutInProgressTimeoutInMinutes": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#BatchMode": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iot#Behavior": {
       "type": "structure",
@@ -3448,19 +5105,16 @@
       }
     },
     "com.amazonaws.iot#Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#BooleanKey": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iot#BooleanWrapperObject": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iot#Bucket": {
       "type": "structure",
@@ -3474,6 +5128,7 @@
         "count": {
           "target": "com.amazonaws.iot#Count",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of documents that have the value counted for the particular bucket.</p>"
           }
         }
@@ -3945,6 +5600,7 @@
         "force": {
           "target": "com.amazonaws.iot#ForceFlag",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>(Optional) If <code>true</code> the job execution will be canceled if it has status \n          IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only if it has status \n          QUEUED. If you attempt to cancel a job execution that is IN_PROGRESS, and you do not set \n          <code>force</code> to <code>true</code>, then an <code>InvalidStateTransitionException</code> \n          will be thrown. The default is <code>false</code>.</p>\n        <p>Canceling a job execution which is \"IN_PROGRESS\", will cause the device to be unable \n          to update the job execution status.  Use caution and ensure that the device is able to \n          recover to a valid state.</p>",
             "smithy.api#httpQuery": "force"
           }
@@ -3989,6 +5645,7 @@
         "force": {
           "target": "com.amazonaws.iot#ForceFlag",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>(Optional) If <code>true</code> job executions with status \"IN_PROGRESS\" and \"QUEUED\" \n          are canceled, otherwise only job executions with status \"QUEUED\" are canceled. The default \n          is <code>false</code>.</p>\n        <p>Canceling a job which is \"IN_PROGRESS\", will cause a device which is executing \n          the job to be unable to update the job execution status.  Use caution and ensure that each \n          device executing a job which is canceled is able to recover to a valid state.</p>",
             "smithy.api#httpQuery": "force"
           }
@@ -4019,22 +5676,13 @@
       }
     },
     "com.amazonaws.iot#CanceledChecksCount": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#CanceledFindingsCount": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#CanceledThings": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#CannedAccessControlList": {
       "type": "string",
@@ -4369,10 +6017,7 @@
       "type": "string"
     },
     "com.amazonaws.iot#CheckCompliant": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iot#Cidr": {
       "type": "string",
@@ -4688,10 +6333,7 @@
       }
     },
     "com.amazonaws.iot#CompliantChecksCount": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#ConfidenceLevel": {
       "type": "string",
@@ -4718,6 +6360,7 @@
         "Enabled": {
           "target": "com.amazonaws.iot#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>True to enable the configuration.</p>"
           }
         }
@@ -4816,15 +6459,11 @@
       }
     },
     "com.amazonaws.iot#ConnectivityTimestamp": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#ConsecutiveDatapointsToAlarm": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10
@@ -4834,7 +6473,6 @@
     "com.amazonaws.iot#ConsecutiveDatapointsToClear": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10
@@ -4842,7 +6480,10 @@
       }
     },
     "com.amazonaws.iot#Count": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.iot#CreateAuditSuppression": {
       "type": "operation",
@@ -5164,6 +6805,7 @@
         "setAsActive": {
           "target": "com.amazonaws.iot#SetAsActive",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the certificate is active.</p>",
             "smithy.api#httpQuery": "setAsActive"
           }
@@ -6070,6 +7712,7 @@
         "setAsActive": {
           "target": "com.amazonaws.iot#SetAsActive",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the certificate is active.</p>",
             "smithy.api#httpQuery": "setAsActive"
           }
@@ -6526,6 +8169,7 @@
         "setAsDefault": {
           "target": "com.amazonaws.iot#SetAsDefault",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the policy version is set as the default. When this parameter is\n         true, the new policy version becomes the operative version (that is, the version that is in\n         effect for the certificates to which the policy is attached).</p>",
             "smithy.api#httpQuery": "setAsDefault"
           }
@@ -6559,6 +8203,7 @@
         "isDefaultVersion": {
           "target": "com.amazonaws.iot#IsDefaultVersion",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the policy version is the default.</p>"
           }
         }
@@ -6709,6 +8354,7 @@
         "enabled": {
           "target": "com.amazonaws.iot#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>True to enable the provisioning template, otherwise false.</p>"
           }
         },
@@ -6823,6 +8469,7 @@
         "setAsDefault": {
           "target": "com.amazonaws.iot#SetAsDefault",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Sets a fleet provision template version as the default version.</p>",
             "smithy.api#httpQuery": "setAsDefault"
           }
@@ -6853,6 +8500,7 @@
         "isDefaultVersion": {
           "target": "com.amazonaws.iot#IsDefaultVersion",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>True if the provisioning template version is the default version, otherwise\n         false.</p>"
           }
         }
@@ -7658,7 +9306,6 @@
     "com.amazonaws.iot#CredentialDurationSeconds": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 900,
           "max": 43200
@@ -7736,7 +9383,6 @@
     "com.amazonaws.iot#CustomerVersion": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -7745,7 +9391,6 @@
     "com.amazonaws.iot#DataCollectionPercentage": {
       "type": "double",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 100
@@ -7833,6 +9478,7 @@
         "deleteScheduledAudits": {
           "target": "com.amazonaws.iot#DeleteScheduledAudits",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If true, all scheduled audits are deleted.</p>",
             "smithy.api#httpQuery": "deleteScheduledAudits"
           }
@@ -7844,10 +9490,16 @@
       "members": {}
     },
     "com.amazonaws.iot#DeleteAdditionalMetricsToRetain": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#DeleteAlertTargets": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#DeleteAuditSuppression": {
       "type": "operation",
@@ -7956,7 +9608,10 @@
       "members": {}
     },
     "com.amazonaws.iot#DeleteBehaviors": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#DeleteBillingGroup": {
       "type": "operation",
@@ -8133,6 +9788,7 @@
         "forceDelete": {
           "target": "com.amazonaws.iot#ForceDelete",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Forces the deletion of a certificate if it is inactive and is not attached to an IoT\n         thing.</p>",
             "smithy.api#httpQuery": "forceDelete"
           }
@@ -8515,6 +10171,7 @@
         "force": {
           "target": "com.amazonaws.iot#ForceFlag",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>(Optional) When true, you can delete a job execution which is \"IN_PROGRESS\". Otherwise, \n        you can only delete a job execution which is in a terminal state (\"SUCCEEDED\", \"FAILED\",\n        \"REJECTED\", \"REMOVED\" or \"CANCELED\") or an exception will occur. The default is false.</p>\n         <note>\n            <p>Deleting a job execution which is \"IN_PROGRESS\", will cause the device \n        to be unable to access job information or update the job execution status.\n        Use caution and ensure that the device is able to recover to a valid state.</p>\n         </note>",
             "smithy.api#httpQuery": "force"
           }
@@ -8542,6 +10199,7 @@
         "force": {
           "target": "com.amazonaws.iot#ForceFlag",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>(Optional) When true, you can delete a job which is \"IN_PROGRESS\". Otherwise, you can\n        only delete a job which is in a terminal state (\"COMPLETED\" or \"CANCELED\") or an exception \n        will occur. The default is false.</p>\n         <note>\n            <p>Deleting a job which is \"IN_PROGRESS\", will cause a device which is executing \n        the job to be unable to access job information or update the job execution status.\n        Use caution and ensure that each device executing a job which is deleted is able to recover to \n        a valid state.</p>\n         </note>",
             "smithy.api#httpQuery": "force"
           }
@@ -8698,6 +10356,7 @@
         "deleteStream": {
           "target": "com.amazonaws.iot#DeleteStream_",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>When true, the stream created by the OTAUpdate process is deleted when the OTA update is deleted.\n            Ignored if the stream specified in the OTAUpdate is supplied by the user.</p>",
             "smithy.api#httpQuery": "deleteStream"
           }
@@ -8705,6 +10364,7 @@
         "forceDeleteAWSJob": {
           "target": "com.amazonaws.iot#ForceDeleteAWSJob",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>When true, deletes the IoT job created by the OTAUpdate process even if it is \"IN_PROGRESS\". Otherwise, if the \n            job is not in a terminal state (\"COMPLETED\" or \"CANCELED\") an exception will occur. The default is false.</p>",
             "smithy.api#httpQuery": "forceDeleteAWSJob"
           }
@@ -9111,7 +10771,10 @@
       "members": {}
     },
     "com.amazonaws.iot#DeleteScheduledAudits": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#DeleteSecurityProfile": {
       "type": "operation",
@@ -9226,7 +10889,10 @@
       "members": {}
     },
     "com.amazonaws.iot#DeleteStream_": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#DeleteThing": {
       "type": "operation",
@@ -9637,6 +11303,7 @@
         "undoDeprecate": {
           "target": "com.amazonaws.iot#UndoDeprecate",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will not be deprecated anymore and you can\n\t\t\tassociate it with things.</p>"
           }
         }
@@ -10141,6 +11808,7 @@
         "version": {
           "target": "com.amazonaws.iot#Version",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The version of the billing group.</p>"
           }
         },
@@ -10918,6 +12586,7 @@
         "version": {
           "target": "com.amazonaws.iot#Version",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The version of the fleet metric.</p>"
           }
         },
@@ -11526,6 +13195,7 @@
         "enabled": {
           "target": "com.amazonaws.iot#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>True if the provisioning template is enabled, otherwise false.</p>"
           }
         },
@@ -11628,6 +13298,7 @@
         "isDefaultVersion": {
           "target": "com.amazonaws.iot#IsDefaultVersion",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>True if the provisioning template version is the default version.</p>"
           }
         }
@@ -11874,6 +13545,7 @@
         "version": {
           "target": "com.amazonaws.iot#Version",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The version of the security profile. A new version is generated whenever the\n        security profile is updated.</p>"
           }
         },
@@ -12057,6 +13729,7 @@
         "version": {
           "target": "com.amazonaws.iot#Version",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The version of the thing group.</p>"
           }
         },
@@ -12205,18 +13878,21 @@
         "successCount": {
           "target": "com.amazonaws.iot#Count",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of things successfully provisioned.</p>"
           }
         },
         "failureCount": {
           "target": "com.amazonaws.iot#Count",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of things that failed to be provisioned.</p>"
           }
         },
         "percentageProgress": {
           "target": "com.amazonaws.iot#Percentage",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The progress of the bulk provisioning task expressed as a percentage.</p>"
           }
         }
@@ -12280,6 +13956,7 @@
         "version": {
           "target": "com.amazonaws.iot#Version",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The current version of the thing record in the registry.</p>\n\t\t       <note>\n\t\t\t         <p>To avoid unintentional changes to the information in the registry, you can pass\n\t\t\t\tthe version information in the <code>expectedVersion</code> parameter of the\n\t\t\t\t\t<code>UpdateThing</code> and <code>DeleteThing</code> calls.</p>\n\t\t       </note>"
           }
         },
@@ -12858,12 +14535,14 @@
         "onlyActiveViolationsIncluded": {
           "target": "com.amazonaws.iot#PrimitiveBoolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>\n            Includes only active violations.\n        </p>"
           }
         },
         "suppressedAlertsIncluded": {
           "target": "com.amazonaws.iot#PrimitiveBoolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>\n            Includes suppressed alerts.\n        </p>"
           }
         },
@@ -13030,7 +14709,10 @@
       }
     },
     "com.amazonaws.iot#DisableAllLogs": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#DisableTopicRule": {
       "type": "operation",
@@ -13115,6 +14797,7 @@
         "optional": {
           "target": "com.amazonaws.iot#Optional",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether a pattern that needs to be replaced in a managed template job document \n            schema is optional or required.</p>"
           }
         }
@@ -13219,10 +14902,7 @@
       }
     },
     "com.amazonaws.iot#DurationSeconds": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#DynamicGroupStatus": {
       "type": "string",
@@ -13446,10 +15126,7 @@
       "type": "string"
     },
     "com.amazonaws.iot#EnableCachingForHttp": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iot#EnableIoTLoggingParams": {
       "type": "structure",
@@ -13524,7 +15201,10 @@
       }
     },
     "com.amazonaws.iot#Enabled": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#EndpointAddress": {
       "type": "string"
@@ -13662,21 +15342,14 @@
       "type": "string"
     },
     "com.amazonaws.iot#ExecutionNumber": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#ExpectedVersion": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#ExpiresInSec": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 60,
           "max": 3600
@@ -13684,10 +15357,7 @@
       }
     },
     "com.amazonaws.iot#ExpiresInSeconds": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#ExplicitDeny": {
       "type": "structure",
@@ -13716,6 +15386,7 @@
         "incrementFactor": {
           "target": "com.amazonaws.iot#IncrementFactor",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The exponential factor to increase the rate of rollout for a job.</p>\n        <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>",
             "smithy.api#required": {}
           }
@@ -13733,22 +15404,13 @@
       }
     },
     "com.amazonaws.iot#FailedChecksCount": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#FailedFindingsCount": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#FailedThings": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#Field": {
       "type": "structure",
@@ -13801,7 +15463,6 @@
     "com.amazonaws.iot#FileId": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 255
@@ -13834,7 +15495,6 @@
     "com.amazonaws.iot#FileType": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 255
@@ -13904,7 +15564,10 @@
       }
     },
     "com.amazonaws.iot#Flag": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#FleetMetricArn": {
       "type": "string"
@@ -13958,7 +15621,6 @@
     "com.amazonaws.iot#FleetMetricPeriod": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 60,
           "max": 86400
@@ -14081,19 +15743,25 @@
       }
     },
     "com.amazonaws.iot#ForceDelete": {
-      "type": "boolean"
-    },
-    "com.amazonaws.iot#ForceDeleteAWSJob": {
-      "type": "boolean"
-    },
-    "com.amazonaws.iot#ForceFlag": {
-      "type": "boolean"
-    },
-    "com.amazonaws.iot#Forced": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": {}
+        "smithy.api#default": false
       }
+    },
+    "com.amazonaws.iot#ForceDeleteAWSJob": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.iot#ForceFlag": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.iot#Forced": {
+      "type": "boolean"
     },
     "com.amazonaws.iot#FunctionArn": {
       "type": "string"
@@ -14102,10 +15770,7 @@
       "type": "string"
     },
     "com.amazonaws.iot#GenericLongValue": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#GetBehaviorModelTrainingSummaries": {
       "type": "operation",
@@ -14277,6 +15942,7 @@
         "totalCount": {
           "target": "com.amazonaws.iot#Count",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of things that fit the query string criteria.</p>"
           }
         },
@@ -14370,6 +16036,7 @@
         "cardinality": {
           "target": "com.amazonaws.iot#Count",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The approximate count of unique values that match the query.</p>"
           }
         }
@@ -14963,6 +16630,7 @@
         "isDefaultVersion": {
           "target": "com.amazonaws.iot#IsDefaultVersion",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the policy version is the default.</p>"
           }
         },
@@ -15303,6 +16971,7 @@
         "disableAllLogs": {
           "target": "com.amazonaws.iot#DisableAllLogs",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Disables all logs.</p>"
           }
         }
@@ -15547,26 +17216,18 @@
       }
     },
     "com.amazonaws.iot#InProgressChecksCount": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#InProgressThings": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#InProgressTimeoutInMinutes": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#IncrementFactor": {
       "type": "double",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1.1,
           "max": 5
@@ -15864,25 +17525,19 @@
       }
     },
     "com.amazonaws.iot#IsAuthenticated": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
-    },
-    "com.amazonaws.iot#IsDefaultVersion": {
       "type": "boolean"
     },
-    "com.amazonaws.iot#IsDisabled": {
+    "com.amazonaws.iot#IsDefaultVersion": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": {}
+        "smithy.api#default": false
       }
     },
+    "com.amazonaws.iot#IsDisabled": {
+      "type": "boolean"
+    },
     "com.amazonaws.iot#IsSuppressed": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iot#Job": {
       "type": "structure",
@@ -16115,6 +17770,7 @@
         "versionNumber": {
           "target": "com.amazonaws.iot#VersionNumber",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The version of the job execution. Job execution versions are incremented each time they are updated\n      by a device.</p>"
           }
         },
@@ -16701,7 +18357,6 @@
     "com.amazonaws.iot#LaserMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 250
@@ -16898,6 +18553,7 @@
         "recursive": {
           "target": "com.amazonaws.iot#Recursive",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>When true, recursively list attached policies.</p>",
             "smithy.api#httpQuery": "recursive"
           }
@@ -17017,6 +18673,7 @@
         "listSuppressedFindings": {
           "target": "com.amazonaws.iot#ListSuppressedFindings",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>\n      Boolean flag indicating whether only the suppressed findings or the unsuppressed findings should be listed. If this parameter isn't provided, the response will list both suppressed and unsuppressed findings.\n    </p>"
           }
         }
@@ -17285,6 +18942,7 @@
         "ascendingOrder": {
           "target": "com.amazonaws.iot#AscendingOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>\n      Determines whether suppressions are listed in ascending order by expiration date or not. If parameter isn't provided, <code>ascendingOrder=true</code>.\n    </p>"
           }
         },
@@ -17479,6 +19137,7 @@
         "ascendingOrder": {
           "target": "com.amazonaws.iot#AscendingOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Return the list of authorizers in ascending alphabetical order.</p>",
             "smithy.api#httpQuery": "isAscendingOrder"
           }
@@ -17649,6 +19308,7 @@
         "ascendingOrder": {
           "target": "com.amazonaws.iot#AscendingOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Determines the order of the results.</p>",
             "smithy.api#httpQuery": "isAscendingOrder"
           }
@@ -17793,6 +19453,7 @@
         "ascendingOrder": {
           "target": "com.amazonaws.iot#AscendingOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies the order for results. If True, the results are returned in ascending\n         order, based on the creation date.</p>",
             "smithy.api#httpQuery": "isAscendingOrder"
           }
@@ -17842,6 +19503,7 @@
         "ascendingOrder": {
           "target": "com.amazonaws.iot#AscendingOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies the order for results. If True, the results are returned in ascending\n         order, based on the creation date.</p>",
             "smithy.api#httpQuery": "isAscendingOrder"
           }
@@ -19218,6 +20880,7 @@
         "ascendingOrder": {
           "target": "com.amazonaws.iot#AscendingOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies the order for results. If True, the results are returned in ascending\n         order, based on the creation date.</p>",
             "smithy.api#httpQuery": "isAscendingOrder"
           }
@@ -19307,6 +20970,7 @@
         "ascendingOrder": {
           "target": "com.amazonaws.iot#AscendingOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies the order for results. If true, the results are returned in ascending\n         creation order.</p>",
             "smithy.api#httpQuery": "isAscendingOrder"
           }
@@ -19408,6 +21072,7 @@
         "ascendingOrder": {
           "target": "com.amazonaws.iot#AscendingOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies the order for results. If true, the results are returned in ascending\n         creation order.</p>",
             "smithy.api#httpQuery": "isAscendingOrder"
           }
@@ -19576,6 +21241,7 @@
         "ascendingOrder": {
           "target": "com.amazonaws.iot#AscendingOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies the order for results. If true, results are returned in ascending creation\n         order.</p>",
             "smithy.api#httpQuery": "isAscendingOrder"
           }
@@ -19915,6 +21581,7 @@
         "ascendingOrder": {
           "target": "com.amazonaws.iot#AscendingOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Return the list of role aliases in ascending alphabetical order.</p>",
             "smithy.api#httpQuery": "isAscendingOrder"
           }
@@ -20102,6 +21769,7 @@
         "recursive": {
           "target": "com.amazonaws.iot#Recursive",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If true, return child groups too.</p>",
             "smithy.api#httpQuery": "recursive"
           }
@@ -20243,6 +21911,7 @@
         "ascendingOrder": {
           "target": "com.amazonaws.iot#AscendingOrder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Set to true to return the list of streams in ascending order.</p>",
             "smithy.api#httpQuery": "isAscendingOrder"
           }
@@ -20267,13 +21936,13 @@
       }
     },
     "com.amazonaws.iot#ListSuppressedAlerts": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iot#ListSuppressedFindings": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#ListTagsForResource": {
       "type": "operation",
@@ -21223,6 +22892,7 @@
         "recursive": {
           "target": "com.amazonaws.iot#Recursive",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>When true, list things in this thing group and in all child groups as\n\t\t\twell.</p>",
             "smithy.api#httpQuery": "recursive"
           }
@@ -21301,6 +22971,7 @@
         "usePrefixAttributeValue": {
           "target": "com.amazonaws.iot#usePrefixAttributeValue",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>When <code>true</code>, the action returns the thing resources with attribute values\n                     that start with the <code>attributeValue</code> provided.</p>\n            <p>When <code>false</code>, or not present, the action returns only the thing\n\t\t\tresources with attribute values that match the entire <code>attributeValue</code>\n\t\t\tprovided. </p>",
             "smithy.api#httpQuery": "usePrefixAttributeValue"
           }
@@ -21925,6 +23596,7 @@
     "com.amazonaws.iot#MaxBuckets": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 10000
@@ -21934,7 +23606,6 @@
     "com.amazonaws.iot#MaxJobExecutionsPerMin": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -21943,7 +23614,6 @@
     "com.amazonaws.iot#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 250
@@ -21951,12 +23621,14 @@
       }
     },
     "com.amazonaws.iot#Maximum": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.iot#MaximumPerMinute": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 1000
@@ -22126,12 +23798,14 @@
       }
     },
     "com.amazonaws.iot#Minimum": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.iot#MinimumNumberOfExecutedThings": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -22438,10 +24112,7 @@
       "type": "string"
     },
     "com.amazonaws.iot#NonCompliantChecksCount": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#NonCompliantResource": {
       "type": "structure",
@@ -22470,10 +24141,7 @@
       }
     },
     "com.amazonaws.iot#NonCompliantResourcesCount": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#NotConfiguredException": {
       "type": "structure",
@@ -22492,16 +24160,10 @@
       }
     },
     "com.amazonaws.iot#NullableBoolean": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iot#Number": {
-      "type": "double",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "double"
     },
     "com.amazonaws.iot#NumberList": {
       "type": "list",
@@ -22512,7 +24174,6 @@
     "com.amazonaws.iot#NumberOfRetries": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 10
@@ -22522,7 +24183,6 @@
     "com.amazonaws.iot#NumberOfThings": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -22816,13 +24476,13 @@
       }
     },
     "com.amazonaws.iot#Optional": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#OptionalVersion": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#OutgoingCertificate": {
       "type": "structure",
@@ -22875,12 +24535,14 @@
       }
     },
     "com.amazonaws.iot#OverrideDynamicGroups": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#PageSize": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 250
@@ -22954,6 +24616,7 @@
     "com.amazonaws.iot#Percent": {
       "type": "double",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 100
@@ -22972,12 +24635,14 @@
         "percent": {
           "target": "com.amazonaws.iot#Percent",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The percentile.</p>"
           }
         },
         "value": {
           "target": "com.amazonaws.iot#PercentValue",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The value of the percentile.</p>"
           }
         }
@@ -22987,11 +24652,15 @@
       }
     },
     "com.amazonaws.iot#PercentValue": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.iot#Percentage": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 100
@@ -23100,6 +24769,7 @@
         "isDefaultVersion": {
           "target": "com.amazonaws.iot#IsDefaultVersion",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies whether the policy version is the default.</p>"
           }
         },
@@ -23149,7 +24819,6 @@
     "com.amazonaws.iot#Port": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 65535
@@ -23186,7 +24855,10 @@
       }
     },
     "com.amazonaws.iot#PrimitiveBoolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#Principal": {
       "type": "string"
@@ -23318,6 +24990,7 @@
         "enabled": {
           "target": "com.amazonaws.iot#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>True if the fleet provision template is enabled, otherwise false.</p>"
           }
         },
@@ -23356,6 +25029,7 @@
         "isDefaultVersion": {
           "target": "com.amazonaws.iot#IsDefaultVersion",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>True if the provisioning template version is the default version, otherwise\n         false.</p>"
           }
         }
@@ -23522,7 +25196,6 @@
     "com.amazonaws.iot#Qos": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 1
@@ -23532,7 +25205,6 @@
     "com.amazonaws.iot#QueryMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 500
@@ -23554,10 +25226,7 @@
       "type": "string"
     },
     "com.amazonaws.iot#QueuedThings": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#RangeKeyField": {
       "type": "string"
@@ -23614,13 +25283,13 @@
       }
     },
     "com.amazonaws.iot#Recursive": {
-      "type": "boolean"
-    },
-    "com.amazonaws.iot#RecursiveWithoutDefault": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": {}
+        "smithy.api#default": false
       }
+    },
+    "com.amazonaws.iot#RecursiveWithoutDefault": {
+      "type": "boolean"
     },
     "com.amazonaws.iot#Regex": {
       "type": "string"
@@ -23693,6 +25362,7 @@
         "setAsActive": {
           "target": "com.amazonaws.iot#SetAsActive",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A boolean value that specifies if the CA certificate is set to active.</p>\n         <p>Valid values: <code>ACTIVE | INACTIVE</code>\n         </p>",
             "smithy.api#httpQuery": "setAsActive"
           }
@@ -23700,6 +25370,7 @@
         "allowAutoRegistration": {
           "target": "com.amazonaws.iot#AllowAutoRegistration",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Allows this CA certificate to be used for auto registration of device\n         certificates.</p>",
             "smithy.api#httpQuery": "allowAutoRegistration"
           }
@@ -24056,7 +25727,6 @@
     "com.amazonaws.iot#RegistryMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 250
@@ -24146,10 +25816,7 @@
       }
     },
     "com.amazonaws.iot#RejectedThings": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#RelatedResource": {
       "type": "structure",
@@ -24184,16 +25851,19 @@
       }
     },
     "com.amazonaws.iot#RemoveAuthorizerConfig": {
-      "type": "boolean"
-    },
-    "com.amazonaws.iot#RemoveAutoRegistration": {
-      "type": "boolean"
-    },
-    "com.amazonaws.iot#RemoveHook": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": {}
+        "smithy.api#default": false
       }
+    },
+    "com.amazonaws.iot#RemoveAutoRegistration": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.iot#RemoveHook": {
+      "type": "boolean"
     },
     "com.amazonaws.iot#RemoveThingFromBillingGroup": {
       "type": "operation",
@@ -24324,13 +25994,13 @@
       "members": {}
     },
     "com.amazonaws.iot#RemoveThingType": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#RemovedThings": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#ReplaceDefaultPolicyVersionParams": {
       "type": "structure",
@@ -24648,10 +26318,7 @@
       }
     },
     "com.amazonaws.iot#RetryAttempt": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#RetryCriteria": {
       "type": "structure",
@@ -24793,7 +26460,6 @@
     "com.amazonaws.iot#RolloutRatePerMinute": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 1000
@@ -25137,10 +26803,7 @@
       }
     },
     "com.amazonaws.iot#Seconds": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#SecurityGroupId": {
       "type": "string"
@@ -25363,16 +27026,19 @@
       }
     },
     "com.amazonaws.iot#SetAsActive": {
-      "type": "boolean"
-    },
-    "com.amazonaws.iot#SetAsActiveFlag": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": {}
+        "smithy.api#default": false
       }
     },
-    "com.amazonaws.iot#SetAsDefault": {
+    "com.amazonaws.iot#SetAsActiveFlag": {
       "type": "boolean"
+    },
+    "com.amazonaws.iot#SetAsDefault": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#SetDefaultAuthorizer": {
       "type": "operation",
@@ -25647,6 +27313,7 @@
         "disableAllLogs": {
           "target": "com.amazonaws.iot#DisableAllLogs",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If true all logs are disabled. The default is false.</p>"
           }
         }
@@ -25733,15 +27400,11 @@
       "type": "string"
     },
     "com.amazonaws.iot#SkippedFindingsCount": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#SkyfallMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 250
@@ -26191,55 +27854,56 @@
         "count": {
           "target": "com.amazonaws.iot#Count",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The count of things that match the query string criteria and contain a valid aggregation field value.</p>"
           }
         },
         "average": {
           "target": "com.amazonaws.iot#Average",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The average of the aggregated field values.</p>"
           }
         },
         "sum": {
           "target": "com.amazonaws.iot#Sum",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The sum of the aggregated field values.</p>"
           }
         },
         "minimum": {
           "target": "com.amazonaws.iot#Minimum",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The minimum aggregated field value.</p>"
           }
         },
         "maximum": {
           "target": "com.amazonaws.iot#Maximum",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum aggregated field value.</p>"
           }
         },
         "sumOfSquares": {
           "target": "com.amazonaws.iot#SumOfSquares",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The sum of the squares of the aggregated field values.</p>"
           }
         },
         "variance": {
           "target": "com.amazonaws.iot#Variance",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The variance of the aggregated field values.</p>"
           }
         },
         "stdDeviation": {
           "target": "com.amazonaws.iot#StdDeviation",
           "traits": {
-            "smithy.api#box": {},
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The standard deviation of the aggregated field values.</p>"
           }
         }
@@ -26276,7 +27940,10 @@
       }
     },
     "com.amazonaws.iot#StdDeviation": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.iot#StepFunctionsAction": {
       "type": "structure",
@@ -26526,7 +28193,6 @@
     "com.amazonaws.iot#StreamVersion": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 65535
@@ -26567,40 +28233,31 @@
       }
     },
     "com.amazonaws.iot#SucceededFindingsCount": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#SucceededThings": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#Sum": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.iot#SumOfSquares": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.iot#SuppressAlerts": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iot#SuppressIndefinitely": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iot#SuppressedNonCompliantResourcesCount": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#TableName": {
       "type": "string"
@@ -26935,10 +28592,7 @@
       }
     },
     "com.amazonaws.iot#TemplateVersionId": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#TermsAggregation": {
       "type": "structure",
@@ -26946,6 +28600,7 @@
         "maxBuckets": {
           "target": "com.amazonaws.iot#MaxBuckets",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of buckets to return in the response. Default to 10.</p>"
           }
         }
@@ -27199,6 +28854,7 @@
         "version": {
           "target": "com.amazonaws.iot#Version",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The version of the thing record in the registry.</p>"
           }
         }
@@ -27219,6 +28875,7 @@
         "connected": {
           "target": "com.amazonaws.iot#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>True if the thing is connected to the Amazon Web Services IoT Core service; false if it is not\n      connected.</p>"
           }
         },
@@ -27660,6 +29317,7 @@
         "deprecated": {
           "target": "com.amazonaws.iot#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Whether the thing type is deprecated. If <b>true</b>, no new things could be\n\t\t\tassociated with this type.</p>"
           }
         },
@@ -27727,10 +29385,7 @@
       }
     },
     "com.amazonaws.iot#TimedOutThings": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#TimeoutConfig": {
       "type": "structure",
@@ -27868,7 +29523,6 @@
     "com.amazonaws.iot#TinyMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10
@@ -28054,7 +29708,6 @@
     "com.amazonaws.iot#TopicRuleDestinationMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 1000
@@ -28191,7 +29844,6 @@
     "com.amazonaws.iot#TopicRuleMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10000
@@ -28245,22 +29897,13 @@
       }
     },
     "com.amazonaws.iot#TotalChecksCount": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#TotalFindingsCount": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#TotalResourcesCount": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.iot#TransferAlreadyCompletedException": {
       "type": "structure",
@@ -28436,12 +30079,14 @@
       }
     },
     "com.amazonaws.iot#UndoDeprecate": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#UnsignedLong": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0
         }
@@ -28792,6 +30437,7 @@
         "version": {
           "target": "com.amazonaws.iot#Version",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The latest version of the billing group.</p>"
           }
         }
@@ -28883,6 +30529,7 @@
         "removeAutoRegistration": {
           "target": "com.amazonaws.iot#RemoveAutoRegistration",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If true, removes auto registration.</p>"
           }
         }
@@ -29220,6 +30867,7 @@
         "removeAuthorizerConfig": {
           "target": "com.amazonaws.iot#RemoveAuthorizerConfig",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Removes the authorization configuration from a domain.</p>"
           }
         }
@@ -29329,6 +30977,7 @@
         "version": {
           "target": "com.amazonaws.iot#Version",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The dynamic thing group version.</p>"
           }
         }
@@ -29763,6 +31412,7 @@
         "enabled": {
           "target": "com.amazonaws.iot#Enabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>True to enable the provisioning template, otherwise false.</p>"
           }
         },
@@ -30035,18 +31685,21 @@
         "deleteBehaviors": {
           "target": "com.amazonaws.iot#DeleteBehaviors",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If true, delete all <code>behaviors</code> defined for this security profile. \n        If any <code>behaviors</code> are defined in the current invocation, an exception occurs.</p>"
           }
         },
         "deleteAlertTargets": {
           "target": "com.amazonaws.iot#DeleteAlertTargets",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If true, delete all <code>alertTargets</code> defined for this security profile. \n        If any <code>alertTargets</code> are defined in the current invocation, an exception occurs.</p>"
           }
         },
         "deleteAdditionalMetricsToRetain": {
           "target": "com.amazonaws.iot#DeleteAdditionalMetricsToRetain",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If true, delete all <code>additionalMetricsToRetain</code> defined for this \n        security profile. If any <code>additionalMetricsToRetain</code> are defined in the current \n        invocation, an exception occurs.</p>"
           }
         },
@@ -30110,6 +31763,7 @@
         "version": {
           "target": "com.amazonaws.iot#Version",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The updated version of the security profile.</p>"
           }
         },
@@ -30330,6 +31984,7 @@
         "version": {
           "target": "com.amazonaws.iot#Version",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The version of the updated thing group.</p>"
           }
         }
@@ -30390,6 +32045,7 @@
         "overrideDynamicGroups": {
           "target": "com.amazonaws.iot#OverrideDynamicGroups",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Override dynamic thing groups with static thing groups when 10-group limit is\n\t\t\treached. If a thing belongs to 10 thing groups, and one or more of those groups are\n\t\t\tdynamic thing groups, adding a thing to a static group removes the thing from the last\n\t\t\tdynamic group.</p>"
           }
         }
@@ -30431,6 +32087,7 @@
         "removeThingType": {
           "target": "com.amazonaws.iot#RemoveThingType",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Remove a thing type association. If <b>true</b>, the\n\t\t\tassociation is removed.</p>"
           }
         }
@@ -30513,13 +32170,13 @@
       }
     },
     "com.amazonaws.iot#UseBase64": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iot#Valid": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.iot#ValidateSecurityProfileBehaviors": {
       "type": "operation",
@@ -30567,6 +32224,7 @@
         "valid": {
           "target": "com.amazonaws.iot#Valid",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>True if the behaviors were valid.</p>"
           }
         },
@@ -30609,7 +32267,10 @@
       }
     },
     "com.amazonaws.iot#Variance": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.iot#VerificationState": {
       "type": "string",
@@ -30645,7 +32306,10 @@
       }
     },
     "com.amazonaws.iot#Version": {
-      "type": "long"
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.iot#VersionConflictException": {
       "type": "structure",
@@ -30664,7 +32328,10 @@
       }
     },
     "com.amazonaws.iot#VersionNumber": {
-      "type": "long"
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.iot#VersionsLimitExceededException": {
       "type": "structure",
@@ -30924,10 +32591,7 @@
       "type": "string"
     },
     "com.amazonaws.iot#WaitingForDataCollectionChecksCount": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot#resourceId": {
       "type": "string"
@@ -30936,7 +32600,10 @@
       "type": "string"
     },
     "com.amazonaws.iot#usePrefixAttributeValue": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     }
   }
 }
