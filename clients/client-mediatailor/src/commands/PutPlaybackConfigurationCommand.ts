@@ -29,7 +29,7 @@ export interface PutPlaybackConfigurationCommandInput extends PutPlaybackConfigu
 export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a new playback configuration to AWS Elemental MediaTailor.</p>
+ * <p>Creates a playback configuration. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

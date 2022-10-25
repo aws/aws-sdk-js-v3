@@ -29,7 +29,7 @@ export interface ListVodSourcesCommandInput extends ListVodSourcesRequest {}
 export interface ListVodSourcesCommandOutput extends ListVodSourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the VOD sources in a source location.</p>
+ * <p>Lists the VOD sources contained in a source location. A source represents a piece of content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

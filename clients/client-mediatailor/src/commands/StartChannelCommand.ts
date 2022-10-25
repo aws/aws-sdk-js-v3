@@ -29,7 +29,7 @@ export interface StartChannelCommandInput extends StartChannelRequest {}
 export interface StartChannelCommandOutput extends StartChannelResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a specific channel.</p>
+ * <p>Starts a channel. For information about MediaTailor channels, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

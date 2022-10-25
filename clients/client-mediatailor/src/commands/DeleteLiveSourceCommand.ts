@@ -29,7 +29,7 @@ export interface DeleteLiveSourceCommandInput extends DeleteLiveSourceRequest {}
 export interface DeleteLiveSourceCommandOutput extends DeleteLiveSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specific live source in a specific source location.</p>
+ * <p>The live source to delete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

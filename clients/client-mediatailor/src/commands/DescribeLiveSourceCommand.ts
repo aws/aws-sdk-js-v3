@@ -29,7 +29,7 @@ export interface DescribeLiveSourceCommandInput extends DescribeLiveSourceReques
 export interface DescribeLiveSourceCommandOutput extends DescribeLiveSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Provides details about a specific live source in a specific source location.</p>
+ * <p>The live source to describe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

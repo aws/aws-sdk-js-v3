@@ -29,7 +29,7 @@ export interface DeleteChannelPolicyCommandInput extends DeleteChannelPolicyRequ
 export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a channel's IAM policy.</p>
+ * <p>The channel policy to delete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

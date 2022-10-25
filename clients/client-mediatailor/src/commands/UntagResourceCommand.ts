@@ -24,7 +24,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes tags from the specified playback configuration resource. You can specify one or more tags to remove.</p>
+ * <p>The resource to untag.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

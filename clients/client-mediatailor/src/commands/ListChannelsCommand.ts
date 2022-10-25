@@ -29,7 +29,7 @@ export interface ListChannelsCommandInput extends ListChannelsRequest {}
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of channels that are associated with this account.</p>
+ * <p>Retrieves information about the channels that are associated with the current AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

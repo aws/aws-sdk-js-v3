@@ -31,7 +31,7 @@ export interface DeletePlaybackConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes the playback configuration for the specified name.</p>
+ * <p>Deletes a playback configuration. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

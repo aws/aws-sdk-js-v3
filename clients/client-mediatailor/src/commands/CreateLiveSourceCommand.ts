@@ -29,7 +29,7 @@ export interface CreateLiveSourceCommandInput extends CreateLiveSourceRequest {}
 export interface CreateLiveSourceCommandOutput extends CreateLiveSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates name for a specific live source in a source location.</p>
+ * <p>The live source configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

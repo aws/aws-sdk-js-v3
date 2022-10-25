@@ -29,7 +29,7 @@ export interface GetChannelPolicyCommandInput extends GetChannelPolicyRequest {}
 export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a channel's IAM policy.</p>
+ * <p>Returns the channel's IAM policy. IAM policies are used to control access to your channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

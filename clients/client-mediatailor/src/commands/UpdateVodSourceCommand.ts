@@ -29,7 +29,7 @@ export interface UpdateVodSourceCommandInput extends UpdateVodSourceRequest {}
 export interface UpdateVodSourceCommandOutput extends UpdateVodSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a specific VOD source in a specific source location.</p>
+ * <p>Updates a VOD source's configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

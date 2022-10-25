@@ -29,7 +29,7 @@ export interface UpdateLiveSourceCommandInput extends UpdateLiveSourceRequest {}
 export interface UpdateLiveSourceCommandOutput extends UpdateLiveSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a specific live source in a specific source location.</p>
+ * <p>Updates a live source's configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -29,7 +29,7 @@ export interface CreateProgramCommandInput extends CreateProgramRequest {}
 export interface CreateProgramCommandOutput extends CreateProgramResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a program.</p>
+ * <p>Creates a program within a channel. For information about programs, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html">Working with programs</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

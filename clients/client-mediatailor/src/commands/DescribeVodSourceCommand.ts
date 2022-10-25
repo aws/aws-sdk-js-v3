@@ -29,7 +29,7 @@ export interface DescribeVodSourceCommandInput extends DescribeVodSourceRequest 
 export interface DescribeVodSourceCommandOutput extends DescribeVodSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Provides details about a specific VOD source in a specific source location.</p>
+ * <p>Provides details about a specific video on demand (VOD) source in a specific source location.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

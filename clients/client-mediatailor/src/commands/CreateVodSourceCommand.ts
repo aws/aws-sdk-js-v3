@@ -29,7 +29,7 @@ export interface CreateVodSourceCommandInput extends CreateVodSourceRequest {}
 export interface CreateVodSourceCommandOutput extends CreateVodSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates name for a specific VOD source in a source location.</p>
+ * <p>The VOD source configuration parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

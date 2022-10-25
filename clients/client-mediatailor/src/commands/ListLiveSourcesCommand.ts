@@ -29,7 +29,7 @@ export interface ListLiveSourcesCommandInput extends ListLiveSourcesRequest {}
 export interface ListLiveSourcesCommandOutput extends ListLiveSourcesResponse, __MetadataBearer {}
 
 /**
- * <p>lists all the live sources in a source location.</p>
+ * <p>Lists the live sources contained in a source location. A source represents a piece of content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

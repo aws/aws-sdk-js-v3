@@ -29,7 +29,7 @@ export interface PutChannelPolicyCommandInput extends PutChannelPolicyRequest {}
 export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an IAM policy for the channel.</p>
+ * <p>Creates an IAM policy for the channel. IAM policies are used to control access to your channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

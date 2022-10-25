@@ -29,7 +29,7 @@ export interface ListPrefetchSchedulesCommandInput extends ListPrefetchSchedules
 export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedulesResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new prefetch schedule.</p>
+ * <p>Lists the prefetch schedules for a playback configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

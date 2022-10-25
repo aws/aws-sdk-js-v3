@@ -29,7 +29,7 @@ export interface DeleteVodSourceCommandInput extends DeleteVodSourceRequest {}
 export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specific VOD source in a specific source location.</p>
+ * <p>The video on demand (VOD) source to delete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

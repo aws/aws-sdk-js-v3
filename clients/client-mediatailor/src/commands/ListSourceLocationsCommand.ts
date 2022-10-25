@@ -29,7 +29,7 @@ export interface ListSourceLocationsCommandInput extends ListSourceLocationsRequ
 export interface ListSourceLocationsCommandOutput extends ListSourceLocationsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of source locations.</p>
+ * <p>Lists the source locations for a channel. A source location defines the host server URL, and contains a list of sources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
