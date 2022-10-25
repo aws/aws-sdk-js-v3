@@ -518,15 +518,19 @@ export interface Circle {
  */
 export interface GeofenceGeometry {
   /**
-   * <p>An array of 1 or more linear rings. A linear ring is an array of 4 or more vertices,
-   *             where the first and last vertex are the same to form a closed boundary. Each vertex is a
-   *             2-dimensional point of the form: <code>[longitude, latitude]</code>. </p>
-   *         <p>The first linear ring is an outer ring, describing the polygon's boundary. Subsequent
-   *             linear rings may be inner or outer rings to describe holes and islands. Outer rings must
-   *             list their vertices in counter-clockwise order around the ring's center, where the left
-   *             side is the polygon's exterior. Inner rings must list their vertices in clockwise order,
-   *             where the left side is the polygon's interior.</p>
-   *         <p>A geofence polygon can consist of between 4 and 1,000 vertices.</p>
+   * <p>A polygon is a list of linear rings which are each made up of a list of
+   *             vertices.</p>
+   *         <p>Each vertex is a 2-dimensional point of the form: <code>[longitude, latitude]</code>.
+   *             This is represented as an array of doubles of length 2 (so <code>[double,
+   *             double]</code>).</p>
+   *         <p>An array of 4 or more vertices, where the first and last vertex are the same (to form
+   *             a closed boundary), is called a linear ring. The linear ring vertices must be listed in
+   *             counter-clockwise order around the ring’s interior. The linear ring is represented as an
+   *             array of vertices, or an array of arrays of doubles (<code>[[double, double], ...]</code>).</p>
+   *         <p>A geofence consists of a single linear ring. To allow for future expansion, the
+   *             Polygon parameter takes an array of linear rings, which is represented as an array of
+   *             arrays of arrays of doubles (<code>[[[double, double], ...], ...]</code>).</p>
+   *         <p>A linear ring for use in geofences can consist of between 4 and 1,000 vertices.</p>
    */
   Polygon?: number[][][];
 
@@ -1684,6 +1688,11 @@ export interface MapConfiguration {
    *                 <p>
    *                   <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a high contrast
    *                     detailed base map of the world that blends 3D and 2D rendering.</p>
+   *                 <note>
+   *                   <p>The <code>VectorHereContrast</code> style has been renamed from <code>VectorHereBerlin</code>.
+   *                     <code>VectorHereBerlin</code> has been deprecated, but will continue to work in
+   *                     applications that use it.</p>
+   *                </note>
    *             </li>
    *             <li>
    *                 <p>
@@ -1698,12 +1707,25 @@ export interface MapConfiguration {
    *                     highlighted segments and icons on top of HERE Explore to support use cases
    *                     within transport and logistics.</p>
    *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RasterHereExploreSatellite</code> – A global map containing high
+   *                     resolution satellite imagery.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>HybridHereExploreSatellite</code> – A global map displaying the road
+   *                     network, street names, and city labels over satellite imagery. This style
+   *                     will automatically retrieve both raster and vector tiles, and your charges
+   *                     will be based on total tiles retrieved.</p>
+   *                 <note>
+   *                   <p>Hybrid styles use both vector and raster tiles when rendering the
+   *                     map that you see. This means that more tiles are retrieved than when using
+   *                     either vector or raster tiles alone. Your charges will include all tiles
+   *                     retrieved.</p>
+   *                </note>
+   *             </li>
    *          </ul>
-   *         <note>
-   *             <p>The <code>VectorHereContrast</code> style has been renamed from <code>VectorHereBerlin</code>.
-   *             <code>VectorHereBerlin</code> has been deprecated, but will continue to work in
-   *             applications that use it.</p>
-   *          </note>
    */
   Style: string | undefined;
 }
@@ -1727,7 +1749,9 @@ export interface CreateMapRequest {
   MapName: string | undefined;
 
   /**
-   * <p>Specifies the map style selected from an available data provider.</p>
+   * <p>Specifies the <code>MapConfiguration</code>, including the map style, for the
+   *             map resource that you create. The map style defines the look of maps and the data
+   *             provider for your map resource.</p>
    */
   Configuration: MapConfiguration | undefined;
 
@@ -1787,7 +1811,7 @@ export interface CreateMapResponse {
    *         <ul>
    *             <li>
    *                 <p>Format example:
-   *                     <code>arn:aws:geo:region:account-id:maps/ExampleMap</code>
+   *                     <code>arn:aws:geo:region:account-id:map/ExampleMap</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2368,7 +2392,7 @@ export interface DescribeMapResponse {
    *         <ul>
    *             <li>
    *                 <p>Format example:
-   *                     <code>arn:aws:geo:region:account-id:maps/ExampleMap</code>
+   *                     <code>arn:aws:geo:region:account-id:map/ExampleMap</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3260,10 +3284,11 @@ export interface GetMapGlyphsRequest {
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>VectorHereExplore, VectorHereExploreTruck – <code>Firo GO Italic</code> |
-   *                     <code>Fira GO Map</code> | <code>Fira GO Map Bold</code> | <code>Noto Sans CJK
-   *                     JP Bold</code> | <code>Noto Sans CJK JP Light</code> | <code>Noto Sans CJK
-   *                     JP Regular</code>
+   *                 <p>VectorHereExplore, VectorHereExploreTruck, HybridHereExploreSatellite –
+   *                     <code>Fira GO Italic</code> | <code>Fira GO Map</code> |
+   *                     <code>Fira GO Map Bold</code> | <code>Noto Sans CJK JP Bold</code> |
+   *                     <code>Noto Sans CJK JP Light</code> |
+   *                     <code>Noto Sans CJK JP Regular</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3542,7 +3567,7 @@ export interface Place {
 
   /**
    * <p>The time zone in which the <code>Place</code> is located. Returned only when using
-   *             Here as the selected partner.</p>
+   *             HERE as the selected partner.</p>
    */
   TimeZone?: TimeZone;
 
@@ -4020,7 +4045,7 @@ export interface UpdateMapResponse {
    *             across AWS.</p>
    *         <ul>
    *             <li>
-   *                <p>Format example: <code>arn:aws:geo:region:account-id:maps/ExampleMap</code>
+   *                <p>Format example: <code>arn:aws:geo:region:account-id:map/ExampleMap</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -4262,9 +4287,8 @@ export interface SearchForSuggestionsResult {
    *             operation to find the place again later.</p>
    *         <note>
    *             <p>For <code>SearchPlaceIndexForSuggestions</code> operations, the
-   *                     <code>PlaceId</code> is
-   *                 returned
-   *                 by place indexes that use HERE or Esri as data providers.</p>
+   *                     <code>PlaceId</code> is returned by place indexes that use HERE or Esri as data
+   *                 providers.</p>
    *         </note>
    */
   PlaceId?: string;
