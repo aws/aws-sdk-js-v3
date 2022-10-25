@@ -1069,6 +1069,11 @@ export interface CancelExportTaskMessage {
   ExportTaskIdentifier: string | undefined;
 }
 
+export enum ExportSourceType {
+  CLUSTER = "CLUSTER",
+  SNAPSHOT = "SNAPSHOT",
+}
+
 /**
  * <p>Contains the details of a snapshot export to Amazon S3.</p>
  *         <p>This data type is used as a response element in the <code>DescribeExportTasks</code> action.</p>
@@ -1175,6 +1180,11 @@ export interface ExportTask {
    * <p>A warning about the snapshot export task.</p>
    */
   WarningMessage?: string;
+
+  /**
+   * <p>The type of source for the export.</p>
+   */
+  SourceType?: ExportSourceType | string;
 }
 
 /**
@@ -12114,16 +12124,6 @@ export interface DescribeDBSecurityGroupsMessage {
 }
 
 /**
- * <p></p>
- */
-export interface DescribeDBSnapshotAttributesMessage {
-  /**
-   * <p>The identifier for the DB snapshot to describe the attributes for.</p>
-   */
-  DBSnapshotIdentifier: string | undefined;
-}
-
-/**
  * @internal
  */
 export const AccountQuotaFilterSensitiveLog = (obj: AccountQuota): any => ({
@@ -13451,14 +13451,5 @@ export const DBSecurityGroupMessageFilterSensitiveLog = (obj: DBSecurityGroupMes
  * @internal
  */
 export const DescribeDBSecurityGroupsMessageFilterSensitiveLog = (obj: DescribeDBSecurityGroupsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDBSnapshotAttributesMessageFilterSensitiveLog = (
-  obj: DescribeDBSnapshotAttributesMessage
-): any => ({
   ...obj,
 });

@@ -16,8 +16,6 @@ import {
 import {
   DescribeDBSnapshotAttributesMessage,
   DescribeDBSnapshotAttributesMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
   DescribeDBSnapshotAttributesResult,
   DescribeDBSnapshotAttributesResultFilterSensitiveLog,
 } from "../models/models_1";

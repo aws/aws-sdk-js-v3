@@ -665,7 +665,6 @@ import {
   DescribeDBProxyTargetsRequest,
   DescribeDBProxyTargetsResponse,
   DescribeDBSecurityGroupsMessage,
-  DescribeDBSnapshotAttributesMessage,
   DomainMembership,
   DomainNotFoundFault,
   EC2SecurityGroup,
@@ -763,6 +762,7 @@ import {
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBSnapshotAttributesMessage,
   DescribeDBSnapshotAttributesResult,
   DescribeDBSnapshotsMessage,
   DescribeDBSubnetGroupsMessage,
@@ -9664,6 +9664,9 @@ const deserializeAws_queryStartExportTaskCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.rds#DBClusterNotFoundFault":
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
@@ -13652,6 +13655,9 @@ const serializeAws_queryDescribeExportTasksMessage = (
   }
   if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.SourceType != null) {
+    entries["SourceType"] = input.SourceType;
   }
   return entries;
 };
@@ -20776,6 +20782,7 @@ const deserializeAws_queryExportTask = (output: any, context: __SerdeContext): E
     TotalExtractedDataInGB: undefined,
     FailureCause: undefined,
     WarningMessage: undefined,
+    SourceType: undefined,
   };
   if (output["ExportTaskIdentifier"] !== undefined) {
     contents.ExportTaskIdentifier = __expectString(output["ExportTaskIdentifier"]);
@@ -20826,6 +20833,9 @@ const deserializeAws_queryExportTask = (output: any, context: __SerdeContext): E
   }
   if (output["WarningMessage"] !== undefined) {
     contents.WarningMessage = __expectString(output["WarningMessage"]);
+  }
+  if (output["SourceType"] !== undefined) {
+    contents.SourceType = __expectString(output["SourceType"]);
   }
   return contents;
 };

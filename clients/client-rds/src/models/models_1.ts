@@ -20,6 +20,7 @@ import {
   DBSnapshot,
   DBSubnetGroup,
   EventSubscription,
+  ExportSourceType,
   ExportTask,
   Filter,
   GlobalCluster,
@@ -35,6 +36,16 @@ import {
   UserAuthConfig,
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
+
+/**
+ * <p></p>
+ */
+export interface DescribeDBSnapshotAttributesMessage {
+  /**
+   * <p>The identifier for the DB snapshot to describe the attributes for.</p>
+   */
+  DBSnapshotIdentifier: string | undefined;
+}
 
 /**
  * <p>Contains the name and values of a manual DB snapshot attribute</p>
@@ -416,6 +427,16 @@ export interface DescribeEngineDefaultParametersMessage {
    *             </li>
    *             <li>
    *                 <p>
+   *                   <code>aurora-postgresql14</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>custom-oracle-ee-19</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
    *                   <code>mariadb10.2</code>
    *                </p>
    *             </li>
@@ -447,6 +468,36 @@ export interface DescribeEngineDefaultParametersMessage {
    *             <li>
    *                 <p>
    *                   <code>mysql8.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>oracle-ee-19</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>oracle-ee-cdb-19</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>oracle-ee-cdb-21</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>oracle-se2-19</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>oracle-se2-cdb-19</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>oracle-se2-cdb-21</code>
    *                </p>
    *             </li>
    *             <li>
@@ -952,6 +1003,11 @@ export interface DescribeExportTasksMessage {
    *         <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>The type of source for the export.</p>
+   */
+  SourceType?: ExportSourceType | string;
 }
 
 export interface ExportTasksMessage {
@@ -4393,6 +4449,7 @@ export interface ConnectionPoolConfiguration {
   /**
    * <p>The maximum size of the connection pool for each target in a target group. The value is expressed as a percentage of the
    *         <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.</p>
+   *         <p>If you specify <code>MaxIdleConnectionsPercent</code>, then you must also include a value for this parameter.</p>
    *         <p>Default: 10 for RDS for Microsoft SQL Server, and 100 for all other engines</p>
    *         <p>Constraints: Must be between 1 and 100.</p>
    */
@@ -4402,6 +4459,7 @@ export interface ConnectionPoolConfiguration {
    * <p>Controls how actively the proxy closes idle database connections in the connection pool.
    *         The value is expressed as a percentage of the <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.
    *         With a high value, the proxy leaves a high percentage of idle database connections open. A low value causes the proxy to close more idle connections and return them to the database.</p>
+   *         <p>If you specify this parameter, then you must also include a value for <code>MaxConnectionsPercent</code>.</p>
    *         <p>Default: The default value is half of the value of <code>MaxConnectionsPercent</code>. For example, if <code>MaxConnectionsPercent</code> is 80, then the default value of
    *         <code>MaxIdleConnectionsPercent</code> is 40. If the value of <code>MaxConnectionsPercent</code> isn't specified, then for SQL Server, <code>MaxIdleConnectionsPercent</code> is 5, and
    *         for all other engines, the default is 50.</p>
@@ -8463,6 +8521,15 @@ export interface SwitchoverReadReplicaResult {
    */
   DBInstance?: DBInstance;
 }
+
+/**
+ * @internal
+ */
+export const DescribeDBSnapshotAttributesMessageFilterSensitiveLog = (
+  obj: DescribeDBSnapshotAttributesMessage
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
