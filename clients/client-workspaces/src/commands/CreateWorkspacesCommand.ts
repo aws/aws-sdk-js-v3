@@ -31,6 +31,12 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
 /**
  * <p>Creates one or more WorkSpaces.</p>
  *          <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>
+ *          <note>
+ *             <p>The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces
+ *             Core. Contact your account team to be allow-listed to use this value. For more
+ *             information, see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces
+ *                Core</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

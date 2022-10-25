@@ -920,8 +920,7 @@ export interface CreateWorkspaceImageResult {
    *          When Bring Your Own License (BYOL) is enabled, this value is set
    *          to DEDICATED. For more information, see
    *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm">
-   *             Bring Your Own Windows Desktop Images.</a>
-   *          </p>
+   *             Bring Your Own Windows Desktop Images.</a>.</p>
    */
   RequiredTenancy?: WorkspaceImageRequiredTenancy | string;
 
@@ -939,6 +938,7 @@ export interface CreateWorkspaceImageResult {
 export enum RunningMode {
   ALWAYS_ON = "ALWAYS_ON",
   AUTO_STOP = "AUTO_STOP",
+  MANUAL = "MANUAL",
 }
 
 /**
@@ -947,7 +947,12 @@ export enum RunningMode {
 export interface WorkspaceProperties {
   /**
    * <p>The running mode. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html">Manage the WorkSpace Running
-   *             Mode</a>.</p>
+   *          Mode</a>.</p>
+   *          <note>
+   *             <p>The <code>MANUAL</code> value is only supported by Amazon WorkSpaces Core. Contact
+   *             your account team to be allow-listed to use this value. For more information, see
+   *             <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.</p>
+   *          </note>
    */
   RunningMode?: RunningMode | string;
 
@@ -2674,7 +2679,9 @@ export enum WorkspaceImageIngestionProcess {
   BYOL_GRAPHICS = "BYOL_GRAPHICS",
   BYOL_GRAPHICSPRO = "BYOL_GRAPHICSPRO",
   BYOL_GRAPHICS_G4DN = "BYOL_GRAPHICS_G4DN",
+  BYOL_GRAPHICS_G4DN_BYOP = "BYOL_GRAPHICS_G4DN_BYOP",
   BYOL_REGULAR = "BYOL_REGULAR",
+  BYOL_REGULAR_BYOP = "BYOL_REGULAR_BYOP",
   BYOL_REGULAR_WSP = "BYOL_REGULAR_WSP",
 }
 
@@ -2686,12 +2693,18 @@ export interface ImportWorkspaceImageRequest {
 
   /**
    * <p>The ingestion process to be used when importing the image, depending on which protocol
-   *          you want to use for your BYOL Workspace image, either PCoIP or WorkSpaces Streaming
-   *          Protocol (WSP). To use WSP, specify a value that ends in <code>_WSP</code>. To use PCoIP,
-   *          specify a value that does not end in <code>_WSP</code>. </p>
+   *          you want to use for your BYOL Workspace image, either PCoIP, WorkSpaces Streaming Protocol
+   *          (WSP), or bring your own protocol (BYOP). To use WSP, specify a value that ends in
+   *          <code>_WSP</code>. To use PCoIP, specify a value that does not end in <code>_WSP</code>.
+   *          To use BYOP, specify a value that ends in <code>_BYOP</code>.</p>
    *          <p>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify
-   *             <code>BYOL_REGULAR</code> or <code>BYOL_REGULAR_WSP</code>, depending on the
-   *          protocol.</p>
+   *          <code>BYOL_REGULAR</code>, <code>BYOL_REGULAR_WSP</code>, or <code>BYOL_REGULAR_BYOP</code>,
+   *          depending on the protocol.</p>
+   *          <note>
+   *             <p>The <code>BYOL_REGULAR_BYOP</code> and <code>BYOL_GRAPHICS_G4DN_BYOP</code> values
+   *             are only supported by Amazon WorkSpaces Core. Contact your account team to be
+   *             allow-listed to use these values. For more information, see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.</p>
+   *          </note>
    */
   IngestionProcess: WorkspaceImageIngestionProcess | string | undefined;
 

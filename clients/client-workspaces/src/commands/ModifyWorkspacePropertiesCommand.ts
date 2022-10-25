@@ -32,6 +32,12 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  * <p>Modifies the specified WorkSpace properties. For important information about how to
  *          modify the size of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html"> Modify a WorkSpace</a>.
  *       </p>
+ *          <note>
+ *             <p>The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces
+ *             Core. Contact your account team to be allow-listed to use this value. For more
+ *             information, see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces
+ *                Core</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
