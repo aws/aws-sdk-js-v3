@@ -12,7 +12,7 @@ export const throwDefaultError = ({ output, parsedBody, exceptionCtor, errorCode
   const $metadata = deserializeMetadata(output);
   const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
   const response = new exceptionCtor({
-    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknownError",
     $fault: "client",
     $metadata,
   });
