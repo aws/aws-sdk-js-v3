@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.196.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.195.0...v3.196.0) (2022-10-25)
+
+
+### Features
+
+* **client-accessanalyzer:** This release adds support for six new resource types in IAM Access Analyzer to help you easily identify public and cross-account access to your AWS resources. Updated service API, documentation, and paginators. ([b8f881b](https://github.com/aws/aws-sdk-js-v3/commit/b8f881b65b4724453cd838d859d6250803b82ade))
+* **client-mediatailor:** This release is a documentation update ([228874a](https://github.com/aws/aws-sdk-js-v3/commit/228874af959abd140256c5f11584b76bc6c24e7c))
+* **client-rds:** Relational Database Service - This release adds support for exporting DB cluster data to Amazon S3. ([6e030b7](https://github.com/aws/aws-sdk-js-v3/commit/6e030b726d772610c48397302808d5d457385451))
+* **client-workspaces:** This release adds new enums for supporting Workspaces Core features, including creating Manual running mode workspaces, importing regular Workspaces Core images and importing g4dn Workspaces Core images. ([7d3dc18](https://github.com/aws/aws-sdk-js-v3/commit/7d3dc18083a054d39c7abcd7cd4fe1c5d5e0e45b))
+* **clients:** update client endpoints as of 2022-10-25 ([5212ad1](https://github.com/aws/aws-sdk-js-v3/commit/5212ad10c1332db140ba614825236875482e8083))
+* **endpoint:** add remaining restJson1 services endpoint models ([#4090](https://github.com/aws/aws-sdk-js-v3/issues/4090)) ([998113b](https://github.com/aws/aws-sdk-js-v3/commit/998113bd0a70a7de4bf5d975cb5f7524098866a0))
+
+
+
+
+
 # [3.195.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.194.0...v3.195.0) (2022-10-24)
 
 
