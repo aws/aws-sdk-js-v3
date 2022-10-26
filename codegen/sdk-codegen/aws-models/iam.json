@@ -727,8 +727,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "us-east-1"
+                                      "signingRegion": "us-east-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -787,8 +787,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "us-east-1"
+                                      "signingRegion": "us-east-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -847,8 +847,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "us-east-1"
+                                      "signingRegion": "us-east-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -873,8 +873,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-east-1"
+                              "signingRegion": "us-east-1",
+                              "signingName": "iam"
                             }
                           ]
                         },
@@ -970,8 +970,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "cn-north-1"
+                                      "signingRegion": "cn-north-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -1030,8 +1030,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "cn-north-1"
+                                      "signingRegion": "cn-north-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -1090,8 +1090,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "cn-north-1"
+                                      "signingRegion": "cn-north-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -1116,8 +1116,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "cn-north-1"
+                              "signingRegion": "cn-north-1",
+                              "signingName": "iam"
                             }
                           ]
                         },
@@ -1213,8 +1213,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "us-gov-west-1"
+                                      "signingRegion": "us-gov-west-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -1273,8 +1273,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "us-gov-west-1"
+                                      "signingRegion": "us-gov-west-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -1333,8 +1333,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "us-gov-west-1"
+                                      "signingRegion": "us-gov-west-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -1359,8 +1359,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-gov-west-1"
+                              "signingRegion": "us-gov-west-1",
+                              "signingName": "iam"
                             }
                           ]
                         },
@@ -1432,8 +1432,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "us-iso-east-1"
+                                      "signingRegion": "us-iso-east-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -1458,8 +1458,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-iso-east-1"
+                              "signingRegion": "us-iso-east-1",
+                              "signingName": "iam"
                             }
                           ]
                         },
@@ -1531,8 +1531,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "us-isob-east-1"
+                                      "signingRegion": "us-isob-east-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -1557,8 +1557,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-isob-east-1"
+                              "signingRegion": "us-isob-east-1",
+                              "signingName": "iam"
                             }
                           ]
                         },
@@ -1700,8 +1700,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "us-east-1"
+                                      "signingRegion": "us-east-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -1727,8 +1727,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "us-east-1"
+                                      "signingRegion": "us-east-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -1754,8 +1754,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "us-gov-west-1"
+                                      "signingRegion": "us-gov-west-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -1781,8 +1781,8 @@
                                   "authSchemes": [
                                     {
                                       "name": "sigv4",
-                                      "signingName": "iam",
-                                      "signingRegion": "us-gov-west-1"
+                                      "signingRegion": "us-gov-west-1",
+                                      "signingName": "iam"
                                     }
                                   ]
                                 },
@@ -1884,8 +1884,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-east-1"
+                              "signingRegion": "us-east-1",
+                              "signingName": "iam"
                             }
                           ]
                         },
@@ -1911,8 +1911,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "cn-north-1"
+                              "signingRegion": "cn-north-1",
+                              "signingName": "iam"
                             }
                           ]
                         },
@@ -1938,8 +1938,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-gov-west-1"
+                              "signingRegion": "us-gov-west-1",
+                              "signingName": "iam"
                             }
                           ]
                         },
@@ -1965,8 +1965,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-iso-east-1"
+                              "signingRegion": "us-iso-east-1",
+                              "signingName": "iam"
                             }
                           ]
                         },
@@ -1992,8 +1992,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-isob-east-1"
+                              "signingRegion": "us-isob-east-1",
+                              "signingName": "iam"
                             }
                           ]
                         },
@@ -2025,9 +2025,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "name": "sigv4",
+                        "signingRegion": "cn-north-1",
                         "signingName": "iam",
-                        "signingRegion": "cn-north-1"
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -2035,9 +2035,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "aws-cn-global",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2047,9 +2047,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "name": "sigv4",
+                        "signingRegion": "us-east-1",
                         "signingName": "iam",
-                        "signingRegion": "us-east-1"
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -2057,9 +2057,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "aws-global",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2069,9 +2069,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "name": "sigv4",
+                        "signingRegion": "us-iso-east-1",
                         "signingName": "iam",
-                        "signingRegion": "us-iso-east-1"
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -2079,9 +2079,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "aws-iso-global",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2091,9 +2091,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "name": "sigv4",
+                        "signingRegion": "us-isob-east-1",
                         "signingName": "iam",
-                        "signingRegion": "us-isob-east-1"
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -2101,9 +2101,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "aws-iso-b-global",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2113,9 +2113,9 @@
                   "properties": {
                     "authSchemes": [
                       {
-                        "name": "sigv4",
+                        "signingRegion": "us-gov-west-1",
                         "signingName": "iam",
-                        "signingRegion": "us-gov-west-1"
+                        "name": "sigv4"
                       }
                     ]
                   },
@@ -2123,9 +2123,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "aws-us-gov-global",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2136,9 +2136,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2148,9 +2148,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2160,9 +2160,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             }
@@ -3476,7 +3476,7 @@
         "MaxSessionDuration": {
           "target": "com.amazonaws.iam#roleMaxSessionDurationType",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum session duration (in seconds) that you want to set for the specified role.\n            If you do not specify a value for this setting, the default value of one hour is\n            applied. This setting can have a value from 1 hour to 12 hours.</p>\n        <p>Anyone who assumes the role from the or API can use the <code>DurationSeconds</code>\n            API parameter or the <code>duration-seconds</code> CLI parameter to request a longer\n            session. The <code>MaxSessionDuration</code> setting determines the maximum duration\n            that can be requested using the <code>DurationSeconds</code> parameter. If users don't\n            specify a value for the <code>DurationSeconds</code> parameter, their security\n            credentials are valid for one hour by default. This applies when you use the\n                <code>AssumeRole*</code> API operations or the <code>assume-role*</code> CLI\n            operations but does not apply when you use those operations to create a console URL. For\n            more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html\">Using IAM roles</a> in the <i>IAM User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The maximum session duration (in seconds) that you want to set for the specified role.\n            If you do not specify a value for this setting, the default value of one hour is\n            applied. This setting can have a value from 1 hour to 12 hours.</p>\n        <p>Anyone who assumes the role from the CLI or API can use the <code>DurationSeconds</code>\n            API parameter or the <code>duration-seconds</code> CLI parameter to request a longer\n            session. The <code>MaxSessionDuration</code> setting determines the maximum duration\n            that can be requested using the <code>DurationSeconds</code> parameter. If users don't\n            specify a value for the <code>DurationSeconds</code> parameter, their security\n            credentials are valid for one hour by default. This applies when you use the\n                <code>AssumeRole*</code> API operations or the <code>assume-role*</code> CLI\n            operations but does not apply when you use those operations to create a console URL. For\n            more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html\">Using IAM roles</a> in the <i>IAM User Guide</i>.</p>"
           }
         },
         "PermissionsBoundary": {
@@ -6319,9 +6319,7 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>Retrieves information about the specified managed policy, including the policy's\n            default version and the total number of IAM users, groups, and roles to which the\n            policy is attached. To retrieve the list of the specific users, groups, and roles that\n            the policy is attached to, use <a>ListEntitiesForPolicy</a>. This operation\n            returns metadata about the policy. To retrieve the actual policy document for a specific\n            version of the policy, use <a>GetPolicyVersion</a>.</p>\n        <p>This operation retrieves information about managed policies. To retrieve information\n            about an inline policy that is embedded with an IAM user, group, or role, use <a>GetUserPolicy</a>, <a>GetGroupPolicy</a>, or <a>GetRolePolicy</a>.</p>\n        <p>For more information about policies, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html\">Managed policies and inline\n                policies</a> in the <i>IAM User Guide</i>.</p>",
-        "smithy.api#suppress": [
-          "WaitableTraitInvalidErrorType"
-        ],
+        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
         "smithy.waiters#waitable": {
           "PolicyExists": {
             "acceptors": [
@@ -6443,9 +6441,7 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>Retrieves information about the specified role, including the role's path, GUID, ARN,\n            and the role's trust policy that grants permission to assume the role. For more\n            information about roles, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html\">Working with roles</a>.</p>\n        <note>\n            <p>Policies returned by this operation are URL-encoded compliant \n    with <a href=\"https://tools.ietf.org/html/rfc3986\">RFC 3986</a>. You can use a URL \n    decoding method to convert the policy back to plain JSON text. For example, if you use Java, you \n    can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in \n    the Java SDK. Other languages and SDKs provide similar functionality.</p>\n         </note>",
-        "smithy.api#suppress": [
-          "WaitableTraitInvalidErrorType"
-        ],
+        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
         "smithy.waiters#waitable": {
           "RoleExists": {
             "acceptors": [
@@ -7012,9 +7008,7 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>Retrieves information about the specified IAM user, including the user's creation\n            date, path, unique ID, and ARN.</p>\n        <p>If you do not specify a user name, IAM determines the user name implicitly based on\n            the Amazon Web Services access key ID used to sign the request to this operation.</p>",
-        "smithy.api#suppress": [
-          "WaitableTraitInvalidErrorType"
-        ],
+        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
         "smithy.waiters#waitable": {
           "UserExists": {
             "acceptors": [
