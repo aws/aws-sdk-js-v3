@@ -24,7 +24,7 @@ exports.deleteStaleChangesets = async (client, stackName) => {
         );
       }
     }
-  } catch(e) {
+  } catch (e) {
     // non-blocking throttling error, potentially.
     console.error(e);
   }

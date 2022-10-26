@@ -133,22 +133,24 @@ or [Smithy TypeScript generator][smithy typescript repo], you should include
 the generated code change to your PR. Here's how to generate clients:
 
 1. Clone and checkout smithy-typescript repo
-      ```
-      git clone https://github.com/awslabs/smithy-typescript.git && cd smithy-typescript
-      git checkout [working_branch]
-      ```
+
+   ```
+   git clone https://github.com/awslabs/smithy-typescript.git && cd smithy-typescript
+   git checkout [working_branch]
+   ```
 
 1. Build the local branch and publish locally:
-      ```
-      ./gradlew clean build publishToMavenLocal
-      ```
+
+   ```
+   ./gradlew clean build publishToMavenLocal
+   ```
 
 1. Generate service clients in JavaScript SDK repo:
-      ```
-      yarn generate-clients
-      ```
-      `generate-clients` is a util script to facilitate the code generation. For more
-      information, please refer [codegen](./codegen/README.md)
+   ```
+   yarn generate-clients
+   ```
+   `generate-clients` is a util script to facilitate the code generation. For more
+   information, please refer [codegen](./codegen/README.md)
 
 [issues]: https://github.com/aws/aws-sdk-js-v3/issues
 [pr]: https://github.com/aws/aws-sdk-js-v3/pulls
