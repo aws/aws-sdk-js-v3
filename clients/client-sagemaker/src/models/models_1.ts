@@ -1159,7 +1159,7 @@ export interface ResourceLimits {
    *             number of training jobs that a hyperparameter tuning job can
    *             launch.</p>
    */
-  MaxNumberOfTrainingJobs: number | undefined;
+  MaxNumberOfTrainingJobs?: number;
 
   /**
    * <p>The
@@ -1172,6 +1172,7 @@ export interface ResourceLimits {
 
 export enum HyperParameterTuningJobStrategyType {
   BAYESIAN = "Bayesian",
+  GRID = "Grid",
   HYPERBAND = "Hyperband",
   RANDOM = "Random",
 }
