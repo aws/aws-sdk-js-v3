@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.197.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.196.0...v3.197.0) (2022-10-26)
+
+
+### Bug Fixes
+
+* **endpoint:** normalize endpoint to string when passing from client config to endpointParams ([#4098](https://github.com/aws/aws-sdk-js-v3/issues/4098)) ([5da4499](https://github.com/aws/aws-sdk-js-v3/commit/5da4499efcee056881087658c8198cc35965de53))
+
+
+
+
+
 # [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
 
 

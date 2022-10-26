@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.197.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.196.0...v3.197.0) (2022-10-26)
+
+
+### Bug Fixes
+
+* **endpoint:** normalize endpoint to string when passing from client config to endpointParams ([#4098](https://github.com/aws/aws-sdk-js-v3/issues/4098)) ([5da4499](https://github.com/aws/aws-sdk-js-v3/commit/5da4499efcee056881087658c8198cc35965de53))
+* **smithy-client:** fix default error typo ([#4092](https://github.com/aws/aws-sdk-js-v3/issues/4092)) ([e8158a6](https://github.com/aws/aws-sdk-js-v3/commit/e8158a6798317aa3905232ee3ff6570a95322ef1))
+* **types:** expand custom endpoint type ([#4097](https://github.com/aws/aws-sdk-js-v3/issues/4097)) ([3620ce4](https://github.com/aws/aws-sdk-js-v3/commit/3620ce4162435b9688823162281140f40365b14c))
+
+
+### Features
+
+* **client-kafka:** This release adds support for Tiered Storage. UpdateStorage allows you to control the Storage Mode for supported storage tiers. ([0fd7c71](https://github.com/aws/aws-sdk-js-v3/commit/0fd7c7128d910cc6efeea874ad69b7b6748b216a))
+* **client-neptune:** Added a new cluster-level attribute to set the capacity range for Neptune Serverless instances. ([5458d9b](https://github.com/aws/aws-sdk-js-v3/commit/5458d9bd751bb1c945ea9349ac9c3eceeb828129))
+* **client-sagemaker:** Amazon SageMaker Automatic Model Tuning now supports specifying Grid Search strategy for tuning jobs, which evaluates all hyperparameter combinations exhaustively based on the categorical hyperparameters provided. ([a00fdf9](https://github.com/aws/aws-sdk-js-v3/commit/a00fdf900a666bfed9f8b792865d23e3f6678996))
+* **clients:** update client endpoints as of 2022-10-26 ([95631eb](https://github.com/aws/aws-sdk-js-v3/commit/95631eb7aa6f17b5051bedd31e7e4532ee9d2f8c))
+
+
+
+
+
 # [3.196.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.195.0...v3.196.0) (2022-10-25)
 
 
