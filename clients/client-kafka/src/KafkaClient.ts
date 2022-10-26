@@ -130,6 +130,7 @@ import {
 import { UpdateConnectivityCommandInput, UpdateConnectivityCommandOutput } from "./commands/UpdateConnectivityCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "./commands/UpdateMonitoringCommand";
 import { UpdateSecurityCommandInput, UpdateSecurityCommandOutput } from "./commands/UpdateSecurityCommand";
+import { UpdateStorageCommandInput, UpdateStorageCommandOutput } from "./commands/UpdateStorageCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -173,7 +174,8 @@ export type ServiceInputTypes =
   | UpdateConfigurationCommandInput
   | UpdateConnectivityCommandInput
   | UpdateMonitoringCommandInput
-  | UpdateSecurityCommandInput;
+  | UpdateSecurityCommandInput
+  | UpdateStorageCommandInput;
 
 export type ServiceOutputTypes =
   | BatchAssociateScramSecretCommandOutput
@@ -210,7 +212,8 @@ export type ServiceOutputTypes =
   | UpdateConfigurationCommandOutput
   | UpdateConnectivityCommandOutput
   | UpdateMonitoringCommandOutput
-  | UpdateSecurityCommandOutput;
+  | UpdateSecurityCommandOutput
+  | UpdateStorageCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

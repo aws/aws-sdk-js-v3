@@ -104,6 +104,7 @@ import {
 import { UpdateConnectivityCommandInput, UpdateConnectivityCommandOutput } from "../commands/UpdateConnectivityCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "../commands/UpdateMonitoringCommand";
 import { UpdateSecurityCommandInput, UpdateSecurityCommandOutput } from "../commands/UpdateSecurityCommand";
+import { UpdateStorageCommandInput, UpdateStorageCommandOutput } from "../commands/UpdateStorageCommand";
 import { KafkaServiceException as __BaseException } from "../models/KafkaServiceException";
 import {
   BadRequestException,
@@ -257,6 +258,7 @@ export const serializeAws_restJson1CreateClusterCommand = async (
     ...(input.OpenMonitoring != null && {
       openMonitoring: serializeAws_restJson1OpenMonitoringInfo(input.OpenMonitoring, context),
     }),
+    ...(input.StorageMode != null && { storageMode: input.StorageMode }),
     ...(input.Tags != null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   return new __HttpRequest({
@@ -1087,6 +1089,37 @@ export const serializeAws_restJson1UpdateSecurityCommand = async (
     hostname,
     port,
     method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateStorageCommand = async (
+  input: UpdateStorageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/storage";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.CurrentVersion != null && { currentVersion: input.CurrentVersion }),
+    ...(input.ProvisionedThroughput != null && {
+      provisionedThroughput: serializeAws_restJson1ProvisionedThroughput(input.ProvisionedThroughput, context),
+    }),
+    ...(input.StorageMode != null && { storageMode: input.StorageMode }),
+    ...(input.VolumeSizeGB != null && { volumeSizeGB: input.VolumeSizeGB }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -3140,6 +3173,68 @@ const deserializeAws_restJson1UpdateSecurityCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateStorageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStorageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateStorageCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.clusterArn != null) {
+    contents.ClusterArn = __expectString(data.clusterArn);
+  }
+  if (data.clusterOperationArn != null) {
+    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateStorageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStorageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 const map = __map;
 const deserializeAws_restJson1BadRequestExceptionResponse = async (
   parsedOutput: any,
@@ -3503,6 +3598,7 @@ const serializeAws_restJson1ProvisionedRequest = (input: ProvisionedRequest, con
     ...(input.OpenMonitoring != null && {
       openMonitoring: serializeAws_restJson1OpenMonitoringInfo(input.OpenMonitoring, context),
     }),
+    ...(input.StorageMode != null && { storageMode: input.StorageMode }),
   };
 };
 
@@ -3918,6 +4014,7 @@ const deserializeAws_restJson1ClusterInfo = (output: any, context: __SerdeContex
         : undefined,
     State: __expectString(output.state),
     StateInfo: output.stateInfo != null ? deserializeAws_restJson1StateInfo(output.stateInfo, context) : undefined,
+    StorageMode: __expectString(output.storageMode),
     Tags: output.tags != null ? deserializeAws_restJson1__mapOf__string(output.tags, context) : undefined,
     ZookeeperConnectString: __expectString(output.zookeeperConnectString),
     ZookeeperConnectStringTls: __expectString(output.zookeeperConnectStringTls),
@@ -4135,6 +4232,7 @@ const deserializeAws_restJson1MutableClusterInfo = (output: any, context: __Serd
       output.openMonitoring != null
         ? deserializeAws_restJson1OpenMonitoring(output.openMonitoring, context)
         : undefined,
+    StorageMode: __expectString(output.storageMode),
   } as any;
 };
 
@@ -4224,6 +4322,7 @@ const deserializeAws_restJson1Provisioned = (output: any, context: __SerdeContex
       output.openMonitoring != null
         ? deserializeAws_restJson1OpenMonitoringInfo(output.openMonitoring, context)
         : undefined,
+    StorageMode: __expectString(output.storageMode),
     ZookeeperConnectString: __expectString(output.zookeeperConnectString),
     ZookeeperConnectStringTls: __expectString(output.zookeeperConnectStringTls),
   } as any;

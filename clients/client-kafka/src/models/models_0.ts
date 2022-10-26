@@ -4,16 +4,16 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { KafkaServiceException as __BaseException } from "./KafkaServiceException";
 
 /**
- * Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.
+ * <p>Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.</p>
  */
 export interface ProvisionedThroughput {
   /**
-   * Provisioned throughput is enabled or not.
+   * <p>Provisioned throughput is enabled or not.</p>
    */
   Enabled?: boolean;
 
   /**
-   * Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.
+   * <p>Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.</p>
    */
   VolumeThroughput?: number;
 }
@@ -28,7 +28,7 @@ export interface BrokerEBSVolumeInfo {
   KafkaBrokerNodeId: string | undefined;
 
   /**
-   * EBS volume provisioned throughput information.
+   * <p>EBS volume provisioned throughput information.</p>
    */
   ProvisionedThroughput?: ProvisionedThroughput;
 
@@ -72,7 +72,7 @@ export interface ConnectivityInfo {
  */
 export interface EBSStorageInfo {
   /**
-   * EBS volume provisioned throughput information.
+   * <p>EBS volume provisioned throughput information.</p>
    */
   ProvisionedThroughput?: ProvisionedThroughput;
 
@@ -358,6 +358,11 @@ export interface OpenMonitoringInfo {
   Prometheus: PrometheusInfo | undefined;
 }
 
+export enum StorageMode {
+  LOCAL = "LOCAL",
+  TIERED = "TIERED",
+}
+
 /**
  * <p>Provisioned cluster.</p>
  */
@@ -411,6 +416,11 @@ export interface Provisioned {
    * <p>The connection string to use to connect to the Apache ZooKeeper cluster on a TLS port.</p>
    */
   ZookeeperConnectStringTls?: string;
+
+  /**
+   * <p>This controls storage mode for supported storage tiers.</p>
+   */
+  StorageMode?: StorageMode | string;
 }
 
 /**
@@ -669,6 +679,11 @@ export interface ClusterInfo {
    * <p>The connection string to use to connect to zookeeper cluster on Tls port.</p>
    */
   ZookeeperConnectStringTls?: string;
+
+  /**
+   * <p>This controls storage mode for supported storage tiers.</p>
+   */
+  StorageMode?: StorageMode | string;
 }
 
 /**
@@ -784,6 +799,11 @@ export interface MutableClusterInfo {
    * <p>Information about the broker access configuration.</p>
    */
   ConnectivityInfo?: ConnectivityInfo;
+
+  /**
+   * <p>This controls storage mode for supported storage tiers.</p>
+   */
+  StorageMode?: StorageMode | string;
 }
 
 /**
@@ -1406,6 +1426,11 @@ export interface CreateClusterRequest {
    * <p>Create tags when creating the cluster.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>This controls storage mode for supported storage tiers.</p>
+   */
+  StorageMode?: StorageMode | string;
 }
 
 export interface CreateClusterResponse {
@@ -1473,6 +1498,11 @@ export interface ProvisionedRequest {
    * <p>The number of broker nodes in the cluster.</p>
    */
   NumberOfBrokerNodes: number | undefined;
+
+  /**
+   * <p>This controls storage mode for supported storage tiers.</p>
+   */
+  StorageMode?: StorageMode | string;
 }
 
 /**
@@ -2411,6 +2441,48 @@ export interface UpdateSecurityResponse {
 }
 
 /**
+ * <p>Request object for UpdateStorage api. Its used to update the storage attributes for the cluster.</p>
+ */
+export interface UpdateStorageRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The version of cluster to update from. A successful operation will then generate a new version.</p>
+   */
+  CurrentVersion: string | undefined;
+
+  /**
+   * <p>EBS volume provisioned throughput information.</p>
+   */
+  ProvisionedThroughput?: ProvisionedThroughput;
+
+  /**
+   * <p>Controls storage mode for supported storage tiers.</p>
+   */
+  StorageMode?: StorageMode | string;
+
+  /**
+   * <p>size of the EBS volume to update.</p>
+   */
+  VolumeSizeGB?: number;
+}
+
+export interface UpdateStorageResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   */
+  ClusterOperationArn?: string;
+}
+
+/**
  * @internal
  */
 export const ProvisionedThroughputFilterSensitiveLog = (obj: ProvisionedThroughput): any => ({
@@ -3269,5 +3341,19 @@ export const UpdateSecurityRequestFilterSensitiveLog = (obj: UpdateSecurityReque
  * @internal
  */
 export const UpdateSecurityResponseFilterSensitiveLog = (obj: UpdateSecurityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStorageRequestFilterSensitiveLog = (obj: UpdateStorageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStorageResponseFilterSensitiveLog = (obj: UpdateStorageResponse): any => ({
   ...obj,
 });
