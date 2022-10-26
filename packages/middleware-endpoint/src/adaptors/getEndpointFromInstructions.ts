@@ -3,6 +3,7 @@ import { EndpointParameters, EndpointV2, HandlerExecutionContext } from "@aws-sd
 import { EndpointResolvedConfig } from "../resolveEndpointConfig";
 import { resolveParamsForS3 } from "../service-customizations";
 import { EndpointParameterInstructions } from "../types";
+import { createConfigValueProvider } from "./createConfigValueProvider";
 
 export type EndpointParameterInstructionsSupplier = Partial<{
   getEndpointParameterInstructions(): EndpointParameterInstructions;
@@ -64,7 +65,7 @@ export const resolveParams = async <
         break;
       case "clientContextParams":
       case "builtInParams":
-        endpointParams[name] = await createConfigProvider<Config>(instruction.name, name, clientConfig)();
+        endpointParams[name] = await createConfigValueProvider<Config>(instruction.name, name, clientConfig)();
         break;
       default:
         throw new Error("Unrecognized endpoint parameter instruction: " + JSON.stringify(instruction));
@@ -80,23 +81,4 @@ export const resolveParams = async <
   }
 
   return endpointParams;
-};
-
-/**
- * Normalize some key of the client config to an async provider.
- * @private
- */
-const createConfigProvider = <Config extends Record<string, unknown>>(
-  configKey: string,
-  canonicalEndpointParamKey: string,
-  config: Config
-) => {
-  const configProvider = async () => {
-    const configValue: unknown = config[configKey] || config[canonicalEndpointParamKey];
-    if (typeof configValue === "function") {
-      return configValue();
-    }
-    return configValue;
-  };
-  return configProvider;
 };
