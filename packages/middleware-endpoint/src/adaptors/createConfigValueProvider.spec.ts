@@ -1,14 +1,14 @@
 import { Endpoint } from "@aws-sdk/types";
 
-import { createConfigProvider } from "./getEndpointFromInstructions";
+import { createConfigValueProvider } from "./createConfigValueProvider";
 
-describe(createConfigProvider.name, () => {
+describe(createConfigValueProvider.name, () => {
   it("should create a normalized provider for any config value", async () => {
     const config = {
       a: 1,
       b: 2,
     };
-    expect(await createConfigProvider("a", "a", config)()).toEqual(1);
+    expect(await createConfigValueProvider("a", "a", config)()).toEqual(1);
   });
 
   it("should look up both the canonical Endpoint ruleset param name and any localized override", async () => {
@@ -16,8 +16,8 @@ describe(createConfigProvider.name, () => {
       a: 1,
       b: 2,
     };
-    expect(await createConfigProvider("a", "x", config)()).toEqual(1);
-    expect(await createConfigProvider("x", "a", config)()).toEqual(1);
+    expect(await createConfigValueProvider("a", "x", config)()).toEqual(1);
+    expect(await createConfigValueProvider("x", "a", config)()).toEqual(1);
   });
 
   it("should normalize endpoint objects into URLs", async () => {
@@ -31,8 +31,8 @@ describe(createConfigProvider.name, () => {
       } as Endpoint,
       v2: { url: new URL(sampleUrl) },
     };
-    expect(await createConfigProvider("str", "endpoint", config)()).toEqual(sampleUrl);
-    expect(await createConfigProvider("v1", "endpoint", config)()).toEqual(sampleUrl);
-    expect(await createConfigProvider("v2", "endpoint", config)()).toEqual(sampleUrl);
+    expect(await createConfigValueProvider("str", "endpoint", config)()).toEqual(sampleUrl);
+    expect(await createConfigValueProvider("v1", "endpoint", config)()).toEqual(sampleUrl);
+    expect(await createConfigValueProvider("v2", "endpoint", config)()).toEqual(sampleUrl);
   });
 });
