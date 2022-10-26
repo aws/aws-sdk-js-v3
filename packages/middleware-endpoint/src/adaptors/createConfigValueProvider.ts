@@ -1,3 +1,5 @@
+import { Endpoint, EndpointV2 } from "@aws-sdk/types";
+
 /**
  * Normalize some key of the client config to an async provider.
  * @private
