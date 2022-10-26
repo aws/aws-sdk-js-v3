@@ -45,7 +45,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
     context: HandlerExecutionContext = {} as any
   ): Promise<FinalizeHandlerOutput<T>> {
     const request = args.request as HttpRequest;
-    const { body: payload } = request;
+    const { body: payload, query } = request;
 
     if (!(payload instanceof Readable)) {
       throw new Error("Eventstream payload must be a Readable stream.");
@@ -69,7 +69,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
     // If response is successful, start piping the payload stream
     const match = (request.headers["authorization"] || "").match(/Signature=([\w]+)$/);
     // Sign the eventstream based on the signature from initial request.
-    const priorSignature = (match || [])[1];
+    const priorSignature = (match || [])[1] || (query && (query["X-Amz-Signature"] as string)) || "";
     const signingStream = new EventSigningStream({
       priorSignature,
       eventStreamCodec: this.eventStreamCodec,

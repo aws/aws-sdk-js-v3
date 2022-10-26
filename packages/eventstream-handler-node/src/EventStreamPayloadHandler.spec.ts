@@ -92,6 +92,37 @@ describe(EventStreamPayloadHandler.name, () => {
     });
   });
 
+  it("should call event signer with request signature from query string if no signature headers are found", async () => {
+    const priorSignature = "1234567890";
+    const authorization = `AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=`;
+
+    const mockRequest = {
+      body: new PassThrough(),
+      headers: { authorization },
+      query: {
+        "X-Amz-Signature": priorSignature,
+      },
+    } as any;
+
+    const handler = new EventStreamPayloadHandler({
+      eventSigner: () => Promise.resolve(mockSigner),
+      utf8Decoder: mockUtf8Decoder,
+      utf8Encoder: mockUtf8encoder,
+    });
+
+    await handler.handle(mockNextHandler, {
+      request: mockRequest,
+      input: {},
+    });
+
+    expect(EventSigningStream).toHaveBeenCalledTimes(1);
+    expect(EventSigningStream).toHaveBeenCalledWith({
+      priorSignature,
+      eventStreamCodec: expect.anything(),
+      eventSigner: expect.anything(),
+    });
+  });
+  
   it("should start piping to request payload through event signer if downstream middleware returns", async () => {
     const authorization =
       "AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=1234567890";
