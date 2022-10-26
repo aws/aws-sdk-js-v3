@@ -1,11 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameters as __EndpointParameters, Provider } from "@aws-sdk/types";
+import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provider } from "@aws-sdk/types";
 
 export interface ClientInputEndpointParameters {
   region?: string | Provider<string>;
   useDualstackEndpoint?: boolean | Provider<boolean>;
   useFipsEndpoint?: boolean | Provider<boolean>;
-  endpoint?: string | Provider<string>;
+  endpoint?: string | Provider<string> | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
   useGlobalEndpoint?: boolean | Provider<boolean>;
 }
 

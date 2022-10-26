@@ -57,6 +57,9 @@ export interface HttpMessage {
  */
 export type QueryParameterBag = Record<string, string | Array<string> | null>;
 
+/**
+ * @deprecated use EndpointV2 from @aws-sdk/types.
+ */
 export interface Endpoint {
   protocol: string;
   hostname: string;
