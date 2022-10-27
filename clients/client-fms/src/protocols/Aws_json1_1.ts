@@ -177,6 +177,7 @@ import {
   NetworkFirewallPolicy,
   NetworkFirewallPolicyDescription,
   NetworkFirewallPolicyModifiedViolation,
+  NetworkFirewallStatefulRuleGroupOverride,
   NetworkFirewallUnexpectedFirewallRoutesViolation,
   NetworkFirewallUnexpectedGatewayRoutesViolation,
   PartialMatch,
@@ -3482,6 +3483,15 @@ const deserializeAws_json1_1NetworkFirewallPolicyModifiedViolation = (
   } as any;
 };
 
+const deserializeAws_json1_1NetworkFirewallStatefulRuleGroupOverride = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallStatefulRuleGroupOverride => {
+  return {
+    Action: __expectString(output.Action),
+  } as any;
+};
+
 const deserializeAws_json1_1NetworkFirewallUnexpectedFirewallRoutesViolation = (
   output: any,
   context: __SerdeContext
@@ -4182,6 +4192,10 @@ const deserializeAws_json1_1StatefulEngineOptions = (output: any, context: __Ser
 
 const deserializeAws_json1_1StatefulRuleGroup = (output: any, context: __SerdeContext): StatefulRuleGroup => {
   return {
+    Override:
+      output.Override != null
+        ? deserializeAws_json1_1NetworkFirewallStatefulRuleGroupOverride(output.Override, context)
+        : undefined,
     Priority: __expectInt32(output.Priority),
     ResourceId: __expectString(output.ResourceId),
     RuleGroupName: __expectString(output.RuleGroupName),

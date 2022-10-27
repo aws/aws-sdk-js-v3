@@ -779,58 +779,6 @@ export interface SecurityServicePolicyData {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Specification for <code>SHIELD_ADVANCED</code> for Amazon CloudFront distributions </p>
-   *                <p>
-   *                   <code>"{\"type\":\"SHIELD_ADVANCED\",\"automaticResponseConfiguration\":
-   *                  {\"automaticResponseStatus\":\"ENABLED|IGNORED|DISABLED\",
-   *                  \"automaticResponseAction\":\"BLOCK|COUNT\"},
-   *                  \"overrideCustomerWebaclClassic\":true|false}"</code>
-   *                </p>
-   *                <p>For example:
-   *                  <code>"{\"type\":\"SHIELD_ADVANCED\",\"automaticResponseConfiguration\":
-   *                  {\"automaticResponseStatus\":\"ENABLED\",
-   *                  \"automaticResponseAction\":\"COUNT\"}}"</code>
-   *                </p>
-   *                <p>The default value for <code>automaticResponseStatus</code> is
-   *                  <code>IGNORED</code>. The value for <code>automaticResponseAction</code> is only
-   *               required when <code>automaticResponseStatus</code> is set to <code>ENABLED</code>.
-   *               The default value for <code>overrideCustomerWebaclClassic</code> is
-   *                  <code>false</code>.</p>
-   *                <p>For other resource types that you can protect with a Shield Advanced policy, this
-   *                  <code>ManagedServiceData</code> configuration is an empty string.</p>
-   *             </li>
-   *             <li>
-   *                <p>Example: <code>WAFV2</code>
-   *                </p>
-   *                <p>
-   *                   <code>"{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[{\"ruleGroupArn\":null,\"overrideAction\":{\"type\":\"NONE\"},\"managedRuleGroupIdentifier\":{\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesAmazonIpReputationList\"},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[{\"name\":\"NoUserAgent_HEADER\"}]}],\"postProcessRuleGroups\":[],\"defaultAction\":{\"type\":\"ALLOW\"},\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":{\"logDestinationConfigs\":[\"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination\"],\"redactedFields\":[{\"redactedFieldType\":\"SingleHeader\",\"redactedFieldValue\":\"Cookies\"},{\"redactedFieldType\":\"Method\"}]}}"</code>
-   *                </p>
-   *                <p>In the <code>loggingConfiguration</code>, you can specify one
-   *                  <code>logDestinationConfigs</code>, you can optionally provide up to 20
-   *                  <code>redactedFields</code>, and the <code>RedactedFieldType</code> must be one of
-   *                  <code>URI</code>, <code>QUERY_STRING</code>, <code>HEADER</code>, or
-   *                  <code>METHOD</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Example: <code>WAF Classic</code>
-   *                </p>
-   *                <p>
-   *                   <code>"{\"type\": \"WAF\", \"ruleGroups\":
-   *                  [{\"id\":\"12345678-1bcd-9012-efga-0987654321ab\", \"overrideAction\" : {\"type\":
-   *                  \"COUNT\"}}], \"defaultAction\": {\"type\": \"BLOCK\"}}"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Example: <code>WAFV2</code> -  Firewall Manager support for WAF managed rule group versioning
-   *           </p>
-   *                <p>
-   *                   <code>"{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[{\"ruleGroupArn\":null,\"overrideAction\":{\"type\":\"NONE\"},\"managedRuleGroupIdentifier\":{\"versionEnabled\":true,\"version\":\"Version_2.0\",\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesCommonRuleSet\"},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[{\"name\":\"NoUserAgent_HEADER\"}]}],\"postProcessRuleGroups\":[],\"defaultAction\":{\"type\":\"ALLOW\"},\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":{\"logDestinationConfigs\":[\"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination\"],\"redactedFields\":[{\"redactedFieldType\":\"SingleHeader\",\"redactedFieldValue\":\"Cookies\"},{\"redactedFieldType\":\"Method\"}]}}"</code>
-   *                </p>
-   *                <p>
-   *             To use a specific version of a WAF managed rule group in your Firewall Manager policy, you must set <code>versionEnabled</code> to <code>true</code>, and set <code>version</code> to the version you'd like to use. If you don't set <code>versionEnabled</code> to <code>true</code>, or if you omit <code>versionEnabled</code>, then Firewall Manager uses the default version of the WAF managed rule group.
-   *           </p>
-   *             </li>
-   *             <li>
    *                <p>Example: <code>SECURITY_GROUPS_COMMON</code>
    *                </p>
    *                <p>
@@ -878,6 +826,58 @@ export interface SecurityServicePolicyData {
    *                </p>
    *                <p>
    *                   <code>"{\"type\":\"SECURITY_GROUPS_USAGE_AUDIT\",\"deleteUnusedSecurityGroups\":true,\"coalesceRedundantSecurityGroups\":true}"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Specification for <code>SHIELD_ADVANCED</code> for Amazon CloudFront distributions </p>
+   *                <p>
+   *                   <code>"{\"type\":\"SHIELD_ADVANCED\",\"automaticResponseConfiguration\":
+   *                  {\"automaticResponseStatus\":\"ENABLED|IGNORED|DISABLED\",
+   *                  \"automaticResponseAction\":\"BLOCK|COUNT\"},
+   *                  \"overrideCustomerWebaclClassic\":true|false}"</code>
+   *                </p>
+   *                <p>For example:
+   *                  <code>"{\"type\":\"SHIELD_ADVANCED\",\"automaticResponseConfiguration\":
+   *                  {\"automaticResponseStatus\":\"ENABLED\",
+   *                  \"automaticResponseAction\":\"COUNT\"}}"</code>
+   *                </p>
+   *                <p>The default value for <code>automaticResponseStatus</code> is
+   *                  <code>IGNORED</code>. The value for <code>automaticResponseAction</code> is only
+   *               required when <code>automaticResponseStatus</code> is set to <code>ENABLED</code>.
+   *               The default value for <code>overrideCustomerWebaclClassic</code> is
+   *                  <code>false</code>.</p>
+   *                <p>For other resource types that you can protect with a Shield Advanced policy, this
+   *                  <code>ManagedServiceData</code> configuration is an empty string.</p>
+   *             </li>
+   *             <li>
+   *                <p>Example: <code>WAFV2</code>
+   *                </p>
+   *                <p>
+   *                   <code>"{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[{\"ruleGroupArn\":null,\"overrideAction\":{\"type\":\"NONE\"},\"managedRuleGroupIdentifier\":{\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesAmazonIpReputationList\"},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[{\"name\":\"NoUserAgent_HEADER\"}]}],\"postProcessRuleGroups\":[],\"defaultAction\":{\"type\":\"ALLOW\"},\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":{\"logDestinationConfigs\":[\"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination\"],\"redactedFields\":[{\"redactedFieldType\":\"SingleHeader\",\"redactedFieldValue\":\"Cookies\"},{\"redactedFieldType\":\"Method\"}]}}"</code>
+   *                </p>
+   *                <p>In the <code>loggingConfiguration</code>, you can specify one
+   *                  <code>logDestinationConfigs</code>, you can optionally provide up to 20
+   *                  <code>redactedFields</code>, and the <code>RedactedFieldType</code> must be one of
+   *                  <code>URI</code>, <code>QUERY_STRING</code>, <code>HEADER</code>, or
+   *                  <code>METHOD</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Example: <code>WAFV2</code> -  Firewall Manager support for WAF managed rule group versioning
+   *           </p>
+   *                <p>
+   *                   <code>"{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[{\"ruleGroupArn\":null,\"overrideAction\":{\"type\":\"NONE\"},\"managedRuleGroupIdentifier\":{\"versionEnabled\":true,\"version\":\"Version_2.0\",\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesCommonRuleSet\"},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[{\"name\":\"NoUserAgent_HEADER\"}]}],\"postProcessRuleGroups\":[],\"defaultAction\":{\"type\":\"ALLOW\"},\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":{\"logDestinationConfigs\":[\"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination\"],\"redactedFields\":[{\"redactedFieldType\":\"SingleHeader\",\"redactedFieldValue\":\"Cookies\"},{\"redactedFieldType\":\"Method\"}]}}"</code>
+   *                </p>
+   *                <p>
+   *             To use a specific version of a WAF managed rule group in your Firewall Manager policy, you must set <code>versionEnabled</code> to <code>true</code>, and set <code>version</code> to the version you'd like to use. If you don't set <code>versionEnabled</code> to <code>true</code>, or if you omit <code>versionEnabled</code>, then Firewall Manager uses the default version of the WAF managed rule group.
+   *           </p>
+   *             </li>
+   *             <li>
+   *                <p>Example: <code>WAF Classic</code>
+   *                </p>
+   *                <p>
+   *                   <code>"{\"type\": \"WAF\", \"ruleGroups\":
+   *                  [{\"id\":\"12345678-1bcd-9012-efga-0987654321ab\", \"overrideAction\" : {\"type\":
+   *                  \"COUNT\"}}], \"defaultAction\": {\"type\": \"BLOCK\"}}"</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1931,6 +1931,20 @@ export interface StatefulEngineOptions {
   RuleOrder?: RuleOrder | string;
 }
 
+export enum NetworkFirewallOverrideAction {
+  DROP_TO_ALERT = "DROP_TO_ALERT",
+}
+
+/**
+ * <p>The setting that allows the policy owner to change the behavior of the rule group within a policy.</p>
+ */
+export interface NetworkFirewallStatefulRuleGroupOverride {
+  /**
+   * <p>The action that changes the rule group from <code>DROP</code> to <code>ALERT</code>. This only applies to managed rule groups.</p>
+   */
+  Action?: NetworkFirewallOverrideAction | string;
+}
+
 /**
  * <p>Network Firewall stateful rule group, used in a <a>NetworkFirewallPolicyDescription</a>. </p>
  */
@@ -1959,6 +1973,11 @@ export interface StatefulRuleGroup {
    * </p>
    */
   Priority?: number;
+
+  /**
+   * <p>The action that allows the policy owner to override the behavior of the rule group within a policy.</p>
+   */
+  Override?: NetworkFirewallStatefulRuleGroupOverride;
 }
 
 /**
@@ -3726,6 +3745,15 @@ export const NetworkFirewallMissingSubnetViolationFilterSensitiveLog = (
  * @internal
  */
 export const StatefulEngineOptionsFilterSensitiveLog = (obj: StatefulEngineOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFirewallStatefulRuleGroupOverrideFilterSensitiveLog = (
+  obj: NetworkFirewallStatefulRuleGroupOverride
+): any => ({
   ...obj,
 });
 
