@@ -1105,6 +1105,16 @@ export interface UpdateCsvClassifierRequest {
    * <p>Enables the processing of files that contain only one column.</p>
    */
   AllowSingleColumn?: boolean;
+
+  /**
+   * <p>Specifies the configuration of custom datatypes.</p>
+   */
+  CustomDatatypeConfigured?: boolean;
+
+  /**
+   * <p>Specifies a list of supported custom datatypes.</p>
+   */
+  CustomDatatypes?: string[];
 }
 
 /**

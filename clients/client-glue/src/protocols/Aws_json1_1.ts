@@ -14412,6 +14412,10 @@ const serializeAws_json1_1CreateCsvClassifierRequest = (
   return {
     ...(input.AllowSingleColumn != null && { AllowSingleColumn: input.AllowSingleColumn }),
     ...(input.ContainsHeader != null && { ContainsHeader: input.ContainsHeader }),
+    ...(input.CustomDatatypeConfigured != null && { CustomDatatypeConfigured: input.CustomDatatypeConfigured }),
+    ...(input.CustomDatatypes != null && {
+      CustomDatatypes: serializeAws_json1_1CustomDatatypes(input.CustomDatatypes, context),
+    }),
     ...(input.Delimiter != null && { Delimiter: input.Delimiter }),
     ...(input.DisableValueTrimming != null && { DisableValueTrimming: input.DisableValueTrimming }),
     ...(input.Header != null && { Header: serializeAws_json1_1CsvHeader(input.Header, context) }),
@@ -14725,6 +14729,14 @@ const serializeAws_json1_1CustomCode = (input: CustomCode, context: __SerdeConte
       OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context),
     }),
   };
+};
+
+const serializeAws_json1_1CustomDatatypes = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1CustomEntityTypeNames = (input: string[], context: __SerdeContext): any => {
@@ -17925,6 +17937,10 @@ const serializeAws_json1_1UpdateCsvClassifierRequest = (
   return {
     ...(input.AllowSingleColumn != null && { AllowSingleColumn: input.AllowSingleColumn }),
     ...(input.ContainsHeader != null && { ContainsHeader: input.ContainsHeader }),
+    ...(input.CustomDatatypeConfigured != null && { CustomDatatypeConfigured: input.CustomDatatypeConfigured }),
+    ...(input.CustomDatatypes != null && {
+      CustomDatatypes: serializeAws_json1_1CustomDatatypes(input.CustomDatatypes, context),
+    }),
     ...(input.Delimiter != null && { Delimiter: input.Delimiter }),
     ...(input.DisableValueTrimming != null && { DisableValueTrimming: input.DisableValueTrimming }),
     ...(input.Header != null && { Header: serializeAws_json1_1CsvHeader(input.Header, context) }),
@@ -19810,6 +19826,11 @@ const deserializeAws_json1_1CsvClassifier = (output: any, context: __SerdeContex
       output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
+    CustomDatatypeConfigured: __expectBoolean(output.CustomDatatypeConfigured),
+    CustomDatatypes:
+      output.CustomDatatypes != null
+        ? deserializeAws_json1_1CustomDatatypes(output.CustomDatatypes, context)
+        : undefined,
     Delimiter: __expectString(output.Delimiter),
     DisableValueTrimming: __expectBoolean(output.DisableValueTrimming),
     Header: output.Header != null ? deserializeAws_json1_1CsvHeader(output.Header, context) : undefined,
@@ -19844,6 +19865,18 @@ const deserializeAws_json1_1CustomCode = (output: any, context: __SerdeContext):
     OutputSchemas:
       output.OutputSchemas != null ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1CustomDatatypes = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1CustomEntityType = (output: any, context: __SerdeContext): CustomEntityType => {

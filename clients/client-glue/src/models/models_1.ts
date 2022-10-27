@@ -867,6 +867,16 @@ export interface CsvClassifier {
    * <p>Enables the processing of files that contain only one column.</p>
    */
   AllowSingleColumn?: boolean;
+
+  /**
+   * <p>Enables the custom datatype to be configured.</p>
+   */
+  CustomDatatypeConfigured?: boolean;
+
+  /**
+   * <p>A list of custom datatypes including "BINARY", "BOOLEAN", "DATE", "DECIMAL", "DOUBLE", "FLOAT", "INT", "LONG", "SHORT", "STRING", "TIMESTAMP".</p>
+   */
+  CustomDatatypes?: string[];
 }
 
 /**

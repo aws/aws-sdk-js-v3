@@ -5152,6 +5152,16 @@ export interface CreateCsvClassifierRequest {
    * <p>Enables the processing of files that contain only one column.</p>
    */
   AllowSingleColumn?: boolean;
+
+  /**
+   * <p>Enables the configuration of custom datatypes.</p>
+   */
+  CustomDatatypeConfigured?: boolean;
+
+  /**
+   * <p>Creates a list of supported custom datatypes.</p>
+   */
+  CustomDatatypes?: string[];
 }
 
 /**
