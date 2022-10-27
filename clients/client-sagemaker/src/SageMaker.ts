@@ -2313,10 +2313,10 @@ export class SageMaker extends SageMakerClient {
    *             Amazon SageMaker Studio. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/experiments-view-compare.html#experiments-view">View
    *                 Experiments, Trials, and Trial Components</a>.</p>
    *         <important>
-   *             <p>Do not include any security-sensitive information including account access
-   *                 IDs, secrets or tokens in any hyperparameter field. If the use of
-   *                 security-sensitive credentials are detected, SageMaker will reject your training
-   *                 job request and return an exception error.</p>
+   *             <p>Do not include any security-sensitive information including account access IDs,
+   *                 secrets or tokens in any hyperparameter field. If the use of security-sensitive
+   *                 credentials are detected, SageMaker will reject your training job request and return an
+   *                 exception error.</p>
    *         </important>
    */
   public createHyperParameterTuningJob(
@@ -3143,7 +3143,7 @@ export class SageMaker extends SageMakerClient {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>InputDataConfig</code> - Describes the training dataset and the Amazon S3,
+   *                   <code>InputDataConfig</code> - Describes the input required by the training job and the Amazon S3,
    *                     EFS, or FSx location where it is stored.</p>
    *             </li>
    *             <li>

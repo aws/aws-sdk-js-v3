@@ -15499,6 +15499,12 @@ const serializeAws_json1_1AlarmList = (input: Alarm[], context: __SerdeContext):
 const serializeAws_json1_1AlgorithmSpecification = (input: AlgorithmSpecification, context: __SerdeContext): any => {
   return {
     ...(input.AlgorithmName != null && { AlgorithmName: input.AlgorithmName }),
+    ...(input.ContainerArguments != null && {
+      ContainerArguments: serializeAws_json1_1TrainingContainerArguments(input.ContainerArguments, context),
+    }),
+    ...(input.ContainerEntrypoint != null && {
+      ContainerEntrypoint: serializeAws_json1_1TrainingContainerEntrypoint(input.ContainerEntrypoint, context),
+    }),
     ...(input.EnableSageMakerMetricsTimeSeries != null && {
       EnableSageMakerMetricsTimeSeries: input.EnableSageMakerMetricsTimeSeries,
     }),
@@ -22432,6 +22438,22 @@ const serializeAws_json1_1TrafficRoutingConfig = (input: TrafficRoutingConfig, c
   };
 };
 
+const serializeAws_json1_1TrainingContainerArguments = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1TrainingContainerEntrypoint = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_1TrainingEnvironmentMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -23344,6 +23366,14 @@ const deserializeAws_json1_1AlarmList = (output: any, context: __SerdeContext): 
 const deserializeAws_json1_1AlgorithmSpecification = (output: any, context: __SerdeContext): AlgorithmSpecification => {
   return {
     AlgorithmName: __expectString(output.AlgorithmName),
+    ContainerArguments:
+      output.ContainerArguments != null
+        ? deserializeAws_json1_1TrainingContainerArguments(output.ContainerArguments, context)
+        : undefined,
+    ContainerEntrypoint:
+      output.ContainerEntrypoint != null
+        ? deserializeAws_json1_1TrainingContainerEntrypoint(output.ContainerEntrypoint, context)
+        : undefined,
     EnableSageMakerMetricsTimeSeries: __expectBoolean(output.EnableSageMakerMetricsTimeSeries),
     MetricDefinitions:
       output.MetricDefinitions != null
@@ -33425,6 +33455,30 @@ const deserializeAws_json1_1TrafficRoutingConfig = (output: any, context: __Serd
     Type: __expectString(output.Type),
     WaitIntervalInSeconds: __expectInt32(output.WaitIntervalInSeconds),
   } as any;
+};
+
+const deserializeAws_json1_1TrainingContainerArguments = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1TrainingContainerEntrypoint = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1TrainingEnvironmentMap = (output: any, context: __SerdeContext): Record<string, string> => {

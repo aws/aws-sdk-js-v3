@@ -705,6 +705,20 @@ export interface AlgorithmSpecification {
    *          </ul>
    */
   EnableSageMakerMetricsTimeSeries?: boolean;
+
+  /**
+   * <p>The <a href="https://docs.docker.com/engine/reference/builder/">entrypoint script
+   *                 for a Docker container</a> used to run a training job. This script takes
+   *             precedence over the default train processing instructions. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html">How Amazon SageMaker
+   *                 Runs Your Training Image</a> for more information.</p>
+   */
+  ContainerEntrypoint?: string[];
+
+  /**
+   * <p>The arguments for a container used to run a training job. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html">How Amazon SageMaker
+   *                 Runs Your Training Image</a> for additional information.</p>
+   */
+  ContainerArguments?: string[];
 }
 
 export enum AlgorithmStatus {

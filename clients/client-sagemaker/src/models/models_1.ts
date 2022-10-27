@@ -6855,8 +6855,8 @@ export interface CreateTrainingJobRequest {
    *         <important>
    *             <p>Do not include any security-sensitive information including account access IDs,
    *                 secrets or tokens in any hyperparameter field. If the use of security-sensitive
-   *                 credentials are detected, SageMaker will reject your training job request and return
-   *                 an exception error.</p>
+   *                 credentials are detected, SageMaker will reject your training job request and return an
+   *                 exception error.</p>
    *         </important>
    */
   HyperParameters?: Record<string, string>;

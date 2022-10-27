@@ -41,10 +41,10 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *             Amazon SageMaker Studio. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/experiments-view-compare.html#experiments-view">View
  *                 Experiments, Trials, and Trial Components</a>.</p>
  *         <important>
- *             <p>Do not include any security-sensitive information including account access
- *                 IDs, secrets or tokens in any hyperparameter field. If the use of
- *                 security-sensitive credentials are detected, SageMaker will reject your training
- *                 job request and return an exception error.</p>
+ *             <p>Do not include any security-sensitive information including account access IDs,
+ *                 secrets or tokens in any hyperparameter field. If the use of security-sensitive
+ *                 credentials are detected, SageMaker will reject your training job request and return an
+ *                 exception error.</p>
  *         </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
