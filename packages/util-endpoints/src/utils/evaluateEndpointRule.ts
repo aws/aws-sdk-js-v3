@@ -25,7 +25,7 @@ export const evaluateEndpointRule = (
 
   const { url, properties, headers } = endpoint;
 
-  options.logger?.debug(debugId, `Resolving endpoint from template: ${toDebugString(endpoint)}`);
+  options.logger?.debug?.(debugId, `Resolving endpoint from template: ${toDebugString(endpoint)}`);
 
   return {
     ...(headers != undefined && {

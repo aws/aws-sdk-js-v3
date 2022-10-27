@@ -11,7 +11,7 @@ export const resolveEndpoint = (ruleSetObject: RuleSetObject, options: EndpointR
   const { endpointParams, logger } = options;
   const { parameters, rules } = ruleSetObject;
 
-  options.logger?.debug(debugId, `Initial EndpointParams: ${toDebugString(endpointParams)}`);
+  options.logger?.debug?.(debugId, `Initial EndpointParams: ${toDebugString(endpointParams)}`);
 
   // @ts-ignore Type 'undefined' is not assignable to type 'string | boolean' (2322)
   const paramsWithDefault: [string, string | boolean][] = Object.entries(parameters)
@@ -48,7 +48,7 @@ export const resolveEndpoint = (ruleSetObject: RuleSetObject, options: EndpointR
     }
   }
 
-  options.logger?.debug(debugId, `Resolved endpoint: ${toDebugString(endpoint)}`);
+  options.logger?.debug?.(debugId, `Resolved endpoint: ${toDebugString(endpoint)}`);
 
   return endpoint;
 };
