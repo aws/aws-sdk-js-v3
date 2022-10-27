@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
+
+
+### Bug Fixes
+
+* **types:** make logger.trace an optional function ([#4110](https://github.com/aws/aws-sdk-js-v3/issues/4110)) ([7d95b34](https://github.com/aws/aws-sdk-js-v3/commit/7d95b34dd2d1f3e480db0000cabd97f2299cda24))
+
+
+
+
+
 # [3.197.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.196.0...v3.197.0) (2022-10-26)
 
 

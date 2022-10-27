@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
+
+
+### Features
+
+* **client-glue:** Added support for custom datatypes when using custom csv classifier. ([3711a1f](https://github.com/aws/aws-sdk-js-v3/commit/3711a1f878e86f8ecfffa374b79cea428f41497f))
+
+
+
+
+
 # [3.197.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.196.0...v3.197.0) (2022-10-26)
 
 

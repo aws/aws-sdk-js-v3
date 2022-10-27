@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
+
+
+### Features
+
+* **endpoint:** log endpoint decisions at debug level ([#4106](https://github.com/aws/aws-sdk-js-v3/issues/4106)) ([d600213](https://github.com/aws/aws-sdk-js-v3/commit/d600213292eb1bea870c43420367f78406db1c82))
+
+
+
+
+
 # [3.197.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.196.0...v3.197.0) (2022-10-26)
 
 **Note:** Version bump only for package @aws-sdk/util-endpoints

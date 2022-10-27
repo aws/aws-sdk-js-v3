@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
+
+
+### Bug Fixes
+
+* **scripts:** use since origin/main for ci ([#4101](https://github.com/aws/aws-sdk-js-v3/issues/4101)) ([1335bfb](https://github.com/aws/aws-sdk-js-v3/commit/1335bfb3c237b11773fe71daa4f826493af8c7b3))
+* **types:** make logger.trace an optional function ([#4110](https://github.com/aws/aws-sdk-js-v3/issues/4110)) ([7d95b34](https://github.com/aws/aws-sdk-js-v3/commit/7d95b34dd2d1f3e480db0000cabd97f2299cda24))
+* update eventStreamPayloadHandler to also get prior signature from query string ([#4100](https://github.com/aws/aws-sdk-js-v3/issues/4100)) ([d6d9e10](https://github.com/aws/aws-sdk-js-v3/commit/d6d9e10006550bb85b89ecbfdd07a930712a4d89))
+
+
+### Features
+
+* **client-ec2:** Feature supports the replacement of instance root volume using an updated AMI without requiring customers to stop their instance. ([c980e67](https://github.com/aws/aws-sdk-js-v3/commit/c980e67bfad3191dab93e0cf1aa9eaec6addf08b))
+* **client-fms:** Add support NetworkFirewall Managed Rule Group Override flag in GetViolationDetails API ([7586f6e](https://github.com/aws/aws-sdk-js-v3/commit/7586f6edf647cc4f9fc9978a0211b06970538092))
+* **client-glue:** Added support for custom datatypes when using custom csv classifier. ([3711a1f](https://github.com/aws/aws-sdk-js-v3/commit/3711a1f878e86f8ecfffa374b79cea428f41497f))
+* **client-sagemaker:** This change allows customers to provide a custom entrypoint script for the docker container to be run while executing training jobs, and provide custom arguments to the entrypoint script. ([4978352](https://github.com/aws/aws-sdk-js-v3/commit/49783528794a2aac328033d0aea2464e6dba6fc8))
+* **client-wafv2:** This release adds the following: Challenge rule action, to silently verify client browsers; rule group rule action override to any valid rule action, not just Count; token sharing between protected applications for challenge/CAPTCHA token; targeted rules option for Bot Control managed rule group. ([2d06b27](https://github.com/aws/aws-sdk-js-v3/commit/2d06b276f25b9f0b4f2346b3cb8bd8fa25e42e2a))
+* **clients:** update client endpoints as of 2022-10-27 ([6eafddf](https://github.com/aws/aws-sdk-js-v3/commit/6eafddf27b73c4f80a18320f0af2aafc4386413f))
+* **endpoint:** log endpoint decisions at debug level ([#4106](https://github.com/aws/aws-sdk-js-v3/issues/4106)) ([d600213](https://github.com/aws/aws-sdk-js-v3/commit/d600213292eb1bea870c43420367f78406db1c82))
+
+
+
+
+
 # [3.197.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.196.0...v3.197.0) (2022-10-26)
 
 

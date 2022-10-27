@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
+
+
+### Features
+
+* **client-fms:** Add support NetworkFirewall Managed Rule Group Override flag in GetViolationDetails API ([7586f6e](https://github.com/aws/aws-sdk-js-v3/commit/7586f6edf647cc4f9fc9978a0211b06970538092))
+
+
+
+
+
 # [3.197.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.196.0...v3.197.0) (2022-10-26)
 
 

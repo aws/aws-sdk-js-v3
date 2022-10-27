@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
+
+
+### Bug Fixes
+
+* update eventStreamPayloadHandler to also get prior signature from query string ([#4100](https://github.com/aws/aws-sdk-js-v3/issues/4100)) ([d6d9e10](https://github.com/aws/aws-sdk-js-v3/commit/d6d9e10006550bb85b89ecbfdd07a930712a4d89))
+
+
+
+
+
 # [3.197.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.196.0...v3.197.0) (2022-10-26)
 
 **Note:** Version bump only for package @aws-sdk/eventstream-handler-node
