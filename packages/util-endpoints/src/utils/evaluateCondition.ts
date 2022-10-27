@@ -8,7 +8,7 @@ export const evaluateCondition = ({ assign, ...fnArgs }: ConditionObject, option
   }
   const value = callFunction(fnArgs, options);
 
-  options.logger?.debug(debugId, `evaluateCondition: ${toDebugString(fnArgs)} = ${toDebugString(value)}`);
+  options.logger?.debug?.(debugId, `evaluateCondition: ${toDebugString(fnArgs)} = ${toDebugString(value)}`);
 
   return {
     result: value === "" ? true : !!value,
