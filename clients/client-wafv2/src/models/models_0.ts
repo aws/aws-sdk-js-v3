@@ -7,6 +7,7 @@ export enum ActionValue {
   ALLOW = "ALLOW",
   BLOCK = "BLOCK",
   CAPTCHA = "CAPTCHA",
+  CHALLENGE = "CHALLENGE",
   COUNT = "COUNT",
   EXCLUDED_AS_COUNT = "EXCLUDED_AS_COUNT",
 }
@@ -16,8 +17,10 @@ export enum ActionValue {
  */
 export interface ActionCondition {
   /**
-   * <p>The action setting that a log record must contain in order to meet the condition.
-   *       </p>
+   * <p>The action setting that a log record must contain in order to meet the condition. This is the action that WAF applied to the web request. </p>
+   *          <p>For rule groups, this is either the configured rule action setting, or if you've applied a rule action override to the rule, it's the override action.
+   *        The value <code>EXCLUDED_AS_COUNT</code> matches on
+   *        excluded rules and also on rules that have a rule action override of Count. </p>
    */
   Action: ActionValue | string | undefined;
 }
@@ -52,7 +55,8 @@ export interface CustomHTTPHeader {
 
 /**
  * <p>Custom request handling behavior that inserts custom headers into a web request. You can
- *          add custom request handling for the rule actions allow and count. </p>
+ *       add custom request handling for WAF to use when the rule action doesn't block the request.
+ *           For example, <code>CaptchaAction</code> for requests with valid t okens, and <code>AllowAction</code>. </p>
  *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
  *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
  */
@@ -1357,16 +1361,33 @@ export interface LabelMatchStatement {
 }
 
 /**
- * <p>Specifies a single rule in a rule group whose action you want to override to
- *             <code>Count</code>. When you exclude a rule, WAF evaluates it exactly as it would if
- *          the rule action setting were <code>Count</code>. This is a useful option for testing the
- *          rules in a rule group without modifying how they handle your web traffic. </p>
+ * <p>Specifies a single rule in a rule group whose action you want to override to <code>Count</code>. </p>
+ *          <note>
+ *             <p>Instead of this option, use <code>RuleActionOverrides</code>. It accepts any valid action setting, including <code>Count</code>.</p>
+ *          </note>
  */
 export interface ExcludedRule {
   /**
    * <p>The name of the rule whose action you want to override to <code>Count</code>.</p>
    */
   Name: string | undefined;
+}
+
+export enum InspectionLevel {
+  COMMON = "COMMON",
+  TARGETED = "TARGETED",
+}
+
+/**
+ * <p>Details for your use of the Bot Control managed rule group, used in <code>ManagedRuleGroupConfig</code>. </p>
+ */
+export interface AWSManagedRulesBotControlRuleSet {
+  /**
+   * <p>The inspection level to use for the Bot Control rule group. The common level is the least expensive. The
+   *            targeted level includes all common level rules and adds rules with more advanced inspection criteria. For
+   *    details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html">WAF Bot Control rule group</a>.</p>
+   */
+  InspectionLevel: InspectionLevel | string | undefined;
 }
 
 /**
@@ -1397,10 +1418,9 @@ export interface UsernameField {
 }
 
 /**
- * <p>Additional information that's used by a managed rule group. Most managed rule groups don't require this.</p>
- *          <p>Use this for the account takeover prevention managed rule group
- *       <code>AWSManagedRulesATPRuleSet</code>, to provide information about the sign-in page of your application. </p>
- *          <p>You can provide multiple individual <code>ManagedRuleGroupConfig</code> objects for any rule group configuration, for example <code>UsernameField</code> and <code>PasswordField</code>. The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: <code>LoginPath</code>, <code>PasswordField</code>, <code>PayloadType</code> and <code>UsernameField</code>.</p>
+ * <p>Additional information that's used by a managed rule group. Many managed rule groups don't require this.</p>
+ *          <p>Use the <code>AWSManagedRulesBotControlRuleSet</code> configuration object to configure the
+ *        protection level that you want the Bot Control rule group to use. </p>
  *          <p>For example specifications, see the examples section of <a>CreateWebACL</a>.</p>
  */
 export interface ManagedRuleGroupConfig {
@@ -1425,6 +1445,204 @@ export interface ManagedRuleGroupConfig {
    * <p>Details about your login page password field. </p>
    */
   PasswordField?: PasswordField;
+
+  /**
+   * <p>Additional configuration for using the Bot Control managed rule group. Use this to specify the
+   *        inspection level that you want to use. For information
+   *        about using the Bot Control managed rule group, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html">WAF Bot Control rule group</a>
+   *                and <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html">WAF Bot Control</a>
+   *                in the <i>WAF Developer Guide</i>.</p>
+   */
+  AWSManagedRulesBotControlRuleSet?: AWSManagedRulesBotControlRuleSet;
+}
+
+/**
+ * <p>A custom response to send to the client. You can define a custom response for rule
+ *          actions and default web ACL actions that are set to <a>BlockAction</a>. </p>
+ *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+ *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+ */
+export interface CustomResponse {
+  /**
+   * <p>The HTTP status code to return to the client. </p>
+   *          <p>For a list of status codes that you can use in your custom responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html">Supported status codes for custom response</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+   */
+  ResponseCode: number | undefined;
+
+  /**
+   * <p>References the response body that you want WAF to return to the web request
+   *          client. You can define a custom response for a rule action or a default web ACL action that
+   *          is set to block. To do this, you first define the response body key and value in the
+   *             <code>CustomResponseBodies</code> setting for the <a>WebACL</a> or <a>RuleGroup</a> where you want to use it. Then, in the rule action or web ACL
+   *          default action <code>BlockAction</code> setting, you reference the response body using this
+   *          key. </p>
+   */
+  CustomResponseBodyKey?: string;
+
+  /**
+   * <p>The HTTP headers to use in the response. Duplicate header names are not allowed. </p>
+   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+   */
+  ResponseHeaders?: CustomHTTPHeader[];
+}
+
+/**
+ * <p>Specifies that WAF should block the request and optionally defines additional
+ *          custom handling for the response to the web request.</p>
+ *          <p>This is used in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
+ */
+export interface BlockAction {
+  /**
+   * <p>Defines a custom response for the web request.</p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+   */
+  CustomResponse?: CustomResponse;
+}
+
+/**
+ * <p>Specifies that WAF should run a <code>CAPTCHA</code> check against the request: </p>
+ *          <ul>
+ *             <li>
+ *                <p>If the request includes a valid, unexpired <code>CAPTCHA</code> token,
+ *                WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to
+ *                proceed to the next rule, similar to a <code>CountAction</code>. </p>
+ *            </li>
+ *             <li>
+ *                <p>If the request doesn't include a valid, unexpired token, WAF
+ *                    discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.</p>
+ *                <p>WAF generates a response that it sends back to the client, which includes the following: </p>
+ *                <ul>
+ *                   <li>
+ *                        <p>The header <code>x-amzn-waf-action</code> with a value of <code>captcha</code>. </p>
+ *                    </li>
+ *                   <li>
+ *                        <p>The HTTP status code <code>405 Method Not Allowed</code>. </p>
+ *                    </li>
+ *                   <li>
+ *                        <p>If the request contains an <code>Accept</code> header with a value of <code>text/html</code>, the response includes a <code>CAPTCHA</code> JavaScript page interstitial. </p>
+ *                    </li>
+ *                </ul>
+ *            </li>
+ *          </ul>
+ *          <p>You can configure the expiration time
+ *                in the <code>CaptchaConfig</code>
+ *             <code>ImmunityTimeProperty</code> setting at the rule and web ACL level. The rule setting overrides the web ACL setting. </p>
+ *          <p>This action option is available for rules. It isn't available for web ACL default actions. </p>
+ */
+export interface CaptchaAction {
+  /**
+   * <p>Defines custom handling for the web request, used when the <code>CAPTCHA</code> inspection determines that the request's token is valid and unexpired.</p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+   */
+  CustomRequestHandling?: CustomRequestHandling;
+}
+
+/**
+ * <p>Specifies that WAF should run a <code>Challenge</code> check against the request to verify that the request is coming from a legitimate client session: </p>
+ *          <ul>
+ *             <li>
+ *                <p>If the request includes a valid, unexpired challenge token,
+ *                WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to
+ *                proceed to the next rule, similar to a <code>CountAction</code>. </p>
+ *             </li>
+ *             <li>
+ *                <p>If the request doesn't include a valid, unexpired challenge token, WAF
+ *                    discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.</p>
+ *                <p>WAF then generates a challenge response that it sends back to the client, which includes the following: </p>
+ *                <ul>
+ *                   <li>
+ *                        <p>The header <code>x-amzn-waf-action</code> with a value of <code>challenge</code>. </p>
+ *                    </li>
+ *                   <li>
+ *                        <p>The HTTP status code <code>202 Request Accepted</code>. </p>
+ *                    </li>
+ *                   <li>
+ *                        <p>If the request contains an <code>Accept</code> header with a value of <code>text/html</code>, the response includes a JavaScript page interstitial with a challenge script. </p>
+ *                    </li>
+ *                </ul>
+ *                <p>Challenges run silent browser interrogations in the background, and don't generally affect the end user experience. </p>
+ *                <p>A challenge enforces token acquisition using an interstitial JavaScript challenge that inspects the client session for legitimate behavior. The challenge blocks bots or at least increases the cost of operating sophisticated bots. </p>
+ *                <p>After the client session successfully responds to
+ *            the challenge, it receives a new token from WAF, which the challenge script uses to resubmit the original request. </p>
+ *             </li>
+ *          </ul>
+ *          <p>You can configure the expiration time
+ *          in the <code>ChallengeConfig</code>
+ *             <code>ImmunityTimeProperty</code> setting at the rule and web ACL level. The rule setting overrides the web ACL setting. </p>
+ *          <p>This action option is available for rules. It isn't available for web ACL default actions. </p>
+ */
+export interface ChallengeAction {
+  /**
+   * <p>Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.</p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+   */
+  CustomRequestHandling?: CustomRequestHandling;
+}
+
+/**
+ * <p>Specifies that WAF should count the request. Optionally defines additional custom
+ *          handling for the request.</p>
+ *          <p>This is used in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
+ */
+export interface CountAction {
+  /**
+   * <p>Defines custom handling for the web request.</p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+   */
+  CustomRequestHandling?: CustomRequestHandling;
+}
+
+/**
+ * <p>The action that WAF should take on a web request when it matches a rule's
+ *          statement. Settings at the web ACL level can override the rule action setting. </p>
+ */
+export interface RuleAction {
+  /**
+   * <p>Instructs WAF to block the web request.</p>
+   */
+  Block?: BlockAction;
+
+  /**
+   * <p>Instructs WAF to allow the web request.</p>
+   */
+  Allow?: AllowAction;
+
+  /**
+   * <p>Instructs WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.</p>
+   */
+  Count?: CountAction;
+
+  /**
+   * <p>Instructs WAF to run a <code>CAPTCHA</code> check against the web request.</p>
+   */
+  Captcha?: CaptchaAction;
+
+  /**
+   * <p>Instructs WAF to run a <code>Challenge</code> check against the web request.</p>
+   */
+  Challenge?: ChallengeAction;
+}
+
+/**
+ * <p>Action setting to use in the place of a rule action that is configured inside the rule group. You specify one override for each rule whose action you want to change. </p>
+ *          <p>You can use overrides for testing, for example you can override all of rule actions to <code>Count</code> and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.</p>
+ */
+export interface RuleActionOverride {
+  /**
+   * <p>The name of the rule to override.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The override action to use, in place of the configured action of the rule in the rule group. </p>
+   */
+  ActionToUse: RuleAction | undefined;
 }
 
 export enum RateBasedStatementAggregateKeyType {
@@ -1490,12 +1708,18 @@ export interface RuleGroupReferenceStatement {
   ARN: string | undefined;
 
   /**
-   * <p>The rules in the referenced rule group whose actions are set to <code>Count</code>. When
-   *          you exclude a rule, WAF evaluates it exactly as it would if the rule action setting were
-   *             <code>Count</code>. This is a useful option for testing the rules in a rule group
-   *          without modifying how they handle your web traffic.</p>
+   * <p>Rules in the referenced rule group whose actions are set to <code>Count</code>. </p>
+   *          <note>
+   *             <p>Instead of this option, use <code>RuleActionOverrides</code>. It accepts any valid action setting, including <code>Count</code>.</p>
+   *          </note>
    */
   ExcludedRules?: ExcludedRule[];
+
+  /**
+   * <p>Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. </p>
+   *          <p>You can use overrides for testing, for example you can override all of rule actions to <code>Count</code> and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.</p>
+   */
+  RuleActionOverrides?: RuleActionOverride[];
 }
 
 export enum ComparisonOperator {
@@ -1679,6 +1903,7 @@ export enum ParameterExceptionField {
   ASSOCIABLE_RESOURCE = "ASSOCIABLE_RESOURCE",
   BODY_PARSING_FALLBACK_BEHAVIOR = "BODY_PARSING_FALLBACK_BEHAVIOR",
   BYTE_MATCH_STATEMENT = "BYTE_MATCH_STATEMENT",
+  CHALLENGE_CONFIG = "CHALLENGE_CONFIG",
   CHANGE_PROPAGATION_STATUS = "CHANGE_PROPAGATION_STATUS",
   COOKIE_MATCH_PATTERN = "COOKIE_MATCH_PATTERN",
   CUSTOM_REQUEST_HANDLING = "CUSTOM_REQUEST_HANDLING",
@@ -1736,6 +1961,7 @@ export enum ParameterExceptionField {
   TAGS = "TAGS",
   TAG_KEYS = "TAG_KEYS",
   TEXT_TRANSFORMATION = "TEXT_TRANSFORMATION",
+  TOKEN_DOMAIN = "TOKEN_DOMAIN",
   WEB_ACL = "WEB_ACL",
   XSS_MATCH_STATEMENT = "XSS_MATCH_STATEMENT",
 }
@@ -1845,138 +2071,14 @@ export class WAFUnavailableEntityException extends __BaseException {
 }
 
 /**
- * <p>A custom response to send to the client. You can define a custom response for rule
- *          actions and default web ACL actions that are set to <a>BlockAction</a>. </p>
- *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
- *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
- */
-export interface CustomResponse {
-  /**
-   * <p>The HTTP status code to return to the client. </p>
-   *          <p>For a list of status codes that you can use in your custom responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html">Supported status codes for custom response</a> in the
-   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
-   */
-  ResponseCode: number | undefined;
-
-  /**
-   * <p>References the response body that you want WAF to return to the web request
-   *          client. You can define a custom response for a rule action or a default web ACL action that
-   *          is set to block. To do this, you first define the response body key and value in the
-   *             <code>CustomResponseBodies</code> setting for the <a>WebACL</a> or <a>RuleGroup</a> where you want to use it. Then, in the rule action or web ACL
-   *          default action <code>BlockAction</code> setting, you reference the response body using this
-   *          key. </p>
-   */
-  CustomResponseBodyKey?: string;
-
-  /**
-   * <p>The HTTP headers to use in the response. Duplicate header names are not allowed. </p>
-   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
-   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
-   */
-  ResponseHeaders?: CustomHTTPHeader[];
-}
-
-/**
- * <p>Specifies that WAF should block the request and optionally defines additional
- *          custom handling for the response to the web request.</p>
- *          <p>This is used in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
- */
-export interface BlockAction {
-  /**
-   * <p>Defines a custom response for the web request.</p>
-   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
-   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
-   */
-  CustomResponse?: CustomResponse;
-}
-
-/**
- * <p>Specifies that WAF should run a <code>CAPTCHA</code> check against the request: </p>
- *          <ul>
- *             <li>
- *                <p>If the request includes a valid, unexpired <code>CAPTCHA</code> token,
- *                WAF allows the web request inspection to
- *                    proceed to the next rule, similar to a <code>CountAction</code>. </p>
- *            </li>
- *             <li>
- *                <p>If the request doesn't include a valid, unexpired <code>CAPTCHA</code> token, WAF
- *                    discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.</p>
- *                <p>WAF generates a response that it sends back to the client, which includes the following: </p>
- *                <ul>
- *                   <li>
- *                        <p>The header <code>x-amzn-waf-action</code> with a value of <code>captcha</code>. </p>
- *                    </li>
- *                   <li>
- *                        <p>The HTTP status code <code>405 Method Not Allowed</code>. </p>
- *                    </li>
- *                   <li>
- *                        <p>If the request contains an <code>Accept</code> header with a value of <code>text/html</code>, the response includes a <code>CAPTCHA</code> challenge. </p>
- *                    </li>
- *                </ul>
- *            </li>
- *          </ul>
- *          <p>You can configure the expiration time
- *                in the <code>CaptchaConfig</code>
- *             <code>ImmunityTimeProperty</code> setting at the rule and web ACL level. The rule setting overrides the web ACL setting. </p>
- *          <p>This action option is available for rules. It isn't available for web ACL default actions. </p>
- */
-export interface CaptchaAction {
-  /**
-   * <p>Defines custom handling for the web request.</p>
-   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
-   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
-   */
-  CustomRequestHandling?: CustomRequestHandling;
-}
-
-/**
- * <p>Specifies that WAF should count the request. Optionally defines additional custom
- *          handling for the request.</p>
- *          <p>This is used in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
- */
-export interface CountAction {
-  /**
-   * <p>Defines custom handling for the web request.</p>
-   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
-   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
-   */
-  CustomRequestHandling?: CustomRequestHandling;
-}
-
-/**
- * <p>The action that WAF should take on a web request when it matches a rule's
- *          statement. Settings at the web ACL level can override the rule action setting. </p>
- */
-export interface RuleAction {
-  /**
-   * <p>Instructs WAF to block the web request.</p>
-   */
-  Block?: BlockAction;
-
-  /**
-   * <p>Instructs WAF to allow the web request.</p>
-   */
-  Allow?: AllowAction;
-
-  /**
-   * <p>Instructs WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.</p>
-   */
-  Count?: CountAction;
-
-  /**
-   * <p>Instructs WAF to run a <code>CAPTCHA</code> check against the web request.</p>
-   */
-  Captcha?: CaptchaAction;
-}
-
-/**
- * <p>Determines how long a <code>CAPTCHA</code> token remains valid after the client
- *          successfully solves a <code>CAPTCHA</code> puzzle. </p>
+ * <p>Used for CAPTCHA and challenge token settings. Determines
+ *        how long a <code>CAPTCHA</code> or challenge timestamp remains valid after WAF updates it for a successful <code>CAPTCHA</code> or challenge response. </p>
  */
 export interface ImmunityTimeProperty {
   /**
-   * <p>The amount of time, in seconds, that a <code>CAPTCHA</code> token is valid. The default
-   *          setting is 300.</p>
+   * <p>The amount of time, in seconds, that a <code>CAPTCHA</code> or challenge timestamp is considered valid by WAF. The default
+   *           setting is 300. </p>
+   *          <p>For the Challenge action, the minimum setting is 300. </p>
    */
   ImmunityTime: number | undefined;
 }
@@ -1987,8 +2089,20 @@ export interface ImmunityTimeProperty {
  */
 export interface CaptchaConfig {
   /**
-   * <p>Determines how long a <code>CAPTCHA</code> token remains valid after the client
+   * <p>Determines how long a <code>CAPTCHA</code> timestamp in the token remains valid after the client
    *          successfully solves a <code>CAPTCHA</code> puzzle. </p>
+   */
+  ImmunityTimeProperty?: ImmunityTimeProperty;
+}
+
+/**
+ * <p>Specifies how WAF should handle <code>Challenge</code> evaluations. This is
+ *          available at the web ACL level and in each rule. </p>
+ */
+export interface ChallengeConfig {
+  /**
+   * <p>Determines how long a challenge timestamp in the token remains valid after the client
+   *          successfully responds to a challenge. </p>
    */
   ImmunityTimeProperty?: ImmunityTimeProperty;
 }
@@ -2008,7 +2122,7 @@ export interface NoneAction {}
  *          <p>You can only use this for rule statements that reference a rule group, like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
  *          <note>
  *             <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count
- *   matches, do not use this and instead exclude those rules in your rule group reference statement settings. </p>
+ *   matches, do not use this and instead use the rule action override option, with <code>Count</code> action, in your rule group reference statement settings. </p>
  *          </note>
  */
 export interface OverrideAction {
@@ -2016,7 +2130,7 @@ export interface OverrideAction {
    * <p>Override the rule group evaluation result to count only. </p>
    *          <note>
    *             <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count
-   *   matches, do not use this and instead exclude those rules in your rule group reference statement settings. </p>
+   *   matches, do not use this and instead use the rule action override option, with <code>Count</code> action, in your rule group reference statement settings. </p>
    *          </note>
    */
   Count?: CountAction;
@@ -3459,7 +3573,7 @@ export interface GetMobileSdkReleaseRequest {
 
 /**
  * <p>Information for a release of the mobile SDK, including release notes and tags.</p>
- *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
+ *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
  * <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
  */
 export interface MobileSdkRelease {
@@ -3756,13 +3870,14 @@ export interface GetSampledRequestsRequest {
 }
 
 export enum FailureReason {
+  TOKEN_DOMAIN_MISMATCH = "TOKEN_DOMAIN_MISMATCH",
   TOKEN_EXPIRED = "TOKEN_EXPIRED",
+  TOKEN_INVALID = "TOKEN_INVALID",
   TOKEN_MISSING = "TOKEN_MISSING",
 }
 
 /**
- * <p>The result from the inspection of the web request for a valid <code>CAPTCHA</code>
- *          token. </p>
+ * <p>The result from the inspection of the web request for a valid <code>CAPTCHA</code> token. </p>
  */
 export interface CaptchaResponse {
   /**
@@ -3773,7 +3888,28 @@ export interface CaptchaResponse {
   ResponseCode?: number;
 
   /**
-   * <p>The time that the <code>CAPTCHA</code> puzzle was solved for the supplied token. </p>
+   * <p>The time that the <code>CAPTCHA</code> was last solved for the supplied token. </p>
+   */
+  SolveTimestamp?: number;
+
+  /**
+   * <p>The reason for failure, populated when the evaluation of the token fails.</p>
+   */
+  FailureReason?: FailureReason | string;
+}
+
+/**
+ * <p>The result from the inspection of the web request for a valid challenge token. </p>
+ */
+export interface ChallengeResponse {
+  /**
+   * <p>The HTTP response code indicating the status of the challenge token in the
+   *          web request. If the token is missing, invalid, or expired, this code is <code>202 Request Accepted</code>.</p>
+   */
+  ResponseCode?: number;
+
+  /**
+   * <p>The time that the challenge was last solved for the supplied token. </p>
    */
   SolveTimestamp?: number;
 
@@ -3884,8 +4020,7 @@ export interface SampledHTTPRequest {
   Timestamp?: Date;
 
   /**
-   * <p>The action for the <code>Rule</code> that the request matched: <code>Allow</code>,
-   *             <code>Block</code>, or <code>Count</code>.</p>
+   * <p>The action that WAF applied to the request.</p>
    */
   Action?: string;
 
@@ -3923,6 +4058,16 @@ export interface SampledHTTPRequest {
    * <p>The <code>CAPTCHA</code> response for the request.</p>
    */
   CaptchaResponse?: CaptchaResponse;
+
+  /**
+   * <p>The <code>Challenge</code> response for the request.</p>
+   */
+  ChallengeResponse?: ChallengeResponse;
+
+  /**
+   * <p>Used only for rule group rules that have a rule action override in place in the web ACL. This is the action that the rule group rule is configured for, and not the action that was applied to the request. The action that WAF applied is the <code>Action</code> value. </p>
+   */
+  OverriddenAction?: string;
 }
 
 export interface GetSampledRequestsResponse {
@@ -5201,10 +5346,10 @@ export interface ManagedRuleGroupStatement {
   Version?: string;
 
   /**
-   * <p>The rules in the referenced rule group whose actions are set to <code>Count</code>. When
-   *          you exclude a rule, WAF evaluates it exactly as it would if the rule action setting were
-   *             <code>Count</code>. This is a useful option for testing the rules in a rule group
-   *          without modifying how they handle your web traffic.</p>
+   * <p>Rules in the referenced rule group whose actions are set to <code>Count</code>. </p>
+   *          <note>
+   *             <p>Instead of this option, use <code>RuleActionOverrides</code>. It accepts any valid action setting, including <code>Count</code>.</p>
+   *          </note>
    */
   ExcludedRules?: ExcludedRule[];
 
@@ -5218,12 +5363,17 @@ export interface ManagedRuleGroupStatement {
   ScopeDownStatement?: Statement;
 
   /**
-   * <p>Additional information that's used by a managed rule group. Most managed rule groups don't require this.</p>
-   *          <p>Use this for the account takeover prevention managed rule group
-   *       <code>AWSManagedRulesATPRuleSet</code>, to provide information about the sign-in page of your application. </p>
-   *          <p>You can provide multiple individual <code>ManagedRuleGroupConfig</code> objects for any rule group configuration, for example <code>UsernameField</code> and <code>PasswordField</code>. The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: <code>LoginPath</code>, <code>PasswordField</code>, <code>PayloadType</code> and <code>UsernameField</code>.</p>
+   * <p>Additional information that's used by a managed rule group. Many managed rule groups don't require this.</p>
+   *          <p>Use the <code>AWSManagedRulesBotControlRuleSet</code> configuration object to configure the
+   *        protection level that you want the Bot Control rule group to use. </p>
    */
   ManagedRuleGroupConfigs?: ManagedRuleGroupConfig[];
+
+  /**
+   * <p>Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. </p>
+   *          <p>You can use overrides for testing, for example you can override all of rule actions to <code>Count</code> and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.</p>
+   */
+  RuleActionOverrides?: RuleActionOverride[];
 }
 
 /**
@@ -5344,7 +5494,7 @@ export interface Rule {
    *          <p>You can only use this for rule statements that reference a rule group, like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
    *          <note>
    *             <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count
-   *   matches, do not use this and instead exclude those rules in your rule group reference statement settings. </p>
+   *   matches, do not use this and instead use the rule action override option, with <code>Count</code> action, in your rule group reference statement settings. </p>
    *          </note>
    */
   OverrideAction?: OverrideAction;
@@ -5388,6 +5538,11 @@ export interface Rule {
    * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations. If you don't specify this, WAF uses the <code>CAPTCHA</code> configuration that's defined for the web ACL. </p>
    */
   CaptchaConfig?: CaptchaConfig;
+
+  /**
+   * <p>Specifies how WAF should handle <code>Challenge</code> evaluations. If you don't specify this, WAF uses the challenge configuration that's defined for the web ACL. </p>
+   */
+  ChallengeConfig?: ChallengeConfig;
 }
 
 /**
@@ -5460,7 +5615,7 @@ export interface FirewallManagerRuleGroup {
    *          <p>You can only use this for rule statements that reference a rule group, like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
    *          <note>
    *             <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count
-   *   matches, do not use this and instead exclude those rules in your rule group reference statement settings. </p>
+   *   matches, do not use this and instead use the rule action override option, with <code>Count</code> action, in your rule group reference statement settings. </p>
    *          </note>
    */
   OverrideAction: OverrideAction | undefined;
@@ -5623,6 +5778,19 @@ export interface CreateWebACLRequest {
    * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>
    */
   CaptchaConfig?: CaptchaConfig;
+
+  /**
+   * <p>Specifies how WAF should handle challenge evaluations for rules that don't have
+   * their own <code>ChallengeConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>ChallengeConfig</code>. </p>
+   */
+  ChallengeConfig?: ChallengeConfig;
+
+  /**
+   * <p>Specifies the domains that WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When WAF provides a token, it uses the domain of the Amazon Web Services resource that the web ACL is protecting. If you don't specify a list of token domains, WAF accepts tokens only for the domain of the protected resource. With a token domain list, WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.</p>
+   *          <p>Example JSON: <code>"TokenDomains": { "mywebsite.com", "myotherwebsite.com" }</code>
+   *          </p>
+   */
+  TokenDomains?: string[];
 }
 
 /**
@@ -5842,6 +6010,19 @@ export interface UpdateWebACLRequest {
    * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>
    */
   CaptchaConfig?: CaptchaConfig;
+
+  /**
+   * <p>Specifies how WAF should handle challenge evaluations for rules that don't have
+   * their own <code>ChallengeConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>ChallengeConfig</code>. </p>
+   */
+  ChallengeConfig?: ChallengeConfig;
+
+  /**
+   * <p>Specifies the domains that WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When WAF provides a token, it uses the domain of the Amazon Web Services resource that the web ACL is protecting. If you don't specify a list of token domains, WAF accepts tokens only for the domain of the protected resource. With a token domain list, WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.</p>
+   *          <p>Example JSON: <code>"TokenDomains": { "mywebsite.com", "myotherwebsite.com" }</code>
+   *          </p>
+   */
+  TokenDomains?: string[];
 }
 
 export interface GetRuleGroupResponse {
@@ -5975,6 +6156,17 @@ export interface WebACL {
    * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>
    */
   CaptchaConfig?: CaptchaConfig;
+
+  /**
+   * <p>Specifies how WAF should handle challenge evaluations for rules that don't have
+   * their own <code>ChallengeConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>ChallengeConfig</code>. </p>
+   */
+  ChallengeConfig?: ChallengeConfig;
+
+  /**
+   * <p>Specifies the domains that WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When WAF provides a token, it uses the domain of the Amazon Web Services resource that the web ACL is protecting. If you don't specify a list of token domains, WAF accepts tokens only for the domain of the protected resource. With a token domain list, WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.</p>
+   */
+  TokenDomains?: string[];
 }
 
 export interface GetWebACLForResourceResponse {
@@ -6195,6 +6387,13 @@ export const ExcludedRuleFilterSensitiveLog = (obj: ExcludedRule): any => ({
 /**
  * @internal
  */
+export const AWSManagedRulesBotControlRuleSetFilterSensitiveLog = (obj: AWSManagedRulesBotControlRuleSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const PasswordFieldFilterSensitiveLog = (obj: PasswordField): any => ({
   ...obj,
 });
@@ -6210,6 +6409,55 @@ export const UsernameFieldFilterSensitiveLog = (obj: UsernameField): any => ({
  * @internal
  */
 export const ManagedRuleGroupConfigFilterSensitiveLog = (obj: ManagedRuleGroupConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomResponseFilterSensitiveLog = (obj: CustomResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlockActionFilterSensitiveLog = (obj: BlockAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptchaActionFilterSensitiveLog = (obj: CaptchaAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChallengeActionFilterSensitiveLog = (obj: ChallengeAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CountActionFilterSensitiveLog = (obj: CountAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleActionFilterSensitiveLog = (obj: RuleAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleActionOverrideFilterSensitiveLog = (obj: RuleActionOverride): any => ({
   ...obj,
 });
 
@@ -6272,41 +6520,6 @@ export const AssociateWebACLResponseFilterSensitiveLog = (obj: AssociateWebACLRe
 /**
  * @internal
  */
-export const CustomResponseFilterSensitiveLog = (obj: CustomResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BlockActionFilterSensitiveLog = (obj: BlockAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaptchaActionFilterSensitiveLog = (obj: CaptchaAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CountActionFilterSensitiveLog = (obj: CountAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleActionFilterSensitiveLog = (obj: RuleAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ImmunityTimePropertyFilterSensitiveLog = (obj: ImmunityTimeProperty): any => ({
   ...obj,
 });
@@ -6315,6 +6528,13 @@ export const ImmunityTimePropertyFilterSensitiveLog = (obj: ImmunityTimeProperty
  * @internal
  */
 export const CaptchaConfigFilterSensitiveLog = (obj: CaptchaConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChallengeConfigFilterSensitiveLog = (obj: ChallengeConfig): any => ({
   ...obj,
 });
 
@@ -6815,6 +7035,13 @@ export const GetSampledRequestsRequestFilterSensitiveLog = (obj: GetSampledReque
  * @internal
  */
 export const CaptchaResponseFilterSensitiveLog = (obj: CaptchaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChallengeResponseFilterSensitiveLog = (obj: ChallengeResponse): any => ({
   ...obj,
 });
 

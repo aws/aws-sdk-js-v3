@@ -29,6 +29,21 @@
     ]
   },
   "shapes": {
+    "com.amazonaws.wafv2#AWSManagedRulesBotControlRuleSet": {
+      "type": "structure",
+      "members": {
+        "InspectionLevel": {
+          "target": "com.amazonaws.wafv2#InspectionLevel",
+          "traits": {
+            "smithy.api#documentation": "<p>The inspection level to use for the Bot Control rule group. The common level is the least expensive. The \n           targeted level includes all common level rules and adds rules with more advanced inspection criteria. For \n   details, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html\">WAF Bot Control rule group</a>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details for your use of the Bot Control managed rule group, used in <code>ManagedRuleGroupConfig</code>. </p>"
+      }
+    },
     "com.amazonaws.wafv2#AWSWAF_20190729": {
       "type": "service",
       "version": "2019-07-29",
@@ -520,9 +535,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -533,9 +548,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -546,9 +561,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -559,9 +574,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -572,9 +587,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -585,9 +600,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -598,9 +613,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -611,9 +626,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -624,9 +639,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -637,9 +652,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -650,9 +665,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -663,9 +678,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -676,9 +691,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -689,9 +704,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -702,9 +717,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -715,9 +730,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -728,9 +743,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -741,9 +756,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -754,9 +769,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -767,9 +782,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -780,9 +795,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -793,9 +808,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -806,9 +821,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -819,9 +834,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -832,9 +847,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -845,9 +860,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -858,9 +873,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -871,9 +886,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -884,9 +899,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -897,9 +912,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -910,9 +925,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -923,9 +938,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -936,9 +951,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -949,9 +964,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -962,9 +977,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -975,9 +990,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -988,9 +1003,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1001,9 +1016,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1014,9 +1029,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1027,9 +1042,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1040,9 +1055,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1053,9 +1068,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1066,9 +1081,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1079,9 +1094,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1092,9 +1107,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1105,9 +1120,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1118,9 +1133,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1131,9 +1146,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1144,9 +1159,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1157,9 +1172,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1170,9 +1185,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1183,9 +1198,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1196,9 +1211,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1209,9 +1224,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1222,9 +1237,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1235,9 +1250,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1248,9 +1263,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1261,9 +1276,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1274,9 +1289,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1287,9 +1302,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1300,9 +1315,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1313,9 +1328,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1326,9 +1341,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1339,9 +1354,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1352,9 +1367,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1365,9 +1380,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1378,9 +1393,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1391,9 +1406,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1404,9 +1419,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1417,9 +1432,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1430,9 +1445,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1443,9 +1458,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1456,9 +1471,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1469,9 +1484,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1482,9 +1497,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1495,9 +1510,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1508,9 +1523,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1521,9 +1536,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1534,9 +1549,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1547,9 +1562,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1560,9 +1575,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1573,9 +1588,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1586,9 +1601,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1599,9 +1614,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1612,9 +1627,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1625,9 +1640,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1638,9 +1653,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1651,9 +1666,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1664,9 +1679,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1677,9 +1692,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1690,9 +1705,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1703,9 +1718,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1716,9 +1731,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1729,9 +1744,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1742,9 +1757,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1755,9 +1770,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1768,9 +1783,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1781,9 +1796,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1794,9 +1809,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1807,9 +1822,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1820,9 +1835,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1833,9 +1848,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1846,9 +1861,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1859,9 +1874,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1872,9 +1887,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1884,9 +1899,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1896,9 +1911,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             }
@@ -1916,7 +1931,7 @@
         "Action": {
           "target": "com.amazonaws.wafv2#ActionValue",
           "traits": {
-            "smithy.api#documentation": "<p>The action setting that a log record must contain in order to meet the condition.\n      </p>",
+            "smithy.api#documentation": "<p>The action setting that a log record must contain in order to meet the condition. This is the action that WAF applied to the web request. </p>\n         <p>For rule groups, this is either the configured rule action setting, or if you've applied a rule action override to the rule, it's the override action. \n       The value <code>EXCLUDED_AS_COUNT</code> matches on \n       excluded rules and also on rules that have a rule action override of Count. </p>",
             "smithy.api#required": {}
           }
         }
@@ -1950,6 +1965,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "CAPTCHA"
+          }
+        },
+        "CHALLENGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CHALLENGE"
           }
         },
         "EXCLUDED_AS_COUNT": {
@@ -2163,12 +2184,12 @@
         "CustomRequestHandling": {
           "target": "com.amazonaws.wafv2#CustomRequestHandling",
           "traits": {
-            "smithy.api#documentation": "<p>Defines custom handling for the web request.</p>\n         <p>For information about customizing web requests and responses, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html\">Customizing web requests and responses in WAF</a> in the \n         <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html\">WAF Developer Guide</a>. </p>"
+            "smithy.api#documentation": "<p>Defines custom handling for the web request, used when the <code>CAPTCHA</code> inspection determines that the request's token is valid and unexpired.</p>\n         <p>For information about customizing web requests and responses, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html\">Customizing web requests and responses in WAF</a> in the \n         <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html\">WAF Developer Guide</a>. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Specifies that WAF should run a <code>CAPTCHA</code> check against the request: </p>\n         <ul>\n            <li>\n               <p>If the request includes a valid, unexpired <code>CAPTCHA</code> token,\n               WAF allows the web request inspection to \n                   proceed to the next rule, similar to a <code>CountAction</code>. </p>\n           </li>\n            <li>\n               <p>If the request doesn't include a valid, unexpired <code>CAPTCHA</code> token, WAF \n                   discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.</p>\n               <p>WAF generates a response that it sends back to the client, which includes the following: </p>\n               <ul>\n                  <li>\n                       <p>The header <code>x-amzn-waf-action</code> with a value of <code>captcha</code>. </p>\n                   </li>\n                  <li>\n                       <p>The HTTP status code <code>405 Method Not Allowed</code>. </p>\n                   </li>\n                  <li>\n                       <p>If the request contains an <code>Accept</code> header with a value of <code>text/html</code>, the response includes a <code>CAPTCHA</code> challenge. </p>\n                   </li>\n               </ul>\n           </li>\n         </ul>\n         <p>You can configure the expiration time \n               in the <code>CaptchaConfig</code> \n            <code>ImmunityTimeProperty</code> setting at the rule and web ACL level. The rule setting overrides the web ACL setting. </p>\n         <p>This action option is available for rules. It isn't available for web ACL default actions. </p>"
+        "smithy.api#documentation": "<p>Specifies that WAF should run a <code>CAPTCHA</code> check against the request: </p>\n         <ul>\n            <li>\n               <p>If the request includes a valid, unexpired <code>CAPTCHA</code> token,\n               WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to \n               proceed to the next rule, similar to a <code>CountAction</code>. </p>\n           </li>\n            <li>\n               <p>If the request doesn't include a valid, unexpired token, WAF \n                   discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.</p>\n               <p>WAF generates a response that it sends back to the client, which includes the following: </p>\n               <ul>\n                  <li>\n                       <p>The header <code>x-amzn-waf-action</code> with a value of <code>captcha</code>. </p>\n                   </li>\n                  <li>\n                       <p>The HTTP status code <code>405 Method Not Allowed</code>. </p>\n                   </li>\n                  <li>\n                       <p>If the request contains an <code>Accept</code> header with a value of <code>text/html</code>, the response includes a <code>CAPTCHA</code> JavaScript page interstitial. </p>\n                   </li>\n               </ul>\n           </li>\n         </ul>\n         <p>You can configure the expiration time \n               in the <code>CaptchaConfig</code> \n            <code>ImmunityTimeProperty</code> setting at the rule and web ACL level. The rule setting overrides the web ACL setting. </p>\n         <p>This action option is available for rules. It isn't available for web ACL default actions. </p>"
       }
     },
     "com.amazonaws.wafv2#CaptchaConfig": {
@@ -2177,7 +2198,7 @@
         "ImmunityTimeProperty": {
           "target": "com.amazonaws.wafv2#ImmunityTimeProperty",
           "traits": {
-            "smithy.api#documentation": "<p>Determines how long a <code>CAPTCHA</code> token remains valid after the client\n         successfully solves a <code>CAPTCHA</code> puzzle. </p>"
+            "smithy.api#documentation": "<p>Determines how long a <code>CAPTCHA</code> timestamp in the token remains valid after the client\n         successfully solves a <code>CAPTCHA</code> puzzle. </p>"
           }
         }
       },
@@ -2197,7 +2218,7 @@
         "SolveTimestamp": {
           "target": "com.amazonaws.wafv2#SolveTimestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The time that the <code>CAPTCHA</code> puzzle was solved for the supplied token. </p>"
+            "smithy.api#documentation": "<p>The time that the <code>CAPTCHA</code> was last solved for the supplied token. </p>"
           }
         },
         "FailureReason": {
@@ -2208,7 +2229,61 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result from the inspection of the web request for a valid <code>CAPTCHA</code>\n         token. </p>"
+        "smithy.api#documentation": "<p>The result from the inspection of the web request for a valid <code>CAPTCHA</code> token. </p>"
+      }
+    },
+    "com.amazonaws.wafv2#ChallengeAction": {
+      "type": "structure",
+      "members": {
+        "CustomRequestHandling": {
+          "target": "com.amazonaws.wafv2#CustomRequestHandling",
+          "traits": {
+            "smithy.api#documentation": "<p>Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.</p>\n         <p>For information about customizing web requests and responses, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html\">Customizing web requests and responses in WAF</a> in the \n         <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html\">WAF Developer Guide</a>. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies that WAF should run a <code>Challenge</code> check against the request to verify that the request is coming from a legitimate client session: </p>\n         <ul>\n            <li>\n               <p>If the request includes a valid, unexpired challenge token,\n               WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to \n               proceed to the next rule, similar to a <code>CountAction</code>. </p>\n            </li>\n            <li>\n               <p>If the request doesn't include a valid, unexpired challenge token, WAF \n                   discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.</p>\n               <p>WAF then generates a challenge response that it sends back to the client, which includes the following: </p>\n               <ul>\n                  <li>\n                       <p>The header <code>x-amzn-waf-action</code> with a value of <code>challenge</code>. </p>\n                   </li>\n                  <li>\n                       <p>The HTTP status code <code>202 Request Accepted</code>. </p>\n                   </li>\n                  <li>\n                       <p>If the request contains an <code>Accept</code> header with a value of <code>text/html</code>, the response includes a JavaScript page interstitial with a challenge script. </p>\n                   </li>\n               </ul>\n               <p>Challenges run silent browser interrogations in the background, and don't generally affect the end user experience. </p>\n               <p>A challenge enforces token acquisition using an interstitial JavaScript challenge that inspects the client session for legitimate behavior. The challenge blocks bots or at least increases the cost of operating sophisticated bots. </p> \n               <p>After the client session successfully responds to \n           the challenge, it receives a new token from WAF, which the challenge script uses to resubmit the original request. </p> \n            </li>\n         </ul>\n         <p>You can configure the expiration time \n         in the <code>ChallengeConfig</code> \n            <code>ImmunityTimeProperty</code> setting at the rule and web ACL level. The rule setting overrides the web ACL setting. </p>\n         <p>This action option is available for rules. It isn't available for web ACL default actions. </p>"
+      }
+    },
+    "com.amazonaws.wafv2#ChallengeConfig": {
+      "type": "structure",
+      "members": {
+        "ImmunityTimeProperty": {
+          "target": "com.amazonaws.wafv2#ImmunityTimeProperty",
+          "traits": {
+            "smithy.api#documentation": "<p>Determines how long a challenge timestamp in the token remains valid after the client\n         successfully responds to a challenge. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies how WAF should handle <code>Challenge</code> evaluations. This is\n         available at the web ACL level and in each rule. </p>"
+      }
+    },
+    "com.amazonaws.wafv2#ChallengeResponse": {
+      "type": "structure",
+      "members": {
+        "ResponseCode": {
+          "target": "com.amazonaws.wafv2#ResponseCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The HTTP response code indicating the status of the challenge token in the\n         web request. If the token is missing, invalid, or expired, this code is <code>202 Request Accepted</code>.</p>"
+          }
+        },
+        "SolveTimestamp": {
+          "target": "com.amazonaws.wafv2#SolveTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the challenge was last solved for the supplied token. </p>"
+          }
+        },
+        "FailureReason": {
+          "target": "com.amazonaws.wafv2#FailureReason",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason for failure, populated when the evaluation of the token fails.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The result from the inspection of the web request for a valid challenge token. </p>"
       }
     },
     "com.amazonaws.wafv2#CheckCapacity": {
@@ -4277,6 +4352,9 @@
           "target": "com.amazonaws.wafv2#WAFDuplicateItemException"
         },
         {
+          "target": "com.amazonaws.wafv2#WAFExpiredManagedRuleGroupVersionException"
+        },
+        {
           "target": "com.amazonaws.wafv2#WAFInternalErrorException"
         },
         {
@@ -4374,6 +4452,18 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>"
           }
+        },
+        "ChallengeConfig": {
+          "target": "com.amazonaws.wafv2#ChallengeConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies how WAF should handle challenge evaluations for rules that don't have \ntheir own <code>ChallengeConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>ChallengeConfig</code>. </p>"
+          }
+        },
+        "TokenDomains": {
+          "target": "com.amazonaws.wafv2#TokenDomains",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the domains that WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When WAF provides a token, it uses the domain of the Amazon Web Services resource that the web ACL is protecting. If you don't specify a list of token domains, WAF accepts tokens only for the domain of the protected resource. With a token domain list, WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.</p> \n         <p>Example JSON: <code>\"TokenDomains\": { \"mywebsite.com\", \"myotherwebsite.com\" }</code>\n         </p>"
+          }
         }
       }
     },
@@ -4453,7 +4543,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Custom request handling behavior that inserts custom headers into a web request. You can\n         add custom request handling for the rule actions allow and count. </p>\n         <p>For information about customizing web requests and responses, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html\">Customizing web requests and responses in WAF</a> in the \n         <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html\">WAF Developer Guide</a>. </p>"
+        "smithy.api#documentation": "<p>Custom request handling behavior that inserts custom headers into a web request. You can\n      add custom request handling for WAF to use when the rule action doesn't block the request. \n          For example, <code>CaptchaAction</code> for requests with valid t okens, and <code>AllowAction</code>. </p>\n         <p>For information about customizing web requests and responses, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html\">Customizing web requests and responses in WAF</a> in the \n         <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html\">WAF Developer Guide</a>. </p>"
       }
     },
     "com.amazonaws.wafv2#CustomResponse": {
@@ -5187,7 +5277,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Specifies a single rule in a rule group whose action you want to override to\n            <code>Count</code>. When you exclude a rule, WAF evaluates it exactly as it would if\n         the rule action setting were <code>Count</code>. This is a useful option for testing the\n         rules in a rule group without modifying how they handle your web traffic. </p>"
+        "smithy.api#documentation": "<p>Specifies a single rule in a rule group whose action you want to override to <code>Count</code>. </p>\n         <note>\n            <p>Instead of this option, use <code>RuleActionOverrides</code>. It accepts any valid action setting, including <code>Count</code>.</p>\n         </note>"
       }
     },
     "com.amazonaws.wafv2#ExcludedRules": {
@@ -5215,6 +5305,18 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "TOKEN_EXPIRED"
+          }
+        },
+        "TOKEN_INVALID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TOKEN_INVALID"
+          }
+        },
+        "TOKEN_DOMAIN_MISMATCH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TOKEN_DOMAIN_MISMATCH"
           }
         }
       }
@@ -5426,7 +5528,7 @@
         "OverrideAction": {
           "target": "com.amazonaws.wafv2#OverrideAction",
           "traits": {
-            "smithy.api#documentation": "<p>The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only. </p>\n         <p>You can only use this for rule statements that reference a rule group, like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>\n         <note>\n            <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count  \n  matches, do not use this and instead exclude those rules in your rule group reference statement settings. </p>\n         </note>",
+            "smithy.api#documentation": "<p>The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only. </p>\n         <p>You can only use this for rule statements that reference a rule group, like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>\n         <note>\n            <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count  \n  matches, do not use this and instead use the rule action override option, with <code>Count</code> action, in your rule group reference statement settings. </p>\n         </note>",
             "smithy.api#required": {}
           }
         },
@@ -5546,7 +5648,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Generates a presigned download URL for the specified release of the mobile SDK.</p>\n         <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see \n<a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html\">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Generates a presigned download URL for the specified release of the mobile SDK.</p>\n         <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see \n<a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html\">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>"
       }
     },
     "com.amazonaws.wafv2#GenerateMobileSdkReleaseUrlRequest": {
@@ -5809,7 +5911,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves information for the specified mobile SDK release, including release notes and\n         tags.</p>\n         <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see \n<a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html\">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Retrieves information for the specified mobile SDK release, including release notes and\n         tags.</p>\n         <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see \n<a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html\">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>"
       }
     },
     "com.amazonaws.wafv2#GetMobileSdkReleaseRequest": {
@@ -6660,13 +6762,30 @@
         "ImmunityTime": {
           "target": "com.amazonaws.wafv2#TimeWindowSecond",
           "traits": {
-            "smithy.api#documentation": "<p>The amount of time, in seconds, that a <code>CAPTCHA</code> token is valid. The default\n         setting is 300.</p>",
+            "smithy.api#documentation": "<p>The amount of time, in seconds, that a <code>CAPTCHA</code> or challenge timestamp is considered valid by WAF. The default\n          setting is 300. </p>\n         <p>For the Challenge action, the minimum setting is 300. </p>",
             "smithy.api#required": {}
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Determines how long a <code>CAPTCHA</code> token remains valid after the client\n         successfully solves a <code>CAPTCHA</code> puzzle. </p>"
+        "smithy.api#documentation": "<p>Used for CAPTCHA and challenge token settings. Determines \n       how long a <code>CAPTCHA</code> or challenge timestamp remains valid after WAF updates it for a successful <code>CAPTCHA</code> or challenge response. </p>"
+      }
+    },
+    "com.amazonaws.wafv2#InspectionLevel": {
+      "type": "enum",
+      "members": {
+        "COMMON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMMON"
+          }
+        },
+        "TARGETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TARGETED"
+          }
+        }
       }
     },
     "com.amazonaws.wafv2#JsonBody": {
@@ -7255,7 +7374,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves a list of the available releases for the mobile SDK and the specified device\n         platform. </p>\n         <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see \n<a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html\">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Retrieves a list of the available releases for the mobile SDK and the specified device\n         platform. </p>\n         <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see \n<a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html\">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>"
       }
     },
     "com.amazonaws.wafv2#ListMobileSdkReleasesRequest": {
@@ -7746,10 +7865,16 @@
           "traits": {
             "smithy.api#documentation": "<p>Details about your login page password field. </p>"
           }
+        },
+        "AWSManagedRulesBotControlRuleSet": {
+          "target": "com.amazonaws.wafv2#AWSManagedRulesBotControlRuleSet",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional configuration for using the Bot Control managed rule group. Use this to specify the \n       inspection level that you want to use. For information \n       about using the Bot Control managed rule group, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html\">WAF Bot Control rule group</a> \n               and <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html\">WAF Bot Control</a>\n               in the <i>WAF Developer Guide</i>.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Additional information that's used by a managed rule group. Most managed rule groups don't require this.</p>\n         <p>Use this for the account takeover prevention managed rule group \n      <code>AWSManagedRulesATPRuleSet</code>, to provide information about the sign-in page of your application. </p> \n         <p>You can provide multiple individual <code>ManagedRuleGroupConfig</code> objects for any rule group configuration, for example <code>UsernameField</code> and <code>PasswordField</code>. The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: <code>LoginPath</code>, <code>PasswordField</code>, <code>PayloadType</code> and <code>UsernameField</code>.</p>\n         <p>For example specifications, see the examples section of <a>CreateWebACL</a>.</p>"
+        "smithy.api#documentation": "<p>Additional information that's used by a managed rule group. Many managed rule groups don't require this.</p>\n         <p>Use the <code>AWSManagedRulesBotControlRuleSet</code> configuration object to configure the \n       protection level that you want the Bot Control rule group to use. </p> \n         <p>For example specifications, see the examples section of <a>CreateWebACL</a>.</p>"
       }
     },
     "com.amazonaws.wafv2#ManagedRuleGroupConfigs": {
@@ -7789,7 +7914,7 @@
         "ExcludedRules": {
           "target": "com.amazonaws.wafv2#ExcludedRules",
           "traits": {
-            "smithy.api#documentation": "<p>The rules in the referenced rule group whose actions are set to <code>Count</code>. When\n         you exclude a rule, WAF evaluates it exactly as it would if the rule action setting were\n            <code>Count</code>. This is a useful option for testing the rules in a rule group\n         without modifying how they handle your web traffic.</p>"
+            "smithy.api#documentation": "<p>Rules in the referenced rule group whose actions are set to <code>Count</code>. </p>\n         <note>\n            <p>Instead of this option, use <code>RuleActionOverrides</code>. It accepts any valid action setting, including <code>Count</code>.</p>\n         </note>"
           }
         },
         "ScopeDownStatement": {
@@ -7801,7 +7926,13 @@
         "ManagedRuleGroupConfigs": {
           "target": "com.amazonaws.wafv2#ManagedRuleGroupConfigs",
           "traits": {
-            "smithy.api#documentation": "<p>Additional information that's used by a managed rule group. Most managed rule groups don't require this.</p>\n         <p>Use this for the account takeover prevention managed rule group \n      <code>AWSManagedRulesATPRuleSet</code>, to provide information about the sign-in page of your application. </p> \n         <p>You can provide multiple individual <code>ManagedRuleGroupConfig</code> objects for any rule group configuration, for example <code>UsernameField</code> and <code>PasswordField</code>. The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: <code>LoginPath</code>, <code>PasswordField</code>, <code>PayloadType</code> and <code>UsernameField</code>.</p>"
+            "smithy.api#documentation": "<p>Additional information that's used by a managed rule group. Many managed rule groups don't require this.</p>\n         <p>Use the <code>AWSManagedRulesBotControlRuleSet</code> configuration object to configure the \n       protection level that you want the Bot Control rule group to use. </p>"
+          }
+        },
+        "RuleActionOverrides": {
+          "target": "com.amazonaws.wafv2#RuleActionOverrides",
+          "traits": {
+            "smithy.api#documentation": "<p>Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. </p>\n         <p>You can use overrides for testing, for example you can override all of rule actions to <code>Count</code> and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.</p>"
           }
         }
       },
@@ -8091,7 +8222,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Information for a release of the mobile SDK, including release notes and tags.</p>\n         <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see \n<a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html\">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Information for a release of the mobile SDK, including release notes and tags.</p>\n         <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see \n<a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html\">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>"
       }
     },
     "com.amazonaws.wafv2#NextMarker": {
@@ -8150,7 +8281,7 @@
         "Count": {
           "target": "com.amazonaws.wafv2#CountAction",
           "traits": {
-            "smithy.api#documentation": "<p>Override the rule group evaluation result to count only. </p>\n         <note>\n            <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count  \n  matches, do not use this and instead exclude those rules in your rule group reference statement settings. </p>\n         </note>"
+            "smithy.api#documentation": "<p>Override the rule group evaluation result to count only. </p>\n         <note>\n            <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count  \n  matches, do not use this and instead use the rule action override option, with <code>Count</code> action, in your rule group reference statement settings. </p>\n         </note>"
           }
         },
         "None": {
@@ -8161,7 +8292,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only. </p>\n         <p>You can only use this for rule statements that reference a rule group, like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>\n         <note>\n            <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count  \n  matches, do not use this and instead exclude those rules in your rule group reference statement settings. </p>\n         </note>"
+        "smithy.api#documentation": "<p>The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only. </p>\n         <p>You can only use this for rule statements that reference a rule group, like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>\n         <note>\n            <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count  \n  matches, do not use this and instead use the rule action override option, with <code>Count</code> action, in your rule group reference statement settings. </p>\n         </note>"
       }
     },
     "com.amazonaws.wafv2#OversizeHandling": {
@@ -8575,6 +8706,18 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "OVERSIZE_HANDLING"
+          }
+        },
+        "CHALLENGE_CONFIG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CHALLENGE_CONFIG"
+          }
+        },
+        "TOKEN_DOMAIN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TOKEN_DOMAIN"
           }
         }
       }
@@ -9315,7 +9458,7 @@
         "OverrideAction": {
           "target": "com.amazonaws.wafv2#OverrideAction",
           "traits": {
-            "smithy.api#documentation": "<p>The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only. </p>\n         <p>You can only use this for rule statements that reference a rule group, like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>\n         <note>\n            <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count  \n  matches, do not use this and instead exclude those rules in your rule group reference statement settings. </p>\n         </note>"
+            "smithy.api#documentation": "<p>The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only. </p>\n         <p>You can only use this for rule statements that reference a rule group, like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>\n         <note>\n            <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count  \n  matches, do not use this and instead use the rule action override option, with <code>Count</code> action, in your rule group reference statement settings. </p>\n         </note>"
           }
         },
         "RuleLabels": {
@@ -9335,6 +9478,12 @@
           "target": "com.amazonaws.wafv2#CaptchaConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations. If you don't specify this, WAF uses the <code>CAPTCHA</code> configuration that's defined for the web ACL. </p>"
+          }
+        },
+        "ChallengeConfig": {
+          "target": "com.amazonaws.wafv2#ChallengeConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies how WAF should handle <code>Challenge</code> evaluations. If you don't specify this, WAF uses the challenge configuration that's defined for the web ACL. </p>"
           }
         }
       },
@@ -9368,10 +9517,50 @@
           "traits": {
             "smithy.api#documentation": "<p>Instructs WAF to run a <code>CAPTCHA</code> check against the web request.</p>"
           }
+        },
+        "Challenge": {
+          "target": "com.amazonaws.wafv2#ChallengeAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Instructs WAF to run a <code>Challenge</code> check against the web request.</p>"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>The action that WAF should take on a web request when it matches a rule's\n         statement. Settings at the web ACL level can override the rule action setting. </p>"
+      }
+    },
+    "com.amazonaws.wafv2#RuleActionOverride": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.wafv2#EntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the rule to override.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ActionToUse": {
+          "target": "com.amazonaws.wafv2#RuleAction",
+          "traits": {
+            "smithy.api#documentation": "<p>The override action to use, in place of the configured action of the rule in the rule group. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Action setting to use in the place of a rule action that is configured inside the rule group. You specify one override for each rule whose action you want to change. </p>\n         <p>You can use overrides for testing, for example you can override all of rule actions to <code>Count</code> and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.</p>"
+      }
+    },
+    "com.amazonaws.wafv2#RuleActionOverrides": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.wafv2#RuleActionOverride"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
       }
     },
     "com.amazonaws.wafv2#RuleGroup": {
@@ -9467,7 +9656,13 @@
         "ExcludedRules": {
           "target": "com.amazonaws.wafv2#ExcludedRules",
           "traits": {
-            "smithy.api#documentation": "<p>The rules in the referenced rule group whose actions are set to <code>Count</code>. When\n         you exclude a rule, WAF evaluates it exactly as it would if the rule action setting were\n            <code>Count</code>. This is a useful option for testing the rules in a rule group\n         without modifying how they handle your web traffic.</p>"
+            "smithy.api#documentation": "<p>Rules in the referenced rule group whose actions are set to <code>Count</code>. </p>\n         <note>\n            <p>Instead of this option, use <code>RuleActionOverrides</code>. It accepts any valid action setting, including <code>Count</code>.</p>\n         </note>"
+          }
+        },
+        "RuleActionOverrides": {
+          "target": "com.amazonaws.wafv2#RuleActionOverrides",
+          "traits": {
+            "smithy.api#documentation": "<p>Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. </p>\n         <p>You can use overrides for testing, for example you can override all of rule actions to <code>Count</code> and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.</p>"
           }
         }
       },
@@ -9596,7 +9791,7 @@
         "Action": {
           "target": "com.amazonaws.wafv2#Action",
           "traits": {
-            "smithy.api#documentation": "<p>The action for the <code>Rule</code> that the request matched: <code>Allow</code>,\n            <code>Block</code>, or <code>Count</code>.</p>"
+            "smithy.api#documentation": "<p>The action that WAF applied to the request.</p>"
           }
         },
         "RuleNameWithinRuleGroup": {
@@ -9627,6 +9822,18 @@
           "target": "com.amazonaws.wafv2#CaptchaResponse",
           "traits": {
             "smithy.api#documentation": "<p>The <code>CAPTCHA</code> response for the request.</p>"
+          }
+        },
+        "ChallengeResponse": {
+          "target": "com.amazonaws.wafv2#ChallengeResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>Challenge</code> response for the request.</p>"
+          }
+        },
+        "OverriddenAction": {
+          "target": "com.amazonaws.wafv2#Action",
+          "traits": {
+            "smithy.api#documentation": "<p>Used only for rule group rules that have a rule action override in place in the web ACL. This is the action that the rule group rule is configured for, and not the action that was applied to the request. The action that WAF applied is the <code>Action</code> value. </p>"
           }
         }
       },
@@ -10257,6 +10464,27 @@
     "com.amazonaws.wafv2#Timestamp": {
       "type": "timestamp"
     },
+    "com.amazonaws.wafv2#TokenDomain": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 253
+        },
+        "smithy.api#pattern": "^[\\w\\.\\-/]+$"
+      }
+    },
+    "com.amazonaws.wafv2#TokenDomains": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.wafv2#TokenDomain"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
+      }
+    },
     "com.amazonaws.wafv2#URIString": {
       "type": "string"
     },
@@ -10829,6 +11057,18 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>"
           }
+        },
+        "ChallengeConfig": {
+          "target": "com.amazonaws.wafv2#ChallengeConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies how WAF should handle challenge evaluations for rules that don't have \ntheir own <code>ChallengeConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>ChallengeConfig</code>. </p>"
+          }
+        },
+        "TokenDomains": {
+          "target": "com.amazonaws.wafv2#TokenDomains",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the domains that WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When WAF provides a token, it uses the domain of the Amazon Web Services resource that the web ACL is protecting. If you don't specify a list of token domains, WAF accepts tokens only for the domain of the protected resource. With a token domain list, WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.</p> \n         <p>Example JSON: <code>\"TokenDomains\": { \"mywebsite.com\", \"myotherwebsite.com\" }</code>\n         </p>"
+          }
         }
       }
     },
@@ -11271,6 +11511,18 @@
           "target": "com.amazonaws.wafv2#CaptchaConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>"
+          }
+        },
+        "ChallengeConfig": {
+          "target": "com.amazonaws.wafv2#ChallengeConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies how WAF should handle challenge evaluations for rules that don't have \ntheir own <code>ChallengeConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>ChallengeConfig</code>. </p>"
+          }
+        },
+        "TokenDomains": {
+          "target": "com.amazonaws.wafv2#TokenDomains",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the domains that WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When WAF provides a token, it uses the domain of the Amazon Web Services resource that the web ACL is protecting. If you don't specify a list of token domains, WAF accepts tokens only for the domain of the protected resource. With a token domain list, WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.</p>"
           }
         }
       },

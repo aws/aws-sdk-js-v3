@@ -149,12 +149,16 @@ import {
   AndStatement,
   AssociateWebACLRequest,
   AssociateWebACLResponse,
+  AWSManagedRulesBotControlRuleSet,
   BlockAction,
   Body,
   ByteMatchStatement,
   CaptchaAction,
   CaptchaConfig,
   CaptchaResponse,
+  ChallengeAction,
+  ChallengeConfig,
+  ChallengeResponse,
   CheckCapacityRequest,
   CheckCapacityResponse,
   Condition,
@@ -294,6 +298,7 @@ import {
   ReleaseSummary,
   Rule,
   RuleAction,
+  RuleActionOverride,
   RuleGroup,
   RuleGroupReferenceStatement,
   RuleGroupSummary,
@@ -1320,6 +1325,9 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
     case "WAFDuplicateItemException":
     case "com.amazonaws.wafv2#WAFDuplicateItemException":
       throw await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(parsedOutput, context);
+    case "WAFExpiredManagedRuleGroupVersionException":
+    case "com.amazonaws.wafv2#WAFExpiredManagedRuleGroupVersionException":
+      throw await deserializeAws_json1_1WAFExpiredManagedRuleGroupVersionExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafv2#WAFInternalErrorException":
       throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
@@ -3862,6 +3870,15 @@ const serializeAws_json1_1AssociateWebACLRequest = (input: AssociateWebACLReques
   };
 };
 
+const serializeAws_json1_1AWSManagedRulesBotControlRuleSet = (
+  input: AWSManagedRulesBotControlRuleSet,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InspectionLevel != null && { InspectionLevel: input.InspectionLevel }),
+  };
+};
+
 const serializeAws_json1_1BlockAction = (input: BlockAction, context: __SerdeContext): any => {
   return {
     ...(input.CustomResponse != null && {
@@ -3896,6 +3913,22 @@ const serializeAws_json1_1CaptchaAction = (input: CaptchaAction, context: __Serd
 };
 
 const serializeAws_json1_1CaptchaConfig = (input: CaptchaConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.ImmunityTimeProperty != null && {
+      ImmunityTimeProperty: serializeAws_json1_1ImmunityTimeProperty(input.ImmunityTimeProperty, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ChallengeAction = (input: ChallengeAction, context: __SerdeContext): any => {
+  return {
+    ...(input.CustomRequestHandling != null && {
+      CustomRequestHandling: serializeAws_json1_1CustomRequestHandling(input.CustomRequestHandling, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ChallengeConfig = (input: ChallengeConfig, context: __SerdeContext): any => {
   return {
     ...(input.ImmunityTimeProperty != null && {
       ImmunityTimeProperty: serializeAws_json1_1ImmunityTimeProperty(input.ImmunityTimeProperty, context),
@@ -4023,6 +4056,9 @@ const serializeAws_json1_1CreateWebACLRequest = (input: CreateWebACLRequest, con
     ...(input.CaptchaConfig != null && {
       CaptchaConfig: serializeAws_json1_1CaptchaConfig(input.CaptchaConfig, context),
     }),
+    ...(input.ChallengeConfig != null && {
+      ChallengeConfig: serializeAws_json1_1ChallengeConfig(input.ChallengeConfig, context),
+    }),
     ...(input.CustomResponseBodies != null && {
       CustomResponseBodies: serializeAws_json1_1CustomResponseBodies(input.CustomResponseBodies, context),
     }),
@@ -4034,6 +4070,7 @@ const serializeAws_json1_1CreateWebACLRequest = (input: CreateWebACLRequest, con
     ...(input.Rules != null && { Rules: serializeAws_json1_1Rules(input.Rules, context) }),
     ...(input.Scope != null && { Scope: input.Scope }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.TokenDomains != null && { TokenDomains: serializeAws_json1_1TokenDomains(input.TokenDomains, context) }),
     ...(input.VisibilityConfig != null && {
       VisibilityConfig: serializeAws_json1_1VisibilityConfig(input.VisibilityConfig, context),
     }),
@@ -4637,6 +4674,12 @@ const serializeAws_json1_1LoggingFilter = (input: LoggingFilter, context: __Serd
 
 const serializeAws_json1_1ManagedRuleGroupConfig = (input: ManagedRuleGroupConfig, context: __SerdeContext): any => {
   return {
+    ...(input.AWSManagedRulesBotControlRuleSet != null && {
+      AWSManagedRulesBotControlRuleSet: serializeAws_json1_1AWSManagedRulesBotControlRuleSet(
+        input.AWSManagedRulesBotControlRuleSet,
+        context
+      ),
+    }),
     ...(input.LoginPath != null && { LoginPath: input.LoginPath }),
     ...(input.PasswordField != null && {
       PasswordField: serializeAws_json1_1PasswordField(input.PasswordField, context),
@@ -4668,6 +4711,9 @@ const serializeAws_json1_1ManagedRuleGroupStatement = (
       ManagedRuleGroupConfigs: serializeAws_json1_1ManagedRuleGroupConfigs(input.ManagedRuleGroupConfigs, context),
     }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.RuleActionOverrides != null && {
+      RuleActionOverrides: serializeAws_json1_1RuleActionOverrides(input.RuleActionOverrides, context),
+    }),
     ...(input.ScopeDownStatement != null && {
       ScopeDownStatement: serializeAws_json1_1Statement(input.ScopeDownStatement, context),
     }),
@@ -4814,6 +4860,9 @@ const serializeAws_json1_1Rule = (input: Rule, context: __SerdeContext): any => 
     ...(input.CaptchaConfig != null && {
       CaptchaConfig: serializeAws_json1_1CaptchaConfig(input.CaptchaConfig, context),
     }),
+    ...(input.ChallengeConfig != null && {
+      ChallengeConfig: serializeAws_json1_1ChallengeConfig(input.ChallengeConfig, context),
+    }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OverrideAction != null && {
       OverrideAction: serializeAws_json1_1OverrideAction(input.OverrideAction, context),
@@ -4832,8 +4881,24 @@ const serializeAws_json1_1RuleAction = (input: RuleAction, context: __SerdeConte
     ...(input.Allow != null && { Allow: serializeAws_json1_1AllowAction(input.Allow, context) }),
     ...(input.Block != null && { Block: serializeAws_json1_1BlockAction(input.Block, context) }),
     ...(input.Captcha != null && { Captcha: serializeAws_json1_1CaptchaAction(input.Captcha, context) }),
+    ...(input.Challenge != null && { Challenge: serializeAws_json1_1ChallengeAction(input.Challenge, context) }),
     ...(input.Count != null && { Count: serializeAws_json1_1CountAction(input.Count, context) }),
   };
+};
+
+const serializeAws_json1_1RuleActionOverride = (input: RuleActionOverride, context: __SerdeContext): any => {
+  return {
+    ...(input.ActionToUse != null && { ActionToUse: serializeAws_json1_1RuleAction(input.ActionToUse, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1RuleActionOverrides = (input: RuleActionOverride[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1RuleActionOverride(entry, context);
+    });
 };
 
 const serializeAws_json1_1RuleGroupReferenceStatement = (
@@ -4844,6 +4909,9 @@ const serializeAws_json1_1RuleGroupReferenceStatement = (
     ...(input.ARN != null && { ARN: input.ARN }),
     ...(input.ExcludedRules != null && {
       ExcludedRules: serializeAws_json1_1ExcludedRules(input.ExcludedRules, context),
+    }),
+    ...(input.RuleActionOverrides != null && {
+      RuleActionOverrides: serializeAws_json1_1RuleActionOverrides(input.RuleActionOverrides, context),
     }),
   };
 };
@@ -5002,6 +5070,14 @@ const serializeAws_json1_1TimeWindow = (input: TimeWindow, context: __SerdeConte
   };
 };
 
+const serializeAws_json1_1TokenDomains = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
@@ -5072,6 +5148,9 @@ const serializeAws_json1_1UpdateWebACLRequest = (input: UpdateWebACLRequest, con
     ...(input.CaptchaConfig != null && {
       CaptchaConfig: serializeAws_json1_1CaptchaConfig(input.CaptchaConfig, context),
     }),
+    ...(input.ChallengeConfig != null && {
+      ChallengeConfig: serializeAws_json1_1ChallengeConfig(input.ChallengeConfig, context),
+    }),
     ...(input.CustomResponseBodies != null && {
       CustomResponseBodies: serializeAws_json1_1CustomResponseBodies(input.CustomResponseBodies, context),
     }),
@@ -5084,6 +5163,7 @@ const serializeAws_json1_1UpdateWebACLRequest = (input: UpdateWebACLRequest, con
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Rules != null && { Rules: serializeAws_json1_1Rules(input.Rules, context) }),
     ...(input.Scope != null && { Scope: input.Scope }),
+    ...(input.TokenDomains != null && { TokenDomains: serializeAws_json1_1TokenDomains(input.TokenDomains, context) }),
     ...(input.VisibilityConfig != null && {
       VisibilityConfig: serializeAws_json1_1VisibilityConfig(input.VisibilityConfig, context),
     }),
@@ -5175,6 +5255,15 @@ const deserializeAws_json1_1AssociateWebACLResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1AWSManagedRulesBotControlRuleSet = (
+  output: any,
+  context: __SerdeContext
+): AWSManagedRulesBotControlRuleSet => {
+  return {
+    InspectionLevel: __expectString(output.InspectionLevel),
+  } as any;
+};
+
 const deserializeAws_json1_1BlockAction = (output: any, context: __SerdeContext): BlockAction => {
   return {
     CustomResponse:
@@ -5220,6 +5309,32 @@ const deserializeAws_json1_1CaptchaConfig = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1CaptchaResponse = (output: any, context: __SerdeContext): CaptchaResponse => {
+  return {
+    FailureReason: __expectString(output.FailureReason),
+    ResponseCode: __expectInt32(output.ResponseCode),
+    SolveTimestamp: __expectLong(output.SolveTimestamp),
+  } as any;
+};
+
+const deserializeAws_json1_1ChallengeAction = (output: any, context: __SerdeContext): ChallengeAction => {
+  return {
+    CustomRequestHandling:
+      output.CustomRequestHandling != null
+        ? deserializeAws_json1_1CustomRequestHandling(output.CustomRequestHandling, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ChallengeConfig = (output: any, context: __SerdeContext): ChallengeConfig => {
+  return {
+    ImmunityTimeProperty:
+      output.ImmunityTimeProperty != null
+        ? deserializeAws_json1_1ImmunityTimeProperty(output.ImmunityTimeProperty, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ChallengeResponse = (output: any, context: __SerdeContext): ChallengeResponse => {
   return {
     FailureReason: __expectString(output.FailureReason),
     ResponseCode: __expectInt32(output.ResponseCode),
@@ -6116,6 +6231,10 @@ const deserializeAws_json1_1LoggingFilter = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ManagedRuleGroupConfig = (output: any, context: __SerdeContext): ManagedRuleGroupConfig => {
   return {
+    AWSManagedRulesBotControlRuleSet:
+      output.AWSManagedRulesBotControlRuleSet != null
+        ? deserializeAws_json1_1AWSManagedRulesBotControlRuleSet(output.AWSManagedRulesBotControlRuleSet, context)
+        : undefined,
     LoginPath: __expectString(output.LoginPath),
     PasswordField:
       output.PasswordField != null ? deserializeAws_json1_1PasswordField(output.PasswordField, context) : undefined,
@@ -6152,6 +6271,10 @@ const deserializeAws_json1_1ManagedRuleGroupStatement = (
         ? deserializeAws_json1_1ManagedRuleGroupConfigs(output.ManagedRuleGroupConfigs, context)
         : undefined,
     Name: __expectString(output.Name),
+    RuleActionOverrides:
+      output.RuleActionOverrides != null
+        ? deserializeAws_json1_1RuleActionOverrides(output.RuleActionOverrides, context)
+        : undefined,
     ScopeDownStatement:
       output.ScopeDownStatement != null
         ? deserializeAws_json1_1Statement(output.ScopeDownStatement, context)
@@ -6524,6 +6647,10 @@ const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule 
     Action: output.Action != null ? deserializeAws_json1_1RuleAction(output.Action, context) : undefined,
     CaptchaConfig:
       output.CaptchaConfig != null ? deserializeAws_json1_1CaptchaConfig(output.CaptchaConfig, context) : undefined,
+    ChallengeConfig:
+      output.ChallengeConfig != null
+        ? deserializeAws_json1_1ChallengeConfig(output.ChallengeConfig, context)
+        : undefined,
     Name: __expectString(output.Name),
     OverrideAction:
       output.OverrideAction != null ? deserializeAws_json1_1OverrideAction(output.OverrideAction, context) : undefined,
@@ -6542,8 +6669,28 @@ const deserializeAws_json1_1RuleAction = (output: any, context: __SerdeContext):
     Allow: output.Allow != null ? deserializeAws_json1_1AllowAction(output.Allow, context) : undefined,
     Block: output.Block != null ? deserializeAws_json1_1BlockAction(output.Block, context) : undefined,
     Captcha: output.Captcha != null ? deserializeAws_json1_1CaptchaAction(output.Captcha, context) : undefined,
+    Challenge: output.Challenge != null ? deserializeAws_json1_1ChallengeAction(output.Challenge, context) : undefined,
     Count: output.Count != null ? deserializeAws_json1_1CountAction(output.Count, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1RuleActionOverride = (output: any, context: __SerdeContext): RuleActionOverride => {
+  return {
+    ActionToUse: output.ActionToUse != null ? deserializeAws_json1_1RuleAction(output.ActionToUse, context) : undefined,
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1RuleActionOverrides = (output: any, context: __SerdeContext): RuleActionOverride[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RuleActionOverride(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1RuleGroup = (output: any, context: __SerdeContext): RuleGroup => {
@@ -6580,6 +6727,10 @@ const deserializeAws_json1_1RuleGroupReferenceStatement = (
     ARN: __expectString(output.ARN),
     ExcludedRules:
       output.ExcludedRules != null ? deserializeAws_json1_1ExcludedRules(output.ExcludedRules, context) : undefined,
+    RuleActionOverrides:
+      output.RuleActionOverrides != null
+        ? deserializeAws_json1_1RuleActionOverrides(output.RuleActionOverrides, context)
+        : undefined,
   } as any;
 };
 
@@ -6643,7 +6794,12 @@ const deserializeAws_json1_1SampledHTTPRequest = (output: any, context: __SerdeC
       output.CaptchaResponse != null
         ? deserializeAws_json1_1CaptchaResponse(output.CaptchaResponse, context)
         : undefined,
+    ChallengeResponse:
+      output.ChallengeResponse != null
+        ? deserializeAws_json1_1ChallengeResponse(output.ChallengeResponse, context)
+        : undefined,
     Labels: output.Labels != null ? deserializeAws_json1_1Labels(output.Labels, context) : undefined,
+    OverriddenAction: __expectString(output.OverriddenAction),
     Request: output.Request != null ? deserializeAws_json1_1HTTPRequest(output.Request, context) : undefined,
     RequestHeadersInserted:
       output.RequestHeadersInserted != null
@@ -6836,6 +6992,18 @@ const deserializeAws_json1_1TimeWindow = (output: any, context: __SerdeContext):
     StartTime:
       output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1TokenDomains = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
@@ -7075,6 +7243,10 @@ const deserializeAws_json1_1WebACL = (output: any, context: __SerdeContext): Web
     Capacity: __expectLong(output.Capacity),
     CaptchaConfig:
       output.CaptchaConfig != null ? deserializeAws_json1_1CaptchaConfig(output.CaptchaConfig, context) : undefined,
+    ChallengeConfig:
+      output.ChallengeConfig != null
+        ? deserializeAws_json1_1ChallengeConfig(output.ChallengeConfig, context)
+        : undefined,
     CustomResponseBodies:
       output.CustomResponseBodies != null
         ? deserializeAws_json1_1CustomResponseBodies(output.CustomResponseBodies, context)
@@ -7095,6 +7267,8 @@ const deserializeAws_json1_1WebACL = (output: any, context: __SerdeContext): Web
         ? deserializeAws_json1_1FirewallManagerRuleGroups(output.PreProcessFirewallManagerRuleGroups, context)
         : undefined,
     Rules: output.Rules != null ? deserializeAws_json1_1Rules(output.Rules, context) : undefined,
+    TokenDomains:
+      output.TokenDomains != null ? deserializeAws_json1_1TokenDomains(output.TokenDomains, context) : undefined,
     VisibilityConfig:
       output.VisibilityConfig != null
         ? deserializeAws_json1_1VisibilityConfig(output.VisibilityConfig, context)
