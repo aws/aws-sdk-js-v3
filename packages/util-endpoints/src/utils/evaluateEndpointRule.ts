@@ -1,5 +1,6 @@
 import { EndpointV2 } from "@aws-sdk/types";
 
+import { debugId, toDebugString } from "../debug";
 import { EndpointRuleObject, EvaluateOptions } from "../types";
 import { evaluateConditions } from "./evaluateConditions";
 import { getEndpointHeaders } from "./getEndpointHeaders";
@@ -23,6 +24,9 @@ export const evaluateEndpointRule = (
   };
 
   const { url, properties, headers } = endpoint;
+
+  options.logger?.debug(debugId, `Resolving endpoint from template: ${toDebugString(endpoint)}`);
+
   return {
     ...(headers != undefined && {
       headers: getEndpointHeaders(headers, endpointRuleOptions),

@@ -1,5 +1,6 @@
 import { EndpointV2 } from "@aws-sdk/types";
 
+import { debugId, toDebugString } from "./debug";
 import { EndpointError, EndpointResolverOptions, RuleSetObject } from "./types";
 import { evaluateRules } from "./utils";
 
@@ -9,6 +10,8 @@ import { evaluateRules } from "./utils";
 export const resolveEndpoint = (ruleSetObject: RuleSetObject, options: EndpointResolverOptions): EndpointV2 => {
   const { endpointParams, logger } = options;
   const { parameters, rules } = ruleSetObject;
+
+  options.logger?.debug(debugId, `Initial EndpointParams: ${toDebugString(endpointParams)}`);
 
   // @ts-ignore Type 'undefined' is not assignable to type 'string | boolean' (2322)
   const paramsWithDefault: [string, string | boolean][] = Object.entries(parameters)
@@ -44,6 +47,8 @@ export const resolveEndpoint = (ruleSetObject: RuleSetObject, options: EndpointR
       // ignored
     }
   }
+
+  options.logger?.debug(debugId, `Resolved endpoint: ${toDebugString(endpoint)}`);
 
   return endpoint;
 };
