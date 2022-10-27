@@ -34257,6 +34257,12 @@ const serializeAws_ec2CreateReplaceRootVolumeTaskRequest = (
       entries[loc] = value;
     });
   }
+  if (input.ImageId != null) {
+    entries["ImageId"] = input.ImageId;
+  }
+  if (input.DeleteReplacedRootVolume != null) {
+    entries["DeleteReplacedRootVolume"] = input.DeleteReplacedRootVolume;
+  }
   return entries;
 };
 
@@ -73040,6 +73046,9 @@ const deserializeAws_ec2ReplaceRootVolumeTask = (output: any, context: __SerdeCo
     StartTime: undefined,
     CompleteTime: undefined,
     Tags: undefined,
+    ImageId: undefined,
+    SnapshotId: undefined,
+    DeleteReplacedRootVolume: undefined,
   };
   if (output["replaceRootVolumeTaskId"] !== undefined) {
     contents.ReplaceRootVolumeTaskId = __expectString(output["replaceRootVolumeTaskId"]);
@@ -73060,6 +73069,15 @@ const deserializeAws_ec2ReplaceRootVolumeTask = (output: any, context: __SerdeCo
     contents.Tags = [];
   } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["imageId"] !== undefined) {
+    contents.ImageId = __expectString(output["imageId"]);
+  }
+  if (output["snapshotId"] !== undefined) {
+    contents.SnapshotId = __expectString(output["snapshotId"]);
+  }
+  if (output["deleteReplacedRootVolume"] !== undefined) {
+    contents.DeleteReplacedRootVolume = __parseBoolean(output["deleteReplacedRootVolume"]);
   }
   return contents;
 };

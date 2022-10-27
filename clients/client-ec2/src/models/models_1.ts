@@ -7172,8 +7172,12 @@ export interface CreateReplaceRootVolumeTaskRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The ID of the snapshot from which to restore the replacement root volume. If you want to
-   *       restore the volume to the initial launch state, omit this parameter.</p>
+   * <p>The ID of the snapshot from which to restore the replacement root volume. The
+   *       specified snapshot must be a snapshot that you previously created from the original
+   *       root volume.</p>
+   *          <p>If you want to restore the replacement root volume to the initial launch state,
+   *       or if you want to restore the replacement root volume from an AMI, omit this
+   *       parameter.</p>
    */
   SnapshotId?: string;
 
@@ -7195,6 +7199,23 @@ export interface CreateReplaceRootVolumeTaskRequest {
    * <p>The tags to apply to the root volume replacement task.</p>
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The ID of the AMI to use to restore the root volume. The specified AMI must have the
+   *       same product code, billing information, architecture type, and virtualization type as
+   *       that of the instance.</p>
+   *          <p>If you want to restore the replacement volume from a specific snapshot, or if you want
+   *       to restore it to its launch state, omit this parameter.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>Indicates whether to automatically delete the original root volume after the root volume
+   *       replacement task completes. To delete the original root volume, specify <code>true</code>.
+   *       If you choose to keep the original root volume after the replacement task completes, you must
+   *       manually delete it when you no longer need it.</p>
+   */
+  DeleteReplacedRootVolume?: boolean;
 }
 
 export enum ReplaceRootVolumeTaskState {
@@ -7274,6 +7295,22 @@ export interface ReplaceRootVolumeTask {
    * <p>The tags assigned to the task.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The ID of the AMI used to create the replacement root volume.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The ID of the snapshot used to create the replacement root volume.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>Indicates whether the original root volume is to be deleted after the root volume
+   *       replacement task completes.</p>
+   */
+  DeleteReplacedRootVolume?: boolean;
 }
 
 export interface CreateReplaceRootVolumeTaskResult {
