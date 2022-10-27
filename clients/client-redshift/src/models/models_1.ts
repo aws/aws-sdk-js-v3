@@ -977,7 +977,13 @@ export class TableRestoreNotFoundFault extends __BaseException {
   }
 }
 
-export type TableRestoreStatusType = "CANCELED" | "FAILED" | "IN_PROGRESS" | "PENDING" | "SUCCEEDED";
+export enum TableRestoreStatusType {
+  CANCELED = "CANCELED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  PENDING = "PENDING",
+  SUCCEEDED = "SUCCEEDED",
+}
 
 /**
  * <p>Describes the status of a <a>RestoreTableFromClusterSnapshot</a>
@@ -2988,7 +2994,8 @@ export interface RestoreFromClusterSnapshotMessage {
   HsmConfigurationIdentifier?: string;
 
   /**
-   * <p>The elastic IP (EIP) address for the cluster.</p>
+   * <p>The Elastic IP (EIP) address for the cluster. Don't specify the Elastic IP address for a publicly
+   *             accessible cluster with availability zone relocation turned on.</p>
    */
   ElasticIp?: string;
 

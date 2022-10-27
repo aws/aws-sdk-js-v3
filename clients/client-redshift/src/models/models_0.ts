@@ -34,7 +34,10 @@ export interface RecurringCharge {
   RecurringChargeFrequency?: string;
 }
 
-export type ReservedNodeOfferingType = "Regular" | "Upgradable";
+export enum ReservedNodeOfferingType {
+  Regular = "Regular",
+  Upgradable = "Upgradable",
+}
 
 /**
  * <p>Describes a reserved node. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node
@@ -614,7 +617,11 @@ export class InvalidNamespaceFault extends __BaseException {
   }
 }
 
-export type ScheduleState = "ACTIVE" | "FAILED" | "MODIFYING";
+export enum ScheduleState {
+  ACTIVE = "ACTIVE",
+  FAILED = "FAILED",
+  MODIFYING = "MODIFYING",
+}
 
 /**
  * <p></p>
@@ -2948,7 +2955,10 @@ export class ClusterParameterGroupAlreadyExistsFault extends __BaseException {
   }
 }
 
-export type ParameterApplyType = "dynamic" | "static";
+export enum ParameterApplyType {
+  dynamic = "dynamic",
+  static = "static",
+}
 
 /**
  * <p>Describes a parameter in a cluster parameter group.</p>
@@ -3886,7 +3896,8 @@ export interface CreateClusterMessage {
   /**
    * <p>The Elastic IP (EIP) address for the cluster.</p>
    *         <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible
-   *             through an Internet gateway. For more information about provisioning clusters in
+   *             through an Internet gateway. Don't specify the Elastic IP address for a publicly accessible
+   *             cluster with availability zone relocation turned on. For more information about provisioning clusters in
    *             EC2-VPC, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
    *                 Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</p>
    */
@@ -7403,12 +7414,13 @@ export interface EventCategoriesMessage {
   EventCategoriesMapList?: EventCategoriesMap[];
 }
 
-export type SourceType =
-  | "cluster"
-  | "cluster-parameter-group"
-  | "cluster-security-group"
-  | "cluster-snapshot"
-  | "scheduled-action";
+export enum SourceType {
+  cluster = "cluster",
+  cluster_parameter_group = "cluster-parameter-group",
+  cluster_security_group = "cluster-security-group",
+  cluster_snapshot = "cluster-snapshot",
+  scheduled_action = "scheduled-action",
+}
 
 /**
  * <p></p>
