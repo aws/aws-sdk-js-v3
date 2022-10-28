@@ -92,7 +92,7 @@ export type SdkStream<BaseStream> = BaseStream & SdkStreamMixin;
  * with the SdkStreamMixin helper methods.
  */
 export type WithSdkStreamMixin<T, StreamKey extends keyof T> = {
-  [key in keyof T]: [T[key]] extends [T[StreamKey]] ? SdkStream<T[StreamKey]> : T[key];
+  [key in keyof T]: key extends StreamKey ? SdkStream<T[StreamKey]> : T[key];
 };
 
 /**
