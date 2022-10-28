@@ -493,9 +493,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -506,9 +506,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -519,9 +519,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -532,9 +532,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -545,9 +545,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -558,9 +558,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -571,9 +571,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -584,9 +584,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -597,9 +597,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -610,9 +610,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -623,9 +623,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -636,9 +636,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -649,9 +649,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -662,9 +662,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -675,9 +675,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -688,9 +688,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -701,9 +701,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -714,9 +714,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -727,9 +727,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -740,9 +740,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -753,9 +753,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -765,9 +765,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
             },
@@ -777,9 +777,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             }
@@ -3676,6 +3676,30 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "NODEJS_16"
+          }
+        },
+        "GO_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GO_1"
+          }
+        },
+        "DOTNET_6": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOTNET_6"
+          }
+        },
+        "PHP_81": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PHP_81"
+          }
+        },
+        "RUBY_31": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUBY_31"
           }
         }
       }

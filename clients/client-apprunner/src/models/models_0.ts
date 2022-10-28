@@ -671,10 +671,14 @@ export interface AuthenticationConfiguration {
 export enum Runtime {
   CORRETTO_11 = "CORRETTO_11",
   CORRETTO_8 = "CORRETTO_8",
+  DOTNET_6 = "DOTNET_6",
+  GO_1 = "GO_1",
   NODEJS_12 = "NODEJS_12",
   NODEJS_14 = "NODEJS_14",
   NODEJS_16 = "NODEJS_16",
+  PHP_81 = "PHP_81",
   PYTHON_3 = "PYTHON_3",
+  RUBY_31 = "RUBY_31",
 }
 
 /**
