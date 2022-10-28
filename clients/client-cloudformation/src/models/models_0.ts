@@ -10,7 +10,11 @@ export enum AccountFilterType {
   UNION = "UNION",
 }
 
-export type AccountGateStatus = "FAILED" | "SKIPPED" | "SUCCEEDED";
+export enum AccountGateStatus {
+  FAILED = "FAILED",
+  SKIPPED = "SKIPPED",
+  SUCCEEDED = "SUCCEEDED",
+}
 
 /**
  * <p>Structure that contains the results of the account gate function which CloudFormation invokes, if present, before proceeding with a stack set operation in an account and
@@ -1933,8 +1937,7 @@ export interface DeploymentTargets {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UNION</code>: (default value) StackSets includes additional accounts deployment
-   *                targets. </p>
+   *                   <code>UNION</code>: StackSets includes additional accounts deployment targets. </p>
    *                <p>This is the default value if <code>AccountFilterType</code> is not provided. This
    *                enables user to update an entire OU and individual accounts from a different OU in one
    *                request, which used to be two separate requests.</p>
@@ -2278,7 +2281,10 @@ export interface ManagedExecution {
   Active?: boolean;
 }
 
-export type PermissionModels = "SELF_MANAGED" | "SERVICE_MANAGED";
+export enum PermissionModels {
+  SELF_MANAGED = "SELF_MANAGED",
+  SERVICE_MANAGED = "SERVICE_MANAGED",
+}
 
 export interface CreateStackSetInput {
   /**
@@ -2800,7 +2806,11 @@ export class StackSetNotEmptyException extends __BaseException {
   }
 }
 
-export type RegistryType = "HOOK" | "MODULE" | "RESOURCE";
+export enum RegistryType {
+  HOOK = "HOOK",
+  MODULE = "MODULE",
+  RESOURCE = "RESOURCE",
+}
 
 export interface DeregisterTypeInput {
   /**
@@ -3438,7 +3448,14 @@ export interface DescribeStackInstanceInput {
   CallAs?: CallAs | string;
 }
 
-export type StackInstanceDetailedStatus = "CANCELLED" | "FAILED" | "INOPERABLE" | "PENDING" | "RUNNING" | "SUCCEEDED";
+export enum StackInstanceDetailedStatus {
+  CANCELLED = "CANCELLED",
+  FAILED = "FAILED",
+  INOPERABLE = "INOPERABLE",
+  PENDING = "PENDING",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED",
+}
 
 /**
  * <p>The detailed status of the stack instance.</p>
@@ -3487,7 +3504,11 @@ export interface StackInstanceComprehensiveStatus {
   DetailedStatus?: StackInstanceDetailedStatus | string;
 }
 
-export type StackInstanceStatus = "CURRENT" | "INOPERABLE" | "OUTDATED";
+export enum StackInstanceStatus {
+  CURRENT = "CURRENT",
+  INOPERABLE = "INOPERABLE",
+  OUTDATED = "OUTDATED",
+}
 
 /**
  * <p>An CloudFormation stack, in a specific account and Region, that's part of a stack
@@ -3616,6 +3637,11 @@ export interface StackInstance {
    *          drift detection hasn't yet been performed.</p>
    */
   LastDriftCheckTimestamp?: Date;
+
+  /**
+   * <p>The last unique ID of a StackSet operation performed on a stack instance.</p>
+   */
+  LastOperationId?: string;
 }
 
 export interface DescribeStackInstanceOutput {
@@ -4609,7 +4635,10 @@ export interface StackSetDriftDetectionDetails {
   FailedStackInstancesCount?: number;
 }
 
-export type StackSetStatus = "ACTIVE" | "DELETED";
+export enum StackSetStatus {
+  ACTIVE = "ACTIVE",
+  DELETED = "DELETED",
+}
 
 /**
  * <p>A structure that contains information about a stack set. A stack set enables you to
@@ -4774,9 +4803,31 @@ export interface DescribeStackSetOperationInput {
   CallAs?: CallAs | string;
 }
 
-export type StackSetOperationAction = "CREATE" | "DELETE" | "DETECT_DRIFT" | "UPDATE";
+export enum StackSetOperationAction {
+  CREATE = "CREATE",
+  DELETE = "DELETE",
+  DETECT_DRIFT = "DETECT_DRIFT",
+  UPDATE = "UPDATE",
+}
 
-export type StackSetOperationStatus = "FAILED" | "QUEUED" | "RUNNING" | "STOPPED" | "STOPPING" | "SUCCEEDED";
+export enum StackSetOperationStatus {
+  FAILED = "FAILED",
+  QUEUED = "QUEUED",
+  RUNNING = "RUNNING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+/**
+ * <p>Detailed information about the StackSet operation.</p>
+ */
+export interface StackSetOperationStatusDetails {
+  /**
+   * <p>The number of stack instances for which the StackSet operation failed.</p>
+   */
+  FailedStackInstancesCount?: number;
+}
 
 /**
  * <p>The structure that contains information about a stack set operation.</p>
@@ -4907,6 +4958,11 @@ export interface StackSetOperation {
    * <p>The status of the operation in details.</p>
    */
   StatusReason?: string;
+
+  /**
+   * <p>Detailed information about the StackSet operation.</p>
+   */
+  StatusDetails?: StackSetOperationStatusDetails;
 }
 
 export interface DescribeStackSetOperationOutput {
@@ -4981,9 +5037,16 @@ export interface DescribeTypeInput {
   PublicVersionNumber?: string;
 }
 
-export type DeprecatedStatus = "DEPRECATED" | "LIVE";
+export enum DeprecatedStatus {
+  DEPRECATED = "DEPRECATED",
+  LIVE = "LIVE",
+}
 
-export type ProvisioningType = "FULLY_MUTABLE" | "IMMUTABLE" | "NON_PROVISIONABLE";
+export enum ProvisioningType {
+  FULLY_MUTABLE = "FULLY_MUTABLE",
+  IMMUTABLE = "IMMUTABLE",
+  NON_PROVISIONABLE = "NON_PROVISIONABLE",
+}
 
 /**
  * <p>For extensions that are modules, a public third-party extension that must be activated
@@ -5029,7 +5092,10 @@ export enum TypeTestsStatus {
   PASSED = "PASSED",
 }
 
-export type Visibility = "PRIVATE" | "PUBLIC";
+export enum Visibility {
+  PRIVATE = "PRIVATE",
+  PUBLIC = "PUBLIC",
+}
 
 export interface DescribeTypeOutput {
   /**
@@ -5336,7 +5402,11 @@ export interface DescribeTypeRegistrationInput {
   RegistrationToken: string | undefined;
 }
 
-export type RegistrationStatus = "COMPLETE" | "FAILED" | "IN_PROGRESS";
+export enum RegistrationStatus {
+  COMPLETE = "COMPLETE",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+}
 
 export interface DescribeTypeRegistrationOutput {
   /**
@@ -6016,10 +6086,13 @@ export interface ListImportsOutput {
   NextToken?: string;
 }
 
-export type StackInstanceFilterName = "DETAILED_STATUS";
+export enum StackInstanceFilterName {
+  DETAILED_STATUS = "DETAILED_STATUS",
+  LAST_OPERATION_ID = "LAST_OPERATION_ID",
+}
 
 /**
- * <p>The status that stack instances are filtered by.</p>
+ * <p>The filter to apply to stack instances</p>
  */
 export interface StackInstanceFilter {
   /**
@@ -6057,7 +6130,7 @@ export interface ListStackInstancesInput {
   MaxResults?: number;
 
   /**
-   * <p>The status that stack instances are filtered by.</p>
+   * <p>The filter to apply to stack instances</p>
    */
   Filters?: StackInstanceFilter[];
 
@@ -6209,6 +6282,11 @@ export interface StackInstanceSummary {
    *          drift detection hasn't yet been performed.</p>
    */
   LastDriftCheckTimestamp?: Date;
+
+  /**
+   * <p>The last unique ID of a StackSet operation performed on a stack instance.</p>
+   */
+  LastOperationId?: string;
 }
 
 export interface ListStackInstancesOutput {
@@ -6509,6 +6587,25 @@ export interface ListStacksOutput {
   NextToken?: string;
 }
 
+export enum OperationResultFilterName {
+  OPERATION_RESULT_STATUS = "OPERATION_RESULT_STATUS",
+}
+
+/**
+ * <p>The status that operation results are filtered by.</p>
+ */
+export interface OperationResultFilter {
+  /**
+   * <p>The type of filter to apply.</p>
+   */
+  Name?: OperationResultFilterName | string;
+
+  /**
+   * <p>The value to filter by.</p>
+   */
+  Values?: string;
+}
+
 export interface ListStackSetOperationResultsInput {
   /**
    * <p>The name or unique ID of the stack set that you want to get operation results
@@ -6559,9 +6656,20 @@ export interface ListStackSetOperationResultsInput {
    *          </ul>
    */
   CallAs?: CallAs | string;
+
+  /**
+   * <p>The filter to apply to operation results.</p>
+   */
+  Filters?: OperationResultFilter[];
 }
 
-export type StackSetOperationResultStatus = "CANCELLED" | "FAILED" | "PENDING" | "RUNNING" | "SUCCEEDED";
+export enum StackSetOperationResultStatus {
+  CANCELLED = "CANCELLED",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED",
+}
 
 /**
  * <p>The structure that contains information about a specified operation's results for a
@@ -6774,6 +6882,18 @@ export interface StackSetOperationSummary {
    * <p>The status of the operation in details.</p>
    */
   StatusReason?: string;
+
+  /**
+   * <p>Detailed information about the stack set operation.</p>
+   */
+  StatusDetails?: StackSetOperationStatusDetails;
+
+  /**
+   * <p>The user-specified preferences for how CloudFormation performs a stack set
+   *          operation.</p>
+   *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
+   */
+  OperationPreferences?: StackSetOperationPreferences;
 }
 
 export interface ListStackSetOperationsOutput {
@@ -9484,6 +9604,13 @@ export const DescribeStackSetOperationInputFilterSensitiveLog = (obj: DescribeSt
 /**
  * @internal
  */
+export const StackSetOperationStatusDetailsFilterSensitiveLog = (obj: StackSetOperationStatusDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const StackSetOperationFilterSensitiveLog = (obj: StackSetOperation): any => ({
   ...obj,
 });
@@ -9809,6 +9936,13 @@ export const StackSummaryFilterSensitiveLog = (obj: StackSummary): any => ({
  * @internal
  */
 export const ListStacksOutputFilterSensitiveLog = (obj: ListStacksOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OperationResultFilterFilterSensitiveLog = (obj: OperationResultFilter): any => ({
   ...obj,
 });
 
