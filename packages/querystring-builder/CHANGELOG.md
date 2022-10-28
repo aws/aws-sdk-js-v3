@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.199.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.198.0...v3.199.0) (2022-10-28)
+
+
+### Bug Fixes
+
+* **packages:** issues with jest script and configuration ([#4115](https://github.com/aws/aws-sdk-js-v3/issues/4115)) ([7b788b8](https://github.com/aws/aws-sdk-js-v3/commit/7b788b829965290b3b469de5e7ad845d39a431c6))
+
+
+
+
+
 # [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
 
 **Note:** Version bump only for package @aws-sdk/querystring-builder

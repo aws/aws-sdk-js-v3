@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.199.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.198.0...v3.199.0) (2022-10-28)
+
+
+### Features
+
+* **client-support-app:** Fix incorrect endpoint-prefix in endpoint ruleset. ([2955f67](https://github.com/aws/aws-sdk-js-v3/commit/2955f676b5f6e5a9303ef9096589e220bf7060f1))
+
+
+
+
+
 # [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-support-app

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.199.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.198.0...v3.199.0) (2022-10-28)
+
+
+### Features
+
+* **client-privatenetworks:** Fix incorrect endpoint-prefix in endpoint ruleset. ([30ddc67](https://github.com/aws/aws-sdk-js-v3/commit/30ddc671e61540c852a766059780e8f4e19b292c))
+
+
+
+
+
 # [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-privatenetworks

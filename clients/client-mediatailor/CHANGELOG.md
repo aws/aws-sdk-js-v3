@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.199.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.198.0...v3.199.0) (2022-10-28)
+
+
+### Features
+
+* **client-mediatailor:** This release introduces support for SCTE-35 segmentation descriptor messages which can be sent within time signal messages. ([d2920e8](https://github.com/aws/aws-sdk-js-v3/commit/d2920e834e93f3b8913bc515cc1e407bf1ff6ed8))
+
+
+
+
+
 # [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor

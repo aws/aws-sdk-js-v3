@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.199.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.198.0...v3.199.0) (2022-10-28)
+
+
+### Bug Fixes
+
+* **packages:** issues with jest script and configuration ([#4115](https://github.com/aws/aws-sdk-js-v3/issues/4115)) ([7b788b8](https://github.com/aws/aws-sdk-js-v3/commit/7b788b829965290b3b469de5e7ad845d39a431c6))
+
+
+### Features
+
+* **client-apprunner:** AWS App Runner adds .NET 6, Go 1, PHP 8.1 and Ruby 3.1 runtimes. ([12cc3bc](https://github.com/aws/aws-sdk-js-v3/commit/12cc3bcc2c087cd3e07ac4d92981794d960d2839))
+* **client-appstream:** This release includes CertificateBasedAuthProperties in CreateDirectoryConfig and UpdateDirectoryConfig. ([f6bd19e](https://github.com/aws/aws-sdk-js-v3/commit/f6bd19e979deb9571989ca88781a7c38176ca501))
+* **client-cloudformation:** This release adds more fields to improves visibility of AWS CloudFormation StackSets information in following APIs: ListStackInstances, DescribeStackInstance, ListStackSetOperationResults, ListStackSetOperations, DescribeStackSetOperation. ([9f57946](https://github.com/aws/aws-sdk-js-v3/commit/9f5794644eddb1b723982d04e8a516de32c2c49e))
+* **client-gamesparks:** Add LATEST as a possible GameSDK Version on snapshot ([758bc33](https://github.com/aws/aws-sdk-js-v3/commit/758bc33a21cf0c32bc3c2ebbbeec867ee0d1e3d5))
+* **client-mediatailor:** This release introduces support for SCTE-35 segmentation descriptor messages which can be sent within time signal messages. ([d2920e8](https://github.com/aws/aws-sdk-js-v3/commit/d2920e834e93f3b8913bc515cc1e407bf1ff6ed8))
+* **client-privatenetworks:** Fix incorrect endpoint-prefix in endpoint ruleset. ([30ddc67](https://github.com/aws/aws-sdk-js-v3/commit/30ddc671e61540c852a766059780e8f4e19b292c))
+* **client-support-app:** Fix incorrect endpoint-prefix in endpoint ruleset. ([2955f67](https://github.com/aws/aws-sdk-js-v3/commit/2955f676b5f6e5a9303ef9096589e220bf7060f1))
+* **clients:** update client endpoints as of 2022-10-28 ([000a4ed](https://github.com/aws/aws-sdk-js-v3/commit/000a4edc607ee4b93a0777dc971ba1373af786b3))
+
+
+
+
+
 # [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
 
 

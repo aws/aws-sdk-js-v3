@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.199.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.198.0...v3.199.0) (2022-10-28)
+
+
+### Features
+
+* **client-apprunner:** AWS App Runner adds .NET 6, Go 1, PHP 8.1 and Ruby 3.1 runtimes. ([12cc3bc](https://github.com/aws/aws-sdk-js-v3/commit/12cc3bcc2c087cd3e07ac4d92981794d960d2839))
+
+
+
+
+
 # [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-apprunner
