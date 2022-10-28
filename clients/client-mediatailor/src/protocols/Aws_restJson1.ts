@@ -145,10 +145,12 @@ import {
   ScheduleConfiguration,
   ScheduleEntry,
   SecretsManagerAccessTokenConfiguration,
+  SegmentationDescriptor,
   SegmentDeliveryConfiguration,
   SlateSource,
   SourceLocation,
   SpliceInsertMessage,
+  TimeSignalMessage,
   Transition,
   VodSource,
 } from "../models/models_0";
@@ -3505,6 +3507,9 @@ const serializeAws_restJson1AdBreak = (input: AdBreak, context: __SerdeContext):
     ...(input.SpliceInsertMessage != null && {
       SpliceInsertMessage: serializeAws_restJson1SpliceInsertMessage(input.SpliceInsertMessage, context),
     }),
+    ...(input.TimeSignalMessage != null && {
+      TimeSignalMessage: serializeAws_restJson1TimeSignalMessage(input.TimeSignalMessage, context),
+    }),
   };
 };
 
@@ -3700,6 +3705,30 @@ const serializeAws_restJson1SecretsManagerAccessTokenConfiguration = (
   };
 };
 
+const serializeAws_restJson1SegmentationDescriptor = (input: SegmentationDescriptor, context: __SerdeContext): any => {
+  return {
+    ...(input.SegmentNum != null && { SegmentNum: input.SegmentNum }),
+    ...(input.SegmentationEventId != null && { SegmentationEventId: input.SegmentationEventId }),
+    ...(input.SegmentationTypeId != null && { SegmentationTypeId: input.SegmentationTypeId }),
+    ...(input.SegmentationUpid != null && { SegmentationUpid: input.SegmentationUpid }),
+    ...(input.SegmentationUpidType != null && { SegmentationUpidType: input.SegmentationUpidType }),
+    ...(input.SegmentsExpected != null && { SegmentsExpected: input.SegmentsExpected }),
+    ...(input.SubSegmentNum != null && { SubSegmentNum: input.SubSegmentNum }),
+    ...(input.SubSegmentsExpected != null && { SubSegmentsExpected: input.SubSegmentsExpected }),
+  };
+};
+
+const serializeAws_restJson1SegmentationDescriptorList = (
+  input: SegmentationDescriptor[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SegmentationDescriptor(entry, context);
+    });
+};
+
 const serializeAws_restJson1SegmentDeliveryConfiguration = (
   input: SegmentDeliveryConfiguration,
   context: __SerdeContext
@@ -3723,6 +3752,14 @@ const serializeAws_restJson1SpliceInsertMessage = (input: SpliceInsertMessage, c
     ...(input.AvailsExpected != null && { AvailsExpected: input.AvailsExpected }),
     ...(input.SpliceEventId != null && { SpliceEventId: input.SpliceEventId }),
     ...(input.UniqueProgramId != null && { UniqueProgramId: input.UniqueProgramId }),
+  };
+};
+
+const serializeAws_restJson1TimeSignalMessage = (input: TimeSignalMessage, context: __SerdeContext): any => {
+  return {
+    ...(input.SegmentationDescriptors != null && {
+      SegmentationDescriptors: serializeAws_restJson1SegmentationDescriptorList(input.SegmentationDescriptors, context),
+    }),
   };
 };
 
@@ -3934,6 +3971,10 @@ const deserializeAws_restJson1AdBreak = (output: any, context: __SerdeContext): 
     SpliceInsertMessage:
       output.SpliceInsertMessage != null
         ? deserializeAws_restJson1SpliceInsertMessage(output.SpliceInsertMessage, context)
+        : undefined,
+    TimeSignalMessage:
+      output.TimeSignalMessage != null
+        ? deserializeAws_restJson1TimeSignalMessage(output.TimeSignalMessage, context)
         : undefined,
   } as any;
 };
@@ -4303,6 +4344,37 @@ const deserializeAws_restJson1SecretsManagerAccessTokenConfiguration = (
   } as any;
 };
 
+const deserializeAws_restJson1SegmentationDescriptor = (
+  output: any,
+  context: __SerdeContext
+): SegmentationDescriptor => {
+  return {
+    SegmentNum: __expectInt32(output.SegmentNum),
+    SegmentationEventId: __expectInt32(output.SegmentationEventId),
+    SegmentationTypeId: __expectInt32(output.SegmentationTypeId),
+    SegmentationUpid: __expectString(output.SegmentationUpid),
+    SegmentationUpidType: __expectInt32(output.SegmentationUpidType),
+    SegmentsExpected: __expectInt32(output.SegmentsExpected),
+    SubSegmentNum: __expectInt32(output.SubSegmentNum),
+    SubSegmentsExpected: __expectInt32(output.SubSegmentsExpected),
+  } as any;
+};
+
+const deserializeAws_restJson1SegmentationDescriptorList = (
+  output: any,
+  context: __SerdeContext
+): SegmentationDescriptor[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SegmentationDescriptor(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1SegmentDeliveryConfiguration = (
   output: any,
   context: __SerdeContext
@@ -4361,6 +4433,15 @@ const deserializeAws_restJson1SpliceInsertMessage = (output: any, context: __Ser
     AvailsExpected: __expectInt32(output.AvailsExpected),
     SpliceEventId: __expectInt32(output.SpliceEventId),
     UniqueProgramId: __expectInt32(output.UniqueProgramId),
+  } as any;
+};
+
+const deserializeAws_restJson1TimeSignalMessage = (output: any, context: __SerdeContext): TimeSignalMessage => {
+  return {
+    SegmentationDescriptors:
+      output.SegmentationDescriptors != null
+        ? deserializeAws_restJson1SegmentationDescriptorList(output.SegmentationDescriptors, context)
+        : undefined,
   } as any;
 };
 
