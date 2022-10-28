@@ -180,7 +180,7 @@ export const ruleSet: RuleSetObject = {
                 {
                   conditions: [],
                   endpoint: {
-                    url: "https://privatenetworks-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                    url: "https://private-networks-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
                     properties: {},
                     headers: {},
                   },
@@ -232,7 +232,7 @@ export const ruleSet: RuleSetObject = {
                 {
                   conditions: [],
                   endpoint: {
-                    url: "https://privatenetworks-fips.{Region}.{PartitionResult#dnsSuffix}",
+                    url: "https://private-networks-fips.{Region}.{PartitionResult#dnsSuffix}",
                     properties: {},
                     headers: {},
                   },
@@ -284,7 +284,7 @@ export const ruleSet: RuleSetObject = {
                 {
                   conditions: [],
                   endpoint: {
-                    url: "https://privatenetworks.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                    url: "https://private-networks.{Region}.{PartitionResult#dualStackDnsSuffix}",
                     properties: {},
                     headers: {},
                   },
@@ -302,7 +302,7 @@ export const ruleSet: RuleSetObject = {
         {
           conditions: [],
           endpoint: {
-            url: "https://privatenetworks.{Region}.{PartitionResult#dnsSuffix}",
+            url: "https://private-networks.{Region}.{PartitionResult#dnsSuffix}",
             properties: {},
             headers: {},
           },
