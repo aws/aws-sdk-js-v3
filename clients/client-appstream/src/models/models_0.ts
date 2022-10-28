@@ -118,7 +118,12 @@ export interface AppBlock {
   CreatedTime?: Date;
 }
 
-export type PlatformType = "AMAZON_LINUX2" | "WINDOWS" | "WINDOWS_SERVER_2016" | "WINDOWS_SERVER_2019";
+export enum PlatformType {
+  AMAZON_LINUX2 = "AMAZON_LINUX2",
+  WINDOWS = "WINDOWS",
+  WINDOWS_SERVER_2016 = "WINDOWS_SERVER_2016",
+  WINDOWS_SERVER_2019 = "WINDOWS_SERVER_2019",
+}
 
 /**
  * <p>Describes an application in the application catalog.</p>
@@ -509,6 +514,7 @@ export class InvalidAccountStatusException extends __BaseException {
 
 export enum AuthenticationType {
   API = "API",
+  AWS_AD = "AWS_AD",
   SAML = "SAML",
   USERPOOL = "USERPOOL",
 }
@@ -595,6 +601,33 @@ export interface BatchDisassociateUserStackResult {
    * <p>The list of UserStackAssociationError objects.</p>
    */
   errors?: UserStackAssociationError[];
+}
+
+export enum CertificateBasedAuthStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+  ENABLED_NO_DIRECTORY_LOGIN_FALLBACK = "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
+}
+
+/**
+ * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity
+ *             Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+ *             Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD
+ *             domain password if certificate-based authentication is unsuccessful, or to unlock a
+ *             desktop lock screen. <b>Enabled_no_directory_login_fallback</b> enables certificate-based
+ *             authentication, but does not allow users to log in using their AD domain password. Users
+ *             will be disconnected to re-authenticate using certificates.</p>
+ */
+export interface CertificateBasedAuthProperties {
+  /**
+   * <p>The status of the certificate-based authentication properties.</p>
+   */
+  Status?: CertificateBasedAuthStatus | string;
+
+  /**
+   * <p>The ARN of the AWS Certificate Manager Private CA resource.</p>
+   */
+  CertificateAuthorityArn?: string;
 }
 
 /**
@@ -845,6 +878,17 @@ export interface CreateDirectoryConfigRequest {
    * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
    */
   ServiceAccountCredentials?: ServiceAccountCredentials;
+
+  /**
+   * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity
+   *             Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+   *             Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD
+   *             domain password if certificate-based authentication is unsuccessful, or to unlock a
+   *             desktop lock screen. <b>Enabled_no_directory_login_fallback</b> enables certificate-based
+   *             authentication, but does not allow users to log in using their AD domain password. Users
+   *             will be disconnected to re-authenticate using certificates.</p>
+   */
+  CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
 }
 
 /**
@@ -870,6 +914,17 @@ export interface DirectoryConfig {
    * <p>The time the directory configuration was created.</p>
    */
   CreatedTime?: Date;
+
+  /**
+   * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity
+   *             Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+   *             Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD
+   *             domain password if certificate-based authentication is unsuccessful, or to unlock a
+   *             desktop lock screen. <b>Enabled_no_directory_login_fallback</b> enables certificate-based
+   *             authentication, but does not allow users to log in using their AD domain password. Users
+   *             will be disconnected to re-authenticate using certificates.</p>
+   */
+  CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
 }
 
 export interface CreateDirectoryConfigResult {
@@ -1121,6 +1176,12 @@ export interface CreateFleetRequest {
    *                <p>stream.standard.large</p>
    *             </li>
    *             <li>
+   *                <p>stream.standard.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.2xlarge</p>
+   *             </li>
+   *             <li>
    *                <p>stream.compute.large</p>
    *             </li>
    *             <li>
@@ -1218,6 +1279,15 @@ export interface CreateFleetRequest {
    *             </li>
    *             <li>
    *                <p>stream.standard.medium</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.large</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.2xlarge</p>
    *             </li>
    *          </ul>
    */
@@ -3873,6 +3943,17 @@ export interface UpdateDirectoryConfigRequest {
    * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
    */
   ServiceAccountCredentials?: ServiceAccountCredentials;
+
+  /**
+   * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity
+   *             Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+   *             Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD
+   *             domain password if certificate-based authentication is unsuccessful, or to unlock a
+   *             desktop lock screen. <b>Enabled_no_directory_login_fallback</b> enables certificate-based
+   *             authentication, but does not allow users to log in using their AD domain password. Users
+   *             will be disconnected to re-authenticate using certificates.</p>
+   */
+  CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
 }
 
 export interface UpdateDirectoryConfigResult {
@@ -3943,6 +4024,12 @@ export interface UpdateFleetRequest {
    *             </li>
    *             <li>
    *                <p>stream.standard.large</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.2xlarge</p>
    *             </li>
    *             <li>
    *                <p>stream.compute.large</p>
@@ -4042,6 +4129,15 @@ export interface UpdateFleetRequest {
    *             </li>
    *             <li>
    *                <p>stream.standard.medium</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.large</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.2xlarge</p>
    *             </li>
    *          </ul>
    */
@@ -4426,6 +4522,13 @@ export const BatchDisassociateUserStackRequestFilterSensitiveLog = (obj: BatchDi
 export const BatchDisassociateUserStackResultFilterSensitiveLog = (obj: BatchDisassociateUserStackResult): any => ({
   ...obj,
   ...(obj.errors && { errors: obj.errors.map((item) => UserStackAssociationErrorFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CertificateBasedAuthPropertiesFilterSensitiveLog = (obj: CertificateBasedAuthProperties): any => ({
+  ...obj,
 });
 
 /**

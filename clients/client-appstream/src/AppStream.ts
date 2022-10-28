@@ -624,7 +624,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   * <p>Creates a fleet. A fleet consists of streaming instances that run a specified image when using Always-On or On-Demand.</p>
+   * <p>Creates a fleet. A fleet consists of streaming instances that your users access for their applications and desktops.</p>
    */
   public createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
   public createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;

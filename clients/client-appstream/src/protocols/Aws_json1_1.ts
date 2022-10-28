@@ -179,6 +179,7 @@ import {
   BatchAssociateUserStackResult,
   BatchDisassociateUserStackRequest,
   BatchDisassociateUserStackResult,
+  CertificateBasedAuthProperties,
   ComputeCapacity,
   ComputeCapacityStatus,
   ConcurrentModificationException,
@@ -4609,6 +4610,16 @@ const serializeAws_json1_1BatchDisassociateUserStackRequest = (
   };
 };
 
+const serializeAws_json1_1CertificateBasedAuthProperties = (
+  input: CertificateBasedAuthProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.Status != null && { Status: input.Status }),
+  };
+};
+
 const serializeAws_json1_1ComputeCapacity = (input: ComputeCapacity, context: __SerdeContext): any => {
   return {
     ...(input.DesiredInstances != null && { DesiredInstances: input.DesiredInstances }),
@@ -4669,6 +4680,12 @@ const serializeAws_json1_1CreateDirectoryConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CertificateBasedAuthProperties != null && {
+      CertificateBasedAuthProperties: serializeAws_json1_1CertificateBasedAuthProperties(
+        input.CertificateBasedAuthProperties,
+        context
+      ),
+    }),
     ...(input.DirectoryName != null && { DirectoryName: input.DirectoryName }),
     ...(input.OrganizationalUnitDistinguishedNames != null && {
       OrganizationalUnitDistinguishedNames: serializeAws_json1_1OrganizationalUnitDistinguishedNamesList(
@@ -5434,6 +5451,12 @@ const serializeAws_json1_1UpdateDirectoryConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CertificateBasedAuthProperties != null && {
+      CertificateBasedAuthProperties: serializeAws_json1_1CertificateBasedAuthProperties(
+        input.CertificateBasedAuthProperties,
+        context
+      ),
+    }),
     ...(input.DirectoryName != null && { DirectoryName: input.DirectoryName }),
     ...(input.OrganizationalUnitDistinguishedNames != null && {
       OrganizationalUnitDistinguishedNames: serializeAws_json1_1OrganizationalUnitDistinguishedNamesList(
@@ -5765,6 +5788,16 @@ const deserializeAws_json1_1BatchDisassociateUserStackResult = (
   return {
     errors:
       output.errors != null ? deserializeAws_json1_1UserStackAssociationErrorList(output.errors, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CertificateBasedAuthProperties = (
+  output: any,
+  context: __SerdeContext
+): CertificateBasedAuthProperties => {
+  return {
+    CertificateAuthorityArn: __expectString(output.CertificateAuthorityArn),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -6111,6 +6144,10 @@ const deserializeAws_json1_1DescribeUserStackAssociationsResult = (
 
 const deserializeAws_json1_1DirectoryConfig = (output: any, context: __SerdeContext): DirectoryConfig => {
   return {
+    CertificateBasedAuthProperties:
+      output.CertificateBasedAuthProperties != null
+        ? deserializeAws_json1_1CertificateBasedAuthProperties(output.CertificateBasedAuthProperties, context)
+        : undefined,
     CreatedTime:
       output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))

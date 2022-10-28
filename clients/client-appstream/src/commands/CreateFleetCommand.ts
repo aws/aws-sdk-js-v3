@@ -29,7 +29,7 @@ export interface CreateFleetCommandInput extends CreateFleetRequest {}
 export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataBearer {}
 
 /**
- * <p>Creates a fleet. A fleet consists of streaming instances that run a specified image when using Always-On or On-Demand.</p>
+ * <p>Creates a fleet. A fleet consists of streaming instances that your users access for their applications and desktops.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
