@@ -6,7 +6,7 @@ export const ruleSet: RuleSetObject = {
   parameters: {
     Region: {
       builtIn: "AWS::Region",
-      required: true,
+      required: false,
       documentation: "The AWS region used to dispatch the request.",
       type: "String",
     },
@@ -180,7 +180,7 @@ export const ruleSet: RuleSetObject = {
                 {
                   conditions: [],
                   endpoint: {
-                    url: "https://support-app-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                    url: "https://supportapp-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
                     properties: {},
                     headers: {},
                   },
@@ -232,7 +232,7 @@ export const ruleSet: RuleSetObject = {
                 {
                   conditions: [],
                   endpoint: {
-                    url: "https://support-app-fips.{Region}.{PartitionResult#dnsSuffix}",
+                    url: "https://supportapp-fips.{Region}.{PartitionResult#dnsSuffix}",
                     properties: {},
                     headers: {},
                   },
@@ -284,7 +284,7 @@ export const ruleSet: RuleSetObject = {
                 {
                   conditions: [],
                   endpoint: {
-                    url: "https://support-app.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                    url: "https://supportapp.{Region}.{PartitionResult#dualStackDnsSuffix}",
                     properties: {},
                     headers: {},
                   },
@@ -302,7 +302,7 @@ export const ruleSet: RuleSetObject = {
         {
           conditions: [],
           endpoint: {
-            url: "https://support-app.{Region}.{PartitionResult#dnsSuffix}",
+            url: "https://supportapp.{Region}.{PartitionResult#dnsSuffix}",
             properties: {},
             headers: {},
           },
