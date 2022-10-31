@@ -15,45 +15,41 @@ import {
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import {
-  DeleteServiceRequest,
-  DeleteServiceRequestFilterSensitiveLog,
-  DeleteServiceResponse,
-  DeleteServiceResponseFilterSensitiveLog,
+  DescribeVpcIngressConnectionRequest,
+  DescribeVpcIngressConnectionRequestFilterSensitiveLog,
+  DescribeVpcIngressConnectionResponse,
+  DescribeVpcIngressConnectionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0DeleteServiceCommand,
-  serializeAws_json1_0DeleteServiceCommand,
+  deserializeAws_json1_0DescribeVpcIngressConnectionCommand,
+  serializeAws_json1_0DescribeVpcIngressConnectionCommand,
 } from "../protocols/Aws_json1_0";
 
-export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
-export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
+export interface DescribeVpcIngressConnectionCommandInput extends DescribeVpcIngressConnectionRequest {}
+export interface DescribeVpcIngressConnectionCommandOutput
+  extends DescribeVpcIngressConnectionResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Delete an App Runner service.</p>
- *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a>ListOperations</a>
- *       call to track the operation's progress.</p>
- *          <note>
- *             <p>Make sure that you don't have any active VPCIngressConnections associated with the service you want to delete.
- *       </p>
- *          </note>
+ * <p>Return a full description of an App Runner VPC Ingress Connection resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, DeleteServiceCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, DeleteServiceCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, DescribeVpcIngressConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
+ * // const { AppRunnerClient, DescribeVpcIngressConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
- * const command = new DeleteServiceCommand(input);
+ * const command = new DescribeVpcIngressConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DeleteServiceCommandInput} for command's `input` shape.
- * @see {@link DeleteServiceCommandOutput} for command's `response` shape.
+ * @see {@link DescribeVpcIngressConnectionCommandInput} for command's `input` shape.
+ * @see {@link DescribeVpcIngressConnectionCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  */
-export class DeleteServiceCommand extends $Command<
-  DeleteServiceCommandInput,
-  DeleteServiceCommandOutput,
+export class DescribeVpcIngressConnectionCommand extends $Command<
+  DescribeVpcIngressConnectionCommandInput,
+  DescribeVpcIngressConnectionCommandOutput,
   AppRunnerClientResolvedConfig
 > {
   // Start section: command_properties
@@ -68,7 +64,7 @@ export class DeleteServiceCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DeleteServiceCommandInput) {
+  constructor(readonly input: DescribeVpcIngressConnectionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -81,21 +77,23 @@ export class DeleteServiceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppRunnerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteServiceCommandInput, DeleteServiceCommandOutput> {
+  ): Handler<DescribeVpcIngressConnectionCommandInput, DescribeVpcIngressConnectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteServiceCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeVpcIngressConnectionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AppRunnerClient";
-    const commandName = "DeleteServiceCommand";
+    const commandName = "DescribeVpcIngressConnectionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteServiceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVpcIngressConnectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVpcIngressConnectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +103,15 @@ export class DeleteServiceCommand extends $Command<
     );
   }
 
-  private serialize(input: DeleteServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteServiceCommand(input, context);
+  private serialize(input: DescribeVpcIngressConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0DescribeVpcIngressConnectionCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceCommandOutput> {
-    return deserializeAws_json1_0DeleteServiceCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DescribeVpcIngressConnectionCommandOutput> {
+    return deserializeAws_json1_0DescribeVpcIngressConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

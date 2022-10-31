@@ -33,6 +33,11 @@ import {
   CreateVpcConnectorCommandOutput,
 } from "./commands/CreateVpcConnectorCommand";
 import {
+  CreateVpcIngressConnectionCommand,
+  CreateVpcIngressConnectionCommandInput,
+  CreateVpcIngressConnectionCommandOutput,
+} from "./commands/CreateVpcIngressConnectionCommand";
+import {
   DeleteAutoScalingConfigurationCommand,
   DeleteAutoScalingConfigurationCommandInput,
   DeleteAutoScalingConfigurationCommandOutput,
@@ -58,6 +63,11 @@ import {
   DeleteVpcConnectorCommandOutput,
 } from "./commands/DeleteVpcConnectorCommand";
 import {
+  DeleteVpcIngressConnectionCommand,
+  DeleteVpcIngressConnectionCommandInput,
+  DeleteVpcIngressConnectionCommandOutput,
+} from "./commands/DeleteVpcIngressConnectionCommand";
+import {
   DescribeAutoScalingConfigurationCommand,
   DescribeAutoScalingConfigurationCommandInput,
   DescribeAutoScalingConfigurationCommandOutput,
@@ -82,6 +92,11 @@ import {
   DescribeVpcConnectorCommandInput,
   DescribeVpcConnectorCommandOutput,
 } from "./commands/DescribeVpcConnectorCommand";
+import {
+  DescribeVpcIngressConnectionCommand,
+  DescribeVpcIngressConnectionCommandInput,
+  DescribeVpcIngressConnectionCommandOutput,
+} from "./commands/DescribeVpcIngressConnectionCommand";
 import {
   DisassociateCustomDomainCommand,
   DisassociateCustomDomainCommandInput,
@@ -123,6 +138,11 @@ import {
   ListVpcConnectorsCommandOutput,
 } from "./commands/ListVpcConnectorsCommand";
 import {
+  ListVpcIngressConnectionsCommand,
+  ListVpcIngressConnectionsCommandInput,
+  ListVpcIngressConnectionsCommandOutput,
+} from "./commands/ListVpcIngressConnectionsCommand";
+import {
   PauseServiceCommand,
   PauseServiceCommandInput,
   PauseServiceCommandOutput,
@@ -148,6 +168,11 @@ import {
   UpdateServiceCommandInput,
   UpdateServiceCommandOutput,
 } from "./commands/UpdateServiceCommand";
+import {
+  UpdateVpcIngressConnectionCommand,
+  UpdateVpcIngressConnectionCommandInput,
+  UpdateVpcIngressConnectionCommandOutput,
+} from "./commands/UpdateVpcIngressConnectionCommand";
 
 /**
  * <fullname>App Runner</fullname>
@@ -390,6 +415,38 @@ export class AppRunner extends AppRunnerClient {
   }
 
   /**
+   * <p>Create an App Runner VPC Ingress Connection resource. App Runner requires this resource when you want to associate your App Runner service with an Amazon VPC endpoint.</p>
+   */
+  public createVpcIngressConnection(
+    args: CreateVpcIngressConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpcIngressConnectionCommandOutput>;
+  public createVpcIngressConnection(
+    args: CreateVpcIngressConnectionCommandInput,
+    cb: (err: any, data?: CreateVpcIngressConnectionCommandOutput) => void
+  ): void;
+  public createVpcIngressConnection(
+    args: CreateVpcIngressConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpcIngressConnectionCommandOutput) => void
+  ): void;
+  public createVpcIngressConnection(
+    args: CreateVpcIngressConnectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcIngressConnectionCommandOutput) => void),
+    cb?: (err: any, data?: CreateVpcIngressConnectionCommandOutput) => void
+  ): Promise<CreateVpcIngressConnectionCommandOutput> | void {
+    const command = new CreateVpcIngressConnectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Delete an App Runner automatic scaling configuration resource. You can delete a specific revision or the latest active revision. You can't delete a
    *       configuration that's used by one or more App Runner services.</p>
    */
@@ -492,6 +549,10 @@ export class AppRunner extends AppRunnerClient {
    * <p>Delete an App Runner service.</p>
    *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a>ListOperations</a>
    *       call to track the operation's progress.</p>
+   *          <note>
+   *             <p>Make sure that you don't have any active VPCIngressConnections associated with the service you want to delete.
+   *       </p>
+   *          </note>
    */
   public deleteService(
     args: DeleteServiceCommandInput,
@@ -545,6 +606,61 @@ export class AppRunner extends AppRunnerClient {
     cb?: (err: any, data?: DeleteVpcConnectorCommandOutput) => void
   ): Promise<DeleteVpcConnectorCommandOutput> | void {
     const command = new DeleteVpcConnectorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete an App Runner VPC Ingress Connection resource that's associated with an App Runner service. The VPC Ingress Connection must be in one of the following states to be deleted:
+   *     </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AVAILABLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED_CREATION</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED_UPDATE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED_DELETION</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public deleteVpcIngressConnection(
+    args: DeleteVpcIngressConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpcIngressConnectionCommandOutput>;
+  public deleteVpcIngressConnection(
+    args: DeleteVpcIngressConnectionCommandInput,
+    cb: (err: any, data?: DeleteVpcIngressConnectionCommandOutput) => void
+  ): void;
+  public deleteVpcIngressConnection(
+    args: DeleteVpcIngressConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVpcIngressConnectionCommandOutput) => void
+  ): void;
+  public deleteVpcIngressConnection(
+    args: DeleteVpcIngressConnectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcIngressConnectionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVpcIngressConnectionCommandOutput) => void
+  ): Promise<DeleteVpcIngressConnectionCommandOutput> | void {
+    const command = new DeleteVpcIngressConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -705,6 +821,38 @@ export class AppRunner extends AppRunnerClient {
     cb?: (err: any, data?: DescribeVpcConnectorCommandOutput) => void
   ): Promise<DescribeVpcConnectorCommandOutput> | void {
     const command = new DescribeVpcConnectorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Return a full description of an App Runner VPC Ingress Connection resource.</p>
+   */
+  public describeVpcIngressConnection(
+    args: DescribeVpcIngressConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVpcIngressConnectionCommandOutput>;
+  public describeVpcIngressConnection(
+    args: DescribeVpcIngressConnectionCommandInput,
+    cb: (err: any, data?: DescribeVpcIngressConnectionCommandOutput) => void
+  ): void;
+  public describeVpcIngressConnection(
+    args: DescribeVpcIngressConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVpcIngressConnectionCommandOutput) => void
+  ): void;
+  public describeVpcIngressConnection(
+    args: DescribeVpcIngressConnectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcIngressConnectionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcIngressConnectionCommandOutput) => void
+  ): Promise<DescribeVpcIngressConnectionCommandOutput> | void {
+    const command = new DescribeVpcIngressConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -982,6 +1130,38 @@ export class AppRunner extends AppRunnerClient {
   }
 
   /**
+   * <p>Return a list of App Runner VPC Ingress Connections in your Amazon Web Services account.</p>
+   */
+  public listVpcIngressConnections(
+    args: ListVpcIngressConnectionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcIngressConnectionsCommandOutput>;
+  public listVpcIngressConnections(
+    args: ListVpcIngressConnectionsCommandInput,
+    cb: (err: any, data?: ListVpcIngressConnectionsCommandOutput) => void
+  ): void;
+  public listVpcIngressConnections(
+    args: ListVpcIngressConnectionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcIngressConnectionsCommandOutput) => void
+  ): void;
+  public listVpcIngressConnections(
+    args: ListVpcIngressConnectionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVpcIngressConnectionsCommandOutput) => void),
+    cb?: (err: any, data?: ListVpcIngressConnectionsCommandOutput) => void
+  ): Promise<ListVpcIngressConnectionsCommandOutput> | void {
+    const command = new ListVpcIngressConnectionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Pause an active App Runner service. App Runner reduces compute capacity for the service to zero and loses state (for example, ephemeral storage is
    *       removed).</p>
    *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a>ListOperations</a>
@@ -1169,6 +1349,55 @@ export class AppRunner extends AppRunnerClient {
     cb?: (err: any, data?: UpdateServiceCommandOutput) => void
   ): Promise<UpdateServiceCommandOutput> | void {
     const command = new UpdateServiceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update an existing App Runner VPC Ingress Connection resource. The VPC Ingress Connection must be in one of the following states to be updated:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           AVAILABLE
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           FAILED_CREATION
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           FAILED_UPDATE
+   *         </p>
+   *             </li>
+   *          </ul>
+   */
+  public updateVpcIngressConnection(
+    args: UpdateVpcIngressConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVpcIngressConnectionCommandOutput>;
+  public updateVpcIngressConnection(
+    args: UpdateVpcIngressConnectionCommandInput,
+    cb: (err: any, data?: UpdateVpcIngressConnectionCommandOutput) => void
+  ): void;
+  public updateVpcIngressConnection(
+    args: UpdateVpcIngressConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVpcIngressConnectionCommandOutput) => void
+  ): void;
+  public updateVpcIngressConnection(
+    args: UpdateVpcIngressConnectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVpcIngressConnectionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateVpcIngressConnectionCommandOutput) => void
+  ): Promise<UpdateVpcIngressConnectionCommandOutput> | void {
+    const command = new UpdateVpcIngressConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

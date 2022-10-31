@@ -63,6 +63,10 @@ import {
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
 import { CreateVpcConnectorCommandInput, CreateVpcConnectorCommandOutput } from "./commands/CreateVpcConnectorCommand";
 import {
+  CreateVpcIngressConnectionCommandInput,
+  CreateVpcIngressConnectionCommandOutput,
+} from "./commands/CreateVpcIngressConnectionCommand";
+import {
   DeleteAutoScalingConfigurationCommandInput,
   DeleteAutoScalingConfigurationCommandOutput,
 } from "./commands/DeleteAutoScalingConfigurationCommand";
@@ -73,6 +77,10 @@ import {
 } from "./commands/DeleteObservabilityConfigurationCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
 import { DeleteVpcConnectorCommandInput, DeleteVpcConnectorCommandOutput } from "./commands/DeleteVpcConnectorCommand";
+import {
+  DeleteVpcIngressConnectionCommandInput,
+  DeleteVpcIngressConnectionCommandOutput,
+} from "./commands/DeleteVpcIngressConnectionCommand";
 import {
   DescribeAutoScalingConfigurationCommandInput,
   DescribeAutoScalingConfigurationCommandOutput,
@@ -90,6 +98,10 @@ import {
   DescribeVpcConnectorCommandInput,
   DescribeVpcConnectorCommandOutput,
 } from "./commands/DescribeVpcConnectorCommand";
+import {
+  DescribeVpcIngressConnectionCommandInput,
+  DescribeVpcIngressConnectionCommandOutput,
+} from "./commands/DescribeVpcIngressConnectionCommand";
 import {
   DisassociateCustomDomainCommandInput,
   DisassociateCustomDomainCommandOutput,
@@ -110,12 +122,20 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListVpcConnectorsCommandInput, ListVpcConnectorsCommandOutput } from "./commands/ListVpcConnectorsCommand";
+import {
+  ListVpcIngressConnectionsCommandInput,
+  ListVpcIngressConnectionsCommandOutput,
+} from "./commands/ListVpcIngressConnectionsCommand";
 import { PauseServiceCommandInput, PauseServiceCommandOutput } from "./commands/PauseServiceCommand";
 import { ResumeServiceCommandInput, ResumeServiceCommandOutput } from "./commands/ResumeServiceCommand";
 import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "./commands/StartDeploymentCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
+import {
+  UpdateVpcIngressConnectionCommandInput,
+  UpdateVpcIngressConnectionCommandOutput,
+} from "./commands/UpdateVpcIngressConnectionCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -131,16 +151,19 @@ export type ServiceInputTypes =
   | CreateObservabilityConfigurationCommandInput
   | CreateServiceCommandInput
   | CreateVpcConnectorCommandInput
+  | CreateVpcIngressConnectionCommandInput
   | DeleteAutoScalingConfigurationCommandInput
   | DeleteConnectionCommandInput
   | DeleteObservabilityConfigurationCommandInput
   | DeleteServiceCommandInput
   | DeleteVpcConnectorCommandInput
+  | DeleteVpcIngressConnectionCommandInput
   | DescribeAutoScalingConfigurationCommandInput
   | DescribeCustomDomainsCommandInput
   | DescribeObservabilityConfigurationCommandInput
   | DescribeServiceCommandInput
   | DescribeVpcConnectorCommandInput
+  | DescribeVpcIngressConnectionCommandInput
   | DisassociateCustomDomainCommandInput
   | ListAutoScalingConfigurationsCommandInput
   | ListConnectionsCommandInput
@@ -149,12 +172,14 @@ export type ServiceInputTypes =
   | ListServicesCommandInput
   | ListTagsForResourceCommandInput
   | ListVpcConnectorsCommandInput
+  | ListVpcIngressConnectionsCommandInput
   | PauseServiceCommandInput
   | ResumeServiceCommandInput
   | StartDeploymentCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateServiceCommandInput;
+  | UpdateServiceCommandInput
+  | UpdateVpcIngressConnectionCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateCustomDomainCommandOutput
@@ -163,16 +188,19 @@ export type ServiceOutputTypes =
   | CreateObservabilityConfigurationCommandOutput
   | CreateServiceCommandOutput
   | CreateVpcConnectorCommandOutput
+  | CreateVpcIngressConnectionCommandOutput
   | DeleteAutoScalingConfigurationCommandOutput
   | DeleteConnectionCommandOutput
   | DeleteObservabilityConfigurationCommandOutput
   | DeleteServiceCommandOutput
   | DeleteVpcConnectorCommandOutput
+  | DeleteVpcIngressConnectionCommandOutput
   | DescribeAutoScalingConfigurationCommandOutput
   | DescribeCustomDomainsCommandOutput
   | DescribeObservabilityConfigurationCommandOutput
   | DescribeServiceCommandOutput
   | DescribeVpcConnectorCommandOutput
+  | DescribeVpcIngressConnectionCommandOutput
   | DisassociateCustomDomainCommandOutput
   | ListAutoScalingConfigurationsCommandOutput
   | ListConnectionsCommandOutput
@@ -181,12 +209,14 @@ export type ServiceOutputTypes =
   | ListServicesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListVpcConnectorsCommandOutput
+  | ListVpcIngressConnectionsCommandOutput
   | PauseServiceCommandOutput
   | ResumeServiceCommandOutput
   | StartDeploymentCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateServiceCommandOutput;
+  | UpdateServiceCommandOutput
+  | UpdateVpcIngressConnectionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

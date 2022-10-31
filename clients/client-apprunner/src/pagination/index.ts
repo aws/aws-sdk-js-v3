@@ -7,3 +7,4 @@ export * from "./ListObservabilityConfigurationsPaginator";
 export * from "./ListOperationsPaginator";
 export * from "./ListServicesPaginator";
 export * from "./ListVpcConnectorsPaginator";
+export * from "./ListVpcIngressConnectionsPaginator";

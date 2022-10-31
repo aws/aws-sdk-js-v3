@@ -95,6 +95,26 @@ export interface CustomDomain {
   Status: CustomDomainAssociationStatus | string | undefined;
 }
 
+/**
+ * <p>DNS Target record for a custom domain of this Amazon VPC.</p>
+ */
+export interface VpcDNSTarget {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the VPC Ingress Connection that is associated with your service.</p>
+   */
+  VpcIngressConnectionArn?: string;
+
+  /**
+   * <p>The ID of the Amazon VPC that is associated with the custom domain name of the target DNS.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The domain name of your target DNS that is associated with the Amazon VPC.</p>
+   */
+  DomainName?: string;
+}
+
 export interface AssociateCustomDomainResponse {
   /**
    * <p>The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name.</p>
@@ -110,6 +130,12 @@ export interface AssociateCustomDomainResponse {
    * <p>A description of the domain name that's being associated.</p>
    */
   CustomDomain: CustomDomain | undefined;
+
+  /**
+   * <p>DNS Target records for the custom domains of this Amazon VPC.
+   *     </p>
+   */
+  VpcDNSTargets: VpcDNSTarget[] | undefined;
 }
 
 /**
@@ -617,6 +643,17 @@ export interface EgressConfiguration {
 }
 
 /**
+ * <p>Network configuration settings for inbound network traffic.</p>
+ */
+export interface IngressConfiguration {
+  /**
+   * <p>Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to <code>True</code>. To make the service
+   *       privately accessible, from only within an Amazon VPC set it to <code>False</code>. </p>
+   */
+  IsPubliclyAccessible?: boolean;
+}
+
+/**
  * <p>Describes configuration settings related to network traffic of an App Runner service. Consists of embedded objects for each configurable network
  *       feature.</p>
  */
@@ -625,6 +662,11 @@ export interface NetworkConfiguration {
    * <p>Network configuration settings for outbound message traffic.</p>
    */
   EgressConfiguration?: EgressConfiguration;
+
+  /**
+   * <p>Network configuration settings for inbound message traffic.</p>
+   */
+  IngressConfiguration?: IngressConfiguration;
 }
 
 /**
@@ -988,7 +1030,7 @@ export interface Service {
   /**
    * <p>A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.</p>
    */
-  ServiceUrl: string | undefined;
+  ServiceUrl?: string;
 
   /**
    * <p>The time when the App Runner service was created. It's in the Unix time stamp format.</p>
@@ -1169,6 +1211,144 @@ export interface CreateVpcConnectorResponse {
   VpcConnector: VpcConnector | undefined;
 }
 
+/**
+ * <p>The configuration of your VPC and the associated VPC endpoint. The VPC endpoint is an Amazon Web Services PrivateLink resource that allows access to your App Runner
+ *       services from within an Amazon VPC.</p>
+ */
+export interface IngressVpcConfiguration {
+  /**
+   * <p>The ID of the VPC that is used for the VPC endpoint.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The ID of the VPC endpoint that your App Runner service connects to.
+   *     </p>
+   */
+  VpcEndpointId?: string;
+}
+
+export interface CreateVpcIngressConnectionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.</p>
+   */
+  ServiceArn: string | undefined;
+
+  /**
+   * <p>A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your Amazon Web Services account in the Amazon Web Services Region.
+   *     </p>
+   */
+  VpcIngressConnectionName: string | undefined;
+
+  /**
+   * <p>Specifications for the customer’s Amazon VPC and the related Amazon Web Services PrivateLink VPC endpoint that are used to create the VPC Ingress Connection
+   *       resource.</p>
+   */
+  IngressVpcConfiguration: IngressVpcConfiguration | undefined;
+
+  /**
+   * <p>An optional list of metadata items that you can associate with the VPC Ingress Connection resource. A tag is a key-value pair.</p>
+   */
+  Tags?: Tag[];
+}
+
+export enum VpcIngressConnectionStatus {
+  AVAILABLE = "AVAILABLE",
+  DELETED = "DELETED",
+  FAILED_CREATION = "FAILED_CREATION",
+  FAILED_DELETION = "FAILED_DELETION",
+  FAILED_UPDATE = "FAILED_UPDATE",
+  PENDING_CREATION = "PENDING_CREATION",
+  PENDING_DELETION = "PENDING_DELETION",
+  PENDING_UPDATE = "PENDING_UPDATE",
+}
+
+/**
+ * <p>The App Runner resource that specifies an App Runner endpoint for incoming traffic. It establishes a connection between a VPC interface endpoint and a App Runner
+ *       service, to make your App Runner service accessible from only within an Amazon VPC.</p>
+ */
+export interface VpcIngressConnection {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the VPC Ingress Connection.
+   *     </p>
+   */
+  VpcIngressConnectionArn?: string;
+
+  /**
+   * <p>The customer-provided VPC Ingress Connection name.</p>
+   */
+  VpcIngressConnectionName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service associated with the VPC Ingress Connection.
+   *     </p>
+   */
+  ServiceArn?: string;
+
+  /**
+   * <p>The current status of the VPC Ingress Connection.
+   *       The VPC Ingress Connection displays one of the following statuses: <code>AVAILABLE</code>, <code>PENDING_CREATION</code>, <code>PENDING_UPDATE</code>, <code>PENDING_DELETION</code>,<code>FAILED_CREATION</code>, <code>FAILED_UPDATE</code>, <code>FAILED_DELETION</code>, and <code>DELETED</code>..
+   *     </p>
+   */
+  Status?: VpcIngressConnectionStatus | string;
+
+  /**
+   * <p>The Account Id you use to create the VPC Ingress Connection resource.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The domain name associated with the VPC Ingress Connection resource.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>Specifications for the customer’s VPC and related PrivateLink VPC endpoint that are used to associate with the VPC Ingress Connection resource.</p>
+   */
+  IngressVpcConfiguration?: IngressVpcConfiguration;
+
+  /**
+   * <p>The time when the VPC Ingress Connection was created. It's in the Unix time stamp format.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *             Type: Timestamp
+   *           </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *             Required: Yes
+   *           </p>
+   *             </li>
+   *          </ul>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The time when the App Runner service was deleted. It's in the Unix time stamp format.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           Type: Timestamp
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Required: No
+   *         </p>
+   *             </li>
+   *          </ul>
+   */
+  DeletedAt?: Date;
+}
+
+export interface CreateVpcIngressConnectionResponse {
+  /**
+   * <p>A description of the App Runner VPC Ingress Connection resource that's created by this request. </p>
+   */
+  VpcIngressConnection: VpcIngressConnection | undefined;
+}
+
 export interface DeleteAutoScalingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to delete.</p>
@@ -1275,6 +1455,20 @@ export interface DeleteVpcConnectorResponse {
   VpcConnector: VpcConnector | undefined;
 }
 
+export interface DeleteVpcIngressConnectionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the App Runner VPC Ingress Connection that you want to delete.</p>
+   */
+  VpcIngressConnectionArn: string | undefined;
+}
+
+export interface DeleteVpcIngressConnectionResponse {
+  /**
+   * <p>A description of the App Runner VPC Ingress Connection that this request just deleted.</p>
+   */
+  VpcIngressConnection: VpcIngressConnection | undefined;
+}
+
 export interface DescribeAutoScalingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want a description for.</p>
@@ -1332,6 +1526,12 @@ export interface DescribeCustomDomainsResponse {
   CustomDomains: CustomDomain[] | undefined;
 
   /**
+   * <p>DNS Target records for the custom domains of this Amazon VPC.
+   *       </p>
+   */
+  VpcDNSTargets: VpcDNSTarget[] | undefined;
+
+  /**
    * <p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>
    */
   NextToken?: string;
@@ -1385,6 +1585,20 @@ export interface DescribeVpcConnectorResponse {
   VpcConnector: VpcConnector | undefined;
 }
 
+export interface DescribeVpcIngressConnectionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the App Runner VPC Ingress Connection that you want a description for.</p>
+   */
+  VpcIngressConnectionArn: string | undefined;
+}
+
+export interface DescribeVpcIngressConnectionResponse {
+  /**
+   * <p>A description of the App Runner VPC Ingress Connection that you specified in this request.</p>
+   */
+  VpcIngressConnection: VpcIngressConnection | undefined;
+}
+
 export interface DisassociateCustomDomainRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to disassociate a custom domain name from.</p>
@@ -1412,6 +1626,12 @@ export interface DisassociateCustomDomainResponse {
    * <p>A description of the domain name that's being disassociated.</p>
    */
   CustomDomain: CustomDomain | undefined;
+
+  /**
+   * <p>DNS Target records for the custom domains of this Amazon VPC.
+   *       </p>
+   */
+  VpcDNSTargets: VpcDNSTarget[] | undefined;
 }
 
 export interface ListAutoScalingConfigurationsRequest {
@@ -1800,6 +2020,72 @@ export interface ListVpcConnectorsResponse {
   NextToken?: string;
 }
 
+/**
+ * <p>Returns a list of VPC Ingress Connections based on the filter provided. It can return either <code>ServiceArn</code> or <code>VpcEndpointId</code>, or both.</p>
+ */
+export interface ListVpcIngressConnectionsFilter {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a service to filter by.
+   *     </p>
+   */
+  ServiceArn?: string;
+
+  /**
+   * <p>The ID of a VPC Endpoint to filter by.
+   *     </p>
+   */
+  VpcEndpointId?: string;
+}
+
+export interface ListVpcIngressConnectionsRequest {
+  /**
+   * <p>The VPC Ingress Connections to be listed based on either the Service Arn or Vpc Endpoint Id, or both.</p>
+   */
+  Filter?: ListVpcIngressConnectionsFilter;
+
+  /**
+   * <p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p>
+   *          <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be
+   *       identical to the ones that are specified in the initial request.</p>
+   *          <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Provides summary information about an VPC Ingress Connection, which includes its VPC Ingress Connection ARN and its associated Service ARN.</p>
+ */
+export interface VpcIngressConnectionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the VPC Ingress Connection.
+   *     </p>
+   */
+  VpcIngressConnectionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service associated with the VPC Ingress Connection.
+   *     </p>
+   */
+  ServiceArn?: string;
+}
+
+export interface ListVpcIngressConnectionsResponse {
+  /**
+   * <p>A list of summary information records for VPC Ingress Connections. In a paginated request, the request returns up to <code>MaxResults</code> records for each call.</p>
+   */
+  VpcIngressConnectionSummaryList: VpcIngressConnectionSummary[] | undefined;
+
+  /**
+   * <p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>
+   */
+  NextToken?: string;
+}
+
 export interface PauseServiceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to pause.</p>
@@ -1941,6 +2227,26 @@ export interface UpdateServiceResponse {
   OperationId: string | undefined;
 }
 
+export interface UpdateVpcIngressConnectionRequest {
+  /**
+   * <p>The Amazon Resource Name (Arn) for the App Runner VPC Ingress Connection resource that you want to update.</p>
+   */
+  VpcIngressConnectionArn: string | undefined;
+
+  /**
+   * <p>Specifications for the customer’s Amazon VPC and the related Amazon Web Services PrivateLink VPC endpoint that are used to update the VPC Ingress Connection
+   *       resource.</p>
+   */
+  IngressVpcConfiguration: IngressVpcConfiguration | undefined;
+}
+
+export interface UpdateVpcIngressConnectionResponse {
+  /**
+   * <p>A description of the App Runner VPC Ingress Connection resource that's updated by this request.</p>
+   */
+  VpcIngressConnection: VpcIngressConnection | undefined;
+}
+
 /**
  * @internal
  */
@@ -1959,6 +2265,13 @@ export const CertificateValidationRecordFilterSensitiveLog = (obj: CertificateVa
  * @internal
  */
 export const CustomDomainFilterSensitiveLog = (obj: CustomDomain): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcDNSTargetFilterSensitiveLog = (obj: VpcDNSTarget): any => ({
   ...obj,
 });
 
@@ -2079,6 +2392,13 @@ export const InstanceConfigurationFilterSensitiveLog = (obj: InstanceConfigurati
  * @internal
  */
 export const EgressConfigurationFilterSensitiveLog = (obj: EgressConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IngressConfigurationFilterSensitiveLog = (obj: IngressConfiguration): any => ({
   ...obj,
 });
 
@@ -2223,6 +2543,34 @@ export const CreateVpcConnectorResponseFilterSensitiveLog = (obj: CreateVpcConne
 /**
  * @internal
  */
+export const IngressVpcConfigurationFilterSensitiveLog = (obj: IngressVpcConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVpcIngressConnectionRequestFilterSensitiveLog = (obj: CreateVpcIngressConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcIngressConnectionFilterSensitiveLog = (obj: VpcIngressConnection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVpcIngressConnectionResponseFilterSensitiveLog = (obj: CreateVpcIngressConnectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteAutoScalingConfigurationRequestFilterSensitiveLog = (
   obj: DeleteAutoScalingConfigurationRequest
 ): any => ({
@@ -2302,6 +2650,20 @@ export const DeleteVpcConnectorResponseFilterSensitiveLog = (obj: DeleteVpcConne
 /**
  * @internal
  */
+export const DeleteVpcIngressConnectionRequestFilterSensitiveLog = (obj: DeleteVpcIngressConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVpcIngressConnectionResponseFilterSensitiveLog = (obj: DeleteVpcIngressConnectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeAutoScalingConfigurationRequestFilterSensitiveLog = (
   obj: DescribeAutoScalingConfigurationRequest
 ): any => ({
@@ -2375,6 +2737,24 @@ export const DescribeVpcConnectorRequestFilterSensitiveLog = (obj: DescribeVpcCo
  * @internal
  */
 export const DescribeVpcConnectorResponseFilterSensitiveLog = (obj: DescribeVpcConnectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVpcIngressConnectionRequestFilterSensitiveLog = (
+  obj: DescribeVpcIngressConnectionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVpcIngressConnectionResponseFilterSensitiveLog = (
+  obj: DescribeVpcIngressConnectionResponse
+): any => ({
   ...obj,
 });
 
@@ -2529,6 +2909,34 @@ export const ListVpcConnectorsResponseFilterSensitiveLog = (obj: ListVpcConnecto
 /**
  * @internal
  */
+export const ListVpcIngressConnectionsFilterFilterSensitiveLog = (obj: ListVpcIngressConnectionsFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVpcIngressConnectionsRequestFilterSensitiveLog = (obj: ListVpcIngressConnectionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcIngressConnectionSummaryFilterSensitiveLog = (obj: VpcIngressConnectionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVpcIngressConnectionsResponseFilterSensitiveLog = (obj: ListVpcIngressConnectionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const PauseServiceRequestFilterSensitiveLog = (obj: PauseServiceRequest): any => ({
   ...obj,
 });
@@ -2614,4 +3022,18 @@ export const UpdateServiceRequestFilterSensitiveLog = (obj: UpdateServiceRequest
 export const UpdateServiceResponseFilterSensitiveLog = (obj: UpdateServiceResponse): any => ({
   ...obj,
   ...(obj.Service && { Service: ServiceFilterSensitiveLog(obj.Service) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateVpcIngressConnectionRequestFilterSensitiveLog = (obj: UpdateVpcIngressConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVpcIngressConnectionResponseFilterSensitiveLog = (obj: UpdateVpcIngressConnectionResponse): any => ({
+  ...obj,
 });
