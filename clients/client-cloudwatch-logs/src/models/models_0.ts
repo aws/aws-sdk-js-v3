@@ -570,7 +570,7 @@ export interface LogGroup {
 
   /**
    * <p>The number of days to retain the log events in the specified log group.
-   *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.</p>
+   *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p>
    *          <p>To set a log group to never have log events expire, use
    *     <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>.
    *   </p>
@@ -1560,6 +1560,30 @@ export class InvalidSequenceTokenException extends __BaseException {
   }
 }
 
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the  resource that you want to view tags for.</p>
+   *          <p>The ARN format of a log group is
+   *       <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i>
+   *             </code>
+   *          </p>
+   *          <p>The ARN format of a destination is
+   *       <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i>
+   *             </code>
+   *          </p>
+   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
+   *       resources and operations</a>.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The list of tags associated with the requested resource.></p>
+   */
+  tags?: Record<string, string>;
+}
+
 export interface ListTagsLogGroupRequest {
   /**
    * <p>The name of the log group.</p>
@@ -1590,6 +1614,14 @@ export interface PutDestinationRequest {
    *       Kinesis <code>PutRecord</code> operation on the destination stream.</p>
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>An optional list of key-value pairs to associate with the resource.</p>
+   *          <p>For more information about tagging, see
+   *       <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
+   *          </p>
+   */
+  tags?: Record<string, string>;
 }
 
 export interface PutDestinationResponse {
@@ -1830,7 +1862,7 @@ export interface PutRetentionPolicyRequest {
 
   /**
    * <p>The number of days to retain the log events in the specified log group.
-   *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.</p>
+   *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p>
    *          <p>To set a log group to never have log events expire, use
    *     <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>.
    *   </p>
@@ -2033,6 +2065,53 @@ export interface TagLogGroupRequest {
   tags: Record<string, string> | undefined;
 }
 
+export interface TagResourceRequest {
+  /**
+   * <p>The ARN of the  resource that you're adding tags to.</p>
+   *          <p>The ARN format of a log group is
+   *       <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i>
+   *             </code>
+   *          </p>
+   *          <p>The ARN format of a destination is
+   *       <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i>
+   *             </code>
+   *          </p>
+   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
+   *       resources and operations</a>.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The list of key-value pairs to associate with the resource.</p>
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A resource can have no more than 50 tags.</p>
+ */
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The name of the resource.</p>
+   */
+  resourceName?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.resourceName = opts.resourceName;
+  }
+}
+
 export interface TestMetricFilterRequest {
   /**
    * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
@@ -2084,6 +2163,28 @@ export interface UntagLogGroupRequest {
    * <p>The tag keys. The corresponding tags are removed from the log group.</p>
    */
   tags: string[] | undefined;
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The ARN of the CloudWatch Logs resource that you're removing tags from.</p>
+   *          <p>The ARN format of a log group is
+   *       <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i>
+   *             </code>
+   *          </p>
+   *          <p>The ARN format of a destination is
+   *       <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i>
+   *             </code>
+   *          </p>
+   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
+   *       resources and operations</a>.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The list of tag keys to remove from the resource.</p>
+   */
+  tagKeys: string[] | undefined;
 }
 
 /**
@@ -2532,6 +2633,20 @@ export const InputLogEventFilterSensitiveLog = (obj: InputLogEvent): any => ({
 /**
  * @internal
  */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListTagsLogGroupRequestFilterSensitiveLog = (obj: ListTagsLogGroupRequest): any => ({
   ...obj,
 });
@@ -2686,6 +2801,13 @@ export const TagLogGroupRequestFilterSensitiveLog = (obj: TagLogGroupRequest): a
 /**
  * @internal
  */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const TestMetricFilterRequestFilterSensitiveLog = (obj: TestMetricFilterRequest): any => ({
   ...obj,
 });
@@ -2708,5 +2830,12 @@ export const TestMetricFilterResponseFilterSensitiveLog = (obj: TestMetricFilter
  * @internal
  */
 export const UntagLogGroupRequestFilterSensitiveLog = (obj: UntagLogGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
   ...obj,
 });

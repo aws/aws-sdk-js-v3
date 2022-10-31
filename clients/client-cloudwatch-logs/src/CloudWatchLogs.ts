@@ -143,6 +143,11 @@ import {
   GetQueryResultsCommandOutput,
 } from "./commands/GetQueryResultsCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListTagsLogGroupCommand,
   ListTagsLogGroupCommandInput,
   ListTagsLogGroupCommandOutput,
@@ -190,6 +195,7 @@ import {
 import { StartQueryCommand, StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
 import { StopQueryCommand, StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand";
 import { TagLogGroupCommand, TagLogGroupCommandInput, TagLogGroupCommandOutput } from "./commands/TagLogGroupCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestMetricFilterCommand,
   TestMetricFilterCommandInput,
@@ -200,6 +206,11 @@ import {
   UntagLogGroupCommandInput,
   UntagLogGroupCommandOutput,
 } from "./commands/UntagLogGroupCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 
 /**
  * <p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from
@@ -320,12 +331,6 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
    *       log group to an Amazon S3 bucket. When you perform a <code>CreateExportTask</code>
    *       operation, you must use credentials that have permission to write to the S3 bucket
    *       that you specify as the destination.</p>
-   *          <important>
-   *             <p>Exporting log data to Amazon S3 buckets that are encrypted by KMS is not
-   *       supported. Exporting
-   *       log data to Amazon S3 buckets that have S3 Object Lock enabled with a retention period is not supported.</p>
-   *             <p>Exporting to S3 buckets that are encrypted with AES-256 is supported. </p>
-   *          </important>
    *          <p>This is an asynchronous call. If all the required information is provided, this
    *       operation initiates an export task and responds with the ID of the task. After the task has started,
    *       you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html">DescribeExportTasks</a> to get the status of the export task. Each account can
@@ -334,11 +339,8 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
    *          <p>You can export logs from multiple log groups or multiple time ranges to the same S3
    *       bucket. To separate out log data for each export task, you can specify a prefix to be used as
    *       the Amazon S3 key prefix for all exported objects.</p>
-   *
-   *          <note>
-   *             <p>Time-based sorting on chunks of log data inside an exported file is not guaranteed. You can sort the
-   *       exported log fild data by using Linux utilities.</p>
-   *          </note>
+   *          <p>Exporting to S3 buckets that are encrypted with AES-256 is supported. Exporting to S3 buckets
+   *       encrypted with SSE-KMS is not supported. </p>
    */
   public createExportTask(
     args: CreateExportTaskCommandInput,
@@ -1271,7 +1273,46 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
-   * <p>Lists the tags for the specified log group.</p>
+   * <p>Displays the tags associated with a CloudWatch Logs resource. Currently, log groups
+   *       and destinations support tagging.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @deprecated
+   *
+   * <important>
+   *             <p>The ListTagsLogGroup operation is on the path to deprecation. We recommend that you use
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a> instead.</p>
+   *          </important>
+   *          <p>Lists the tags for the specified log group.</p>
    */
   public listTagsLogGroup(
     args: ListTagsLogGroupCommandInput,
@@ -1730,9 +1771,15 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
-   * <p>Adds or updates the specified tags for the specified log group.</p>
-   *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>.
-   *       To remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagLogGroup.html">UntagLogGroup</a>.</p>
+   * @deprecated
+   *
+   * <important>
+   *             <p>The TagLogGroup operation is on the path to deprecation. We recommend that you use
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a> instead.</p>
+   *          </important>
+   *          <p>Adds or updates the specified tags for the specified log group.</p>
+   *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.
+   *       To remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging">Tag Log Groups in Amazon CloudWatch Logs</a>
    *       in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
    *          <p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to
@@ -1754,6 +1801,43 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
     cb?: (err: any, data?: TagLogGroupCommandOutput) => void
   ): Promise<TagLogGroupCommandOutput> | void {
     const command = new TagLogGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch Logs resource.
+   *         Currently, the only CloudWatch Logs resources that
+   *         can be tagged are log groups and destinations. </p>
+   *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
+   *         permissions by granting a user
+   *         permission to access or change only resources with certain tag values.</p>
+   *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
+   *          <p>You can use the <code>TagResource</code> action with a resource that already has tags. If you specify a new tag key for the alarm,
+   *         this tag is appended to the list of tags associated
+   *         with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces
+   *         the previous value for that tag.</p>
+   *          <p>You can associate as many as 50 tags with a CloudWatch Logs resource.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1798,9 +1882,15 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   }
 
   /**
-   * <p>Removes the specified tags from the specified log group.</p>
-   *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>.
-   *       To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html">TagLogGroup</a>.</p>
+   * @deprecated
+   *
+   * <important>
+   *             <p>The UntagLogGroup operation is on the path to deprecation. We recommend that you use
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a> instead.</p>
+   *          </important>
+   *          <p>Removes the specified tags from the specified log group.</p>
+   *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.
+   *       To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
    *          <p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to
    *       log groups using the <code>aws:Resource/<i>key-name</i>
    *             </code> or <code>aws:TagKeys</code> condition keys.
@@ -1825,6 +1915,38 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
     cb?: (err: any, data?: UntagLogGroupCommandOutput) => void
   ): Promise<UntagLogGroupCommandOutput> | void {
     const command = new UntagLogGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes one or more tags from the specified resource.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

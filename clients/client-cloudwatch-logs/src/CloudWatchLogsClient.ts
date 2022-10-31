@@ -105,6 +105,10 @@ import { GetLogEventsCommandInput, GetLogEventsCommandOutput } from "./commands/
 import { GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput } from "./commands/GetLogGroupFieldsCommand";
 import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "./commands/GetLogRecordCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { ListTagsLogGroupCommandInput, ListTagsLogGroupCommandOutput } from "./commands/ListTagsLogGroupCommand";
 import { PutDestinationCommandInput, PutDestinationCommandOutput } from "./commands/PutDestinationCommand";
 import {
@@ -123,8 +127,10 @@ import {
 import { StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
 import { StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand";
 import { TagLogGroupCommandInput, TagLogGroupCommandOutput } from "./commands/TagLogGroupCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TestMetricFilterCommandInput, TestMetricFilterCommandOutput } from "./commands/TestMetricFilterCommand";
 import { UntagLogGroupCommandInput, UntagLogGroupCommandOutput } from "./commands/UntagLogGroupCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -162,6 +168,7 @@ export type ServiceInputTypes =
   | GetLogGroupFieldsCommandInput
   | GetLogRecordCommandInput
   | GetQueryResultsCommandInput
+  | ListTagsForResourceCommandInput
   | ListTagsLogGroupCommandInput
   | PutDestinationCommandInput
   | PutDestinationPolicyCommandInput
@@ -174,8 +181,10 @@ export type ServiceInputTypes =
   | StartQueryCommandInput
   | StopQueryCommandInput
   | TagLogGroupCommandInput
+  | TagResourceCommandInput
   | TestMetricFilterCommandInput
-  | UntagLogGroupCommandInput;
+  | UntagLogGroupCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateKmsKeyCommandOutput
@@ -206,6 +215,7 @@ export type ServiceOutputTypes =
   | GetLogGroupFieldsCommandOutput
   | GetLogRecordCommandOutput
   | GetQueryResultsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListTagsLogGroupCommandOutput
   | PutDestinationCommandOutput
   | PutDestinationPolicyCommandOutput
@@ -218,8 +228,10 @@ export type ServiceOutputTypes =
   | StartQueryCommandOutput
   | StopQueryCommandOutput
   | TagLogGroupCommandOutput
+  | TagResourceCommandOutput
   | TestMetricFilterCommandOutput
-  | UntagLogGroupCommandOutput;
+  | UntagLogGroupCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

@@ -33,12 +33,6 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  *       log group to an Amazon S3 bucket. When you perform a <code>CreateExportTask</code>
  *       operation, you must use credentials that have permission to write to the S3 bucket
  *       that you specify as the destination.</p>
- *          <important>
- *             <p>Exporting log data to Amazon S3 buckets that are encrypted by KMS is not
- *       supported. Exporting
- *       log data to Amazon S3 buckets that have S3 Object Lock enabled with a retention period is not supported.</p>
- *             <p>Exporting to S3 buckets that are encrypted with AES-256 is supported. </p>
- *          </important>
  *          <p>This is an asynchronous call. If all the required information is provided, this
  *       operation initiates an export task and responds with the ID of the task. After the task has started,
  *       you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html">DescribeExportTasks</a> to get the status of the export task. Each account can
@@ -47,11 +41,8 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  *          <p>You can export logs from multiple log groups or multiple time ranges to the same S3
  *       bucket. To separate out log data for each export task, you can specify a prefix to be used as
  *       the Amazon S3 key prefix for all exported objects.</p>
- *
- *          <note>
- *             <p>Time-based sorting on chunks of log data inside an exported file is not guaranteed. You can sort the
- *       exported log fild data by using Linux utilities.</p>
- *          </note>
+ *          <p>Exporting to S3 buckets that are encrypted with AES-256 is supported. Exporting to S3 buckets
+ *       encrypted with SSE-KMS is not supported. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

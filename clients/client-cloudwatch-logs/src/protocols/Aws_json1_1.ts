@@ -75,6 +75,10 @@ import { GetLogEventsCommandInput, GetLogEventsCommandOutput } from "../commands
 import { GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput } from "../commands/GetLogGroupFieldsCommand";
 import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "../commands/GetLogRecordCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "../commands/GetQueryResultsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { ListTagsLogGroupCommandInput, ListTagsLogGroupCommandOutput } from "../commands/ListTagsLogGroupCommand";
 import { PutDestinationCommandInput, PutDestinationCommandOutput } from "../commands/PutDestinationCommand";
 import {
@@ -93,8 +97,10 @@ import {
 import { StartQueryCommandInput, StartQueryCommandOutput } from "../commands/StartQueryCommand";
 import { StopQueryCommandInput, StopQueryCommandOutput } from "../commands/StopQueryCommand";
 import { TagLogGroupCommandInput, TagLogGroupCommandOutput } from "../commands/TagLogGroupCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { TestMetricFilterCommandInput, TestMetricFilterCommandOutput } from "../commands/TestMetricFilterCommand";
 import { UntagLogGroupCommandInput, UntagLogGroupCommandOutput } from "../commands/UntagLogGroupCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { CloudWatchLogsServiceException as __BaseException } from "../models/CloudWatchLogsServiceException";
 import {
   AssociateKmsKeyRequest,
@@ -152,6 +158,8 @@ import {
   InvalidParameterException,
   InvalidSequenceTokenException,
   LimitExceededException,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   ListTagsLogGroupRequest,
   ListTagsLogGroupResponse,
   LogGroup,
@@ -193,10 +201,13 @@ import {
   StopQueryResponse,
   SubscriptionFilter,
   TagLogGroupRequest,
+  TagResourceRequest,
   TestMetricFilterRequest,
   TestMetricFilterResponse,
+  TooManyTagsException,
   UnrecognizedClientException,
   UntagLogGroupRequest,
+  UntagResourceRequest,
 } from "../models/models_0";
 
 export const serializeAws_json1_1AssociateKmsKeyCommand = async (
@@ -563,6 +574,19 @@ export const serializeAws_json1_1GetQueryResultsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Logs_20140328.ListTagsForResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListTagsLogGroupCommand = async (
   input: ListTagsLogGroupCommandInput,
   context: __SerdeContext
@@ -719,6 +743,19 @@ export const serializeAws_json1_1TagLogGroupCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Logs_20140328.TagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1TestMetricFilterCommand = async (
   input: TestMetricFilterCommandInput,
   context: __SerdeContext
@@ -742,6 +779,19 @@ export const serializeAws_json1_1UntagLogGroupCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagLogGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Logs_20140328.UntagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2061,6 +2111,53 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ListTagsLogGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2637,6 +2734,53 @@ const deserializeAws_json1_1TagLogGroupCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1TagResourceCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.cloudwatchlogs#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1TestMetricFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2708,6 +2852,50 @@ const deserializeAws_json1_1UntagLogGroupCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2843,6 +3031,19 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(body, context);
   const exception = new ServiceUnavailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3169,6 +3370,15 @@ const serializeAws_json1_1InputLogStreamNames = (input: string[], context: __Ser
     });
 };
 
+const serializeAws_json1_1ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+  };
+};
+
 const serializeAws_json1_1ListTagsLogGroupRequest = (input: ListTagsLogGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
@@ -3217,6 +3427,7 @@ const serializeAws_json1_1PutDestinationRequest = (input: PutDestinationRequest,
   return {
     ...(input.destinationName != null && { destinationName: input.destinationName }),
     ...(input.roleArn != null && { roleArn: input.roleArn }),
+    ...(input.tags != null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
     ...(input.targetArn != null && { targetArn: input.targetArn }),
   };
 };
@@ -3308,6 +3519,14 @@ const serializeAws_json1_1StopQueryRequest = (input: StopQueryRequest, context: 
   };
 };
 
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_1TagList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -3319,6 +3538,13 @@ const serializeAws_json1_1TagList = (input: string[], context: __SerdeContext): 
 const serializeAws_json1_1TagLogGroupRequest = (input: TagLogGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
+    ...(input.tags != null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+  };
+};
+
+const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
     ...(input.tags != null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
@@ -3356,6 +3582,13 @@ const serializeAws_json1_1UntagLogGroupRequest = (input: UntagLogGroupRequest, c
   return {
     ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
     ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+  };
+};
+
+const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys != null && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
   };
 };
 
@@ -3687,6 +3920,15 @@ const deserializeAws_json1_1InvalidSequenceTokenException = (
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  return {
+    tags: output.tags != null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -4173,6 +4415,13 @@ const deserializeAws_json1_1TestMetricFilterResponse = (
 ): TestMetricFilterResponse => {
   return {
     matches: output.matches != null ? deserializeAws_json1_1MetricFilterMatches(output.matches, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
+  return {
+    message: __expectString(output.message),
+    resourceName: __expectString(output.resourceName),
   } as any;
 };
 

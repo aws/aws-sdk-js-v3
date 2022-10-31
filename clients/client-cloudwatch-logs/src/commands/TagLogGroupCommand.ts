@@ -24,9 +24,15 @@ export interface TagLogGroupCommandInput extends TagLogGroupRequest {}
 export interface TagLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds or updates the specified tags for the specified log group.</p>
- *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>.
- *       To remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagLogGroup.html">UntagLogGroup</a>.</p>
+ * @deprecated
+ *
+ * <important>
+ *             <p>The TagLogGroup operation is on the path to deprecation. We recommend that you use
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a> instead.</p>
+ *          </important>
+ *          <p>Adds or updates the specified tags for the specified log group.</p>
+ *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.
+ *       To remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
  *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging">Tag Log Groups in Amazon CloudWatch Logs</a>
  *       in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
  *          <p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to

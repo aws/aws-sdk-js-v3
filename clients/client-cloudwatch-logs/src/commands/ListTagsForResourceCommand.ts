@@ -15,45 +15,40 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import {
-  ListTagsLogGroupRequest,
-  ListTagsLogGroupRequestFilterSensitiveLog,
-  ListTagsLogGroupResponse,
-  ListTagsLogGroupResponseFilterSensitiveLog,
+  ListTagsForResourceRequest,
+  ListTagsForResourceRequestFilterSensitiveLog,
+  ListTagsForResourceResponse,
+  ListTagsForResourceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListTagsLogGroupCommand,
-  serializeAws_json1_1ListTagsLogGroupCommand,
+  deserializeAws_json1_1ListTagsForResourceCommand,
+  serializeAws_json1_1ListTagsForResourceCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface ListTagsLogGroupCommandInput extends ListTagsLogGroupRequest {}
-export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse, __MetadataBearer {}
+export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * @deprecated
- *
- * <important>
- *             <p>The ListTagsLogGroup operation is on the path to deprecation. We recommend that you use
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a> instead.</p>
- *          </important>
- *          <p>Lists the tags for the specified log group.</p>
+ * <p>Displays the tags associated with a CloudWatch Logs resource. Currently, log groups
+ *       and destinations support tagging.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, ListTagsLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, ListTagsLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, ListTagsForResourceCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
+ * // const { CloudWatchLogsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const command = new ListTagsLogGroupCommand(input);
+ * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListTagsLogGroupCommandInput} for command's `input` shape.
- * @see {@link ListTagsLogGroupCommandOutput} for command's `response` shape.
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  */
-export class ListTagsLogGroupCommand extends $Command<
-  ListTagsLogGroupCommandInput,
-  ListTagsLogGroupCommandOutput,
+export class ListTagsForResourceCommand extends $Command<
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
   CloudWatchLogsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -68,7 +63,7 @@ export class ListTagsLogGroupCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListTagsLogGroupCommandInput) {
+  constructor(readonly input: ListTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -81,23 +76,23 @@ export class ListTagsLogGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListTagsLogGroupCommandInput, ListTagsLogGroupCommandOutput> {
+  ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListTagsLogGroupCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListTagsForResourceCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CloudWatchLogsClient";
-    const commandName = "ListTagsLogGroupCommand";
+    const commandName = "ListTagsForResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsLogGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsLogGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsForResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +102,12 @@ export class ListTagsLogGroupCommand extends $Command<
     );
   }
 
-  private serialize(input: ListTagsLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsLogGroupCommand(input, context);
+  private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListTagsForResourceCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsLogGroupCommandOutput> {
-    return deserializeAws_json1_1ListTagsLogGroupCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
+    return deserializeAws_json1_1ListTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra
