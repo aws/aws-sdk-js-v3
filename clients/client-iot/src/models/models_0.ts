@@ -849,6 +849,65 @@ export interface LambdaAction {
 }
 
 /**
+ * <p>Describes how to interpret an application-defined timestamp value from an MQTT message
+ *          payload and the precision of that value.</p>
+ */
+export interface LocationTimestamp {
+  /**
+   * <p>An expression that returns a long epoch time value.</p>
+   */
+  value: string | undefined;
+
+  /**
+   * <p>The precision of the timestamp value that results from the expression
+   *          described in <code>value</code>.</p>
+   *          <p>Valid values:  <code>SECONDS</code> | <code>MILLISECONDS</code> |
+   *          <code>MICROSECONDS</code> | <code>NANOSECONDS</code>. The default is
+   *          <code>MILLISECONDS</code>.</p>
+   */
+  unit?: string;
+}
+
+/**
+ * <p>The Amazon Location rule action sends device location updates from
+ *          an MQTT message to an Amazon Location tracker resource.</p>
+ */
+export interface LocationAction {
+  /**
+   * <p>The IAM role that grants permission to write to the Amazon Location resource.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The name of the tracker resource in Amazon Location in which the location is updated.</p>
+   */
+  trackerName: string | undefined;
+
+  /**
+   * <p>The unique ID of the device providing the location data.</p>
+   */
+  deviceId: string | undefined;
+
+  /**
+   * <p>The time that the location data was sampled. The default value is
+   *       the time the MQTT message was processed.</p>
+   */
+  timestamp?: LocationTimestamp;
+
+  /**
+   * <p>A string that evaluates to a double value that represents the
+   *          latitude of the device's location.</p>
+   */
+  latitude: string | undefined;
+
+  /**
+   * <p>A string that evaluates to a double value that represents the
+   *          longitude of the device's location.</p>
+   */
+  longitude: string | undefined;
+}
+
+/**
  * <p>Describes an action that writes data to an Amazon OpenSearch Service
  *          domain.</p>
  */
@@ -1232,6 +1291,12 @@ export interface Action {
    * <p>Write data to an Amazon OpenSearch Service domain.</p>
    */
   openSearch?: OpenSearchAction;
+
+  /**
+   * <p>The Amazon Location Service rule action sends device location updates from
+   *          an MQTT message to an Amazon Location tracker resource.</p>
+   */
+  location?: LocationAction;
 }
 
 export enum ActionType {
@@ -4670,7 +4735,9 @@ export interface CreateProvisioningTemplateRequest {
   provisioningRoleArn: string | undefined;
 
   /**
-   * <p>Creates a pre-provisioning hook template.</p>
+   * <p>Creates a pre-provisioning hook template. Only supports template of type
+   *             <code>FLEET_PROVISIONING</code>. For more information about provisioning template types,
+   *          see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type">type</a>.</p>
    */
   preProvisioningHook?: ProvisioningHook;
 
@@ -5746,18 +5813,6 @@ export interface DeleteProvisioningTemplateVersionResponse {}
 export interface DeleteRegistrationCodeRequest {}
 
 /**
- * <p>The output for the DeleteRegistrationCode operation.</p>
- */
-export interface DeleteRegistrationCodeResponse {}
-
-export interface DeleteRoleAliasRequest {
-  /**
-   * <p>The role alias to delete.</p>
-   */
-  roleAlias: string | undefined;
-}
-
-/**
  * @internal
  */
 export const AbortCriteriaFilterSensitiveLog = (obj: AbortCriteria): any => ({
@@ -5937,6 +5992,20 @@ export const KinesisActionFilterSensitiveLog = (obj: KinesisAction): any => ({
  * @internal
  */
 export const LambdaActionFilterSensitiveLog = (obj: LambdaAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocationTimestampFilterSensitiveLog = (obj: LocationTimestamp): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocationActionFilterSensitiveLog = (obj: LocationAction): any => ({
   ...obj,
 });
 
@@ -7427,19 +7496,5 @@ export const DeleteProvisioningTemplateVersionResponseFilterSensitiveLog = (
  * @internal
  */
 export const DeleteRegistrationCodeRequestFilterSensitiveLog = (obj: DeleteRegistrationCodeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRegistrationCodeResponseFilterSensitiveLog = (obj: DeleteRegistrationCodeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRoleAliasRequestFilterSensitiveLog = (obj: DeleteRoleAliasRequest): any => ({
   ...obj,
 });

@@ -14,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteRoleAliasRequest, DeleteRoleAliasRequestFilterSensitiveLog } from "../models/models_0";
-import { DeleteRoleAliasResponse, DeleteRoleAliasResponseFilterSensitiveLog } from "../models/models_1";
+import {
+  DeleteRoleAliasRequest,
+  DeleteRoleAliasRequestFilterSensitiveLog,
+  DeleteRoleAliasResponse,
+  DeleteRoleAliasResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteRoleAliasCommand,
   serializeAws_restJson1DeleteRoleAliasCommand,

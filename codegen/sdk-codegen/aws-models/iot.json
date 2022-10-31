@@ -1084,9 +1084,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1097,9 +1097,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1110,9 +1110,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1123,9 +1123,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1136,9 +1136,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1149,9 +1149,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1162,9 +1162,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1175,9 +1175,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1188,9 +1188,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "me-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1201,9 +1201,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "me-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1214,9 +1214,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "me-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1227,9 +1227,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "me-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1240,9 +1240,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1253,9 +1253,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1266,9 +1266,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1279,9 +1279,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1292,9 +1292,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1305,9 +1305,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1318,9 +1318,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1331,9 +1331,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1344,9 +1344,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1357,9 +1357,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1370,9 +1370,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1383,9 +1383,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1396,9 +1396,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1409,9 +1409,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1422,9 +1422,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1435,9 +1435,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1448,9 +1448,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1461,9 +1461,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1474,9 +1474,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1487,9 +1487,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1500,9 +1500,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1513,9 +1513,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1526,9 +1526,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1539,9 +1539,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1552,9 +1552,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1565,9 +1565,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1578,9 +1578,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1591,9 +1591,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1604,9 +1604,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1617,9 +1617,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1630,9 +1630,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1643,9 +1643,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1656,9 +1656,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1669,9 +1669,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1682,9 +1682,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1695,9 +1695,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1708,9 +1708,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1721,9 +1721,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1734,9 +1734,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1747,9 +1747,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1760,9 +1760,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1773,9 +1773,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1786,9 +1786,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1799,9 +1799,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1812,9 +1812,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1825,9 +1825,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1838,9 +1838,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1851,9 +1851,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1864,9 +1864,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1877,9 +1877,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1890,9 +1890,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1903,9 +1903,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1916,9 +1916,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1929,9 +1929,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1942,9 +1942,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1955,9 +1955,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1968,9 +1968,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1981,9 +1981,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1994,9 +1994,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2007,9 +2007,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2020,9 +2020,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2033,9 +2033,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2046,9 +2046,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2059,9 +2059,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2072,9 +2072,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2085,9 +2085,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2098,9 +2098,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2111,9 +2111,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2122,9 +2122,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-iso-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2135,9 +2135,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2146,9 +2146,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-iso-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2159,9 +2159,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2172,9 +2172,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2185,9 +2185,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2198,9 +2198,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2211,9 +2211,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2224,9 +2224,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2237,9 +2237,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2250,9 +2250,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2263,9 +2263,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2276,9 +2276,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2289,9 +2289,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2302,9 +2302,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2315,9 +2315,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2326,9 +2326,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-isob-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2339,9 +2339,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2350,9 +2350,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-isob-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2363,9 +2363,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2376,9 +2376,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2388,9 +2388,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2400,9 +2400,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             }
@@ -2412,14 +2412,14 @@
       }
     },
     "com.amazonaws.iot#AbortAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CANCEL",
-            "name": "CANCEL"
+      "type": "enum",
+      "members": {
+        "CANCEL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCEL"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.iot#AbortConfig": {
@@ -2700,6 +2700,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Write data to an Amazon OpenSearch Service domain.</p>"
           }
+        },
+        "location": {
+          "target": "com.amazonaws.iot#LocationAction",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Location Service rule action sends device location updates from\n         an MQTT message to an Amazon Location tracker resource.</p>"
+          }
         }
       },
       "traits": {
@@ -2719,26 +2725,32 @@
       }
     },
     "com.amazonaws.iot#ActionType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PUBLISH",
-            "name": "PUBLISH"
-          },
-          {
-            "value": "SUBSCRIBE",
-            "name": "SUBSCRIBE"
-          },
-          {
-            "value": "RECEIVE",
-            "name": "RECEIVE"
-          },
-          {
-            "value": "CONNECT",
-            "name": "CONNECT"
+      "type": "enum",
+      "members": {
+        "PUBLISH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PUBLISH"
           }
-        ]
+        },
+        "SUBSCRIBE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUBSCRIBE"
+          }
+        },
+        "RECEIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RECEIVE"
+          }
+        },
+        "CONNECT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONNECT"
+          }
+        }
       }
     },
     "com.amazonaws.iot#ActiveViolation": {
@@ -3022,22 +3034,26 @@
       }
     },
     "com.amazonaws.iot#AggregationTypeName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Statistics",
-            "name": "STATISTICS"
-          },
-          {
-            "value": "Percentiles",
-            "name": "PERCENTILES"
-          },
-          {
-            "value": "Cardinality",
-            "name": "CARDINALITY"
+      "type": "enum",
+      "members": {
+        "STATISTICS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Statistics"
           }
-        ]
+        },
+        "PERCENTILES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Percentiles"
+          }
+        },
+        "CARDINALITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Cardinality"
+          }
+        }
       }
     },
     "com.amazonaws.iot#AggregationTypeValue": {
@@ -3085,15 +3101,17 @@
       "type": "string"
     },
     "com.amazonaws.iot#AlertTargetType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The type of alert target: one of \"SNS\".</p>",
-        "smithy.api#enum": [
-          {
-            "value": "SNS",
-            "name": "SNS"
+      "type": "enum",
+      "members": {
+        "SNS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SNS"
           }
-        ]
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The type of alert target: one of \"SNS\".</p>"
       }
     },
     "com.amazonaws.iot#AlertTargets": {
@@ -3764,34 +3782,44 @@
       }
     },
     "com.amazonaws.iot#AuditCheckRunStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "WAITING_FOR_DATA_COLLECTION",
-            "name": "WAITING_FOR_DATA_COLLECTION"
-          },
-          {
-            "value": "CANCELED",
-            "name": "CANCELED"
-          },
-          {
-            "value": "COMPLETED_COMPLIANT",
-            "name": "COMPLETED_COMPLIANT"
-          },
-          {
-            "value": "COMPLETED_NON_COMPLIANT",
-            "name": "COMPLETED_NON_COMPLIANT"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
           }
-        ]
+        },
+        "WAITING_FOR_DATA_COLLECTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WAITING_FOR_DATA_COLLECTION"
+          }
+        },
+        "CANCELED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELED"
+          }
+        },
+        "COMPLETED_COMPLIANT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED_COMPLIANT"
+          }
+        },
+        "COMPLETED_NON_COMPLIANT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED_NON_COMPLIANT"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.iot#AuditCheckToActionsMapping": {
@@ -3906,26 +3934,32 @@
       }
     },
     "com.amazonaws.iot#AuditFindingSeverity": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CRITICAL",
-            "name": "CRITICAL"
-          },
-          {
-            "value": "HIGH",
-            "name": "HIGH"
-          },
-          {
-            "value": "MEDIUM",
-            "name": "MEDIUM"
-          },
-          {
-            "value": "LOW",
-            "name": "LOW"
+      "type": "enum",
+      "members": {
+        "CRITICAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CRITICAL"
           }
-        ]
+        },
+        "HIGH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HIGH"
+          }
+        },
+        "MEDIUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MEDIUM"
+          }
+        },
+        "LOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LOW"
+          }
+        }
       }
     },
     "com.amazonaws.iot#AuditFindings": {
@@ -3935,26 +3969,32 @@
       }
     },
     "com.amazonaws.iot#AuditFrequency": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DAILY",
-            "name": "DAILY"
-          },
-          {
-            "value": "WEEKLY",
-            "name": "WEEKLY"
-          },
-          {
-            "value": "BIWEEKLY",
-            "name": "BIWEEKLY"
-          },
-          {
-            "value": "MONTHLY",
-            "name": "MONTHLY"
+      "type": "enum",
+      "members": {
+        "DAILY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DAILY"
           }
-        ]
+        },
+        "WEEKLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WEEKLY"
+          }
+        },
+        "BIWEEKLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BIWEEKLY"
+          }
+        },
+        "MONTHLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MONTHLY"
+          }
+        }
       }
     },
     "com.amazonaws.iot#AuditMitigationActionExecutionMetadata": {
@@ -4026,34 +4066,44 @@
       }
     },
     "com.amazonaws.iot#AuditMitigationActionsExecutionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "COMPLETED",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "CANCELED",
-            "name": "CANCELED"
-          },
-          {
-            "value": "SKIPPED",
-            "name": "SKIPPED"
-          },
-          {
-            "value": "PENDING",
-            "name": "PENDING"
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
           }
-        ]
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "CANCELED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELED"
+          }
+        },
+        "SKIPPED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SKIPPED"
+          }
+        },
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
+          }
+        }
       }
     },
     "com.amazonaws.iot#AuditMitigationActionsTaskMetadata": {
@@ -4098,26 +4148,32 @@
       }
     },
     "com.amazonaws.iot#AuditMitigationActionsTaskStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "COMPLETED",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "CANCELED",
-            "name": "CANCELED"
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
           }
-        ]
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "CANCELED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELED"
+          }
+        }
       }
     },
     "com.amazonaws.iot#AuditMitigationActionsTaskTarget": {
@@ -4183,14 +4239,14 @@
       }
     },
     "com.amazonaws.iot#AuditNotificationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SNS",
-            "name": "SNS"
+      "type": "enum",
+      "members": {
+        "SNS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SNS"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.iot#AuditSuppression": {
@@ -4280,60 +4336,72 @@
       }
     },
     "com.amazonaws.iot#AuditTaskStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "COMPLETED",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "CANCELED",
-            "name": "CANCELED"
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
           }
-        ]
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "CANCELED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELED"
+          }
+        }
       }
     },
     "com.amazonaws.iot#AuditTaskType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ON_DEMAND_AUDIT_TASK",
-            "name": "ON_DEMAND_AUDIT_TASK"
-          },
-          {
-            "value": "SCHEDULED_AUDIT_TASK",
-            "name": "SCHEDULED_AUDIT_TASK"
+      "type": "enum",
+      "members": {
+        "ON_DEMAND_AUDIT_TASK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ON_DEMAND_AUDIT_TASK"
           }
-        ]
+        },
+        "SCHEDULED_AUDIT_TASK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SCHEDULED_AUDIT_TASK"
+          }
+        }
       }
     },
     "com.amazonaws.iot#AuthDecision": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ALLOWED",
-            "name": "ALLOWED"
-          },
-          {
-            "value": "EXPLICIT_DENY",
-            "name": "EXPLICIT_DENY"
-          },
-          {
-            "value": "IMPLICIT_DENY",
-            "name": "IMPLICIT_DENY"
+      "type": "enum",
+      "members": {
+        "ALLOWED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALLOWED"
           }
-        ]
+        },
+        "EXPLICIT_DENY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXPLICIT_DENY"
+          }
+        },
+        "IMPLICIT_DENY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IMPLICIT_DENY"
+          }
+        }
       }
     },
     "com.amazonaws.iot#AuthInfo": {
@@ -4532,18 +4600,20 @@
       }
     },
     "com.amazonaws.iot#AuthorizerStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        }
       }
     },
     "com.amazonaws.iot#AuthorizerSummary": {
@@ -4573,18 +4643,20 @@
       }
     },
     "com.amazonaws.iot#AutoRegistrationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLE",
-            "name": "ENABLE"
-          },
-          {
-            "value": "DISABLE",
-            "name": "DISABLE"
+      "type": "enum",
+      "members": {
+        "ENABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLE"
           }
-        ]
+        },
+        "DISABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLE"
+          }
+        }
       }
     },
     "com.amazonaws.iot#Average": {
@@ -4667,14 +4739,14 @@
       }
     },
     "com.amazonaws.iot#AwsJobAbortCriteriaAbortAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CANCEL",
-            "name": "CANCEL"
+      "type": "enum",
+      "members": {
+        "CANCEL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCEL"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.iot#AwsJobAbortCriteriaAbortThresholdPercentage": {
@@ -4686,26 +4758,32 @@
       }
     },
     "com.amazonaws.iot#AwsJobAbortCriteriaFailureType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "REJECTED",
-            "name": "REJECTED"
-          },
-          {
-            "value": "TIMED_OUT",
-            "name": "TIMED_OUT"
-          },
-          {
-            "value": "ALL",
-            "name": "ALL"
+      "type": "enum",
+      "members": {
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
           }
-        ]
+        },
+        "REJECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REJECTED"
+          }
+        },
+        "TIMED_OUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TIMED_OUT"
+          }
+        },
+        "ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALL"
+          }
+        }
       }
     },
     "com.amazonaws.iot#AwsJobAbortCriteriaList": {
@@ -4944,22 +5022,26 @@
       }
     },
     "com.amazonaws.iot#BehaviorCriteriaType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "STATIC",
-            "name": "STATIC"
-          },
-          {
-            "value": "STATISTICAL",
-            "name": "STATISTICAL"
-          },
-          {
-            "value": "MACHINE_LEARNING",
-            "name": "MACHINE_LEARNING"
+      "type": "enum",
+      "members": {
+        "STATIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STATIC"
           }
-        ]
+        },
+        "STATISTICAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STATISTICAL"
+          }
+        },
+        "MACHINE_LEARNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MACHINE_LEARNING"
+          }
+        }
       }
     },
     "com.amazonaws.iot#BehaviorMetric": {
@@ -5276,29 +5358,31 @@
       }
     },
     "com.amazonaws.iot#CACertificateStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        }
       }
     },
     "com.amazonaws.iot#CACertificateUpdateAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEACTIVATE",
-            "name": "DEACTIVATE"
+      "type": "enum",
+      "members": {
+        "DEACTIVATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEACTIVATE"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.iot#CACertificates": {
@@ -5685,42 +5769,56 @@
       "type": "integer"
     },
     "com.amazonaws.iot#CannedAccessControlList": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "private",
-            "name": "Private"
-          },
-          {
-            "value": "public-read",
-            "name": "PublicRead"
-          },
-          {
-            "value": "public-read-write",
-            "name": "PublicReadWrite"
-          },
-          {
-            "value": "aws-exec-read",
-            "name": "AwsExecRead"
-          },
-          {
-            "value": "authenticated-read",
-            "name": "AuthenticatedRead"
-          },
-          {
-            "value": "bucket-owner-read",
-            "name": "BucketOwnerRead"
-          },
-          {
-            "value": "bucket-owner-full-control",
-            "name": "BucketOwnerFullControl"
-          },
-          {
-            "value": "log-delivery-write",
-            "name": "LogDeliveryWrite"
+      "type": "enum",
+      "members": {
+        "Private": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "private"
           }
-        ]
+        },
+        "PublicRead": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "public-read"
+          }
+        },
+        "PublicReadWrite": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "public-read-write"
+          }
+        },
+        "AwsExecRead": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "aws-exec-read"
+          }
+        },
+        "AuthenticatedRead": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "authenticated-read"
+          }
+        },
+        "BucketOwnerRead": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "bucket-owner-read"
+          }
+        },
+        "BucketOwnerFullControl": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "bucket-owner-full-control"
+          }
+        },
+        "LogDeliveryWrite": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "log-delivery-write"
+          }
+        }
       }
     },
     "com.amazonaws.iot#Certificate": {
@@ -5883,18 +5981,20 @@
       }
     },
     "com.amazonaws.iot#CertificateMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEFAULT",
-            "name": "DEFAULT"
-          },
-          {
-            "value": "SNI_ONLY",
-            "name": "SNI_ONLY"
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT"
           }
-        ]
+        },
+        "SNI_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SNI_ONLY"
+          }
+        }
       }
     },
     "com.amazonaws.iot#CertificateName": {
@@ -5941,34 +6041,44 @@
       }
     },
     "com.amazonaws.iot#CertificateStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
-          },
-          {
-            "value": "REVOKED",
-            "name": "REVOKED"
-          },
-          {
-            "value": "PENDING_TRANSFER",
-            "name": "PENDING_TRANSFER"
-          },
-          {
-            "value": "REGISTER_INACTIVE",
-            "name": "REGISTER_INACTIVE"
-          },
-          {
-            "value": "PENDING_ACTIVATION",
-            "name": "PENDING_ACTIVATION"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        },
+        "REVOKED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REVOKED"
+          }
+        },
+        "PENDING_TRANSFER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_TRANSFER"
+          }
+        },
+        "REGISTER_INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REGISTER_INACTIVE"
+          }
+        },
+        "PENDING_ACTIVATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_ACTIVATION"
+          }
+        }
       }
     },
     "com.amazonaws.iot#CertificateValidationException": {
@@ -6286,72 +6396,94 @@
       }
     },
     "com.amazonaws.iot#ComparisonOperator": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "less-than",
-            "name": "LESS_THAN"
-          },
-          {
-            "value": "less-than-equals",
-            "name": "LESS_THAN_EQUALS"
-          },
-          {
-            "value": "greater-than",
-            "name": "GREATER_THAN"
-          },
-          {
-            "value": "greater-than-equals",
-            "name": "GREATER_THAN_EQUALS"
-          },
-          {
-            "value": "in-cidr-set",
-            "name": "IN_CIDR_SET"
-          },
-          {
-            "value": "not-in-cidr-set",
-            "name": "NOT_IN_CIDR_SET"
-          },
-          {
-            "value": "in-port-set",
-            "name": "IN_PORT_SET"
-          },
-          {
-            "value": "not-in-port-set",
-            "name": "NOT_IN_PORT_SET"
-          },
-          {
-            "value": "in-set",
-            "name": "IN_SET"
-          },
-          {
-            "value": "not-in-set",
-            "name": "NOT_IN_SET"
+      "type": "enum",
+      "members": {
+        "LESS_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "less-than"
           }
-        ]
+        },
+        "LESS_THAN_EQUALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "less-than-equals"
+          }
+        },
+        "GREATER_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "greater-than"
+          }
+        },
+        "GREATER_THAN_EQUALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "greater-than-equals"
+          }
+        },
+        "IN_CIDR_SET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "in-cidr-set"
+          }
+        },
+        "NOT_IN_CIDR_SET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "not-in-cidr-set"
+          }
+        },
+        "IN_PORT_SET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "in-port-set"
+          }
+        },
+        "NOT_IN_PORT_SET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "not-in-port-set"
+          }
+        },
+        "IN_SET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "in-set"
+          }
+        },
+        "NOT_IN_SET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "not-in-set"
+          }
+        }
       }
     },
     "com.amazonaws.iot#CompliantChecksCount": {
       "type": "integer"
     },
     "com.amazonaws.iot#ConfidenceLevel": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "LOW",
-            "name": "LOW"
-          },
-          {
-            "value": "MEDIUM",
-            "name": "MEDIUM"
-          },
-          {
-            "value": "HIGH",
-            "name": "HIGH"
+      "type": "enum",
+      "members": {
+        "LOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LOW"
           }
-        ]
+        },
+        "MEDIUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MEDIUM"
+          }
+        },
+        "HIGH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HIGH"
+          }
+        }
       }
     },
     "com.amazonaws.iot#Configuration": {
@@ -8368,7 +8500,7 @@
         "preProvisioningHook": {
           "target": "com.amazonaws.iot#ProvisioningHook",
           "traits": {
-            "smithy.api#documentation": "<p>Creates a pre-provisioning hook template.</p>"
+            "smithy.api#documentation": "<p>Creates a pre-provisioning hook template. Only supports template of type\n            <code>FLEET_PROVISIONING</code>. For more information about provisioning template types,\n         see <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type\">type</a>.</p>"
           }
         },
         "tags": {
@@ -9358,26 +9490,32 @@
       }
     },
     "com.amazonaws.iot#CustomMetricType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "string-list",
-            "name": "STRING_LIST"
-          },
-          {
-            "value": "ip-address-list",
-            "name": "IP_ADDRESS_LIST"
-          },
-          {
-            "value": "number-list",
-            "name": "NUMBER_LIST"
-          },
-          {
-            "value": "number",
-            "name": "NUMBER"
+      "type": "enum",
+      "members": {
+        "STRING_LIST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "string-list"
           }
-        ]
+        },
+        "IP_ADDRESS_LIST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ip-address-list"
+          }
+        },
+        "NUMBER_LIST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "number-list"
+          }
+        },
+        "NUMBER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "number"
+          }
+        }
       }
     },
     "com.amazonaws.iot#CustomerVersion": {
@@ -9407,38 +9545,50 @@
       }
     },
     "com.amazonaws.iot#DayOfWeek": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SUN",
-            "name": "SUN"
-          },
-          {
-            "value": "MON",
-            "name": "MON"
-          },
-          {
-            "value": "TUE",
-            "name": "TUE"
-          },
-          {
-            "value": "WED",
-            "name": "WED"
-          },
-          {
-            "value": "THU",
-            "name": "THU"
-          },
-          {
-            "value": "FRI",
-            "name": "FRI"
-          },
-          {
-            "value": "SAT",
-            "name": "SAT"
+      "type": "enum",
+      "members": {
+        "SUN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUN"
           }
-        ]
+        },
+        "MON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MON"
+          }
+        },
+        "TUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TUE"
+          }
+        },
+        "WED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WED"
+          }
+        },
+        "THU": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "THU"
+          }
+        },
+        "FRI": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FRI"
+          }
+        },
+        "SAT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SAT"
+          }
+        }
       }
     },
     "com.amazonaws.iot#DeleteAccountAuditConfiguration": {
@@ -14422,26 +14572,32 @@
       }
     },
     "com.amazonaws.iot#DetectMitigationActionExecutionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "SUCCESSFUL",
-            "name": "SUCCESSFUL"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "SKIPPED",
-            "name": "SKIPPED"
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
           }
-        ]
+        },
+        "SUCCESSFUL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCESSFUL"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "SKIPPED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SKIPPED"
+          }
+        }
       }
     },
     "com.amazonaws.iot#DetectMitigationActionsTaskStatistics": {
@@ -14471,26 +14627,32 @@
       }
     },
     "com.amazonaws.iot#DetectMitigationActionsTaskStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "SUCCESSFUL",
-            "name": "SUCCESSFUL"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "CANCELED",
-            "name": "CANCELED"
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
           }
-        ]
+        },
+        "SUCCESSFUL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCESSFUL"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "CANCELED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELED"
+          }
+        }
       }
     },
     "com.amazonaws.iot#DetectMitigationActionsTaskSummary": {
@@ -14608,29 +14770,31 @@
       }
     },
     "com.amazonaws.iot#DeviceCertificateUpdateAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEACTIVATE",
-            "name": "DEACTIVATE"
+      "type": "enum",
+      "members": {
+        "DEACTIVATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEACTIVATE"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.iot#DeviceDefenderIndexingMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OFF",
-            "name": "OFF"
-          },
-          {
-            "value": "VIOLATIONS",
-            "name": "VIOLATIONS"
+      "type": "enum",
+      "members": {
+        "OFF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OFF"
           }
-        ]
+        },
+        "VIOLATIONS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VIOLATIONS"
+          }
+        }
       }
     },
     "com.amazonaws.iot#DeviceDefenderThingName": {
@@ -14683,29 +14847,31 @@
       }
     },
     "com.amazonaws.iot#DimensionType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "TOPIC_FILTER",
-            "name": "TOPIC_FILTER"
+      "type": "enum",
+      "members": {
+        "TOPIC_FILTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TOPIC_FILTER"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.iot#DimensionValueOperator": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IN",
-            "name": "IN"
-          },
-          {
-            "value": "NOT_IN",
-            "name": "NOT_IN"
+      "type": "enum",
+      "members": {
+        "IN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN"
           }
-        ]
+        },
+        "NOT_IN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_IN"
+          }
+        }
       }
     },
     "com.amazonaws.iot#DisableAllLogs": {
@@ -14826,18 +14992,20 @@
       }
     },
     "com.amazonaws.iot#DomainConfigurationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
       }
     },
     "com.amazonaws.iot#DomainConfigurationSummary": {
@@ -14883,44 +15051,52 @@
       }
     },
     "com.amazonaws.iot#DomainType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENDPOINT",
-            "name": "ENDPOINT"
-          },
-          {
-            "value": "AWS_MANAGED",
-            "name": "AWS_MANAGED"
-          },
-          {
-            "value": "CUSTOMER_MANAGED",
-            "name": "CUSTOMER_MANAGED"
+      "type": "enum",
+      "members": {
+        "ENDPOINT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENDPOINT"
           }
-        ]
+        },
+        "AWS_MANAGED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_MANAGED"
+          }
+        },
+        "CUSTOMER_MANAGED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CUSTOMER_MANAGED"
+          }
+        }
       }
     },
     "com.amazonaws.iot#DurationSeconds": {
       "type": "integer"
     },
     "com.amazonaws.iot#DynamicGroupStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "BUILDING",
-            "name": "BUILDING"
-          },
-          {
-            "value": "REBUILDING",
-            "name": "REBUILDING"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "BUILDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BUILDING"
+          }
+        },
+        "REBUILDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REBUILDING"
+          }
+        }
       }
     },
     "com.amazonaws.iot#DynamoDBAction": {
@@ -15018,18 +15194,20 @@
       }
     },
     "com.amazonaws.iot#DynamoKeyType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "STRING",
-            "name": "STRING"
-          },
-          {
-            "value": "NUMBER",
-            "name": "NUMBER"
+      "type": "enum",
+      "members": {
+        "STRING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STRING"
           }
-        ]
+        },
+        "NUMBER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NUMBER"
+          }
+        }
       }
     },
     "com.amazonaws.iot#DynamoOperation": {
@@ -15282,54 +15460,74 @@
       }
     },
     "com.amazonaws.iot#EventType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "THING",
-            "name": "THING"
-          },
-          {
-            "value": "THING_GROUP",
-            "name": "THING_GROUP"
-          },
-          {
-            "value": "THING_TYPE",
-            "name": "THING_TYPE"
-          },
-          {
-            "value": "THING_GROUP_MEMBERSHIP",
-            "name": "THING_GROUP_MEMBERSHIP"
-          },
-          {
-            "value": "THING_GROUP_HIERARCHY",
-            "name": "THING_GROUP_HIERARCHY"
-          },
-          {
-            "value": "THING_TYPE_ASSOCIATION",
-            "name": "THING_TYPE_ASSOCIATION"
-          },
-          {
-            "value": "JOB",
-            "name": "JOB"
-          },
-          {
-            "value": "JOB_EXECUTION",
-            "name": "JOB_EXECUTION"
-          },
-          {
-            "value": "POLICY",
-            "name": "POLICY"
-          },
-          {
-            "value": "CERTIFICATE",
-            "name": "CERTIFICATE"
-          },
-          {
-            "value": "CA_CERTIFICATE",
-            "name": "CA_CERTIFICATE"
+      "type": "enum",
+      "members": {
+        "THING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "THING"
           }
-        ]
+        },
+        "THING_GROUP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "THING_GROUP"
+          }
+        },
+        "THING_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "THING_TYPE"
+          }
+        },
+        "THING_GROUP_MEMBERSHIP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "THING_GROUP_MEMBERSHIP"
+          }
+        },
+        "THING_GROUP_HIERARCHY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "THING_GROUP_HIERARCHY"
+          }
+        },
+        "THING_TYPE_ASSOCIATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "THING_TYPE_ASSOCIATION"
+          }
+        },
+        "JOB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JOB"
+          }
+        },
+        "JOB_EXECUTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JOB_EXECUTION"
+          }
+        },
+        "POLICY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "POLICY"
+          }
+        },
+        "CERTIFICATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CERTIFICATE"
+          }
+        },
+        "CA_CERTIFICATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CA_CERTIFICATE"
+          }
+        }
       }
     },
     "com.amazonaws.iot#Example": {
@@ -15436,22 +15634,26 @@
       "type": "string"
     },
     "com.amazonaws.iot#FieldType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Number",
-            "name": "NUMBER"
-          },
-          {
-            "value": "String",
-            "name": "STRING"
-          },
-          {
-            "value": "Boolean",
-            "name": "BOOLEAN"
+      "type": "enum",
+      "members": {
+        "NUMBER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Number"
           }
-        ]
+        },
+        "STRING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "String"
+          }
+        },
+        "BOOLEAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Boolean"
+          }
+        }
       }
     },
     "com.amazonaws.iot#Fields": {
@@ -15628,118 +15830,170 @@
       }
     },
     "com.amazonaws.iot#FleetMetricUnit": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Seconds",
-            "name": "Seconds"
-          },
-          {
-            "value": "Microseconds",
-            "name": "Microseconds"
-          },
-          {
-            "value": "Milliseconds",
-            "name": "Milliseconds"
-          },
-          {
-            "value": "Bytes",
-            "name": "Bytes"
-          },
-          {
-            "value": "Kilobytes",
-            "name": "Kilobytes"
-          },
-          {
-            "value": "Megabytes",
-            "name": "Megabytes"
-          },
-          {
-            "value": "Gigabytes",
-            "name": "Gigabytes"
-          },
-          {
-            "value": "Terabytes",
-            "name": "Terabytes"
-          },
-          {
-            "value": "Bits",
-            "name": "Bits"
-          },
-          {
-            "value": "Kilobits",
-            "name": "Kilobits"
-          },
-          {
-            "value": "Megabits",
-            "name": "Megabits"
-          },
-          {
-            "value": "Gigabits",
-            "name": "Gigabits"
-          },
-          {
-            "value": "Terabits",
-            "name": "Terabits"
-          },
-          {
-            "value": "Percent",
-            "name": "Percent"
-          },
-          {
-            "value": "Count",
-            "name": "Count"
-          },
-          {
-            "value": "Bytes/Second",
-            "name": "BytesSecond"
-          },
-          {
-            "value": "Kilobytes/Second",
-            "name": "KilobytesSecond"
-          },
-          {
-            "value": "Megabytes/Second",
-            "name": "MegabytesSecond"
-          },
-          {
-            "value": "Gigabytes/Second",
-            "name": "GigabytesSecond"
-          },
-          {
-            "value": "Terabytes/Second",
-            "name": "TerabytesSecond"
-          },
-          {
-            "value": "Bits/Second",
-            "name": "BitsSecond"
-          },
-          {
-            "value": "Kilobits/Second",
-            "name": "KilobitsSecond"
-          },
-          {
-            "value": "Megabits/Second",
-            "name": "MegabitsSecond"
-          },
-          {
-            "value": "Gigabits/Second",
-            "name": "GigabitsSecond"
-          },
-          {
-            "value": "Terabits/Second",
-            "name": "TerabitsSecond"
-          },
-          {
-            "value": "Count/Second",
-            "name": "CountSecond"
-          },
-          {
-            "value": "None",
-            "name": "None"
+      "type": "enum",
+      "members": {
+        "Seconds": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Seconds"
           }
-        ]
+        },
+        "Microseconds": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Microseconds"
+          }
+        },
+        "Milliseconds": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Milliseconds"
+          }
+        },
+        "Bytes": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Bytes"
+          }
+        },
+        "Kilobytes": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Kilobytes"
+          }
+        },
+        "Megabytes": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Megabytes"
+          }
+        },
+        "Gigabytes": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Gigabytes"
+          }
+        },
+        "Terabytes": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terabytes"
+          }
+        },
+        "Bits": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Bits"
+          }
+        },
+        "Kilobits": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Kilobits"
+          }
+        },
+        "Megabits": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Megabits"
+          }
+        },
+        "Gigabits": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Gigabits"
+          }
+        },
+        "Terabits": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terabits"
+          }
+        },
+        "Percent": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Percent"
+          }
+        },
+        "Count": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Count"
+          }
+        },
+        "BytesSecond": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Bytes/Second"
+          }
+        },
+        "KilobytesSecond": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Kilobytes/Second"
+          }
+        },
+        "MegabytesSecond": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Megabytes/Second"
+          }
+        },
+        "GigabytesSecond": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Gigabytes/Second"
+          }
+        },
+        "TerabytesSecond": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terabytes/Second"
+          }
+        },
+        "BitsSecond": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Bits/Second"
+          }
+        },
+        "KilobitsSecond": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Kilobits/Second"
+          }
+        },
+        "MegabitsSecond": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Megabits/Second"
+          }
+        },
+        "GigabitsSecond": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Gigabits/Second"
+          }
+        },
+        "TerabitsSecond": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terabits/Second"
+          }
+        },
+        "CountSecond": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Count/Second"
+          }
+        },
+        "None": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "None"
+          }
+        }
       }
     },
     "com.amazonaws.iot#ForceDelete": {
@@ -15822,7 +16076,7 @@
         "maxResults": {
           "target": "com.amazonaws.iot#TinyMaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The maximum number of results to return at one time. The default is 25.\n    </p>",
+            "smithy.api#documentation": "<p>\n      The maximum number of results to return at one time. The default is 10.\n    </p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
@@ -17270,22 +17524,26 @@
       "type": "string"
     },
     "com.amazonaws.iot#IndexStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "BUILDING",
-            "name": "BUILDING"
-          },
-          {
-            "value": "REBUILDING",
-            "name": "REBUILDING"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "BUILDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BUILDING"
+          }
+        },
+        "REBUILDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REBUILDING"
+          }
+        }
       }
     },
     "com.amazonaws.iot#IndexingFilter": {
@@ -17786,65 +18044,85 @@
       }
     },
     "com.amazonaws.iot#JobExecutionFailureType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "REJECTED",
-            "name": "REJECTED"
-          },
-          {
-            "value": "TIMED_OUT",
-            "name": "TIMED_OUT"
-          },
-          {
-            "value": "ALL",
-            "name": "ALL"
+      "type": "enum",
+      "members": {
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
           }
-        ]
+        },
+        "REJECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REJECTED"
+          }
+        },
+        "TIMED_OUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TIMED_OUT"
+          }
+        },
+        "ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALL"
+          }
+        }
       }
     },
     "com.amazonaws.iot#JobExecutionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "QUEUED",
-            "name": "QUEUED"
-          },
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "SUCCEEDED",
-            "name": "SUCCEEDED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "TIMED_OUT",
-            "name": "TIMED_OUT"
-          },
-          {
-            "value": "REJECTED",
-            "name": "REJECTED"
-          },
-          {
-            "value": "REMOVED",
-            "name": "REMOVED"
-          },
-          {
-            "value": "CANCELED",
-            "name": "CANCELED"
+      "type": "enum",
+      "members": {
+        "QUEUED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "QUEUED"
           }
-        ]
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCEEDED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "TIMED_OUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TIMED_OUT"
+          }
+        },
+        "REJECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REJECTED"
+          }
+        },
+        "REMOVED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REMOVED"
+          }
+        },
+        "CANCELED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELED"
+          }
+        }
       }
     },
     "com.amazonaws.iot#JobExecutionStatusDetails": {
@@ -18065,26 +18343,32 @@
       }
     },
     "com.amazonaws.iot#JobStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "CANCELED",
-            "name": "CANCELED"
-          },
-          {
-            "value": "COMPLETED",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "DELETION_IN_PROGRESS",
-            "name": "DELETION_IN_PROGRESS"
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
           }
-        ]
+        },
+        "CANCELED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELED"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        },
+        "DELETION_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETION_IN_PROGRESS"
+          }
+        }
       }
     },
     "com.amazonaws.iot#JobSummary": {
@@ -23365,34 +23649,112 @@
         }
       }
     },
+    "com.amazonaws.iot#LocationAction": {
+      "type": "structure",
+      "members": {
+        "roleArn": {
+          "target": "com.amazonaws.iot#AwsArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The IAM role that grants permission to write to the Amazon Location resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "trackerName": {
+          "target": "com.amazonaws.iot#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the tracker resource in Amazon Location in which the location is updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "deviceId": {
+          "target": "com.amazonaws.iot#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique ID of the device providing the location data.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "timestamp": {
+          "target": "com.amazonaws.iot#LocationTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the location data was sampled. The default value is \n      the time the MQTT message was processed.</p>"
+          }
+        },
+        "latitude": {
+          "target": "com.amazonaws.iot#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A string that evaluates to a double value that represents the\n         latitude of the device's location.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "longitude": {
+          "target": "com.amazonaws.iot#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A string that evaluates to a double value that represents the\n         longitude of the device's location.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The Amazon Location rule action sends device location updates from\n         an MQTT message to an Amazon Location tracker resource.</p>"
+      }
+    },
+    "com.amazonaws.iot#LocationTimestamp": {
+      "type": "structure",
+      "members": {
+        "value": {
+          "target": "com.amazonaws.iot#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An expression that returns a long epoch time value.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "unit": {
+          "target": "com.amazonaws.iot#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The precision of the timestamp value that results from the expression\n         described in <code>value</code>.</p>\n         <p>Valid values:  <code>SECONDS</code> | <code>MILLISECONDS</code> |\n         <code>MICROSECONDS</code> | <code>NANOSECONDS</code>. The default is\n         <code>MILLISECONDS</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes how to interpret an application-defined timestamp value from an MQTT message\n         payload and the precision of that value.</p>"
+      }
+    },
     "com.amazonaws.iot#LogGroupName": {
       "type": "string"
     },
     "com.amazonaws.iot#LogLevel": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEBUG",
-            "name": "DEBUG"
-          },
-          {
-            "value": "INFO",
-            "name": "INFO"
-          },
-          {
-            "value": "ERROR",
-            "name": "ERROR"
-          },
-          {
-            "value": "WARN",
-            "name": "WARN"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "DEBUG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEBUG"
           }
-        ]
+        },
+        "INFO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INFO"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        },
+        "WARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WARN"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
       }
     },
     "com.amazonaws.iot#LogTarget": {
@@ -23446,30 +23808,38 @@
       "type": "string"
     },
     "com.amazonaws.iot#LogTargetType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEFAULT",
-            "name": "DEFAULT"
-          },
-          {
-            "value": "THING_GROUP",
-            "name": "THING_GROUP"
-          },
-          {
-            "value": "CLIENT_ID",
-            "name": "CLIENT_ID"
-          },
-          {
-            "value": "SOURCE_IP",
-            "name": "SOURCE_IP"
-          },
-          {
-            "value": "PRINCIPAL_ID",
-            "name": "PRINCIPAL_ID"
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT"
           }
-        ]
+        },
+        "THING_GROUP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "THING_GROUP"
+          }
+        },
+        "CLIENT_ID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLIENT_ID"
+          }
+        },
+        "SOURCE_IP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SOURCE_IP"
+          }
+        },
+        "PRINCIPAL_ID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PRINCIPAL_ID"
+          }
+        }
       }
     },
     "com.amazonaws.iot#LoggingOptionsPayload": {
@@ -23646,18 +24016,20 @@
       }
     },
     "com.amazonaws.iot#MessageFormat": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "RAW",
-            "name": "RAW"
-          },
-          {
-            "value": "JSON",
-            "name": "JSON"
+      "type": "enum",
+      "members": {
+        "RAW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RAW"
           }
-        ]
+        },
+        "JSON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JSON"
+          }
+        }
       }
     },
     "com.amazonaws.iot#MessageId": {
@@ -23963,34 +24335,44 @@
       }
     },
     "com.amazonaws.iot#MitigationActionType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UPDATE_DEVICE_CERTIFICATE",
-            "name": "UPDATE_DEVICE_CERTIFICATE"
-          },
-          {
-            "value": "UPDATE_CA_CERTIFICATE",
-            "name": "UPDATE_CA_CERTIFICATE"
-          },
-          {
-            "value": "ADD_THINGS_TO_THING_GROUP",
-            "name": "ADD_THINGS_TO_THING_GROUP"
-          },
-          {
-            "value": "REPLACE_DEFAULT_POLICY_VERSION",
-            "name": "REPLACE_DEFAULT_POLICY_VERSION"
-          },
-          {
-            "value": "ENABLE_IOT_LOGGING",
-            "name": "ENABLE_IOT_LOGGING"
-          },
-          {
-            "value": "PUBLISH_FINDING_TO_SNS",
-            "name": "PUBLISH_FINDING_TO_SNS"
+      "type": "enum",
+      "members": {
+        "UPDATE_DEVICE_CERTIFICATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_DEVICE_CERTIFICATE"
           }
-        ]
+        },
+        "UPDATE_CA_CERTIFICATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_CA_CERTIFICATE"
+          }
+        },
+        "ADD_THINGS_TO_THING_GROUP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ADD_THINGS_TO_THING_GROUP"
+          }
+        },
+        "REPLACE_DEFAULT_POLICY_VERSION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REPLACE_DEFAULT_POLICY_VERSION"
+          }
+        },
+        "ENABLE_IOT_LOGGING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLE_IOT_LOGGING"
+          }
+        },
+        "PUBLISH_FINDING_TO_SNS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PUBLISH_FINDING_TO_SNS"
+          }
+        }
       }
     },
     "com.amazonaws.iot#MitigationActionsTaskId": {
@@ -24004,22 +24386,26 @@
       }
     },
     "com.amazonaws.iot#ModelStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING_BUILD",
-            "name": "PENDING_BUILD"
-          },
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "EXPIRED",
-            "name": "EXPIRED"
+      "type": "enum",
+      "members": {
+        "PENDING_BUILD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_BUILD"
           }
-        ]
+        },
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
+          }
+        },
+        "EXPIRED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXPIRED"
+          }
+        }
       }
     },
     "com.amazonaws.iot#MqttClientId": {
@@ -24078,18 +24464,20 @@
       }
     },
     "com.amazonaws.iot#NamedShadowIndexingMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OFF",
-            "name": "OFF"
-          },
-          {
-            "value": "ON",
-            "name": "ON"
+      "type": "enum",
+      "members": {
+        "OFF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OFF"
           }
-        ]
+        },
+        "ON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ON"
+          }
+        }
       }
     },
     "com.amazonaws.iot#NamedShadowNamesFilter": {
@@ -24378,26 +24766,32 @@
       }
     },
     "com.amazonaws.iot#OTAUpdateStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATE_PENDING",
-            "name": "CREATE_PENDING"
-          },
-          {
-            "value": "CREATE_IN_PROGRESS",
-            "name": "CREATE_IN_PROGRESS"
-          },
-          {
-            "value": "CREATE_COMPLETE",
-            "name": "CREATE_COMPLETE"
-          },
-          {
-            "value": "CREATE_FAILED",
-            "name": "CREATE_FAILED"
+      "type": "enum",
+      "members": {
+        "CREATE_PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_PENDING"
           }
-        ]
+        },
+        "CREATE_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_IN_PROGRESS"
+          }
+        },
+        "CREATE_COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_COMPLETE"
+          }
+        },
+        "CREATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.iot#OTAUpdateSummary": {
@@ -24747,14 +25141,14 @@
       }
     },
     "com.amazonaws.iot#PolicyTemplateName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "BLANK_POLICY",
-            "name": "BLANK_POLICY"
+      "type": "enum",
+      "members": {
+        "BLANK_POLICY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BLANK_POLICY"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.iot#PolicyVersion": {
@@ -24901,18 +25295,20 @@
       }
     },
     "com.amazonaws.iot#Protocol": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MQTT",
-            "name": "MQTT"
-          },
-          {
-            "value": "HTTP",
-            "name": "HTTP"
+      "type": "enum",
+      "members": {
+        "MQTT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MQTT"
           }
-        ]
+        },
+        "HTTP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HTTP"
+          }
+        }
       }
     },
     "com.amazonaws.iot#Protocols": {
@@ -25017,7 +25413,7 @@
         "versionId": {
           "target": "com.amazonaws.iot#TemplateVersionId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the fleet privisioning template version.</p>"
+            "smithy.api#documentation": "<p>The ID of the fleet provisioning template version.</p>"
           }
         },
         "creationDate": {
@@ -26079,18 +26475,20 @@
       }
     },
     "com.amazonaws.iot#ReportType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ERRORS",
-            "name": "ERRORS"
-          },
-          {
-            "value": "RESULTS",
-            "name": "RESULTS"
+      "type": "enum",
+      "members": {
+        "ERRORS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERRORS"
           }
-        ]
+        },
+        "RESULTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESULTS"
+          }
+        }
       }
     },
     "com.amazonaws.iot#RepublishAction": {
@@ -26273,42 +26671,56 @@
       }
     },
     "com.amazonaws.iot#ResourceType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEVICE_CERTIFICATE",
-            "name": "DEVICE_CERTIFICATE"
-          },
-          {
-            "value": "CA_CERTIFICATE",
-            "name": "CA_CERTIFICATE"
-          },
-          {
-            "value": "IOT_POLICY",
-            "name": "IOT_POLICY"
-          },
-          {
-            "value": "COGNITO_IDENTITY_POOL",
-            "name": "COGNITO_IDENTITY_POOL"
-          },
-          {
-            "value": "CLIENT_ID",
-            "name": "CLIENT_ID"
-          },
-          {
-            "value": "ACCOUNT_SETTINGS",
-            "name": "ACCOUNT_SETTINGS"
-          },
-          {
-            "value": "ROLE_ALIAS",
-            "name": "ROLE_ALIAS"
-          },
-          {
-            "value": "IAM_ROLE",
-            "name": "IAM_ROLE"
+      "type": "enum",
+      "members": {
+        "DEVICE_CERTIFICATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEVICE_CERTIFICATE"
           }
-        ]
+        },
+        "CA_CERTIFICATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CA_CERTIFICATE"
+          }
+        },
+        "IOT_POLICY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IOT_POLICY"
+          }
+        },
+        "COGNITO_IDENTITY_POOL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COGNITO_IDENTITY_POOL"
+          }
+        },
+        "CLIENT_ID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLIENT_ID"
+          }
+        },
+        "ACCOUNT_SETTINGS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCOUNT_SETTINGS"
+          }
+        },
+        "ROLE_ALIAS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROLE_ALIAS"
+          }
+        },
+        "IAM_ROLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IAM_ROLE"
+          }
+        }
       }
     },
     "com.amazonaws.iot#Resources": {
@@ -26355,22 +26767,26 @@
       }
     },
     "com.amazonaws.iot#RetryableFailureType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "TIMED_OUT",
-            "name": "TIMED_OUT"
-          },
-          {
-            "value": "ALL",
-            "name": "ALL"
+      "type": "enum",
+      "members": {
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
           }
-        ]
+        },
+        "TIMED_OUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TIMED_OUT"
+          }
+        },
+        "ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALL"
+          }
+        }
       }
     },
     "com.amazonaws.iot#RoleAlias": {
@@ -26928,18 +27344,20 @@
       }
     },
     "com.amazonaws.iot#ServerCertificateStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "INVALID",
-            "name": "INVALID"
-          },
-          {
-            "value": "VALID",
-            "name": "VALID"
+      "type": "enum",
+      "members": {
+        "INVALID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INVALID"
           }
-        ]
+        },
+        "VALID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VALID"
+          }
+        }
       }
     },
     "com.amazonaws.iot#ServerCertificateStatusDetail": {
@@ -26991,22 +27409,26 @@
       "type": "string"
     },
     "com.amazonaws.iot#ServiceType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DATA",
-            "name": "DATA"
-          },
-          {
-            "value": "CREDENTIAL_PROVIDER",
-            "name": "CREDENTIAL_PROVIDER"
-          },
-          {
-            "value": "JOBS",
-            "name": "JOBS"
+      "type": "enum",
+      "members": {
+        "DATA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DATA"
           }
-        ]
+        },
+        "CREDENTIAL_PROVIDER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREDENTIAL_PROVIDER"
+          }
+        },
+        "JOBS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JOBS"
+          }
+        }
       }
     },
     "com.amazonaws.iot#ServiceUnavailableException": {
@@ -27913,30 +28335,38 @@
       }
     },
     "com.amazonaws.iot#Status": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "InProgress",
-            "name": "InProgress"
-          },
-          {
-            "value": "Completed",
-            "name": "Completed"
-          },
-          {
-            "value": "Failed",
-            "name": "Failed"
-          },
-          {
-            "value": "Cancelled",
-            "name": "Cancelled"
-          },
-          {
-            "value": "Cancelling",
-            "name": "Cancelling"
+      "type": "enum",
+      "members": {
+        "InProgress": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InProgress"
           }
-        ]
+        },
+        "Completed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Completed"
+          }
+        },
+        "Failed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        },
+        "Cancelled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Cancelled"
+          }
+        },
+        "Cancelling": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Cancelling"
+          }
+        }
       }
     },
     "com.amazonaws.iot#StdDeviation": {
@@ -28390,18 +28820,20 @@
       }
     },
     "com.amazonaws.iot#TargetSelection": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CONTINUOUS",
-            "name": "CONTINUOUS"
-          },
-          {
-            "value": "SNAPSHOT",
-            "name": "SNAPSHOT"
+      "type": "enum",
+      "members": {
+        "CONTINUOUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTINUOUS"
           }
-        ]
+        },
+        "SNAPSHOT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SNAPSHOT"
+          }
+        }
       }
     },
     "com.amazonaws.iot#TargetViolationIdsForDetectMitigationActions": {
@@ -28577,18 +29009,20 @@
       }
     },
     "com.amazonaws.iot#TemplateType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "FLEET_PROVISIONING",
-            "name": "FLEET_PROVISIONING"
-          },
-          {
-            "value": "JITP",
-            "name": "JITP"
+      "type": "enum",
+      "members": {
+        "FLEET_PROVISIONING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FLEET_PROVISIONING"
           }
-        ]
+        },
+        "JITP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JITP"
+          }
+        }
       }
     },
     "com.amazonaws.iot#TemplateVersionId": {
@@ -28897,18 +29331,20 @@
       }
     },
     "com.amazonaws.iot#ThingConnectivityIndexingMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OFF",
-            "name": "OFF"
-          },
-          {
-            "value": "STATUS",
-            "name": "STATUS"
+      "type": "enum",
+      "members": {
+        "OFF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OFF"
           }
-        ]
+        },
+        "STATUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STATUS"
+          }
+        }
       }
     },
     "com.amazonaws.iot#ThingDocument": {
@@ -29068,18 +29504,20 @@
       }
     },
     "com.amazonaws.iot#ThingGroupIndexingMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OFF",
-            "name": "OFF"
-          },
-          {
-            "value": "ON",
-            "name": "ON"
+      "type": "enum",
+      "members": {
+        "OFF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OFF"
           }
-        ]
+        },
+        "ON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ON"
+          }
+        }
       }
     },
     "com.amazonaws.iot#ThingGroupList": {
@@ -29223,22 +29661,26 @@
       }
     },
     "com.amazonaws.iot#ThingIndexingMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OFF",
-            "name": "OFF"
-          },
-          {
-            "value": "REGISTRY",
-            "name": "REGISTRY"
-          },
-          {
-            "value": "REGISTRY_AND_SHADOW",
-            "name": "REGISTRY_AND_SHADOW"
+      "type": "enum",
+      "members": {
+        "OFF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OFF"
           }
-        ]
+        },
+        "REGISTRY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REGISTRY"
+          }
+        },
+        "REGISTRY_AND_SHADOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REGISTRY_AND_SHADOW"
+          }
+        }
       }
     },
     "com.amazonaws.iot#ThingName": {
@@ -29715,30 +30157,38 @@
       }
     },
     "com.amazonaws.iot#TopicRuleDestinationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
-          },
-          {
-            "value": "ERROR",
-            "name": "ERROR"
-          },
-          {
-            "value": "DELETING",
-            "name": "DELETING"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        }
       }
     },
     "com.amazonaws.iot#TopicRuleDestinationSummaries": {
@@ -31431,7 +31881,7 @@
         "preProvisioningHook": {
           "target": "com.amazonaws.iot#ProvisioningHook",
           "traits": {
-            "smithy.api#documentation": "<p>Updates the pre-provisioning hook template.</p>"
+            "smithy.api#documentation": "<p>Updates the pre-provisioning hook template. Only supports template of type\n            <code>FLEET_PROVISIONING</code>. For more information about provisioning template types,\n         see <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type\">type</a>.</p>"
           }
         },
         "removePreProvisioningHook": {
@@ -32273,26 +32723,32 @@
       }
     },
     "com.amazonaws.iot#VerificationState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "FALSE_POSITIVE",
-            "name": "FALSE_POSITIVE"
-          },
-          {
-            "value": "BENIGN_POSITIVE",
-            "name": "BENIGN_POSITIVE"
-          },
-          {
-            "value": "TRUE_POSITIVE",
-            "name": "TRUE_POSITIVE"
-          },
-          {
-            "value": "UNKNOWN",
-            "name": "UNKNOWN"
+      "type": "enum",
+      "members": {
+        "FALSE_POSITIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FALSE_POSITIVE"
           }
-        ]
+        },
+        "BENIGN_POSITIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BENIGN_POSITIVE"
+          }
+        },
+        "TRUE_POSITIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRUE_POSITIVE"
+          }
+        },
+        "UNKNOWN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNKNOWN"
+          }
+        }
       }
     },
     "com.amazonaws.iot#VerificationStateDescription": {
@@ -32454,22 +32910,26 @@
       }
     },
     "com.amazonaws.iot#ViolationEventType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "in-alarm",
-            "name": "IN_ALARM"
-          },
-          {
-            "value": "alarm-cleared",
-            "name": "ALARM_CLEARED"
-          },
-          {
-            "value": "alarm-invalidated",
-            "name": "ALARM_INVALIDATED"
+      "type": "enum",
+      "members": {
+        "IN_ALARM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "in-alarm"
           }
-        ]
+        },
+        "ALARM_CLEARED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "alarm-cleared"
+          }
+        },
+        "ALARM_INVALIDATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "alarm-invalidated"
+          }
+        }
       }
     },
     "com.amazonaws.iot#ViolationEvents": {

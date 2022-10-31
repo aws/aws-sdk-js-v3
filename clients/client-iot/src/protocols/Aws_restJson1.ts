@@ -756,6 +756,8 @@ import {
   KinesisAction,
   LambdaAction,
   LimitExceededException,
+  LocationAction,
+  LocationTimestamp,
   MachineLearningDetectionConfig,
   MalformedPolicyException,
   MetricDimension,
@@ -21652,6 +21654,7 @@ const serializeAws_restJson1Action = (input: Action, context: __SerdeContext): a
     ...(input.kafka != null && { kafka: serializeAws_restJson1KafkaAction(input.kafka, context) }),
     ...(input.kinesis != null && { kinesis: serializeAws_restJson1KinesisAction(input.kinesis, context) }),
     ...(input.lambda != null && { lambda: serializeAws_restJson1LambdaAction(input.lambda, context) }),
+    ...(input.location != null && { location: serializeAws_restJson1LocationAction(input.location, context) }),
     ...(input.openSearch != null && { openSearch: serializeAws_restJson1OpenSearchAction(input.openSearch, context) }),
     ...(input.republish != null && { republish: serializeAws_restJson1RepublishAction(input.republish, context) }),
     ...(input.s3 != null && { s3: serializeAws_restJson1S3Action(input.s3, context) }),
@@ -22460,6 +22463,24 @@ const serializeAws_restJson1KinesisAction = (input: KinesisAction, context: __Se
 const serializeAws_restJson1LambdaAction = (input: LambdaAction, context: __SerdeContext): any => {
   return {
     ...(input.functionArn != null && { functionArn: input.functionArn }),
+  };
+};
+
+const serializeAws_restJson1LocationAction = (input: LocationAction, context: __SerdeContext): any => {
+  return {
+    ...(input.deviceId != null && { deviceId: input.deviceId }),
+    ...(input.latitude != null && { latitude: input.latitude }),
+    ...(input.longitude != null && { longitude: input.longitude }),
+    ...(input.roleArn != null && { roleArn: input.roleArn }),
+    ...(input.timestamp != null && { timestamp: serializeAws_restJson1LocationTimestamp(input.timestamp, context) }),
+    ...(input.trackerName != null && { trackerName: input.trackerName }),
+  };
+};
+
+const serializeAws_restJson1LocationTimestamp = (input: LocationTimestamp, context: __SerdeContext): any => {
+  return {
+    ...(input.unit != null && { unit: input.unit }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -23273,6 +23294,7 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
     kafka: output.kafka != null ? deserializeAws_restJson1KafkaAction(output.kafka, context) : undefined,
     kinesis: output.kinesis != null ? deserializeAws_restJson1KinesisAction(output.kinesis, context) : undefined,
     lambda: output.lambda != null ? deserializeAws_restJson1LambdaAction(output.lambda, context) : undefined,
+    location: output.location != null ? deserializeAws_restJson1LocationAction(output.location, context) : undefined,
     openSearch:
       output.openSearch != null ? deserializeAws_restJson1OpenSearchAction(output.openSearch, context) : undefined,
     republish:
@@ -25102,6 +25124,25 @@ const deserializeAws_restJson1KinesisAction = (output: any, context: __SerdeCont
 const deserializeAws_restJson1LambdaAction = (output: any, context: __SerdeContext): LambdaAction => {
   return {
     functionArn: __expectString(output.functionArn),
+  } as any;
+};
+
+const deserializeAws_restJson1LocationAction = (output: any, context: __SerdeContext): LocationAction => {
+  return {
+    deviceId: __expectString(output.deviceId),
+    latitude: __expectString(output.latitude),
+    longitude: __expectString(output.longitude),
+    roleArn: __expectString(output.roleArn),
+    timestamp:
+      output.timestamp != null ? deserializeAws_restJson1LocationTimestamp(output.timestamp, context) : undefined,
+    trackerName: __expectString(output.trackerName),
+  } as any;
+};
+
+const deserializeAws_restJson1LocationTimestamp = (output: any, context: __SerdeContext): LocationTimestamp => {
+  return {
+    unit: __expectString(output.unit),
+    value: __expectString(output.value),
   } as any;
 };
 

@@ -59,6 +59,47 @@ import {
   ViolationEventOccurrenceRange,
 } from "./models_1";
 
+export interface ListThingGroupsRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A filter that limits the results to those with the specified parent group.</p>
+   */
+  parentGroup?: string;
+
+  /**
+   * <p>A filter that limits the results to those with the specified name prefix.</p>
+   */
+  namePrefixFilter?: string;
+
+  /**
+   * <p>If true, return child groups as well.</p>
+   */
+  recursive?: boolean;
+}
+
+export interface ListThingGroupsResponse {
+  /**
+   * <p>The thing groups.</p>
+   */
+  thingGroups?: GroupNameAndArn[];
+
+  /**
+   * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
+   */
+  nextToken?: string;
+}
+
 export interface ListThingGroupsForThingRequest {
   /**
    * <p>The thing name.</p>
@@ -2379,7 +2420,9 @@ export interface UpdateProvisioningTemplateRequest {
   provisioningRoleArn?: string;
 
   /**
-   * <p>Updates the pre-provisioning hook template.</p>
+   * <p>Updates the pre-provisioning hook template. Only supports template of type
+   *             <code>FLEET_PROVISIONING</code>. For more information about provisioning template types,
+   *          see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type">type</a>.</p>
    */
   preProvisioningHook?: ProvisioningHook;
 
@@ -2819,6 +2862,20 @@ export interface ValidateSecurityProfileBehaviorsResponse {
    */
   validationErrors?: ValidationError[];
 }
+
+/**
+ * @internal
+ */
+export const ListThingGroupsRequestFilterSensitiveLog = (obj: ListThingGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThingGroupsResponseFilterSensitiveLog = (obj: ListThingGroupsResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

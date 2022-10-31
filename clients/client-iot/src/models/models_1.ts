@@ -62,6 +62,18 @@ import {
   VerificationState,
 } from "./models_0";
 
+/**
+ * <p>The output for the DeleteRegistrationCode operation.</p>
+ */
+export interface DeleteRegistrationCodeResponse {}
+
+export interface DeleteRoleAliasRequest {
+  /**
+   * <p>The role alias to delete.</p>
+   */
+  roleAlias: string | undefined;
+}
+
 export interface DeleteRoleAliasResponse {}
 
 export interface DeleteScheduledAuditRequest {
@@ -2718,7 +2730,7 @@ export interface GetBehaviorModelTrainingSummariesRequest {
 
   /**
    * <p>
-   *       The maximum number of results to return at one time. The default is 25.
+   *       The maximum number of results to return at one time. The default is 10.
    *     </p>
    */
   maxResults?: number;
@@ -5561,7 +5573,7 @@ export interface ListProvisioningTemplateVersionsRequest {
  */
 export interface ProvisioningTemplateVersionSummary {
   /**
-   * <p>The ID of the fleet privisioning template version.</p>
+   * <p>The ID of the fleet provisioning template version.</p>
    */
   versionId?: number;
 
@@ -5930,46 +5942,19 @@ export interface ListTargetsForSecurityProfileResponse {
   nextToken?: string;
 }
 
-export interface ListThingGroupsRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
+/**
+ * @internal
+ */
+export const DeleteRegistrationCodeResponseFilterSensitiveLog = (obj: DeleteRegistrationCodeResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>A filter that limits the results to those with the specified parent group.</p>
-   */
-  parentGroup?: string;
-
-  /**
-   * <p>A filter that limits the results to those with the specified name prefix.</p>
-   */
-  namePrefixFilter?: string;
-
-  /**
-   * <p>If true, return child groups as well.</p>
-   */
-  recursive?: boolean;
-}
-
-export interface ListThingGroupsResponse {
-  /**
-   * <p>The thing groups.</p>
-   */
-  thingGroups?: GroupNameAndArn[];
-
-  /**
-   * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
-   */
-  nextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeleteRoleAliasRequestFilterSensitiveLog = (obj: DeleteRoleAliasRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7934,19 +7919,5 @@ export const ListTargetsForSecurityProfileRequestFilterSensitiveLog = (
 export const ListTargetsForSecurityProfileResponseFilterSensitiveLog = (
   obj: ListTargetsForSecurityProfileResponse
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingGroupsRequestFilterSensitiveLog = (obj: ListThingGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListThingGroupsResponseFilterSensitiveLog = (obj: ListThingGroupsResponse): any => ({
   ...obj,
 });
