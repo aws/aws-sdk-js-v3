@@ -22,6 +22,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { BatchGetMetricDataCommandInput, BatchGetMetricDataCommandOutput } from "../commands/BatchGetMetricDataCommand";
 import {
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
@@ -169,6 +170,10 @@ import {
 import { ListEmailTemplatesCommandInput, ListEmailTemplatesCommandOutput } from "../commands/ListEmailTemplatesCommand";
 import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "../commands/ListImportJobsCommand";
 import {
+  ListRecommendationsCommandInput,
+  ListRecommendationsCommandOutput,
+} from "../commands/ListRecommendationsCommand";
+import {
   ListSuppressedDestinationsCommandInput,
   ListSuppressedDestinationsCommandOutput,
 } from "../commands/ListSuppressedDestinationsCommand";
@@ -190,6 +195,10 @@ import {
   PutAccountSuppressionAttributesCommandOutput,
 } from "../commands/PutAccountSuppressionAttributesCommand";
 import {
+  PutAccountVdmAttributesCommandInput,
+  PutAccountVdmAttributesCommandOutput,
+} from "../commands/PutAccountVdmAttributesCommand";
+import {
   PutConfigurationSetDeliveryOptionsCommandInput,
   PutConfigurationSetDeliveryOptionsCommandOutput,
 } from "../commands/PutConfigurationSetDeliveryOptionsCommand";
@@ -209,6 +218,10 @@ import {
   PutConfigurationSetTrackingOptionsCommandInput,
   PutConfigurationSetTrackingOptionsCommandOutput,
 } from "../commands/PutConfigurationSetTrackingOptionsCommand";
+import {
+  PutConfigurationSetVdmOptionsCommandInput,
+  PutConfigurationSetVdmOptionsCommandOutput,
+} from "../commands/PutConfigurationSetVdmOptionsCommand";
 import {
   PutDedicatedIpInPoolCommandInput,
   PutDedicatedIpInPoolCommandOutput,
@@ -280,6 +293,7 @@ import {
   AccountSuspendedException,
   AlreadyExistsException,
   BadRequestException,
+  BatchGetMetricDataQuery,
   BlacklistEntry,
   Body,
   BulkEmailContent,
@@ -295,6 +309,8 @@ import {
   Content,
   CustomVerificationEmailTemplateMetadata,
   DailyVolume,
+  DashboardAttributes,
+  DashboardOptions,
   DedicatedIp,
   DedicatedIpPool,
   DeliverabilityTestReport,
@@ -312,27 +328,35 @@ import {
   EventDestinationDefinition,
   EventType,
   FailureInfo,
+  GuardianAttributes,
+  GuardianOptions,
   IdentityInfo,
   ImportDataSource,
   ImportDestination,
   ImportJobSummary,
   InboxPlacementTrackingOption,
+  InternalServiceErrorException,
   InvalidNextTokenException,
   IspPlacement,
   KinesisFirehoseDestination,
   LimitExceededException,
   ListContactsFilter,
   ListManagementOptions,
+  ListRecommendationsFilterKey,
   MailFromAttributes,
   MailFromDomainNotVerifiedException,
   Message,
   MessageRejected,
   MessageTag,
+  MetricDataError,
+  MetricDataResult,
+  MetricDimensionName,
   NotFoundException,
   OverallVolume,
   PinpointDestination,
   PlacementStatistics,
   RawMessage,
+  Recommendation,
   ReplacementEmailContent,
   ReplacementTemplate,
   ReputationOptions,
@@ -355,9 +379,36 @@ import {
   TopicFilter,
   TopicPreference,
   TrackingOptions,
+  VdmAttributes,
+  VdmOptions,
   VolumeStatistics,
 } from "../models/models_0";
 import { SESv2ServiceException as __BaseException } from "../models/SESv2ServiceException";
+
+export const serializeAws_restJson1BatchGetMetricDataCommand = async (
+  input: BatchGetMetricDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/metrics/batch";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Queries != null && { Queries: serializeAws_restJson1BatchGetMetricDataQueries(input.Queries, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateConfigurationSetCommand = async (
   input: CreateConfigurationSetCommandInput,
@@ -388,6 +439,7 @@ export const serializeAws_restJson1CreateConfigurationSetCommand = async (
     ...(input.TrackingOptions != null && {
       TrackingOptions: serializeAws_restJson1TrackingOptions(input.TrackingOptions, context),
     }),
+    ...(input.VdmOptions != null && { VdmOptions: serializeAws_restJson1VdmOptions(input.VdmOptions, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1790,6 +1842,33 @@ export const serializeAws_restJson1ListImportJobsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListRecommendationsCommand = async (
+  input: ListRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/vdm/recommendations";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Filter != null && { Filter: serializeAws_restJson1ListRecommendationsFilter(input.Filter, context) }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListSuppressedDestinationsCommand = async (
   input: ListSuppressedDestinationsCommandInput,
   context: __SerdeContext
@@ -1943,6 +2022,32 @@ export const serializeAws_restJson1PutAccountSuppressionAttributesCommand = asyn
   body = JSON.stringify({
     ...(input.SuppressedReasons != null && {
       SuppressedReasons: serializeAws_restJson1SuppressionListReasons(input.SuppressedReasons, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutAccountVdmAttributesCommand = async (
+  input: PutAccountVdmAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account/vdm";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.VdmAttributes != null && {
+      VdmAttributes: serializeAws_restJson1VdmAttributes(input.VdmAttributes, context),
     }),
   });
   return new __HttpRequest({
@@ -2117,6 +2222,40 @@ export const serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand = a
   let body: any;
   body = JSON.stringify({
     ...(input.CustomRedirectDomain != null && { CustomRedirectDomain: input.CustomRedirectDomain }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutConfigurationSetVdmOptionsCommand = async (
+  input: PutConfigurationSetVdmOptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v2/email/configuration-sets/{ConfigurationSetName}/vdm-options";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify({
+    ...(input.VdmOptions != null && { VdmOptions: serializeAws_restJson1VdmOptions(input.VdmOptions, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2839,6 +2978,59 @@ export const serializeAws_restJson1UpdateEmailTemplateCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const deserializeAws_restJson1BatchGetMetricDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetMetricDataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchGetMetricDataCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Errors != null) {
+    contents.Errors = deserializeAws_restJson1MetricDataErrorList(data.Errors, context);
+  }
+  if (data.Results != null) {
+    contents.Results = deserializeAws_restJson1MetricDataResultList(data.Results, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1BatchGetMetricDataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetMetricDataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.sesv2#InternalServiceErrorException":
+      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_restJson1CreateConfigurationSetCommand = async (
@@ -3896,6 +4088,9 @@ export const deserializeAws_restJson1GetAccountCommand = async (
   if (data.SuppressionAttributes != null) {
     contents.SuppressionAttributes = deserializeAws_restJson1SuppressionAttributes(data.SuppressionAttributes, context);
   }
+  if (data.VdmAttributes != null) {
+    contents.VdmAttributes = deserializeAws_restJson1VdmAttributes(data.VdmAttributes, context);
+  }
   return contents;
 };
 
@@ -4004,6 +4199,9 @@ export const deserializeAws_restJson1GetConfigurationSetCommand = async (
   }
   if (data.TrackingOptions != null) {
     contents.TrackingOptions = deserializeAws_restJson1TrackingOptions(data.TrackingOptions, context);
+  }
+  if (data.VdmOptions != null) {
+    contents.VdmOptions = deserializeAws_restJson1VdmOptions(data.VdmOptions, context);
   }
   return contents;
 };
@@ -5427,6 +5625,56 @@ const deserializeAws_restJson1ListImportJobsCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecommendationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListRecommendationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.Recommendations != null) {
+    contents.Recommendations = deserializeAws_restJson1RecommendationsList(data.Recommendations, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListSuppressedDestinationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5694,6 +5942,47 @@ const deserializeAws_restJson1PutAccountSuppressionAttributesCommandError = asyn
   }
 };
 
+export const deserializeAws_restJson1PutAccountVdmAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccountVdmAttributesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutAccountVdmAttributesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1PutAccountVdmAttributesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccountVdmAttributesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5888,6 +6177,50 @@ const deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommandError = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetTrackingOptionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1PutConfigurationSetVdmOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigurationSetVdmOptionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutConfigurationSetVdmOptionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1PutConfigurationSetVdmOptionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigurationSetVdmOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6997,6 +7330,22 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1InternalServiceErrorExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalServiceErrorException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.message != null) {
+    contents.message = __expectString(data.message);
+  }
+  const exception = new InternalServiceErrorException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1InvalidNextTokenExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -7117,6 +7466,31 @@ const serializeAws_restJson1AdditionalContactEmailAddresses = (input: string[], 
     });
 };
 
+const serializeAws_restJson1BatchGetMetricDataQueries = (
+  input: BatchGetMetricDataQuery[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1BatchGetMetricDataQuery(entry, context);
+    });
+};
+
+const serializeAws_restJson1BatchGetMetricDataQuery = (
+  input: BatchGetMetricDataQuery,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Dimensions != null && { Dimensions: serializeAws_restJson1Dimensions(input.Dimensions, context) }),
+    ...(input.EndDate != null && { EndDate: Math.round(input.EndDate.getTime() / 1000) }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Metric != null && { Metric: input.Metric }),
+    ...(input.Namespace != null && { Namespace: input.Namespace }),
+    ...(input.StartDate != null && { StartDate: Math.round(input.StartDate.getTime() / 1000) }),
+  };
+};
+
 const serializeAws_restJson1Body = (input: Body, context: __SerdeContext): any => {
   return {
     ...(input.Html != null && { Html: serializeAws_restJson1Content(input.Html, context) }),
@@ -7197,6 +7571,18 @@ const serializeAws_restJson1Content = (input: Content, context: __SerdeContext):
   };
 };
 
+const serializeAws_restJson1DashboardAttributes = (input: DashboardAttributes, context: __SerdeContext): any => {
+  return {
+    ...(input.EngagementMetrics != null && { EngagementMetrics: input.EngagementMetrics }),
+  };
+};
+
+const serializeAws_restJson1DashboardOptions = (input: DashboardOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.EngagementMetrics != null && { EngagementMetrics: input.EngagementMetrics }),
+  };
+};
+
 const serializeAws_restJson1DeliveryOptions = (input: DeliveryOptions, context: __SerdeContext): any => {
   return {
     ...(input.SendingPoolName != null && { SendingPoolName: input.SendingPoolName }),
@@ -7216,6 +7602,18 @@ const serializeAws_restJson1Destination = (input: Destination, context: __SerdeC
       ToAddresses: serializeAws_restJson1EmailAddressList(input.ToAddresses, context),
     }),
   };
+};
+
+const serializeAws_restJson1Dimensions = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [MetricDimensionName | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1DkimSigningAttributes = (input: DkimSigningAttributes, context: __SerdeContext): any => {
@@ -7314,6 +7712,18 @@ const serializeAws_restJson1EventTypes = (input: (EventType | string)[], context
     });
 };
 
+const serializeAws_restJson1GuardianAttributes = (input: GuardianAttributes, context: __SerdeContext): any => {
+  return {
+    ...(input.OptimizedSharedDelivery != null && { OptimizedSharedDelivery: input.OptimizedSharedDelivery }),
+  };
+};
+
+const serializeAws_restJson1GuardianOptions = (input: GuardianOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.OptimizedSharedDelivery != null && { OptimizedSharedDelivery: input.OptimizedSharedDelivery }),
+  };
+};
+
 const serializeAws_restJson1ImportDataSource = (input: ImportDataSource, context: __SerdeContext): any => {
   return {
     ...(input.DataFormat != null && { DataFormat: input.DataFormat }),
@@ -7375,6 +7785,24 @@ const serializeAws_restJson1ListManagementOptions = (input: ListManagementOption
     ...(input.ContactListName != null && { ContactListName: input.ContactListName }),
     ...(input.TopicName != null && { TopicName: input.TopicName }),
   };
+};
+
+const serializeAws_restJson1ListRecommendationsFilter = (
+  input: Record<string, string>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [ListRecommendationsFilterKey | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: value,
+      };
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1Message = (input: Message, context: __SerdeContext): any => {
@@ -7544,6 +7972,29 @@ const serializeAws_restJson1Topics = (input: Topic[], context: __SerdeContext): 
 const serializeAws_restJson1TrackingOptions = (input: TrackingOptions, context: __SerdeContext): any => {
   return {
     ...(input.CustomRedirectDomain != null && { CustomRedirectDomain: input.CustomRedirectDomain }),
+  };
+};
+
+const serializeAws_restJson1VdmAttributes = (input: VdmAttributes, context: __SerdeContext): any => {
+  return {
+    ...(input.DashboardAttributes != null && {
+      DashboardAttributes: serializeAws_restJson1DashboardAttributes(input.DashboardAttributes, context),
+    }),
+    ...(input.GuardianAttributes != null && {
+      GuardianAttributes: serializeAws_restJson1GuardianAttributes(input.GuardianAttributes, context),
+    }),
+    ...(input.VdmEnabled != null && { VdmEnabled: input.VdmEnabled }),
+  };
+};
+
+const serializeAws_restJson1VdmOptions = (input: VdmOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.DashboardOptions != null && {
+      DashboardOptions: serializeAws_restJson1DashboardOptions(input.DashboardOptions, context),
+    }),
+    ...(input.GuardianOptions != null && {
+      GuardianOptions: serializeAws_restJson1GuardianOptions(input.GuardianOptions, context),
+    }),
   };
 };
 
@@ -7774,6 +8225,18 @@ const deserializeAws_restJson1DailyVolumes = (output: any, context: __SerdeConte
       return deserializeAws_restJson1DailyVolume(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1DashboardAttributes = (output: any, context: __SerdeContext): DashboardAttributes => {
+  return {
+    EngagementMetrics: __expectString(output.EngagementMetrics),
+  } as any;
+};
+
+const deserializeAws_restJson1DashboardOptions = (output: any, context: __SerdeContext): DashboardOptions => {
+  return {
+    EngagementMetrics: __expectString(output.EngagementMetrics),
+  } as any;
 };
 
 const deserializeAws_restJson1DedicatedIp = (output: any, context: __SerdeContext): DedicatedIp => {
@@ -8068,6 +8531,18 @@ const deserializeAws_restJson1FailureInfo = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_restJson1GuardianAttributes = (output: any, context: __SerdeContext): GuardianAttributes => {
+  return {
+    OptimizedSharedDelivery: __expectString(output.OptimizedSharedDelivery),
+  } as any;
+};
+
+const deserializeAws_restJson1GuardianOptions = (output: any, context: __SerdeContext): GuardianOptions => {
+  return {
+    OptimizedSharedDelivery: __expectString(output.OptimizedSharedDelivery),
+  } as any;
+};
+
 const deserializeAws_restJson1IdentityInfo = (output: any, context: __SerdeContext): IdentityInfo => {
   return {
     IdentityName: __expectString(output.IdentityName),
@@ -8249,6 +8724,59 @@ const deserializeAws_restJson1MailFromAttributes = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1MetricDataError = (output: any, context: __SerdeContext): MetricDataError => {
+  return {
+    Code: __expectString(output.Code),
+    Id: __expectString(output.Id),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_restJson1MetricDataErrorList = (output: any, context: __SerdeContext): MetricDataError[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MetricDataError(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MetricDataResult = (output: any, context: __SerdeContext): MetricDataResult => {
+  return {
+    Id: __expectString(output.Id),
+    Timestamps:
+      output.Timestamps != null ? deserializeAws_restJson1TimestampList(output.Timestamps, context) : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1MetricValueList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MetricDataResultList = (output: any, context: __SerdeContext): MetricDataResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MetricDataResult(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MetricValueList = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectLong(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1OverallVolume = (output: any, context: __SerdeContext): OverallVolume => {
   return {
     DomainIspPlacements:
@@ -8289,6 +8817,36 @@ const deserializeAws_restJson1PolicyMap = (output: any, context: __SerdeContext)
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1Recommendation = (output: any, context: __SerdeContext): Recommendation => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
+        : undefined,
+    Description: __expectString(output.Description),
+    Impact: __expectString(output.Impact),
+    LastUpdatedTimestamp:
+      output.LastUpdatedTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
+        : undefined,
+    ResourceArn: __expectString(output.ResourceArn),
+    Status: __expectString(output.Status),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1RecommendationsList = (output: any, context: __SerdeContext): Recommendation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Recommendation(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1ReputationOptions = (output: any, context: __SerdeContext): ReputationOptions => {
@@ -8443,6 +9001,18 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
+const deserializeAws_restJson1TimestampList = (output: any, context: __SerdeContext): Date[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1Topic = (output: any, context: __SerdeContext): Topic => {
   return {
     DefaultSubscriptionStatus: __expectString(output.DefaultSubscriptionStatus),
@@ -8486,6 +9056,33 @@ const deserializeAws_restJson1Topics = (output: any, context: __SerdeContext): T
 const deserializeAws_restJson1TrackingOptions = (output: any, context: __SerdeContext): TrackingOptions => {
   return {
     CustomRedirectDomain: __expectString(output.CustomRedirectDomain),
+  } as any;
+};
+
+const deserializeAws_restJson1VdmAttributes = (output: any, context: __SerdeContext): VdmAttributes => {
+  return {
+    DashboardAttributes:
+      output.DashboardAttributes != null
+        ? deserializeAws_restJson1DashboardAttributes(output.DashboardAttributes, context)
+        : undefined,
+    GuardianAttributes:
+      output.GuardianAttributes != null
+        ? deserializeAws_restJson1GuardianAttributes(output.GuardianAttributes, context)
+        : undefined,
+    VdmEnabled: __expectString(output.VdmEnabled),
+  } as any;
+};
+
+const deserializeAws_restJson1VdmOptions = (output: any, context: __SerdeContext): VdmOptions => {
+  return {
+    DashboardOptions:
+      output.DashboardOptions != null
+        ? deserializeAws_restJson1DashboardOptions(output.DashboardOptions, context)
+        : undefined,
+    GuardianOptions:
+      output.GuardianOptions != null
+        ? deserializeAws_restJson1GuardianOptions(output.GuardianOptions, context)
+        : undefined,
   } as any;
 };
 

@@ -47,6 +47,7 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { BatchGetMetricDataCommandInput, BatchGetMetricDataCommandOutput } from "./commands/BatchGetMetricDataCommand";
 import {
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
@@ -194,6 +195,10 @@ import {
 import { ListEmailTemplatesCommandInput, ListEmailTemplatesCommandOutput } from "./commands/ListEmailTemplatesCommand";
 import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "./commands/ListImportJobsCommand";
 import {
+  ListRecommendationsCommandInput,
+  ListRecommendationsCommandOutput,
+} from "./commands/ListRecommendationsCommand";
+import {
   ListSuppressedDestinationsCommandInput,
   ListSuppressedDestinationsCommandOutput,
 } from "./commands/ListSuppressedDestinationsCommand";
@@ -215,6 +220,10 @@ import {
   PutAccountSuppressionAttributesCommandOutput,
 } from "./commands/PutAccountSuppressionAttributesCommand";
 import {
+  PutAccountVdmAttributesCommandInput,
+  PutAccountVdmAttributesCommandOutput,
+} from "./commands/PutAccountVdmAttributesCommand";
+import {
   PutConfigurationSetDeliveryOptionsCommandInput,
   PutConfigurationSetDeliveryOptionsCommandOutput,
 } from "./commands/PutConfigurationSetDeliveryOptionsCommand";
@@ -234,6 +243,10 @@ import {
   PutConfigurationSetTrackingOptionsCommandInput,
   PutConfigurationSetTrackingOptionsCommandOutput,
 } from "./commands/PutConfigurationSetTrackingOptionsCommand";
+import {
+  PutConfigurationSetVdmOptionsCommandInput,
+  PutConfigurationSetVdmOptionsCommandOutput,
+} from "./commands/PutConfigurationSetVdmOptionsCommand";
 import {
   PutDedicatedIpInPoolCommandInput,
   PutDedicatedIpInPoolCommandOutput,
@@ -309,6 +322,7 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | BatchGetMetricDataCommandInput
   | CreateConfigurationSetCommandInput
   | CreateConfigurationSetEventDestinationCommandInput
   | CreateContactCommandInput
@@ -359,17 +373,20 @@ export type ServiceInputTypes =
   | ListEmailIdentitiesCommandInput
   | ListEmailTemplatesCommandInput
   | ListImportJobsCommandInput
+  | ListRecommendationsCommandInput
   | ListSuppressedDestinationsCommandInput
   | ListTagsForResourceCommandInput
   | PutAccountDedicatedIpWarmupAttributesCommandInput
   | PutAccountDetailsCommandInput
   | PutAccountSendingAttributesCommandInput
   | PutAccountSuppressionAttributesCommandInput
+  | PutAccountVdmAttributesCommandInput
   | PutConfigurationSetDeliveryOptionsCommandInput
   | PutConfigurationSetReputationOptionsCommandInput
   | PutConfigurationSetSendingOptionsCommandInput
   | PutConfigurationSetSuppressionOptionsCommandInput
   | PutConfigurationSetTrackingOptionsCommandInput
+  | PutConfigurationSetVdmOptionsCommandInput
   | PutDedicatedIpInPoolCommandInput
   | PutDedicatedIpWarmupAttributesCommandInput
   | PutDeliverabilityDashboardOptionCommandInput
@@ -393,6 +410,7 @@ export type ServiceInputTypes =
   | UpdateEmailTemplateCommandInput;
 
 export type ServiceOutputTypes =
+  | BatchGetMetricDataCommandOutput
   | CreateConfigurationSetCommandOutput
   | CreateConfigurationSetEventDestinationCommandOutput
   | CreateContactCommandOutput
@@ -443,17 +461,20 @@ export type ServiceOutputTypes =
   | ListEmailIdentitiesCommandOutput
   | ListEmailTemplatesCommandOutput
   | ListImportJobsCommandOutput
+  | ListRecommendationsCommandOutput
   | ListSuppressedDestinationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutAccountDedicatedIpWarmupAttributesCommandOutput
   | PutAccountDetailsCommandOutput
   | PutAccountSendingAttributesCommandOutput
   | PutAccountSuppressionAttributesCommandOutput
+  | PutAccountVdmAttributesCommandOutput
   | PutConfigurationSetDeliveryOptionsCommandOutput
   | PutConfigurationSetReputationOptionsCommandOutput
   | PutConfigurationSetSendingOptionsCommandOutput
   | PutConfigurationSetSuppressionOptionsCommandOutput
   | PutConfigurationSetTrackingOptionsCommandOutput
+  | PutConfigurationSetVdmOptionsCommandOutput
   | PutDedicatedIpInPoolCommandOutput
   | PutDedicatedIpWarmupAttributesCommandOutput
   | PutDeliverabilityDashboardOptionCommandOutput
