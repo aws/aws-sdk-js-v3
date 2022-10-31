@@ -17,8 +17,6 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   EnableFastSnapshotRestoresRequest,
   EnableFastSnapshotRestoresRequestFilterSensitiveLog,
-} from "../models/models_4";
-import {
   EnableFastSnapshotRestoresResult,
   EnableFastSnapshotRestoresResultFilterSensitiveLog,
 } from "../models/models_5";

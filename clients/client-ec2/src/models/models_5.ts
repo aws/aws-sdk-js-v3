@@ -8,6 +8,7 @@ import {
   AddIpamOperatingRegion,
   AddPrefixListEntry,
   AddressAttribute,
+  AddressTransfer,
   Affinity,
   ApplianceModeSupportValue,
   AutoPlacement,
@@ -33,6 +34,8 @@ import {
   TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
+  VpcCidrBlockAssociation,
+  VpcIpv6CidrBlockAssociation,
 } from "./models_0";
 import {
   AttributeValue,
@@ -59,9 +62,6 @@ import {
   SubnetCidrReservation,
   TargetCapacitySpecificationRequest,
   TargetCapacityUnitType,
-  TrafficDirection,
-  TrafficMirrorFilterRule,
-  TrafficMirrorRuleAction,
   VolumeType,
 } from "./models_1";
 import {
@@ -69,25 +69,19 @@ import {
   DefaultRouteTableAssociationValue,
   DefaultRouteTablePropagationValue,
   DnsOptionsSpecification,
-  IKEVersionsRequestListValue,
   IpAddressType,
   IpamPoolCidr,
   PayerResponsibility,
-  Phase1DHGroupNumbersRequestListValue,
-  Phase1EncryptionAlgorithmsRequestListValue,
-  Phase1IntegrityAlgorithmsRequestListValue,
-  Phase2DHGroupNumbersRequestListValue,
-  Phase2EncryptionAlgorithmsRequestListValue,
-  Phase2IntegrityAlgorithmsRequestListValue,
+  TrafficDirection,
   TrafficMirrorFilter,
+  TrafficMirrorFilterRule,
   TrafficMirrorNetworkService,
   TrafficMirrorPortRangeRequest,
+  TrafficMirrorRuleAction,
   TrafficMirrorSession,
   TransitGateway,
   TransitGatewayPrefixListReference,
-  VpnConnection,
   VpnEcmpSupportValue,
-  VpnTunnelLogOptionsSpecification,
 } from "./models_2";
 import {
   ArchitectureType,
@@ -96,6 +90,10 @@ import {
   BootModeValues,
   ConversionTask,
   ExportTaskS3Location,
+  FastLaunchLaunchTemplateSpecificationResponse,
+  FastLaunchResourceType,
+  FastLaunchSnapshotConfigurationResponse,
+  FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
   Filter,
   FpgaImageAttribute,
@@ -127,6 +125,207 @@ import {
   TransitGatewayPropagationState,
   VolumeModification,
 } from "./models_4";
+
+export interface DisassociateVpcCidrBlockResult {
+  /**
+   * <p>Information about the IPv6 CIDR block association.</p>
+   */
+  Ipv6CidrBlockAssociation?: VpcIpv6CidrBlockAssociation;
+
+  /**
+   * <p>Information about the IPv4 CIDR block association.</p>
+   */
+  CidrBlockAssociation?: VpcCidrBlockAssociation;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+}
+
+export interface EnableAddressTransferRequest {
+  /**
+   * <p>The allocation ID of an Elastic IP address.</p>
+   */
+  AllocationId: string | undefined;
+
+  /**
+   * <p>The ID of the account that you want to transfer the Elastic IP address to.</p>
+   */
+  TransferAccountId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface EnableAddressTransferResult {
+  /**
+   * <p>An Elastic IP address transfer.</p>
+   */
+  AddressTransfer?: AddressTransfer;
+}
+
+export interface EnableEbsEncryptionByDefaultRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface EnableEbsEncryptionByDefaultResult {
+  /**
+   * <p>The updated status of encryption by default.</p>
+   */
+  EbsEncryptionByDefault?: boolean;
+}
+
+/**
+ * <p>Request to create a launch template for a fast-launch enabled Windows AMI.</p>
+ * 		       <note>
+ * 			         <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
+ * 				<code>LaunchTemplateId</code>, but not both.</p>
+ * 		       </note>
+ */
+export interface FastLaunchLaunchTemplateSpecificationRequest {
+  /**
+   * <p>The ID of the launch template to use for faster launching for a Windows AMI.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template to use for faster launching for a Windows AMI.</p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>The version of the launch template to use for faster launching for a Windows AMI.</p>
+   */
+  Version: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>
+ */
+export interface FastLaunchSnapshotConfigurationRequest {
+  /**
+   * <p>The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.</p>
+   */
+  TargetResourceCount?: number;
+}
+
+export interface EnableFastLaunchRequest {
+  /**
+   * <p>The ID of the image for which you’re enabling faster launching.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The type of resource to use for pre-provisioning the Windows AMI for faster launching.
+   * 			Supported values include: <code>snapshot</code>, which is the default value.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>Configuration settings for creating and managing the snapshots that are used for
+   * 			pre-provisioning the Windows AMI for faster launching. The associated <code>ResourceType</code>
+   * 			must be <code>snapshot</code>.</p>
+   */
+  SnapshotConfiguration?: FastLaunchSnapshotConfigurationRequest;
+
+  /**
+   * <p>The launch template to use when launching Windows instances from pre-provisioned
+   * 			snapshots. Launch template parameters can include either the name or ID of the launch
+   * 			template, but not both.</p>
+   */
+  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationRequest;
+
+  /**
+   * <p>The maximum number of parallel instances to launch for creating resources. Value must be <code>6</code> or greater. </p>
+   */
+  MaxParallelLaunches?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface EnableFastLaunchResult {
+  /**
+   * <p>The image ID that identifies the Windows AMI for which faster launching was enabled.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The type of resource that was defined for pre-provisioning the Windows AMI for faster launching.</p>
+   */
+  ResourceType?: FastLaunchResourceType | string;
+
+  /**
+   * <p>The configuration settings that were defined for creating and managing the pre-provisioned snapshots
+   * 			for faster launching of the Windows AMI. This property is returned when the associated
+   * 			<code>resourceType</code> is <code>snapshot</code>.</p>
+   */
+  SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse;
+
+  /**
+   * <p>The launch template that is used when launching Windows instances from pre-provisioned snapshots.</p>
+   */
+  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
+
+  /**
+   * <p>The maximum number of parallel instances to launch for creating resources.</p>
+   */
+  MaxParallelLaunches?: number;
+
+  /**
+   * <p>The owner ID for the Windows AMI for which faster launching was enabled.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The current state of faster launching for the specified Windows AMI.</p>
+   */
+  State?: FastLaunchStateCode | string;
+
+  /**
+   * <p>The reason that the state changed for faster launching for the Windows AMI.</p>
+   */
+  StateTransitionReason?: string;
+
+  /**
+   * <p>The time that the state changed for faster launching for the Windows AMI.</p>
+   */
+  StateTransitionTime?: Date;
+}
+
+export interface EnableFastSnapshotRestoresRequest {
+  /**
+   * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
+   */
+  AvailabilityZones: string[] | undefined;
+
+  /**
+   * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>. You can specify
+   *       a snapshot that was shared with you from another Amazon Web Services account.</p>
+   */
+  SourceSnapshotIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 /**
  * <p>Describes fast snapshot restores that were successfully enabled.</p>
@@ -1686,7 +1885,7 @@ export interface GetIpamResourceCidrsRequest {
   ResourceType?: IpamResourceType | string;
 
   /**
-   * <p>A tag on an IPAM resource.</p>
+   * <p>The resource tag.</p>
    */
   ResourceTag?: RequestIpamResourceTag;
 
@@ -5376,7 +5575,7 @@ export interface ModifyIpamResourceCidrRequest {
 
 export interface ModifyIpamResourceCidrResult {
   /**
-   * <p>The CIDR for an IPAM resource.</p>
+   * <p>The CIDR of the resource.</p>
    */
   IpamResourceCidr?: IpamResourceCidr;
 }
@@ -6839,379 +7038,81 @@ export enum VpcTenancy {
   default = "default",
 }
 
-export interface ModifyVpcTenancyRequest {
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>The instance tenancy attribute for the VPC. </p>
-   */
-  InstanceTenancy: VpcTenancy | string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface ModifyVpcTenancyResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an
-   *             error.</p>
-   */
-  ReturnValue?: boolean;
-}
-
-export interface ModifyVpnConnectionRequest {
-  /**
-   * <p>The ID of the VPN connection.</p>
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The ID of the transit gateway.</p>
-   */
-  TransitGatewayId?: string;
-
-  /**
-   * <p>The ID of the customer gateway at your end of the VPN connection.</p>
-   */
-  CustomerGatewayId?: string;
-
-  /**
-   * <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN
-   *             connection.</p>
-   */
-  VpnGatewayId?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface ModifyVpnConnectionResult {
-  /**
-   * <p>Describes a VPN connection.</p>
-   */
-  VpnConnection?: VpnConnection;
-}
-
-export interface ModifyVpnConnectionOptionsRequest {
-  /**
-   * <p>The ID of the Site-to-Site VPN connection. </p>
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *         <p>Default: <code>0.0.0.0/0</code>
-   *          </p>
-   */
-  LocalIpv4NetworkCidr?: string;
-
-  /**
-   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   *         <p>Default: <code>0.0.0.0/0</code>
-   *          </p>
-   */
-  RemoteIpv4NetworkCidr?: string;
-
-  /**
-   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *         <p>Default: <code>::/0</code>
-   *          </p>
-   */
-  LocalIpv6NetworkCidr?: string;
-
-  /**
-   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   *         <p>Default: <code>::/0</code>
-   *          </p>
-   */
-  RemoteIpv6NetworkCidr?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface ModifyVpnConnectionOptionsResult {
-  /**
-   * <p>Describes a VPN connection.</p>
-   */
-  VpnConnection?: VpnConnection;
-}
-
-export interface ModifyVpnTunnelCertificateRequest {
-  /**
-   * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface ModifyVpnTunnelCertificateResult {
-  /**
-   * <p>Describes a VPN connection.</p>
-   */
-  VpnConnection?: VpnConnection;
-}
+/**
+ * @internal
+ */
+export const DisassociateVpcCidrBlockResultFilterSensitiveLog = (obj: DisassociateVpcCidrBlockResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>The Amazon Web Services Site-to-Site VPN tunnel options to modify.</p>
+ * @internal
  */
-export interface ModifyVpnTunnelOptionsSpecification {
-  /**
-   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be
-   *             unique across all VPN connections that use the same virtual private gateway. </p>
-   *         <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
-   *             following CIDR blocks are reserved and cannot be used:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.0.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.1.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.2.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.3.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.4.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.5.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.169.252/30</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  TunnelInsideCidr?: string;
+export const EnableAddressTransferRequestFilterSensitiveLog = (obj: EnableAddressTransferRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be
-   *             unique across all VPN connections that use the same transit gateway.</p>
-   *         <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
-   */
-  TunnelInsideIpv6Cidr?: string;
+/**
+ * @internal
+ */
+export const EnableAddressTransferResultFilterSensitiveLog = (obj: EnableAddressTransferResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
-   *             private gateway and the customer gateway.</p>
-   *         <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
-   *             underscores (_). Must be between 8 and 64 characters in length and cannot start with
-   *             zero (0).</p>
-   */
-  PreSharedKey?: string;
+/**
+ * @internal
+ */
+export const EnableEbsEncryptionByDefaultRequestFilterSensitiveLog = (
+  obj: EnableEbsEncryptionByDefaultRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
-   *         <p>Constraints: A value between 900 and 28,800.</p>
-   *         <p>Default: <code>28800</code>
-   *          </p>
-   */
-  Phase1LifetimeSeconds?: number;
+/**
+ * @internal
+ */
+export const EnableEbsEncryptionByDefaultResultFilterSensitiveLog = (obj: EnableEbsEncryptionByDefaultResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
-   *         <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
-   *                 <code>Phase1LifetimeSeconds</code>.</p>
-   *         <p>Default: <code>3600</code>
-   *          </p>
-   */
-  Phase2LifetimeSeconds?: number;
+/**
+ * @internal
+ */
+export const FastLaunchLaunchTemplateSpecificationRequestFilterSensitiveLog = (
+  obj: FastLaunchLaunchTemplateSpecificationRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
-   *                 Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
-   *             of the rekey is randomly selected based on the value for
-   *                 <code>RekeyFuzzPercentage</code>.</p>
-   *         <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
-   *         <p>Default: <code>540</code>
-   *          </p>
-   */
-  RekeyMarginTimeSeconds?: number;
+/**
+ * @internal
+ */
+export const FastLaunchSnapshotConfigurationRequestFilterSensitiveLog = (
+  obj: FastLaunchSnapshotConfigurationRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
-   *             during which the rekey time is randomly selected.</p>
-   *         <p>Constraints: A value between 0 and 100.</p>
-   *         <p>Default: <code>100</code>
-   *          </p>
-   */
-  RekeyFuzzPercentage?: number;
+/**
+ * @internal
+ */
+export const EnableFastLaunchRequestFilterSensitiveLog = (obj: EnableFastLaunchRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The number of packets in an IKE replay window.</p>
-   *         <p>Constraints: A value between 64 and 2048.</p>
-   *         <p>Default: <code>1024</code>
-   *          </p>
-   */
-  ReplayWindowSize?: number;
+/**
+ * @internal
+ */
+export const EnableFastLaunchResultFilterSensitiveLog = (obj: EnableFastLaunchResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The number of seconds after which a DPD timeout occurs.</p>
-   *         <p>Constraints: A value greater than or equal to 30.</p>
-   *         <p>Default: <code>30</code>
-   *          </p>
-   */
-  DPDTimeoutSeconds?: number;
-
-  /**
-   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
-   *             the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
-   *         <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
-   *          </p>
-   *         <p>Default: <code>clear</code>
-   *          </p>
-   */
-  DPDTimeoutAction?: string;
-
-  /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1
-   *             IKE negotiations.</p>
-   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
-   *                 <code>AES256-GCM-16</code>
-   *          </p>
-   */
-  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[];
-
-  /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2
-   *             IKE negotiations.</p>
-   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
-   *                 <code>AES256-GCM-16</code>
-   *          </p>
-   */
-  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[];
-
-  /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE
-   *             negotiations.</p>
-   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
-   *                 <code>SHA2-512</code>
-   *          </p>
-   */
-  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[];
-
-  /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE
-   *             negotiations.</p>
-   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
-   *                 <code>SHA2-512</code>
-   *          </p>
-   */
-  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[];
-
-  /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
-   *             phase 1 IKE negotiations.</p>
-   *         <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
-   *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
-   *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
-   *          </p>
-   */
-  Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[];
-
-  /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
-   *             phase 2 IKE negotiations.</p>
-   *         <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
-   *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
-   *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
-   *                 <code>24</code>
-   *          </p>
-   */
-  Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[];
-
-  /**
-   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
-   *         <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
-   *          </p>
-   */
-  IKEVersions?: IKEVersionsRequestListValue[];
-
-  /**
-   * <p>The action to take when the establishing the tunnel for the VPN connection. By
-   *             default, your customer gateway device must initiate the IKE negotiation and bring up the
-   *             tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE
-   *             negotiation.</p>
-   *         <p>Valid Values: <code>add</code> | <code>start</code>
-   *          </p>
-   *         <p>Default: <code>add</code>
-   *          </p>
-   */
-  StartupAction?: string;
-
-  /**
-   * <p>Options for logging VPN tunnel activity.</p>
-   */
-  LogOptions?: VpnTunnelLogOptionsSpecification;
-}
-
-export interface ModifyVpnTunnelOptionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>The tunnel options to modify.</p>
-   */
-  TunnelOptions: ModifyVpnTunnelOptionsSpecification | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const EnableFastSnapshotRestoresRequestFilterSensitiveLog = (obj: EnableFastSnapshotRestoresRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9331,77 +9232,5 @@ export const PeeringConnectionOptionsFilterSensitiveLog = (obj: PeeringConnectio
 export const ModifyVpcPeeringConnectionOptionsResultFilterSensitiveLog = (
   obj: ModifyVpcPeeringConnectionOptionsResult
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyVpcTenancyRequestFilterSensitiveLog = (obj: ModifyVpcTenancyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyVpcTenancyResultFilterSensitiveLog = (obj: ModifyVpcTenancyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyVpnConnectionRequestFilterSensitiveLog = (obj: ModifyVpnConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyVpnConnectionResultFilterSensitiveLog = (obj: ModifyVpnConnectionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyVpnConnectionOptionsRequestFilterSensitiveLog = (obj: ModifyVpnConnectionOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyVpnConnectionOptionsResultFilterSensitiveLog = (obj: ModifyVpnConnectionOptionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyVpnTunnelCertificateRequestFilterSensitiveLog = (obj: ModifyVpnTunnelCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyVpnTunnelCertificateResultFilterSensitiveLog = (obj: ModifyVpnTunnelCertificateResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyVpnTunnelOptionsSpecificationFilterSensitiveLog = (
-  obj: ModifyVpnTunnelOptionsSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyVpnTunnelOptionsRequestFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsRequest): any => ({
   ...obj,
 });

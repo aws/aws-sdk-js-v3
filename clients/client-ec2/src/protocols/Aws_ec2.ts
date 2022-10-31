@@ -24,6 +24,10 @@ import { XMLParser } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  AcceptAddressTransferCommandInput,
+  AcceptAddressTransferCommandOutput,
+} from "../commands/AcceptAddressTransferCommand";
+import {
   AcceptReservedInstancesExchangeQuoteCommandInput,
   AcceptReservedInstancesExchangeQuoteCommandOutput,
 } from "../commands/AcceptReservedInstancesExchangeQuoteCommand";
@@ -652,6 +656,10 @@ import {
 } from "../commands/DescribeAddressesAttributeCommand";
 import { DescribeAddressesCommandInput, DescribeAddressesCommandOutput } from "../commands/DescribeAddressesCommand";
 import {
+  DescribeAddressTransfersCommandInput,
+  DescribeAddressTransfersCommandOutput,
+} from "../commands/DescribeAddressTransfersCommand";
+import {
   DescribeAggregateIdFormatCommandInput,
   DescribeAggregateIdFormatCommandOutput,
 } from "../commands/DescribeAggregateIdFormatCommand";
@@ -1134,6 +1142,10 @@ import {
 import { DetachVolumeCommandInput, DetachVolumeCommandOutput } from "../commands/DetachVolumeCommand";
 import { DetachVpnGatewayCommandInput, DetachVpnGatewayCommandOutput } from "../commands/DetachVpnGatewayCommand";
 import {
+  DisableAddressTransferCommandInput,
+  DisableAddressTransferCommandOutput,
+} from "../commands/DisableAddressTransferCommand";
+import {
   DisableEbsEncryptionByDefaultCommandInput,
   DisableEbsEncryptionByDefaultCommandOutput,
 } from "../commands/DisableEbsEncryptionByDefaultCommand";
@@ -1218,6 +1230,10 @@ import {
   DisassociateVpcCidrBlockCommandInput,
   DisassociateVpcCidrBlockCommandOutput,
 } from "../commands/DisassociateVpcCidrBlockCommand";
+import {
+  EnableAddressTransferCommandInput,
+  EnableAddressTransferCommandOutput,
+} from "../commands/EnableAddressTransferCommand";
 import {
   EnableEbsEncryptionByDefaultCommandInput,
   EnableEbsEncryptionByDefaultCommandOutput,
@@ -1838,6 +1854,8 @@ import {
   AcceleratorTotalMemoryMiB,
   AcceleratorTotalMemoryMiBRequest,
   AcceleratorType,
+  AcceptAddressTransferRequest,
+  AcceptAddressTransferResult,
   AcceptReservedInstancesExchangeQuoteRequest,
   AcceptReservedInstancesExchangeQuoteResult,
   AcceptTransitGatewayMulticastDomainAssociationsRequest,
@@ -1863,6 +1881,7 @@ import {
   AddPrefixListEntry,
   Address,
   AddressAttribute,
+  AddressTransfer,
   AdvertiseByoipCidrRequest,
   AdvertiseByoipCidrResult,
   AllocateAddressRequest,
@@ -1994,7 +2013,6 @@ import {
   CreateCustomerGatewayResult,
   CreateDefaultSubnetRequest,
   CreateDefaultSubnetResult,
-  CreateDefaultVpcRequest,
   CustomerGateway,
   DirectoryServiceAuthenticationRequest,
   Explanation,
@@ -2059,7 +2077,6 @@ import {
   UnsuccessfulItemError,
   UserIdGroupPair,
   VolumeAttachment,
-  Vpc,
   VpcAttachment,
   VpcCidrBlockAssociation,
   VpcCidrBlockState,
@@ -2078,6 +2095,7 @@ import {
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
   CpuManufacturer,
+  CreateDefaultVpcRequest,
   CreateDefaultVpcResult,
   CreateDhcpOptionsRequest,
   CreateDhcpOptionsResult,
@@ -2298,12 +2316,11 @@ import {
   TargetCapacitySpecificationRequest,
   TotalLocalStorageGB,
   TotalLocalStorageGBRequest,
-  TrafficMirrorFilterRule,
-  TrafficMirrorPortRange,
   ValidationError,
   ValidationWarning,
   VCpuCountRange,
   VCpuCountRangeRequest,
+  Vpc,
 } from "../models/models_1";
 import {
   CloudWatchLogOptions,
@@ -2493,9 +2510,6 @@ import {
   DeregisterTransitGatewayMulticastGroupMembersRequest,
   DeregisterTransitGatewayMulticastGroupMembersResult,
   DeregisterTransitGatewayMulticastGroupSourcesRequest,
-  DeregisterTransitGatewayMulticastGroupSourcesResult,
-  DescribeAccountAttributesRequest,
-  DescribeAccountAttributesResult,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2527,7 +2541,9 @@ import {
   ServiceTypeDetail,
   SuccessfulQueuedPurchaseDeletion,
   TrafficMirrorFilter,
+  TrafficMirrorFilterRule,
   TrafficMirrorNetworkService,
+  TrafficMirrorPortRange,
   TrafficMirrorPortRangeRequest,
   TrafficMirrorSession,
   TrafficMirrorTarget,
@@ -2539,7 +2555,6 @@ import {
   TransitGatewayConnectPeerConfiguration,
   TransitGatewayConnectRequestBgpOptions,
   TransitGatewayMulticastDeregisteredGroupMembers,
-  TransitGatewayMulticastDeregisteredGroupSources,
   TransitGatewayMulticastDomain,
   TransitGatewayMulticastDomainOptions,
   TransitGatewayOptions,
@@ -2589,10 +2604,15 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DeregisterTransitGatewayMulticastGroupSourcesResult,
+  DescribeAccountAttributesRequest,
+  DescribeAccountAttributesResult,
   DescribeAddressesAttributeRequest,
   DescribeAddressesAttributeResult,
   DescribeAddressesRequest,
   DescribeAddressesResult,
+  DescribeAddressTransfersRequest,
+  DescribeAddressTransfersResult,
   DescribeAggregateIdFormatRequest,
   DescribeAggregateIdFormatResult,
   DescribeAvailabilityZonesRequest,
@@ -2705,12 +2725,6 @@ import {
   DescribeLaunchTemplatesResult,
   DescribeLaunchTemplateVersionsRequest,
   DescribeLaunchTemplateVersionsResult,
-  DescribeLocalGatewayRouteTablesRequest,
-  DescribeLocalGatewayRouteTablesResult,
-  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
-  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
-  DescribeLocalGatewayRouteTableVpcAssociationsRequest,
-  DescribeLocalGatewayRouteTableVpcAssociationsResult,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2809,6 +2823,7 @@ import {
   SpotOptions,
   TargetCapacitySpecification,
   TargetNetwork,
+  TransitGatewayMulticastDeregisteredGroupSources,
   UsageClassType,
   UserBucketDetails,
   VCpuInfo,
@@ -2819,6 +2834,12 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeLocalGatewayRouteTablesRequest,
+  DescribeLocalGatewayRouteTablesResult,
+  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
+  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
+  DescribeLocalGatewayRouteTableVpcAssociationsRequest,
+  DescribeLocalGatewayRouteTableVpcAssociationsResult,
   DescribeLocalGatewaysRequest,
   DescribeLocalGatewaysResult,
   DescribeLocalGatewayVirtualInterfaceGroupsRequest,
@@ -2973,6 +2994,8 @@ import {
   DetachNetworkInterfaceRequest,
   DetachVolumeRequest,
   DetachVpnGatewayRequest,
+  DisableAddressTransferRequest,
+  DisableAddressTransferResult,
   DisableEbsEncryptionByDefaultRequest,
   DisableEbsEncryptionByDefaultResult,
   DisableFastLaunchRequest,
@@ -3017,14 +3040,6 @@ import {
   DisassociateTrunkInterfaceRequest,
   DisassociateTrunkInterfaceResult,
   DisassociateVpcCidrBlockRequest,
-  DisassociateVpcCidrBlockResult,
-  EnableEbsEncryptionByDefaultRequest,
-  EnableEbsEncryptionByDefaultResult,
-  EnableFastLaunchRequest,
-  EnableFastLaunchResult,
-  EnableFastSnapshotRestoresRequest,
-  FastLaunchLaunchTemplateSpecificationRequest,
-  FastLaunchSnapshotConfigurationRequest,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceNetworkInterfaceSpecification,
@@ -3103,11 +3118,19 @@ import {
   ClientData,
   CoipAddressUsage,
   CreateVolumePermissionModifications,
+  DisassociateVpcCidrBlockResult,
   DiskImage,
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  EnableAddressTransferRequest,
+  EnableAddressTransferResult,
+  EnableEbsEncryptionByDefaultRequest,
+  EnableEbsEncryptionByDefaultResult,
+  EnableFastLaunchRequest,
+  EnableFastLaunchResult,
   EnableFastSnapshotRestoreErrorItem,
+  EnableFastSnapshotRestoresRequest,
   EnableFastSnapshotRestoresResult,
   EnableFastSnapshotRestoreStateError,
   EnableFastSnapshotRestoreStateErrorItem,
@@ -3135,6 +3158,8 @@ import {
   ExportTaskS3LocationRequest,
   ExportTransitGatewayRoutesRequest,
   ExportTransitGatewayRoutesResult,
+  FastLaunchLaunchTemplateSpecificationRequest,
+  FastLaunchSnapshotConfigurationRequest,
   GetAssociatedEnclaveCertificateIamRolesRequest,
   GetAssociatedEnclaveCertificateIamRolesResult,
   GetAssociatedIpv6PoolCidrsRequest,
@@ -3337,16 +3362,6 @@ import {
   ModifyVpcEndpointServicePermissionsResult,
   ModifyVpcPeeringConnectionOptionsRequest,
   ModifyVpcPeeringConnectionOptionsResult,
-  ModifyVpcTenancyRequest,
-  ModifyVpcTenancyResult,
-  ModifyVpnConnectionOptionsRequest,
-  ModifyVpnConnectionOptionsResult,
-  ModifyVpnConnectionRequest,
-  ModifyVpnConnectionResult,
-  ModifyVpnTunnelCertificateRequest,
-  ModifyVpnTunnelCertificateResult,
-  ModifyVpnTunnelOptionsRequest,
-  ModifyVpnTunnelOptionsSpecification,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
@@ -3395,7 +3410,17 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpcTenancyRequest,
+  ModifyVpcTenancyResult,
+  ModifyVpnConnectionOptionsRequest,
+  ModifyVpnConnectionOptionsResult,
+  ModifyVpnConnectionRequest,
+  ModifyVpnConnectionResult,
+  ModifyVpnTunnelCertificateRequest,
+  ModifyVpnTunnelCertificateResult,
+  ModifyVpnTunnelOptionsRequest,
   ModifyVpnTunnelOptionsResult,
+  ModifyVpnTunnelOptionsSpecification,
   MonitorInstancesRequest,
   MonitorInstancesResult,
   MoveAddressToVpcRequest,
@@ -3536,6 +3561,22 @@ import {
   WithdrawByoipCidrRequest,
   WithdrawByoipCidrResult,
 } from "../models/models_6";
+
+export const serializeAws_ec2AcceptAddressTransferCommand = async (
+  input: AcceptAddressTransferCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2AcceptAddressTransferRequest(input, context),
+    Action: "AcceptAddressTransfer",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand = async (
   input: AcceptReservedInstancesExchangeQuoteCommandInput,
@@ -6769,6 +6810,22 @@ export const serializeAws_ec2DescribeAddressesAttributeCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DescribeAddressTransfersCommand = async (
+  input: DescribeAddressTransfersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeAddressTransfersRequest(input, context),
+    Action: "DescribeAddressTransfers",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DescribeAggregateIdFormatCommand = async (
   input: DescribeAggregateIdFormatCommandInput,
   context: __SerdeContext
@@ -8961,6 +9018,22 @@ export const serializeAws_ec2DetachVpnGatewayCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DisableAddressTransferCommand = async (
+  input: DisableAddressTransferCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DisableAddressTransferRequest(input, context),
+    Action: "DisableAddressTransfer",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DisableEbsEncryptionByDefaultCommand = async (
   input: DisableEbsEncryptionByDefaultCommandInput,
   context: __SerdeContext
@@ -9308,6 +9381,22 @@ export const serializeAws_ec2DisassociateVpcCidrBlockCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2DisassociateVpcCidrBlockRequest(input, context),
     Action: "DisassociateVpcCidrBlock",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2EnableAddressTransferCommand = async (
+  input: EnableAddressTransferCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2EnableAddressTransferRequest(input, context),
+    Action: "EnableAddressTransfer",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -12207,6 +12296,41 @@ export const serializeAws_ec2WithdrawByoipCidrCommand = async (
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_ec2AcceptAddressTransferCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptAddressTransferCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2AcceptAddressTransferCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2AcceptAddressTransferResult(data, context);
+  const response: AcceptAddressTransferCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2AcceptAddressTransferCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptAddressTransferCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
 };
 
 export const deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand = async (
@@ -19195,6 +19319,41 @@ const deserializeAws_ec2DescribeAddressesAttributeCommandError = async (
   });
 };
 
+export const deserializeAws_ec2DescribeAddressTransfersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddressTransfersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeAddressTransfersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeAddressTransfersResult(data, context);
+  const response: DescribeAddressTransfersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeAddressTransfersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddressTransfersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2DescribeAggregateIdFormatCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -23984,6 +24143,41 @@ const deserializeAws_ec2DetachVpnGatewayCommandError = async (
   });
 };
 
+export const deserializeAws_ec2DisableAddressTransferCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableAddressTransferCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DisableAddressTransferCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DisableAddressTransferResult(data, context);
+  const response: DisableAddressTransferCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DisableAddressTransferCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableAddressTransferCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2DisableEbsEncryptionByDefaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -24731,6 +24925,41 @@ const deserializeAws_ec2DisassociateVpcCidrBlockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateVpcCidrBlockCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2EnableAddressTransferCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableAddressTransferCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2EnableAddressTransferCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2EnableAddressTransferResult(data, context);
+  const response: EnableAddressTransferCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2EnableAddressTransferCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableAddressTransferCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -31103,6 +31332,27 @@ const serializeAws_ec2AcceleratorTypeSet = (input: (AcceleratorType | string)[],
   return entries;
 };
 
+const serializeAws_ec2AcceptAddressTransferRequest = (
+  input: AcceptAddressTransferRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Address != null) {
+    entries["Address"] = input.Address;
+  }
+  if (input.TagSpecifications != null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2AcceptReservedInstancesExchangeQuoteRequest = (
   input: AcceptReservedInstancesExchangeQuoteRequest,
   context: __SerdeContext
@@ -36775,6 +37025,30 @@ const serializeAws_ec2DescribeAddressesRequest = (input: DescribeAddressesReques
   return entries;
 };
 
+const serializeAws_ec2DescribeAddressTransfersRequest = (
+  input: DescribeAddressTransfersRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AllocationIds != null) {
+    const memberEntries = serializeAws_ec2AllocationIdList(input.AllocationIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AllocationId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DescribeAggregateIdFormatRequest = (
   input: DescribeAggregateIdFormatRequest,
   context: __SerdeContext
@@ -40720,6 +40994,20 @@ const serializeAws_ec2DirectoryServiceAuthenticationRequest = (
   return entries;
 };
 
+const serializeAws_ec2DisableAddressTransferRequest = (
+  input: DisableAddressTransferRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AllocationId != null) {
+    entries["AllocationId"] = input.AllocationId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DisableEbsEncryptionByDefaultRequest = (
   input: DisableEbsEncryptionByDefaultRequest,
   context: __SerdeContext
@@ -41290,6 +41578,23 @@ const serializeAws_ec2ElasticInferenceAccelerators = (
       entries[`Item.${counter}.${key}`] = value;
     });
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2EnableAddressTransferRequest = (
+  input: EnableAddressTransferRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AllocationId != null) {
+    entries["AllocationId"] = input.AllocationId;
+  }
+  if (input.TransferAccountId != null) {
+    entries["TransferAccountId"] = input.TransferAccountId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -52702,6 +53007,19 @@ const deserializeAws_ec2AcceleratorTypeSet = (output: any, context: __SerdeConte
     });
 };
 
+const deserializeAws_ec2AcceptAddressTransferResult = (
+  output: any,
+  context: __SerdeContext
+): AcceptAddressTransferResult => {
+  const contents: any = {
+    AddressTransfer: undefined,
+  };
+  if (output["addressTransfer"] !== undefined) {
+    contents.AddressTransfer = deserializeAws_ec2AddressTransfer(output["addressTransfer"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2AcceptReservedInstancesExchangeQuoteResult = (
   output: any,
   context: __SerdeContext
@@ -53092,6 +53410,48 @@ const deserializeAws_ec2AddressSet = (output: any, context: __SerdeContext): Add
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return deserializeAws_ec2AddressAttribute(entry, context);
+    });
+};
+
+const deserializeAws_ec2AddressTransfer = (output: any, context: __SerdeContext): AddressTransfer => {
+  const contents: any = {
+    PublicIp: undefined,
+    AllocationId: undefined,
+    TransferAccountId: undefined,
+    TransferOfferExpirationTimestamp: undefined,
+    TransferOfferAcceptedTimestamp: undefined,
+    AddressTransferStatus: undefined,
+  };
+  if (output["publicIp"] !== undefined) {
+    contents.PublicIp = __expectString(output["publicIp"]);
+  }
+  if (output["allocationId"] !== undefined) {
+    contents.AllocationId = __expectString(output["allocationId"]);
+  }
+  if (output["transferAccountId"] !== undefined) {
+    contents.TransferAccountId = __expectString(output["transferAccountId"]);
+  }
+  if (output["transferOfferExpirationTimestamp"] !== undefined) {
+    contents.TransferOfferExpirationTimestamp = __expectNonNull(
+      __parseRfc3339DateTime(output["transferOfferExpirationTimestamp"])
+    );
+  }
+  if (output["transferOfferAcceptedTimestamp"] !== undefined) {
+    contents.TransferOfferAcceptedTimestamp = __expectNonNull(
+      __parseRfc3339DateTime(output["transferOfferAcceptedTimestamp"])
+    );
+  }
+  if (output["addressTransferStatus"] !== undefined) {
+    contents.AddressTransferStatus = __expectString(output["addressTransferStatus"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AddressTransferList = (output: any, context: __SerdeContext): AddressTransfer[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2AddressTransfer(entry, context);
     });
 };
 
@@ -58002,6 +58362,28 @@ const deserializeAws_ec2DescribeAddressesResult = (output: any, context: __Serde
   return contents;
 };
 
+const deserializeAws_ec2DescribeAddressTransfersResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeAddressTransfersResult => {
+  const contents: any = {
+    AddressTransfers: undefined,
+    NextToken: undefined,
+  };
+  if (output.addressTransferSet === "") {
+    contents.AddressTransfers = [];
+  } else if (output["addressTransferSet"] !== undefined && output["addressTransferSet"]["item"] !== undefined) {
+    contents.AddressTransfers = deserializeAws_ec2AddressTransferList(
+      __getArrayIfSingleItem(output["addressTransferSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DescribeAggregateIdFormatResult = (
   output: any,
   context: __SerdeContext
@@ -61178,6 +61560,19 @@ const deserializeAws_ec2DirectoryServiceAuthentication = (
   return contents;
 };
 
+const deserializeAws_ec2DisableAddressTransferResult = (
+  output: any,
+  context: __SerdeContext
+): DisableAddressTransferResult => {
+  const contents: any = {
+    AddressTransfer: undefined,
+  };
+  if (output["addressTransfer"] !== undefined) {
+    contents.AddressTransfer = deserializeAws_ec2AddressTransfer(output["addressTransfer"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DisableEbsEncryptionByDefaultResult = (
   output: any,
   context: __SerdeContext
@@ -62061,6 +62456,19 @@ const deserializeAws_ec2ElasticInferenceAcceleratorAssociationList = (
     .map((entry: any) => {
       return deserializeAws_ec2ElasticInferenceAcceleratorAssociation(entry, context);
     });
+};
+
+const deserializeAws_ec2EnableAddressTransferResult = (
+  output: any,
+  context: __SerdeContext
+): EnableAddressTransferResult => {
+  const contents: any = {
+    AddressTransfer: undefined,
+  };
+  if (output["addressTransfer"] !== undefined) {
+    contents.AddressTransfer = deserializeAws_ec2AddressTransfer(output["addressTransfer"], context);
+  }
+  return contents;
 };
 
 const deserializeAws_ec2EnableEbsEncryptionByDefaultResult = (

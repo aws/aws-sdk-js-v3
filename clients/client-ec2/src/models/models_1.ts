@@ -28,11 +28,86 @@ import {
   Subnet,
   Tag,
   TagSpecification,
-  Tenancy,
   UnsuccessfulItem,
-  Vpc,
+  VpcCidrBlockAssociation,
+  VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+export interface CreateDefaultVpcRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export enum Tenancy {
+  dedicated = "dedicated",
+  default = "default",
+  host = "host",
+}
+
+export enum VpcState {
+  available = "available",
+  pending = "pending",
+}
+
+/**
+ * <p>Describes a VPC.</p>
+ */
+export interface Vpc {
+  /**
+   * <p>The primary IPv4 CIDR block for the VPC.</p>
+   */
+  CidrBlock?: string;
+
+  /**
+   * <p>The ID of the set of DHCP options you've associated with the VPC.</p>
+   */
+  DhcpOptionsId?: string;
+
+  /**
+   * <p>The current state of the VPC.</p>
+   */
+  State?: VpcState | string;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the VPC.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The allowed tenancy of instances launched into the VPC.</p>
+   */
+  InstanceTenancy?: Tenancy | string;
+
+  /**
+   * <p>Information about the IPv6 CIDR blocks associated with the VPC.</p>
+   */
+  Ipv6CidrBlockAssociationSet?: VpcIpv6CidrBlockAssociation[];
+
+  /**
+   * <p>Information about the IPv4 CIDR blocks associated with the VPC.</p>
+   */
+  CidrBlockAssociationSet?: VpcCidrBlockAssociation[];
+
+  /**
+   * <p>Indicates whether the VPC is the default VPC.</p>
+   */
+  IsDefault?: boolean;
+
+  /**
+   * <p>Any tags assigned to the VPC.</p>
+   */
+  Tags?: Tag[];
+}
 
 export interface CreateDefaultVpcResult {
   /**
@@ -8472,89 +8547,18 @@ export interface CreateTrafficMirrorFilterRequest {
 }
 
 /**
- * <p>Describes the Traffic Mirror port range.</p>
+ * @internal
  */
-export interface TrafficMirrorPortRange {
-  /**
-   * <p>The start of the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
-   */
-  FromPort?: number;
-
-  /**
-   * <p>The end of the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
-   */
-  ToPort?: number;
-}
-
-export enum TrafficMirrorRuleAction {
-  accept = "accept",
-  reject = "reject",
-}
-
-export enum TrafficDirection {
-  egress = "egress",
-  ingress = "ingress",
-}
+export const CreateDefaultVpcRequestFilterSensitiveLog = (obj: CreateDefaultVpcRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the Traffic Mirror rule.</p>
+ * @internal
  */
-export interface TrafficMirrorFilterRule {
-  /**
-   * <p>The ID of the Traffic Mirror rule.</p>
-   */
-  TrafficMirrorFilterRuleId?: string;
-
-  /**
-   * <p>The ID of the Traffic Mirror filter that the rule is associated with.</p>
-   */
-  TrafficMirrorFilterId?: string;
-
-  /**
-   * <p>The traffic direction assigned to the Traffic Mirror rule.</p>
-   */
-  TrafficDirection?: TrafficDirection | string;
-
-  /**
-   * <p>The rule number of the Traffic Mirror rule.</p>
-   */
-  RuleNumber?: number;
-
-  /**
-   * <p>The action assigned to the Traffic Mirror rule.</p>
-   */
-  RuleAction?: TrafficMirrorRuleAction | string;
-
-  /**
-   * <p>The protocol assigned to the Traffic Mirror rule.</p>
-   */
-  Protocol?: number;
-
-  /**
-   * <p>The destination port range assigned to the Traffic Mirror rule.</p>
-   */
-  DestinationPortRange?: TrafficMirrorPortRange;
-
-  /**
-   * <p>The source port range assigned to the Traffic Mirror rule.</p>
-   */
-  SourcePortRange?: TrafficMirrorPortRange;
-
-  /**
-   * <p>The destination CIDR block assigned to the Traffic Mirror rule.</p>
-   */
-  DestinationCidrBlock?: string;
-
-  /**
-   * <p>The source CIDR block assigned to the Traffic Mirror rule.</p>
-   */
-  SourceCidrBlock?: string;
-
-  /**
-   * <p>The description of the Traffic Mirror rule.</p>
-   */
-  Description?: string;
-}
+export const VpcFilterSensitiveLog = (obj: Vpc): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10247,19 +10251,5 @@ export const CreateTagsRequestFilterSensitiveLog = (obj: CreateTagsRequest): any
  * @internal
  */
 export const CreateTrafficMirrorFilterRequestFilterSensitiveLog = (obj: CreateTrafficMirrorFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrafficMirrorPortRangeFilterSensitiveLog = (obj: TrafficMirrorPortRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrafficMirrorFilterRuleFilterSensitiveLog = (obj: TrafficMirrorFilterRule): any => ({
   ...obj,
 });

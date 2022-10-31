@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  AcceptAddressTransferCommand,
+  AcceptAddressTransferCommandInput,
+  AcceptAddressTransferCommandOutput,
+} from "./commands/AcceptAddressTransferCommand";
+import {
   AcceptReservedInstancesExchangeQuoteCommand,
   AcceptReservedInstancesExchangeQuoteCommandInput,
   AcceptReservedInstancesExchangeQuoteCommandOutput,
@@ -968,6 +973,11 @@ import {
   DescribeAddressesCommandOutput,
 } from "./commands/DescribeAddressesCommand";
 import {
+  DescribeAddressTransfersCommand,
+  DescribeAddressTransfersCommandInput,
+  DescribeAddressTransfersCommandOutput,
+} from "./commands/DescribeAddressTransfersCommand";
+import {
   DescribeAggregateIdFormatCommand,
   DescribeAggregateIdFormatCommandInput,
   DescribeAggregateIdFormatCommandOutput,
@@ -1653,6 +1663,11 @@ import {
   DetachVpnGatewayCommandOutput,
 } from "./commands/DetachVpnGatewayCommand";
 import {
+  DisableAddressTransferCommand,
+  DisableAddressTransferCommandInput,
+  DisableAddressTransferCommandOutput,
+} from "./commands/DisableAddressTransferCommand";
+import {
   DisableEbsEncryptionByDefaultCommand,
   DisableEbsEncryptionByDefaultCommandInput,
   DisableEbsEncryptionByDefaultCommandOutput,
@@ -1762,6 +1777,11 @@ import {
   DisassociateVpcCidrBlockCommandInput,
   DisassociateVpcCidrBlockCommandOutput,
 } from "./commands/DisassociateVpcCidrBlockCommand";
+import {
+  EnableAddressTransferCommand,
+  EnableAddressTransferCommandInput,
+  EnableAddressTransferCommandOutput,
+} from "./commands/EnableAddressTransferCommand";
 import {
   EnableEbsEncryptionByDefaultCommand,
   EnableEbsEncryptionByDefaultCommandInput,
@@ -2678,6 +2698,38 @@ import { EC2Client } from "./EC2Client";
  *          </ul>
  */
 export class EC2 extends EC2Client {
+  /**
+   * <p>Accepts an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#using-instance-addressing-eips-transfer-accept">Accept a transferred Elastic IP address</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public acceptAddressTransfer(
+    args: AcceptAddressTransferCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptAddressTransferCommandOutput>;
+  public acceptAddressTransfer(
+    args: AcceptAddressTransferCommandInput,
+    cb: (err: any, data?: AcceptAddressTransferCommandOutput) => void
+  ): void;
+  public acceptAddressTransfer(
+    args: AcceptAddressTransferCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptAddressTransferCommandOutput) => void
+  ): void;
+  public acceptAddressTransfer(
+    args: AcceptAddressTransferCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptAddressTransferCommandOutput) => void),
+    cb?: (err: any, data?: AcceptAddressTransferCommandOutput) => void
+  ): Promise<AcceptAddressTransferCommandOutput> | void {
+    const command = new AcceptAddressTransferCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Accepts the Convertible Reserved Instance exchange quote described in the <a>GetReservedInstancesExchangeQuote</a> call.</p>
    */
@@ -10119,6 +10171,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public describeAddressTransfers(
+    args: DescribeAddressTransfersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAddressTransfersCommandOutput>;
+  public describeAddressTransfers(
+    args: DescribeAddressTransfersCommandInput,
+    cb: (err: any, data?: DescribeAddressTransfersCommandOutput) => void
+  ): void;
+  public describeAddressTransfers(
+    args: DescribeAddressTransfersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAddressTransfersCommandOutput) => void
+  ): void;
+  public describeAddressTransfers(
+    args: DescribeAddressTransfersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAddressTransfersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAddressTransfersCommandOutput) => void
+  ): Promise<DescribeAddressTransfersCommandOutput> | void {
+    const command = new DescribeAddressTransfersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the longer ID format settings for all resource types in a specific
    *          Region. This request is useful for performing a quick audit to determine whether a
    *          specific Region is fully opted in for longer IDs (17-character IDs).</p>
@@ -14966,6 +15050,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Disables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public disableAddressTransfer(
+    args: DisableAddressTransferCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableAddressTransferCommandOutput>;
+  public disableAddressTransfer(
+    args: DisableAddressTransferCommandInput,
+    cb: (err: any, data?: DisableAddressTransferCommandOutput) => void
+  ): void;
+  public disableAddressTransfer(
+    args: DisableAddressTransferCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableAddressTransferCommandOutput) => void
+  ): void;
+  public disableAddressTransfer(
+    args: DisableAddressTransferCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableAddressTransferCommandOutput) => void),
+    cb?: (err: any, data?: DisableAddressTransferCommandOutput) => void
+  ): Promise<DisableAddressTransferCommandOutput> | void {
+    const command = new DisableAddressTransferCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disables EBS encryption by default for your account in the current Region.</p>
    *          <p>After you disable encryption by default, you can still create encrypted volumes by
    *       enabling encryption when you create each volume.</p>
@@ -15742,6 +15858,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DisassociateVpcCidrBlockCommandOutput) => void
   ): Promise<DisassociateVpcCidrBlockCommandOutput> | void {
     const command = new DisassociateVpcCidrBlockCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public enableAddressTransfer(
+    args: EnableAddressTransferCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableAddressTransferCommandOutput>;
+  public enableAddressTransfer(
+    args: EnableAddressTransferCommandInput,
+    cb: (err: any, data?: EnableAddressTransferCommandOutput) => void
+  ): void;
+  public enableAddressTransfer(
+    args: EnableAddressTransferCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableAddressTransferCommandOutput) => void
+  ): void;
+  public enableAddressTransfer(
+    args: EnableAddressTransferCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableAddressTransferCommandOutput) => void),
+    cb?: (err: any, data?: EnableAddressTransferCommandOutput) => void
+  ): Promise<EnableAddressTransferCommandOutput> | void {
+    const command = new EnableAddressTransferCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

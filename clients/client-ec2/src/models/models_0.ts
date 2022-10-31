@@ -96,6 +96,196 @@ export enum AcceleratorType {
   INFERENCE = "inference",
 }
 
+export enum ResourceType {
+  capacity_reservation = "capacity-reservation",
+  capacity_reservation_fleet = "capacity-reservation-fleet",
+  carrier_gateway = "carrier-gateway",
+  client_vpn_endpoint = "client-vpn-endpoint",
+  coip_pool = "coip-pool",
+  customer_gateway = "customer-gateway",
+  dedicated_host = "dedicated-host",
+  dhcp_options = "dhcp-options",
+  egress_only_internet_gateway = "egress-only-internet-gateway",
+  elastic_gpu = "elastic-gpu",
+  elastic_ip = "elastic-ip",
+  export_image_task = "export-image-task",
+  export_instance_task = "export-instance-task",
+  fleet = "fleet",
+  fpga_image = "fpga-image",
+  host_reservation = "host-reservation",
+  image = "image",
+  import_image_task = "import-image-task",
+  import_snapshot_task = "import-snapshot-task",
+  instance = "instance",
+  instance_event_window = "instance-event-window",
+  internet_gateway = "internet-gateway",
+  ipam = "ipam",
+  ipam_pool = "ipam-pool",
+  ipam_scope = "ipam-scope",
+  ipv4pool_ec2 = "ipv4pool-ec2",
+  ipv6pool_ec2 = "ipv6pool-ec2",
+  key_pair = "key-pair",
+  launch_template = "launch-template",
+  local_gateway = "local-gateway",
+  local_gateway_route_table = "local-gateway-route-table",
+  local_gateway_route_table_virtual_interface_group_association = "local-gateway-route-table-virtual-interface-group-association",
+  local_gateway_route_table_vpc_association = "local-gateway-route-table-vpc-association",
+  local_gateway_virtual_interface = "local-gateway-virtual-interface",
+  local_gateway_virtual_interface_group = "local-gateway-virtual-interface-group",
+  natgateway = "natgateway",
+  network_acl = "network-acl",
+  network_insights_access_scope = "network-insights-access-scope",
+  network_insights_access_scope_analysis = "network-insights-access-scope-analysis",
+  network_insights_analysis = "network-insights-analysis",
+  network_insights_path = "network-insights-path",
+  network_interface = "network-interface",
+  placement_group = "placement-group",
+  prefix_list = "prefix-list",
+  replace_root_volume_task = "replace-root-volume-task",
+  reserved_instances = "reserved-instances",
+  route_table = "route-table",
+  security_group = "security-group",
+  security_group_rule = "security-group-rule",
+  snapshot = "snapshot",
+  spot_fleet_request = "spot-fleet-request",
+  spot_instances_request = "spot-instances-request",
+  subnet = "subnet",
+  subnet_cidr_reservation = "subnet-cidr-reservation",
+  traffic_mirror_filter = "traffic-mirror-filter",
+  traffic_mirror_filter_rule = "traffic-mirror-filter-rule",
+  traffic_mirror_session = "traffic-mirror-session",
+  traffic_mirror_target = "traffic-mirror-target",
+  transit_gateway = "transit-gateway",
+  transit_gateway_attachment = "transit-gateway-attachment",
+  transit_gateway_connect_peer = "transit-gateway-connect-peer",
+  transit_gateway_multicast_domain = "transit-gateway-multicast-domain",
+  transit_gateway_policy_table = "transit-gateway-policy-table",
+  transit_gateway_route_table = "transit-gateway-route-table",
+  transit_gateway_route_table_announcement = "transit-gateway-route-table-announcement",
+  volume = "volume",
+  vpc = "vpc",
+  vpc_endpoint = "vpc-endpoint",
+  vpc_endpoint_connection = "vpc-endpoint-connection",
+  vpc_endpoint_connection_device_type = "vpc-endpoint-connection-device-type",
+  vpc_endpoint_service = "vpc-endpoint-service",
+  vpc_endpoint_service_permission = "vpc-endpoint-service-permission",
+  vpc_flow_log = "vpc-flow-log",
+  vpc_peering_connection = "vpc-peering-connection",
+  vpn_connection = "vpn-connection",
+  vpn_connection_device_type = "vpn-connection-device-type",
+  vpn_gateway = "vpn-gateway",
+}
+
+/**
+ * <p>Describes a tag.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The key of the tag.</p>
+   *          <p>Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters.
+   *          May not begin with <code>aws:</code>.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value of the tag.</p>
+   *          <p>Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.</p>
+   */
+  Value?: string;
+}
+
+/**
+ * <p>The tags to apply to a resource when the resource is being created.</p>
+ *          <note>
+ *             <p>The <code>Valid Values</code> lists all the resource types that can be tagged.
+ *             However, the action you're using might not support tagging all of these resource types.
+ *             If you try to tag a resource type that is unsupported for the action you're using,
+ *             you'll get an error.</p>
+ *          </note>
+ */
+export interface TagSpecification {
+  /**
+   * <p>The type of resource to tag on creation.</p>
+   */
+  ResourceType?: ResourceType | string;
+
+  /**
+   * <p>The tags to apply to the resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface AcceptAddressTransferRequest {
+  /**
+   * <p>The Elastic IP address you are accepting for transfer.</p>
+   */
+  Address: string | undefined;
+
+  /**
+   * <p>
+   *             <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export enum AddressTransferStatus {
+  accepted = "accepted",
+  disabled = "disabled",
+  pending = "pending",
+}
+
+/**
+ * <p>Details on the Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
+export interface AddressTransfer {
+  /**
+   * <p>The Elastic IP address being transferred.</p>
+   */
+  PublicIp?: string;
+
+  /**
+   * <p>The allocation ID of an Elastic IP address.</p>
+   */
+  AllocationId?: string;
+
+  /**
+   * <p>The ID of the account that you want to transfer the Elastic IP address to.</p>
+   */
+  TransferAccountId?: string;
+
+  /**
+   * <p>The timestamp when the Elastic IP address transfer expired. When the source account starts
+   *       the transfer, the transfer account has seven hours to allocate the Elastic IP address to
+   *       complete the transfer, or the Elastic IP address will return to its original owner.</p>
+   */
+  TransferOfferExpirationTimestamp?: Date;
+
+  /**
+   * <p>The timestamp when the Elastic IP address transfer was accepted.</p>
+   */
+  TransferOfferAcceptedTimestamp?: Date;
+
+  /**
+   * <p>The Elastic IP address transfer status.</p>
+   */
+  AddressTransferStatus?: AddressTransferStatus | string;
+}
+
+export interface AcceptAddressTransferResult {
+  /**
+   * <p>An Elastic IP address transfer.</p>
+   */
+  AddressTransfer?: AddressTransfer;
+}
+
 /**
  * <p>Details about the target configuration.</p>
  */
@@ -329,24 +519,6 @@ export interface PeeringAttachmentStatus {
    * <p>The status message, if applicable.</p>
    */
   Message?: string;
-}
-
-/**
- * <p>Describes a tag.</p>
- */
-export interface Tag {
-  /**
-   * <p>The key of the tag.</p>
-   *          <p>Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters.
-   *          May not begin with <code>aws:</code>.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The value of the tag.</p>
-   *          <p>Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.</p>
-   */
-  Value?: string;
 }
 
 /**
@@ -1981,107 +2153,6 @@ export interface AdvertiseByoipCidrResult {
 export enum Affinity {
   default = "default",
   host = "host",
-}
-
-export enum ResourceType {
-  capacity_reservation = "capacity-reservation",
-  capacity_reservation_fleet = "capacity-reservation-fleet",
-  carrier_gateway = "carrier-gateway",
-  client_vpn_endpoint = "client-vpn-endpoint",
-  coip_pool = "coip-pool",
-  customer_gateway = "customer-gateway",
-  dedicated_host = "dedicated-host",
-  dhcp_options = "dhcp-options",
-  egress_only_internet_gateway = "egress-only-internet-gateway",
-  elastic_gpu = "elastic-gpu",
-  elastic_ip = "elastic-ip",
-  export_image_task = "export-image-task",
-  export_instance_task = "export-instance-task",
-  fleet = "fleet",
-  fpga_image = "fpga-image",
-  host_reservation = "host-reservation",
-  image = "image",
-  import_image_task = "import-image-task",
-  import_snapshot_task = "import-snapshot-task",
-  instance = "instance",
-  instance_event_window = "instance-event-window",
-  internet_gateway = "internet-gateway",
-  ipam = "ipam",
-  ipam_pool = "ipam-pool",
-  ipam_scope = "ipam-scope",
-  ipv4pool_ec2 = "ipv4pool-ec2",
-  ipv6pool_ec2 = "ipv6pool-ec2",
-  key_pair = "key-pair",
-  launch_template = "launch-template",
-  local_gateway = "local-gateway",
-  local_gateway_route_table = "local-gateway-route-table",
-  local_gateway_route_table_virtual_interface_group_association = "local-gateway-route-table-virtual-interface-group-association",
-  local_gateway_route_table_vpc_association = "local-gateway-route-table-vpc-association",
-  local_gateway_virtual_interface = "local-gateway-virtual-interface",
-  local_gateway_virtual_interface_group = "local-gateway-virtual-interface-group",
-  natgateway = "natgateway",
-  network_acl = "network-acl",
-  network_insights_access_scope = "network-insights-access-scope",
-  network_insights_access_scope_analysis = "network-insights-access-scope-analysis",
-  network_insights_analysis = "network-insights-analysis",
-  network_insights_path = "network-insights-path",
-  network_interface = "network-interface",
-  placement_group = "placement-group",
-  prefix_list = "prefix-list",
-  replace_root_volume_task = "replace-root-volume-task",
-  reserved_instances = "reserved-instances",
-  route_table = "route-table",
-  security_group = "security-group",
-  security_group_rule = "security-group-rule",
-  snapshot = "snapshot",
-  spot_fleet_request = "spot-fleet-request",
-  spot_instances_request = "spot-instances-request",
-  subnet = "subnet",
-  subnet_cidr_reservation = "subnet-cidr-reservation",
-  traffic_mirror_filter = "traffic-mirror-filter",
-  traffic_mirror_filter_rule = "traffic-mirror-filter-rule",
-  traffic_mirror_session = "traffic-mirror-session",
-  traffic_mirror_target = "traffic-mirror-target",
-  transit_gateway = "transit-gateway",
-  transit_gateway_attachment = "transit-gateway-attachment",
-  transit_gateway_connect_peer = "transit-gateway-connect-peer",
-  transit_gateway_multicast_domain = "transit-gateway-multicast-domain",
-  transit_gateway_policy_table = "transit-gateway-policy-table",
-  transit_gateway_route_table = "transit-gateway-route-table",
-  transit_gateway_route_table_announcement = "transit-gateway-route-table-announcement",
-  volume = "volume",
-  vpc = "vpc",
-  vpc_endpoint = "vpc-endpoint",
-  vpc_endpoint_connection = "vpc-endpoint-connection",
-  vpc_endpoint_connection_device_type = "vpc-endpoint-connection-device-type",
-  vpc_endpoint_service = "vpc-endpoint-service",
-  vpc_endpoint_service_permission = "vpc-endpoint-service-permission",
-  vpc_flow_log = "vpc-flow-log",
-  vpc_peering_connection = "vpc-peering-connection",
-  vpn_connection = "vpn-connection",
-  vpn_connection_device_type = "vpn-connection-device-type",
-  vpn_gateway = "vpn-gateway",
-}
-
-/**
- * <p>The tags to apply to a resource when the resource is being created.</p>
- *          <note>
- *             <p>The <code>Valid Values</code> lists all the resource types that can be tagged.
- *             However, the action you're using might not support tagging all of these resource types.
- *             If you try to tag a resource type that is unsupported for the action you're using,
- *             you'll get an error.</p>
- *          </note>
- */
-export interface TagSpecification {
-  /**
-   * <p>The type of resource to tag on creation.</p>
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
-   * <p>The tags to apply to the resource.</p>
-   */
-  Tags?: Tag[];
 }
 
 export interface AllocateAddressRequest {
@@ -7319,81 +7390,6 @@ export interface CreateDefaultSubnetResult {
   Subnet?: Subnet;
 }
 
-export interface CreateDefaultVpcRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export enum Tenancy {
-  dedicated = "dedicated",
-  default = "default",
-  host = "host",
-}
-
-export enum VpcState {
-  available = "available",
-  pending = "pending",
-}
-
-/**
- * <p>Describes a VPC.</p>
- */
-export interface Vpc {
-  /**
-   * <p>The primary IPv4 CIDR block for the VPC.</p>
-   */
-  CidrBlock?: string;
-
-  /**
-   * <p>The ID of the set of DHCP options you've associated with the VPC.</p>
-   */
-  DhcpOptionsId?: string;
-
-  /**
-   * <p>The current state of the VPC.</p>
-   */
-  State?: VpcState | string;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the VPC.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The allowed tenancy of instances launched into the VPC.</p>
-   */
-  InstanceTenancy?: Tenancy | string;
-
-  /**
-   * <p>Information about the IPv6 CIDR blocks associated with the VPC.</p>
-   */
-  Ipv6CidrBlockAssociationSet?: VpcIpv6CidrBlockAssociation[];
-
-  /**
-   * <p>Information about the IPv4 CIDR blocks associated with the VPC.</p>
-   */
-  CidrBlockAssociationSet?: VpcCidrBlockAssociation[];
-
-  /**
-   * <p>Indicates whether the VPC is the default VPC.</p>
-   */
-  IsDefault?: boolean;
-
-  /**
-   * <p>Any tags assigned to the VPC.</p>
-   */
-  Tags?: Tag[];
-}
-
 /**
  * @internal
  */
@@ -7419,6 +7415,41 @@ export const AcceleratorTotalMemoryMiBFilterSensitiveLog = (obj: AcceleratorTota
  * @internal
  */
 export const AcceleratorTotalMemoryMiBRequestFilterSensitiveLog = (obj: AcceleratorTotalMemoryMiBRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagSpecificationFilterSensitiveLog = (obj: TagSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptAddressTransferRequestFilterSensitiveLog = (obj: AcceptAddressTransferRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddressTransferFilterSensitiveLog = (obj: AddressTransfer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptAddressTransferResultFilterSensitiveLog = (obj: AcceptAddressTransferResult): any => ({
   ...obj,
 });
 
@@ -7510,13 +7541,6 @@ export const TransitGatewayPeeringAttachmentOptionsFilterSensitiveLog = (
  * @internal
  */
 export const PeeringAttachmentStatusFilterSensitiveLog = (obj: PeeringAttachmentStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
   ...obj,
 });
 
@@ -7898,13 +7922,6 @@ export const ByoipCidrFilterSensitiveLog = (obj: ByoipCidr): any => ({
  * @internal
  */
 export const AdvertiseByoipCidrResultFilterSensitiveLog = (obj: AdvertiseByoipCidrResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagSpecificationFilterSensitiveLog = (obj: TagSpecification): any => ({
   ...obj,
 });
 
@@ -9085,19 +9102,5 @@ export const SubnetFilterSensitiveLog = (obj: Subnet): any => ({
  * @internal
  */
 export const CreateDefaultSubnetResultFilterSensitiveLog = (obj: CreateDefaultSubnetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDefaultVpcRequestFilterSensitiveLog = (obj: CreateDefaultVpcRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcFilterSensitiveLog = (obj: Vpc): any => ({
   ...obj,
 });

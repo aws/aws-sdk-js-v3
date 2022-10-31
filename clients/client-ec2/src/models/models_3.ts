@@ -1,10 +1,13 @@
 // smithy-typescript generated code
 import {
   _InstanceType,
+  AccountAttribute,
+  AccountAttributeName,
   ActiveInstance,
   Address,
   AddressAttribute,
   AddressAttributeName,
+  AddressTransfer,
   AllocationState,
   AllowsMultipleInstanceTypes,
   AssociationStatus,
@@ -62,9 +65,6 @@ import {
   LaunchTemplate,
   LaunchTemplateAndOverridesResponse,
   LaunchTemplateVersion,
-  LocalGatewayRouteTable,
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
-  LocalGatewayRouteTableVpcAssociation,
   LogDestinationType,
   NetworkInterfaceStatus,
   Placement,
@@ -76,6 +76,54 @@ import {
   TrafficType,
 } from "./models_1";
 import { FleetStateCode, InstanceTagNotificationAttribute } from "./models_2";
+
+/**
+ * <p>Describes the deregistered  transit gateway multicast group sources.</p>
+ */
+export interface TransitGatewayMulticastDeregisteredGroupSources {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>The network interface IDs of the non-registered members.</p>
+   */
+  DeregisteredNetworkInterfaceIds?: string[];
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   */
+  GroupIpAddress?: string;
+}
+
+export interface DeregisterTransitGatewayMulticastGroupSourcesResult {
+  /**
+   * <p>Information about the deregistered group sources.</p>
+   */
+  DeregisteredMulticastGroupSources?: TransitGatewayMulticastDeregisteredGroupSources;
+}
+
+export interface DescribeAccountAttributesRequest {
+  /**
+   * <p>The account attribute names.</p>
+   */
+  AttributeNames?: (AccountAttributeName | string)[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *            and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *            Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DescribeAccountAttributesResult {
+  /**
+   * <p>Information about the account attributes.</p>
+   */
+  AccountAttributes?: AccountAttribute[];
+}
 
 /**
  * <p>A filter name and value pair that is used to return a more specific list of results from a describe operation.
@@ -215,6 +263,42 @@ export interface DescribeAddressesAttributeResult {
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeAddressTransfersRequest {
+  /**
+   * <p>The allocation IDs of Elastic IP addresses.</p>
+   */
+  AllocationIds?: string[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of address transfers to return in one page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DescribeAddressTransfersResult {
+  /**
+   * <p>The Elastic IP address transfer.</p>
+   */
+  AddressTransfers?: AddressTransfer[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    */
   NextToken?: string;
 }
@@ -9488,222 +9572,37 @@ export interface DescribeLaunchTemplateVersionsResult {
   NextToken?: string;
 }
 
-export interface DescribeLocalGatewayRouteTablesRequest {
-  /**
-   * <p>The IDs of the local gateway route tables.</p>
-   */
-  LocalGatewayRouteTableIds?: string[];
+/**
+ * @internal
+ */
+export const TransitGatewayMulticastDeregisteredGroupSourcesFilterSensitiveLog = (
+  obj: TransitGatewayMulticastDeregisteredGroupSources
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-arn</code> - The Amazon Resource Name (ARN) of the
-   *                local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-id</code> - The ID of a local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the local gateway route table.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
+/**
+ * @internal
+ */
+export const DeregisterTransitGatewayMulticastGroupSourcesResultFilterSensitiveLog = (
+  obj: DeregisterTransitGatewayMulticastGroupSourcesResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
+/**
+ * @internal
+ */
+export const DescribeAccountAttributesRequestFilterSensitiveLog = (obj: DescribeAccountAttributesRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DescribeLocalGatewayRouteTablesResult {
-  /**
-   * <p>Information about the local gateway route tables.</p>
-   */
-  LocalGatewayRouteTables?: LocalGatewayRouteTable[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {
-  /**
-   * <p>The IDs of the associations.</p>
-   */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-arn</code> - The Amazon Resource Name (ARN) of the local
-   *                gateway route table for the virtual interface group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-virtual-interface-group-association-id</code> - The ID of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual
-   *                interface group association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the association.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult {
-  /**
-   * <p>Information about the associations.</p>
-   */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociations?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeLocalGatewayRouteTableVpcAssociationsRequest {
-  /**
-   * <p>The IDs of the associations.</p>
-   */
-  LocalGatewayRouteTableVpcAssociationIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-arn</code> - The Amazon Resource Name (ARN) of the local
-   *                gateway route table for the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-vpc-association-id</code> - The ID of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway route table
-   *                for the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DescribeLocalGatewayRouteTableVpcAssociationsResult {
-  /**
-   * <p>Information about the associations.</p>
-   */
-  LocalGatewayRouteTableVpcAssociations?: LocalGatewayRouteTableVpcAssociation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DescribeAccountAttributesResultFilterSensitiveLog = (obj: DescribeAccountAttributesResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9737,6 +9636,20 @@ export const DescribeAddressesAttributeRequestFilterSensitiveLog = (obj: Describ
  * @internal
  */
 export const DescribeAddressesAttributeResultFilterSensitiveLog = (obj: DescribeAddressesAttributeResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAddressTransfersRequestFilterSensitiveLog = (obj: DescribeAddressTransfersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAddressTransfersResultFilterSensitiveLog = (obj: DescribeAddressTransfersResult): any => ({
   ...obj,
 });
 
@@ -11419,60 +11332,6 @@ export const DescribeLaunchTemplateVersionsRequestFilterSensitiveLog = (
  */
 export const DescribeLaunchTemplateVersionsResultFilterSensitiveLog = (
   obj: DescribeLaunchTemplateVersionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayRouteTablesRequestFilterSensitiveLog = (
-  obj: DescribeLocalGatewayRouteTablesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayRouteTablesResultFilterSensitiveLog = (
-  obj: DescribeLocalGatewayRouteTablesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequestFilterSensitiveLog = (
-  obj: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultFilterSensitiveLog = (
-  obj: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayRouteTableVpcAssociationsRequestFilterSensitiveLog = (
-  obj: DescribeLocalGatewayRouteTableVpcAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocalGatewayRouteTableVpcAssociationsResultFilterSensitiveLog = (
-  obj: DescribeLocalGatewayRouteTableVpcAssociationsResult
 ): any => ({
   ...obj,
 });

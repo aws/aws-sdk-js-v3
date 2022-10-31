@@ -19,7 +19,7 @@ import {
   ModifyVpnConnectionRequestFilterSensitiveLog,
   ModifyVpnConnectionResult,
   ModifyVpnConnectionResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpnConnectionCommand,
   serializeAws_ec2ModifyVpnConnectionCommand,

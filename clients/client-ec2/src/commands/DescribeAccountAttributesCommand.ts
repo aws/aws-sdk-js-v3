@@ -19,7 +19,7 @@ import {
   DescribeAccountAttributesRequestFilterSensitiveLog,
   DescribeAccountAttributesResult,
   DescribeAccountAttributesResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeAccountAttributesCommand,
   serializeAws_ec2DescribeAccountAttributesCommand,

@@ -3,6 +3,7 @@ import {
   _InstanceType,
   ActiveInstance,
   ActivityStatus,
+  AddressTransfer,
   AllocationStrategy,
   AllowedPrincipal,
   AlternatePathHint,
@@ -22,7 +23,6 @@ import {
   SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
-  Tenancy,
   TransitGatewayAssociation,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
@@ -33,9 +33,6 @@ import {
   TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
   UserIdGroupPair,
-  Vpc,
-  VpcCidrBlockAssociation,
-  VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
 } from "./models_0";
 import {
@@ -49,6 +46,9 @@ import {
   InstanceRequirements,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  LocalGatewayRouteTable,
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
+  LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
   NatGateway,
   NetworkAcl,
@@ -68,7 +68,9 @@ import {
   SpotInstanceType,
   StorageTier,
   TargetCapacityUnitType,
+  Tenancy,
   VolumeType,
+  Vpc,
 } from "./models_1";
 import {
   ConnectionNotification,
@@ -108,6 +110,223 @@ import {
   PermissionGroup,
   ProductCode,
 } from "./models_3";
+
+export interface DescribeLocalGatewayRouteTablesRequest {
+  /**
+   * <p>The IDs of the local gateway route tables.</p>
+   */
+  LocalGatewayRouteTableIds?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-arn</code> - The Amazon Resource Name (ARN) of the
+   *                local gateway route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-id</code> - The ID of a local gateway route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the local gateway route table.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DescribeLocalGatewayRouteTablesResult {
+  /**
+   * <p>Information about the local gateway route tables.</p>
+   */
+  LocalGatewayRouteTables?: LocalGatewayRouteTable[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {
+  /**
+   * <p>The IDs of the associations.</p>
+   */
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-arn</code> - The Amazon Resource Name (ARN) of the local
+   *                gateway route table for the virtual interface group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-virtual-interface-group-association-id</code> - The ID of the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual
+   *                interface group association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the association.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult {
+  /**
+   * <p>Information about the associations.</p>
+   */
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociations?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeLocalGatewayRouteTableVpcAssociationsRequest {
+  /**
+   * <p>The IDs of the associations.</p>
+   */
+  LocalGatewayRouteTableVpcAssociationIds?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-arn</code> - The Amazon Resource Name (ARN) of the local
+   *                gateway route table for the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-vpc-association-id</code> - The ID of the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway route table
+   *                for the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DescribeLocalGatewayRouteTableVpcAssociationsResult {
+  /**
+   * <p>Information about the associations.</p>
+   */
+  LocalGatewayRouteTableVpcAssociations?: LocalGatewayRouteTableVpcAssociation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
 
 export interface DescribeLocalGatewaysRequest {
   /**
@@ -8877,6 +9096,27 @@ export interface DetachVpnGatewayRequest {
   DryRun?: boolean;
 }
 
+export interface DisableAddressTransferRequest {
+  /**
+   * <p>The allocation ID of an Elastic IP address.</p>
+   */
+  AllocationId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DisableAddressTransferResult {
+  /**
+   * <p>An Elastic IP address transfer.</p>
+   */
+  AddressTransfer?: AddressTransfer;
+}
+
 export interface DisableEbsEncryptionByDefaultRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -9590,180 +9830,59 @@ export interface DisassociateVpcCidrBlockRequest {
   AssociationId: string | undefined;
 }
 
-export interface DisassociateVpcCidrBlockResult {
-  /**
-   * <p>Information about the IPv6 CIDR block association.</p>
-   */
-  Ipv6CidrBlockAssociation?: VpcIpv6CidrBlockAssociation;
-
-  /**
-   * <p>Information about the IPv4 CIDR block association.</p>
-   */
-  CidrBlockAssociation?: VpcCidrBlockAssociation;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-}
-
-export interface EnableEbsEncryptionByDefaultRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface EnableEbsEncryptionByDefaultResult {
-  /**
-   * <p>The updated status of encryption by default.</p>
-   */
-  EbsEncryptionByDefault?: boolean;
-}
+/**
+ * @internal
+ */
+export const DescribeLocalGatewayRouteTablesRequestFilterSensitiveLog = (
+  obj: DescribeLocalGatewayRouteTablesRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Request to create a launch template for a fast-launch enabled Windows AMI.</p>
- * 		       <note>
- * 			         <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
- * 				<code>LaunchTemplateId</code>, but not both.</p>
- * 		       </note>
+ * @internal
  */
-export interface FastLaunchLaunchTemplateSpecificationRequest {
-  /**
-   * <p>The ID of the launch template to use for faster launching for a Windows AMI.</p>
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template to use for faster launching for a Windows AMI.</p>
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * <p>The version of the launch template to use for faster launching for a Windows AMI.</p>
-   */
-  Version: string | undefined;
-}
+export const DescribeLocalGatewayRouteTablesResultFilterSensitiveLog = (
+  obj: DescribeLocalGatewayRouteTablesResult
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>
+ * @internal
  */
-export interface FastLaunchSnapshotConfigurationRequest {
-  /**
-   * <p>The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.</p>
-   */
-  TargetResourceCount?: number;
-}
+export const DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequestFilterSensitiveLog = (
+  obj: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+): any => ({
+  ...obj,
+});
 
-export interface EnableFastLaunchRequest {
-  /**
-   * <p>The ID of the image for which you’re enabling faster launching.</p>
-   */
-  ImageId: string | undefined;
+/**
+ * @internal
+ */
+export const DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultFilterSensitiveLog = (
+  obj: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The type of resource to use for pre-provisioning the Windows AMI for faster launching.
-   * 			Supported values include: <code>snapshot</code>, which is the default value.</p>
-   */
-  ResourceType?: string;
+/**
+ * @internal
+ */
+export const DescribeLocalGatewayRouteTableVpcAssociationsRequestFilterSensitiveLog = (
+  obj: DescribeLocalGatewayRouteTableVpcAssociationsRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Configuration settings for creating and managing the snapshots that are used for
-   * 			pre-provisioning the Windows AMI for faster launching. The associated <code>ResourceType</code>
-   * 			must be <code>snapshot</code>.</p>
-   */
-  SnapshotConfiguration?: FastLaunchSnapshotConfigurationRequest;
-
-  /**
-   * <p>The launch template to use when launching Windows instances from pre-provisioned
-   * 			snapshots. Launch template parameters can include either the name or ID of the launch
-   * 			template, but not both.</p>
-   */
-  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationRequest;
-
-  /**
-   * <p>The maximum number of parallel instances to launch for creating resources. Value must be <code>6</code> or greater. </p>
-   */
-  MaxParallelLaunches?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface EnableFastLaunchResult {
-  /**
-   * <p>The image ID that identifies the Windows AMI for which faster launching was enabled.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The type of resource that was defined for pre-provisioning the Windows AMI for faster launching.</p>
-   */
-  ResourceType?: FastLaunchResourceType | string;
-
-  /**
-   * <p>The configuration settings that were defined for creating and managing the pre-provisioned snapshots
-   * 			for faster launching of the Windows AMI. This property is returned when the associated
-   * 			<code>resourceType</code> is <code>snapshot</code>.</p>
-   */
-  SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse;
-
-  /**
-   * <p>The launch template that is used when launching Windows instances from pre-provisioned snapshots.</p>
-   */
-  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
-
-  /**
-   * <p>The maximum number of parallel instances to launch for creating resources.</p>
-   */
-  MaxParallelLaunches?: number;
-
-  /**
-   * <p>The owner ID for the Windows AMI for which faster launching was enabled.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The current state of faster launching for the specified Windows AMI.</p>
-   */
-  State?: FastLaunchStateCode | string;
-
-  /**
-   * <p>The reason that the state changed for faster launching for the Windows AMI.</p>
-   */
-  StateTransitionReason?: string;
-
-  /**
-   * <p>The time that the state changed for faster launching for the Windows AMI.</p>
-   */
-  StateTransitionTime?: Date;
-}
-
-export interface EnableFastSnapshotRestoresRequest {
-  /**
-   * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
-   */
-  AvailabilityZones: string[] | undefined;
-
-  /**
-   * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>. You can specify
-   *       a snapshot that was shared with you from another Amazon Web Services account.</p>
-   */
-  SourceSnapshotIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const DescribeLocalGatewayRouteTableVpcAssociationsResultFilterSensitiveLog = (
+  obj: DescribeLocalGatewayRouteTableVpcAssociationsResult
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11473,6 +11592,20 @@ export const DetachVpnGatewayRequestFilterSensitiveLog = (obj: DetachVpnGatewayR
 /**
  * @internal
  */
+export const DisableAddressTransferRequestFilterSensitiveLog = (obj: DisableAddressTransferRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableAddressTransferResultFilterSensitiveLog = (obj: DisableAddressTransferResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DisableEbsEncryptionByDefaultRequestFilterSensitiveLog = (
   obj: DisableEbsEncryptionByDefaultRequest
 ): any => ({
@@ -11843,67 +11976,5 @@ export const DisassociateTrunkInterfaceResultFilterSensitiveLog = (obj: Disassoc
  * @internal
  */
 export const DisassociateVpcCidrBlockRequestFilterSensitiveLog = (obj: DisassociateVpcCidrBlockRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateVpcCidrBlockResultFilterSensitiveLog = (obj: DisassociateVpcCidrBlockResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableEbsEncryptionByDefaultRequestFilterSensitiveLog = (
-  obj: EnableEbsEncryptionByDefaultRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableEbsEncryptionByDefaultResultFilterSensitiveLog = (obj: EnableEbsEncryptionByDefaultResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FastLaunchLaunchTemplateSpecificationRequestFilterSensitiveLog = (
-  obj: FastLaunchLaunchTemplateSpecificationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FastLaunchSnapshotConfigurationRequestFilterSensitiveLog = (
-  obj: FastLaunchSnapshotConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastLaunchRequestFilterSensitiveLog = (obj: EnableFastLaunchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastLaunchResultFilterSensitiveLog = (obj: EnableFastLaunchResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableFastSnapshotRestoresRequestFilterSensitiveLog = (obj: EnableFastSnapshotRestoresRequest): any => ({
   ...obj,
 });

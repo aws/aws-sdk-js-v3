@@ -1,7 +1,5 @@
 // smithy-typescript generated code
 import {
-  AccountAttribute,
-  AccountAttributeName,
   ApplianceModeSupportValue,
   ByoipCidr,
   CarrierGateway,
@@ -16,14 +14,12 @@ import {
   Ipv6SupportValue,
   Tag,
   TagSpecification,
-  Tenancy,
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
   VolumeAttachment,
-  Vpc,
   VpcAttachment,
   VpcPeeringConnection,
 } from "./models_0";
@@ -38,11 +34,95 @@ import {
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
   SubnetCidrReservation,
-  TrafficDirection,
-  TrafficMirrorFilterRule,
-  TrafficMirrorRuleAction,
+  Tenancy,
   VolumeType,
+  Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes the Traffic Mirror port range.</p>
+ */
+export interface TrafficMirrorPortRange {
+  /**
+   * <p>The start of the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The end of the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
+   */
+  ToPort?: number;
+}
+
+export enum TrafficMirrorRuleAction {
+  accept = "accept",
+  reject = "reject",
+}
+
+export enum TrafficDirection {
+  egress = "egress",
+  ingress = "ingress",
+}
+
+/**
+ * <p>Describes the Traffic Mirror rule.</p>
+ */
+export interface TrafficMirrorFilterRule {
+  /**
+   * <p>The ID of the Traffic Mirror rule.</p>
+   */
+  TrafficMirrorFilterRuleId?: string;
+
+  /**
+   * <p>The ID of the Traffic Mirror filter that the rule is associated with.</p>
+   */
+  TrafficMirrorFilterId?: string;
+
+  /**
+   * <p>The traffic direction assigned to the Traffic Mirror rule.</p>
+   */
+  TrafficDirection?: TrafficDirection | string;
+
+  /**
+   * <p>The rule number of the Traffic Mirror rule.</p>
+   */
+  RuleNumber?: number;
+
+  /**
+   * <p>The action assigned to the Traffic Mirror rule.</p>
+   */
+  RuleAction?: TrafficMirrorRuleAction | string;
+
+  /**
+   * <p>The protocol assigned to the Traffic Mirror rule.</p>
+   */
+  Protocol?: number;
+
+  /**
+   * <p>The destination port range assigned to the Traffic Mirror rule.</p>
+   */
+  DestinationPortRange?: TrafficMirrorPortRange;
+
+  /**
+   * <p>The source port range assigned to the Traffic Mirror rule.</p>
+   */
+  SourcePortRange?: TrafficMirrorPortRange;
+
+  /**
+   * <p>The destination CIDR block assigned to the Traffic Mirror rule.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The source CIDR block assigned to the Traffic Mirror rule.</p>
+   */
+  SourceCidrBlock?: string;
+
+  /**
+   * <p>The description of the Traffic Mirror rule.</p>
+   */
+  Description?: string;
+}
 
 export enum TrafficMirrorNetworkService {
   amazon_dns = "amazon-dns",
@@ -5578,52 +5658,18 @@ export interface DeregisterTransitGatewayMulticastGroupSourcesRequest {
 }
 
 /**
- * <p>Describes the deregistered  transit gateway multicast group sources.</p>
+ * @internal
  */
-export interface TransitGatewayMulticastDeregisteredGroupSources {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
+export const TrafficMirrorPortRangeFilterSensitiveLog = (obj: TrafficMirrorPortRange): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The network interface IDs of the non-registered members.</p>
-   */
-  DeregisteredNetworkInterfaceIds?: string[];
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-}
-
-export interface DeregisterTransitGatewayMulticastGroupSourcesResult {
-  /**
-   * <p>Information about the deregistered group sources.</p>
-   */
-  DeregisteredMulticastGroupSources?: TransitGatewayMulticastDeregisteredGroupSources;
-}
-
-export interface DescribeAccountAttributesRequest {
-  /**
-   * <p>The account attribute names.</p>
-   */
-  AttributeNames?: (AccountAttributeName | string)[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *            and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *            Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DescribeAccountAttributesResult {
-  /**
-   * <p>Information about the account attributes.</p>
-   */
-  AccountAttributes?: AccountAttribute[];
-}
+/**
+ * @internal
+ */
+export const TrafficMirrorFilterRuleFilterSensitiveLog = (obj: TrafficMirrorFilterRule): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7561,37 +7607,5 @@ export const DeregisterTransitGatewayMulticastGroupMembersResultFilterSensitiveL
 export const DeregisterTransitGatewayMulticastGroupSourcesRequestFilterSensitiveLog = (
   obj: DeregisterTransitGatewayMulticastGroupSourcesRequest
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayMulticastDeregisteredGroupSourcesFilterSensitiveLog = (
-  obj: TransitGatewayMulticastDeregisteredGroupSources
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTransitGatewayMulticastGroupSourcesResultFilterSensitiveLog = (
-  obj: DeregisterTransitGatewayMulticastGroupSourcesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountAttributesRequestFilterSensitiveLog = (obj: DescribeAccountAttributesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountAttributesResultFilterSensitiveLog = (obj: DescribeAccountAttributesResult): any => ({
   ...obj,
 });

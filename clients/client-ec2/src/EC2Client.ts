@@ -48,6 +48,10 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  AcceptAddressTransferCommandInput,
+  AcceptAddressTransferCommandOutput,
+} from "./commands/AcceptAddressTransferCommand";
+import {
   AcceptReservedInstancesExchangeQuoteCommandInput,
   AcceptReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/AcceptReservedInstancesExchangeQuoteCommand";
@@ -676,6 +680,10 @@ import {
 } from "./commands/DescribeAddressesAttributeCommand";
 import { DescribeAddressesCommandInput, DescribeAddressesCommandOutput } from "./commands/DescribeAddressesCommand";
 import {
+  DescribeAddressTransfersCommandInput,
+  DescribeAddressTransfersCommandOutput,
+} from "./commands/DescribeAddressTransfersCommand";
+import {
   DescribeAggregateIdFormatCommandInput,
   DescribeAggregateIdFormatCommandOutput,
 } from "./commands/DescribeAggregateIdFormatCommand";
@@ -1158,6 +1166,10 @@ import {
 import { DetachVolumeCommandInput, DetachVolumeCommandOutput } from "./commands/DetachVolumeCommand";
 import { DetachVpnGatewayCommandInput, DetachVpnGatewayCommandOutput } from "./commands/DetachVpnGatewayCommand";
 import {
+  DisableAddressTransferCommandInput,
+  DisableAddressTransferCommandOutput,
+} from "./commands/DisableAddressTransferCommand";
+import {
   DisableEbsEncryptionByDefaultCommandInput,
   DisableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/DisableEbsEncryptionByDefaultCommand";
@@ -1242,6 +1254,10 @@ import {
   DisassociateVpcCidrBlockCommandInput,
   DisassociateVpcCidrBlockCommandOutput,
 } from "./commands/DisassociateVpcCidrBlockCommand";
+import {
+  EnableAddressTransferCommandInput,
+  EnableAddressTransferCommandOutput,
+} from "./commands/EnableAddressTransferCommand";
 import {
   EnableEbsEncryptionByDefaultCommandInput,
   EnableEbsEncryptionByDefaultCommandOutput,
@@ -1861,6 +1877,7 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | AcceptAddressTransferCommandInput
   | AcceptReservedInstancesExchangeQuoteCommandInput
   | AcceptTransitGatewayMulticastDomainAssociationsCommandInput
   | AcceptTransitGatewayPeeringAttachmentCommandInput
@@ -2061,6 +2078,7 @@ export type ServiceInputTypes =
   | DeregisterTransitGatewayMulticastGroupMembersCommandInput
   | DeregisterTransitGatewayMulticastGroupSourcesCommandInput
   | DescribeAccountAttributesCommandInput
+  | DescribeAddressTransfersCommandInput
   | DescribeAddressesAttributeCommandInput
   | DescribeAddressesCommandInput
   | DescribeAggregateIdFormatCommandInput
@@ -2200,6 +2218,7 @@ export type ServiceInputTypes =
   | DetachNetworkInterfaceCommandInput
   | DetachVolumeCommandInput
   | DetachVpnGatewayCommandInput
+  | DisableAddressTransferCommandInput
   | DisableEbsEncryptionByDefaultCommandInput
   | DisableFastLaunchCommandInput
   | DisableFastSnapshotRestoresCommandInput
@@ -2222,6 +2241,7 @@ export type ServiceInputTypes =
   | DisassociateTransitGatewayRouteTableCommandInput
   | DisassociateTrunkInterfaceCommandInput
   | DisassociateVpcCidrBlockCommandInput
+  | EnableAddressTransferCommandInput
   | EnableEbsEncryptionByDefaultCommandInput
   | EnableFastLaunchCommandInput
   | EnableFastSnapshotRestoresCommandInput
@@ -2405,6 +2425,7 @@ export type ServiceInputTypes =
   | WithdrawByoipCidrCommandInput;
 
 export type ServiceOutputTypes =
+  | AcceptAddressTransferCommandOutput
   | AcceptReservedInstancesExchangeQuoteCommandOutput
   | AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
   | AcceptTransitGatewayPeeringAttachmentCommandOutput
@@ -2605,6 +2626,7 @@ export type ServiceOutputTypes =
   | DeregisterTransitGatewayMulticastGroupMembersCommandOutput
   | DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
   | DescribeAccountAttributesCommandOutput
+  | DescribeAddressTransfersCommandOutput
   | DescribeAddressesAttributeCommandOutput
   | DescribeAddressesCommandOutput
   | DescribeAggregateIdFormatCommandOutput
@@ -2744,6 +2766,7 @@ export type ServiceOutputTypes =
   | DetachNetworkInterfaceCommandOutput
   | DetachVolumeCommandOutput
   | DetachVpnGatewayCommandOutput
+  | DisableAddressTransferCommandOutput
   | DisableEbsEncryptionByDefaultCommandOutput
   | DisableFastLaunchCommandOutput
   | DisableFastSnapshotRestoresCommandOutput
@@ -2766,6 +2789,7 @@ export type ServiceOutputTypes =
   | DisassociateTransitGatewayRouteTableCommandOutput
   | DisassociateTrunkInterfaceCommandOutput
   | DisassociateVpcCidrBlockCommandOutput
+  | EnableAddressTransferCommandOutput
   | EnableEbsEncryptionByDefaultCommandOutput
   | EnableFastLaunchCommandOutput
   | EnableFastSnapshotRestoresCommandOutput

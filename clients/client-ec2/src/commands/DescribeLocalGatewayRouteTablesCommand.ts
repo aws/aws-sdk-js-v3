@@ -19,7 +19,7 @@ import {
   DescribeLocalGatewayRouteTablesRequestFilterSensitiveLog,
   DescribeLocalGatewayRouteTablesResult,
   DescribeLocalGatewayRouteTablesResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand,
   serializeAws_ec2DescribeLocalGatewayRouteTablesCommand,

@@ -14,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DisassociateVpcCidrBlockRequest,
-  DisassociateVpcCidrBlockRequestFilterSensitiveLog,
-  DisassociateVpcCidrBlockResult,
-  DisassociateVpcCidrBlockResultFilterSensitiveLog,
-} from "../models/models_4";
+import { DisassociateVpcCidrBlockRequest, DisassociateVpcCidrBlockRequestFilterSensitiveLog } from "../models/models_4";
+import { DisassociateVpcCidrBlockResult, DisassociateVpcCidrBlockResultFilterSensitiveLog } from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateVpcCidrBlockCommand,
   serializeAws_ec2DisassociateVpcCidrBlockCommand,

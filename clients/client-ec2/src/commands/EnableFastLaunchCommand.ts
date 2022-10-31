@@ -19,7 +19,7 @@ import {
   EnableFastLaunchRequestFilterSensitiveLog,
   EnableFastLaunchResult,
   EnableFastLaunchResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2EnableFastLaunchCommand,
   serializeAws_ec2EnableFastLaunchCommand,

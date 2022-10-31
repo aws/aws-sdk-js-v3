@@ -1,3 +1,5 @@
+export * from "./DescribeAddressTransfersPaginator";
+
 export * from "./DescribeAddressesAttributePaginator";
 
 export * from "./DescribeByoipCidrsPaginator";
@@ -15,10 +17,9 @@ export * from "./DescribeClientVpnAuthorizationRulesPaginator";
 export * from "./DescribeClientVpnConnectionsPaginator";
 
 export * from "./DescribeClientVpnEndpointsPaginator";
-
-export * from "./DescribeClientVpnRoutesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeClientVpnRoutesPaginator";
 export * from "./DescribeClientVpnTargetNetworksPaginator";
 export * from "./DescribeCoipPoolsPaginator";
 export * from "./DescribeDhcpOptionsPaginator";

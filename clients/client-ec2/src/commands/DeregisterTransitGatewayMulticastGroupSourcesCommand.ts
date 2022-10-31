@@ -17,9 +17,11 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DeregisterTransitGatewayMulticastGroupSourcesRequest,
   DeregisterTransitGatewayMulticastGroupSourcesRequestFilterSensitiveLog,
+} from "../models/models_2";
+import {
   DeregisterTransitGatewayMulticastGroupSourcesResult,
   DeregisterTransitGatewayMulticastGroupSourcesResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommand,
   serializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommand,

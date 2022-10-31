@@ -19,7 +19,7 @@ import {
   ModifyVpnTunnelCertificateRequestFilterSensitiveLog,
   ModifyVpnTunnelCertificateResult,
   ModifyVpnTunnelCertificateResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpnTunnelCertificateCommand,
   serializeAws_ec2ModifyVpnTunnelCertificateCommand,

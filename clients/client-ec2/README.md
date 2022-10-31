@@ -52,16 +52,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EC2Client` and
-the commands you need, for example `AcceptReservedInstancesExchangeQuoteCommand`:
+the commands you need, for example `AcceptAddressTransferCommand`:
 
 ```js
 // ES5 example
-const { EC2Client, AcceptReservedInstancesExchangeQuoteCommand } = require("@aws-sdk/client-ec2");
+const { EC2Client, AcceptAddressTransferCommand } = require("@aws-sdk/client-ec2");
 ```
 
 ```ts
 // ES6+ example
-import { EC2Client, AcceptReservedInstancesExchangeQuoteCommand } from "@aws-sdk/client-ec2";
+import { EC2Client, AcceptAddressTransferCommand } from "@aws-sdk/client-ec2";
 ```
 
 ### Usage
@@ -80,7 +80,7 @@ const client = new EC2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptReservedInstancesExchangeQuoteCommand(params);
+const command = new AcceptAddressTransferCommand(params);
 ```
 
 #### Async/await
@@ -159,7 +159,7 @@ const client = new AWS.EC2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptReservedInstancesExchangeQuote(params);
+  const data = await client.acceptAddressTransfer(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -167,7 +167,7 @@ try {
 
 // Promises.
 client
-  .acceptReservedInstancesExchangeQuote(params)
+  .acceptAddressTransfer(params)
   .then((data) => {
     // process data.
   })
@@ -176,7 +176,7 @@ client
   });
 
 // callbacks.
-client.acceptReservedInstancesExchangeQuote(params, (err, data) => {
+client.acceptAddressTransfer(params, (err, data) => {
   // process err and data.
 });
 ```
