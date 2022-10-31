@@ -78,6 +78,7 @@
   },
   "devDependencies": {
     "@aws-sdk/service-client-documentation-generator": "*",
+    "@tsconfig/node14": "1.0.3",
     "@tsconfig/recommended": "1.0.1",
     "@types/chai": "^4.2.11",
     "@types/mocha": "^8.0.4",

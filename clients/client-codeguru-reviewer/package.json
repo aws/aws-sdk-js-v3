@@ -58,6 +58,7 @@
   },
   "devDependencies": {
     "@aws-sdk/service-client-documentation-generator": "*",
+    "@tsconfig/node14": "1.0.3",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^12.7.5",
     "@types/uuid": "^8.3.0",
