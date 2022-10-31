@@ -66,6 +66,7 @@ export * from "./DisassociatePhoneNumberContactFlowCommand";
 export * from "./DisassociateQueueQuickConnectsCommand";
 export * from "./DisassociateRoutingProfileQueuesCommand";
 export * from "./DisassociateSecurityKeyCommand";
+export * from "./DismissUserContactCommand";
 export * from "./GetContactAttributesCommand";
 export * from "./GetCurrentMetricDataCommand";
 export * from "./GetCurrentUserDataCommand";

@@ -15,43 +15,42 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import {
-  UpdateTrafficDistributionRequest,
-  UpdateTrafficDistributionRequestFilterSensitiveLog,
-  UpdateTrafficDistributionResponse,
-  UpdateTrafficDistributionResponseFilterSensitiveLog,
-} from "../models/models_1";
+  DismissUserContactRequest,
+  DismissUserContactRequestFilterSensitiveLog,
+  DismissUserContactResponse,
+  DismissUserContactResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateTrafficDistributionCommand,
-  serializeAws_restJson1UpdateTrafficDistributionCommand,
+  deserializeAws_restJson1DismissUserContactCommand,
+  serializeAws_restJson1DismissUserContactCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface UpdateTrafficDistributionCommandInput extends UpdateTrafficDistributionRequest {}
-export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDistributionResponse, __MetadataBearer {}
+export interface DismissUserContactCommandInput extends DismissUserContactRequest {}
+export interface DismissUserContactCommandOutput extends DismissUserContactResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the traffic distribution for a given traffic distribution group. </p>
- *
- *          <p>For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony
- *     traffic distribution across Amazon Web Services Regions
- *    </a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ * <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which
+ *    allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a
+ *    <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in the
+ *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent Event Stream</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateTrafficDistributionCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateTrafficDistributionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DismissUserContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DismissUserContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const command = new UpdateTrafficDistributionCommand(input);
+ * const command = new DismissUserContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdateTrafficDistributionCommandInput} for command's `input` shape.
- * @see {@link UpdateTrafficDistributionCommandOutput} for command's `response` shape.
+ * @see {@link DismissUserContactCommandInput} for command's `input` shape.
+ * @see {@link DismissUserContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
-export class UpdateTrafficDistributionCommand extends $Command<
-  UpdateTrafficDistributionCommandInput,
-  UpdateTrafficDistributionCommandOutput,
+export class DismissUserContactCommand extends $Command<
+  DismissUserContactCommandInput,
+  DismissUserContactCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -66,7 +65,7 @@ export class UpdateTrafficDistributionCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UpdateTrafficDistributionCommandInput) {
+  constructor(readonly input: DismissUserContactCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -79,23 +78,23 @@ export class UpdateTrafficDistributionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateTrafficDistributionCommandInput, UpdateTrafficDistributionCommandOutput> {
+  ): Handler<DismissUserContactCommandInput, DismissUserContactCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateTrafficDistributionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DismissUserContactCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "UpdateTrafficDistributionCommand";
+    const commandName = "DismissUserContactCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTrafficDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTrafficDistributionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DismissUserContactRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DismissUserContactResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +104,12 @@ export class UpdateTrafficDistributionCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdateTrafficDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTrafficDistributionCommand(input, context);
+  private serialize(input: DismissUserContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DismissUserContactCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateTrafficDistributionCommandOutput> {
-    return deserializeAws_restJson1UpdateTrafficDistributionCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DismissUserContactCommandOutput> {
+    return deserializeAws_restJson1DismissUserContactCommand(output, context);
   }
 
   // Start section: command_body_extra

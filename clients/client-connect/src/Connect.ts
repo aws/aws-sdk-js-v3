@@ -325,6 +325,11 @@ import {
   DisassociateSecurityKeyCommandOutput,
 } from "./commands/DisassociateSecurityKeyCommand";
 import {
+  DismissUserContactCommand,
+  DismissUserContactCommandInput,
+  DismissUserContactCommandOutput,
+} from "./commands/DismissUserContactCommand";
+import {
   GetContactAttributesCommand,
   GetContactAttributesCommandInput,
   GetContactAttributesCommandOutput,
@@ -1127,7 +1132,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Claims an available phone number to your Amazon Connect instance or traffic distribution
-   *    group. You can  call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p>
+   *    group. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p>
    *          <important>
    *             <p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API
    *     to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>
@@ -3037,6 +3042,41 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which
+   *    allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a
+   *    <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in the
+   *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent Event Stream</a>.</p>
+   */
+  public dismissUserContact(
+    args: DismissUserContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DismissUserContactCommandOutput>;
+  public dismissUserContact(
+    args: DismissUserContactCommandInput,
+    cb: (err: any, data?: DismissUserContactCommandOutput) => void
+  ): void;
+  public dismissUserContact(
+    args: DismissUserContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DismissUserContactCommandOutput) => void
+  ): void;
+  public dismissUserContact(
+    args: DismissUserContactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DismissUserContactCommandOutput) => void),
+    cb?: (err: any, data?: DismissUserContactCommandOutput) => void
+  ): Promise<DismissUserContactCommandOutput> | void {
+    const command = new DismissUserContactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the contact attributes for the specified contact.</p>
    */
   public getContactAttributes(
@@ -4337,7 +4377,8 @@ export class Connect extends ConnectClient {
    * <p>Releases a phone number previously claimed to an Amazon Connect instance or traffic distribution group. You
    *    can call this API only in the Amazon Web Services Region where the number was claimed.</p>
    *          <important>
-   *             <p>To release phone numbers from a traffic distribution group, use the <code>ReleasePhoneNumber</code> API, not the Amazon Connect console.</p>
+   *             <p>To release phone numbers from a traffic distribution group, use the <code>ReleasePhoneNumber</code> API, not the
+   *      Amazon Connect console.</p>
    *             <p>After releasing a phone number, the phone number enters into a cooldown period of 30 days.
    *     It cannot be searched for or claimed again until the period has ended. If you accidentally
    *     release a phone number, contact Amazon Web Services Support.</p>
@@ -6018,10 +6059,10 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates the traffic distribution for a given traffic distribution group.
+   * <p>Updates the traffic distribution for a given traffic distribution group. </p>
    *
-   *
-   *    For more information about updating a traffic distribution group see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony traffic distribution across Amazon Web Services Regions
+   *          <p>For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony
+   *     traffic distribution across Amazon Web Services Regions
    *    </a> in the <i>Amazon Connect Administrator Guide</i>. </p>
    */
   public updateTrafficDistribution(

@@ -14,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListLexBotsRequest, ListLexBotsRequestFilterSensitiveLog } from "../models/models_0";
-import { ListLexBotsResponse, ListLexBotsResponseFilterSensitiveLog } from "../models/models_1";
+import {
+  ListLexBotsRequest,
+  ListLexBotsRequestFilterSensitiveLog,
+  ListLexBotsResponse,
+  ListLexBotsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListLexBotsCommand,
   serializeAws_restJson1ListLexBotsCommand,

@@ -37,6 +37,37 @@ import {
   VocabularyState,
 } from "./models_0";
 
+export interface ListLambdaFunctionsResponse {
+  /**
+   * <p>The Lambdafunction ARNs associated with the specified instance.</p>
+   */
+  LambdaFunctions?: string[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListLexBotsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page. If no value is specified, the default is 10.
+   *    </p>
+   */
+  MaxResults?: number;
+}
+
 export interface ListLexBotsResponse {
   /**
    * <p>The names and Amazon Web Services Regions of the Amazon Lex bots associated with the specified
@@ -847,7 +878,7 @@ export interface TrafficDistributionGroupSummary {
    *             <li>
    *                <p>
    *                   <code>PENDING_DELETION</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation is still in progress and has not yet
-   *     completed.</p>
+   *      completed.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -856,7 +887,7 @@ export interface TrafficDistributionGroupSummary {
    *             <li>
    *                <p>
    *                   <code>UPDATE_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistributionGroup.html">UpdateTrafficDistributionGroup</a> operation is still in progress and has not yet
-   *     completed.</p>
+   *      completed.</p>
    *             </li>
    *          </ul>
    */
@@ -3301,6 +3332,20 @@ export interface SearchUsersRequest {
    */
   SearchCriteria?: UserSearchCriteria;
 }
+
+/**
+ * @internal
+ */
+export const ListLambdaFunctionsResponseFilterSensitiveLog = (obj: ListLambdaFunctionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLexBotsRequestFilterSensitiveLog = (obj: ListLexBotsRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

@@ -237,6 +237,7 @@ import {
   DisassociateSecurityKeyCommandInput,
   DisassociateSecurityKeyCommandOutput,
 } from "./commands/DisassociateSecurityKeyCommand";
+import { DismissUserContactCommandInput, DismissUserContactCommandOutput } from "./commands/DismissUserContactCommand";
 import {
   GetContactAttributesCommandInput,
   GetContactAttributesCommandOutput,
@@ -581,6 +582,7 @@ export type ServiceInputTypes =
   | DisassociateQueueQuickConnectsCommandInput
   | DisassociateRoutingProfileQueuesCommandInput
   | DisassociateSecurityKeyCommandInput
+  | DismissUserContactCommandInput
   | GetContactAttributesCommandInput
   | GetCurrentMetricDataCommandInput
   | GetCurrentUserDataCommandInput
@@ -744,6 +746,7 @@ export type ServiceOutputTypes =
   | DisassociateQueueQuickConnectsCommandOutput
   | DisassociateRoutingProfileQueuesCommandOutput
   | DisassociateSecurityKeyCommandOutput
+  | DismissUserContactCommandOutput
   | GetContactAttributesCommandOutput
   | GetCurrentMetricDataCommandOutput
   | GetCurrentUserDataCommandOutput

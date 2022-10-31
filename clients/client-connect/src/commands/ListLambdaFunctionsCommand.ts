@@ -14,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListLambdaFunctionsRequest,
-  ListLambdaFunctionsRequestFilterSensitiveLog,
-  ListLambdaFunctionsResponse,
-  ListLambdaFunctionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListLambdaFunctionsRequest, ListLambdaFunctionsRequestFilterSensitiveLog } from "../models/models_0";
+import { ListLambdaFunctionsResponse, ListLambdaFunctionsResponseFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1ListLambdaFunctionsCommand,
   serializeAws_restJson1ListLambdaFunctionsCommand,

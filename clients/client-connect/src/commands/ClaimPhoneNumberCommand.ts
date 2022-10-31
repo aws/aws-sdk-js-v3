@@ -30,7 +30,7 @@ export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse,
 
 /**
  * <p>Claims an available phone number to your Amazon Connect instance or traffic distribution
- *    group. You can  call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p>
+ *    group. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p>
  *          <important>
  *             <p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API
  *     to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>

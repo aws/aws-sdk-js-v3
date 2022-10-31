@@ -1963,9 +1963,9 @@ export interface UserIdentityInfo {
   Email?: string;
 
   /**
-   * <p>The user's secondary email address. If you provide a secondary email, the user receives email
-   *    notifications - other than password reset notifications - to this email address instead of to
-   *    their primary email address.</p>
+   * <p>The user's secondary email address. If you provide a secondary email, the user receives
+   *    email notifications - other than password reset notifications - to this email address instead of
+   *    to their primary email address.</p>
    *          <p>Pattern: <code>(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}</code>
    *          </p>
    */
@@ -3288,7 +3288,8 @@ export interface ClaimedPhoneNumberSummary {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>You will not be billed for the phone number during the 1-day period if number claiming fails. </p>
+   *             <p>You will not be billed for the phone number during the 1-day period if number claiming
+   *     fails. </p>
    *          </note>
    */
   PhoneNumberStatus?: PhoneNumberStatus;
@@ -3627,7 +3628,7 @@ export interface TrafficDistributionGroup {
    *             <li>
    *                <p>
    *                   <code>PENDING_DELETION</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation is still in progress and has not yet
-   *     completed.</p>
+   *      completed.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3636,7 +3637,7 @@ export interface TrafficDistributionGroup {
    *             <li>
    *                <p>
    *                   <code>UPDATE_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistributionGroup.html">UpdateTrafficDistributionGroup</a> operation is still in progress and has not yet
-   *     completed.</p>
+   *      completed.</p>
    *             </li>
    *          </ul>
    */
@@ -4107,6 +4108,25 @@ export interface DisassociateSecurityKeyRequest {
    */
   AssociationId: string | undefined;
 }
+
+export interface DismissUserContactRequest {
+  /**
+   * <p>The identifier of the user account.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact.</p>
+   */
+  ContactId: string | undefined;
+}
+
+export interface DismissUserContactResponse {}
 
 export interface GetContactAttributesRequest {
   /**
@@ -5982,37 +6002,6 @@ export interface ListLambdaFunctionsRequest {
   MaxResults?: number;
 }
 
-export interface ListLambdaFunctionsResponse {
-  /**
-   * <p>The Lambdafunction ARNs associated with the specified instance.</p>
-   */
-  LambdaFunctions?: string[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListLexBotsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page. If no value is specified, the default is 10.
-   *    </p>
-   */
-  MaxResults?: number;
-}
-
 /**
  * @internal
  */
@@ -7232,6 +7221,20 @@ export const DisassociateSecurityKeyRequestFilterSensitiveLog = (obj: Disassocia
 /**
  * @internal
  */
+export const DismissUserContactRequestFilterSensitiveLog = (obj: DismissUserContactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DismissUserContactResponseFilterSensitiveLog = (obj: DismissUserContactResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetContactAttributesRequestFilterSensitiveLog = (obj: GetContactAttributesRequest): any => ({
   ...obj,
 });
@@ -7748,19 +7751,5 @@ export const ListIntegrationAssociationsResponseFilterSensitiveLog = (
  * @internal
  */
 export const ListLambdaFunctionsRequestFilterSensitiveLog = (obj: ListLambdaFunctionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLambdaFunctionsResponseFilterSensitiveLog = (obj: ListLambdaFunctionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLexBotsRequestFilterSensitiveLog = (obj: ListLexBotsRequest): any => ({
   ...obj,
 });
