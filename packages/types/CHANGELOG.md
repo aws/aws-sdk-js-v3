@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.200.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.199.0...v3.200.0) (2022-10-31)
+
+
+### Bug Fixes
+
+* **types:** extends check of generic in WithSdkStreamMixin ([#4119](https://github.com/aws/aws-sdk-js-v3/issues/4119)) ([299d245](https://github.com/aws/aws-sdk-js-v3/commit/299d245f63a69324bb973e28be79c055359c4d69))
+
+
+
+
+
 # [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
 
 

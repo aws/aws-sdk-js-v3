@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.200.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.199.0...v3.200.0) (2022-10-31)
+
+
+### Features
+
+* **client-cloudwatch-logs:** SDK release to support tagging for destinations and log groups with TagResource. Also supports tag on create with PutDestination. ([c97217f](https://github.com/aws/aws-sdk-js-v3/commit/c97217fa2fc1f789550a7f8042a3a4bc3ace46e0))
+
+
+
+
+
 # [3.199.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.198.0...v3.199.0) (2022-10-28)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

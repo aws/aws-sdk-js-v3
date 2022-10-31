@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.200.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.199.0...v3.200.0) (2022-10-31)
+
+
+### Features
+
+* **client-sesv2:** This release includes support for interacting with the Virtual Deliverability Manager, allowing you to opt in/out of the feature and to retrieve recommendations and metric data. ([72ea473](https://github.com/aws/aws-sdk-js-v3/commit/72ea473836f7af93d5fff0e8e65d2ed6f244b84a))
+
+
+
+
+
 # [3.199.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.198.0...v3.199.0) (2022-10-28)
 
 **Note:** Version bump only for package @aws-sdk/client-sesv2

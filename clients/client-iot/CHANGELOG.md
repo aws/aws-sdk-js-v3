@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.200.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.199.0...v3.200.0) (2022-10-31)
+
+
+### Features
+
+* **client-iot:** This release adds the Amazon Location action to IoT Rules Engine. ([dc1adcf](https://github.com/aws/aws-sdk-js-v3/commit/dc1adcfbf07398923c0137c5c8247a8d3bec1331))
+
+
+
+
+
 # [3.199.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.198.0...v3.199.0) (2022-10-28)
 
 **Note:** Version bump only for package @aws-sdk/client-iot

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.200.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.199.0...v3.200.0) (2022-10-31)
+
+
+### Bug Fixes
+
+* **endpoint:** instruct rds middleware to wait for endpoint resolution ([#4120](https://github.com/aws/aws-sdk-js-v3/issues/4120)) ([7cabc1e](https://github.com/aws/aws-sdk-js-v3/commit/7cabc1ebe4f1f8c37b29b421572b69cf57d2eb4b))
+* **types:** extends check of generic in WithSdkStreamMixin ([#4119](https://github.com/aws/aws-sdk-js-v3/issues/4119)) ([299d245](https://github.com/aws/aws-sdk-js-v3/commit/299d245f63a69324bb973e28be79c055359c4d69))
+
+
+### Features
+
+* **client-apprunner:** This release adds support for private App Runner services. Services may now be configured to be made private and only accessible from a VPC. The changes include a new VpcIngressConnection resource and several new and modified APIs. ([cce87ac](https://github.com/aws/aws-sdk-js-v3/commit/cce87acf067b146e3d2107563cc16c48a8c53995))
+* **client-cloudwatch-logs:** SDK release to support tagging for destinations and log groups with TagResource. Also supports tag on create with PutDestination. ([c97217f](https://github.com/aws/aws-sdk-js-v3/commit/c97217fa2fc1f789550a7f8042a3a4bc3ace46e0))
+* **client-connect:** Amazon connect now support a new API DismissUserContact to dismiss or remove terminated contacts in Agent CCP ([9e340c3](https://github.com/aws/aws-sdk-js-v3/commit/9e340c32f2d498744cc5549b68fe5b531f09c225))
+* **client-ec2:** Elastic IP transfer is a new Amazon VPC feature that allows you to transfer your Elastic IP addresses from one AWS Account to another. ([dba90b0](https://github.com/aws/aws-sdk-js-v3/commit/dba90b03c11ef100ad1afa36c8ffabb729f05b4e))
+* **client-iot:** This release adds the Amazon Location action to IoT Rules Engine. ([dc1adcf](https://github.com/aws/aws-sdk-js-v3/commit/dc1adcfbf07398923c0137c5c8247a8d3bec1331))
+* **client-sesv2:** This release includes support for interacting with the Virtual Deliverability Manager, allowing you to opt in/out of the feature and to retrieve recommendations and metric data. ([72ea473](https://github.com/aws/aws-sdk-js-v3/commit/72ea473836f7af93d5fff0e8e65d2ed6f244b84a))
+* **client-textract:** This release introduces additional support for 30+ normalized fields such as vendor address and currency. It also includes OCR output in the response and accuracy improvements for the already supported fields in previous version ([5ee0634](https://github.com/aws/aws-sdk-js-v3/commit/5ee0634c0fcb966479f12f95da3918395139dbfc))
+* **clients:** update client endpoints as of 2022-10-31 ([1677e7f](https://github.com/aws/aws-sdk-js-v3/commit/1677e7fe465f4538822bd424e3e0e396fad964a4))
+
+
+
+
+
 # [3.199.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.198.0...v3.199.0) (2022-10-28)
 
 

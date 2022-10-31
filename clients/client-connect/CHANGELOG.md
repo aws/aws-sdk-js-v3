@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.200.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.199.0...v3.200.0) (2022-10-31)
+
+
+### Features
+
+* **client-connect:** Amazon connect now support a new API DismissUserContact to dismiss or remove terminated contacts in Agent CCP ([9e340c3](https://github.com/aws/aws-sdk-js-v3/commit/9e340c32f2d498744cc5549b68fe5b531f09c225))
+
+
+
+
+
 # [3.199.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.198.0...v3.199.0) (2022-10-28)
 
 **Note:** Version bump only for package @aws-sdk/client-connect
