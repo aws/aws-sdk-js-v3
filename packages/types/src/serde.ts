@@ -87,12 +87,12 @@ export interface SdkStreamMixin {
 export type SdkStream<BaseStream> = BaseStream & SdkStreamMixin;
 
 /**
- * Indicates that any members of type T
- * that were of type T[StreamKey] have been extended
+ * Indicates that the member of type T with 
+ * key StreamKey have been extended
  * with the SdkStreamMixin helper methods.
  */
 export type WithSdkStreamMixin<T, StreamKey extends keyof T> = {
-  [key in keyof T]: T[key] extends T[StreamKey] ? SdkStream<T[StreamKey]> : T[key];
+  [key in keyof T]: key extends StreamKey ? SdkStream<T[StreamKey]> : T[key];
 };
 
 /**
