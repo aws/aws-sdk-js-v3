@@ -24,13 +24,11 @@ import { SSOOIDCClientConfig } from "./SSOOIDCClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 import { loadConfigsForDefaultMode } from "@aws-sdk/smithy-client";
 import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-node";
-import { emitWarningIfUnsupportedVersion } from "@aws-sdk/smithy-client";
 
 /**
  * @internal
  */
 export const getRuntimeConfig = (config: SSOOIDCClientConfig) => {
-  emitWarningIfUnsupportedVersion(process.version);
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);

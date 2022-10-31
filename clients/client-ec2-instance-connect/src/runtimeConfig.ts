@@ -26,13 +26,11 @@ import { EC2InstanceConnectClientConfig } from "./EC2InstanceConnectClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 import { loadConfigsForDefaultMode } from "@aws-sdk/smithy-client";
 import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-node";
-import { emitWarningIfUnsupportedVersion } from "@aws-sdk/smithy-client";
 
 /**
  * @internal
  */
 export const getRuntimeConfig = (config: EC2InstanceConnectClientConfig) => {
-  emitWarningIfUnsupportedVersion(process.version);
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
