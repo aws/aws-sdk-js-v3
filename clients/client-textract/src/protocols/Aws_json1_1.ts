@@ -60,9 +60,11 @@ import {
   DocumentMetadata,
   DocumentTooLargeException,
   EntityType,
+  ExpenseCurrency,
   ExpenseDetection,
   ExpenseDocument,
   ExpenseField,
+  ExpenseGroupProperty,
   ExpenseType,
   FeatureType,
   Geometry,
@@ -1483,6 +1485,13 @@ const deserializeAws_json1_1EntityTypes = (output: any, context: __SerdeContext)
   return retVal;
 };
 
+const deserializeAws_json1_1ExpenseCurrency = (output: any, context: __SerdeContext): ExpenseCurrency => {
+  return {
+    Code: __expectString(output.Code),
+    Confidence: __limitedParseFloat32(output.Confidence),
+  } as any;
+};
+
 const deserializeAws_json1_1ExpenseDetection = (output: any, context: __SerdeContext): ExpenseDetection => {
   return {
     Confidence: __limitedParseFloat32(output.Confidence),
@@ -1493,6 +1502,7 @@ const deserializeAws_json1_1ExpenseDetection = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ExpenseDocument = (output: any, context: __SerdeContext): ExpenseDocument => {
   return {
+    Blocks: output.Blocks != null ? deserializeAws_json1_1BlockList(output.Blocks, context) : undefined,
     ExpenseIndex: __expectInt32(output.ExpenseIndex),
     LineItemGroups:
       output.LineItemGroups != null
@@ -1517,6 +1527,11 @@ const deserializeAws_json1_1ExpenseDocumentList = (output: any, context: __Serde
 
 const deserializeAws_json1_1ExpenseField = (output: any, context: __SerdeContext): ExpenseField => {
   return {
+    Currency: output.Currency != null ? deserializeAws_json1_1ExpenseCurrency(output.Currency, context) : undefined,
+    GroupProperties:
+      output.GroupProperties != null
+        ? deserializeAws_json1_1ExpenseGroupPropertyList(output.GroupProperties, context)
+        : undefined,
     LabelDetection:
       output.LabelDetection != null
         ? deserializeAws_json1_1ExpenseDetection(output.LabelDetection, context)
@@ -1538,6 +1553,28 @@ const deserializeAws_json1_1ExpenseFieldList = (output: any, context: __SerdeCon
         return null as any;
       }
       return deserializeAws_json1_1ExpenseField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ExpenseGroupProperty = (output: any, context: __SerdeContext): ExpenseGroupProperty => {
+  return {
+    Id: __expectString(output.Id),
+    Types: output.Types != null ? deserializeAws_json1_1StringList(output.Types, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ExpenseGroupPropertyList = (
+  output: any,
+  context: __SerdeContext
+): ExpenseGroupProperty[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ExpenseGroupProperty(entry, context);
     });
   return retVal;
 };
@@ -1925,6 +1962,18 @@ const deserializeAws_json1_1StartExpenseAnalysisResponse = (
   return {
     JobId: __expectString(output.JobId),
   } as any;
+};
+
+const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {

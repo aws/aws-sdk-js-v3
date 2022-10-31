@@ -154,7 +154,8 @@ export interface Query {
   Alias?: string;
 
   /**
-   * <p>List of pages associated with the query. The following is a list of rules for using this parameter.</p>
+   * <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a
+   *          list of rules for using this parameter.</p>
    *          <ul>
    *             <li>
    *                <p>If a page is not specified, it is set to <code>["1"]</code> by default.</p>
@@ -164,8 +165,7 @@ export interface Query {
    *                <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p>
    *             </li>
    *             <li>
-   *                <p>When using <code>*</code> to indicate all pages, it must be the only element
-   *                in the string.</p>
+   *                <p>When using * to indicate all pages, it must be the only element in the list.</p>
    *             </li>
    *             <li>
    *                <p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of
@@ -191,9 +191,9 @@ export interface QueriesConfig {
 
 export interface AnalyzeDocumentRequest {
   /**
-   * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI
-   *          to call Amazon Textract operations, you can't pass image bytes. The document must be an image
-   *          in JPEG, PNG, PDF, or TIFF format.</p>
+   * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS
+   *          CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an
+   *          image in JPEG, PNG, PDF, or TIFF format.</p>
    *          <p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode
    *          image bytes that are passed using the <code>Bytes</code> field. </p>
    */
@@ -201,15 +201,16 @@ export interface AnalyzeDocumentRequest {
 
   /**
    * <p>A list of the types of analysis to perform. Add TABLES to the list to return information
-   *          about the tables that are detected in the input document. Add FORMS to return detected form data.
-   *          To perform both types of analysis, add TABLES and FORMS to
-   *             <code>FeatureTypes</code>. All lines and words detected in the document are included in
-   *          the response (including text that isn't related to the value of <code>FeatureTypes</code>). </p>
+   *          about the tables that are detected in the input document. Add FORMS to return detected form
+   *          data. To perform both types of analysis, add TABLES and FORMS to <code>FeatureTypes</code>.
+   *          All lines and words detected in the document are included in the response (including text
+   *          that isn't related to the value of <code>FeatureTypes</code>). </p>
    */
   FeatureTypes: (FeatureType | string)[] | undefined;
 
   /**
-   * <p>Sets the configuration for the human in the loop workflow for analyzing documents.</p>
+   * <p>Sets the configuration for the human in the loop workflow for analyzing
+   *          documents.</p>
    */
   HumanLoopConfig?: HumanLoopConfig;
 
@@ -444,7 +445,7 @@ export interface Block {
    *             <li>
    *                <p>
    *                   <i>QUERY</i> - A question asked during the call of AnalyzeDocument. Contains an
-   *                alias and an ID that attachs it to its answer.</p>
+   *                alias and an ID that attaches it to its answer.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -555,12 +556,13 @@ export interface Block {
   SelectionStatus?: SelectionStatus | string;
 
   /**
-   * <p>The page on which a block was detected. <code>Page</code> is returned by asynchronous
-   *          operations. Page values greater than 1 are only returned for multipage documents that are
-   *          in PDF or TIFF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is
-   *          considered to be a single-page document. The value of <code>Page</code> is always 1.
-   *          Synchronous operations don't return <code>Page</code> because every input document is
-   *          considered to be a single-page document.</p>
+   * <p>The page on which a block was detected. <code>Page</code> is returned by synchronous and
+   *          asynchronous operations. Page values greater than 1 are only returned for multipage
+   *          documents that are in PDF or TIFF format. A scanned image (JPEG/PNG) provided to an
+   *          asynchronous operation, even if it contains multiple document pages, is considered a
+   *          single-page document. This means that for scanned images the value of <code>Page</code> is
+   *          always 1. Synchronous operations operations will also return a <code>Page</code> value of 1
+   *          because every input document is considered to be a single-page document.</p>
    */
   Page?: number;
 
@@ -885,6 +887,37 @@ export interface AnalyzeExpenseRequest {
 }
 
 /**
+ * <p>Returns the kind of currency detected.</p>
+ */
+export interface ExpenseCurrency {
+  /**
+   * <p>Currency code for detected currency.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>Percentage confideence in the detected currency.</p>
+   */
+  Confidence?: number;
+}
+
+/**
+ * <p>Shows the group that a certain key belongs to. This helps differentiate responses
+ *          like addresses that can appear similar in response JSON.</p>
+ */
+export interface ExpenseGroupProperty {
+  /**
+   * <p>Informs you on the kind of label associated with the group</p>
+   */
+  Types?: string[];
+
+  /**
+   * <p>Provides a group Id number, which will be the same for each in the group.</p>
+   */
+  Id?: string;
+}
+
+/**
  * <p>An object used to store information about the Value or Label detected by Amazon Textract.</p>
  */
 export interface ExpenseDetection {
@@ -944,6 +977,18 @@ export interface ExpenseField {
    * <p>The page number the value was detected on.</p>
    */
   PageNumber?: number;
+
+  /**
+   * <p>Shows the kind of currency, both the code and confidence associated with any monatary value
+   *          detected.</p>
+   */
+  Currency?: ExpenseCurrency;
+
+  /**
+   * <p>Shows which group a response object belongs to, such as whether an address line
+   *          belongs to the vendor's address or the recipent's address.</p>
+   */
+  GroupProperties?: ExpenseGroupProperty[];
 }
 
 /**
@@ -990,6 +1035,12 @@ export interface ExpenseDocument {
    * <p>Information detected on each table of a document, seperated into <code>LineItems</code>.</p>
    */
   LineItemGroups?: LineItemGroup[];
+
+  /**
+   * <p>This is a block object, the same as reported when DetectDocumentText is run on a document.
+   *       It provides word level recognition of text.</p>
+   */
+  Blocks?: Block[];
 }
 
 export interface AnalyzeExpenseResponse {
@@ -1087,8 +1138,8 @@ export interface IdentityDocument {
 
 export interface AnalyzeIDResponse {
   /**
-   * <p>The list of documents processed by AnalyzeID. Includes a number denoting their
-   *          place in the list and the response structure for the document.</p>
+   * <p>The list of documents processed by AnalyzeID. Includes a number denoting their place in
+   *          the list and the response structure for the document.</p>
    */
   IdentityDocuments?: IdentityDocument[];
 
@@ -1149,7 +1200,8 @@ export interface DocumentLocation {
 export interface GetDocumentAnalysisRequest {
   /**
    * <p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from
-   *          <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
+   *             <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7
+   *          days.</p>
    */
   JobId: string | undefined;
 
@@ -1161,8 +1213,9 @@ export interface GetDocumentAnalysisRequest {
   MaxResults?: number;
 
   /**
-   * <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination
-   *          token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
+   * <p>If the previous response was incomplete (because there are more blocks to retrieve),
+   *          Amazon Textract returns a pagination token in the response. You can use this pagination
+   *          token to retrieve the next set of blocks.</p>
    */
   NextToken?: string;
 }
@@ -1191,8 +1244,9 @@ export interface Warning {
 
 export interface GetDocumentAnalysisResponse {
   /**
-   * <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is
-   *          returned in every page of paginated responses from an Amazon Textract video operation.</p>
+   * <p>Information about a document that Amazon Textract processed.
+   *             <code>DocumentMetadata</code> is returned in every page of paginated responses from an
+   *          Amazon Textract video operation.</p>
    */
   DocumentMetadata?: DocumentMetadata;
 
@@ -1202,8 +1256,8 @@ export interface GetDocumentAnalysisResponse {
   JobStatus?: JobStatus | string;
 
   /**
-   * <p>If the response is truncated, Amazon Textract returns this token. You can use this token in
-   *          the subsequent request to retrieve the next set of text detection results.</p>
+   * <p>If the response is truncated, Amazon Textract returns this token. You can use this token
+   *          in the subsequent request to retrieve the next set of text detection results.</p>
    */
   NextToken?: string;
 
@@ -1218,7 +1272,8 @@ export interface GetDocumentAnalysisResponse {
   Warnings?: Warning[];
 
   /**
-   * <p>Returns if the detection job could not be completed. Contains explanation for what error occured.</p>
+   * <p>Returns if the detection job could not be completed. Contains explanation for what error
+   *          occured.</p>
    */
   StatusMessage?: string;
 
@@ -1782,6 +1837,20 @@ export const AnalyzeDocumentResponseFilterSensitiveLog = (obj: AnalyzeDocumentRe
  * @internal
  */
 export const AnalyzeExpenseRequestFilterSensitiveLog = (obj: AnalyzeExpenseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExpenseCurrencyFilterSensitiveLog = (obj: ExpenseCurrency): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExpenseGroupPropertyFilterSensitiveLog = (obj: ExpenseGroupProperty): any => ({
   ...obj,
 });
 

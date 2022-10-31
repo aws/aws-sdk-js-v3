@@ -30,18 +30,21 @@ export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __M
 
 /**
  * <p>
- *             <code>AnalyzeExpense</code> synchronously analyzes an input document for financially related relationships between text.</p>
- *          <p>Information is returned as <code>ExpenseDocuments</code> and seperated as follows.</p>
+ *             <code>AnalyzeExpense</code> synchronously analyzes an input document for financially
+ *          related relationships between text.</p>
+ *          <p>Information is returned as <code>ExpenseDocuments</code> and seperated as
+ *          follows:</p>
  *          <ul>
  *             <li>
  *                <p>
  *                   <code>LineItemGroups</code>- A data set containing <code>LineItems</code> which
- *          store information about the lines of text, such as an item purchased and its price on a receipt.</p>
+ *                store information about the lines of text, such as an item purchased and its price on
+ *                a receipt.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>SummaryFields</code>- Contains all other information a receipt, such as header information
- *          or the vendors name.</p>
+ *                   <code>SummaryFields</code>- Contains all other information a receipt, such as
+ *                header information or the vendors name.</p>
  *             </li>
  *          </ul>
  * @example
