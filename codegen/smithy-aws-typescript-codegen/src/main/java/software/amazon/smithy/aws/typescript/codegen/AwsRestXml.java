@@ -17,8 +17,10 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.aws.typescript.codegen.propertyaccess.PropertyAccessor.getFrom;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.codegen.core.SymbolReference;
@@ -366,6 +368,21 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
                 writer.write("contents.$L = $L;", memberName, target.accept(visitor));
             });
         }
+    }
+
+    @Override
+    public void generateRequestSerializers(GenerationContext context) {
+        String serviceId = context.getService()
+            .getTrait(ServiceTrait.class)
+            .map(ServiceTrait::getSdkId)
+            .orElse("");
+
+        if (serviceId.equals("S3")) {
+            setContextParamDeduplicationParamControlSet(Collections.singleton("Bucket"));
+        } else {
+            setContextParamDeduplicationParamControlSet(Collections.emptySet());
+        }
+        super.generateRequestSerializers(context);
     }
 
     @Override
