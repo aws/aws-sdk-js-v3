@@ -11538,6 +11538,9 @@ const serializeAws_queryAddTagsToResourceMessage = (input: AddTagsToResourceMess
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11647,6 +11650,9 @@ const serializeAws_queryCloudwatchLogsExportConfiguration = (
   const entries: any = {};
   if (input.EnableLogTypes != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableLogTypes, context);
+    if (input.EnableLogTypes?.length === 0) {
+      entries.EnableLogTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableLogTypes.${key}`;
       entries[loc] = value;
@@ -11654,6 +11660,9 @@ const serializeAws_queryCloudwatchLogsExportConfiguration = (
   }
   if (input.DisableLogTypes != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.DisableLogTypes, context);
+    if (input.DisableLogTypes?.length === 0) {
+      entries.DisableLogTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DisableLogTypes.${key}`;
       entries[loc] = value;
@@ -11678,6 +11687,9 @@ const serializeAws_queryConnectionPoolConfiguration = (
   }
   if (input.SessionPinningFilters != null) {
     const memberEntries = serializeAws_queryStringList(input.SessionPinningFilters, context);
+    if (input.SessionPinningFilters?.length === 0) {
+      entries.SessionPinningFilters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SessionPinningFilters.${key}`;
       entries[loc] = value;
@@ -11705,6 +11717,9 @@ const serializeAws_queryCopyDBClusterParameterGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11735,6 +11750,9 @@ const serializeAws_queryCopyDBClusterSnapshotMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11759,6 +11777,9 @@ const serializeAws_queryCopyDBParameterGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11780,6 +11801,9 @@ const serializeAws_queryCopyDBSnapshotMessage = (input: CopyDBSnapshotMessage, c
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11813,6 +11837,9 @@ const serializeAws_queryCopyOptionGroupMessage = (input: CopyOptionGroupMessage,
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11849,6 +11876,9 @@ const serializeAws_queryCreateCustomDBEngineVersionMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11873,6 +11903,9 @@ const serializeAws_queryCreateDBClusterEndpointMessage = (
   }
   if (input.StaticMembers != null) {
     const memberEntries = serializeAws_queryStringList(input.StaticMembers, context);
+    if (input.StaticMembers?.length === 0) {
+      entries.StaticMembers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StaticMembers.${key}`;
       entries[loc] = value;
@@ -11880,6 +11913,9 @@ const serializeAws_queryCreateDBClusterEndpointMessage = (
   }
   if (input.ExcludedMembers != null) {
     const memberEntries = serializeAws_queryStringList(input.ExcludedMembers, context);
+    if (input.ExcludedMembers?.length === 0) {
+      entries.ExcludedMembers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludedMembers.${key}`;
       entries[loc] = value;
@@ -11887,6 +11923,9 @@ const serializeAws_queryCreateDBClusterEndpointMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11899,6 +11938,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   const entries: any = {};
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -11921,6 +11963,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -11958,6 +12003,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -11980,6 +12028,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -12081,6 +12132,9 @@ const serializeAws_queryCreateDBClusterParameterGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12102,6 +12156,9 @@ const serializeAws_queryCreateDBClusterSnapshotMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12135,6 +12192,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.DBSecurityGroups != null) {
     const memberEntries = serializeAws_queryDBSecurityGroupNameList(input.DBSecurityGroups, context);
+    if (input.DBSecurityGroups?.length === 0) {
+      entries.DBSecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBSecurityGroups.${key}`;
       entries[loc] = value;
@@ -12142,6 +12202,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -12197,6 +12260,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12255,6 +12321,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -12262,6 +12331,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -12331,6 +12403,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12341,6 +12416,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -12378,6 +12456,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -12385,6 +12466,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -12436,6 +12520,9 @@ const serializeAws_queryCreateDBParameterGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12457,6 +12544,9 @@ const serializeAws_queryCreateDBProxyEndpointRequest = (
   }
   if (input.VpcSubnetIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSubnetIds, context);
+    if (input.VpcSubnetIds?.length === 0) {
+      entries.VpcSubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSubnetIds.${key}`;
       entries[loc] = value;
@@ -12464,6 +12554,9 @@ const serializeAws_queryCreateDBProxyEndpointRequest = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -12474,6 +12567,9 @@ const serializeAws_queryCreateDBProxyEndpointRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12492,6 +12588,9 @@ const serializeAws_queryCreateDBProxyRequest = (input: CreateDBProxyRequest, con
   }
   if (input.Auth != null) {
     const memberEntries = serializeAws_queryUserAuthConfigList(input.Auth, context);
+    if (input.Auth?.length === 0) {
+      entries.Auth = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Auth.${key}`;
       entries[loc] = value;
@@ -12502,6 +12601,9 @@ const serializeAws_queryCreateDBProxyRequest = (input: CreateDBProxyRequest, con
   }
   if (input.VpcSubnetIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSubnetIds, context);
+    if (input.VpcSubnetIds?.length === 0) {
+      entries.VpcSubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSubnetIds.${key}`;
       entries[loc] = value;
@@ -12509,6 +12611,9 @@ const serializeAws_queryCreateDBProxyRequest = (input: CreateDBProxyRequest, con
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -12525,6 +12630,9 @@ const serializeAws_queryCreateDBProxyRequest = (input: CreateDBProxyRequest, con
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12546,6 +12654,9 @@ const serializeAws_queryCreateDBSecurityGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12564,6 +12675,9 @@ const serializeAws_queryCreateDBSnapshotMessage = (input: CreateDBSnapshotMessag
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12585,6 +12699,9 @@ const serializeAws_queryCreateDBSubnetGroupMessage = (
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
       entries[loc] = value;
@@ -12592,6 +12709,9 @@ const serializeAws_queryCreateDBSubnetGroupMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12616,6 +12736,9 @@ const serializeAws_queryCreateEventSubscriptionMessage = (
   }
   if (input.EventCategories != null) {
     const memberEntries = serializeAws_queryEventCategoriesList(input.EventCategories, context);
+    if (input.EventCategories?.length === 0) {
+      entries.EventCategories = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventCategories.${key}`;
       entries[loc] = value;
@@ -12623,6 +12746,9 @@ const serializeAws_queryCreateEventSubscriptionMessage = (
   }
   if (input.SourceIds != null) {
     const memberEntries = serializeAws_querySourceIdsList(input.SourceIds, context);
+    if (input.SourceIds?.length === 0) {
+      entries.SourceIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceIds.${key}`;
       entries[loc] = value;
@@ -12633,6 +12759,9 @@ const serializeAws_queryCreateEventSubscriptionMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12686,6 +12815,9 @@ const serializeAws_queryCreateOptionGroupMessage = (input: CreateOptionGroupMess
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -12902,6 +13034,9 @@ const serializeAws_queryDeregisterDBProxyTargetsRequest = (
   }
   if (input.DBInstanceIdentifiers != null) {
     const memberEntries = serializeAws_queryStringList(input.DBInstanceIdentifiers, context);
+    if (input.DBInstanceIdentifiers?.length === 0) {
+      entries.DBInstanceIdentifiers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBInstanceIdentifiers.${key}`;
       entries[loc] = value;
@@ -12909,6 +13044,9 @@ const serializeAws_queryDeregisterDBProxyTargetsRequest = (
   }
   if (input.DBClusterIdentifiers != null) {
     const memberEntries = serializeAws_queryStringList(input.DBClusterIdentifiers, context);
+    if (input.DBClusterIdentifiers?.length === 0) {
+      entries.DBClusterIdentifiers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBClusterIdentifiers.${key}`;
       entries[loc] = value;
@@ -12935,6 +13073,9 @@ const serializeAws_queryDescribeCertificatesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -12962,6 +13103,9 @@ const serializeAws_queryDescribeDBClusterBacktracksMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -12989,6 +13133,9 @@ const serializeAws_queryDescribeDBClusterEndpointsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13013,6 +13160,9 @@ const serializeAws_queryDescribeDBClusterParameterGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13040,6 +13190,9 @@ const serializeAws_queryDescribeDBClusterParametersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13064,6 +13217,9 @@ const serializeAws_queryDescribeDBClustersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13108,6 +13264,9 @@ const serializeAws_queryDescribeDBClusterSnapshotsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13144,6 +13303,9 @@ const serializeAws_queryDescribeDBEngineVersionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13183,6 +13345,9 @@ const serializeAws_queryDescribeDBInstanceAutomatedBackupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13210,6 +13375,9 @@ const serializeAws_queryDescribeDBInstancesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13243,6 +13411,9 @@ const serializeAws_queryDescribeDBLogFilesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13267,6 +13438,9 @@ const serializeAws_queryDescribeDBParameterGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13294,6 +13468,9 @@ const serializeAws_queryDescribeDBParametersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13315,6 +13492,9 @@ const serializeAws_queryDescribeDBProxiesRequest = (input: DescribeDBProxiesRequ
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13342,6 +13522,9 @@ const serializeAws_queryDescribeDBProxyEndpointsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13369,6 +13552,9 @@ const serializeAws_queryDescribeDBProxyTargetGroupsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13396,6 +13582,9 @@ const serializeAws_queryDescribeDBProxyTargetsRequest = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13420,6 +13609,9 @@ const serializeAws_queryDescribeDBSecurityGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13461,6 +13653,9 @@ const serializeAws_queryDescribeDBSnapshotsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13494,6 +13689,9 @@ const serializeAws_queryDescribeDBSubnetGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13518,6 +13716,9 @@ const serializeAws_queryDescribeEngineDefaultClusterParametersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13542,6 +13743,9 @@ const serializeAws_queryDescribeEngineDefaultParametersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13566,6 +13770,9 @@ const serializeAws_queryDescribeEventCategoriesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13593,6 +13800,9 @@ const serializeAws_queryDescribeEventsMessage = (input: DescribeEventsMessage, c
   }
   if (input.EventCategories != null) {
     const memberEntries = serializeAws_queryEventCategoriesList(input.EventCategories, context);
+    if (input.EventCategories?.length === 0) {
+      entries.EventCategories = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventCategories.${key}`;
       entries[loc] = value;
@@ -13600,6 +13810,9 @@ const serializeAws_queryDescribeEventsMessage = (input: DescribeEventsMessage, c
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13624,6 +13837,9 @@ const serializeAws_queryDescribeEventSubscriptionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13651,6 +13867,9 @@ const serializeAws_queryDescribeExportTasksMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13678,6 +13897,9 @@ const serializeAws_queryDescribeGlobalClustersMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13705,6 +13927,9 @@ const serializeAws_queryDescribeOptionGroupOptionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13729,6 +13954,9 @@ const serializeAws_queryDescribeOptionGroupsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13774,6 +14002,9 @@ const serializeAws_queryDescribeOrderableDBInstanceOptionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13798,6 +14029,9 @@ const serializeAws_queryDescribePendingMaintenanceActionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13843,6 +14077,9 @@ const serializeAws_queryDescribeReservedDBInstancesMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13882,6 +14119,9 @@ const serializeAws_queryDescribeReservedDBInstancesOfferingsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -13912,6 +14152,9 @@ const serializeAws_queryDescribeSourceRegionsMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -14009,6 +14252,9 @@ const serializeAws_queryFilter = (input: Filter, context: __SerdeContext): any =
   }
   if (input.Values != null) {
     const memberEntries = serializeAws_queryFilterValueList(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -14069,6 +14315,9 @@ const serializeAws_queryListTagsForResourceMessage = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -14171,6 +14420,9 @@ const serializeAws_queryModifyDBClusterEndpointMessage = (
   }
   if (input.StaticMembers != null) {
     const memberEntries = serializeAws_queryStringList(input.StaticMembers, context);
+    if (input.StaticMembers?.length === 0) {
+      entries.StaticMembers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StaticMembers.${key}`;
       entries[loc] = value;
@@ -14178,6 +14430,9 @@ const serializeAws_queryModifyDBClusterEndpointMessage = (
   }
   if (input.ExcludedMembers != null) {
     const memberEntries = serializeAws_queryStringList(input.ExcludedMembers, context);
+    if (input.ExcludedMembers?.length === 0) {
+      entries.ExcludedMembers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludedMembers.${key}`;
       entries[loc] = value;
@@ -14205,6 +14460,9 @@ const serializeAws_queryModifyDBClusterMessage = (input: ModifyDBClusterMessage,
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -14331,6 +14589,9 @@ const serializeAws_queryModifyDBClusterParameterGroupMessage = (
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -14352,6 +14613,9 @@ const serializeAws_queryModifyDBClusterSnapshotAttributeMessage = (
   }
   if (input.ValuesToAdd != null) {
     const memberEntries = serializeAws_queryAttributeValueList(input.ValuesToAdd, context);
+    if (input.ValuesToAdd?.length === 0) {
+      entries.ValuesToAdd = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ValuesToAdd.${key}`;
       entries[loc] = value;
@@ -14359,6 +14623,9 @@ const serializeAws_queryModifyDBClusterSnapshotAttributeMessage = (
   }
   if (input.ValuesToRemove != null) {
     const memberEntries = serializeAws_queryAttributeValueList(input.ValuesToRemove, context);
+    if (input.ValuesToRemove?.length === 0) {
+      entries.ValuesToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ValuesToRemove.${key}`;
       entries[loc] = value;
@@ -14383,6 +14650,9 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   }
   if (input.DBSecurityGroups != null) {
     const memberEntries = serializeAws_queryDBSecurityGroupNameList(input.DBSecurityGroups, context);
+    if (input.DBSecurityGroups?.length === 0) {
+      entries.DBSecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBSecurityGroups.${key}`;
       entries[loc] = value;
@@ -14390,6 +14660,9 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -14497,6 +14770,9 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -14548,6 +14824,9 @@ const serializeAws_queryModifyDBParameterGroupMessage = (
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -14569,6 +14848,9 @@ const serializeAws_queryModifyDBProxyEndpointRequest = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryStringList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -14587,6 +14869,9 @@ const serializeAws_queryModifyDBProxyRequest = (input: ModifyDBProxyRequest, con
   }
   if (input.Auth != null) {
     const memberEntries = serializeAws_queryUserAuthConfigList(input.Auth, context);
+    if (input.Auth?.length === 0) {
+      entries.Auth = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Auth.${key}`;
       entries[loc] = value;
@@ -14606,6 +14891,9 @@ const serializeAws_queryModifyDBProxyRequest = (input: ModifyDBProxyRequest, con
   }
   if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_queryStringList(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
       entries[loc] = value;
@@ -14651,6 +14939,9 @@ const serializeAws_queryModifyDBSnapshotAttributeMessage = (
   }
   if (input.ValuesToAdd != null) {
     const memberEntries = serializeAws_queryAttributeValueList(input.ValuesToAdd, context);
+    if (input.ValuesToAdd?.length === 0) {
+      entries.ValuesToAdd = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ValuesToAdd.${key}`;
       entries[loc] = value;
@@ -14658,6 +14949,9 @@ const serializeAws_queryModifyDBSnapshotAttributeMessage = (
   }
   if (input.ValuesToRemove != null) {
     const memberEntries = serializeAws_queryAttributeValueList(input.ValuesToRemove, context);
+    if (input.ValuesToRemove?.length === 0) {
+      entries.ValuesToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ValuesToRemove.${key}`;
       entries[loc] = value;
@@ -14693,6 +14987,9 @@ const serializeAws_queryModifyDBSubnetGroupMessage = (
   }
   if (input.SubnetIds != null) {
     const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
       entries[loc] = value;
@@ -14717,6 +15014,9 @@ const serializeAws_queryModifyEventSubscriptionMessage = (
   }
   if (input.EventCategories != null) {
     const memberEntries = serializeAws_queryEventCategoriesList(input.EventCategories, context);
+    if (input.EventCategories?.length === 0) {
+      entries.EventCategories = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventCategories.${key}`;
       entries[loc] = value;
@@ -14758,6 +15058,9 @@ const serializeAws_queryModifyOptionGroupMessage = (input: ModifyOptionGroupMess
   }
   if (input.OptionsToInclude != null) {
     const memberEntries = serializeAws_queryOptionConfigurationList(input.OptionsToInclude, context);
+    if (input.OptionsToInclude?.length === 0) {
+      entries.OptionsToInclude = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToInclude.${key}`;
       entries[loc] = value;
@@ -14765,6 +15068,9 @@ const serializeAws_queryModifyOptionGroupMessage = (input: ModifyOptionGroupMess
   }
   if (input.OptionsToRemove != null) {
     const memberEntries = serializeAws_queryOptionNamesList(input.OptionsToRemove, context);
+    if (input.OptionsToRemove?.length === 0) {
+      entries.OptionsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToRemove.${key}`;
       entries[loc] = value;
@@ -14789,6 +15095,9 @@ const serializeAws_queryOptionConfiguration = (input: OptionConfiguration, conte
   }
   if (input.DBSecurityGroupMemberships != null) {
     const memberEntries = serializeAws_queryDBSecurityGroupNameList(input.DBSecurityGroupMemberships, context);
+    if (input.DBSecurityGroupMemberships?.length === 0) {
+      entries.DBSecurityGroupMemberships = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBSecurityGroupMemberships.${key}`;
       entries[loc] = value;
@@ -14796,6 +15105,9 @@ const serializeAws_queryOptionConfiguration = (input: OptionConfiguration, conte
   }
   if (input.VpcSecurityGroupMemberships != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupMemberships, context);
+    if (input.VpcSecurityGroupMemberships?.length === 0) {
+      entries.VpcSecurityGroupMemberships = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupMemberships.${key}`;
       entries[loc] = value;
@@ -14803,6 +15115,9 @@ const serializeAws_queryOptionConfiguration = (input: OptionConfiguration, conte
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
@@ -14922,6 +15237,9 @@ const serializeAws_queryParameter = (input: Parameter, context: __SerdeContext):
   }
   if (input.SupportedEngineModes != null) {
     const memberEntries = serializeAws_queryEngineModeList(input.SupportedEngineModes, context);
+    if (input.SupportedEngineModes?.length === 0) {
+      entries.SupportedEngineModes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SupportedEngineModes.${key}`;
       entries[loc] = value;
@@ -15017,6 +15335,9 @@ const serializeAws_queryPurchaseReservedDBInstancesOfferingMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15057,6 +15378,9 @@ const serializeAws_queryRegisterDBProxyTargetsRequest = (
   }
   if (input.DBInstanceIdentifiers != null) {
     const memberEntries = serializeAws_queryStringList(input.DBInstanceIdentifiers, context);
+    if (input.DBInstanceIdentifiers?.length === 0) {
+      entries.DBInstanceIdentifiers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBInstanceIdentifiers.${key}`;
       entries[loc] = value;
@@ -15064,6 +15388,9 @@ const serializeAws_queryRegisterDBProxyTargetsRequest = (
   }
   if (input.DBClusterIdentifiers != null) {
     const memberEntries = serializeAws_queryStringList(input.DBClusterIdentifiers, context);
+    if (input.DBClusterIdentifiers?.length === 0) {
+      entries.DBClusterIdentifiers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBClusterIdentifiers.${key}`;
       entries[loc] = value;
@@ -15144,6 +15471,9 @@ const serializeAws_queryRemoveTagsFromResourceMessage = (
   }
   if (input.TagKeys != null) {
     const memberEntries = serializeAws_queryKeyList(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -15165,6 +15495,9 @@ const serializeAws_queryResetDBClusterParameterGroupMessage = (
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -15186,6 +15519,9 @@ const serializeAws_queryResetDBParameterGroupMessage = (
   }
   if (input.Parameters != null) {
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
+    if (input.Parameters?.length === 0) {
+      entries.Parameters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -15201,6 +15537,9 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   const entries: any = {};
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -15223,6 +15562,9 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15257,6 +15599,9 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15291,6 +15636,9 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15331,6 +15679,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   const entries: any = {};
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -15362,6 +15713,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15369,6 +15723,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15385,6 +15742,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15474,6 +15834,9 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15481,6 +15844,9 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15497,6 +15863,9 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15604,6 +15973,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15620,6 +15992,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15639,6 +16014,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15646,6 +16024,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -15706,6 +16087,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.DBSecurityGroups != null) {
     const memberEntries = serializeAws_queryDBSecurityGroupNameList(input.DBSecurityGroups, context);
+    if (input.DBSecurityGroups?.length === 0) {
+      entries.DBSecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DBSecurityGroups.${key}`;
       entries[loc] = value;
@@ -15713,6 +16097,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15762,6 +16149,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15814,6 +16204,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15821,6 +16214,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -15902,6 +16298,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -15918,6 +16317,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.VpcSecurityGroupIds != null) {
     const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    if (input.VpcSecurityGroupIds?.length === 0) {
+      entries.VpcSecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
@@ -15934,6 +16336,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.EnableCloudwatchLogsExports != null) {
     const memberEntries = serializeAws_queryLogTypeList(input.EnableCloudwatchLogsExports, context);
+    if (input.EnableCloudwatchLogsExports?.length === 0) {
+      entries.EnableCloudwatchLogsExports = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableCloudwatchLogsExports.${key}`;
       entries[loc] = value;
@@ -15941,6 +16346,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.ProcessorFeatures != null) {
     const memberEntries = serializeAws_queryProcessorFeatureList(input.ProcessorFeatures, context);
+    if (input.ProcessorFeatures?.length === 0) {
+      entries.ProcessorFeatures = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProcessorFeatures.${key}`;
       entries[loc] = value;
@@ -16136,6 +16544,9 @@ const serializeAws_queryStartExportTaskMessage = (input: StartExportTaskMessage,
   }
   if (input.ExportOnly != null) {
     const memberEntries = serializeAws_queryStringList(input.ExportOnly, context);
+    if (input.ExportOnly?.length === 0) {
+      entries.ExportOnly = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExportOnly.${key}`;
       entries[loc] = value;

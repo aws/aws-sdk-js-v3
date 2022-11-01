@@ -671,6 +671,9 @@ const serializeAws_queryAssumeRoleRequest = (input: AssumeRoleRequest, context: 
   }
   if (input.PolicyArns != null) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
+    if (input.PolicyArns?.length === 0) {
+      entries.PolicyArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
@@ -684,6 +687,9 @@ const serializeAws_queryAssumeRoleRequest = (input: AssumeRoleRequest, context: 
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -691,6 +697,9 @@ const serializeAws_queryAssumeRoleRequest = (input: AssumeRoleRequest, context: 
   }
   if (input.TransitiveTagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TransitiveTagKeys, context);
+    if (input.TransitiveTagKeys?.length === 0) {
+      entries.TransitiveTagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitiveTagKeys.${key}`;
       entries[loc] = value;
@@ -727,6 +736,9 @@ const serializeAws_queryAssumeRoleWithSAMLRequest = (
   }
   if (input.PolicyArns != null) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
+    if (input.PolicyArns?.length === 0) {
+      entries.PolicyArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
@@ -760,6 +772,9 @@ const serializeAws_queryAssumeRoleWithWebIdentityRequest = (
   }
   if (input.PolicyArns != null) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
+    if (input.PolicyArns?.length === 0) {
+      entries.PolicyArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
@@ -811,6 +826,9 @@ const serializeAws_queryGetFederationTokenRequest = (
   }
   if (input.PolicyArns != null) {
     const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
+    if (input.PolicyArns?.length === 0) {
+      entries.PolicyArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
       entries[loc] = value;
@@ -821,6 +839,9 @@ const serializeAws_queryGetFederationTokenRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;

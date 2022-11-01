@@ -4183,6 +4183,9 @@ const serializeAws_queryAttachInstancesQuery = (input: AttachInstancesQuery, con
   const entries: any = {};
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
       entries[loc] = value;
@@ -4201,6 +4204,9 @@ const serializeAws_queryAttachLoadBalancersType = (input: AttachLoadBalancersTyp
   }
   if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -4219,6 +4225,9 @@ const serializeAws_queryAttachLoadBalancerTargetGroupsType = (
   }
   if (input.TargetGroupARNs != null) {
     const memberEntries = serializeAws_queryTargetGroupARNs(input.TargetGroupARNs, context);
+    if (input.TargetGroupARNs?.length === 0) {
+      entries.TargetGroupARNs = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroupARNs.${key}`;
       entries[loc] = value;
@@ -4247,6 +4256,9 @@ const serializeAws_queryAutoScalingGroupNamesType = (
   const entries: any = {};
   if (input.AutoScalingGroupNames != null) {
     const memberEntries = serializeAws_queryAutoScalingGroupNames(input.AutoScalingGroupNames, context);
+    if (input.AutoScalingGroupNames?.length === 0) {
+      entries.AutoScalingGroupNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AutoScalingGroupNames.${key}`;
       entries[loc] = value;
@@ -4260,6 +4272,9 @@ const serializeAws_queryAutoScalingGroupNamesType = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilters(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -4318,6 +4333,9 @@ const serializeAws_queryBatchDeleteScheduledActionType = (
   }
   if (input.ScheduledActionNames != null) {
     const memberEntries = serializeAws_queryScheduledActionNames(input.ScheduledActionNames, context);
+    if (input.ScheduledActionNames?.length === 0) {
+      entries.ScheduledActionNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScheduledActionNames.${key}`;
       entries[loc] = value;
@@ -4339,6 +4357,9 @@ const serializeAws_queryBatchPutScheduledUpdateGroupActionType = (
       input.ScheduledUpdateGroupActions,
       context
     );
+    if (input.ScheduledUpdateGroupActions?.length === 0) {
+      entries.ScheduledUpdateGroupActions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScheduledUpdateGroupActions.${key}`;
       entries[loc] = value;
@@ -4499,6 +4520,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
   }
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -4506,6 +4530,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
   }
   if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -4513,6 +4540,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
   }
   if (input.TargetGroupARNs != null) {
     const memberEntries = serializeAws_queryTargetGroupARNs(input.TargetGroupARNs, context);
+    if (input.TargetGroupARNs?.length === 0) {
+      entries.TargetGroupARNs = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroupARNs.${key}`;
       entries[loc] = value;
@@ -4532,6 +4562,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
   }
   if (input.TerminationPolicies != null) {
     const memberEntries = serializeAws_queryTerminationPolicies(input.TerminationPolicies, context);
+    if (input.TerminationPolicies?.length === 0) {
+      entries.TerminationPolicies = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TerminationPolicies.${key}`;
       entries[loc] = value;
@@ -4545,6 +4578,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
   }
   if (input.LifecycleHookSpecificationList != null) {
     const memberEntries = serializeAws_queryLifecycleHookSpecifications(input.LifecycleHookSpecificationList, context);
+    if (input.LifecycleHookSpecificationList?.length === 0) {
+      entries.LifecycleHookSpecificationList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LifecycleHookSpecificationList.${key}`;
       entries[loc] = value;
@@ -4552,6 +4588,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -4591,6 +4630,9 @@ const serializeAws_queryCreateLaunchConfigurationType = (
   }
   if (input.SecurityGroups != null) {
     const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
       entries[loc] = value;
@@ -4601,6 +4643,9 @@ const serializeAws_queryCreateLaunchConfigurationType = (
   }
   if (input.ClassicLinkVPCSecurityGroups != null) {
     const memberEntries = serializeAws_queryClassicLinkVPCSecurityGroups(input.ClassicLinkVPCSecurityGroups, context);
+    if (input.ClassicLinkVPCSecurityGroups?.length === 0) {
+      entries.ClassicLinkVPCSecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClassicLinkVPCSecurityGroups.${key}`;
       entries[loc] = value;
@@ -4623,6 +4668,9 @@ const serializeAws_queryCreateLaunchConfigurationType = (
   }
   if (input.BlockDeviceMappings != null) {
     const memberEntries = serializeAws_queryBlockDeviceMappings(input.BlockDeviceMappings, context);
+    if (input.BlockDeviceMappings?.length === 0) {
+      entries.BlockDeviceMappings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMappings.${key}`;
       entries[loc] = value;
@@ -4664,6 +4712,9 @@ const serializeAws_queryCreateOrUpdateTagsType = (input: CreateOrUpdateTagsType,
   const entries: any = {};
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -4685,6 +4736,9 @@ const serializeAws_queryCustomizedMetricSpecification = (
   }
   if (input.Dimensions != null) {
     const memberEntries = serializeAws_queryMetricDimensions(input.Dimensions, context);
+    if (input.Dimensions?.length === 0) {
+      entries.Dimensions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
       entries[loc] = value;
@@ -4767,6 +4821,9 @@ const serializeAws_queryDeleteTagsType = (input: DeleteTagsType, context: __Serd
   const entries: any = {};
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -4793,6 +4850,9 @@ const serializeAws_queryDescribeAutoScalingInstancesType = (
   const entries: any = {};
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
       entries[loc] = value;
@@ -4817,6 +4877,9 @@ const serializeAws_queryDescribeInstanceRefreshesType = (
   }
   if (input.InstanceRefreshIds != null) {
     const memberEntries = serializeAws_queryInstanceRefreshIds(input.InstanceRefreshIds, context);
+    if (input.InstanceRefreshIds?.length === 0) {
+      entries.InstanceRefreshIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceRefreshIds.${key}`;
       entries[loc] = value;
@@ -4841,6 +4904,9 @@ const serializeAws_queryDescribeLifecycleHooksType = (
   }
   if (input.LifecycleHookNames != null) {
     const memberEntries = serializeAws_queryLifecycleHookNames(input.LifecycleHookNames, context);
+    if (input.LifecycleHookNames?.length === 0) {
+      entries.LifecycleHookNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LifecycleHookNames.${key}`;
       entries[loc] = value;
@@ -4890,6 +4956,9 @@ const serializeAws_queryDescribeNotificationConfigurationsType = (
   const entries: any = {};
   if (input.AutoScalingGroupNames != null) {
     const memberEntries = serializeAws_queryAutoScalingGroupNames(input.AutoScalingGroupNames, context);
+    if (input.AutoScalingGroupNames?.length === 0) {
+      entries.AutoScalingGroupNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AutoScalingGroupNames.${key}`;
       entries[loc] = value;
@@ -4911,6 +4980,9 @@ const serializeAws_queryDescribePoliciesType = (input: DescribePoliciesType, con
   }
   if (input.PolicyNames != null) {
     const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
+    if (input.PolicyNames?.length === 0) {
+      entries.PolicyNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
@@ -4918,6 +4990,9 @@ const serializeAws_queryDescribePoliciesType = (input: DescribePoliciesType, con
   }
   if (input.PolicyTypes != null) {
     const memberEntries = serializeAws_queryPolicyTypes(input.PolicyTypes, context);
+    if (input.PolicyTypes?.length === 0) {
+      entries.PolicyTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyTypes.${key}`;
       entries[loc] = value;
@@ -4939,6 +5014,9 @@ const serializeAws_queryDescribeScalingActivitiesType = (
   const entries: any = {};
   if (input.ActivityIds != null) {
     const memberEntries = serializeAws_queryActivityIds(input.ActivityIds, context);
+    if (input.ActivityIds?.length === 0) {
+      entries.ActivityIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActivityIds.${key}`;
       entries[loc] = value;
@@ -4969,6 +5047,9 @@ const serializeAws_queryDescribeScheduledActionsType = (
   }
   if (input.ScheduledActionNames != null) {
     const memberEntries = serializeAws_queryScheduledActionNames(input.ScheduledActionNames, context);
+    if (input.ScheduledActionNames?.length === 0) {
+      entries.ScheduledActionNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScheduledActionNames.${key}`;
       entries[loc] = value;
@@ -4993,6 +5074,9 @@ const serializeAws_queryDescribeTagsType = (input: DescribeTagsType, context: __
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryFilters(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -5044,6 +5128,9 @@ const serializeAws_queryDetachInstancesQuery = (input: DetachInstancesQuery, con
   const entries: any = {};
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
       entries[loc] = value;
@@ -5065,6 +5152,9 @@ const serializeAws_queryDetachLoadBalancersType = (input: DetachLoadBalancersTyp
   }
   if (input.LoadBalancerNames != null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -5083,6 +5173,9 @@ const serializeAws_queryDetachLoadBalancerTargetGroupsType = (
   }
   if (input.TargetGroupARNs != null) {
     const memberEntries = serializeAws_queryTargetGroupARNs(input.TargetGroupARNs, context);
+    if (input.TargetGroupARNs?.length === 0) {
+      entries.TargetGroupARNs = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroupARNs.${key}`;
       entries[loc] = value;
@@ -5101,6 +5194,9 @@ const serializeAws_queryDisableMetricsCollectionQuery = (
   }
   if (input.Metrics != null) {
     const memberEntries = serializeAws_queryMetrics(input.Metrics, context);
+    if (input.Metrics?.length === 0) {
+      entries.Metrics = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Metrics.${key}`;
       entries[loc] = value;
@@ -5145,6 +5241,9 @@ const serializeAws_queryEnableMetricsCollectionQuery = (
   }
   if (input.Metrics != null) {
     const memberEntries = serializeAws_queryMetrics(input.Metrics, context);
+    if (input.Metrics?.length === 0) {
+      entries.Metrics = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Metrics.${key}`;
       entries[loc] = value;
@@ -5160,6 +5259,9 @@ const serializeAws_queryEnterStandbyQuery = (input: EnterStandbyQuery, context: 
   const entries: any = {};
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
       entries[loc] = value;
@@ -5211,6 +5313,9 @@ const serializeAws_queryExitStandbyQuery = (input: ExitStandbyQuery, context: __
   const entries: any = {};
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
       entries[loc] = value;
@@ -5229,6 +5334,9 @@ const serializeAws_queryFilter = (input: Filter, context: __SerdeContext): any =
   }
   if (input.Values != null) {
     const memberEntries = serializeAws_queryValues(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -5355,6 +5463,9 @@ const serializeAws_queryInstanceRequirements = (input: InstanceRequirements, con
   }
   if (input.CpuManufacturers != null) {
     const memberEntries = serializeAws_queryCpuManufacturers(input.CpuManufacturers, context);
+    if (input.CpuManufacturers?.length === 0) {
+      entries.CpuManufacturers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CpuManufacturers.${key}`;
       entries[loc] = value;
@@ -5369,6 +5480,9 @@ const serializeAws_queryInstanceRequirements = (input: InstanceRequirements, con
   }
   if (input.ExcludedInstanceTypes != null) {
     const memberEntries = serializeAws_queryExcludedInstanceTypes(input.ExcludedInstanceTypes, context);
+    if (input.ExcludedInstanceTypes?.length === 0) {
+      entries.ExcludedInstanceTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludedInstanceTypes.${key}`;
       entries[loc] = value;
@@ -5376,6 +5490,9 @@ const serializeAws_queryInstanceRequirements = (input: InstanceRequirements, con
   }
   if (input.InstanceGenerations != null) {
     const memberEntries = serializeAws_queryInstanceGenerations(input.InstanceGenerations, context);
+    if (input.InstanceGenerations?.length === 0) {
+      entries.InstanceGenerations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceGenerations.${key}`;
       entries[loc] = value;
@@ -5408,6 +5525,9 @@ const serializeAws_queryInstanceRequirements = (input: InstanceRequirements, con
   }
   if (input.LocalStorageTypes != null) {
     const memberEntries = serializeAws_queryLocalStorageTypes(input.LocalStorageTypes, context);
+    if (input.LocalStorageTypes?.length === 0) {
+      entries.LocalStorageTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalStorageTypes.${key}`;
       entries[loc] = value;
@@ -5429,6 +5549,9 @@ const serializeAws_queryInstanceRequirements = (input: InstanceRequirements, con
   }
   if (input.AcceleratorTypes != null) {
     const memberEntries = serializeAws_queryAcceleratorTypes(input.AcceleratorTypes, context);
+    if (input.AcceleratorTypes?.length === 0) {
+      entries.AcceleratorTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorTypes.${key}`;
       entries[loc] = value;
@@ -5443,6 +5566,9 @@ const serializeAws_queryInstanceRequirements = (input: InstanceRequirements, con
   }
   if (input.AcceleratorManufacturers != null) {
     const memberEntries = serializeAws_queryAcceleratorManufacturers(input.AcceleratorManufacturers, context);
+    if (input.AcceleratorManufacturers?.length === 0) {
+      entries.AcceleratorManufacturers = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorManufacturers.${key}`;
       entries[loc] = value;
@@ -5450,6 +5576,9 @@ const serializeAws_queryInstanceRequirements = (input: InstanceRequirements, con
   }
   if (input.AcceleratorNames != null) {
     const memberEntries = serializeAws_queryAcceleratorNames(input.AcceleratorNames, context);
+    if (input.AcceleratorNames?.length === 0) {
+      entries.AcceleratorNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorNames.${key}`;
       entries[loc] = value;
@@ -5516,6 +5645,9 @@ const serializeAws_queryLaunchConfigurationNamesType = (
   const entries: any = {};
   if (input.LaunchConfigurationNames != null) {
     const memberEntries = serializeAws_queryLaunchConfigurationNames(input.LaunchConfigurationNames, context);
+    if (input.LaunchConfigurationNames?.length === 0) {
+      entries.LaunchConfigurationNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchConfigurationNames.${key}`;
       entries[loc] = value;
@@ -5552,6 +5684,9 @@ const serializeAws_queryLaunchTemplate = (input: LaunchTemplate, context: __Serd
   }
   if (input.Overrides != null) {
     const memberEntries = serializeAws_queryOverrides(input.Overrides, context);
+    if (input.Overrides?.length === 0) {
+      entries.Overrides = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Overrides.${key}`;
       entries[loc] = value;
@@ -5721,6 +5856,9 @@ const serializeAws_queryMetric = (input: Metric, context: __SerdeContext): any =
   }
   if (input.Dimensions != null) {
     const memberEntries = serializeAws_queryMetricDimensions(input.Dimensions, context);
+    if (input.Dimensions?.length === 0) {
+      entries.Dimensions = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
       entries[loc] = value;
@@ -5923,6 +6061,9 @@ const serializeAws_queryPredictiveScalingConfiguration = (
   const entries: any = {};
   if (input.MetricSpecifications != null) {
     const memberEntries = serializeAws_queryPredictiveScalingMetricSpecifications(input.MetricSpecifications, context);
+    if (input.MetricSpecifications?.length === 0) {
+      entries.MetricSpecifications = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MetricSpecifications.${key}`;
       entries[loc] = value;
@@ -5950,6 +6091,9 @@ const serializeAws_queryPredictiveScalingCustomizedCapacityMetric = (
   const entries: any = {};
   if (input.MetricDataQueries != null) {
     const memberEntries = serializeAws_queryMetricDataQueries(input.MetricDataQueries, context);
+    if (input.MetricDataQueries?.length === 0) {
+      entries.MetricDataQueries = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MetricDataQueries.${key}`;
       entries[loc] = value;
@@ -5965,6 +6109,9 @@ const serializeAws_queryPredictiveScalingCustomizedLoadMetric = (
   const entries: any = {};
   if (input.MetricDataQueries != null) {
     const memberEntries = serializeAws_queryMetricDataQueries(input.MetricDataQueries, context);
+    if (input.MetricDataQueries?.length === 0) {
+      entries.MetricDataQueries = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MetricDataQueries.${key}`;
       entries[loc] = value;
@@ -5980,6 +6127,9 @@ const serializeAws_queryPredictiveScalingCustomizedScalingMetric = (
   const entries: any = {};
   if (input.MetricDataQueries != null) {
     const memberEntries = serializeAws_queryMetricDataQueries(input.MetricDataQueries, context);
+    if (input.MetricDataQueries?.length === 0) {
+      entries.MetricDataQueries = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MetricDataQueries.${key}`;
       entries[loc] = value;
@@ -6175,6 +6325,9 @@ const serializeAws_queryPutNotificationConfigurationType = (
   }
   if (input.NotificationTypes != null) {
     const memberEntries = serializeAws_queryAutoScalingNotificationTypes(input.NotificationTypes, context);
+    if (input.NotificationTypes?.length === 0) {
+      entries.NotificationTypes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NotificationTypes.${key}`;
       entries[loc] = value;
@@ -6214,6 +6367,9 @@ const serializeAws_queryPutScalingPolicyType = (input: PutScalingPolicyType, con
   }
   if (input.StepAdjustments != null) {
     const memberEntries = serializeAws_queryStepAdjustments(input.StepAdjustments, context);
+    if (input.StepAdjustments?.length === 0) {
+      entries.StepAdjustments = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StepAdjustments.${key}`;
       entries[loc] = value;
@@ -6337,6 +6493,9 @@ const serializeAws_queryRefreshPreferences = (input: RefreshPreferences, context
   }
   if (input.CheckpointPercentages != null) {
     const memberEntries = serializeAws_queryCheckpointPercentages(input.CheckpointPercentages, context);
+    if (input.CheckpointPercentages?.length === 0) {
+      entries.CheckpointPercentages = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CheckpointPercentages.${key}`;
       entries[loc] = value;
@@ -6358,6 +6517,9 @@ const serializeAws_queryScalingProcessQuery = (input: ScalingProcessQuery, conte
   }
   if (input.ScalingProcesses != null) {
     const memberEntries = serializeAws_queryProcessNames(input.ScalingProcesses, context);
+    if (input.ScalingProcesses?.length === 0) {
+      entries.ScalingProcesses = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScalingProcesses.${key}`;
       entries[loc] = value;
@@ -6478,6 +6640,9 @@ const serializeAws_querySetInstanceProtectionQuery = (
   const entries: any = {};
   if (input.InstanceIds != null) {
     const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
+    if (input.InstanceIds?.length === 0) {
+      entries.InstanceIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
       entries[loc] = value;
@@ -6704,6 +6869,9 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
   }
   if (input.AvailabilityZones != null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -6723,6 +6891,9 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
   }
   if (input.TerminationPolicies != null) {
     const memberEntries = serializeAws_queryTerminationPolicies(input.TerminationPolicies, context);
+    if (input.TerminationPolicies?.length === 0) {
+      entries.TerminationPolicies = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TerminationPolicies.${key}`;
       entries[loc] = value;

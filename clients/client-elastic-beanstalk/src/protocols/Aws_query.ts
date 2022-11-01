@@ -3393,6 +3393,9 @@ const serializeAws_queryComposeEnvironmentsMessage = (
   }
   if (input.VersionLabels != null) {
     const memberEntries = serializeAws_queryVersionLabels(input.VersionLabels, context);
+    if (input.VersionLabels?.length === 0) {
+      entries.VersionLabels = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VersionLabels.${key}`;
       entries[loc] = value;
@@ -3457,6 +3460,9 @@ const serializeAws_queryCreateApplicationMessage = (input: CreateApplicationMess
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3508,6 +3514,9 @@ const serializeAws_queryCreateApplicationVersionMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3548,6 +3557,9 @@ const serializeAws_queryCreateConfigurationTemplateMessage = (
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
@@ -3555,6 +3567,9 @@ const serializeAws_queryCreateConfigurationTemplateMessage = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3589,6 +3604,9 @@ const serializeAws_queryCreateEnvironmentMessage = (input: CreateEnvironmentMess
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3608,6 +3626,9 @@ const serializeAws_queryCreateEnvironmentMessage = (input: CreateEnvironmentMess
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
@@ -3615,6 +3636,9 @@ const serializeAws_queryCreateEnvironmentMessage = (input: CreateEnvironmentMess
   }
   if (input.OptionsToRemove != null) {
     const memberEntries = serializeAws_queryOptionsSpecifierList(input.OptionsToRemove, context);
+    if (input.OptionsToRemove?.length === 0) {
+      entries.OptionsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToRemove.${key}`;
       entries[loc] = value;
@@ -3649,6 +3673,9 @@ const serializeAws_queryCreatePlatformVersionRequest = (
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
@@ -3656,6 +3683,9 @@ const serializeAws_queryCreatePlatformVersionRequest = (
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3738,6 +3768,9 @@ const serializeAws_queryDescribeApplicationsMessage = (
   const entries: any = {};
   if (input.ApplicationNames != null) {
     const memberEntries = serializeAws_queryApplicationNamesList(input.ApplicationNames, context);
+    if (input.ApplicationNames?.length === 0) {
+      entries.ApplicationNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ApplicationNames.${key}`;
       entries[loc] = value;
@@ -3756,6 +3789,9 @@ const serializeAws_queryDescribeApplicationVersionsMessage = (
   }
   if (input.VersionLabels != null) {
     const memberEntries = serializeAws_queryVersionLabelsList(input.VersionLabels, context);
+    if (input.VersionLabels?.length === 0) {
+      entries.VersionLabels = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VersionLabels.${key}`;
       entries[loc] = value;
@@ -3792,6 +3828,9 @@ const serializeAws_queryDescribeConfigurationOptionsMessage = (
   }
   if (input.Options != null) {
     const memberEntries = serializeAws_queryOptionsSpecifierList(input.Options, context);
+    if (input.Options?.length === 0) {
+      entries.Options = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Options.${key}`;
       entries[loc] = value;
@@ -3830,6 +3869,9 @@ const serializeAws_queryDescribeEnvironmentHealthRequest = (
   }
   if (input.AttributeNames != null) {
     const memberEntries = serializeAws_queryEnvironmentHealthAttributes(input.AttributeNames, context);
+    if (input.AttributeNames?.length === 0) {
+      entries.AttributeNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeNames.${key}`;
       entries[loc] = value;
@@ -3902,6 +3944,9 @@ const serializeAws_queryDescribeEnvironmentsMessage = (
   }
   if (input.EnvironmentIds != null) {
     const memberEntries = serializeAws_queryEnvironmentIdList(input.EnvironmentIds, context);
+    if (input.EnvironmentIds?.length === 0) {
+      entries.EnvironmentIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnvironmentIds.${key}`;
       entries[loc] = value;
@@ -3909,6 +3954,9 @@ const serializeAws_queryDescribeEnvironmentsMessage = (
   }
   if (input.EnvironmentNames != null) {
     const memberEntries = serializeAws_queryEnvironmentNamesList(input.EnvironmentNames, context);
+    if (input.EnvironmentNames?.length === 0) {
+      entries.EnvironmentNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnvironmentNames.${key}`;
       entries[loc] = value;
@@ -3983,6 +4031,9 @@ const serializeAws_queryDescribeInstancesHealthRequest = (
   }
   if (input.AttributeNames != null) {
     const memberEntries = serializeAws_queryInstancesHealthAttributes(input.AttributeNames, context);
+    if (input.AttributeNames?.length === 0) {
+      entries.AttributeNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeNames.${key}`;
       entries[loc] = value;
@@ -4095,6 +4146,9 @@ const serializeAws_queryListPlatformBranchesRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_querySearchFilters(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -4116,6 +4170,9 @@ const serializeAws_queryListPlatformVersionsRequest = (
   const entries: any = {};
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryPlatformFilters(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -4209,6 +4266,9 @@ const serializeAws_queryPlatformFilter = (input: PlatformFilter, context: __Serd
   }
   if (input.Values != null) {
     const memberEntries = serializeAws_queryPlatformFilterValueList(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -4326,6 +4386,9 @@ const serializeAws_querySearchFilter = (input: SearchFilter, context: __SerdeCon
   }
   if (input.Values != null) {
     const memberEntries = serializeAws_querySearchFilterValues(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -4546,6 +4609,9 @@ const serializeAws_queryUpdateConfigurationTemplateMessage = (
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
@@ -4553,6 +4619,9 @@ const serializeAws_queryUpdateConfigurationTemplateMessage = (
   }
   if (input.OptionsToRemove != null) {
     const memberEntries = serializeAws_queryOptionsSpecifierList(input.OptionsToRemove, context);
+    if (input.OptionsToRemove?.length === 0) {
+      entries.OptionsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToRemove.${key}`;
       entries[loc] = value;
@@ -4599,6 +4668,9 @@ const serializeAws_queryUpdateEnvironmentMessage = (input: UpdateEnvironmentMess
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;
@@ -4606,6 +4678,9 @@ const serializeAws_queryUpdateEnvironmentMessage = (input: UpdateEnvironmentMess
   }
   if (input.OptionsToRemove != null) {
     const memberEntries = serializeAws_queryOptionsSpecifierList(input.OptionsToRemove, context);
+    if (input.OptionsToRemove?.length === 0) {
+      entries.OptionsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToRemove.${key}`;
       entries[loc] = value;
@@ -4624,6 +4699,9 @@ const serializeAws_queryUpdateTagsForResourceMessage = (
   }
   if (input.TagsToAdd != null) {
     const memberEntries = serializeAws_queryTagList(input.TagsToAdd, context);
+    if (input.TagsToAdd?.length === 0) {
+      entries.TagsToAdd = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagsToAdd.${key}`;
       entries[loc] = value;
@@ -4631,6 +4709,9 @@ const serializeAws_queryUpdateTagsForResourceMessage = (
   }
   if (input.TagsToRemove != null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagsToRemove, context);
+    if (input.TagsToRemove?.length === 0) {
+      entries.TagsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagsToRemove.${key}`;
       entries[loc] = value;
@@ -4655,6 +4736,9 @@ const serializeAws_queryValidateConfigurationSettingsMessage = (
   }
   if (input.OptionSettings != null) {
     const memberEntries = serializeAws_queryConfigurationOptionSettingsList(input.OptionSettings, context);
+    if (input.OptionSettings?.length === 0) {
+      entries.OptionSettings = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
       entries[loc] = value;

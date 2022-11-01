@@ -2270,6 +2270,9 @@ const serializeAws_queryDescribeAnalysisSchemesRequest = (
   }
   if (input.AnalysisSchemeNames != null) {
     const memberEntries = serializeAws_queryStandardNameList(input.AnalysisSchemeNames, context);
+    if (input.AnalysisSchemeNames?.length === 0) {
+      entries.AnalysisSchemeNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisSchemeNames.${key}`;
       entries[loc] = value;
@@ -2313,6 +2316,9 @@ const serializeAws_queryDescribeDomainsRequest = (input: DescribeDomainsRequest,
   const entries: any = {};
   if (input.DomainNames != null) {
     const memberEntries = serializeAws_queryDomainNameList(input.DomainNames, context);
+    if (input.DomainNames?.length === 0) {
+      entries.DomainNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DomainNames.${key}`;
       entries[loc] = value;
@@ -2331,6 +2337,9 @@ const serializeAws_queryDescribeExpressionsRequest = (
   }
   if (input.ExpressionNames != null) {
     const memberEntries = serializeAws_queryStandardNameList(input.ExpressionNames, context);
+    if (input.ExpressionNames?.length === 0) {
+      entries.ExpressionNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExpressionNames.${key}`;
       entries[loc] = value;
@@ -2352,6 +2361,9 @@ const serializeAws_queryDescribeIndexFieldsRequest = (
   }
   if (input.FieldNames != null) {
     const memberEntries = serializeAws_queryDynamicFieldNameList(input.FieldNames, context);
+    if (input.FieldNames?.length === 0) {
+      entries.FieldNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FieldNames.${key}`;
       entries[loc] = value;
@@ -2398,6 +2410,9 @@ const serializeAws_queryDescribeSuggestersRequest = (
   }
   if (input.SuggesterNames != null) {
     const memberEntries = serializeAws_queryStandardNameList(input.SuggesterNames, context);
+    if (input.SuggesterNames?.length === 0) {
+      entries.SuggesterNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SuggesterNames.${key}`;
       entries[loc] = value;

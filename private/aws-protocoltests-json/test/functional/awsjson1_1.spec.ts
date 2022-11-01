@@ -167,6 +167,11 @@ it("sends_requests_to_slash:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.EmptyOperation");
   }
 });
 
@@ -230,6 +235,8 @@ it("json_1_1_client_sends_empty_payload_for_no_input_shape:Request", async () =>
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.EmptyOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -363,6 +370,11 @@ it("AwsJson11EndpointTrait:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.EndpointOperation");
+
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
@@ -398,6 +410,11 @@ it("AwsJson11EndpointTraitWithHostLabel:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.EndpointWithHostLabelOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -872,6 +889,11 @@ it("AwsJson11HostWithPath:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/custom/");
 
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.HostWithPathOperation");
+
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
@@ -921,6 +943,8 @@ it("AwsJson11Enums:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.JsonEnums");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -1856,6 +1880,8 @@ it("serializes_string_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -1894,6 +1920,8 @@ it("serializes_string_shapes_with_jsonvalue_trait:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -1931,6 +1959,8 @@ it("serializes_integer_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -1968,6 +1998,8 @@ it("serializes_long_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2005,6 +2037,8 @@ it("serializes_float_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2042,6 +2076,8 @@ it("serializes_double_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2079,6 +2115,8 @@ it("serializes_blob_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2116,6 +2154,8 @@ it("serializes_boolean_shapes_true:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2153,6 +2193,8 @@ it("serializes_boolean_shapes_false:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2190,6 +2232,8 @@ it("serializes_timestamp_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2227,6 +2271,8 @@ it("serializes_timestamp_shapes_with_iso8601_timestampformat:Request", async () 
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2264,6 +2310,8 @@ it("serializes_timestamp_shapes_with_httpdate_timestampformat:Request", async ()
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2301,6 +2349,8 @@ it("serializes_timestamp_shapes_with_unixtimestamp_timestampformat:Request", asy
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2338,6 +2388,8 @@ it("serializes_list_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2375,6 +2427,8 @@ it("serializes_empty_list_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2424,6 +2478,8 @@ it("serializes_list_of_map_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2473,6 +2529,8 @@ it("serializes_list_of_structure_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2522,6 +2580,8 @@ it("serializes_list_of_recursive_structure_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2563,6 +2623,8 @@ it("serializes_map_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2600,6 +2662,8 @@ it("serializes_empty_map_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2641,6 +2705,8 @@ it("serializes_map_of_list_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2686,6 +2752,8 @@ it("serializes_map_of_structure_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2735,6 +2803,8 @@ it("serializes_map_of_recursive_structure_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2774,6 +2844,8 @@ it("serializes_structure_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2813,6 +2885,8 @@ it("serializes_structure_members_with_locationname_traits:Request", async () => 
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2850,6 +2924,8 @@ it("serializes_empty_structure_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2887,6 +2963,8 @@ it("serializes_structure_which_have_no_members:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -2948,6 +3026,8 @@ it("serializes_recursive_structure_shapes:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.KitchenSinkOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -3913,6 +3993,8 @@ it("AwsJson11StructuresDontSerializeNullValues:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.NullOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -3951,6 +4033,8 @@ it("AwsJson11MapsSerializeNullValues:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.NullOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -3991,6 +4075,8 @@ it("AwsJson11ListsSerializeNull:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.NullOperation");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -4225,6 +4311,8 @@ it("PutAndGetInlineDocumentsInput:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.PutAndGetInlineDocuments");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;

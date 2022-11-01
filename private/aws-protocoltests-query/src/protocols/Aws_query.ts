@@ -1698,6 +1698,9 @@ const serializeAws_queryNestedStructWithList = (input: NestedStructWithList, con
   const entries: any = {};
   if (input.ListArg != null) {
     const memberEntries = serializeAws_queryStringList(input.ListArg, context);
+    if (input.ListArg?.length === 0) {
+      entries.ListArg = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArg.${key}`;
       entries[loc] = value;
@@ -1741,6 +1744,9 @@ const serializeAws_queryQueryListsInput = (input: QueryListsInput, context: __Se
   const entries: any = {};
   if (input.ListArg != null) {
     const memberEntries = serializeAws_queryStringList(input.ListArg, context);
+    if (input.ListArg?.length === 0) {
+      entries.ListArg = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArg.${key}`;
       entries[loc] = value;
@@ -1748,6 +1754,9 @@ const serializeAws_queryQueryListsInput = (input: QueryListsInput, context: __Se
   }
   if (input.ComplexListArg != null) {
     const memberEntries = serializeAws_queryGreetingList(input.ComplexListArg, context);
+    if (input.ComplexListArg?.length === 0) {
+      entries.ComplexListArg = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ComplexListArg.${key}`;
       entries[loc] = value;
@@ -1755,6 +1764,9 @@ const serializeAws_queryQueryListsInput = (input: QueryListsInput, context: __Se
   }
   if (input.FlattenedListArg != null) {
     const memberEntries = serializeAws_queryStringList(input.FlattenedListArg, context);
+    if (input.FlattenedListArg?.length === 0) {
+      entries.FlattenedListArg = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FlattenedListArg.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1762,6 +1774,9 @@ const serializeAws_queryQueryListsInput = (input: QueryListsInput, context: __Se
   }
   if (input.ListArgWithXmlNameMember != null) {
     const memberEntries = serializeAws_queryListWithXmlName(input.ListArgWithXmlNameMember, context);
+    if (input.ListArgWithXmlNameMember?.length === 0) {
+      entries.ListArgWithXmlNameMember = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArgWithXmlNameMember.${key}`;
       entries[loc] = value;
@@ -1769,6 +1784,9 @@ const serializeAws_queryQueryListsInput = (input: QueryListsInput, context: __Se
   }
   if (input.FlattenedListArgWithXmlName != null) {
     const memberEntries = serializeAws_queryListWithXmlName(input.FlattenedListArgWithXmlName, context);
+    if (input.FlattenedListArgWithXmlName?.length === 0) {
+      entries.Hi = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Hi.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;

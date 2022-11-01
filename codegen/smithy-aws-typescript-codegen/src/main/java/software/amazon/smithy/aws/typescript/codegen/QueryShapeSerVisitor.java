@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import software.amazon.smithy.aws.typescript.codegen.propertyaccess.PropertyAccessor;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
@@ -172,8 +173,14 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
             // Handle if the member is an idempotency token that should be auto-filled.
             AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
-            writer.openBlock("if ($1L != null) {", "}", inputLocation,
-                    () -> serializeNamedMember(context, memberName, memberShape, inputLocation));
+            writer.openBlock(
+                "if ($1L != null) {",
+                "}",
+                inputLocation,
+                () -> {
+                    serializeNamedMember(context, memberName, memberShape, inputLocation);
+                }
+            );
         });
 
         writer.write("return entries");
@@ -192,7 +199,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
 
         QueryMemberSerVisitor inputVisitor = getMemberVisitor(inputLocation);
         if (inputVisitor.visitSuppliesEntryList(target)) {
-            serializeNamedMemberEntryList(context, locationName, memberShape, target, inputVisitor);
+            serializeNamedMemberEntryList(context, locationName, memberShape, target, inputVisitor, inputLocation);
         } else {
             serializeNamedMemberValue(context, locationName, "input." + memberName, memberShape, target);
         }
@@ -236,7 +243,8 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
             String locationName,
             MemberShape memberShape,
             Shape target,
-            DocumentMemberSerVisitor inputVisitor
+            DocumentMemberSerVisitor inputVisitor,
+            String inputLocation
     ) {
         TypeScriptWriter writer = context.getWriter();
 
@@ -245,6 +253,19 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Set up a location to store all of the entry pairs.
         writer.write("const memberEntries = $L;", target.accept(inputVisitor));
+
+        Shape targetShape = context.getModel().expectShape(memberShape.getTarget());
+
+        if (targetShape.isListShape() || targetShape.isSetShape()) {
+            writer.openBlock(
+                "if ($L?.length === 0) {",
+                "}",
+                inputLocation,
+                () -> {
+                    writer.write("$L = []", PropertyAccessor.getFrom("entries", locationName));
+                }
+            );
+        }
 
         // Consolidate every entry in the list.
         writer.openBlock("Object.entries(memberEntries).forEach(([key, value]) => {", "});", () -> {
