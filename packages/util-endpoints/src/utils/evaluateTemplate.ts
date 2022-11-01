@@ -2,6 +2,7 @@ import { getAttr } from "../lib";
 import { EvaluateOptions } from "../types";
 
 const ATTR_SHORTHAND_REGEX = new RegExp("\\${([\\w]+)#([\\w]+)}", "g");
+const TEMPLATE_VARIABLE_REGEX = /\$\{(.*?)\}/;
 
 export const evaluateTemplate = (template: string, options: EvaluateOptions) => {
   const templateToEvaluate = template
@@ -10,9 +11,9 @@ export const evaluateTemplate = (template: string, options: EvaluateOptions) => 
     // Replace `{${value}}` with `{value}`
     .replace(new RegExp(`\{\\$\{([^{}]+)\}\}`, "g"), "{$1}");
 
-  const templateContext = {
-    ...options.endpointParams,
-    ...options.referenceRecord,
+  const templateContext: Record<string, string> = {
+    ...(options.endpointParams as Record<string, string>),
+    ...(options.referenceRecord as Record<string, string>),
   };
 
   const attrShortHandList = templateToEvaluate.match(ATTR_SHORTHAND_REGEX) || [];
@@ -21,7 +22,7 @@ export const evaluateTemplate = (template: string, options: EvaluateOptions) => 
     const indexOfHash = attrShortHand.indexOf("#");
     const refName = attrShortHand.substring(2, indexOfHash);
     const attrName = attrShortHand.substring(indexOfHash + 1, attrShortHand.length - 1);
-    acc[attrShortHand] = getAttr(templateContext[refName] as Record<string, any>, attrName) as string;
+    acc[attrShortHand] = getAttr(templateContext[refName], attrName) as string;
     return acc;
   }, {} as Record<string, string>);
 
@@ -30,9 +31,23 @@ export const evaluateTemplate = (template: string, options: EvaluateOptions) => 
     templateToEvaluate
   );
 
-  const templateContextNames = Object.keys(templateContext);
-  const templateContextValues = Object.values(templateContext);
-  const templateWithTildeEscaped = templateWithAttr.replace(/\`/g, "\\`");
+  let constructedString = templateWithAttr;
+  let match: RegExpMatchArray | null = null;
 
-  return new Function(...templateContextNames, `return \`${templateWithTildeEscaped}\``)(...templateContextValues);
+  while ((match = constructedString.match(TEMPLATE_VARIABLE_REGEX))) {
+    const [matched, capture] = match;
+    const replacement = templateContext[capture];
+    if (!replacement) {
+      throw new Error(
+        `key [${capture}] from "${templateWithAttr}" was not found in attribute map ${JSON.stringify(
+          templateContext,
+          null,
+          2
+        )}`
+      );
+    }
+    constructedString = constructedString.replace(matched, templateContext[capture]);
+  }
+
+  return constructedString;
 };

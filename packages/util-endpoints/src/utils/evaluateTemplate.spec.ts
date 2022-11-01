@@ -29,7 +29,9 @@ describe(evaluateTemplate.name, () => {
     });
 
     it.each(["endpointParams", "referenceRecord"])("from %s", (key: string) => {
-      expect(evaluateTemplate(template, { ...mockOptions, [key]: { parameterName } })).toBe(`foo ${parameterName} baz`);
+      expect(evaluateTemplate(template, { ...mockOptions, [key]: { parameterName } })).toBe(
+        `foo ${parameterName} baz`
+      );
     });
   });
 
