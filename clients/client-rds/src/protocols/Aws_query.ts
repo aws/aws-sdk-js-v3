@@ -12285,6 +12285,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
   return entries;
 };
 
@@ -12410,6 +12413,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
   }
   return entries;
 };
@@ -14526,6 +14532,9 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
   return entries;
 };
 
@@ -15663,6 +15672,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
   return entries;
 };
 
@@ -15826,6 +15838,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
+  }
   return entries;
 };
 
@@ -15960,6 +15975,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.StorageThroughput != null) {
+    entries["StorageThroughput"] = input.StorageThroughput;
   }
   return entries;
 };
@@ -18301,6 +18319,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     BackupTarget: undefined,
     NetworkType: undefined,
     ActivityStreamPolicyStatus: undefined,
+    StorageThroughput: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
@@ -18628,6 +18647,9 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   if (output["ActivityStreamPolicyStatus"] !== undefined) {
     contents.ActivityStreamPolicyStatus = __expectString(output["ActivityStreamPolicyStatus"]);
   }
+  if (output["StorageThroughput"] !== undefined) {
+    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
+  }
   return contents;
 };
 
@@ -18676,6 +18698,7 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
     DBInstanceAutomatedBackupsArn: undefined,
     DBInstanceAutomatedBackupsReplications: undefined,
     BackupTarget: undefined,
+    StorageThroughput: undefined,
   };
   if (output["DBInstanceArn"] !== undefined) {
     contents.DBInstanceArn = __expectString(output["DBInstanceArn"]);
@@ -18765,6 +18788,9 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
   }
   if (output["BackupTarget"] !== undefined) {
     contents.BackupTarget = __expectString(output["BackupTarget"]);
+  }
+  if (output["StorageThroughput"] !== undefined) {
+    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
   }
   return contents;
 };
@@ -19683,6 +19709,7 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     OriginalSnapshotCreateTime: undefined,
     SnapshotDatabaseTime: undefined,
     SnapshotTarget: undefined,
+    StorageThroughput: undefined,
   };
   if (output["DBSnapshotIdentifier"] !== undefined) {
     contents.DBSnapshotIdentifier = __expectString(output["DBSnapshotIdentifier"]);
@@ -19789,6 +19816,9 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
   }
   if (output["SnapshotTarget"] !== undefined) {
     contents.SnapshotTarget = __expectString(output["SnapshotTarget"]);
+  }
+  if (output["StorageThroughput"] !== undefined) {
+    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
   }
   return contents;
 };
@@ -22287,6 +22317,11 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     SupportsGlobalDatabases: undefined,
     SupportsClusters: undefined,
     SupportedNetworkTypes: undefined,
+    SupportsStorageThroughput: undefined,
+    MinStorageThroughputPerDbInstance: undefined,
+    MaxStorageThroughputPerDbInstance: undefined,
+    MinStorageThroughputPerIops: undefined,
+    MaxStorageThroughputPerIops: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -22411,6 +22446,25 @@ const deserializeAws_queryOrderableDBInstanceOption = (
       __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
       context
     );
+  }
+  if (output["SupportsStorageThroughput"] !== undefined) {
+    contents.SupportsStorageThroughput = __parseBoolean(output["SupportsStorageThroughput"]);
+  }
+  if (output["MinStorageThroughputPerDbInstance"] !== undefined) {
+    contents.MinStorageThroughputPerDbInstance = __strictParseInt32(
+      output["MinStorageThroughputPerDbInstance"]
+    ) as number;
+  }
+  if (output["MaxStorageThroughputPerDbInstance"] !== undefined) {
+    contents.MaxStorageThroughputPerDbInstance = __strictParseInt32(
+      output["MaxStorageThroughputPerDbInstance"]
+    ) as number;
+  }
+  if (output["MinStorageThroughputPerIops"] !== undefined) {
+    contents.MinStorageThroughputPerIops = __strictParseFloat(output["MinStorageThroughputPerIops"]) as number;
+  }
+  if (output["MaxStorageThroughputPerIops"] !== undefined) {
+    contents.MaxStorageThroughputPerIops = __strictParseFloat(output["MaxStorageThroughputPerIops"]) as number;
   }
   return contents;
 };
@@ -22651,6 +22705,7 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     IAMDatabaseAuthenticationEnabled: undefined,
     AutomationMode: undefined,
     ResumeFullAutomationModeTime: undefined,
+    StorageThroughput: undefined,
   };
   if (output["DBInstanceClass"] !== undefined) {
     contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
@@ -22718,6 +22773,9 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     contents.ResumeFullAutomationModeTime = __expectNonNull(
       __parseRfc3339DateTime(output["ResumeFullAutomationModeTime"])
     );
+  }
+  if (output["StorageThroughput"] !== undefined) {
+    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
   }
   return contents;
 };
@@ -23985,6 +24043,8 @@ const deserializeAws_queryValidStorageOptions = (output: any, context: __SerdeCo
     ProvisionedIops: undefined,
     IopsToStorageRatio: undefined,
     SupportsStorageAutoscaling: undefined,
+    ProvisionedStorageThroughput: undefined,
+    StorageThroughputToIopsRatio: undefined,
   };
   if (output["StorageType"] !== undefined) {
     contents.StorageType = __expectString(output["StorageType"]);
@@ -24015,6 +24075,28 @@ const deserializeAws_queryValidStorageOptions = (output: any, context: __SerdeCo
   }
   if (output["SupportsStorageAutoscaling"] !== undefined) {
     contents.SupportsStorageAutoscaling = __parseBoolean(output["SupportsStorageAutoscaling"]);
+  }
+  if (output.ProvisionedStorageThroughput === "") {
+    contents.ProvisionedStorageThroughput = [];
+  } else if (
+    output["ProvisionedStorageThroughput"] !== undefined &&
+    output["ProvisionedStorageThroughput"]["Range"] !== undefined
+  ) {
+    contents.ProvisionedStorageThroughput = deserializeAws_queryRangeList(
+      __getArrayIfSingleItem(output["ProvisionedStorageThroughput"]["Range"]),
+      context
+    );
+  }
+  if (output.StorageThroughputToIopsRatio === "") {
+    contents.StorageThroughputToIopsRatio = [];
+  } else if (
+    output["StorageThroughputToIopsRatio"] !== undefined &&
+    output["StorageThroughputToIopsRatio"]["DoubleRange"] !== undefined
+  ) {
+    contents.StorageThroughputToIopsRatio = deserializeAws_queryDoubleRangeList(
+      __getArrayIfSingleItem(output["StorageThroughputToIopsRatio"]["DoubleRange"]),
+      context
+    );
   }
   return contents;
 };

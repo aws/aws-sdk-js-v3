@@ -2250,6 +2250,11 @@ export interface DBSnapshot {
    * <p>Specifies where manual snapshots are stored: Amazon Web Services Outposts or the Amazon Web Services Region.</p>
    */
   SnapshotTarget?: string;
+
+  /**
+   * <p>Specifies the storage throughput for the DB snapshot.</p>
+   */
+  StorageThroughput?: number;
 }
 
 export interface CopyDBSnapshotResult {
@@ -3632,7 +3637,9 @@ export interface CreateDBClusterMessage {
   /**
    * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially allocated
    *             for each DB instance in the Multi-AZ DB cluster.</p>
-   *         <p>For information about valid <code>Iops</code> values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS storage to improve performance</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>For information about valid IOPS values, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS storage</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>This setting is required to create a Multi-AZ DB cluster.</p>
    *         <p>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB cluster.</p>
    *         <p>Valid for: Multi-AZ DB clusters only</p>
@@ -5290,7 +5297,7 @@ export interface CreateDBInstanceMessage {
    *         <p>Constraints to the amount of storage for each storage type are the following:</p>
    *         <ul>
    *             <li>
-   *                 <p>General Purpose (SSD) storage (gp2): Must be an integer from 40 to 65536 for RDS Custom for Oracle,
+   *                 <p>General Purpose (SSD) storage (gp2, gp3): Must be an integer from 40 to 65536 for RDS Custom for Oracle,
    *               16384 for RDS Custom for SQL Server.</p>
    *             </li>
    *             <li>
@@ -5304,7 +5311,7 @@ export interface CreateDBInstanceMessage {
    *         <p>Constraints to the amount of storage for each storage type are the following:</p>
    *         <ul>
    *             <li>
-   *                 <p>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</p>
+   *                 <p>General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.</p>
    *             </li>
    *             <li>
    *                 <p>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</p>
@@ -5319,7 +5326,7 @@ export interface CreateDBInstanceMessage {
    *         <p>Constraints to the amount of storage for each storage type are the following:</p>
    *         <ul>
    *             <li>
-   *                 <p>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</p>
+   *                 <p>General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.</p>
    *             </li>
    *             <li>
    *                 <p>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</p>
@@ -5334,7 +5341,7 @@ export interface CreateDBInstanceMessage {
    *         <p>Constraints to the amount of storage for each storage type are the following:</p>
    *         <ul>
    *             <li>
-   *                 <p>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</p>
+   *                 <p>General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.</p>
    *             </li>
    *             <li>
    *                 <p>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</p>
@@ -5349,7 +5356,7 @@ export interface CreateDBInstanceMessage {
    *         <p>Constraints to the amount of storage for each storage type are the following:</p>
    *         <ul>
    *             <li>
-   *                 <p>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</p>
+   *                 <p>General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.</p>
    *             </li>
    *             <li>
    *                 <p>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</p>
@@ -5364,7 +5371,7 @@ export interface CreateDBInstanceMessage {
    *         <p>Constraints to the amount of storage for each storage type are the following:</p>
    *         <ul>
    *             <li>
-   *                 <p>General Purpose (SSD) storage (gp2):</p>
+   *                 <p>General Purpose (SSD) storage (gp2, gp3):</p>
    *                 <ul>
    *                   <li>
    *                         <p>Enterprise and Standard editions: Must be an integer from 20 to 16384.</p>
@@ -5831,7 +5838,9 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance.
-   *           For information about valid <code>Iops</code> values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS storage to improve performance</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *           For information about valid IOPS values, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html">Amazon RDS DB instance storage</a>
+   *           in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL DB instances, must be a multiple between .5 and 50
    *           of the storage amount for the DB instance. For SQL Server DB instances, must be a multiple between 1 and 50
    *           of the storage amount for the DB instance.</p>
@@ -5916,9 +5925,9 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>Specifies the storage type to be associated with the DB instance.</p>
-   *         <p>Valid values: <code>standard | gp2 | io1</code>
+   *         <p>Valid values: <code>gp2 | gp3 | io1 | standard</code>
    *          </p>
-   *         <p>If you specify <code>io1</code>, you must also include a value for the
+   *         <p>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value for the
    *             <code>Iops</code> parameter.</p>
    *         <p>Default: <code>io1</code> if the <code>Iops</code> parameter
    *             is specified, otherwise <code>gp2</code>
@@ -6260,6 +6269,12 @@ export interface CreateDBInstanceMessage {
    *          </p>
    */
   NetworkType?: string;
+
+  /**
+   * <p>Specifies the storage throughput value for the DB instance.</p>
+   *         <p>This setting doesn't apply to RDS Custom or Amazon Aurora.</p>
+   */
+  StorageThroughput?: number;
 }
 
 /**
@@ -6645,6 +6660,11 @@ export interface PendingModifiedValues {
    *             The minimum value is 60 (default). The maximum value is 1,440.</p>
    */
   ResumeFullAutomationModeTime?: Date;
+
+  /**
+   * <p>The storage throughput of the DB instance.</p>
+   */
+  StorageThroughput?: number;
 }
 
 export enum ReplicaMode {
@@ -6907,7 +6927,7 @@ export interface DBInstance {
   StatusInfos?: DBInstanceStatusInfo[];
 
   /**
-   * <p>Specifies the storage type associated with DB instance.</p>
+   * <p>Specifies the storage type associated with the DB instance.</p>
    */
   StorageType?: string;
 
@@ -7227,6 +7247,11 @@ export interface DBInstance {
    * <p>The status of the policy state of the activity stream.</p>
    */
   ActivityStreamPolicyStatus?: ActivityStreamPolicyStatus | string;
+
+  /**
+   * <p>Specifies the storage throughput for the DB instance.</p>
+   */
+  StorageThroughput?: number;
 }
 
 export interface CreateDBInstanceResult {
@@ -7552,9 +7577,9 @@ export interface CreateDBInstanceReadReplicaMessage {
 
   /**
    * <p>Specifies the storage type to be associated with the read replica.</p>
-   *         <p>Valid values: <code>standard | gp2 | io1</code>
+   *         <p>Valid values: <code>gp2 | gp3 | io1 | standard</code>
    *          </p>
-   *         <p>If you specify <code>io1</code>, you must also include a value for the
+   *         <p>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value for the
    *             <code>Iops</code> parameter.</p>
    *         <p>Default: <code>io1</code> if the <code>Iops</code> parameter
    *             is specified, otherwise <code>gp2</code>
@@ -7853,6 +7878,12 @@ export interface CreateDBInstanceReadReplicaMessage {
    *          </p>
    */
   NetworkType?: string;
+
+  /**
+   * <p>Specifies the storage throughput value for the read replica.</p>
+   *         <p>This setting doesn't apply to RDS Custom or Amazon Aurora.</p>
+   */
+  StorageThroughput?: number;
 }
 
 export interface CreateDBInstanceReadReplicaResult {
@@ -9781,7 +9812,7 @@ export interface DBInstanceAutomatedBackup {
   AvailabilityZone?: string;
 
   /**
-   * <p>Provides the VPC ID associated with the DB instance</p>
+   * <p>Provides the VPC ID associated with the DB instance.</p>
    */
   VpcId?: string;
 
@@ -9873,6 +9904,11 @@ export interface DBInstanceAutomatedBackup {
    * <p>Specifies where automated backups are stored: Amazon Web Services Outposts or the Amazon Web Services Region.</p>
    */
   BackupTarget?: string;
+
+  /**
+   * <p>Specifies the storage throughput for the automated backup.</p>
+   */
+  StorageThroughput?: number;
 }
 
 export interface DeleteDBInstanceAutomatedBackupResult {
@@ -10786,7 +10822,8 @@ export interface DBClusterMessage {
  */
 export interface DescribeDBClustersMessage {
   /**
-   * <p>The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive.</p>
+   * <p>The user-supplied DB cluster identifier or the Amazon Resource Name (ARN) of the DB cluster. If this parameter is specified,
+   *             information from only the specific DB cluster is returned. This parameter isn't case-sensitive.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -11421,7 +11458,8 @@ export interface DBInstanceMessage {
  */
 export interface DescribeDBInstancesMessage {
   /**
-   * <p>The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p>
+   * <p>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB instance. If this parameter is specified,
+   *             information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>

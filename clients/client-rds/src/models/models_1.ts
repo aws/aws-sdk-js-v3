@@ -1801,6 +1801,31 @@ export interface OrderableDBInstanceOption {
    *          </p>
    */
   SupportedNetworkTypes?: string[];
+
+  /**
+   * <p>Indicates whether a DB instance supports storage throughput.</p>
+   */
+  SupportsStorageThroughput?: boolean;
+
+  /**
+   * <p>Minimum storage throughput for a DB instance.</p>
+   */
+  MinStorageThroughputPerDbInstance?: number;
+
+  /**
+   * <p>Maximum storage throughput for a DB instance.</p>
+   */
+  MaxStorageThroughputPerDbInstance?: number;
+
+  /**
+   * <p>Minimum storage throughput to provisioned IOPS ratio for a DB instance.</p>
+   */
+  MinStorageThroughputPerIops?: number;
+
+  /**
+   * <p>Maximum storage throughput to provisioned IOPS ratio for a DB instance.</p>
+   */
+  MaxStorageThroughputPerIops?: number;
 }
 
 /**
@@ -2405,19 +2430,19 @@ export interface Range {
 export interface ValidStorageOptions {
   /**
    * <p>The valid storage types for your DB instance.
-   *             For example, gp2, io1.</p>
+   *             For example: gp2, gp3, io1.</p>
    */
   StorageType?: string;
 
   /**
    * <p>The valid range of storage in gibibytes (GiB).
-   *             For example, 100 to 16384.</p>
+   *             For example, 100 to 16,384.</p>
    */
   StorageSize?: Range[];
 
   /**
    * <p>The valid range of provisioned IOPS.
-   *             For example, 1000-20000.</p>
+   *             For example, 1000-256,000.</p>
    */
   ProvisionedIops?: Range[];
 
@@ -2432,6 +2457,18 @@ export interface ValidStorageOptions {
    * <p>Whether or not Amazon RDS can automatically scale storage for DB instances that use the new instance class.</p>
    */
   SupportsStorageAutoscaling?: boolean;
+
+  /**
+   * <p>The valid range of provisioned storage throughput. For example,
+   *             500-4,000 mebibytes per second (MiBps).</p>
+   */
+  ProvisionedStorageThroughput?: Range[];
+
+  /**
+   * <p>The valid range of storage throughput to provisioned IOPS ratios. For example,
+   *         0-0.25.</p>
+   */
+  StorageThroughputToIopsRatio?: DoubleRange[];
 }
 
 /**
@@ -3243,7 +3280,9 @@ export interface ModifyDBClusterMessage {
   /**
    * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially allocated
    *             for each DB instance in the Multi-AZ DB cluster.</p>
-   *         <p>For information about valid Iops values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>For information about valid IOPS values, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS storage</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB cluster.</p>
    *         <p>Valid for: Multi-AZ DB clusters only</p>
    */
@@ -3934,7 +3973,7 @@ export interface ModifyDBInstanceMessage {
    *             instance are suspended. No other Amazon RDS operations can take place for the instance,
    *             including modifying the instance, rebooting the instance, deleting the instance,
    *             creating a read replica for the instance, and creating a DB snapshot of the instance.</p>
-   *         <p>Valid values: <code>standard | gp2 | io1</code>
+   *         <p>Valid values: <code>gp2 | gp3 | io1 | standard</code>
    *          </p>
    *         <p>Default: <code>io1</code> if the <code>Iops</code> parameter
    *           is specified, otherwise <code>gp2</code>
@@ -4297,6 +4336,12 @@ export interface ModifyDBInstanceMessage {
    *          </p>
    */
   NetworkType?: string;
+
+  /**
+   * <p>Specifies the storage throughput value for the DB instance.</p>
+   *         <p>This setting doesn't apply to RDS Custom or Amazon Aurora.</p>
+   */
+  StorageThroughput?: number;
 }
 
 export interface ModifyDBInstanceResult {
@@ -6154,7 +6199,9 @@ export interface RestoreDBClusterFromSnapshotMessage {
   /**
    * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for
    *             each DB instance in the Multi-AZ DB cluster.</p>
-   *         <p>For information about valid Iops values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>For information about valid IOPS values,
+   *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS storage</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB instance.</p>
    *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
@@ -6568,7 +6615,9 @@ export interface RestoreDBClusterToPointInTimeMessage {
   /**
    * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for
    *             each DB instance in the Multi-AZ DB cluster.</p>
-   *         <p>For information about valid <code>Iops</code> values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS storage to improve performance</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>For information about valid IOPS values,
+   *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS storage</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB instance.</p>
    *         <p>Valid for: Multi-AZ DB clusters only</p>
    */
@@ -6820,7 +6869,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *           The conversion takes additional time, though your DB instance is available for connections before the conversion starts.</p>
    *         <p>The provisioned IOPS value must follow the requirements for your database engine.
    *           For more information, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS Storage to Improve Performance</a>
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS storage</a>
    *           in the <i>Amazon RDS User Guide.</i>
    *          </p>
    *         <p>Constraints: Must be an integer greater than 1000.</p>
@@ -6846,9 +6895,9 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * <p>Specifies the storage type to be associated with the DB instance.</p>
-   *         <p>Valid values: <code>standard | gp2 | io1</code>
+   *         <p>Valid values: <code>gp2 | gp3 | io1 | standard</code>
    *          </p>
-   *         <p>If you specify <code>io1</code>, you must also include a value for the
+   *         <p>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value for the
    *             <code>Iops</code> parameter.</p>
    *         <p>Default: <code>io1</code> if the <code>Iops</code> parameter
    *             is specified, otherwise <code>gp2</code>
@@ -7031,6 +7080,12 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *          </p>
    */
   NetworkType?: string;
+
+  /**
+   * <p>Specifies the storage throughput value for the DB instance.</p>
+   *         <p>This setting doesn't apply to RDS Custom or Amazon Aurora.</p>
+   */
+  StorageThroughput?: number;
 }
 
 export interface RestoreDBInstanceFromDBSnapshotResult {
@@ -7260,7 +7315,8 @@ export interface RestoreDBInstanceFromS3Message {
   /**
    * <p>The amount of Provisioned IOPS (input/output operations per second)
    *             to allocate initially for the DB instance.
-   *             For information about valid Iops values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS Storage to Improve Performance</a>
+   *             For information about valid IOPS values,
+   *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS storage</a>
    *             in the <i>Amazon RDS User Guide.</i>
    *          </p>
    */
@@ -7293,9 +7349,9 @@ export interface RestoreDBInstanceFromS3Message {
 
   /**
    * <p>Specifies the storage type to be associated with the DB instance.</p>
-   *         <p>Valid values: <code>standard</code> | <code>gp2</code> | <code>io1</code>
+   *         <p>Valid values: <code>gp2 | gp3 | io1 | standard</code>
    *          </p>
-   *         <p>If you specify <code>io1</code>,
+   *         <p>If you specify <code>io1</code> or <code>gp3</code>,
    *             you must also include a value for the <code>Iops</code> parameter.</p>
    *         <p>Default: <code>io1</code>
    *             if the <code>Iops</code> parameter is specified;
@@ -7501,6 +7557,12 @@ export interface RestoreDBInstanceFromS3Message {
    *          </p>
    */
   NetworkType?: string;
+
+  /**
+   * <p>Specifies the storage throughput value for the DB instance.</p>
+   *         <p>This setting doesn't apply to RDS Custom or Amazon Aurora.</p>
+   */
+  StorageThroughput?: number;
 }
 
 export interface RestoreDBInstanceFromS3Result {
@@ -7773,9 +7835,9 @@ export interface RestoreDBInstanceToPointInTimeMessage {
 
   /**
    * <p>Specifies the storage type to be associated with the DB instance.</p>
-   *         <p>Valid values: <code>standard | gp2 | io1</code>
+   *         <p>Valid values: <code>gp2 | gp3 | io1 | standard</code>
    *          </p>
-   *         <p>If you specify <code>io1</code>, you must also include a value for the
+   *         <p>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value for the
    *             <code>Iops</code> parameter.</p>
    *         <p>Default: <code>io1</code> if the <code>Iops</code> parameter
    *             is specified, otherwise <code>gp2</code>
@@ -7969,6 +8031,12 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *          </p>
    */
   NetworkType?: string;
+
+  /**
+   * <p>Specifies the storage throughput value for the DB instance.</p>
+   *         <p>This setting doesn't apply to RDS Custom or Amazon Aurora.</p>
+   */
+  StorageThroughput?: number;
 }
 
 export interface RestoreDBInstanceToPointInTimeResult {
