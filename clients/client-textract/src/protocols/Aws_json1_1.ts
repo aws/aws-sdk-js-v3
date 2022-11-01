@@ -1705,6 +1705,7 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
 
 const deserializeAws_json1_1IdentityDocument = (output: any, context: __SerdeContext): IdentityDocument => {
   return {
+    Blocks: output.Blocks != null ? deserializeAws_json1_1BlockList(output.Blocks, context) : undefined,
     DocumentIndex: __expectInt32(output.DocumentIndex),
     IdentityDocumentFields:
       output.IdentityDocumentFields != null
