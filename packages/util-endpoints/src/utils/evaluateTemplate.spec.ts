@@ -13,11 +13,6 @@ describe(evaluateTemplate.name, () => {
     jest.clearAllMocks();
   });
 
-  it("should not escape template with empty parameter", () => {
-    const templateWithEmptyParam = "foo {} bar";
-    expect(evaluateTemplate(templateWithEmptyParam, mockOptions)).toEqual(templateWithEmptyParam);
-  });
-
   it("should not escape template without braces", () => {
     const templateWithoutBraces = "foo bar baz";
     expect(evaluateTemplate(templateWithoutBraces, mockOptions)).toEqual(templateWithoutBraces);
