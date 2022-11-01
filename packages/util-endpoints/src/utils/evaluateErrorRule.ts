@@ -14,6 +14,6 @@ export const evaluateErrorRule = (errorRule: ErrorRuleObject, options: EvaluateO
     evaluateExpression(error, "Error", {
       ...options,
       referenceRecord: { ...options.referenceRecord, ...referenceRecord },
-    })
+    }) as string
   );
 };
