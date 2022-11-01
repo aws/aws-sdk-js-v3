@@ -377,7 +377,8 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             .getTrait(ServiceTrait.class)
             .map(ServiceTrait::getSdkId)
             .orElse("");
-        if (serviceId.equals("S3")) {
+
+if (serviceId.equals("S3")) {
             setContextParamDeduplicationParamControlSet(Collections.singleton("Bucket"));
         } else {
             setContextParamDeduplicationParamControlSet(Collections.emptySet());
