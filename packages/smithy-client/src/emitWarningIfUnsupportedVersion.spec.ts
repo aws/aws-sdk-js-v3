@@ -1,4 +1,4 @@
-describe("emitWarningIfUnsupportedVersion", () => {
+describe.skip("emitWarningIfUnsupportedVersion", () => {
   let emitWarningIfUnsupportedVersion;
   const emitWarning = process.emitWarning;
   const supportedVersion = "14.0.0";
