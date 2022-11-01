@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.201.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.200.0...v3.201.0) (2022-11-01)
+
+
+### Bug Fixes
+
+* **client-s3-control:** restrict Bucket param dedupe to S3 only ([#4132](https://github.com/aws/aws-sdk-js-v3/issues/4132)) ([80634b7](https://github.com/aws/aws-sdk-js-v3/commit/80634b76e7d7879fd11b339e882cdbf6c15d60df))
+* **scripts:** skip clients while linting in CI ([#4129](https://github.com/aws/aws-sdk-js-v3/issues/4129)) ([ffec8bd](https://github.com/aws/aws-sdk-js-v3/commit/ffec8bd9e7d1ef98e7b229cd5ec62a2171b0c395))
+
+
+### Features
+
+* **client-rds:** Relational Database Service - This release adds support for configuring Storage Throughput on RDS database instances. ([e06e4e2](https://github.com/aws/aws-sdk-js-v3/commit/e06e4e23fa56828d0faa146c3f6a03317f1a10c0))
+* **client-textract:** Add ocr results in AnalyzeIDResponse as blocks ([0b08176](https://github.com/aws/aws-sdk-js-v3/commit/0b0817642a2279f34fbc3615ac520f193f64ba5f))
+* **clients:** update client endpoints as of 2022-11-01 ([323e3c5](https://github.com/aws/aws-sdk-js-v3/commit/323e3c5818121c2d7fc1f3bed7fc9c9154540133))
+* end support for Node.js 12.x ([#4123](https://github.com/aws/aws-sdk-js-v3/issues/4123)) ([83f913e](https://github.com/aws/aws-sdk-js-v3/commit/83f913ec2ac3878d8726c6964f585550dc5caf3e))
+
+
+
+
+
 # [3.200.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.199.0...v3.200.0) (2022-10-31)
 
 
