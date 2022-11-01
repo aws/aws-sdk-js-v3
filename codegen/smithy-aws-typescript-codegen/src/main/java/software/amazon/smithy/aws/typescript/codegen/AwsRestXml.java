@@ -20,7 +20,6 @@ import static software.amazon.smithy.aws.typescript.codegen.propertyaccess.Prope
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
