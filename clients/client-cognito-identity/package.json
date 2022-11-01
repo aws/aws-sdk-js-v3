@@ -58,7 +58,7 @@
   "devDependencies": {
     "@aws-sdk/client-iam": "*",
     "@aws-sdk/service-client-documentation-generator": "*",
-    "@tsconfig/recommended": "1.0.1",
+    "@tsconfig/node14": "1.0.3",
     "@types/chai": "^4.2.11",
     "@types/mocha": "^8.0.4",
     "@types/node": "^12.7.5",
