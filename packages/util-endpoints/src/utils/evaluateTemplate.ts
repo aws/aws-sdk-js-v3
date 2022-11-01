@@ -2,43 +2,54 @@ import { getAttr } from "../lib";
 import { EvaluateOptions } from "../types";
 
 export const evaluateTemplate = (template: string, options: EvaluateOptions) => {
-  const evaluatedTemplateArr: Array<String> = [];
+  const evaluatedTemplateArr: string[] = [];
 
   const templateContext = {
     ...options.endpointParams,
     ...options.referenceRecord,
   } as Record<string, string>;
 
-  for (let i = 0; i < template.length; i++) {
-    const char = template[i];
-    const nextChar = template[i + 1];
+  let currentIndex = 0;
+  while (true) {
+    const openingBraceIndex = template.indexOf("{", currentIndex);
 
-    if (char === "{") {
-      if (nextChar === "{") {
-        // Escaped expression, skip next char
-        i++;
-        evaluatedTemplateArr.push(char);
-      } else {
-        const closingBraceIndex = template.indexOf("}", i);
-        const parameterName = template.substring(i + 1, closingBraceIndex);
-
-        if (parameterName.includes("#")) {
-          const [refName, attrName] = parameterName.split("#");
-          evaluatedTemplateArr.push(getAttr(templateContext[refName], attrName) as string);
-        } else {
-          evaluatedTemplateArr.push(templateContext[parameterName]);
-        }
-
-        i = closingBraceIndex;
-      }
-    } else if (char === "}") {
-      if (nextChar === "}") {
-        // Escaped expression, skip next char
-        i++;
-      }
-      evaluatedTemplateArr.push(char);
+    if (openingBraceIndex === -1) {
+      // No more opening braces, add the rest of the template and break
+      evaluatedTemplateArr.push(template.slice(currentIndex));
+      break;
     } else {
-      evaluatedTemplateArr.push(char);
+      evaluatedTemplateArr.push(template.slice(currentIndex, openingBraceIndex));
+      const closingBraceIndex = template.indexOf("}", openingBraceIndex);
+
+      if (closingBraceIndex === -1) {
+        // Invalid template, but pass as it is.
+        evaluatedTemplateArr.push(template.slice(openingBraceIndex));
+        break;
+      }
+
+      if (closingBraceIndex === openingBraceIndex + 1) {
+        // Empty parameter, pass as it is.
+        evaluatedTemplateArr.push(template.slice(openingBraceIndex, closingBraceIndex + 1));
+        currentIndex = closingBraceIndex + 1;
+        continue;
+      }
+
+      if (template[openingBraceIndex + 1] === "{" && template[closingBraceIndex + 1] === "}") {
+        // Escaped expression. Do not evaluate.
+        evaluatedTemplateArr.push(template.slice(openingBraceIndex + 1, closingBraceIndex));
+        currentIndex = closingBraceIndex + 2;
+      }
+
+      const parameterName = template.substring(openingBraceIndex + 1, closingBraceIndex);
+
+      if (parameterName.includes("#")) {
+        const [refName, attrName] = parameterName.split("#");
+        evaluatedTemplateArr.push(getAttr(templateContext[refName], attrName) as string);
+      } else {
+        evaluatedTemplateArr.push(templateContext[parameterName]);
+      }
+
+      currentIndex = closingBraceIndex + 1;
     }
   }
 
