@@ -1,38 +1,46 @@
 import { getAttr } from "../lib";
 import { EvaluateOptions } from "../types";
 
-const ATTR_SHORTHAND_REGEX = new RegExp("\\${([\\w]+)#([\\w]+)}", "g");
-
 export const evaluateTemplate = (template: string, options: EvaluateOptions) => {
-  const templateToEvaluate = template
-    // Replace `{value}` with `${value}`
-    .replace(new RegExp(`\{([^{}]+)\}`, "g"), "${$1}")
-    // Replace `{${value}}` with `{value}`
-    .replace(new RegExp(`\{\\$\{([^{}]+)\}\}`, "g"), "{$1}");
+  const evaluatedTemplateArr: Array<String> = [];
 
   const templateContext = {
     ...options.endpointParams,
     ...options.referenceRecord,
-  };
+  } as Record<string, string>;
 
-  const attrShortHandList = templateToEvaluate.match(ATTR_SHORTHAND_REGEX) || [];
+  for (let i = 0; i < template.length; i++) {
+    const char = template[i];
+    const nextChar = template[i + 1];
 
-  const attrShortHandMap = attrShortHandList.reduce((acc, attrShortHand) => {
-    const indexOfHash = attrShortHand.indexOf("#");
-    const refName = attrShortHand.substring(2, indexOfHash);
-    const attrName = attrShortHand.substring(indexOfHash + 1, attrShortHand.length - 1);
-    acc[attrShortHand] = getAttr(templateContext[refName] as Record<string, any>, attrName) as string;
-    return acc;
-  }, {} as Record<string, string>);
+    if (char === "{") {
+      if (nextChar === "{") {
+        // Escaped expression, skip next char
+        i++;
+        evaluatedTemplateArr.push(char);
+      } else {
+        const closingBraceIndex = template.indexOf("}", i);
+        const parameterName = template.substring(i + 1, closingBraceIndex);
 
-  const templateWithAttr = Object.entries(attrShortHandMap).reduce(
-    (acc, [shortHand, value]) => acc.replace(shortHand, value),
-    templateToEvaluate
-  );
+        if (parameterName.includes("#")) {
+          const [refName, attrName] = parameterName.split("#");
+          evaluatedTemplateArr.push(getAttr(templateContext[refName], attrName) as string);
+        } else {
+          evaluatedTemplateArr.push(templateContext[parameterName]);
+        }
 
-  const templateContextNames = Object.keys(templateContext);
-  const templateContextValues = Object.values(templateContext);
-  const templateWithTildeEscaped = templateWithAttr.replace(/\`/g, "\\`");
+        i = closingBraceIndex;
+      }
+    } else if (char === "}") {
+      if (nextChar === "}") {
+        // Escaped expression, skip next char
+        i++;
+      }
+      evaluatedTemplateArr.push(char);
+    } else {
+      evaluatedTemplateArr.push(char);
+    }
+  }
 
-  return new Function(...templateContextNames, `return \`${templateWithTildeEscaped}\``)(...templateContextValues);
+  return evaluatedTemplateArr.join("");
 };
