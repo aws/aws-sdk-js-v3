@@ -31342,6 +31342,9 @@ const serializeAws_ec2AcceptAddressTransferRequest = (
   }
   if (input.TagSpecifications != null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37431,6 +37434,9 @@ const serializeAws_ec2DescribeAddressTransfersRequest = (
   const entries: any = {};
   if (input.AllocationIds != null) {
     const memberEntries = serializeAws_ec2AllocationIdList(input.AllocationIds, context);
+    if (input.AllocationIds?.length === 0) {
+      entries.AllocationId = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AllocationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;

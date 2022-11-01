@@ -5618,6 +5618,9 @@ const serializeAws_queryListStackSetOperationResultsInput = (
   }
   if (input.Filters != null) {
     const memberEntries = serializeAws_queryOperationResultFilters(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
