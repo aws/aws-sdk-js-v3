@@ -1,4 +1,4 @@
-import { fromBase64 } from "@aws-sdk/util-base64-node";
+import { fromBase64 } from "@aws-sdk/util-base64";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 
 import { Md5 } from "./";
