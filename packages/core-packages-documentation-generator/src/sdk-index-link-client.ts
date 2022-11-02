@@ -71,7 +71,7 @@ export class SdkIndexLinkClientPlugin {
       const clientsCategory = group.categories.find((value) => value.title === "Clients");
       for (const child of clientsCategory.children || []) {
         // "clients/service" => "service"
-        const clientName = child.sources[0].fileName.split(sep)[1];
+        const clientName = child.sources?.[0].fileName.split(sep)[1];
         const clientDocDir = clientDocsPattern.replace(/{{CLIENT}}/g, clientName);
         child.url = join(clientDocDir, "index.html");
       }
@@ -119,6 +119,6 @@ export class SdkIndexLinkClientPlugin {
   }
 
   private isLib(item: DeclarationReflection): boolean {
-    return item?.sources[0].fileName.startsWith(`lib${sep}`);
+    return item?.sources?.[0].fileName.startsWith(`lib${sep}`);
   }
 }
