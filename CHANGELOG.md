@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.202.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.201.0...v3.202.0) (2022-11-02)
+
+
+### Bug Fixes
+
+* **codegen:** aws-query protocol, distinguish explicit empty list ([#4003](https://github.com/aws/aws-sdk-js-v3/issues/4003)) ([8e10769](https://github.com/aws/aws-sdk-js-v3/commit/8e10769b6146f93c0674686fa547290292714917))
+* **util-endpoints:** evaluateTemplate implementation without RegExp/Function ([#4136](https://github.com/aws/aws-sdk-js-v3/issues/4136)) ([5c8a6fb](https://github.com/aws/aws-sdk-js-v3/commit/5c8a6fbe34267337b14774b8e47e9d584a29ecd4))
+
+
+### Features
+
+* **client-iotsitewise:** This release adds the ListAssetModelProperties and ListAssetProperties APIs. You can list all properties that belong to a single asset model or asset using these two new APIs. ([4081f69](https://github.com/aws/aws-sdk-js-v3/commit/4081f696e0a3fc9dc9764aa6d2936601498197e9))
+* **client-s3-control:** S3 on Outposts launches support for Lifecycle configuration for Outposts buckets. With S3 Lifecycle configuration, you can mange objects so they are stored cost effectively. You can manage objects using size-based rules and specify how many noncurrent versions bucket will retain. ([556a2da](https://github.com/aws/aws-sdk-js-v3/commit/556a2da86d7be79e8a8993715c6eb9757b252966))
+* **client-sagemaker:** This release updates Framework model regex for ModelPackage to support new Framework version xgboost, sklearn. ([8f32160](https://github.com/aws/aws-sdk-js-v3/commit/8f3216044eea04ba2a8053943cb74c76d99dc0b0))
+* **client-ssm-incidents:** Adds support for tagging replication-set on creation. ([dc1464e](https://github.com/aws/aws-sdk-js-v3/commit/dc1464ec38e529322ce907a9b212cc71531f91fb))
+* **clients:** update client endpoints as of 2022-11-02 ([4a0c484](https://github.com/aws/aws-sdk-js-v3/commit/4a0c48459dd6a261e29fdd02e36b24fb357e7955))
+* **util-base64:** merge node and browser implementations ([#4137](https://github.com/aws/aws-sdk-js-v3/issues/4137)) ([d3ccee7](https://github.com/aws/aws-sdk-js-v3/commit/d3ccee7cbe3a0cda64af32aff5a1485e3941daf9))
+
+
+
+
+
 # [3.201.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.200.0...v3.201.0) (2022-11-01)
 
 
