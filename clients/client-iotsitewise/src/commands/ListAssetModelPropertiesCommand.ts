@@ -15,40 +15,41 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import {
-  BatchGetAssetPropertyValueRequest,
-  BatchGetAssetPropertyValueRequestFilterSensitiveLog,
-  BatchGetAssetPropertyValueResponse,
-  BatchGetAssetPropertyValueResponseFilterSensitiveLog,
+  ListAssetModelPropertiesRequest,
+  ListAssetModelPropertiesRequestFilterSensitiveLog,
+  ListAssetModelPropertiesResponse,
+  ListAssetModelPropertiesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchGetAssetPropertyValueCommand,
-  serializeAws_restJson1BatchGetAssetPropertyValueCommand,
+  deserializeAws_restJson1ListAssetModelPropertiesCommand,
+  serializeAws_restJson1ListAssetModelPropertiesCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface BatchGetAssetPropertyValueCommandInput extends BatchGetAssetPropertyValueRequest {}
-export interface BatchGetAssetPropertyValueCommandOutput extends BatchGetAssetPropertyValueResponse, __MetadataBearer {}
+export interface ListAssetModelPropertiesCommandInput extends ListAssetModelPropertiesRequest {}
+export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPropertiesResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the current value for one or more asset properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
- *         current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * <p>Retrieves a paginated list of properties associated with an asset model.
+ *       If you update properties associated with the model before you finish listing all the properties,
+ *         you need to start all over again.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, BatchGetAssetPropertyValueCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, BatchGetAssetPropertyValueCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ListAssetModelPropertiesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, ListAssetModelPropertiesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const command = new BatchGetAssetPropertyValueCommand(input);
+ * const command = new ListAssetModelPropertiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link BatchGetAssetPropertyValueCommandInput} for command's `input` shape.
- * @see {@link BatchGetAssetPropertyValueCommandOutput} for command's `response` shape.
+ * @see {@link ListAssetModelPropertiesCommandInput} for command's `input` shape.
+ * @see {@link ListAssetModelPropertiesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
-export class BatchGetAssetPropertyValueCommand extends $Command<
-  BatchGetAssetPropertyValueCommandInput,
-  BatchGetAssetPropertyValueCommandOutput,
+export class ListAssetModelPropertiesCommand extends $Command<
+  ListAssetModelPropertiesCommandInput,
+  ListAssetModelPropertiesCommandOutput,
   IoTSiteWiseClientResolvedConfig
 > {
   // Start section: command_properties
@@ -63,7 +64,7 @@ export class BatchGetAssetPropertyValueCommand extends $Command<
     };
   }
 
-  constructor(readonly input: BatchGetAssetPropertyValueCommandInput) {
+  constructor(readonly input: ListAssetModelPropertiesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -76,23 +77,23 @@ export class BatchGetAssetPropertyValueCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<BatchGetAssetPropertyValueCommandInput, BatchGetAssetPropertyValueCommandOutput> {
+  ): Handler<ListAssetModelPropertiesCommandInput, ListAssetModelPropertiesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchGetAssetPropertyValueCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListAssetModelPropertiesCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTSiteWiseClient";
-    const commandName = "BatchGetAssetPropertyValueCommand";
+    const commandName = "ListAssetModelPropertiesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetAssetPropertyValueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetAssetPropertyValueResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ListAssetModelPropertiesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAssetModelPropertiesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +103,12 @@ export class BatchGetAssetPropertyValueCommand extends $Command<
     );
   }
 
-  private serialize(input: BatchGetAssetPropertyValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetAssetPropertyValueCommand(input, context);
+  private serialize(input: ListAssetModelPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListAssetModelPropertiesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchGetAssetPropertyValueCommandOutput> {
-    return deserializeAws_restJson1BatchGetAssetPropertyValueCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetModelPropertiesCommandOutput> {
+    return deserializeAws_restJson1ListAssetModelPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

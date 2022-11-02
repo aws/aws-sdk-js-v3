@@ -133,7 +133,15 @@ import {
   GetInterpolatedAssetPropertyValuesCommandOutput,
 } from "../commands/GetInterpolatedAssetPropertyValuesCommand";
 import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "../commands/ListAccessPoliciesCommand";
+import {
+  ListAssetModelPropertiesCommandInput,
+  ListAssetModelPropertiesCommandOutput,
+} from "../commands/ListAssetModelPropertiesCommand";
 import { ListAssetModelsCommandInput, ListAssetModelsCommandOutput } from "../commands/ListAssetModelsCommand";
+import {
+  ListAssetPropertiesCommandInput,
+  ListAssetPropertiesCommandOutput,
+} from "../commands/ListAssetPropertiesCommand";
 import {
   ListAssetRelationshipsCommandInput,
   ListAssetRelationshipsCommandOutput,
@@ -197,9 +205,11 @@ import {
   AssetModelHierarchyDefinition,
   AssetModelProperty,
   AssetModelPropertyDefinition,
+  AssetModelPropertySummary,
   AssetModelStatus,
   AssetModelSummary,
   AssetProperty,
+  AssetPropertySummary,
   AssetPropertyValue,
   AssetRelationshipSummary,
   AssetStatus,
@@ -1190,6 +1200,9 @@ export const serializeAws_restJson1DescribeAssetCommand = async (
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "assetId", () => input.assetId!, "{assetId}", false);
+  const query: any = map({
+    excludeProperties: [() => input.excludeProperties !== void 0, () => input.excludeProperties!.toString()],
+  });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1205,6 +1218,7 @@ export const serializeAws_restJson1DescribeAssetCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1225,6 +1239,9 @@ export const serializeAws_restJson1DescribeAssetModelCommand = async (
     "{assetModelId}",
     false
   );
+  const query: any = map({
+    excludeProperties: [() => input.excludeProperties !== void 0, () => input.excludeProperties!.toString()],
+  });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1240,6 +1257,7 @@ export const serializeAws_restJson1DescribeAssetModelCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1845,6 +1863,47 @@ export const serializeAws_restJson1ListAccessPoliciesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListAssetModelPropertiesCommand = async (
+  input: ListAssetModelPropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/asset-models/{assetModelId}/properties";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "assetModelId",
+    () => input.assetModelId!,
+    "{assetModelId}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    filter: [, input.filter!],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListAssetModelsCommand = async (
   input: ListAssetModelsCommandInput,
   context: __SerdeContext
@@ -1855,6 +1914,40 @@ export const serializeAws_restJson1ListAssetModelsCommand = async (
   const query: any = map({
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAssetPropertiesCommand = async (
+  input: ListAssetPropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}/properties";
+  resolvedPath = __resolvedPath(resolvedPath, input, "assetId", () => input.assetId!, "{assetId}", false);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    filter: [, input.filter!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -5465,6 +5558,62 @@ const deserializeAws_restJson1ListAccessPoliciesCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListAssetModelPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetModelPropertiesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAssetModelPropertiesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.assetModelPropertySummaries != null) {
+    contents.assetModelPropertySummaries = deserializeAws_restJson1AssetModelPropertySummaries(
+      data.assetModelPropertySummaries,
+      context
+    );
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListAssetModelPropertiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetModelPropertiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListAssetModelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5501,6 +5650,62 @@ const deserializeAws_restJson1ListAssetModelsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iotsitewise#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListAssetPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetPropertiesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAssetPropertiesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.assetPropertySummaries != null) {
+    contents.assetPropertySummaries = deserializeAws_restJson1AssetPropertySummaries(
+      data.assetPropertySummaries,
+      context
+    );
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListAssetPropertiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetPropertiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotsitewise#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -7052,6 +7257,7 @@ const serializeAws_restJson1AssetModelCompositeModel = (
 ): any => {
   return {
     ...(input.description != null && { description: input.description }),
+    ...(input.id != null && { id: input.id }),
     ...(input.name != null && { name: input.name }),
     ...(input.properties != null && {
       properties: serializeAws_restJson1AssetModelProperties(input.properties, context),
@@ -7695,6 +7901,7 @@ const deserializeAws_restJson1Alarms = (output: any, context: __SerdeContext): A
 const deserializeAws_restJson1AssetCompositeModel = (output: any, context: __SerdeContext): AssetCompositeModel => {
   return {
     description: __expectString(output.description),
+    id: __expectString(output.id),
     name: __expectString(output.name),
     properties:
       output.properties != null ? deserializeAws_restJson1AssetProperties(output.properties, context) : undefined,
@@ -7766,6 +7973,7 @@ const deserializeAws_restJson1AssetModelCompositeModel = (
 ): AssetModelCompositeModel => {
   return {
     description: __expectString(output.description),
+    id: __expectString(output.id),
     name: __expectString(output.name),
     properties:
       output.properties != null ? deserializeAws_restJson1AssetModelProperties(output.properties, context) : undefined,
@@ -7831,6 +8039,36 @@ const deserializeAws_restJson1AssetModelProperty = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1AssetModelPropertySummaries = (
+  output: any,
+  context: __SerdeContext
+): AssetModelPropertySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetModelPropertySummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1AssetModelPropertySummary = (
+  output: any,
+  context: __SerdeContext
+): AssetModelPropertySummary => {
+  return {
+    assetModelCompositeModelId: __expectString(output.assetModelCompositeModelId),
+    dataType: __expectString(output.dataType),
+    dataTypeSpec: __expectString(output.dataTypeSpec),
+    id: __expectString(output.id),
+    name: __expectString(output.name),
+    type: output.type != null ? deserializeAws_restJson1PropertyType(output.type, context) : undefined,
+    unit: __expectString(output.unit),
+  } as any;
+};
+
 const deserializeAws_restJson1AssetModelStatus = (output: any, context: __SerdeContext): AssetModelStatus => {
   return {
     error: output.error != null ? deserializeAws_restJson1ErrorDetails(output.error, context) : undefined,
@@ -7887,6 +8125,34 @@ const deserializeAws_restJson1AssetProperty = (output: any, context: __SerdeCont
     dataTypeSpec: __expectString(output.dataTypeSpec),
     id: __expectString(output.id),
     name: __expectString(output.name),
+    notification:
+      output.notification != null
+        ? deserializeAws_restJson1PropertyNotification(output.notification, context)
+        : undefined,
+    unit: __expectString(output.unit),
+  } as any;
+};
+
+const deserializeAws_restJson1AssetPropertySummaries = (
+  output: any,
+  context: __SerdeContext
+): AssetPropertySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetPropertySummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1AssetPropertySummary = (output: any, context: __SerdeContext): AssetPropertySummary => {
+  return {
+    alias: __expectString(output.alias),
+    assetCompositeModelId: __expectString(output.assetCompositeModelId),
+    id: __expectString(output.id),
     notification:
       output.notification != null
         ? deserializeAws_restJson1PropertyNotification(output.notification, context)
@@ -8420,6 +8686,7 @@ const deserializeAws_restJson1CompositeModelProperty = (
   return {
     assetProperty:
       output.assetProperty != null ? deserializeAws_restJson1Property(output.assetProperty, context) : undefined,
+    id: __expectString(output.id),
     name: __expectString(output.name),
     type: __expectString(output.type),
   } as any;

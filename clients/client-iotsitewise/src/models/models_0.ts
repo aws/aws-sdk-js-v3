@@ -8,7 +8,7 @@ import { IoTSiteWiseServiceException as __BaseException } from "./IoTSiteWiseSer
  */
 export interface GroupIdentity {
   /**
-   * <p>The Amazon Web Services SSO ID of the group.</p>
+   * <p>The IAM Identity Center ID of the group.</p>
    */
   id: string | undefined;
 }
@@ -46,7 +46,7 @@ export interface IAMUserIdentity {
  */
 export interface UserIdentity {
   /**
-   * <p>The Amazon Web Services SSO ID of the user.</p>
+   * <p>The IAM Identity Center ID of the user.</p>
    */
   id: string | undefined;
 }
@@ -54,18 +54,18 @@ export interface UserIdentity {
 /**
  * <p>Contains an identity that can access an IoT SiteWise Monitor resource.</p>
  *          <note>
- *             <p>Currently, you can't use Amazon Web Services APIs to retrieve Amazon Web Services SSO identity IDs. You can find the
- *         Amazon Web Services SSO identity IDs in the URL of user and group pages in the <a href="https://console.aws.amazon.com/singlesignon">Amazon Web Services SSO console</a>.</p>
+ *             <p>Currently, you can't use Amazon Web Services APIs to retrieve IAM Identity Center identity IDs. You can find the
+ *         IAM Identity Center identity IDs in the URL of user and group pages in the <a href="https://console.aws.amazon.com/singlesignon">IAM Identity Center console</a>.</p>
  *          </note>
  */
 export interface Identity {
   /**
-   * <p>An Amazon Web Services SSO user identity.</p>
+   * <p>An IAM Identity Center user identity.</p>
    */
   user?: UserIdentity;
 
   /**
-   * <p>An Amazon Web Services SSO group identity.</p>
+   * <p>An IAM Identity Center group identity.</p>
    */
   group?: GroupIdentity;
 
@@ -131,7 +131,7 @@ export interface AccessPolicySummary {
   id: string | undefined;
 
   /**
-   * <p>The identity (an Amazon Web Services SSO user, an Amazon Web Services SSO group, or an IAM user).</p>
+   * <p>The identity (an IAM Identity Center user, an IAM Identity Center group, or an IAM user).</p>
    */
   identity: Identity | undefined;
 
@@ -346,6 +346,13 @@ export interface AssetCompositeModel {
    * <p>The asset properties that this composite model defines.</p>
    */
   properties: AssetProperty[] | undefined;
+
+  /**
+   * <p>
+   *       The ID of the asset composite model.
+   *     </p>
+   */
+  id?: string;
 }
 
 export enum AssetErrorCode {
@@ -791,6 +798,13 @@ export interface AssetModelCompositeModel {
    * <p>The asset property definitions for this composite model.</p>
    */
   properties?: AssetModelProperty[];
+
+  /**
+   * <p>
+   *       The ID of the asset model composite model.
+   *     </p>
+   */
+  id?: string;
 }
 
 /**
@@ -897,6 +911,50 @@ export interface AssetModelHierarchyDefinition {
    * <p>The ID of an asset model for this hierarchy.</p>
    */
   childAssetModelId: string | undefined;
+}
+
+/**
+ * <p>Contains a summary of a property associated with a model.</p>
+ */
+export interface AssetModelPropertySummary {
+  /**
+   * <p>The ID of the property.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The name of the property.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The data type of the property.</p>
+   */
+  dataType: PropertyDataType | string | undefined;
+
+  /**
+   * <p>The data type of the structure for this property. This parameter exists on properties that
+   *       have the <code>STRUCT</code> data type.</p>
+   */
+  dataTypeSpec?: string;
+
+  /**
+   * <p>The unit (such as <code>Newtons</code> or <code>RPM</code>) of the property.</p>
+   */
+  unit?: string;
+
+  /**
+   * <p>Contains a property type, which can be one of <code>attribute</code>,
+   *         <code>measurement</code>, <code>metric</code>, or <code>transform</code>.</p>
+   */
+  type: PropertyType | undefined;
+
+  /**
+   * <p>
+   *       The ID of the composite model that contains the asset model property.
+   *     </p>
+   */
+  assetModelCompositeModelId?: string;
 }
 
 export enum AssetModelState {
@@ -1010,6 +1068,44 @@ export interface AssetModelSummary {
    * <p>The current status of the asset model.</p>
    */
   status: AssetModelStatus | undefined;
+}
+
+/**
+ * <p>Contains a summary of a property associated with an asset.</p>
+ */
+export interface AssetPropertySummary {
+  /**
+   * <p>The ID of the property.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
+   *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
+   *         <i>IoT SiteWise User Guide</i>.</p>
+   */
+  alias?: string;
+
+  /**
+   * <p>
+   *       The unit of measure (such as Newtons or RPM) of the asset property.
+   *     </p>
+   */
+  unit?: string;
+
+  /**
+   * <p>Contains asset property value notification information. When the notification state is enabled, IoT SiteWise publishes property value
+   *       updates to a unique MQTT topic. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html">Interacting with other services</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   */
+  notification?: PropertyNotification;
+
+  /**
+   * <p>
+   *       The ID of the composite model that contains the asset property.
+   *     </p>
+   */
+  assetCompositeModelId?: string;
 }
 
 /**
@@ -1505,7 +1601,7 @@ export enum TimeOrdering {
 
 /**
  * <p>Contains information for an asset property aggregate entry that is associated with the
- *   <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
+ *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
  *          <ul>
  *             <li>
@@ -1576,8 +1672,8 @@ export interface BatchGetAssetPropertyAggregatesEntry {
 
 export interface BatchGetAssetPropertyAggregatesRequest {
   /**
-   * <p>The list of asset property aggregate entries for the batch get request.
-   *   You can specify up to 16 entries per request.</p>
+   * <p>The list of asset property aggregate entries for the batch get request. You can specify up
+   *       to 16 entries per request.</p>
    */
   entries: BatchGetAssetPropertyAggregatesEntry[] | undefined;
 
@@ -1587,14 +1683,15 @@ export interface BatchGetAssetPropertyAggregatesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.</p>
+   * <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs
+   *       first.</p>
    *          <ul>
    *             <li>
    *                <p>The size of the result set is less than 1 MB.</p>
    *             </li>
    *             <li>
-   *                <p>The number of data points in the result set is less than the value of <code>maxResults</code>.
-   *         The maximum value of <code>maxResults</code> is 4000.</p>
+   *                <p>The number of data points in the result set is less than the value of
+   *             <code>maxResults</code>. The maximum value of <code>maxResults</code> is 4000.</p>
    *             </li>
    *          </ul>
    */
@@ -1608,8 +1705,8 @@ export enum BatchGetAssetPropertyAggregatesErrorCode {
 }
 
 /**
- * <p>Contains error information for an asset property aggregate entry that is associated with the
- *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
+ * <p>Contains error information for an asset property aggregate entry that is associated with
+ *       the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
  */
 export interface BatchGetAssetPropertyAggregatesErrorEntry {
   /**
@@ -1634,8 +1731,8 @@ export enum BatchEntryCompletionStatus {
 }
 
 /**
- * <p>Contains the error code and the timestamp for an asset property aggregate entry that is associated with the
- *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
+ * <p>Contains the error code and the timestamp for an asset property aggregate entry that is
+ *       associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
  */
 export interface BatchGetAssetPropertyAggregatesErrorInfo {
   /**
@@ -1650,8 +1747,7 @@ export interface BatchGetAssetPropertyAggregatesErrorInfo {
 }
 
 /**
- * <p>Contains information for an entry that has been processed by the previous
- *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> request.</p>
+ * <p>Contains information for an entry that has been processed by the previous <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> request.</p>
  */
 export interface BatchGetAssetPropertyAggregatesSkippedEntry {
   /**
@@ -1660,8 +1756,7 @@ export interface BatchGetAssetPropertyAggregatesSkippedEntry {
   entryId: string | undefined;
 
   /**
-   * <p>The completion status of each entry that is associated with the
-   *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
+   * <p>The completion status of each entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
    */
   completionStatus: BatchEntryCompletionStatus | string | undefined;
 
@@ -1672,8 +1767,7 @@ export interface BatchGetAssetPropertyAggregatesSkippedEntry {
 }
 
 /**
- * <p>Contains success information for an entry that is associated with the
- *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
+ * <p>Contains success information for an entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
  */
 export interface BatchGetAssetPropertyAggregatesSuccessEntry {
   /**
@@ -1682,7 +1776,8 @@ export interface BatchGetAssetPropertyAggregatesSuccessEntry {
   entryId: string | undefined;
 
   /**
-   * <p>The requested aggregated asset property values (for example, average, minimum, and maximum).</p>
+   * <p>The requested aggregated asset property values (for example, average, minimum, and
+   *       maximum).</p>
    */
   aggregatedValues: AggregatedValue[] | undefined;
 }
@@ -1733,8 +1828,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>Contains information for an asset property value entry that is associated with the
- *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> API.</p>
+ * <p>Contains information for an asset property value entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> API.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
  *          <ul>
  *             <li>
@@ -1773,8 +1867,8 @@ export interface BatchGetAssetPropertyValueEntry {
 
 export interface BatchGetAssetPropertyValueRequest {
   /**
-   * <p>The list of asset property value entries for the batch get request.
-   *     You can specify up to 16 entries per request.</p>
+   * <p>The list of asset property value entries for the batch get request. You can specify up to
+   *       16 entries per request.</p>
    */
   entries: BatchGetAssetPropertyValueEntry[] | undefined;
 
@@ -1792,7 +1886,7 @@ export enum BatchGetAssetPropertyValueErrorCode {
 
 /**
  * <p>Contains error information for an asset property value entry that is associated with the
- *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> API.</p>
+ *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> API.</p>
  */
 export interface BatchGetAssetPropertyValueErrorEntry {
   /**
@@ -1827,8 +1921,7 @@ export interface BatchGetAssetPropertyValueErrorInfo {
 }
 
 /**
- * <p>Contains information for an entry that has been processed by the previous
- *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> request.</p>
+ * <p>Contains information for an entry that has been processed by the previous <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> request.</p>
  */
 export interface BatchGetAssetPropertyValueSkippedEntry {
   /**
@@ -1837,8 +1930,7 @@ export interface BatchGetAssetPropertyValueSkippedEntry {
   entryId: string | undefined;
 
   /**
-   * <p>The completion status of each entry that is associated with the
-   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> request.</p>
+   * <p>The completion status of each entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> request.</p>
    */
   completionStatus: BatchEntryCompletionStatus | string | undefined;
 
@@ -1849,8 +1941,7 @@ export interface BatchGetAssetPropertyValueSkippedEntry {
 }
 
 /**
- * <p>Contains success information for an entry that is associated with the
- *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> API.</p>
+ * <p>Contains success information for an entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> API.</p>
  */
 export interface BatchGetAssetPropertyValueSuccessEntry {
   /**
@@ -1891,8 +1982,8 @@ export interface BatchGetAssetPropertyValueResponse {
 }
 
 /**
- * <p>Contains information for an asset property historical value entry that is associated with the
- *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValueHistory</a> API.</p>
+ * <p>Contains information for an asset property historical value entry that is associated with
+ *       the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValueHistory</a> API.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
  *          <ul>
  *             <li>
@@ -1953,8 +2044,8 @@ export interface BatchGetAssetPropertyValueHistoryEntry {
 
 export interface BatchGetAssetPropertyValueHistoryRequest {
   /**
-   * <p>The list of asset property historical value entries for the batch get request.
-   *     You can specify up to 16 entries per request.</p>
+   * <p>The list of asset property historical value entries for the batch get request. You can
+   *       specify up to 16 entries per request.</p>
    */
   entries: BatchGetAssetPropertyValueHistoryEntry[] | undefined;
 
@@ -1964,14 +2055,15 @@ export interface BatchGetAssetPropertyValueHistoryRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.</p>
+   * <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs
+   *       first.</p>
    *          <ul>
    *             <li>
    *                <p>The size of the result set is less than 1 MB.</p>
    *             </li>
    *             <li>
-   *                <p>The number of data points in the result set is less than the value of <code>maxResults</code>.
-   *         The maximum value of <code>maxResults</code> is 4000.</p>
+   *                <p>The number of data points in the result set is less than the value of
+   *             <code>maxResults</code>. The maximum value of <code>maxResults</code> is 4000.</p>
    *             </li>
    *          </ul>
    */
@@ -2021,8 +2113,7 @@ export interface BatchGetAssetPropertyValueHistoryErrorInfo {
 }
 
 /**
- * <p>Contains information for an entry that has been processed by the previous
- *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValueHistory</a> request.</p>
+ * <p>Contains information for an entry that has been processed by the previous <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValueHistory</a> request.</p>
  */
 export interface BatchGetAssetPropertyValueHistorySkippedEntry {
   /**
@@ -2031,8 +2122,7 @@ export interface BatchGetAssetPropertyValueHistorySkippedEntry {
   entryId: string | undefined;
 
   /**
-   * <p>The completion status of each entry that is associated with the
-   *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValueHistory.html">BatchGetAssetPropertyValueHistory</a> API.</p>
+   * <p>The completion status of each entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValueHistory.html">BatchGetAssetPropertyValueHistory</a> API.</p>
    */
   completionStatus: BatchEntryCompletionStatus | string | undefined;
 
@@ -2043,8 +2133,7 @@ export interface BatchGetAssetPropertyValueHistorySkippedEntry {
 }
 
 /**
- * <p>Contains success information for an entry that is associated with the
- *     <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValueHistory</a> API.</p>
+ * <p>Contains success information for an entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValueHistory</a> API.</p>
  */
 export interface BatchGetAssetPropertyValueHistorySuccessEntry {
   /**
@@ -2187,7 +2276,7 @@ export interface BatchPutAssetPropertyValueResponse {
 
 export interface CreateAccessPolicyRequest {
   /**
-   * <p>The identity for this access policy. Choose an Amazon Web Services SSO user, an Amazon Web Services SSO group, or an IAM user.</p>
+   * <p>The identity for this access policy. Choose an IAM Identity Center user, an IAM Identity Center group, or an IAM user.</p>
    */
   accessPolicyIdentity: Identity | undefined;
 
@@ -2355,16 +2444,16 @@ export interface CreateAssetModelResponse {
  */
 export interface ErrorReportLocation {
   /**
-   * <p>The name of the Amazon S3 bucket to which errors associated with the bulk import job are sent.</p>
+   * <p>The name of the Amazon S3 bucket to which errors associated with the bulk import job are
+   *       sent.</p>
    */
   bucket: string | undefined;
 
   /**
-   * <p>Amazon S3 uses the prefix as a folder name to organize data in the bucket.
-   *   Each Amazon S3 object has a key that is its unique identifier in the bucket.
-   *   Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
-   *   For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing objects using prefixes</a>
-   *   in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   * <p>Amazon S3 uses the prefix as a folder name to organize data in the bucket. Each Amazon S3 object has
+   *       a key that is its unique identifier in the bucket. Each object in a bucket has exactly one
+   *       key. The prefix must end with a forward slash (/). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing objects
+   *         using prefixes</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
    */
   prefix: string | undefined;
 }
@@ -2379,13 +2468,14 @@ export interface File {
   bucket: string | undefined;
 
   /**
-   * <p>The key of the Amazon S3 object that contains your data. Each object has a key that is a
-   *     unique identifier. Each object has exactly one key.</p>
+   * <p>The key of the Amazon S3 object that contains your data. Each object has a key that is a unique
+   *       identifier. Each object has exactly one key.</p>
    */
   key: string | undefined;
 
   /**
-   * <p>The version ID to identify a specific version of the Amazon S3 object that contains your data.</p>
+   * <p>The version ID to identify a specific version of the Amazon S3 object that contains your
+   *       data.</p>
    */
   versionId?: string;
 }
@@ -2707,9 +2797,9 @@ export interface CreatePortalRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>SSO</code> – The portal uses Amazon Web Services Single Sign On to authenticate users and manage
-   *           user permissions. Before you can create a portal that uses Amazon Web Services SSO, you must enable Amazon Web Services SSO.
-   *           For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso">Enabling Amazon Web Services SSO</a> in the
+   *                   <code>SSO</code> – The portal uses IAM Identity Center (successor to Single Sign-On) to authenticate users and manage
+   *           user permissions. Before you can create a portal that uses IAM Identity Center, you must enable IAM Identity Center.
+   *           For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso">Enabling IAM Identity Center</a> in the
    *             <i>IoT SiteWise User Guide</i>. This option is only available in Amazon Web Services Regions other than
    *           the China Regions.</p>
    *             </li>
@@ -2803,7 +2893,7 @@ export interface CreatePortalResponse {
 
   /**
    * <p>The URL for the IoT SiteWise Monitor portal. You can use this URL to access portals that
-   *       use Amazon Web Services SSO for authentication. For portals that use IAM for authentication, you must use the
+   *       use IAM Identity Center for authentication. For portals that use IAM for authentication, you must use the
    *       IoT SiteWise console to get a URL that you can use to access the portal.</p>
    */
   portalStartUrl: string | undefined;
@@ -2815,7 +2905,7 @@ export interface CreatePortalResponse {
   portalStatus: PortalStatus | undefined;
 
   /**
-   * <p>The associated Amazon Web Services SSO application ID, if the portal uses Amazon Web Services SSO.</p>
+   * <p>The associated IAM Identity Center application ID, if the portal uses IAM Identity Center.</p>
    */
   ssoApplicationId: string | undefined;
 }
@@ -3017,7 +3107,7 @@ export interface DescribeAccessPolicyResponse {
   accessPolicyArn: string | undefined;
 
   /**
-   * <p>The identity (Amazon Web Services SSO user, Amazon Web Services SSO group, or IAM user) to which this access policy
+   * <p>The identity (IAM Identity Center user, IAM Identity Center group, or IAM user) to which this access policy
    *       applies.</p>
    */
   accessPolicyIdentity: Identity | undefined;
@@ -3050,6 +3140,13 @@ export interface DescribeAssetRequest {
    * <p>The ID of the asset.</p>
    */
   assetId: string | undefined;
+
+  /**
+   * <p>
+   *       Whether or not to exclude asset properties from the response.
+   *     </p>
+   */
+  excludeProperties?: boolean;
 }
 
 export interface DescribeAssetResponse {
@@ -3119,6 +3216,13 @@ export interface DescribeAssetModelRequest {
    * <p>The ID of the asset model.</p>
    */
   assetModelId: string | undefined;
+
+  /**
+   * <p>
+   *       Whether or not to exclude asset model properties from the response.
+   *     </p>
+   */
+  excludeProperties?: boolean;
 }
 
 export interface DescribeAssetModelResponse {
@@ -3254,6 +3358,13 @@ export interface CompositeModelProperty {
    * <p>Contains asset property information.</p>
    */
   assetProperty: Property | undefined;
+
+  /**
+   * <p>
+   *       The ID of the composite model that contains the property.
+   *     </p>
+   */
+  id?: string;
 }
 
 export interface DescribeAssetPropertyResponse {
@@ -3700,14 +3811,14 @@ export interface DescribePortalResponse {
   portalDescription?: string;
 
   /**
-   * <p>The Amazon Web Services SSO application generated client ID (used with Amazon Web Services SSO APIs). IoT SiteWise includes
-   *         <code>portalClientId</code> for only portals that use Amazon Web Services SSO to authenticate users.</p>
+   * <p>The IAM Identity Center application generated client ID (used with IAM Identity Center APIs). IoT SiteWise includes
+   *         <code>portalClientId</code> for only portals that use IAM Identity Center to authenticate users.</p>
    */
   portalClientId: string | undefined;
 
   /**
    * <p>The URL for the IoT SiteWise Monitor portal. You can use this URL to access portals that
-   *       use Amazon Web Services SSO for authentication. For portals that use IAM for authentication, you must use the
+   *       use IAM Identity Center for authentication. For portals that use IAM for authentication, you must use the
    *       IoT SiteWise console to get a URL that you can use to access the portal.</p>
    */
   portalStartUrl: string | undefined;
@@ -4371,7 +4482,7 @@ export enum ResourceType {
 
 export interface ListAccessPoliciesRequest {
   /**
-   * <p>The type of identity (Amazon Web Services SSO user, Amazon Web Services SSO group, or IAM user). This parameter is required
+   * <p>The type of identity (IAM Identity Center user, IAM Identity Center group, or IAM user). This parameter is required
    *       if you specify <code>identityId</code>.</p>
    */
   identityType?: IdentityType | string;
@@ -4425,6 +4536,60 @@ export interface ListAccessPoliciesResponse {
   nextToken?: string;
 }
 
+export enum ListAssetModelPropertiesFilter {
+  ALL = "ALL",
+  BASE = "BASE",
+}
+
+export interface ListAssetModelPropertiesRequest {
+  /**
+   * <p>The ID of the asset model.</p>
+   */
+  assetModelId: string | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request. If not specified, the default value is 50.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p> Filters the requested list of asset model properties. You can choose one of the following
+   *       options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code> – The list includes all asset model properties for a given asset
+   *           model ID. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BASE</code> – The list includes only base asset model properties for a given
+   *           asset model ID. </p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>BASE</code>
+   *          </p>
+   */
+  filter?: ListAssetModelPropertiesFilter | string;
+}
+
+export interface ListAssetModelPropertiesResponse {
+  /**
+   * <p>A list that summarizes the properties associated with the specified asset model.</p>
+   */
+  assetModelPropertySummaries: AssetModelPropertySummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
 export interface ListAssetModelsRequest {
   /**
    * <p>The token to be used for the next set of paginated results.</p>
@@ -4443,6 +4608,60 @@ export interface ListAssetModelsResponse {
    * <p>A list that summarizes each asset model.</p>
    */
   assetModelSummaries: AssetModelSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export enum ListAssetPropertiesFilter {
+  ALL = "ALL",
+  BASE = "BASE",
+}
+
+export interface ListAssetPropertiesRequest {
+  /**
+   * <p>The ID of the asset.</p>
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request. If not specified, the default value is 50.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p> Filters the requested list of asset properties. You can choose one of the following
+   *       options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code> – The list includes all asset properties for a given asset
+   *           model ID. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BASE</code> – The list includes only base asset properties for a given
+   *           asset model ID. </p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>BASE</code>
+   *          </p>
+   */
+  filter?: ListAssetPropertiesFilter | string;
+}
+
+export interface ListAssetPropertiesResponse {
+  /**
+   * <p>A list that summarizes the properties associated with the specified asset.</p>
+   */
+  assetPropertySummaries: AssetPropertySummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
@@ -4859,7 +5078,7 @@ export interface PortalSummary {
 
   /**
    * <p>The URL for the IoT SiteWise Monitor portal. You can use this URL to access portals that
-   *       use Amazon Web Services SSO for authentication. For portals that use IAM for authentication, you must use the
+   *       use IAM Identity Center for authentication. For portals that use IAM for authentication, you must use the
    *       IoT SiteWise console to get a URL that you can use to access the portal.</p>
    */
   startUrl: string | undefined;
@@ -5345,7 +5564,7 @@ export interface UpdateAccessPolicyRequest {
   accessPolicyId: string | undefined;
 
   /**
-   * <p>The identity for this access policy. Choose an Amazon Web Services SSO user, an Amazon Web Services SSO group, or an IAM user.</p>
+   * <p>The identity for this access policy. Choose an IAM Identity Center user, an IAM Identity Center group, or an IAM user.</p>
    */
   accessPolicyIdentity: Identity | undefined;
 
@@ -5486,8 +5705,9 @@ export interface UpdateAssetPropertyRequest {
   clientToken?: string;
 
   /**
-   * <p>The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the
-   *       value of the <code>assetModelProperty</code> in the asset model.</p>
+   * <p>The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a
+   *       value for this parameter, the service uses the value of the <code>assetModelProperty</code> in
+   *       the asset model.</p>
    */
   propertyUnit?: string;
 }
@@ -5960,6 +6180,13 @@ export const AssetModelHierarchyDefinitionFilterSensitiveLog = (obj: AssetModelH
 /**
  * @internal
  */
+export const AssetModelPropertySummaryFilterSensitiveLog = (obj: AssetModelPropertySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DetailedErrorFilterSensitiveLog = (obj: DetailedError): any => ({
   ...obj,
 });
@@ -5982,6 +6209,13 @@ export const AssetModelStatusFilterSensitiveLog = (obj: AssetModelStatus): any =
  * @internal
  */
 export const AssetModelSummaryFilterSensitiveLog = (obj: AssetModelSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssetPropertySummaryFilterSensitiveLog = (obj: AssetPropertySummary): any => ({
   ...obj,
 });
 
@@ -6971,6 +7205,20 @@ export const ListAccessPoliciesResponseFilterSensitiveLog = (obj: ListAccessPoli
 /**
  * @internal
  */
+export const ListAssetModelPropertiesRequestFilterSensitiveLog = (obj: ListAssetModelPropertiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssetModelPropertiesResponseFilterSensitiveLog = (obj: ListAssetModelPropertiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListAssetModelsRequestFilterSensitiveLog = (obj: ListAssetModelsRequest): any => ({
   ...obj,
 });
@@ -6979,6 +7227,20 @@ export const ListAssetModelsRequestFilterSensitiveLog = (obj: ListAssetModelsReq
  * @internal
  */
 export const ListAssetModelsResponseFilterSensitiveLog = (obj: ListAssetModelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssetPropertiesRequestFilterSensitiveLog = (obj: ListAssetPropertiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssetPropertiesResponseFilterSensitiveLog = (obj: ListAssetPropertiesResponse): any => ({
   ...obj,
 });
 

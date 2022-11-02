@@ -29,7 +29,7 @@ export interface CreateAccessPolicyCommandInput extends CreateAccessPolicyReques
 export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an access policy that grants the specified identity (Amazon Web Services SSO user, Amazon Web Services SSO group, or
+ * <p>Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or
  *       IAM user) access to the specified IoT SiteWise Monitor portal or project resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

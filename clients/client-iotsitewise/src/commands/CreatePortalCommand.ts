@@ -29,7 +29,7 @@ export interface CreatePortalCommandInput extends CreatePortalRequest {}
 export interface CreatePortalCommandOutput extends CreatePortalResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor uses Amazon Web Services SSO or IAM
+ * <p>Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor uses IAM Identity Center or IAM
  *       to authenticate portal users and manage user permissions.</p>
  *          <note>
  *             <p>Before you can sign in to a new portal, you must add at least one identity to that
