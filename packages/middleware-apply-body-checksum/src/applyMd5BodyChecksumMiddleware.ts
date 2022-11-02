@@ -10,6 +10,7 @@ import {
   MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
+import { toBase64 } from "@aws-sdk/util-base64";
 
 import { Md5BodyChecksumResolvedConfig } from "./md5Configuration";
 
@@ -30,11 +31,12 @@ export const applyMd5BodyChecksumMiddleware =
           digest = options.streamHasher(options.md5, body);
         }
 
+        const base64Encoder = options.base64Encoder ?? toBase64;
         request = {
           ...request,
           headers: {
             ...headers,
-            "content-md5": options.base64Encoder(await digest),
+            "content-md5": base64Encoder(await digest),
           },
         };
       }

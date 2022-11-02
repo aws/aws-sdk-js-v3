@@ -20,6 +20,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/util-base64": "*",
     "@aws-sdk/is-array-buffer": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/types": "*",
