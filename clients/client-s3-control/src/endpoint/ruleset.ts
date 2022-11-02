@@ -316,9 +316,9 @@ export const ruleSet: RuleSetObject = {
                                                               authSchemes: [
                                                                 {
                                                                   name: "sigv4",
-                                                                  signingRegion: "{Region}",
                                                                   disableDoubleEncoding: true,
                                                                   signingName: "s3-outposts",
+                                                                  signingRegion: "{Region}",
                                                                 },
                                                               ],
                                                             },
@@ -344,9 +344,9 @@ export const ruleSet: RuleSetObject = {
                                                               authSchemes: [
                                                                 {
                                                                   name: "sigv4",
-                                                                  signingRegion: "{Region}",
                                                                   disableDoubleEncoding: true,
                                                                   signingName: "s3-outposts",
+                                                                  signingRegion: "{Region}",
                                                                 },
                                                               ],
                                                             },
@@ -362,9 +362,9 @@ export const ruleSet: RuleSetObject = {
                                                               authSchemes: [
                                                                 {
                                                                   name: "sigv4",
-                                                                  signingRegion: "{Region}",
                                                                   disableDoubleEncoding: true,
                                                                   signingName: "s3-outposts",
+                                                                  signingRegion: "{Region}",
                                                                 },
                                                               ],
                                                             },
@@ -850,12 +850,12 @@ export const ruleSet: RuleSetObject = {
                                                                                                                                                     [
                                                                                                                                                       {
                                                                                                                                                         name: "sigv4",
-                                                                                                                                                        signingRegion:
-                                                                                                                                                          "{accessPointArn#region}",
                                                                                                                                                         disableDoubleEncoding:
                                                                                                                                                           true,
                                                                                                                                                         signingName:
                                                                                                                                                           "s3-outposts",
+                                                                                                                                                        signingRegion:
+                                                                                                                                                          "{accessPointArn#region}",
                                                                                                                                                       },
                                                                                                                                                     ],
                                                                                                                                                 },
@@ -904,12 +904,12 @@ export const ruleSet: RuleSetObject = {
                                                                                                                                                     [
                                                                                                                                                       {
                                                                                                                                                         name: "sigv4",
-                                                                                                                                                        signingRegion:
-                                                                                                                                                          "{accessPointArn#region}",
                                                                                                                                                         disableDoubleEncoding:
                                                                                                                                                           true,
                                                                                                                                                         signingName:
                                                                                                                                                           "s3-outposts",
+                                                                                                                                                        signingRegion:
+                                                                                                                                                          "{accessPointArn#region}",
                                                                                                                                                       },
                                                                                                                                                     ],
                                                                                                                                                 },
@@ -939,12 +939,12 @@ export const ruleSet: RuleSetObject = {
                                                                                                                                                     [
                                                                                                                                                       {
                                                                                                                                                         name: "sigv4",
-                                                                                                                                                        signingRegion:
-                                                                                                                                                          "{accessPointArn#region}",
                                                                                                                                                         disableDoubleEncoding:
                                                                                                                                                           true,
                                                                                                                                                         signingName:
                                                                                                                                                           "s3-outposts",
+                                                                                                                                                        signingRegion:
+                                                                                                                                                          "{accessPointArn#region}",
                                                                                                                                                       },
                                                                                                                                                     ],
                                                                                                                                                 },
@@ -1538,12 +1538,12 @@ export const ruleSet: RuleSetObject = {
                                                                                                                                                     [
                                                                                                                                                       {
                                                                                                                                                         name: "sigv4",
-                                                                                                                                                        signingRegion:
-                                                                                                                                                          "{bucketArn#region}",
                                                                                                                                                         disableDoubleEncoding:
                                                                                                                                                           true,
                                                                                                                                                         signingName:
                                                                                                                                                           "s3-outposts",
+                                                                                                                                                        signingRegion:
+                                                                                                                                                          "{bucketArn#region}",
                                                                                                                                                       },
                                                                                                                                                     ],
                                                                                                                                                 },
@@ -1592,12 +1592,12 @@ export const ruleSet: RuleSetObject = {
                                                                                                                                                     [
                                                                                                                                                       {
                                                                                                                                                         name: "sigv4",
-                                                                                                                                                        signingRegion:
-                                                                                                                                                          "{bucketArn#region}",
                                                                                                                                                         disableDoubleEncoding:
                                                                                                                                                           true,
                                                                                                                                                         signingName:
                                                                                                                                                           "s3-outposts",
+                                                                                                                                                        signingRegion:
+                                                                                                                                                          "{bucketArn#region}",
                                                                                                                                                       },
                                                                                                                                                     ],
                                                                                                                                                 },
@@ -1627,12 +1627,12 @@ export const ruleSet: RuleSetObject = {
                                                                                                                                                     [
                                                                                                                                                       {
                                                                                                                                                         name: "sigv4",
-                                                                                                                                                        signingRegion:
-                                                                                                                                                          "{bucketArn#region}",
                                                                                                                                                         disableDoubleEncoding:
                                                                                                                                                           true,
                                                                                                                                                         signingName:
                                                                                                                                                           "s3-outposts",
+                                                                                                                                                        signingRegion:
+                                                                                                                                                          "{bucketArn#region}",
                                                                                                                                                       },
                                                                                                                                                     ],
                                                                                                                                                 },
@@ -2000,9 +2000,9 @@ export const ruleSet: RuleSetObject = {
                                                               authSchemes: [
                                                                 {
                                                                   name: "sigv4",
-                                                                  signingRegion: "{Region}",
                                                                   disableDoubleEncoding: true,
                                                                   signingName: "s3",
+                                                                  signingRegion: "{Region}",
                                                                 },
                                                               ],
                                                             },
@@ -2018,9 +2018,9 @@ export const ruleSet: RuleSetObject = {
                                                               authSchemes: [
                                                                 {
                                                                   name: "sigv4",
-                                                                  signingRegion: "{Region}",
                                                                   disableDoubleEncoding: true,
                                                                   signingName: "s3",
+                                                                  signingRegion: "{Region}",
                                                                 },
                                                               ],
                                                             },
@@ -2088,9 +2088,9 @@ export const ruleSet: RuleSetObject = {
                                                           authSchemes: [
                                                             {
                                                               name: "sigv4",
-                                                              signingRegion: "{Region}",
                                                               disableDoubleEncoding: true,
                                                               signingName: "s3",
+                                                              signingRegion: "{Region}",
                                                             },
                                                           ],
                                                         },
@@ -2125,9 +2125,9 @@ export const ruleSet: RuleSetObject = {
                                                           authSchemes: [
                                                             {
                                                               name: "sigv4",
-                                                              signingRegion: "{Region}",
                                                               disableDoubleEncoding: true,
                                                               signingName: "s3",
+                                                              signingRegion: "{Region}",
                                                             },
                                                           ],
                                                         },
@@ -2187,9 +2187,9 @@ export const ruleSet: RuleSetObject = {
                                                           authSchemes: [
                                                             {
                                                               name: "sigv4",
-                                                              signingRegion: "{Region}",
                                                               disableDoubleEncoding: true,
                                                               signingName: "s3",
+                                                              signingRegion: "{Region}",
                                                             },
                                                           ],
                                                         },
@@ -2224,9 +2224,9 @@ export const ruleSet: RuleSetObject = {
                                                           authSchemes: [
                                                             {
                                                               name: "sigv4",
-                                                              signingRegion: "{Region}",
                                                               disableDoubleEncoding: true,
                                                               signingName: "s3",
+                                                              signingRegion: "{Region}",
                                                             },
                                                           ],
                                                         },
@@ -2286,9 +2286,9 @@ export const ruleSet: RuleSetObject = {
                                                           authSchemes: [
                                                             {
                                                               name: "sigv4",
-                                                              signingRegion: "{Region}",
                                                               disableDoubleEncoding: true,
                                                               signingName: "s3",
+                                                              signingRegion: "{Region}",
                                                             },
                                                           ],
                                                         },
@@ -2323,9 +2323,9 @@ export const ruleSet: RuleSetObject = {
                                                           authSchemes: [
                                                             {
                                                               name: "sigv4",
-                                                              signingRegion: "{Region}",
                                                               disableDoubleEncoding: true,
                                                               signingName: "s3",
+                                                              signingRegion: "{Region}",
                                                             },
                                                           ],
                                                         },
@@ -2385,9 +2385,9 @@ export const ruleSet: RuleSetObject = {
                                                           authSchemes: [
                                                             {
                                                               name: "sigv4",
-                                                              signingRegion: "{Region}",
                                                               disableDoubleEncoding: true,
                                                               signingName: "s3",
+                                                              signingRegion: "{Region}",
                                                             },
                                                           ],
                                                         },
@@ -2422,9 +2422,9 @@ export const ruleSet: RuleSetObject = {
                                                           authSchemes: [
                                                             {
                                                               name: "sigv4",
-                                                              signingRegion: "{Region}",
                                                               disableDoubleEncoding: true,
                                                               signingName: "s3",
+                                                              signingRegion: "{Region}",
                                                             },
                                                           ],
                                                         },

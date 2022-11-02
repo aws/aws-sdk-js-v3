@@ -5551,6 +5551,18 @@ const serializeAws_restXmlLifecycleRuleAndOperator = (
     });
     bodyNode.addChildNode(containerNode);
   }
+  if (input.ObjectSizeGreaterThan != null) {
+    const node = __XmlNode
+      .of("ObjectSizeGreaterThanBytes", String(input.ObjectSizeGreaterThan))
+      .withName("ObjectSizeGreaterThan");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ObjectSizeLessThan != null) {
+    const node = __XmlNode
+      .of("ObjectSizeLessThanBytes", String(input.ObjectSizeLessThan))
+      .withName("ObjectSizeLessThan");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -5566,6 +5578,18 @@ const serializeAws_restXmlLifecycleRuleFilter = (input: LifecycleRuleFilter, con
   }
   if (input.And != null) {
     const node = serializeAws_restXmlLifecycleRuleAndOperator(input.And, context).withName("And");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ObjectSizeGreaterThan != null) {
+    const node = __XmlNode
+      .of("ObjectSizeGreaterThanBytes", String(input.ObjectSizeGreaterThan))
+      .withName("ObjectSizeGreaterThan");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ObjectSizeLessThan != null) {
+    const node = __XmlNode
+      .of("ObjectSizeLessThanBytes", String(input.ObjectSizeLessThan))
+      .withName("ObjectSizeLessThan");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -5587,6 +5611,12 @@ const serializeAws_restXmlNoncurrentVersionExpiration = (
   const bodyNode = new __XmlNode("NoncurrentVersionExpiration");
   if (input.NoncurrentDays != null) {
     const node = __XmlNode.of("Days", String(input.NoncurrentDays)).withName("NoncurrentDays");
+    bodyNode.addChildNode(node);
+  }
+  if (input.NewerNoncurrentVersions != null) {
+    const node = __XmlNode
+      .of("NoncurrentVersionCount", String(input.NewerNoncurrentVersions))
+      .withName("NewerNoncurrentVersions");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -7334,6 +7364,8 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
   const contents: any = {
     Prefix: undefined,
     Tags: undefined,
+    ObjectSizeGreaterThan: undefined,
+    ObjectSizeLessThan: undefined,
   };
   if (output["Prefix"] !== undefined) {
     contents.Prefix = __expectString(output["Prefix"]);
@@ -7343,6 +7375,12 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_restXmlS3TagSet(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
+  if (output["ObjectSizeGreaterThan"] !== undefined) {
+    contents.ObjectSizeGreaterThan = __strictParseLong(output["ObjectSizeGreaterThan"]) as number;
+  }
+  if (output["ObjectSizeLessThan"] !== undefined) {
+    contents.ObjectSizeLessThan = __strictParseLong(output["ObjectSizeLessThan"]) as number;
+  }
   return contents;
 };
 
@@ -7351,6 +7389,8 @@ const deserializeAws_restXmlLifecycleRuleFilter = (output: any, context: __Serde
     Prefix: undefined,
     Tag: undefined,
     And: undefined,
+    ObjectSizeGreaterThan: undefined,
+    ObjectSizeLessThan: undefined,
   };
   if (output["Prefix"] !== undefined) {
     contents.Prefix = __expectString(output["Prefix"]);
@@ -7360,6 +7400,12 @@ const deserializeAws_restXmlLifecycleRuleFilter = (output: any, context: __Serde
   }
   if (output["And"] !== undefined) {
     contents.And = deserializeAws_restXmlLifecycleRuleAndOperator(output["And"], context);
+  }
+  if (output["ObjectSizeGreaterThan"] !== undefined) {
+    contents.ObjectSizeGreaterThan = __strictParseLong(output["ObjectSizeGreaterThan"]) as number;
+  }
+  if (output["ObjectSizeLessThan"] !== undefined) {
+    contents.ObjectSizeLessThan = __strictParseLong(output["ObjectSizeLessThan"]) as number;
   }
   return contents;
 };
@@ -7521,9 +7567,13 @@ const deserializeAws_restXmlNoncurrentVersionExpiration = (
 ): NoncurrentVersionExpiration => {
   const contents: any = {
     NoncurrentDays: undefined,
+    NewerNoncurrentVersions: undefined,
   };
   if (output["NoncurrentDays"] !== undefined) {
     contents.NoncurrentDays = __strictParseInt32(output["NoncurrentDays"]) as number;
+  }
+  if (output["NewerNoncurrentVersions"] !== undefined) {
+    contents.NewerNoncurrentVersions = __strictParseInt32(output["NewerNoncurrentVersions"]) as number;
   }
   return contents;
 };

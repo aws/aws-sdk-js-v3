@@ -525,8 +525,8 @@ export namespace ObjectLambdaContentTransformation {
  */
 export interface ObjectLambdaTransformationConfiguration {
   /**
-   * <p>A container for the action of an Object Lambda Access Point configuration. Valid input is
-   *             <code>GetObject</code>.</p>
+   * <p>A container for the action of an Object Lambda Access Point configuration. Valid inputs are
+   *          <code>GetObject</code>, <code>ListObjects</code>, <code>HeadObject</code>, and <code>ListObjectsV2</code>.</p>
    */
   Actions: (ObjectLambdaTransformationConfigurationAction | string)[] | undefined;
 
@@ -551,8 +551,7 @@ export interface ObjectLambdaConfiguration {
   CloudWatchMetricsEnabled?: boolean;
 
   /**
-   * <p>A container for allowed features. Valid inputs are <code>GetObject-Range</code> and
-   *             <code>GetObject-PartNumber</code>.</p>
+   * <p>A container for allowed features. Valid inputs are <code>GetObject-Range</code>, <code>GetObject-PartNumber</code>, <code>HeadObject-Range</code>, and <code>HeadObject-PartNumber</code>.</p>
    */
   AllowedFeatures?: (ObjectLambdaAllowedFeature | string)[];
 
@@ -2509,6 +2508,16 @@ export interface LifecycleRuleAndOperator {
    *          apply.</p>
    */
   Tags?: S3Tag[];
+
+  /**
+   * <p>Minimum object size to which the rule applies.</p>
+   */
+  ObjectSizeGreaterThan?: number;
+
+  /**
+   * <p>Maximum object size to which the rule applies.</p>
+   */
+  ObjectSizeLessThan?: number;
 }
 
 /**
@@ -2534,6 +2543,16 @@ export interface LifecycleRuleFilter {
    * <p>The container for the <code>AND</code> condition for the lifecycle rule.</p>
    */
   And?: LifecycleRuleAndOperator;
+
+  /**
+   * <p>Minimum object size to which the rule applies.</p>
+   */
+  ObjectSizeGreaterThan?: number;
+
+  /**
+   * <p>Maximum object size to which the rule applies.</p>
+   */
+  ObjectSizeLessThan?: number;
 }
 
 /**
@@ -2547,6 +2566,14 @@ export interface NoncurrentVersionExpiration {
    *             <i>Amazon S3 User Guide</i>.</p>
    */
   NoncurrentDays?: number;
+
+  /**
+   * <p>Specifies how many noncurrent versions S3 on Outposts will retain. If there are this many more
+   *          recent noncurrent versions, S3 on Outposts will take the associated action. For more information
+   *          about noncurrent versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration
+   *             elements</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  NewerNoncurrentVersions?: number;
 }
 
 export enum TransitionStorageClass {
@@ -2653,9 +2680,6 @@ export interface LifecycleRule {
 
   /**
    * <p>The noncurrent version expiration of the lifecycle rule.</p>
-   *          <note>
-   *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
-   *          </note>
    */
   NoncurrentVersionExpiration?: NoncurrentVersionExpiration;
 
