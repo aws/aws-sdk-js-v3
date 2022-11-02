@@ -1,35 +1,51 @@
 import { readFileSync } from "fs";
-import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
-import { RendererEvent } from "typedoc/dist/lib/output/events";
+import path from "path";
+import { BindOption, Context, Converter, Logger, Options, Reflection, Renderer, RendererEvent } from "typedoc";
 
-import { getCurrentClientDirectory } from "./utils";
+import { isClientModel } from "./utils";
 
 /**
  * Correct the package name in the navigator.
  */
-@Component({ name: "SdkClientRenameProject" })
-export class SdkClientRenameProjectPlugin extends RendererComponent {
+export class SdkClientRenameProjectPlugin {
   private projectName: string | undefined = undefined;
-  initialize() {
-    this.listenTo(this.owner, {
-      [RendererEvent.BEGIN]: this.onRenderedBegin,
-    });
+
+  @BindOption("defaultServiceSuffix")
+  readonly defaultServiceSuffix: string;
+
+  constructor(public readonly options: Options, public readonly logger: Logger, private readonly renderer: Renderer) {
+    this.renderer.application.converter.on(Converter.EVENT_CREATE_DECLARATION, this.onCreateDeclaration);
+    this.renderer.on(Renderer.EVENT_BEGIN, this.onRendererBegin);
   }
 
-  onRenderedBegin(event: RendererEvent) {
+  /**
+   * Triggered when the converter creates the declaration of a project.
+   *
+   * @param context  The context object describing the current state the converter is in.
+   */
+  private onCreateDeclaration = (_context: Context, reflection: Reflection) => {
+    const defaultCommentTag = reflection.comment?.getTag("@default") || reflection.comment?.getTag("@defaultValue");
+    if (isClientModel(reflection) && reflection.name === "serviceId" && defaultCommentTag) {
+      const defaultValue = defaultCommentTag.content[0]?.text?.replace(/"/g, "");
+      if (defaultValue && !this.projectName) {
+        this.projectName = `${defaultValue} Client - ${this.defaultServiceSuffix}`;
+      }
+    }
+  };
+
+  /**
+   * Triggered when the renderer is starting.
+   *
+   * @param event  The project the renderer is currently processing.
+   */
+  private onRendererBegin = (event: RendererEvent) => {
     if (!this.projectName) {
-      const clientDirectory = getCurrentClientDirectory(event);
-      const metadataDir = clientDirectory.files.filter((sourceFile) =>
-        sourceFile.fileName.endsWith("/package.json")
-      )?.[0]?.fullFileName;
-      const { name } = metadataDir || JSON.parse(readFileSync(metadataDir).toString());
-      const serviceIdReflection = clientDirectory.directories.src.files
-        ?.filter((sourceFile) => sourceFile.fileName.endsWith("/runtimeConfig.shared.ts"))?.[0]
-        .reflections.filter((reflection) => reflection.name === "serviceId")?.[0];
-      this.projectName = serviceIdReflection /* serviceIdReflection.defaultValue looks like '"S3"' */
-        ? `${(serviceIdReflection as any).defaultValue.match(/"(.*)"/)[1]} Client - AWS SDK for JavaScript v3`
-        : name;
+      const children = Object.values(event.project.reflections).filter(isClientModel);
+      const clientDirectory = path.dirname(path.dirname(children[0].sources[0].fullFileName));
+      const metadataPath = path.join(clientDirectory, "package.json");
+      const { name } = JSON.parse(readFileSync(metadataPath).toString());
+      this.projectName = name;
     }
     event.project.name = this.projectName;
-  }
+  };
 }
