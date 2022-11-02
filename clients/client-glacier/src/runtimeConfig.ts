@@ -19,7 +19,6 @@ import {
 } from "@aws-sdk/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/node-http-handler";
-import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { sdkStreamMixin } from "@aws-sdk/util-stream-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
@@ -43,8 +42,6 @@ export const getRuntimeConfig = (config: GlacierClientConfig) => {
     ...config,
     runtime: "node",
     defaultsMode,
-    base64Decoder: config?.base64Decoder ?? fromBase64,
-    base64Encoder: config?.base64Encoder ?? toBase64,
     bodyChecksumGenerator: config?.bodyChecksumGenerator ?? bodyChecksumGenerator,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider:

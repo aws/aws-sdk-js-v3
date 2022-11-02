@@ -43,6 +43,7 @@
     "@aws-sdk/smithy-client": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/url-parser": "*",
+    "@aws-sdk/util-base64": "*",
     "@aws-sdk/util-base64-browser": "*",
     "@aws-sdk/util-base64-node": "*",
     "@aws-sdk/util-body-length-browser": "*",

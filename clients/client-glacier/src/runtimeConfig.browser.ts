@@ -8,7 +8,6 @@ import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@aws-
 import { FetchHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidProvider } from "@aws-sdk/invalid-dependency";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/middleware-retry";
-import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { sdkStreamMixin } from "@aws-sdk/util-stream-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
@@ -30,8 +29,6 @@ export const getRuntimeConfig = (config: GlacierClientConfig) => {
     ...config,
     runtime: "browser",
     defaultsMode,
-    base64Decoder: config?.base64Decoder ?? fromBase64,
-    base64Encoder: config?.base64Encoder ?? toBase64,
     bodyChecksumGenerator: config?.bodyChecksumGenerator ?? bodyChecksumGenerator,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider:

@@ -14,7 +14,6 @@ import {
 } from "@aws-sdk/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/node-http-handler";
-import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
@@ -37,8 +36,6 @@ export const getRuntimeConfig = (config: QueryProtocolClientConfig) => {
     ...config,
     runtime: "node",
     defaultsMode,
-    base64Decoder: config?.base64Decoder ?? fromBase64,
-    base64Encoder: config?.base64Encoder ?? toBase64,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
