@@ -46,6 +46,14 @@
   "files": [
     "dist-*"
   ],
+  "browser": {
+    "./dist-es/fromBase64": "./dist-es/fromBase64.browser",
+    "./dist-es/toBase64": "./dist-es/toBase64.browser"
+  },
+  "react-native": {
+    "./dist-es/fromBase64": "./dist-es/fromBase64.browser",
+    "./dist-es/toBase64": "./dist-es/toBase64.browser"
+  },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-base64",
   "repository": {
     "type": "git",
