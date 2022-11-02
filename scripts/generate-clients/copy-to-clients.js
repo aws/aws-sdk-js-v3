@@ -47,8 +47,8 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
           concurrently: "7.0.0",
           "downlevel-dts": "0.10.1",
           rimraf: "3.0.2",
-          typedoc: "0.19.2",
-          typescript: "~4.6.2",
+          typedoc: "0.23.11",
+          typescript: "4.7.3",
         };
         fromContent[name] = Object.keys(fromContent[name])
           .filter((dep) => Object.keys(devDepToVersionHash).includes(dep))
@@ -125,6 +125,9 @@ const copyToClients = async (sourceDir, destinationDir) => {
         const destManifest = existsSync(destSubPath) ? JSON.parse(readFileSync(destSubPath).toString()) : {};
         const mergedManifest = {
           ...mergeManifest(packageManifest, destManifest),
+          typedoc: {
+            entryPoint: "src/index.ts",
+          },
           homepage: `https://github.com/aws/aws-sdk-js-v3/tree/main/clients/${clientName}`,
           repository: {
             type: "git",
@@ -132,12 +135,16 @@ const copyToClients = async (sourceDir, destinationDir) => {
             directory: `clients/${clientName}`,
           },
         };
+        if ("private" in mergedManifest) {
+          delete mergedManifest.scripts["build:docs"];
+        }
         // no need for the default prepack script
         delete mergedManifest.scripts.prepack;
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
       } else if (packageSub === "typedoc.json") {
         const typedocJson = {
-          extends: "../../typedoc.client.json",
+          extends: ["../../typedoc.client.json"],
+          entryPoints: ["src/index.ts"],
         };
         writeFileSync(destSubPath, JSON.stringify(typedocJson, null, 2).concat(`\n`));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
