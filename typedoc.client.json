@@ -1,14 +1,14 @@
 {
-  "exclude": ["**/node_modules/**", "**/protocols/*.ts", "**/endpoints.ts"],
-  "excludeNotExported": true,
+  "entryPointStrategy": "resolve",
+  "exclude": ["**/node_modules/**", "**/protocols/*.ts", "**/endpoints.ts", "**/*.spec.ts"],
   "excludePrivate": true,
   "hideGenerator": true,
-  "ignoreCompilerErrors": true,
-  "includeDeclarations": true,
-  "stripInternal": true,
+  "skipErrorChecking": true,
+  "excludeInternal": true,
   "readme": "README.md",
-  "mode": "file",
-  "out": "docs",
-  "theme": "minimal",
-  "plugin": ["@aws-sdk/service-client-documentation-generator"]
+  "plugin": ["@aws-sdk/core-theme-documentation-generator", "@aws-sdk/service-client-documentation-generator"],
+  "defaultServiceSuffix": "AWS SDK for JavaScript v3",
+  "theme": "sdk",
+  "categorizeByGroup": true,
+  "categoryOrder": ["Clients", "Commands", "Paginators", "Waiters"]
 }

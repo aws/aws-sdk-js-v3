@@ -1,13 +1,15 @@
 {
   "clientDocs": "clients/{{CLIENT}}/docs",
-  "exclude": ["**/node_modules/**", "**/*.spec.ts"],
+  "exclude": ["**/node_modules/**", "**/*.spec.ts", "private/**"],
   "excludeExternals": true,
   "hideGenerator": true,
-  "ignoreCompilerErrors": true,
-  "mode": "modules",
+  "skipErrorChecking": true,
+  "entryPointStrategy": "packages",
   "name": "AWS SDK for JavaScript v3",
   "out": "docs",
-  "plugin": ["typedoc-plugin-lerna-packages", "@aws-sdk/core-packages-documentation-generator"],
+  "plugin": ["@aws-sdk/core-theme-documentation-generator", "@aws-sdk/core-packages-documentation-generator"],
   "readme": "README.md",
-  "theme": "minimal"
+  "theme": "sdk",
+  "categorizeByGroup": true,
+  "categoryOrder": ["Clients", "Libraries", "Packages"]
 }
