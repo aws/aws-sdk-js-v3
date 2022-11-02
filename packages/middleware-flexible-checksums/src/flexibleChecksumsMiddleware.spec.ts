@@ -193,17 +193,21 @@ describe(flexibleChecksumsMiddleware.name, () => {
     const mockRequestValidationModeMember = "mockRequestValidationModeMember";
     const mockInput = { [mockRequestValidationModeMember]: "ENABLED" };
     const mockResponseAlgorithms = ["ALGO1", "ALGO2"];
+    const mockBase64Encoder = jest.fn().mockReturnValue(mockChecksum);
 
-    const handler = flexibleChecksumsMiddleware(mockConfig, {
-      ...mockMiddlewareConfig,
-      input: mockInput,
-      requestValidationModeMember: mockRequestValidationModeMember,
-      responseAlgorithms: mockResponseAlgorithms,
-    })(mockNext, {});
+    const handler = flexibleChecksumsMiddleware(
+      { ...mockConfig, base64Encoder: mockBase64Encoder },
+      {
+        ...mockMiddlewareConfig,
+        input: mockInput,
+        requestValidationModeMember: mockRequestValidationModeMember,
+        responseAlgorithms: mockResponseAlgorithms,
+      }
+    )(mockNext, {});
 
     await handler(mockArgs);
     expect(validateChecksumFromResponse).toHaveBeenCalledWith(mockResult.response, {
-      config: mockConfig,
+      config: { ...mockConfig, base64Encoder: mockBase64Encoder },
       responseAlgorithms: mockResponseAlgorithms,
     });
   });

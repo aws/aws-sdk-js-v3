@@ -1,5 +1,5 @@
 import { HttpResponse } from "@aws-sdk/protocol-http";
-import { HashConstructor } from "@aws-sdk/types";
+import { Encoder, HashConstructor } from "@aws-sdk/types";
 
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
@@ -9,7 +9,7 @@ import { getChecksumLocationName } from "./getChecksumLocationName";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 
 export interface ValidateChecksumFromResponseOptions {
-  config: PreviouslyResolved;
+  config: PreviouslyResolved & { base64Encoder: Encoder };
 
   /**
    * Defines the checksum algorithms clients SHOULD look for when validating checksums

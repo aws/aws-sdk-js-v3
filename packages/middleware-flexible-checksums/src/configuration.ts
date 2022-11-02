@@ -11,7 +11,7 @@ export interface PreviouslyResolved {
    * The function that will be used to convert binary data to a base64-encoded string.
    * @internal
    */
-  base64Encoder: Encoder;
+  base64Encoder?: Encoder;
 
   /**
    * A function that can calculate the length of a body.

@@ -17,7 +17,7 @@ describe(validateChecksumFromResponse.name, () => {
   const mockConfig = {
     streamHasher: jest.fn(),
     base64Encoder: jest.fn(),
-  } as unknown as PreviouslyResolved;
+  } as any;
 
   const mockBody = {};
   const mockHeaders = {};

@@ -6,6 +6,7 @@ import {
   BuildMiddleware,
   MetadataBearer,
 } from "@aws-sdk/types";
+import { toBase64 } from "@aws-sdk/util-base64";
 
 import { PreviouslyResolved } from "./configuration";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
@@ -27,7 +28,8 @@ export const flexibleChecksumsMiddleware =
 
     const { request } = args;
     const { body: requestBody, headers } = request;
-    const { base64Encoder, streamHasher } = config;
+    const { streamHasher } = config;
+    const base64Encoder = config.base64Encoder ?? toBase64;
     const { input, requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
 
     const checksumAlgorithm = getChecksumAlgorithmForRequest(input, {
@@ -80,7 +82,7 @@ export const flexibleChecksumsMiddleware =
     // @ts-ignore Element implicitly has an 'any' type for input[requestValidationModeMember]
     if (requestValidationModeMember && input[requestValidationModeMember] === "ENABLED") {
       validateChecksumFromResponse(result.response as HttpResponse, {
-        config,
+        config: { ...config, base64Encoder },
         responseAlgorithms,
       });
     }
