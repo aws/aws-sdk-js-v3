@@ -127,6 +127,7 @@ const copyToClients = async (sourceDir, destinationDir) => {
           ...mergeManifest(packageManifest, destManifest),
           typedoc: {
             entryPoint: "src/index.ts",
+            readmeFile: "README.md",
           },
           homepage: `https://github.com/aws/aws-sdk-js-v3/tree/main/clients/${clientName}`,
           repository: {
@@ -145,6 +146,8 @@ const copyToClients = async (sourceDir, destinationDir) => {
         const typedocJson = {
           extends: ["../../typedoc.client.json"],
           entryPoints: ["src/index.ts"],
+          out: "docs",
+          readme: "README.md",
         };
         writeFileSync(destSubPath, JSON.stringify(typedocJson, null, 2).concat(`\n`));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {

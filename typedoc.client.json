@@ -5,7 +5,6 @@
   "hideGenerator": true,
   "skipErrorChecking": true,
   "excludeInternal": true,
-  "readme": "README.md",
   "plugin": ["@aws-sdk/core-theme-documentation-generator", "@aws-sdk/service-client-documentation-generator"],
   "defaultServiceSuffix": "AWS SDK for JavaScript v3",
   "theme": "sdk",
