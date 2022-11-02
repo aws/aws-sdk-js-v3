@@ -409,10 +409,15 @@ export interface CreateReplicationSetInput {
   regions: Record<string, RegionMapInputValue> | undefined;
 
   /**
-   * <p>A token ensuring that the operation is called only once with the specified
+   * <p>A token that ensures that the operation is called only once with the specified
    *             details.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>A list of tags to add to the replication set.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 export interface CreateReplicationSetOutput {
@@ -604,7 +609,9 @@ export interface IncidentTemplate {
   notificationTargets?: NotificationTargetItem[];
 
   /**
-   * <p>Tags to apply to an incident when calling the <code>StartIncident</code> API action.</p>
+   * <p>Tags to assign to the template. When the <code>StartIncident</code> API action is
+   *          called, Incident Manager assigns the tags specified in the template to the
+   *          incident.</p>
    */
   incidentTags?: Record<string, string>;
 }
@@ -638,8 +645,8 @@ export interface CreateResponsePlanInput {
   chatChannel?: ChatChannel;
 
   /**
-   * <p>The contacts and escalation plans that the response plan engages during an
-   *             incident.</p>
+   * <p>The Amazon Resource Name (ARN) for the contacts and escalation plans that the response
+   *             plan engages during an incident.</p>
    */
   engagements?: string[];
 
@@ -1106,12 +1113,13 @@ export interface GetReplicationSetOutput {
 
 export interface GetResourcePoliciesInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the response plan with the attached resource policy. </p>
+   * <p>The Amazon Resource Name (ARN) of the response plan with the attached resource policy.
+   *         </p>
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The maximum number of resource policies to display per page of results.</p>
+   * <p>The maximum number of resource policies to display for each page of results.</p>
    */
   maxResults?: number;
 
@@ -1189,8 +1197,8 @@ export interface GetResponsePlanOutput {
   chatChannel?: ChatChannel;
 
   /**
-   * <p>The contacts and escalation plans that the response plan engages during an
-   *             incident.</p>
+   * <p>The Amazon Resource Name (ARN) for the contacts and escalation plans that the response
+   *             plan engages during an incident.</p>
    */
   engagements?: string[];
 
@@ -1667,7 +1675,7 @@ export interface ListTimelineEventsOutput {
 
 export interface PutResourcePolicyInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the response plan you're adding the resource policy
+   * <p>The Amazon Resource Name (ARN) of the response plan to add the resource policy
    *             to.</p>
    */
   resourceArn: string | undefined;
@@ -1840,7 +1848,7 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of tags that you are adding to the response plan.</p>
+   * <p>A list of tags to add to the response plan.</p>
    */
   tags: Record<string, string> | undefined;
 }
@@ -1854,7 +1862,7 @@ export interface UntagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>The name of the tag you're removing from the response plan.</p>
+   * <p>The name of the tag to remove from the response plan.</p>
    */
   tagKeys: string[] | undefined;
 }
@@ -1863,17 +1871,17 @@ export interface UntagResourceResponse {}
 
 export interface UpdateDeletionProtectionInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the replication set you're updating.</p>
+   * <p>The Amazon Resource Name (ARN) of the replication set to update.</p>
    */
   arn: string | undefined;
 
   /**
-   * <p>Details if deletion protection is enabled or disabled in your account.</p>
+   * <p>Specifies if deletion protection is turned on or off in your account. </p>
    */
   deletionProtected: boolean | undefined;
 
   /**
-   * <p>A token ensuring that the operation is called only once with the specified
+   * <p>A token that ensures that the operation is called only once with the specified
    *             details.</p>
    */
   clientToken?: string;
@@ -2042,7 +2050,7 @@ export interface UpdateReplicationSetInput {
   actions: UpdateReplicationSetAction[] | undefined;
 
   /**
-   * <p>A token ensuring that the operation is called only once with the specified
+   * <p>A token that ensures that the operation is called only once with the specified
    *             details.</p>
    */
   clientToken?: string;
@@ -2130,8 +2138,8 @@ export interface UpdateResponsePlanInput {
   chatChannel?: ChatChannel;
 
   /**
-   * <p>The contacts and escalation plans that Incident Manager engages at the start of the
-   *             incident.</p>
+   * <p>The Amazon Resource Name (ARN) for the contacts and escalation plans that the response
+   *             plan engages during an incident.</p>
    */
   engagements?: string[];
 
@@ -2141,9 +2149,10 @@ export interface UpdateResponsePlanInput {
   actions?: Action[];
 
   /**
-   * <p>Tags to apply to an incident when calling the <code>StartIncident</code> API action.
-   *             To call this action, you must also have permission to call the <code>TagResource</code>
-   *             API action for the incident record resource.</p>
+   * <p>Tags to assign to the template. When the <code>StartIncident</code> API action is
+   *             called, Incident Manager assigns the tags specified in the template to the
+   *             incident. To call this action, you must also have permission to call the
+   *                 <code>TagResource</code> API action for the incident record resource.</p>
    */
   incidentTemplateTags?: Record<string, string>;
 }

@@ -146,6 +146,7 @@ export const serializeAws_restJson1CreateReplicationSetCommand = async (
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.regions != null && { regions: serializeAws_restJson1RegionMapInput(input.regions, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
