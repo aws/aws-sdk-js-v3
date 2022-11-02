@@ -1,16 +1,29 @@
 import {
   DefaultTheme,
   DefaultThemeRenderContext,
-  JSX, // eslint-disable-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  JSX,
   PageEvent,
   Reflection,
   ReflectionCategory,
+  ReflectionKind,
 } from "typedoc";
 
 class SdkThemeContext extends DefaultThemeRenderContext {
   override primaryNavigation = (props: PageEvent<Reflection>) => {
-    const defaultGroup = this.options.getValue("defaultGroup") as string;
-    const { categories } = props.model?.["groups"]?.find((value) => value.title === defaultGroup) ?? {};
+    const categories = [];
+    try {
+      const defaultGroup = this.options.getValue("defaultGroup") as string;
+      const group = props.model?.["groups"]?.find((value) => value.title === defaultGroup) ?? {};
+      categories.push(...(group.categories || []));
+    } catch (err) {
+      console.warn("No value was set for `defaultGroup` options");
+      if (props.model.isProject()) {
+        const category = new ReflectionCategory("Modules");
+        category.children.push(...props.model.getChildrenByKind(ReflectionKind.SomeModule));
+        categories.push(category);
+      }
+    }
     if (categories?.length) {
       const selected = props.model.isProject();
 
