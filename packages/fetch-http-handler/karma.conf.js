@@ -23,7 +23,7 @@ module.exports = function (config) {
     },
     karmaTypescriptConfig: {
       bundlerOptions: {
-        addNodeGlobals: false,
+        addNodeGlobals: true,
       },
     },
     singleRun: true,
