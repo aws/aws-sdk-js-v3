@@ -3312,6 +3312,7 @@ const serializeAws_json1_1CreateClusterRequest = (input: CreateClusterRequest, c
     ...(input.ACLName != null && { ACLName: input.ACLName }),
     ...(input.AutoMinorVersionUpgrade != null && { AutoMinorVersionUpgrade: input.AutoMinorVersionUpgrade }),
     ...(input.ClusterName != null && { ClusterName: input.ClusterName }),
+    ...(input.DataTiering != null && { DataTiering: input.DataTiering }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.EngineVersion != null && { EngineVersion: input.EngineVersion }),
     ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
@@ -3932,6 +3933,7 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
     AvailabilityMode: __expectString(output.AvailabilityMode),
     ClusterEndpoint:
       output.ClusterEndpoint != null ? deserializeAws_json1_1Endpoint(output.ClusterEndpoint, context) : undefined,
+    DataTiering: __expectString(output.DataTiering),
     Description: __expectString(output.Description),
     EnginePatchVersion: __expectString(output.EnginePatchVersion),
     EngineVersion: __expectString(output.EngineVersion),
@@ -4750,6 +4752,7 @@ const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): S
       output.ClusterConfiguration != null
         ? deserializeAws_json1_1ClusterConfiguration(output.ClusterConfiguration, context)
         : undefined,
+    DataTiering: __expectString(output.DataTiering),
     KmsKeyId: __expectString(output.KmsKeyId),
     Name: __expectString(output.Name),
     Source: __expectString(output.Source),

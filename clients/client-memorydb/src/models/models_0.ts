@@ -169,6 +169,11 @@ export interface Endpoint {
   Port?: number;
 }
 
+export enum DataTieringStatus {
+  FALSE = "false",
+  TRUE = "true",
+}
+
 /**
  * <p>Represents the progress of an online resharding operation.</p>
  */
@@ -438,6 +443,12 @@ export interface Cluster {
    * <p>When set to true, the cluster will automatically receive minor engine version upgrades after launch.</p>
    */
   AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * <p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type.
+   *             This parameter must be set when using r6gd nodes. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html">Data tiering</a>.</p>
+   */
+  DataTiering?: DataTieringStatus | string;
 }
 
 /**
@@ -709,6 +720,12 @@ export interface Snapshot {
    * <p>The configuration of the cluster from which the snapshot was taken</p>
    */
   ClusterConfiguration?: ClusterConfiguration;
+
+  /**
+   * <p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type.
+   *             This parameter must be set when using r6gd nodes. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html">Data tiering</a>.</p>
+   */
+  DataTiering?: DataTieringStatus | string;
 }
 
 export interface CopySnapshotResponse {
@@ -1012,7 +1029,50 @@ export interface CreateClusterRequest {
   SecurityGroupIds?: string[];
 
   /**
-   * <p>Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format <code>ddd:hh24:mi-ddd:hh24:mi</code> (24H Clock UTC). The minimum maintenance window is a 60 minute period.</p>
+   * <p>Specifies the weekly time range during which maintenance
+   *          on the cluster is performed. It is specified as a range in
+   *          the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
+   *          maintenance window is a 60 minute period.</p>
+   *          <p>Valid values for <code>ddd</code> are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>sun</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mon</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tue</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>wed</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>thu</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fri</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sat</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>sun:23:00-mon:01:30</code>
+   *          </p>
    */
   MaintenanceWindow?: string;
 
@@ -1079,6 +1139,12 @@ export interface CreateClusterRequest {
    * <p>When set to true, the cluster will automatically receive minor engine version upgrades after launch.</p>
    */
   AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * <p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type.
+   *             This parameter must be set when using r6gd nodes. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html">Data tiering</a>.</p>
+   */
+  DataTiering?: boolean;
 }
 
 export interface CreateClusterResponse {
@@ -2741,7 +2807,50 @@ export interface UpdateClusterRequest {
   SecurityGroupIds?: string[];
 
   /**
-   * <p>The maintenance window to update</p>
+   * <p>Specifies the weekly time range during which maintenance
+   *          on the cluster is performed. It is specified as a range in
+   *          the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
+   *          maintenance window is a 60 minute period.</p>
+   *          <p>Valid values for <code>ddd</code> are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>sun</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mon</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tue</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>wed</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>thu</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fri</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sat</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>sun:23:00-mon:01:30</code>
+   *          </p>
    */
   MaintenanceWindow?: string;
 
