@@ -1,6 +1,6 @@
 import { streamCollector } from "@aws-sdk/fetch-http-handler";
 import { SdkStream, SdkStreamMixin } from "@aws-sdk/types";
-import { toBase64 } from "@aws-sdk/util-base64-browser";
+import { toBase64 } from "@aws-sdk/util-base64";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 import { toUtf8 } from "@aws-sdk/util-utf8-browser";
 

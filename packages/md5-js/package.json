@@ -20,8 +20,7 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@aws-sdk/util-base64-browser": "*",
-    "@aws-sdk/util-base64-node": "*",
+    "@aws-sdk/util-base64": "*",
     "@aws-sdk/util-hex-encoding": "*",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^10.0.0",
@@ -39,11 +38,9 @@
     "tslib": "^2.3.1"
   },
   "browser": {
-    "@aws-sdk/util-base64-node": "@aws-sdk/util-base64-browser",
     "@aws-sdk/util-utf8-node": "@aws-sdk/util-utf8-browser"
   },
   "react-native": {
-    "@aws-sdk/util-base64-node": "@aws-sdk/util-base64-browser",
     "@aws-sdk/util-utf8-node": "@aws-sdk/util-utf8-browser"
   },
   "typesVersions": {

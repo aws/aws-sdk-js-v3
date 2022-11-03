@@ -21,7 +21,6 @@
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/querystring-builder": "*",
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-base64-browser": "*",
     "events": "3.3.0",
     "tslib": "^2.3.1"
   },

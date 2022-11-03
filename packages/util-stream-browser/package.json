@@ -21,7 +21,7 @@
   "dependencies": {
     "@aws-sdk/fetch-http-handler": "*",
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-base64-browser": "*",
+    "@aws-sdk/util-base64": "*",
     "@aws-sdk/util-hex-encoding": "*",
     "@aws-sdk/util-utf8-browser": "*",
     "tslib": "^2.3.1"
