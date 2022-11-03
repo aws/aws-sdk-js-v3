@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.203.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.202.0...v3.203.0) (2022-11-03)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker now supports running training jobs on ml.trn1 instance types. ([d415b12](https://github.com/aws/aws-sdk-js-v3/commit/d415b12ae93957b1741f23ff6ea6904d10965715))
+
+
+
+
+
 # [3.202.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.201.0...v3.202.0) (2022-11-02)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker
