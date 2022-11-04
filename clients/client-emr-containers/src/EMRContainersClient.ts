@@ -48,6 +48,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelJobRunCommandInput, CancelJobRunCommandOutput } from "./commands/CancelJobRunCommand";
+import { CreateJobTemplateCommandInput, CreateJobTemplateCommandOutput } from "./commands/CreateJobTemplateCommand";
 import {
   CreateManagedEndpointCommandInput,
   CreateManagedEndpointCommandOutput,
@@ -56,6 +57,7 @@ import {
   CreateVirtualClusterCommandInput,
   CreateVirtualClusterCommandOutput,
 } from "./commands/CreateVirtualClusterCommand";
+import { DeleteJobTemplateCommandInput, DeleteJobTemplateCommandOutput } from "./commands/DeleteJobTemplateCommand";
 import {
   DeleteManagedEndpointCommandInput,
   DeleteManagedEndpointCommandOutput,
@@ -66,6 +68,10 @@ import {
 } from "./commands/DeleteVirtualClusterCommand";
 import { DescribeJobRunCommandInput, DescribeJobRunCommandOutput } from "./commands/DescribeJobRunCommand";
 import {
+  DescribeJobTemplateCommandInput,
+  DescribeJobTemplateCommandOutput,
+} from "./commands/DescribeJobTemplateCommand";
+import {
   DescribeManagedEndpointCommandInput,
   DescribeManagedEndpointCommandOutput,
 } from "./commands/DescribeManagedEndpointCommand";
@@ -74,6 +80,7 @@ import {
   DescribeVirtualClusterCommandOutput,
 } from "./commands/DescribeVirtualClusterCommand";
 import { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
+import { ListJobTemplatesCommandInput, ListJobTemplatesCommandOutput } from "./commands/ListJobTemplatesCommand";
 import {
   ListManagedEndpointsCommandInput,
   ListManagedEndpointsCommandOutput,
@@ -99,14 +106,18 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CancelJobRunCommandInput
+  | CreateJobTemplateCommandInput
   | CreateManagedEndpointCommandInput
   | CreateVirtualClusterCommandInput
+  | DeleteJobTemplateCommandInput
   | DeleteManagedEndpointCommandInput
   | DeleteVirtualClusterCommandInput
   | DescribeJobRunCommandInput
+  | DescribeJobTemplateCommandInput
   | DescribeManagedEndpointCommandInput
   | DescribeVirtualClusterCommandInput
   | ListJobRunsCommandInput
+  | ListJobTemplatesCommandInput
   | ListManagedEndpointsCommandInput
   | ListTagsForResourceCommandInput
   | ListVirtualClustersCommandInput
@@ -116,14 +127,18 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | CancelJobRunCommandOutput
+  | CreateJobTemplateCommandOutput
   | CreateManagedEndpointCommandOutput
   | CreateVirtualClusterCommandOutput
+  | DeleteJobTemplateCommandOutput
   | DeleteManagedEndpointCommandOutput
   | DeleteVirtualClusterCommandOutput
   | DescribeJobRunCommandOutput
+  | DescribeJobTemplateCommandOutput
   | DescribeManagedEndpointCommandOutput
   | DescribeVirtualClusterCommandOutput
   | ListJobRunsCommandOutput
+  | ListJobTemplatesCommandOutput
   | ListManagedEndpointsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListVirtualClustersCommandOutput

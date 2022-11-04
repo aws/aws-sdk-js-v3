@@ -15,41 +15,42 @@ import {
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import {
-  DescribeManagedEndpointRequest,
-  DescribeManagedEndpointRequestFilterSensitiveLog,
-  DescribeManagedEndpointResponse,
-  DescribeManagedEndpointResponseFilterSensitiveLog,
+  DeleteJobTemplateRequest,
+  DeleteJobTemplateRequestFilterSensitiveLog,
+  DeleteJobTemplateResponse,
+  DeleteJobTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeManagedEndpointCommand,
-  serializeAws_restJson1DescribeManagedEndpointCommand,
+  deserializeAws_restJson1DeleteJobTemplateCommand,
+  serializeAws_restJson1DeleteJobTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface DescribeManagedEndpointCommandInput extends DescribeManagedEndpointRequest {}
-export interface DescribeManagedEndpointCommandOutput extends DescribeManagedEndpointResponse, __MetadataBearer {}
+export interface DeleteJobTemplateCommandInput extends DeleteJobTemplateRequest {}
+export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Displays detailed information about a managed endpoint. A managed endpoint is
- *          a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can
- *          communicate with your virtual cluster.</p>
+ * <p>Deletes a job template. Job template stores values of StartJobRun API request in a
+ *          template and can be used to start a job run. Job template allows two use cases: avoid
+ *          repeating recurring StartJobRun API request values, enforcing certain values in StartJobRun
+ *          API request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRContainersClient, DescribeManagedEndpointCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
- * // const { EMRContainersClient, DescribeManagedEndpointCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * import { EMRContainersClient, DeleteJobTemplateCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
+ * // const { EMRContainersClient, DeleteJobTemplateCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
- * const command = new DescribeManagedEndpointCommand(input);
+ * const command = new DeleteJobTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeManagedEndpointCommandInput} for command's `input` shape.
- * @see {@link DescribeManagedEndpointCommandOutput} for command's `response` shape.
+ * @see {@link DeleteJobTemplateCommandInput} for command's `input` shape.
+ * @see {@link DeleteJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
  */
-export class DescribeManagedEndpointCommand extends $Command<
-  DescribeManagedEndpointCommandInput,
-  DescribeManagedEndpointCommandOutput,
+export class DeleteJobTemplateCommand extends $Command<
+  DeleteJobTemplateCommandInput,
+  DeleteJobTemplateCommandOutput,
   EMRContainersClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +65,7 @@ export class DescribeManagedEndpointCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DescribeManagedEndpointCommandInput) {
+  constructor(readonly input: DeleteJobTemplateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,23 +78,23 @@ export class DescribeManagedEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRContainersClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeManagedEndpointCommandInput, DescribeManagedEndpointCommandOutput> {
+  ): Handler<DeleteJobTemplateCommandInput, DeleteJobTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeManagedEndpointCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteJobTemplateCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EMRContainersClient";
-    const commandName = "DescribeManagedEndpointCommand";
+    const commandName = "DeleteJobTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeManagedEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeManagedEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DeleteJobTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteJobTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +104,12 @@ export class DescribeManagedEndpointCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeManagedEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeManagedEndpointCommand(input, context);
+  private serialize(input: DeleteJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeleteJobTemplateCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeManagedEndpointCommandOutput> {
-    return deserializeAws_restJson1DescribeManagedEndpointCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobTemplateCommandOutput> {
+    return deserializeAws_restJson1DeleteJobTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra
