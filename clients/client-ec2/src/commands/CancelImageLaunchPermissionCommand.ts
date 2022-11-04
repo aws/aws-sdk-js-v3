@@ -15,44 +15,41 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
-  DisassociateVpcCidrBlockRequest,
-  DisassociateVpcCidrBlockRequestFilterSensitiveLog,
-  DisassociateVpcCidrBlockResult,
-  DisassociateVpcCidrBlockResultFilterSensitiveLog,
-} from "../models/models_5";
+  CancelImageLaunchPermissionRequest,
+  CancelImageLaunchPermissionRequestFilterSensitiveLog,
+  CancelImageLaunchPermissionResult,
+  CancelImageLaunchPermissionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
-  deserializeAws_ec2DisassociateVpcCidrBlockCommand,
-  serializeAws_ec2DisassociateVpcCidrBlockCommand,
+  deserializeAws_ec2CancelImageLaunchPermissionCommand,
+  serializeAws_ec2CancelImageLaunchPermissionCommand,
 } from "../protocols/Aws_ec2";
 
-export interface DisassociateVpcCidrBlockCommandInput extends DisassociateVpcCidrBlockRequest {}
-export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCidrBlockResult, __MetadataBearer {}
+export interface CancelImageLaunchPermissionCommandInput extends CancelImageLaunchPermissionRequest {}
+export interface CancelImageLaunchPermissionCommandOutput extends CancelImageLaunchPermissionResult, __MetadataBearer {}
 
 /**
- * <p>Disassociates a CIDR block from a VPC. To disassociate the CIDR block, you must
- *             specify its association ID. You can get the association ID by using
- *                 <a>DescribeVpcs</a>. You must detach or delete all gateways and resources that
- *             are associated with the CIDR block before you can disassociate it. </p>
- * 		       <p>You cannot disassociate the CIDR block with which you originally created the VPC (the
- * 			primary CIDR block).</p>
+ * <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more
+ *       information, see <a href="https://docs.aws.amazon.com/">Cancel sharing an AMI with your Amazon Web Services account</a>
+ *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DisassociateVpcCidrBlockCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DisassociateVpcCidrBlockCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, CancelImageLaunchPermissionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CancelImageLaunchPermissionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const command = new DisassociateVpcCidrBlockCommand(input);
+ * const command = new CancelImageLaunchPermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DisassociateVpcCidrBlockCommandInput} for command's `input` shape.
- * @see {@link DisassociateVpcCidrBlockCommandOutput} for command's `response` shape.
+ * @see {@link CancelImageLaunchPermissionCommandInput} for command's `input` shape.
+ * @see {@link CancelImageLaunchPermissionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
-export class DisassociateVpcCidrBlockCommand extends $Command<
-  DisassociateVpcCidrBlockCommandInput,
-  DisassociateVpcCidrBlockCommandOutput,
+export class CancelImageLaunchPermissionCommand extends $Command<
+  CancelImageLaunchPermissionCommandInput,
+  CancelImageLaunchPermissionCommandOutput,
   EC2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -67,7 +64,7 @@ export class DisassociateVpcCidrBlockCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DisassociateVpcCidrBlockCommandInput) {
+  constructor(readonly input: CancelImageLaunchPermissionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -80,23 +77,23 @@ export class DisassociateVpcCidrBlockCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DisassociateVpcCidrBlockCommandInput, DisassociateVpcCidrBlockCommandOutput> {
+  ): Handler<CancelImageLaunchPermissionCommandInput, CancelImageLaunchPermissionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DisassociateVpcCidrBlockCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CancelImageLaunchPermissionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EC2Client";
-    const commandName = "DisassociateVpcCidrBlockCommand";
+    const commandName = "CancelImageLaunchPermissionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateVpcCidrBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateVpcCidrBlockResultFilterSensitiveLog,
+      inputFilterSensitiveLog: CancelImageLaunchPermissionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelImageLaunchPermissionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +103,15 @@ export class DisassociateVpcCidrBlockCommand extends $Command<
     );
   }
 
-  private serialize(input: DisassociateVpcCidrBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateVpcCidrBlockCommand(input, context);
+  private serialize(input: CancelImageLaunchPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_ec2CancelImageLaunchPermissionCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateVpcCidrBlockCommandOutput> {
-    return deserializeAws_ec2DisassociateVpcCidrBlockCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<CancelImageLaunchPermissionCommandOutput> {
+    return deserializeAws_ec2CancelImageLaunchPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -64,7 +64,6 @@ import {
   KeyType,
   LaunchTemplate,
   LaunchTemplateAndOverridesResponse,
-  LaunchTemplateVersion,
   LogDestinationType,
   NetworkInterfaceStatus,
   Placement,
@@ -75,7 +74,42 @@ import {
   TargetCapacityUnitType,
   TrafficType,
 } from "./models_1";
-import { FleetStateCode, InstanceTagNotificationAttribute } from "./models_2";
+import {
+  FleetStateCode,
+  InstanceTagNotificationAttribute,
+  TransitGatewayMulticastDeregisteredGroupMembers,
+} from "./models_2";
+
+export interface DeregisterTransitGatewayMulticastGroupMembersResult {
+  /**
+   * <p>Information about the deregistered members.</p>
+   */
+  DeregisteredMulticastGroupMembers?: TransitGatewayMulticastDeregisteredGroupMembers;
+}
+
+export interface DeregisterTransitGatewayMulticastGroupSourcesRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   */
+  GroupIpAddress?: string;
+
+  /**
+   * <p>The IDs of the group sources' network interfaces.</p>
+   */
+  NetworkInterfaceIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 /**
  * <p>Describes the deregistered  transit gateway multicast group sources.</p>
@@ -9422,155 +9456,23 @@ export interface DescribeLaunchTemplatesResult {
   NextToken?: string;
 }
 
-export interface DescribeLaunchTemplateVersionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+/**
+ * @internal
+ */
+export const DeregisterTransitGatewayMulticastGroupMembersResultFilterSensitiveLog = (
+  obj: DeregisterTransitGatewayMulticastGroupMembersResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The ID of the launch template.</p>
-   *         <p>To describe one or more versions of a specified launch
-   *             template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
-   *         <p>To describe all the latest or default launch template versions in your
-   *             account, you must omit this parameter.</p>
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template.</p>
-   *         <p>To describe one or more versions of a specified
-   *             launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
-   *         <p>To describe all the latest or default launch template versions in
-   *             your account, you must omit this parameter.</p>
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * <p>One or more versions of the launch template. Valid values depend on whether you are
-   *             describing a specified launch template (by ID or name) or all launch templates in your
-   *             account.</p>
-   *         <p>To describe one or more versions of a specified launch template, valid values are
-   *                 <code>$Latest</code>, <code>$Default</code>, and numbers.</p>
-   *         <p>To describe all launch templates in your account that are defined as the latest
-   *             version, the valid value is <code>$Latest</code>. To describe all launch templates in
-   *             your account that are defined as the default version, the valid value is
-   *                 <code>$Default</code>. You can specify <code>$Latest</code> and
-   *                 <code>$Default</code> in the same request. You cannot specify numbers.</p>
-   */
-  Versions?: string[];
-
-  /**
-   * <p>The version number after which to describe launch template versions.</p>
-   */
-  MinVersion?: string;
-
-  /**
-   * <p>The version number up to which to describe launch template versions.</p>
-   */
-  MaxVersion?: string;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 1 and 200.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>create-time</code> - The time the launch template version was
-   *                     created.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ebs-optimized</code> - A boolean that indicates whether the instance is
-   *                     optimized for Amazon EBS I/O.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on
-   *                     your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the
-   *                     instance metadata service is enabled (<code>enabled</code> |
-   *                     <code>disabled</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>host-resource-group-arn</code> - The ARN of the host resource group in
-   *                     which to launch the instances.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>http-tokens</code> - The state of token usage for your instance metadata
-   *                     requests (<code>optional</code> | <code>required</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>iam-instance-profile</code> - The ARN of the IAM instance
-   *                     profile.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>image-id</code> - The ID of the AMI.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-type</code> - The instance type.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>is-default-version</code> - A boolean that indicates whether the launch
-   *                     template version is the default version.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>kernel-id</code> - The kernel ID.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>license-configuration-arn</code> - The ARN of the license
-   *                     configuration.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>network-card-index</code> - The index of the network card.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ram-disk-id</code> - The RAM disk ID.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-}
-
-export interface DescribeLaunchTemplateVersionsResult {
-  /**
-   * <p>Information about the launch template versions.</p>
-   */
-  LaunchTemplateVersions?: LaunchTemplateVersion[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeregisterTransitGatewayMulticastGroupSourcesRequestFilterSensitiveLog = (
+  obj: DeregisterTransitGatewayMulticastGroupSourcesRequest
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11315,23 +11217,5 @@ export const DescribeLaunchTemplatesRequestFilterSensitiveLog = (obj: DescribeLa
  * @internal
  */
 export const DescribeLaunchTemplatesResultFilterSensitiveLog = (obj: DescribeLaunchTemplatesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLaunchTemplateVersionsRequestFilterSensitiveLog = (
-  obj: DescribeLaunchTemplateVersionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLaunchTemplateVersionsResultFilterSensitiveLog = (
-  obj: DescribeLaunchTemplateVersionsResult
-): any => ({
   ...obj,
 });

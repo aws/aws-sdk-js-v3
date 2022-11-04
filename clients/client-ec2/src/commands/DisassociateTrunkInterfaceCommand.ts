@@ -17,9 +17,11 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DisassociateTrunkInterfaceRequest,
   DisassociateTrunkInterfaceRequestFilterSensitiveLog,
+} from "../models/models_4";
+import {
   DisassociateTrunkInterfaceResult,
   DisassociateTrunkInterfaceResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateTrunkInterfaceCommand,
   serializeAws_ec2DisassociateTrunkInterfaceCommand,

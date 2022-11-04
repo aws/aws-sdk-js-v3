@@ -40,6 +40,7 @@ export * from "./CancelCapacityReservationCommand";
 export * from "./CancelCapacityReservationFleetsCommand";
 export * from "./CancelConversionTaskCommand";
 export * from "./CancelExportTaskCommand";
+export * from "./CancelImageLaunchPermissionCommand";
 export * from "./CancelImportTaskCommand";
 export * from "./CancelReservedInstancesListingCommand";
 export * from "./CancelSpotFleetRequestsCommand";

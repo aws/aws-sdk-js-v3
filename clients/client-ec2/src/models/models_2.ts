@@ -39,6 +39,51 @@ import {
   Vpc,
 } from "./models_1";
 
+export interface CreateTagsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the resources, separated by spaces.</p>
+   *    	     <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
+   */
+  Resources: string[] | undefined;
+
+  /**
+   * <p>The tags. The <code>value</code> parameter is required, but if you don't want the tag to have a value,
+   *         specify the parameter with no value, and we set the value to an empty string.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export interface CreateTrafficMirrorFilterRequest {
+  /**
+   * <p>The description of the Traffic Mirror filter.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags to assign to a Traffic Mirror filter.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
+
 /**
  * <p>Describes the Traffic Mirror port range.</p>
  */
@@ -5626,36 +5671,19 @@ export interface TransitGatewayMulticastDeregisteredGroupMembers {
   GroupIpAddress?: string;
 }
 
-export interface DeregisterTransitGatewayMulticastGroupMembersResult {
-  /**
-   * <p>Information about the deregistered members.</p>
-   */
-  DeregisteredMulticastGroupMembers?: TransitGatewayMulticastDeregisteredGroupMembers;
-}
+/**
+ * @internal
+ */
+export const CreateTagsRequestFilterSensitiveLog = (obj: CreateTagsRequest): any => ({
+  ...obj,
+});
 
-export interface DeregisterTransitGatewayMulticastGroupSourcesRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-
-  /**
-   * <p>The IDs of the group sources' network interfaces.</p>
-   */
-  NetworkInterfaceIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const CreateTrafficMirrorFilterRequestFilterSensitiveLog = (obj: CreateTrafficMirrorFilterRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7588,24 +7616,6 @@ export const DeregisterTransitGatewayMulticastGroupMembersRequestFilterSensitive
  */
 export const TransitGatewayMulticastDeregisteredGroupMembersFilterSensitiveLog = (
   obj: TransitGatewayMulticastDeregisteredGroupMembers
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTransitGatewayMulticastGroupMembersResultFilterSensitiveLog = (
-  obj: DeregisterTransitGatewayMulticastGroupMembersResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTransitGatewayMulticastGroupSourcesRequestFilterSensitiveLog = (
-  obj: DeregisterTransitGatewayMulticastGroupSourcesRequest
 ): any => ({
   ...obj,
 });

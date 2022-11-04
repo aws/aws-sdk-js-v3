@@ -79,7 +79,23 @@ import {
   SpotInstanceRequest,
   SpotPlacement,
 } from "./models_4";
-import { CapacityReservationSpecification, Purchase, VpcTenancy } from "./models_5";
+import { CapacityReservationSpecification, PeeringConnectionOptions, Purchase } from "./models_5";
+
+export interface ModifyVpcPeeringConnectionOptionsResult {
+  /**
+   * <p>Information about the VPC peering connection options for the accepter VPC.</p>
+   */
+  AccepterPeeringConnectionOptions?: PeeringConnectionOptions;
+
+  /**
+   * <p>Information about the VPC peering connection options for the requester VPC.</p>
+   */
+  RequesterPeeringConnectionOptions?: PeeringConnectionOptions;
+}
+
+export enum VpcTenancy {
+  default = "default",
+}
 
 export interface ModifyVpcTenancyRequest {
   /**
@@ -4247,6 +4263,15 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const ModifyVpcPeeringConnectionOptionsResultFilterSensitiveLog = (
+  obj: ModifyVpcPeeringConnectionOptionsResult
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal

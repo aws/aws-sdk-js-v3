@@ -126,6 +126,27 @@ import {
   VolumeModification,
 } from "./models_4";
 
+export interface DisassociateTrunkInterfaceResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+   *                 Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+export interface DisassociateVpcCidrBlockRequest {
+  /**
+   * <p>The association ID for the CIDR block.</p>
+   */
+  AssociationId: string | undefined;
+}
+
 export interface DisassociateVpcCidrBlockResult {
   /**
    * <p>Information about the IPv6 CIDR block association.</p>
@@ -468,7 +489,7 @@ export interface EnableImageDeprecationRequest {
    *       If you specify a value for seconds, Amazon EC2 rounds the seconds to the
    *       nearest minute.</p>
    *          <p>You can’t specify a date in the past. The upper limit for <code>DeprecateAt</code> is 10
-   *       years from now.</p>
+   *       years from now, except for public AMIs, where the upper limit is 2 years from the creation date.</p>
    */
   DeprecateAt: Date | undefined;
 
@@ -7022,21 +7043,19 @@ export interface PeeringConnectionOptions {
   AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
 }
 
-export interface ModifyVpcPeeringConnectionOptionsResult {
-  /**
-   * <p>Information about the VPC peering connection options for the accepter VPC.</p>
-   */
-  AccepterPeeringConnectionOptions?: PeeringConnectionOptions;
+/**
+ * @internal
+ */
+export const DisassociateTrunkInterfaceResultFilterSensitiveLog = (obj: DisassociateTrunkInterfaceResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Information about the VPC peering connection options for the requester VPC.</p>
-   */
-  RequesterPeeringConnectionOptions?: PeeringConnectionOptions;
-}
-
-export enum VpcTenancy {
-  default = "default",
-}
+/**
+ * @internal
+ */
+export const DisassociateVpcCidrBlockRequestFilterSensitiveLog = (obj: DisassociateVpcCidrBlockRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9223,14 +9242,5 @@ export const ModifyVpcPeeringConnectionOptionsRequestFilterSensitiveLog = (
  * @internal
  */
 export const PeeringConnectionOptionsFilterSensitiveLog = (obj: PeeringConnectionOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyVpcPeeringConnectionOptionsResultFilterSensitiveLog = (
-  obj: ModifyVpcPeeringConnectionOptionsResult
-): any => ({
   ...obj,
 });

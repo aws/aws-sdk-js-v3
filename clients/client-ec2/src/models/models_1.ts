@@ -21,11 +21,13 @@ import {
   InstanceEventWindow,
   Ipv4PrefixSpecification,
   PortRange,
+  PrivateDnsNameOptionsOnLaunch,
   Protocol,
   ReservedInstancesListing,
   ResourceType,
   RouteTableAssociationState,
-  Subnet,
+  SubnetIpv6CidrBlockAssociation,
+  SubnetState,
   Tag,
   TagSpecification,
   UnsuccessfulItem,
@@ -33,6 +35,132 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+/**
+ * <p>Describes a subnet.</p>
+ */
+export interface Subnet {
+  /**
+   * <p>The Availability Zone of the subnet.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The AZ ID of the subnet.</p>
+   */
+  AvailabilityZoneId?: string;
+
+  /**
+   * <p>The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any
+   * 			stopped instances are considered unavailable.</p>
+   */
+  AvailableIpAddressCount?: number;
+
+  /**
+   * <p>The IPv4 CIDR block assigned to the subnet.</p>
+   */
+  CidrBlock?: string;
+
+  /**
+   * <p>Indicates whether this is the default subnet for the Availability Zone.</p>
+   */
+  DefaultForAz?: boolean;
+
+  /**
+   * <p>
+   *             Indicates the device position for local network interfaces in this subnet. For example,
+   *             <code>1</code> indicates local network interfaces in this subnet are the secondary
+   *             network interface (eth1).
+   *         </p>
+   */
+  EnableLniAtDeviceIndex?: number;
+
+  /**
+   * <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p>
+   */
+  MapPublicIpOnLaunch?: boolean;
+
+  /**
+   * <p>Indicates whether a network interface created in this subnet (including a network
+   *             interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p>
+   */
+  MapCustomerOwnedIpOnLaunch?: boolean;
+
+  /**
+   * <p>The customer-owned IPv4 address pool associated with the subnet.</p>
+   */
+  CustomerOwnedIpv4Pool?: string;
+
+  /**
+   * <p>The current state of the subnet.</p>
+   */
+  State?: SubnetState | string;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The ID of the VPC the subnet is in.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the subnet.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>Indicates whether a network interface created in this subnet (including a network
+   *             interface created by <a>RunInstances</a>) receives an IPv6 address.</p>
+   */
+  AssignIpv6AddressOnCreation?: boolean;
+
+  /**
+   * <p>Information about the IPv6 CIDR blocks associated with the subnet.</p>
+   */
+  Ipv6CidrBlockAssociationSet?: SubnetIpv6CidrBlockAssociation[];
+
+  /**
+   * <p>Any tags assigned to the subnet.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the subnet.</p>
+   */
+  SubnetArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
+   *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
+   */
+  EnableDns64?: boolean;
+
+  /**
+   * <p>Indicates whether this is an IPv6 only subnet.</p>
+   */
+  Ipv6Native?: boolean;
+
+  /**
+   * <p>The type of hostnames to assign to instances in the subnet at launch. An instance hostname
+   *             is based on the IPv4 address or ID of the instance.</p>
+   */
+  PrivateDnsNameOptionsOnLaunch?: PrivateDnsNameOptionsOnLaunch;
+}
+
+export interface CreateDefaultSubnetResult {
+  /**
+   * <p>Information about the subnet.</p>
+   */
+  Subnet?: Subnet;
+}
 
 export interface CreateDefaultVpcRequest {
   /**
@@ -8501,50 +8629,19 @@ export interface CreateSubnetCidrReservationResult {
   SubnetCidrReservation?: SubnetCidrReservation;
 }
 
-export interface CreateTagsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+/**
+ * @internal
+ */
+export const SubnetFilterSensitiveLog = (obj: Subnet): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The IDs of the resources, separated by spaces.</p>
-   *    	     <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
-   */
-  Resources: string[] | undefined;
-
-  /**
-   * <p>The tags. The <code>value</code> parameter is required, but if you don't want the tag to have a value,
-   *         specify the parameter with no value, and we set the value to an empty string.</p>
-   */
-  Tags: Tag[] | undefined;
-}
-
-export interface CreateTrafficMirrorFilterRequest {
-  /**
-   * <p>The description of the Traffic Mirror filter.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The tags to assign to a Traffic Mirror filter.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-}
+/**
+ * @internal
+ */
+export const CreateDefaultSubnetResultFilterSensitiveLog = (obj: CreateDefaultSubnetResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10237,19 +10334,5 @@ export const SubnetCidrReservationFilterSensitiveLog = (obj: SubnetCidrReservati
  * @internal
  */
 export const CreateSubnetCidrReservationResultFilterSensitiveLog = (obj: CreateSubnetCidrReservationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTagsRequestFilterSensitiveLog = (obj: CreateTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrafficMirrorFilterRequestFilterSensitiveLog = (obj: CreateTrafficMirrorFilterRequest): any => ({
   ...obj,
 });

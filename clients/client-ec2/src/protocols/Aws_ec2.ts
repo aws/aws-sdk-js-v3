@@ -160,6 +160,10 @@ import {
   CancelConversionTaskCommandOutput,
 } from "../commands/CancelConversionTaskCommand";
 import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "../commands/CancelExportTaskCommand";
+import {
+  CancelImageLaunchPermissionCommandInput,
+  CancelImageLaunchPermissionCommandOutput,
+} from "../commands/CancelImageLaunchPermissionCommand";
 import { CancelImportTaskCommandInput, CancelImportTaskCommandOutput } from "../commands/CancelImportTaskCommand";
 import {
   CancelReservedInstancesListingCommandInput,
@@ -1960,6 +1964,8 @@ import {
   CancelCapacityReservationResult,
   CancelConversionRequest,
   CancelExportTaskRequest,
+  CancelImageLaunchPermissionRequest,
+  CancelImageLaunchPermissionResult,
   CancelImportTaskRequest,
   CancelImportTaskResult,
   CancelledSpotInstanceRequest,
@@ -2012,7 +2018,6 @@ import {
   CreateCustomerGatewayRequest,
   CreateCustomerGatewayResult,
   CreateDefaultSubnetRequest,
-  CreateDefaultSubnetResult,
   CustomerGateway,
   DirectoryServiceAuthenticationRequest,
   Explanation,
@@ -2055,7 +2060,6 @@ import {
   S3Storage,
   SecurityGroupRule,
   Storage,
-  Subnet,
   SubnetAssociation,
   SubnetCidrBlockState,
   SubnetIpv6CidrBlockAssociation,
@@ -2095,6 +2099,7 @@ import {
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
   CpuManufacturer,
+  CreateDefaultSubnetResult,
   CreateDefaultVpcRequest,
   CreateDefaultVpcResult,
   CreateDhcpOptionsRequest,
@@ -2178,8 +2183,6 @@ import {
   CreateSubnetCidrReservationResult,
   CreateSubnetRequest,
   CreateSubnetResult,
-  CreateTagsRequest,
-  CreateTrafficMirrorFilterRequest,
   CreditSpecification,
   CreditSpecificationRequest,
   DestinationOptionsRequest,
@@ -2312,6 +2315,7 @@ import {
   SpotOptionsRequest,
   StateReason,
   StorageLocation,
+  Subnet,
   SubnetCidrReservation,
   TargetCapacitySpecificationRequest,
   TotalLocalStorageGB,
@@ -2326,6 +2330,8 @@ import {
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreateTagsRequest,
+  CreateTrafficMirrorFilterRequest,
   CreateTrafficMirrorFilterResult,
   CreateTrafficMirrorFilterRuleRequest,
   CreateTrafficMirrorFilterRuleResult,
@@ -2508,8 +2514,6 @@ import {
   DeregisterInstanceEventNotificationAttributesResult,
   DeregisterInstanceTagAttributeRequest,
   DeregisterTransitGatewayMulticastGroupMembersRequest,
-  DeregisterTransitGatewayMulticastGroupMembersResult,
-  DeregisterTransitGatewayMulticastGroupSourcesRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2604,6 +2608,8 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DeregisterTransitGatewayMulticastGroupMembersResult,
+  DeregisterTransitGatewayMulticastGroupSourcesRequest,
   DeregisterTransitGatewayMulticastGroupSourcesResult,
   DescribeAccountAttributesRequest,
   DescribeAccountAttributesResult,
@@ -2723,8 +2729,6 @@ import {
   DescribeKeyPairsResult,
   DescribeLaunchTemplatesRequest,
   DescribeLaunchTemplatesResult,
-  DescribeLaunchTemplateVersionsRequest,
-  DescribeLaunchTemplateVersionsResult,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2834,6 +2838,8 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeLaunchTemplateVersionsRequest,
+  DescribeLaunchTemplateVersionsResult,
   DescribeLocalGatewayRouteTablesRequest,
   DescribeLocalGatewayRouteTablesResult,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
@@ -3038,8 +3044,6 @@ import {
   DisassociateTransitGatewayRouteTableRequest,
   DisassociateTransitGatewayRouteTableResult,
   DisassociateTrunkInterfaceRequest,
-  DisassociateTrunkInterfaceResult,
-  DisassociateVpcCidrBlockRequest,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceNetworkInterfaceSpecification,
@@ -3118,6 +3122,8 @@ import {
   ClientData,
   CoipAddressUsage,
   CreateVolumePermissionModifications,
+  DisassociateTrunkInterfaceResult,
+  DisassociateVpcCidrBlockRequest,
   DisassociateVpcCidrBlockResult,
   DiskImage,
   DiskImageDetail,
@@ -3361,7 +3367,6 @@ import {
   ModifyVpcEndpointServicePermissionsRequest,
   ModifyVpcEndpointServicePermissionsResult,
   ModifyVpcPeeringConnectionOptionsRequest,
-  ModifyVpcPeeringConnectionOptionsResult,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
@@ -3410,6 +3415,7 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpcPeeringConnectionOptionsResult,
   ModifyVpcTenancyRequest,
   ModifyVpcTenancyResult,
   ModifyVpnConnectionOptionsRequest,
@@ -4213,6 +4219,22 @@ export const serializeAws_ec2CancelExportTaskCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2CancelExportTaskRequest(input, context),
     Action: "CancelExportTask",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2CancelImageLaunchPermissionCommand = async (
+  input: CancelImageLaunchPermissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CancelImageLaunchPermissionRequest(input, context),
+    Action: "CancelImageLaunchPermission",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -13707,6 +13729,41 @@ const deserializeAws_ec2CancelExportTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelExportTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2CancelImageLaunchPermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelImageLaunchPermissionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CancelImageLaunchPermissionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CancelImageLaunchPermissionResult(data, context);
+  const response: CancelImageLaunchPermissionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CancelImageLaunchPermissionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelImageLaunchPermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -32663,6 +32720,20 @@ const serializeAws_ec2CancelExportTaskRequest = (input: CancelExportTaskRequest,
   const entries: any = {};
   if (input.ExportTaskId != null) {
     entries["ExportTaskId"] = input.ExportTaskId;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CancelImageLaunchPermissionRequest = (
+  input: CancelImageLaunchPermissionRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ImageId != null) {
+    entries["ImageId"] = input.ImageId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -56478,6 +56549,19 @@ const deserializeAws_ec2CancelCapacityReservationResult = (
   output: any,
   context: __SerdeContext
 ): CancelCapacityReservationResult => {
+  const contents: any = {
+    Return: undefined,
+  };
+  if (output["return"] !== undefined) {
+    contents.Return = __parseBoolean(output["return"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CancelImageLaunchPermissionResult = (
+  output: any,
+  context: __SerdeContext
+): CancelImageLaunchPermissionResult => {
   const contents: any = {
     Return: undefined,
   };

@@ -184,6 +184,10 @@ import {
   CancelConversionTaskCommandOutput,
 } from "./commands/CancelConversionTaskCommand";
 import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
+import {
+  CancelImageLaunchPermissionCommandInput,
+  CancelImageLaunchPermissionCommandOutput,
+} from "./commands/CancelImageLaunchPermissionCommand";
 import { CancelImportTaskCommandInput, CancelImportTaskCommandOutput } from "./commands/CancelImportTaskCommand";
 import {
   CancelReservedInstancesListingCommandInput,
@@ -1918,6 +1922,7 @@ export type ServiceInputTypes =
   | CancelCapacityReservationFleetsCommandInput
   | CancelConversionTaskCommandInput
   | CancelExportTaskCommandInput
+  | CancelImageLaunchPermissionCommandInput
   | CancelImportTaskCommandInput
   | CancelReservedInstancesListingCommandInput
   | CancelSpotFleetRequestsCommandInput
@@ -2466,6 +2471,7 @@ export type ServiceOutputTypes =
   | CancelCapacityReservationFleetsCommandOutput
   | CancelConversionTaskCommandOutput
   | CancelExportTaskCommandOutput
+  | CancelImageLaunchPermissionCommandOutput
   | CancelImportTaskCommandOutput
   | CancelReservedInstancesListingCommandOutput
   | CancelSpotFleetRequestsCommandOutput

@@ -207,6 +207,11 @@ import {
   CancelExportTaskCommandOutput,
 } from "./commands/CancelExportTaskCommand";
 import {
+  CancelImageLaunchPermissionCommand,
+  CancelImageLaunchPermissionCommandInput,
+  CancelImageLaunchPermissionCommandOutput,
+} from "./commands/CancelImageLaunchPermissionCommand";
+import {
   CancelImportTaskCommand,
   CancelImportTaskCommandInput,
   CancelImportTaskCommandOutput,
@@ -4236,6 +4241,40 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CancelExportTaskCommandOutput) => void
   ): Promise<CancelExportTaskCommandOutput> | void {
     const command = new CancelExportTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more
+   *       information, see <a href="https://docs.aws.amazon.com/">Cancel sharing an AMI with your Amazon Web Services account</a>
+   *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  public cancelImageLaunchPermission(
+    args: CancelImageLaunchPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelImageLaunchPermissionCommandOutput>;
+  public cancelImageLaunchPermission(
+    args: CancelImageLaunchPermissionCommandInput,
+    cb: (err: any, data?: CancelImageLaunchPermissionCommandOutput) => void
+  ): void;
+  public cancelImageLaunchPermission(
+    args: CancelImageLaunchPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelImageLaunchPermissionCommandOutput) => void
+  ): void;
+  public cancelImageLaunchPermission(
+    args: CancelImageLaunchPermissionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelImageLaunchPermissionCommandOutput) => void),
+    cb?: (err: any, data?: CancelImageLaunchPermissionCommandOutput) => void
+  ): Promise<CancelImageLaunchPermissionCommandOutput> | void {
+    const command = new CancelImageLaunchPermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

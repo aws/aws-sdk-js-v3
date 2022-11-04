@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateTagsRequest, CreateTagsRequestFilterSensitiveLog } from "../models/models_1";
+import { CreateTagsRequest, CreateTagsRequestFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_ec2CreateTagsCommand, serializeAws_ec2CreateTagsCommand } from "../protocols/Aws_ec2";
 
 export interface CreateTagsCommandInput extends CreateTagsRequest {}

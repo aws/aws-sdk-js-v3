@@ -14,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateDefaultSubnetRequest,
-  CreateDefaultSubnetRequestFilterSensitiveLog,
-  CreateDefaultSubnetResult,
-  CreateDefaultSubnetResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDefaultSubnetRequest, CreateDefaultSubnetRequestFilterSensitiveLog } from "../models/models_0";
+import { CreateDefaultSubnetResult, CreateDefaultSubnetResultFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_ec2CreateDefaultSubnetCommand,
   serializeAws_ec2CreateDefaultSubnetCommand,

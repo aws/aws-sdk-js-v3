@@ -17,9 +17,11 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ModifyVpcPeeringConnectionOptionsRequest,
   ModifyVpcPeeringConnectionOptionsRequestFilterSensitiveLog,
+} from "../models/models_5";
+import {
   ModifyVpcPeeringConnectionOptionsResult,
   ModifyVpcPeeringConnectionOptionsResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand,
   serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand,
