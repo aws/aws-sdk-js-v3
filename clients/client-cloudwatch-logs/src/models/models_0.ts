@@ -146,6 +146,7 @@ export interface CreateExportTaskRequest {
    * <p>The end time of the range for the request, expressed as the number of milliseconds
    *       after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not
    *       exported.</p>
+   *          <p>You must specify a time that is not earlier than when this log group was created.</p>
    */
   to: number | undefined;
 
@@ -354,7 +355,8 @@ export interface DescribeDestinationsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
+   * <p>The maximum number of items returned. If you don't specify a value, the default maximum value of
+   *       50 items is used.</p>
    */
   limit?: number;
 }
@@ -570,7 +572,7 @@ export interface LogGroup {
 
   /**
    * <p>The number of days to retain the log events in the specified log group.
-   *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p>
+   *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.</p>
    *          <p>To set a log group to never have log events expire, use
    *     <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>.
    *   </p>
@@ -1862,7 +1864,7 @@ export interface PutRetentionPolicyRequest {
 
   /**
    * <p>The number of days to retain the log events in the specified log group.
-   *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p>
+   *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.</p>
    *          <p>To set a log group to never have log events expire, use
    *     <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>.
    *   </p>

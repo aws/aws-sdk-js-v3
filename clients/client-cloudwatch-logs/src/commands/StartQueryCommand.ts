@@ -35,6 +35,10 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  *
  *          <p>Queries time out after 15 minutes of execution. If your queries are timing out, reduce the
  *       time range being searched or partition your query into a number of queries.</p>
+ *
+ *          <p>
+ *         You are limited to 20 concurrent CloudWatch Logs insights queries, including queries that have been added to dashboards.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
